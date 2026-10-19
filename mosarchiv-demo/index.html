@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Столичный Архивист - архивные услуги для компаний в Москве (демо главной)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#10262d;--tx:#24363c;--mut:#62757b;--tq:#1d8f9b;--tq-d:#167580;--tq-l:#e6f3f4;--paper:#f6f3ee;--line:#e1e7e8;--bg:#fff;--amber:#e9a93b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 Onest,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button,input,select{font:inherit;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.wrap{padding:0 16px}}
+h1,h2,h3{color:var(--ink);margin:0;line-height:1.15;font-weight:700;letter-spacing:-.02em}
+.note{background:var(--ink);color:#b9cdd1;font-size:13px;text-align:center;padding:7px 16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:10px;border:1.5px solid var(--tq);background:var(--tq);color:#fff;font-weight:600;font-size:15.5px;cursor:pointer;transition:.15s;white-space:nowrap}
+.btn:hover{background:var(--tq-d);border-color:var(--tq-d)}
+.btn.out{background:transparent;color:var(--tq)}.btn.out:hover{background:var(--tq-l)}
+.btn.sm{height:42px;padding:0 18px;font-size:14.5px}
+.btn svg{width:18px;height:18px}
+.kick{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--tq);margin-bottom:12px}
+
+/* шапка */
+.top{border-bottom:1px solid var(--line);font-size:14px;color:var(--mut)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:42px}
+.top .sp{flex:1}
+.top a:hover{color:var(--tq)}
+.head{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.head .wrap{display:flex;align-items:center;gap:36px;height:80px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:19px;color:var(--ink);line-height:1.1}
+.logo img{height:40px}
+.logo small{display:block;font-size:12px;font-weight:500;color:var(--mut)}
+.nav{display:flex;gap:28px;font-weight:500;font-size:15px;margin-left:12px}
+.nav a:hover{color:var(--tq)}
+.head .sp{flex:1}
+.ph{text-align:right;line-height:1.25}
+.ph b{display:block;font-size:18px;color:var(--ink)}
+.ph a.cb{font-size:13px;color:var(--tq);border-bottom:1px dashed}
+@media(max-width:1100px){.nav{display:none}}
+@media(max-width:700px){.top{display:none}.ph{display:none}.head .btn{height:42px;padding:0 16px;font-size:14px}}
+
+/* первый экран */
+.hero{background:linear-gradient(180deg,var(--paper),#fff);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding-top:72px;padding-bottom:80px}
+@media(max-width:1000px){.hero .wrap{grid-template-columns:1fr;padding-top:48px}}
+.hero h1{font-size:clamp(36px,4.4vw,58px)}
+.hero h1 span{color:var(--tq)}
+.hero p.lead{font-size:19px;color:var(--mut);margin:22px 0 32px;max-width:560px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-top:36px;max-width:560px;font-size:15px}
+.chk li{list-style:none;display:flex;gap:10px;align-items:flex-start}
+.chk ul{margin:0;padding:0;display:contents}
+.chk svg{width:20px;height:20px;color:var(--tq);flex:none;margin-top:2px}
+/* визуал: карточка описи */
+.vis{position:relative;min-height:560px}
+.sheet{position:absolute;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px rgba(16,38,45,.12)}
+.s1{inset:0 48px 84px 0;padding:26px 28px}
+.s1 .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.s1 .hd b{font-size:17px;color:var(--ink)}
+.s1 .hd span{font-size:12.5px;color:var(--mut);background:var(--paper);border-radius:20px;padding:4px 12px}
+.row{display:grid;grid-template-columns:42px 1fr auto;gap:14px;align-items:center;padding:13px 0;border-top:1px solid var(--line);font-size:14px}
+.row i{width:42px;height:42px;border-radius:10px;background:var(--tq-l);display:grid;place-items:center;color:var(--tq)}
+.row i svg{width:20px;height:20px}
+.row b{display:block;color:var(--ink);font-weight:600}
+.row small{color:var(--mut);font-size:12.5px}
+.st{align-self:center;font-size:12px;font-weight:600;border-radius:20px;padding:4px 10px;white-space:nowrap}
+.st.ok{background:#e5f4ea;color:#23804a}.st.go{background:#fff3dc;color:#9a6512}.st.hold{background:var(--tq-l);color:var(--tq-d)}
+.prog{margin-top:16px;height:8px;border-radius:8px;background:var(--line);overflow:hidden}.prog i{display:block;height:100%;width:72%;background:var(--tq);border-radius:8px}
+.prog+small{display:flex;justify-content:space-between;color:var(--mut);font-size:12.5px;margin-top:8px}
+.s2{right:0;bottom:0;width:250px;padding:18px 20px;display:flex;gap:14px;align-items:center}
+.s2 i{width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;flex:none}
+.s2 i svg{width:22px;height:22px}
+.s2 b{display:block;color:var(--ink);font-size:15px;line-height:1.25}
+.s2 small{color:var(--mut);font-size:12.5px}
+@media(max-width:560px){.vis{min-height:520px}.s1{inset:0 0 70px 0;padding:20px}.s2{width:auto;left:20px}}
+
+/* факты */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.fact{padding:28px 24px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0;padding-left:0}
+.fact b{display:block;font-size:30px;color:var(--ink);line-height:1.1;letter-spacing:-.02em}
+.fact span{color:var(--mut);font-size:14.5px}
+@media(max-width:900px){.facts .wrap{grid-template-columns:1fr 1fr}.fact{border-left:0;padding-left:0;border-top:1px solid var(--line)}.fact:nth-child(-n+2){border-top:0}}
+
+section{padding:96px 0}
+@media(max-width:640px){section{padding:64px 0}}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.sh h2{font-size:clamp(28px,3vw,42px);max-width:720px}
+.sh p{color:var(--mut);max-width:420px;margin:0}
+
+/* услуги */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:1000px){.svc{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.svc{grid-template-columns:1fr}}
+.sv{border:1px solid var(--line);border-radius:16px;padding:26px 24px 22px;display:flex;flex-direction:column;transition:.2s;background:#fff}
+.sv:hover{border-color:var(--tq);box-shadow:0 18px 40px rgba(16,38,45,.08);transform:translateY(-3px)}
+.sv i{width:54px;height:54px;border-radius:14px;background:var(--tq-l);color:var(--tq);display:grid;place-items:center;margin-bottom:20px}
+.sv i svg{width:26px;height:26px}
+.sv h3{font-size:19px}
+.sv p{color:var(--mut);font-size:14.5px;margin:10px 0 18px;flex:1}
+.sv .ft{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:16px;font-size:14.5px;font-weight:600}
+.sv .ft a:first-child{color:var(--tq)}.sv .ft a:last-child{color:var(--mut)}.sv .ft a:hover{color:var(--tq-d)}
+.sv.dark{background:var(--ink);border-color:var(--ink)}
+.sv.dark h3{color:#fff}.sv.dark p{color:#a9bfc4}.sv.dark i{background:rgba(255,255,255,.1);color:#7fd3dc}
+.sv.dark .ft{border-color:rgba(255,255,255,.15)}.sv.dark .ft a:first-child{color:#7fd3dc}.sv.dark .ft a:last-child{color:#a9bfc4}
+
+/* расчёт */
+.calc{background:var(--paper)}
+.calc .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+@media(max-width:1000px){.calc .wrap{grid-template-columns:1fr}}
+.calc p.lead{color:var(--mut);font-size:17px;margin:16px 0 26px}
+.calc ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.calc li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
+.calc li b{width:28px;height:28px;flex:none;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--tq)}
+.form{background:#fff;border-radius:20px;padding:34px;box-shadow:0 24px 60px rgba(16,38,45,.08)}
+.form h3{font-size:24px;margin-bottom:6px}
+.form>p{color:var(--mut);font-size:14.5px;margin:0 0 22px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.fg{grid-template-columns:1fr}.form{padding:24px}}
+.f{display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--mut);font-weight:500}
+.f.w{grid-column:1/-1}
+.f input,.f select{height:50px;border:1px solid var(--line);border-radius:10px;padding:0 14px;background:#fff;color:var(--ink);font-size:15.5px;outline:none}
+.f input:focus,.f select:focus{border-color:var(--tq);box-shadow:0 0 0 3px var(--tq-l)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{cursor:pointer}.seg input{display:none}
+.seg span{display:inline-flex;align-items:center;height:42px;padding:0 16px;border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:14.5px}
+.seg input:checked+span{border-color:var(--tq);background:var(--tq-l);color:var(--tq-d);font-weight:600}
+.form .btn{width:100%;margin-top:20px}
+.form .pp{font-size:12.5px;color:var(--mut);margin:12px 0 0;text-align:center}
+.done{display:none;text-align:center;padding:40px 10px}
+.done b{display:block;font-size:22px;color:var(--ink);margin-bottom:8px}
+
+/* о нас */
+.about{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.about{grid-template-columns:1fr}}
+.ab{display:flex;gap:18px;padding:24px;border:1px solid var(--line);border-radius:16px}
+.ab i{width:48px;height:48px;border-radius:12px;background:var(--paper);color:var(--ink);display:grid;place-items:center;flex:none}
+.ab i svg{width:24px;height:24px}
+.ab b{display:block;color:var(--ink);font-size:16.5px;margin-bottom:4px}
+.ab span{color:var(--mut);font-size:14.5px}
+
+/* как работаем */
+.steps{background:var(--ink);color:#c5d6da}
+.steps h2{color:#fff}.steps .sh p{color:#93aab0}
+.tl{display:grid;grid-template-columns:repeat(6,1fr);gap:0;counter-reset:s;position:relative}
+.tl:before{content:"";position:absolute;left:0;right:0;top:23px;height:1px;background:rgba(255,255,255,.2)}
+.tl div{position:relative;padding-right:18px}
+.tl b{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--ink);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:15px;margin-bottom:18px;position:relative}
+.tl div:last-child b{background:var(--tq);border-color:var(--tq)}
+.tl h3{color:#fff;font-size:17px;margin-bottom:6px}
+.tl p{margin:0;font-size:14px;color:#93aab0}
+@media(max-width:1000px){.tl{grid-template-columns:repeat(3,1fr);row-gap:34px}.tl:before{display:none}}
+@media(max-width:560px){.tl{grid-template-columns:1fr 1fr}}
+
+/* полезное */
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.arts{grid-template-columns:1fr}}
+.ar{border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:.2s}
+.ar:hover{border-color:var(--tq)}
+.ar .tg{font-size:12.5px;font-weight:600;color:var(--tq);text-transform:uppercase;letter-spacing:.05em}
+.ar h3{font-size:18px;line-height:1.3}
+.ar p{color:var(--mut);font-size:14.5px;margin:0;flex:1}
+.ar span{font-weight:600;font-size:14.5px;color:var(--ink)}
+
+/* контакты */
+.ct{display:grid;grid-template-columns:1fr 1.3fr;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+@media(max-width:900px){.ct{grid-template-columns:1fr}}
+.ct .tx{padding:40px;display:grid;gap:22px;align-content:start}
+.ct dl{margin:0;display:grid;gap:18px}
+.ct dt{font-size:13px;color:var(--mut);margin-bottom:2px}
+.ct dd{margin:0;font-size:18px;font-weight:600;color:var(--ink)}
+.ct iframe{width:100%;height:100%;min-height:420px;border:0;display:block;background:var(--paper)}
+footer{background:var(--paper);margin-top:96px;font-size:14.5px;color:var(--mut)}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;padding-top:56px;padding-bottom:40px}
+@media(max-width:900px){footer .wrap{grid-template-columns:1fr 1fr}}
+footer h5{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink)}
+footer a{display:block;padding:3px 0}footer a:hover{color:var(--tq)}
+footer .bt{border-top:1px solid var(--line)}
+footer .bt .wrap{display:flex;justify-content:space-between;padding-top:18px;padding-bottom:22px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="note">Демо нового дизайна главной страницы mosarchiv.ru. Тексты и факты взяты с текущего сайта.</div>
+
+<div class="top"><div class="wrap"><span>Москва, Бродников переулок, 10к2</span><span>Пн-Чт 9:00-18:00, Пт 9:00-17:00</span><span class="sp"></span><a href="mailto:info@mosarchiv.ru">info@mosarchiv.ru</a></div></div>
+<header class="head"><div class="wrap">
+  <a class="logo" href="#"><img src="img/logo.png" alt=""><span>Столичный Архивист<small>архивные услуги для бизнеса</small></span></a>
+  <nav class="nav"><a href="#svc">Услуги</a><a href="#calc">Стоимость</a><a href="#about">О нас</a><a href="#arts">Статьи</a><a href="#contacts">Контакты</a></nav>
+  <span class="sp"></span>
+  <div class="ph"><b>+7 (495) 766-23-43</b><a class="cb" href="#calc">Заказать звонок</a></div>
+  <a class="btn sm" href="#calc">Заявка онлайн</a>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <span class="kick">Архивные услуги в Москве</span>
+    <h1>Наведём порядок в документах <span>вашей компании</span></h1>
+    <p class="lead">Оцифруем, систематизируем, примем на хранение или уничтожим документы с актом. Вы занимаетесь работой, архив - наша забота.</p>
+    <div class="cta"><a class="btn" href="#calc">Рассчитать стоимость <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn out" href="#svc">Все услуги</a></div>
+    <div class="chk"><ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L20 7"/></svg>Строгая конфиденциальность</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L20 7"/></svg>Гарантия качества в договоре</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L20 7"/></svg>Работаем с малым и крупным бизнесом</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L20 7"/></svg>Более 15 лет на рынке</li></ul></div>
+  </div>
+  <div class="vis" aria-hidden="true">
+    <div class="sheet s1">
+      <div class="hd"><b>Архив компании</b><span>пример работ</span></div>
+      <div class="row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v13H4zM4 7l2-3h12l2 3M9 12h6"/></svg></i><div><b>Бухгалтерия, 2019-2023</b><small>48 коробов · опись дел</small></div><span class="st hold">На хранении</span></div>
+      <div class="row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 16V8h16v8M2 16h20v3H2zM7 12h10"/></svg></i><div><b>Личные дела сотрудников</b><small>Сканирование в PDF с поиском</small></div><span class="st ok">Оцифровано</span></div>
+      <div class="row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4h7l5 5v11H7zM14 4v5h5M10 13h6M10 16h6"/></svg></i><div><b>Договоры с контрагентами</b><small>Систематизация и внутренняя опись</small></div><span class="st go">В работе</span></div>
+      <div class="row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14l-1 13H6zM9 7V4h6v3M3 7h18"/></svg></i><div><b>Документы с истёкшим сроком</b><small>Уничтожение с актом</small></div><span class="st ok">Акт подписан</span></div>
+      <div class="prog"><i></i></div><small><span>Готовность проекта</span><span>72%</span></small>
+    </div>
+    <div class="sheet s2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></i><div><b>Конфиденциально</b><small>Обязательства закреплены в договоре</small></div></div>
+  </div>
+</div></div>
+
+<div class="facts"><div class="wrap">
+  <div class="fact"><b>15+ лет</b><span>на рынке архивных услуг</span></div>
+  <div class="fact"><b>8 услуг</b><span>от сканирования до хранения</span></div>
+  <div class="fact"><b>Гос. и частные</b><span>архивы, с которыми работаем</span></div>
+  <div class="fact"><b>Договор</b><span>с гарантией качества работ</span></div>
+</div></div>
+
+<section id="svc"><div class="wrap">
+  <div class="sh"><div><span class="kick">Наши услуги</span><h2>Всё, что нужно для работы с документами</h2></div><p>Можно заказать одну услугу или передать нам архив целиком - от описи до хранения.</p></div>
+  <div class="svc" id="svcEl"></div>
+</div></section>
+
+<section class="calc" id="calc"><div class="wrap">
+  <div><span class="kick">Рассчитать стоимость</span><h2 style="font-size:clamp(28px,3vw,42px)">Узнайте цену за пару минут</h2>
+    <p class="lead">Укажите услугу и примерный объём - менеджер перезвонит, уточнит детали и пришлёт расчёт. Это бесплатно и ни к чему не обязывает.</p>
+    <ul><li><b>1</b>Оставляете заявку на сайте или по телефону</li><li><b>2</b>Обсуждаем объём и сроки</li><li><b>3</b>Присылаем расчёт и договор</li></ul></div>
+  <form class="form" id="form" onsubmit="event.preventDefault();this.querySelector('.fb').style.display='none';this.querySelector('.done').style.display='block'">
+    <div class="fb"><h3>Заявка на расчёт</h3><p>Ответим в рабочее время, пн-пт.</p>
+    <div class="fg">
+      <label class="f w">Услуга<select><option>Оцифровка и сканирование</option><option>Архивация документов</option><option>Уничтожение документов</option><option>Сдача документов в архив</option><option>Переплёт документов</option><option>Внутренняя опись документов</option><option>Хранение документов</option><option>Автоматизация обработки документов</option><option>Пока не знаю, нужна консультация</option></select></label>
+      <div class="f w">Примерный объём<div class="seg"><label><input type="radio" name="v" checked><span>До 10 коробов</span></label><label><input type="radio" name="v"><span>10-50 коробов</span></label><label><input type="radio" name="v"><span>Больше 50</span></label><label><input type="radio" name="v"><span>Не знаю</span></label></div></div>
+      <label class="f">Имя<input required placeholder="Как к вам обращаться"></label>
+      <label class="f">Телефон<input required type="tel" placeholder="+7 (___) ___-__-__"></label>
+      <label class="f w">Компания<input placeholder="Необязательно"></label>
+    </div>
+    <button class="btn">Получить расчёт</button><p class="pp">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p></div>
+    <div class="done"><b>Спасибо, заявка отправлена</b>Менеджер перезвонит вам в рабочее время.</div>
+  </form>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="sh"><div><span class="kick">О нас</span><h2>Нам доверяют документы компании и госорганы</h2></div></div>
+  <div class="about" id="abEl"></div>
+</div></section>
+
+<section class="steps"><div class="wrap">
+  <div class="sh"><div><span class="kick" style="color:#7fd3dc">Как мы работаем</span><h2>Шесть понятных шагов</h2></div><p>Оплата - после выполнения работы.</p></div>
+  <div class="tl" id="tlEl"></div>
+</div></section>
+
+<section id="arts"><div class="wrap">
+  <div class="sh"><div><span class="kick">Полезная информация</span><h2>Статьи и новости</h2></div><a class="btn out sm" href="#">Все статьи</a></div>
+  <div class="arts" id="artEl"></div>
+</div></section>
+
+<section id="contacts" style="padding-top:0"><div class="wrap">
+  <div class="sh"><div><span class="kick">Контакты</span><h2>Приезжайте или позвоните</h2></div></div>
+  <div class="ct"><div class="tx"><dl>
+    <div><dt>Телефон</dt><dd><a href="tel:+74957662343">+7 (495) 766-23-43</a></dd></div>
+    <div><dt>Email</dt><dd><a href="mailto:info@mosarchiv.ru">info@mosarchiv.ru</a></dd></div>
+    <div><dt>Адрес</dt><dd>Москва, Бродников переулок, 10к2</dd></div>
+    <div><dt>Время работы</dt><dd style="font-weight:500;font-size:16px">Пн-Чт: 9:00-18:00<br>Пт: 9:00-17:00</dd></div></dl>
+    <a class="btn" href="#calc">Оставить заявку</a></div>
+    <iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%91%D1%80%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%BF%D0%B5%D1%80%D0%B5%D1%83%D0%BB%D0%BE%D0%BA%2C%2010%D0%BA2&z=16"></iframe></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><a class="logo" href="#"><img src="img/logo.png" alt=""><span>Столичный Архивист</span></a><p style="margin:16px 0 0;max-width:300px">Архивная обработка документов, архивные работы и услуги в Москве.</p></div>
+  <div><h5>Услуги</h5><a href="#">Оцифровка</a><a href="#">Архивация</a><a href="#">Уничтожение</a><a href="#">Хранение</a><a href="#">Ликвидация</a></div>
+  <div><h5>Компания</h5><a href="#">Статьи</a><a href="#">Новости</a><a href="#">Отзывы</a><a href="#">Вопрос-ответ</a><a href="#">Контакты</a></div>
+  <div><h5>Связаться</h5><a href="tel:+74957662343">+7 (495) 766-23-43</a><a href="mailto:info@mosarchiv.ru">info@mosarchiv.ru</a><a href="#calc">Рассчитать стоимость</a></div>
+</div><div class="bt"><div class="wrap"><span>© Столичный Архивист</span><a href="#">Политика конфиденциальности</a></div></div></footer>
+
+<script>
+const I={
+ scan:'<path d="M4 16V9h16v7M2 16h20v4H2zM7 12h10M6 9l2-4h8l2 4"/>',
+ arch:'<path d="M4 8h16v12H4zM3 4h18v4H3zM9 12h6"/>',
+ trash:'<path d="M5 7h14l-1 13H6zM9 7V4h6v3M3 7h18M10 11v6M14 11v6"/>',
+ give:'<path d="M3 10 12 4l9 6M5 10v9h14v-9M9 19v-5h6v5"/>',
+ bind:'<path d="M6 3h11a2 2 0 0 1 2 2v16H8a2 2 0 0 1-2-2zM6 17a2 2 0 0 1 2-2h11M10 7h6"/>',
+ list:'<path d="M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1"/>',
+ store:'<path d="M3 21V8l9-5 9 5v13M7 21v-9h10v9M7 15h10M7 18h10"/>',
+ auto:'<path d="M4 4h7v7H4zM13 13h7v7h-7zM11 7.5h4a2 2 0 0 1 2 2V13M13 16.5H9a2 2 0 0 1-2-2V11"/>'};
+const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${I[k]}</svg>`;
+const SVC=[['scan','Оцифровка и сканирование','Переводим бумажные документы в электронный вид, чтобы их можно было быстро найти.'],
+ ['arch','Архивация документов','Систематизируем дела, формируем описи и готовим документы к хранению.'],
+ ['trash','Уничтожение документов','Безопасно уничтожаем документы с истёкшим сроком хранения, оформляем акт.'],
+ ['give','Сдача документов в архив','Подготовим и передадим документы в государственный архив, например при ликвидации.'],
+ ['bind','Переплёт документов','Сшиваем и переплетаем дела по правилам архивного хранения.'],
+ ['list','Внутренняя опись документов','Составляем внутренние описи дел, чтобы в архиве был порядок.'],
+ ['store','Хранение документов','Принимаем документы компании на хранение, выдаём их по запросу.'],
+ ['auto','Автоматизация обработки','Помогаем перейти на электронный архив и упростить работу с документами.']];
+document.getElementById('svcEl').innerHTML=SVC.map(([k,h,p],i)=>`<div class="sv ${i===0?'dark':''}"><i>${svg(k)}</i><h3>${h}</h3><p>${p}</p><div class="ft"><a href="#calc">Оставить заявку</a><a href="#">Подробнее →</a></div></div>`).join('');
+const AB=[['M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z','Более 15 лет на рынке','Опыт работы с архивами любой сложности'],
+ ['M4 21V9l8-5 8 5v12M9 21v-6h6v6','Государственные и частные архивы','Знаем требования к сдаче и хранению документов'],
+ ['M3 12h4l3-6 4 12 3-6h4','Малые и крупные предприятия','Подходим к объёму любого масштаба'],
+ ['M3 21h18M5 21V10M10 21V10M14 21V10M19 21V10M2 10l10-6 10 6','Муниципалитеты, управы, лидеры рынка','Среди наших заказчиков есть госорганы'],
+ ['M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z','Строгая конфиденциальность','Доступ к документам только у ответственных сотрудников'],
+ ['M7 3h8l4 4v14H7zM15 3v4h4M10 13l2 2 4-4','Гарантия качества','Зафиксирована документально в договоре']];
+document.getElementById('abEl').innerHTML=AB.map(([d,b,s])=>`<div class="ab"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg></i><div><b>${b}</b><span>${s}</span></div></div>`).join('');
+const TL=[['Заявка','На сайте, по телефону или почте'],['Обсуждение деталей','Уточняем объём, сроки и задачи'],['Расчёт','Называем стоимость работ'],['Договор','Фиксируем условия и гарантии'],['Выполнение работы','Делаем всё в согласованные сроки'],['Оплата','После выполнения работ']];
+document.getElementById('tlEl').innerHTML=TL.map(([h,p],i)=>`<div><b>0${i+1}</b><h3>${h}</h3><p>${p}</p></div>`).join('');
+const AR=[['Статья','Сшить документы: просто и эффективно','Сшить документы - значит, уменьшить их объём при хранении.'],['Новость','Школьники Кирова создают цифровой архив сведений об участниках ВОВ','Ученики уже начали оцифровку архивов и сканирование документов.'],['Статья','Систематизация документов с помощью электронного архива','Это удобно и окупится за 5-6 месяцев.'],
+ ['Статья','Электронный архив первички: что это и зачем он нужен','Разбираемся, как перевести первичные документы в электронный вид.'],['Статья','Что такое положение об электронном архиве организации?','Какие правила стоит закрепить внутри компании.'],['Отзыв','ООО «ДРОФА-МЕДИА»','Отзыв о работе с нами можно посмотреть в разделе «Отзывы».']];
+document.getElementById('artEl').innerHTML=AR.map(([t,h,p])=>`<a class="ar" href="#"><span class="tg">${t}</span><h3>${h}</h3><p>${p}</p><span>Читать →</span></a>`).join('');
+</script>
+</body>
+</html>
