@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Диана - сайты под ключ с бесплатным демо</title>
+<meta name="description" content="Лендинги, сайты-визитки и многоязычные сайты. Бесплатная демо-версия главной страницы до оплаты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f4f0; --paper:#fff; --ink:#16161a; --muted:#6b6b76; --line:#e6e2da;
+  --accent:#5b4bff; --accent-soft:#ecebff; --warm:#ff7a59;
+  --r:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.display{font-family:Unbounded,Inter,system-ui,sans-serif;letter-spacing:-.02em}
+
+header{position:sticky;top:0;z-index:40;background:rgba(246,244,240,.85);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{font-family:Unbounded,sans-serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px}
+.brand i{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.menu{display:flex;gap:30px;font-size:15px;color:var(--muted)}
+.menu a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:13px 24px;font-weight:600;border:0;cursor:pointer;font:inherit;font-weight:600;transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-line{border:1.5px solid var(--ink);background:transparent}
+
+.hero{padding:90px 0 70px}
+.hello{display:inline-flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:8px 16px 8px 8px;font-size:14px;font-weight:500;margin-bottom:28px}
+.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--warm));color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+.status{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px #dcfce7}
+h1{font-size:clamp(34px,6vw,68px);line-height:1.08;font-weight:700;max-width:900px;margin-bottom:26px}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:640px;margin-bottom:34px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.promise{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.promise div{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.promise b{display:block;font-family:Unbounded,sans-serif;font-size:26px;margin-bottom:4px}
+.promise span{color:var(--muted);font-size:15px}
+
+section{padding:90px 0}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+h2{font-size:clamp(28px,4vw,44px);line-height:1.15;font-weight:700;margin-bottom:16px}
+.sec-sub{color:var(--muted);font-size:17px;max-width:620px;margin-bottom:44px}
+
+.demo-offer{background:var(--ink);color:#fff;border-radius:28px;padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.demo-offer::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(91,75,255,.55),transparent 65%)}
+.demo-offer h2{color:#fff}
+.demo-offer p{color:#b9b9c6;font-size:17px}
+.demo-steps{list-style:none;position:relative;z-index:1}
+.demo-steps li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #2c2c35}
+.demo-steps li:last-child{border:0}
+.demo-steps b{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-size:14px}
+
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:1100px){.works{grid-template-columns:repeat(2,1fr)}}
+.work{background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.work:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(22,22,26,.35)}
+.shot{aspect-ratio:16/10;position:relative;overflow:hidden;padding:22px}
+.shot .browser{height:100%;border-radius:12px;overflow:hidden;box-shadow:0 20px 40px -20px rgba(0,0,0,.5);display:flex;flex-direction:column}
+.browser .bar{height:22px;display:flex;align-items:center;gap:5px;padding:0 10px}
+.browser .bar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35)}
+.browser .page{flex:1;padding:16px 18px;display:flex;flex-direction:column;gap:9px}
+.ln{height:8px;border-radius:4px}
+.shot-inv{background:linear-gradient(135deg,#0b1d3a,#1c2a44)}
+.shot-inv .browser{background:#0e1a2f}
+.shot-inv .bar{background:#0a1426}
+.shot-auto{background:linear-gradient(135deg,#ff6a1a,#ffb020)}
+.shot-auto .browser{background:#0f1115}
+.shot-auto .bar{background:#0a0b0e}
+.shot-game{background:linear-gradient(135deg,#7c5cff,#ff8a3d)}
+.shot-game .browser{background:#0b0a14}
+.shot-game .bar{background:#07060e}
+.shot-img{aspect-ratio:16/10;overflow:hidden;background:#e9e6df}.shot-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}.work:hover .shot-img img{transform:scale(1.04)}
+.work-body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.work-body h3{font-size:21px}
+.work-body p{color:var(--muted);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;font-weight:600;padding:5px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+.work-link{margin-top:auto;padding-top:8px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.svc{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:10px}
+.svc-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.svc h3{font-size:20px}
+.price{font-family:Unbounded,sans-serif;font-weight:700;font-size:18px;white-space:nowrap}
+.svc p{color:var(--muted);font-size:15px}
+.svc .term{font-size:14px;font-weight:600;color:var(--ink)}
+
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pr{border-top:2px solid var(--ink);padding-top:18px}
+.pr b{font-family:Unbounded,sans-serif;font-size:14px;color:var(--accent)}
+.pr h4{font-size:18px;margin:8px 0 6px}
+.pr p{color:var(--muted);font-size:15px}
+
+.about{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:start}
+.about p{font-size:17px;color:#3a3a44;margin-bottom:16px}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.skills span{border:1px solid var(--line);background:var(--paper);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:500}
+
+.contact{background:var(--accent);color:#fff;border-radius:28px;padding:64px 48px;text-align:center}
+.contact h2{color:#fff}
+.contact p{color:#dcd8ff;font-size:18px;max-width:560px;margin:0 auto 30px}
+.contact .btn{background:#fff;color:var(--ink)}
+
+footer{padding:40px 0 60px;color:var(--muted);font-size:14px;text-align:center}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .menu{display:none}
+  .promise{grid-template-columns:1fr}
+  .demo-offer{grid-template-columns:1fr;padding:36px 26px}
+  .works,.services{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr 1fr}
+  .about{grid-template-columns:1fr;gap:10px}
+  .contact{padding:44px 24px}
+}
+@media (max-width:520px){
+  .hero{padding:56px 0 40px}
+  section{padding:64px 0}
+  .process{grid-template-columns:1fr}
+  .nav .btn{padding:10px 16px;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><i></i>Диана</a>
+    <nav class="menu">
+      <a href="#works">Работы</a>
+      <a href="#services">Услуги и цены</a>
+      <a href="#process">Как работаю</a>
+      <a href="#about">Обо мне</a>
+    </nav>
+    <a href="#contact" class="btn btn-dark">Обсудить проект</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hello reveal"><span class="avatar">Д</span>Беру новые проекты<span class="status"></span></div>
+    <h1 class="display reveal">Делаю сайты, которые <em>видно до оплаты</em></h1>
+    <p class="lead reveal">Лендинги, сайты-визитки и многоязычные сайты. Прежде чем вы заплатите, бесплатно делаю демо главной страницы по вашему ТЗ - вы сразу видите стиль и подачу.</p>
+    <div class="hero-actions reveal">
+      <a href="#contact" class="btn btn-accent">Получить бесплатное демо</a>
+      <a href="#works" class="btn btn-line">Смотреть работы</a>
+    </div>
+    <div class="promise">
+      <div class="reveal"><b>0 ₽</b><span>за демо-версию главной страницы</span></div>
+      <div class="reveal"><b>от 5 дней</b><span>на лендинг под ключ</span></div>
+      <div class="reveal"><b>100%</b><span>адаптив под телефоны и планшеты</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="demo-offer reveal">
+      <div style="position:relative;z-index:1">
+        <div class="eyebrow" style="color:#a79dff">Мой подход</div>
+        <h2 class="display">Сначала демо - потом договор</h2>
+        <p>Вы не рискуете деньгами и временем: смотрите живую страницу по ссылке, решаете, нравится ли, и только после этого мы начинаем работу.</p>
+      </div>
+      <ul class="demo-steps">
+        <li><b>1</b><div>Присылаете ТЗ или пару слов о бизнесе</div></li>
+        <li><b>2</b><div>За 1 день делаю демо главной страницы</div></li>
+        <li><b>3</b><div>Смотрите по ссылке с телефона или компьютера</div></li>
+        <li><b>4</b><div>Нравится - доделываем сайт целиком</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <div class="eyebrow reveal">Портфолио</div>
+    <h2 class="display reveal">Работы</h2>
+    <p class="sec-sub reveal">Сайты, айдентика и оформление соцсетей. Реальный проект и демо-версии под ТЗ заказчиков - откройте, всё работает, включая анимации и мобильную версию.</p>
+    <div class="works">
+      <a class="work reveal" href="https://maison-lurenne-3d.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/lurenne.jpg" alt="Сайт парфюмерного дома с 3D-графикой" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">3D / WebGL</span><span class="chip">Премиум</span></div>
+          <h3>Сайт парфюмерного дома с 3D-графикой</h3>
+          <p>Живой WebGL-объект меняет цвет и форму под каждый аромат при прокрутке, золотые орбиты, частицы, форма записи.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://tr555.ru/landing/scenario/" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/tr555.jpg" alt="Лендинг для платформы tr555.ru" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">Реальный проект</span><span class="chip">Метрика</span></div>
+          <h3>Лендинг для платформы tr555.ru</h3>
+          <p>Посадочная под Яндекс Директ: контент через API сайта, генератор идей, 6 целей Метрики, UTM и yclid до регистрации.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://avantrel-demo.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/avantrel.jpg" alt="Сайт инвестиционной компании" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">Корпоративный</span><span class="chip">EN / DE / RU</span></div>
+          <h3>Сайт инвестиционной компании</h3>
+          <p>Тёмный дизайн с золотом, 3D-глобус, ключевые показатели, три языка без перезагрузки.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://ortago-mebel-demo.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/ortago.jpg" alt="Каталог проектной мебели" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">Каталог</span><span class="chip">Заявка</span></div>
+          <h3>Каталог проектной мебели</h3>
+          <p>Фильтры, лукбук интерьеров, материалы фасадов, корзина-заявка на замер и раздел для архитекторов.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://shest-vershin-altai-demo.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/shest.jpg" alt="Сайт гостевого дома на Алтае" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">Туризм</span><span class="chip">RU / EN</span></div>
+          <h3>Сайт гостевого дома на Алтае</h3>
+          <p>Домики с ценами, услуги, маршрут и форма бронирования с датами и количеством гостей.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://tengir-dala-demo.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/tengir.jpg" alt="Магазин деликатесов Горного Алтая" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">Магазин</span><span class="chip">Mobile</span></div>
+          <h3>Магазин деликатесов Горного Алтая</h3>
+          <p>Каталог, прайс, оформление заказа и нижнее мобильное меню как в приложении.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://detalgid-demo.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/detalgid.jpg" alt="Лендинг магазина автозапчастей" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">Лендинг</span><span class="chip">Под рекламу</span></div>
+          <h3>Лендинг магазина автозапчастей</h3>
+          <p>Подбор детали по VIN на первом экране, каталог, преимущества, FAQ и кнопка звонка.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://kadastr-stil-eskiz.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/ortomera.jpg" alt="Фирменный стиль кадастровой компании" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">Фирменный стиль</span><span class="chip">Логотип</span></div>
+          <h3>Фирменный стиль кадастровой компании</h3>
+          <p>Знак из контура участка, узоры «Межа» и «План», визитки, бейдж, вывеска и первый экран сайта.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://vk-shkola-eskiz.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/yasnoum.jpg" alt="Оформление ВК для онлайн-школы" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">ВКонтакте</span><span class="chip">SMM</span></div>
+          <h3>Оформление ВК для онлайн-школы</h3>
+          <p>Обложка с безопасной зоной, аватар и шаблоны постов, в которых школа сама меняет текст.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://velmira-katalog-obrazec.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/velmira.jpg" alt="Каталог мягкой мебели" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">Каталог PDF</span><span class="chip">Полиграфия</span></div>
+          <h3>Каталог мягкой мебели</h3>
+          <p>PDF для печати и версия для телефона: карточки моделей с размерами, тканями и ценой «от».</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+      <a class="work reveal" href="https://nairi-games-demo.netlify.app" target="_blank" rel="noopener">
+        <div class="shot-img"><img src="img/nairi.jpg" alt="Сайт игровой студии" width="960" height="600"></div>
+        <div class="work-body">
+          <div class="chips"><span class="chip">One Page</span><span class="chip">HY / RU / EN</span></div>
+          <h3>Сайт игровой студии</h3>
+          <p>Три языка, каталог игр с иллюстрациями, этапы подключения для партнёров, форма заявки.</p>
+          <span class="work-link">Открыть →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:var(--paper);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow reveal">Услуги и цены</div>
+    <h2 class="display reveal">Что делаю</h2>
+    <p class="sec-sub reveal">Итоговую стоимость называю после демо и обсуждения ТЗ. Оплата через «Безопасную сделку» на бирже.</p>
+    <div class="services">
+      <div class="svc reveal"><div class="svc-top"><h3>Лендинг под ключ</h3><span class="price">от 6 000 ₽</span></div><p>Дизайн, адаптивная вёрстка, форма заявки в почту или Telegram, Яндекс Метрика с целями.</p><span class="term">Срок: от 5 дней</span></div>
+      <div class="svc reveal"><div class="svc-top"><h3>Сайт-визитка или каталог</h3><span class="price">от 12 000 ₽</span></div><p>3-7 страниц: услуги, цены, портфолио, каталог с фильтрами, контакты и карта.</p><span class="term">Срок: от 7 дней</span></div>
+      <div class="svc reveal"><div class="svc-top"><h3>Многоязычный или 3D-сайт</h3><span class="price">от 40 000 ₽</span></div><p>Корпоративный сайт на 2-3 языках или промо-сайт с WebGL-графикой и анимациями.</p><span class="term">Срок: от 14 дней</span></div>
+      <div class="svc reveal"><div class="svc-top"><h3>Логотип и фирменный стиль</h3><span class="price">от 3 500 ₽</span></div><p>3 концепции знака, палитра, шрифты, визитка; файлы SVG, PDF, PNG.</p><span class="term">Срок: от 5 дней</span></div>
+      <div class="svc reveal"><div class="svc-top"><h3>Оформление ВК и Telegram</h3><span class="price">от 1 500 ₽</span></div><p>Обложка, аватар и шаблоны постов в едином стиле.</p><span class="term">Срок: от 3 дней</span></div>
+      <div class="svc reveal"><div class="svc-top"><h3>Аудит и редизайн сайта</h3><span class="price">от 2 000 ₽</span></div><p>Отчёт со скриншотами и списком правок по приоритету, редизайн отдельно.</p><span class="term">Срок: от 2 дней</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="eyebrow reveal">Как работаю</div>
+    <h2 class="display reveal">Понятно на каждом шаге</h2>
+    <p class="sec-sub reveal">Вы всегда знаете, что сейчас происходит и когда будет результат.</p>
+    <div class="process">
+      <div class="pr reveal"><b>01</b><h4>Бесплатное демо</h4><p>Главная страница по вашему ТЗ за 1 день.</p></div>
+      <div class="pr reveal"><b>02</b><h4>Согласование</h4><p>Фиксируем структуру, сроки и стоимость.</p></div>
+      <div class="pr reveal"><b>03</b><h4>Разработка</h4><p>Показываю промежуточные результаты по ссылке.</p></div>
+      <div class="pr reveal"><b>04</b><h4>Запуск</h4><p>Публикую на вашем домене, правки в рамках ТЗ бесплатно.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:0">
+  <div class="wrap about">
+    <div class="reveal">
+      <div class="eyebrow">Обо мне</div>
+      <h2 class="display">Привет, я Диана</h2>
+    </div>
+    <div class="reveal">
+      <p>Делаю сайты, айдентику и оформление соцсетей с помощью нейросетей и ручной доводки - поэтому быстро и без потери качества. Каждую страницу проверяю вручную на телефонах и в разных браузерах.</p>
+      <p>Писала научные статьи и выступала на конференциях, готовила аналитику и презентации. Поэтому умею быстро разобраться в теме заказчика и помогаю со структурой и текстами для сайта, а не только с вёрсткой.</p>
+      <div class="skills"><span>HTML / CSS / JS</span><span>Адаптивная вёрстка</span><span>Анимации</span><span>Многоязычность</span><span>Формы заявок</span><span>3D / WebGL</span><span>Логотипы и стиль</span><span>Яндекс Метрика</span><span>Тексты для сайта</span><span>ИИ-инструменты</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact reveal">
+      <h2 class="display">Обсудим ваш проект?</h2>
+      <p>Опишите задачу в паре предложений - в течение дня пришлю демо главной страницы. Бесплатно и ни к чему не обязывает.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://freelance.ru/didigood" target="_blank" rel="noopener" class="btn">Написать на freelance.ru</a><a href="https://freelance.boutique/users/01a14ba4-ba93-7560-b896-3be6932aded7" target="_blank" rel="noopener" class="btn" style="background:transparent;color:#fff;border:1.5px solid #fff">Профиль на Фриланс.Бутик</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Диана · Разработка сайтов</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*80+'ms';io.observe(el)});
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10),{passive:true});
+</script>
+</body>
+</html>
