@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Дизайн упаковки - концепты</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Unbounded:wght@500;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#ecebe8;color:#111;font:15px/1.5 Montserrat,system-ui,sans-serif}
+.w{max-width:1180px;margin:auto;padding:36px 16px 60px}
+h1{font-size:clamp(24px,3.6vw,34px);margin:0 0 6px;font-weight:800}
+.lead{max-width:800px;color:#444;margin:0 0 26px}
+.item{background:#fff;border-radius:18px;padding:24px;margin-bottom:26px;display:grid;grid-template-columns:minmax(260px,1fr) 2fr;gap:26px;align-items:center}
+@media(max-width:760px){.item{grid-template-columns:1fr}}
+.item h2{font-size:20px;margin:0 0 4px}.tag{display:inline-block;font-size:12px;font-weight:700;background:#111;color:#fff;border-radius:20px;padding:2px 10px;margin-bottom:10px}
+.item p{margin:0 0 10px;color:#555;font-size:14px}.item ul{margin:0;padding-left:18px;font-size:14px;color:#333}
+.views{display:flex;gap:26px;align-items:flex-end;justify-content:center;flex-wrap:wrap}
+.cap{font-size:12px;color:#777;text-align:center;margin-top:8px}
+svg{display:block;max-width:100%;height:auto}
+.flat svg{filter:drop-shadow(0 10px 14px rgba(0,0,0,.18))}
+/* 3D коробка чая 70 x 110 x 70 мм */
+.scene{width:170px;height:270px;perspective:900px;margin:30px 40px 46px}
+.box{position:relative;width:168px;height:264px;transform-style:preserve-3d;transform:rotateY(-34deg) rotateX(-8deg)}
+.box>div{position:absolute;top:0;left:0;backface-visibility:hidden}
+.box .f{width:168px;height:264px;transform:translateZ(84px)}
+.box .s{width:168px;height:264px;transform:rotateY(90deg) translateZ(84px)}
+.box .t{width:168px;height:168px;top:-84px;transform:rotateX(90deg)}
+.box svg{width:100%;height:100%}
+.foot{font-size:13px;color:#666;margin-top:10px}
+.back{display:inline-block;margin-top:8px;font-weight:700;color:#111}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>Дизайн упаковки: концепты</h1>
+<p class="lead">Три концепта упаковки для разных товаров: картонная коробка, дой-пак и банка с этикеткой. Бренды вымышленные, концепты сделаны для портфолио, чтобы показать подход к разным форматам и стилям.</p>
+
+<div class="item">
+  <div><span class="tag">Коробка · картон</span><h2>Чай «Ульмери»</h2>
+    <p>Травяной чай, коробка 70 × 110 × 70 мм. Тёмно-зелёный фон, тёплый оранжевый акцент, узор из листьев по всей коробке, на боковой стороне состав и способ заваривания.</p>
+    <ul><li>Премиальная полка, подарок</li><li>Шрифт с засечками + гротеск</li><li>Узор продолжается на всех гранях</li></ul></div>
+  <div class="views"><div class="flat" id="teaF"></div><div><div class="scene"><div class="box" id="teaBox"></div></div><div class="cap">мокап коробки</div></div></div>
+</div>
+
+<div class="item">
+  <div><span class="tag">Дой-пак · 250 г</span><h2>Кофе «Брумо»</h2>
+    <p>Зерновой кофе в пакете с зип-замком и клапаном. Крупная типографика, терракота и молочный цвет, обжарка и вкус читаются с первого взгляда.</p>
+    <ul><li>Линейка из 3 вкусов: цвет = вкус</li><li>Шкала обжарки и ноты вкуса на лицевой стороне</li><li>Хорошо смотрится в карточке маркетплейса</li></ul></div>
+  <div class="views flat" id="coffee"></div>
+</div>
+
+<div class="item">
+  <div><span class="tag">Банка · этикетка</span><h2>Соль для ванн «Сольвика»</h2>
+    <p>Банка 400 г с круговой этикеткой. Мягкие пастельные цвета, крупные кристаллы на фоне, аромат вынесен на крышку - удобно выбирать на полке.</p>
+    <ul><li>Три аромата: лаванда, эвкалипт, грейпфрут</li><li>Цвет крышки повторяет цвет аромата</li><li>Минимум текста спереди, состав сзади</li></ul></div>
+  <div class="views flat" id="salt"></div>
+</div>
+
+<p class="foot">Все названия и тексты вымышленные. Концепты сделаны с помощью нейросетей и доработаны вручную.</p>
+<a class="back" href="../upakovka/">Упаковка монопучковых щёток zerberg →</a>
+</div>
+<script>
+const M='font-family="Montserrat"',C='font-family="Cormorant Garamond"',U='font-family="Unbounded"';
+const T=(x,y,s,txt,o='')=>`<text x="${x}" y="${y}" font-size="${s}" ${o}>${txt}</text>`;
+
+/* ---------- Чай ---------- */
+function leaf(x,y,r,s,c){return `<g transform="translate(${x},${y}) rotate(${r}) scale(${s})"><path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0Z" fill="${c}"/><path d="M1,0 L22,0" stroke="rgba(0,0,0,.25)" stroke-width=".6"/></g>`}
+function leaves(w,h,seed){let s='',k=seed;const rnd=()=>{k=(k*9301+49297)%233280;return k/233280};
+  for(let i=0;i<16;i++)s+=leaf(rnd()*w,rnd()*h,rnd()*360,.55+rnd()*.5,['#2f5d47','#3b6e55','#e8833a'][i%7==0?2:i%2]);return s}
+function teaFront(){return `<svg viewBox="0 0 70 110"><defs><clipPath id="tf"><rect width="70" height="110"/></clipPath></defs><g clip-path="url(#tf)">
+  <rect width="70" height="110" fill="#1f3d30"/>${leaves(70,110,7)}
+  <rect x="9" y="22" width="52" height="66" rx="26" fill="#f5efe2"/>
+  ${T(35,38,4,'ТРАВЯНОЙ ЧАЙ',`text-anchor="middle" ${M} font-weight="700" letter-spacing=".8" fill="#e8833a"`)}
+  ${T(35,52,13,'Ульмери',`text-anchor="middle" ${C} font-weight="600" fill="#1f3d30"`)}
+  <path d="M22,57 H48" stroke="#e8833a" stroke-width=".7"/>
+  ${T(35,64,4.4,'мята · чабрец · липа',`text-anchor="middle" ${C} font-style="italic" font-weight="500" fill="#1f3d30"`)}
+  ${leaf(27,74,-20,.75,'#3b6e55')}${leaf(35,77,-150,.75,'#e8833a')}
+  <rect x="0" y="98" width="70" height="12" fill="#e8833a"/>
+  ${T(35,105.6,3.6,'20 ПАКЕТИКОВ · 40 г',`text-anchor="middle" ${M} font-weight="800" letter-spacing=".5" fill="#1f3d30"`)}
+  </g></svg>`}
+function teaSide(){return `<svg viewBox="0 0 70 110"><rect width="70" height="110" fill="#f5efe2"/>
+  ${T(8,16,5.6,'Состав',`${C} font-weight="600" fill="#1f3d30"`)}
+  ${T(8,24,3.3,'листья мяты, чабрец,',`${M} fill="#333"`)}${T(8,28.5,3.3,'цветы липы, ромашка',`${M} fill="#333"`)}
+  ${T(8,40,5.6,'Заваривание',`${C} font-weight="600" fill="#1f3d30"`)}
+  <circle cx="13" cy="50" r="5" fill="none" stroke="#e8833a" stroke-width=".8"/>${T(13,51.3,3.2,'95°',`text-anchor="middle" ${M} font-weight="700" fill="#1f3d30"`)}
+  <circle cx="30" cy="50" r="5" fill="none" stroke="#e8833a" stroke-width=".8"/>${T(30,51.3,3,'5 м',`text-anchor="middle" ${M} font-weight="700" fill="#1f3d30"`)}
+  <circle cx="47" cy="50" r="5" fill="none" stroke="#e8833a" stroke-width=".8"/>${T(47,51.3,2.8,'200',`text-anchor="middle" ${M} font-weight="700" fill="#1f3d30"`)}
+  <rect x="0" y="66" width="70" height="44" fill="#1f3d30"/>${leaves(70,44,3).replace(/translate\((\S+),(\S+)\)/g,(m,a,b)=>`translate(${a},${+b+66})`)}
+  </svg>`}
+function teaTop(){return `<svg viewBox="0 0 70 70"><rect width="70" height="70" fill="#1f3d30"/>${leaves(70,70,11)}
+  <circle cx="35" cy="35" r="15" fill="#f5efe2"/>${T(35,38,6,'Ульмери',`text-anchor="middle" ${C} font-weight="600" fill="#1f3d30"`)}</svg>`}
+
+/* ---------- Кофе ---------- */
+const COF=[['Эфиопия','ягоды · жасмин',2,'#c2552f'],['Бразилия','орех · шоколад',3,'#5b3a29'],['Колумбия','карамель · цитрус',2,'#d8973c']];
+function pouch([name,notes,roast,c],i){
+  const bean=(x,y,r)=>`<g transform="translate(${x},${y}) rotate(${r})"><ellipse rx="5" ry="3.4" fill="#3a2418"/><path d="M-4,0 Q0,-1.6 4,0" stroke="#7a4a32" stroke-width=".8" fill="none"/></g>`;
+  let scale='';for(let k=0;k<5;k++)scale+=`<rect x="${34+k*7}" y="138" width="5.5" height="5.5" rx="1.2" fill="${k<roast?'#2a1a12':'none'}" stroke="#2a1a12" stroke-width=".6"/>`;
+  return `<div><svg viewBox="0 0 120 190" width="200"><defs>
+   <linearGradient id="sh${i}" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".18"/><stop offset=".12" stop-color="#fff" stop-opacity=".12"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset=".9" stop-color="#000" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient>
+   <clipPath id="pc${i}"><path d="M8,8 H112 L114,176 Q114,186 104,186 H16 Q6,186 6,176Z"/></clipPath></defs>
+   <g clip-path="url(#pc${i})">
+   <rect width="120" height="190" fill="#f3ead8"/>
+   <path d="M6,108 C40,96 80,120 114,104 L114,190 L6,190Z" fill="${c}"/>
+   ${T(60,40,6,'КОФЕ В ЗЁРНАХ',`text-anchor="middle" ${M} font-weight="700" letter-spacing="1.2" fill="#2a1a12"`)}
+   ${T(60,64,22,'брумо',`text-anchor="middle" ${U} font-weight="800" fill="#2a1a12"`)}
+   <rect x="30" y="72" width="60" height="11" rx="5.5" fill="${c}"/>${T(60,79.8,6,name.toUpperCase(),`text-anchor="middle" ${M} font-weight="800" fill="#fff"`)}
+   ${T(60,93,5.4,notes,`text-anchor="middle" ${M} font-weight="600" fill="#2a1a12"`)}
+   ${bean(20,122,20)}${bean(98,118,-30)}${bean(86,160,60)}
+   ${T(60,132,4.6,'ОБЖАРКА',`text-anchor="middle" ${M} font-weight="800" letter-spacing="1" fill="#fff"`)}${scale.replaceAll('#2a1a12','#fff')}
+   ${T(60,168,9,'250 г',`text-anchor="middle" ${U} font-weight="500" fill="#fff"`)}
+   <rect width="120" height="190" fill="url(#sh${i})"/>
+   </g>
+   <path d="M8,8 H112" stroke="#d9cdb4" stroke-width="3"/><path d="M8,20 H112" stroke="rgba(0,0,0,.12)" stroke-width="1.2" stroke-dasharray="2 1.2"/>
+   <circle cx="94" cy="30" r="4" fill="#e9dfca" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+  </svg><div class="cap">${name}</div></div>`}
+
+/* ---------- Соль ---------- */
+const SALT=[['Лаванда','#b9a7d9','#7c62b0'],['Эвкалипт','#a9d6c6','#3f8f78'],['Грейпфрут','#f6b9a3','#e2694a']];
+function jar([name,c,d],i){
+  let cr='';for(let k=0;k<14;k++){const x=(k%2?82:14)+((k*7)%5),y=66+((k*53)%78),s=2.5+(k%4)*.8;cr+=`<path d="M${x},${y-s} L${x+s*.9},${y} L${x},${y+s} L${x-s*.9},${y}Z" fill="#fff" fill-opacity="${.35+(k%3)*.15}"/>`}
+  return `<div><svg viewBox="0 0 100 170" width="170"><defs><linearGradient id="jg${i}" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".16"/><stop offset=".2" stop-color="#fff" stop-opacity=".25"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></linearGradient></defs>
+   <ellipse cx="50" cy="163" rx="44" ry="5" fill="rgba(0,0,0,.12)"/>
+   <path d="M8,42 V154 Q8,162 50,162 Q92,162 92,154 V42Z" fill="#f6f3ee"/>
+   <path d="M8,58 V146 Q50,152 92,146 V58 Q50,64 8,58Z" fill="${c}"/>${cr}
+   ${T(50,86,5,'СОЛЬ ДЛЯ ВАНН',`text-anchor="middle" ${M} font-weight="700" letter-spacing="1" fill="#fff"`)}
+   ${T(50,104,13.5,'Сольвика',`text-anchor="middle" ${C} font-weight="600" fill="#fff"`)}
+   <rect x="28" y="112" width="44" height="10" rx="5" fill="#fff"/>${T(50,119,5.4,name,`text-anchor="middle" ${M} font-weight="800" fill="${d}"`)}
+   ${T(50,138,5,'400 г',`text-anchor="middle" ${M} font-weight="600" fill="#fff"`)}
+   <path d="M8,42 V154 Q8,162 50,162 Q92,162 92,154 V42Z" fill="url(#jg${i})"/>
+   <rect x="5" y="20" width="90" height="24" rx="4" fill="${d}"/><rect x="5" y="20" width="90" height="24" rx="4" fill="url(#jg${i})"/>
+   <ellipse cx="50" cy="20" rx="45" ry="5" fill="${d}"/><ellipse cx="50" cy="20" rx="45" ry="5" fill="#fff" fill-opacity=".18"/>
+   ${T(50,35.5,6.5,name.toLowerCase(),`text-anchor="middle" ${C} font-style="italic" font-weight="500" fill="#fff"`)}
+  </svg><div class="cap">${name}</div></div>`}
+
+document.getElementById('teaF').innerHTML=`<div style="width:170px">${teaFront()}</div><div class="cap">лицевая сторона</div>`;
+document.getElementById('teaBox').innerHTML=`<div class="f">${teaFront()}</div><div class="s">${teaSide()}</div><div class="t">${teaTop()}</div>`;
+document.getElementById('coffee').innerHTML=COF.map(pouch).join('');
+document.getElementById('salt').innerHTML=SALT.map(jar).join('');
+</script>
+</body>
+</html>
