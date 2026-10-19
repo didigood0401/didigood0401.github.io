@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Упаковка 5 монопучковых щёток - эскиз</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--k:#000;--r:#fa0005;--y:#f9d100;--bg:#ecebe8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#111;font:15px/1.5 Montserrat,system-ui,sans-serif}
+.w{max-width:1180px;margin:auto;padding:36px 16px 60px}
+h1{font-size:clamp(24px,3.6vw,34px);margin:0 0 6px;font-weight:800}
+.lead{max-width:780px;color:#444;margin:0 0 20px}
+.pal{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 26px}
+.pal button{font:inherit;font-size:14px;font-weight:700;border:2px solid #111;background:#fff;border-radius:30px;padding:7px 14px 7px 10px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.pal button.on{background:#111;color:#fff}
+.pal i{display:flex;gap:3px}.pal i b{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.card{background:#fff;border-radius:18px;padding:22px;box-shadow:0 1px 0 #d6d4cf}
+.card h2{font-size:18px;margin:0 0 2px}.card p{margin:0 0 14px;color:#555;font-size:14px}
+.views{display:flex;gap:18px;align-items:flex-end;justify-content:center;flex-wrap:wrap}
+.pack{width:210px;height:519px;flex:none}
+.pack svg{width:100%;height:100%;display:block;filter:drop-shadow(0 10px 14px rgba(0,0,0,.18))}
+.m3d{perspective:900px}.m3d .pack{transform:rotateY(-28deg) rotateX(4deg);transform-origin:50% 50%}
+.m3d .pack svg{filter:drop-shadow(18px 16px 14px rgba(0,0,0,.25))}
+.cap{font-size:12px;color:#777;text-align:center;margin-top:8px}
+.note{margin-top:26px;background:#fff;border-radius:18px;padding:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.note h3{margin:0 0 6px;font-size:16px}.note ul{margin:0;padding-left:18px;font-size:14px}
+.warn{border-left:4px solid var(--r);padding-left:14px}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>Набор 5 монопучковых щёток: эскиз лицевой стороны</h1>
+<p class="lead">Два варианта концепции по вашему ТЗ и гайдлайну: оригинальный логотип на белом поле, подвесное отверстие по центральной оси, пять щёток вертикально в прозрачном блистере, формат 93 × 230 мм в масштабе. Цвета щёток переключаются кнопками ниже.</p>
+<div class="pal" id="pal"></div>
+<div class="grid">
+  <div class="card"><h2>Вариант A. «Диагональ»</h2><p>Развитие вашей текущей упаковки: чёрная диагональ с красной и жёлтой полосой, белая шапка с логотипом. Сильно выделяется на полке.</p>
+    <div class="views"><div><div class="pack" data-v="A"></div><div class="cap">спереди</div></div><div class="m3d"><div class="pack" data-v="A"></div><div class="cap">мокап под углом</div></div></div></div>
+  <div class="card"><h2>Вариант B. «Чистая линия»</h2><p>Белая подложка и светло-серое поле под щётками, триколор тонкой полосой. Строже, «аптечнее», хорошо читается на маркетплейсе.</p>
+    <div class="views"><div><div class="pack" data-v="B"></div><div class="cap">спереди</div></div><div class="m3d"><div class="pack" data-v="B"></div><div class="cap">мокап под углом</div></div></div></div>
+</div>
+<div class="note">
+  <div class="warn"><h3>Проверка размеров</h3><ul>
+    <li>5 ручек × 18 мм = 90 мм при ширине упаковки 93 мм: на зазоры и стенки блистера остаётся 3 мм, щётки стоят почти впритык.</li>
+    <li>Варианты: уточнить у производителя ширину в самом широком месте и минимальную стенку блистера, либо расширить упаковку до 100-105 мм, либо смещать щётки по высоте, как на вашем фото.</li></ul></div>
+  <div><h3>Что дальше</h3><ul>
+    <li>Доработка выбранной концепции, оборотная сторона: ваши тексты, штрихкод, артикул, производитель.</li>
+    <li>Шрифт Mont по гайдлайну (в эскизе временно похожий Montserrat).</li>
+    <li>Макет к печати: CMYK, вылеты, безопасные зоны, развёртка по параметрам производителя; PDF и редактируемый исходник.</li></ul></div>
+</div>
+</div>
+<script>
+const PAL={
+ 'Яркая':['#35b2e8','#ef5f9a','#9ed43f','#f5f5f2','#7c48c4'],
+ 'Фирменная':['#1b1b1b','#fa0005','#f9d100','#f5f5f2','#9a9a9a'],
+ 'Пастельная':['#f2b6c6','#a9d3ee','#a9c4a5','#f6df8a','#bdbdbd']};
+let cur='Яркая';
+const W=93,H=230,BW=18; // mm
+function brush(x,y,c,id){ // 18 x 170 mm, in mm units
+  const s=BW/72; // path drawn in 72-wide units
+  const light=c==='#f5f5f2'||c==='#f6df8a'||c==='#f9d100';
+  return `<g transform="translate(${x},${y}) scale(${s})">
+   <path d="M30,40 L46,40 L50,220 C68,262 72,300 70,420 L66,656 Q64,680 44,680 L28,680 Q8,680 6,656 L2,420 C0,300 6,262 24,220 Z" fill="${c}" stroke="rgba(0,0,0,${light?.18:.1})" stroke-width="2"/>
+   <path d="M14,300 C12,380 12,520 16,640" stroke="#fff" stroke-opacity=".45" stroke-width="7" fill="none" stroke-linecap="round"/>
+   <rect x="2" y="22" width="48" height="28" rx="12" fill="${c}" stroke="rgba(0,0,0,.12)" stroke-width="2"/>
+   <rect x="8" y="0" width="28" height="30" rx="8" fill="#fbfbfb" stroke="#cfcfcf" stroke-width="2"/>
+   <path d="M14,4v22M20,3v24M26,3v24M31,5v20" stroke="#ddd" stroke-width="1.6"/></g>`}
+function blister(top){ // clear blister over the five brushes
+  return `<rect x="1.2" y="${top-3}" width="${W-2.4}" height="${H-top+1.5}" rx="5" fill="url(#gl)" stroke="rgba(255,255,255,.9)" stroke-width=".6"/>
+  <rect x="1.2" y="${top-3}" width="${W-2.4}" height="${H-top+1.5}" rx="5" fill="none" stroke="rgba(0,0,0,.12)" stroke-width=".3"/>
+  <path d="M8,${top+4} L8,${H-10}" stroke="#fff" stroke-opacity=".7" stroke-width="1.2" stroke-linecap="round"/>`}
+function pack(v){
+  const cols=PAL[cur], top=58, gap=(W-2-5*BW)/4;
+  const br=cols.map((c,i)=>brush(1+i*(BW+gap),top,c)).join('');
+  const hole=`<circle cx="${W/2}" cy="7.5" r="3.5" fill="#d9d7d2" stroke="rgba(0,0,0,.25)" stroke-width=".3"/>`;
+  const logo=`<image href="logo.svg" x="${W/2-22}" y="15" width="44" height="13.6"/>`;
+  let bg='',txt='';
+  if(v==='A'){
+    bg=`<rect width="${W}" height="${H}" rx="3" fill="#fff"/>
+     <path d="M0,${H} L0,120 L${W},62 L${W},${H}Z" fill="#000"/>
+     <path d="M0,${H} L0,${H-26} L${W},${H-58} L${W},${H-46} Z" fill="var(--r)"/>
+     <path d="M0,${H} L0,${H-14} L${W},${H-46} L${W},${H-34} Z" fill="var(--y)"/>`;
+    txt=`<text x="${W/2}" y="38" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="5.6" fill="#000">МОНОПУЧКОВЫЕ</text>
+     <text x="${W/2}" y="44.5" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="5.6" fill="#000">ЗУБНЫЕ ЩЁТКИ</text>
+     <rect x="${W/2-27}" y="47.5" width="29" height="6.4" rx="3.2" fill="#000"/><text x="${W/2-12.5}" y="52.2" text-anchor="middle" font-family="Montserrat" font-weight="700" font-size="3.4" fill="#fff">НАБОР 5 ШТ.</text>
+     <rect x="${W/2+4}" y="47.5" width="20" height="6.4" rx="3.2" fill="var(--y)"/><text x="${W/2+14}" y="52.2" text-anchor="middle" font-family="Montserrat" font-weight="700" font-size="3.6" fill="#000">МЯГКАЯ</text>`;
+  } else {
+    bg=`<rect width="${W}" height="${H}" rx="3" fill="#fff"/>
+     <rect x="0" y="56" width="${W}" height="${H-56}" fill="#eeeeec"/>
+     <rect x="0" y="${H-5}" width="${W/3}" height="5" fill="#000"/><rect x="${W/3}" y="${H-5}" width="${W/3}" height="5" fill="var(--r)"/><rect x="${2*W/3}" y="${H-5}" width="${W/3+.1}" height="5" fill="var(--y)"/>
+     <text x="${W/2}" y="150" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="110" fill="#000" fill-opacity=".07">5</text>`;
+    txt=`<text x="${W/2}" y="38" text-anchor="middle" font-family="Montserrat" font-weight="700" font-size="5.6" fill="#000" letter-spacing=".2">МОНОПУЧКОВЫЕ</text>
+     <text x="${W/2}" y="44" text-anchor="middle" font-family="Montserrat" font-weight="700" font-size="5.6" fill="#000" letter-spacing=".2">ЗУБНЫЕ ЩЁТКИ</text>
+     <text x="${W/2}" y="51.5" text-anchor="middle" font-family="Montserrat" font-weight="400" font-size="4" fill="#000">набор 5 шт. <tspan fill="var(--r)">•</tspan> мягкая</text>`;
+  }
+  return `<svg viewBox="0 0 ${W} ${H}"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".35" stop-color="#fff" stop-opacity=".05"/><stop offset=".8" stop-color="#fff" stop-opacity=".12"/><stop offset="1" stop-color="#fff" stop-opacity=".3"/></linearGradient>
+   <clipPath id="cp"><rect width="${W}" height="${H}" rx="3"/></clipPath></defs>
+   <g clip-path="url(#cp)">${bg}${hole}${logo}${txt}${br}${blister(top)}</g></svg>`;
+}
+function render(){
+  document.querySelectorAll('.pack').forEach(p=>p.innerHTML=pack(p.dataset.v));
+  document.getElementById('pal').innerHTML='<b>Цвета щёток:</b>'+Object.entries(PAL).map(([n,c])=>`<button class="${n===cur?'on':''}" data-n="${n}"><i>${c.map(x=>`<b style="background:${x}"></b>`).join('')}</i>${n}</button>`).join('');
+}
+document.getElementById('pal').onclick=e=>{const b=e.target.closest('button');if(b){cur=b.dataset.n;render()}};
+render();
+</script>
+</body>
+</html>
