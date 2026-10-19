@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>БУФЕТ - легендарные вкусы Горного Алтая (эскиз)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#171615;--bg2:#211f1d;--card:#2a2725;--line:#3a3633;--tx:#f3eee7;--mut:#b5ada3;--red:#e2241c;--red2:#ff4a3d;--tq:#41c9c0;--gold:#d8b26a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Unbounded,sans-serif;line-height:1.15;margin:0}
+.note{background:var(--tq);color:#0d2422;font-size:13px;font-weight:700;text-align:center;padding:7px 12px}
+/* шапка */
+header{position:absolute;left:0;right:0;top:34px;z-index:5}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:18px}
+.logo{width:150px;filter:drop-shadow(0 2px 10px rgba(0,0,0,.35))}
+.hnav{display:flex;gap:26px;font-weight:700;font-size:15px}
+.hnav a{text-decoration:none;opacity:.9}.hnav a:hover{color:var(--tq)}
+.htel{font-weight:800;text-decoration:none;white-space:nowrap}
+@media(max-width:860px){.hnav{display:none}.logo{width:118px}.htel{font-size:14px}}
+/* первый экран */
+.hero{position:relative;min-height:760px;display:flex;align-items:center;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url(img/hero.jpg) 60% 40%/cover}
+.hero .bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,13,12,.92) 0%,rgba(14,13,12,.72) 40%,rgba(14,13,12,.15) 75%),linear-gradient(0deg,var(--bg) 0%,transparent 26%)}
+.hero .wrap{position:relative;width:100%;padding-top:120px;padding-bottom:110px}
+.hero h1{font-size:clamp(30px,4.6vw,58px);font-weight:800;max-width:780px;text-transform:uppercase;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;color:var(--red2)}
+.hero h1 small{display:block;font-size:.42em;font-weight:500;text-transform:none;letter-spacing:0;margin-top:14px;color:#e9e1d6;line-height:1.3}
+.hero p.sub{max-width:560px;font-size:18px;color:#ddd5ca;margin:22px 0 26px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.badge{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:8px 16px 8px 10px;font-weight:700;font-size:14px}
+.badge i{width:30px;height:30px;border-radius:50%;background:var(--tq);display:grid;place-items:center}
+.badge svg{width:18px;height:18px}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:.3px;border-radius:12px;padding:17px 26px;border:0;cursor:pointer;box-shadow:0 10px 30px rgba(226,36,28,.35);transition:.2s}
+.btn:hover{background:var(--red2);transform:translateY(-2px)}
+.btn svg{width:20px;height:20px}
+.maral{position:absolute;right:max(20px,calc(50% - 600px));bottom:70px;width:300px;z-index:2}
+.maral .ph{border-radius:160px 160px 18px 18px;overflow:hidden;border:3px solid rgba(255,255,255,.85);box-shadow:0 20px 50px rgba(0,0,0,.5);aspect-ratio:3/4}
+.maral .ph img{width:100%;height:100%;object-fit:cover;object-position:58% 50%}
+.maral span{display:block;text-align:center;margin-top:10px;font-weight:700;font-size:14px;color:#e9e1d6}
+@media(max-width:1000px){.maral{display:none}}
+@media(max-width:640px){.hero{min-height:680px}.hero .bg:after{background:linear-gradient(180deg,rgba(14,13,12,.55),rgba(14,13,12,.85) 60%,var(--bg))}.hero p.sub{font-size:16px}}
+/* секции */
+section{padding:84px 0}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:34px;flex-wrap:wrap}
+.sh h2{font-size:clamp(24px,3vw,38px);max-width:820px}
+.sh h2 span{color:var(--red2)}
+.kick{display:block;font:700 13px Manrope;letter-spacing:2px;text-transform:uppercase;color:var(--tq);margin-bottom:12px}
+/* категории */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.cats{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.cats{grid-template-columns:1fr}}
+.cat{position:relative;background:linear-gradient(135deg,#3a1d1a,#2a2725 55%);border:1px solid var(--line);border-radius:20px;padding:22px 22px 20px;min-height:228px;overflow:hidden;cursor:pointer;transition:.25s;display:flex;flex-direction:column}
+.cat:hover{border-color:var(--red);transform:translateY(-3px)}
+.cat h3{font-size:18px;position:relative;z-index:1;max-width:62%}
+.cat p{color:var(--mut);font-size:14px;margin:10px 0 0;position:relative;z-index:1;max-width:60%}
+.cat img{position:absolute;right:-18px;bottom:-14px;width:46%;border-radius:18px;transform:rotate(-6deg);box-shadow:0 14px 30px rgba(0,0,0,.5)}
+.cat .go{margin-top:auto;padding-top:14px;font-weight:800;font-size:13px;color:var(--red2);position:relative;z-index:1}
+.cat:nth-child(2){background:linear-gradient(135deg,#173431,#2a2725 60%)}.cat:nth-child(2):hover{border-color:var(--tq)}.cat:nth-child(2) .go{color:var(--tq)}
+.cat:nth-child(3){background:linear-gradient(135deg,#3b2a17,#2a2725 60%)}
+.cat:nth-child(6){background:linear-gradient(135deg,#1f2d1c,#2a2725 60%)}
+/* каталог */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;position:sticky;top:0;z-index:4;background:var(--bg);padding:12px 0}
+.tab{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:30px;padding:9px 16px;font:700 14px Manrope;cursor:pointer}
+.tab.on{background:var(--red);border-color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:720px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+.pr{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.pr .im{background:#fff;aspect-ratio:1;position:relative;cursor:pointer}
+.pr .im img{width:100%;height:100%;object-fit:contain;padding:8px}
+.pr .im .tag{position:absolute;left:10px;top:10px;background:var(--red);color:#fff;font-size:11px;font-weight:800;border-radius:20px;padding:3px 9px}
+.pr .noimg{display:grid;place-items:center;height:100%;background:linear-gradient(135deg,#efe9df,#e2d9cb);color:#8b7f70;font-size:13px;font-weight:700;text-align:center;padding:20px}
+.pr .noimg svg{width:54px;height:54px;margin:0 auto 8px;opacity:.6}
+.pr .b{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
+.pr h4{margin:0 0 6px;font-size:15px;line-height:1.3}
+.pr .d{color:var(--mut);font-size:13px;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pr .w{font-size:12px;color:var(--mut);margin-bottom:10px}
+.pr .row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pr .pz{font:800 19px Unbounded}.pr .pz.q{font:700 13px Manrope;color:var(--gold)}
+.add{background:var(--red);border:0;color:#fff;border-radius:10px;width:42px;height:42px;display:grid;place-items:center;cursor:pointer;flex:none}
+.add:hover{background:var(--red2)}.add svg{width:20px;height:20px}
+@media(max-width:720px){.pr h4{font-size:14px}.pr .d{display:none}.pr .pz{font-size:16px}}
+/* почему мы */
+.why{background:var(--bg2);position:relative;overflow:hidden}
+.why .in{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+@media(max-width:900px){.why .in{grid-template-columns:1fr}}
+.why .ph{border-radius:24px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.why .ph img{width:100%;height:100%;object-fit:cover}
+.why .ph b{position:absolute;left:18px;bottom:16px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);border-radius:12px;padding:8px 14px;font-size:13px}
+.rs{display:grid;gap:16px;margin-top:26px}
+.r{display:flex;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.r i{flex:none;width:62px;height:62px;border-radius:16px;background:rgba(65,201,192,.12);display:grid;place-items:center}
+.r svg{width:36px;height:36px}
+.r h3{font-size:17px;margin-bottom:4px}.r p{margin:0;color:var(--mut);font-size:14px}
+/* контакты */
+.contacts .in{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:800px){.contacts .in{grid-template-columns:1fr}}
+.cc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px}
+.cc h3{font-size:18px;margin-bottom:14px}
+.cc .ph{font:800 22px Unbounded;text-decoration:none;display:block;margin:4px 0}
+.cc .who{color:var(--mut);font-size:14px}
+.cc .msg{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:#3d2bd6;border-radius:10px;padding:9px 14px;font-weight:800;font-size:14px;text-decoration:none}
+.cc.red{background:linear-gradient(135deg,#4a1512,#2a2725 70%)}
+.req{color:var(--mut);font-size:14px;margin-top:12px}
+footer{border-top:1px solid var(--line);padding:30px 0 120px;color:#8d857b;font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer img{width:110px;opacity:.9}
+/* нижнее меню как в референсе */
+.dock{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:20;display:flex;gap:4px;background:rgba(40,37,35,.88);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.dock a{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;font-size:11px;font-weight:700;color:#cfc7bc;padding:6px 14px;border-radius:12px;position:relative}
+.dock a:hover,.dock a.on{background:rgba(255,255,255,.08);color:#fff}
+.dock svg{width:22px;height:22px}
+.dock .cnt{position:absolute;right:6px;top:2px;background:var(--red);color:#fff;border-radius:10px;font-size:10px;min-width:18px;height:18px;display:grid;place-items:center;padding:0 4px}
+.toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,20px);opacity:0;background:#fff;color:#111;font-weight:700;border-radius:12px;padding:10px 16px;transition:.25s;z-index:30;font-size:14px;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+/* карточка товара */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:40;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.on{display:flex}
+.mb{background:var(--bg2);border:1px solid var(--line);border-radius:22px;max-width:860px;width:100%;max-height:90vh;overflow:auto;display:grid;grid-template-columns:1fr 1.2fr}
+@media(max-width:720px){.mb{grid-template-columns:1fr}}
+.mb .im{background:#fff}.mb .im img{width:100%;aspect-ratio:1;object-fit:contain;padding:14px}
+.mb .tx{padding:26px;position:relative}.mb h3{font-size:20px;margin-bottom:12px;padding-right:30px}
+.mb p{color:#d6cec3;font-size:14px;white-space:pre-line}.mb .sost{color:var(--mut);font-size:13px}
+.mb .x{position:absolute;right:16px;top:14px;background:none;border:0;color:#fff;font-size:28px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="note">Эскиз дизайна для обсуждения. Сайт будет собран в Тильде в аккаунте заказчика - цены, фото и товары можно менять самостоятельно.</div>
+
+<header><div class="wrap">
+  <a href="#top"><img class="logo" src="img/logo.png" alt="БУФЕТ"></a>
+  <nav class="hnav"><a href="#cats">Каталог</a><a href="#why">Почему мы</a><a href="#contacts">Контакты</a></nav>
+  <a class="htel" href="tel:89081045144">8 908 104-51-44</a>
+</div></header>
+
+<div class="hero" id="top">
+  <div class="bg"></div>
+  <div class="wrap">
+    <h1>Легендарные вкусы <em>Горного Алтая</em><small>гастрономические сокровища с доставкой по России</small></h1>
+    <p class="sub">Деликатесы из марала, целебный высокогорный чай и натуральные таёжные сладости. Всё лучшее, что создали горы для вашей силы и здоровья.</p>
+    <div class="badges">
+      <span class="badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="#0d2422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></svg></i>Имеется доставка</span>
+      <span class="badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="#0d2422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg></i>100% натуральное</span>
+    </div>
+    <a class="btn" href="#catalog">Хочу попробовать Алтай! <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="maral"><div class="ph"><img src="img/maral.jpg" alt="Алтайский марал"></div><span>Алтайский марал - символ гор</span></div>
+</div>
+
+<section id="cats"><div class="wrap">
+  <div class="sh"><div><span class="kick">Наши яства</span><h2>Золотой фонд алтайской кухни: <span>выберите своё удовольствие</span></h2></div></div>
+  <div class="cats" id="catsEl"></div>
+</div></section>
+
+<section id="catalog" style="padding-top:20px"><div class="wrap">
+  <div class="sh"><div><span class="kick">Каталог</span><h2>Всё, что привезли с Алтая</h2></div></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="why" id="why"><div class="wrap in">
+  <div class="ph"><img src="img/katun2.jpg" alt="Катунь"><b>Катунь, Горный Алтай</b></div>
+  <div>
+    <span class="kick">Почему мы</span>
+    <h2 style="font-size:clamp(22px,2.6vw,32px)">3 причины, почему наши продукты уже заказывают себе, маме, друзьям и коллегам</h2>
+    <div class="rs">
+      <div class="r"><i><svg viewBox="0 0 48 48" fill="none" stroke="#41c9c0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 6h10M21 6v12L11 38a3 3 0 0 0 2.7 4h20.6a3 3 0 0 0 2.7-4L27 18V6"/><path d="M15 30h18"/><path d="M6 42 42 6" stroke="#ff4a3d"/></svg></i><div><h3>Без ГМО и антибиотиков</h3><p>Мясо диких и пастбищных животных, травы и ягоды без химии.</p></div></div>
+      <div class="r"><i><svg viewBox="0 0 48 48" fill="none" stroke="#41c9c0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="32" height="20" rx="4"/><path d="M42 21v6"/><path d="M12 20v8M18 20v8M24 20v8" stroke="#ff4a3d"/></svg></i><div><h3>Заряд энергии на весь день</h3><p>Чистый белок марала и яка, целебные сборы трав - сила гор в каждом продукте.</p></div></div>
+      <div class="r"><i><svg viewBox="0 0 48 48" fill="none" stroke="#41c9c0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 40 18 14l8 13 5-7 14 20Z"/><path d="m14 21 4 4 4-5" stroke="#fff"/><circle cx="36" cy="10" r="3" stroke="#ff4a3d"/></svg></i><div><h3>100% экологически чистый регион</h3><p>Всё производится в Горном Алтае - вдали от заводов и больших трасс.</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="contacts" id="contacts"><div class="wrap">
+  <div class="sh"><div><span class="kick">Контакты</span><h2>Закажите вкус Алтая</h2></div></div>
+  <div class="in">
+    <div class="cc red"><h3>Заказы и вопросы</h3><a class="ph" href="tel:89081045144">8 908 104-51-44</a><div class="who">Людмила</div>
+      <a class="msg" href="#">Написать в MAX</a></div>
+    <div class="cc"><h3>Сетевые и корпоративные клиенты</h3><a class="ph" href="tel:89095370807">8 909 537-08-07</a><div class="who">Михаил</div>
+      <div class="req">ИП Аксенов М.В.<br>Адрес: <i>добавим ваш адрес</i></div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><img src="img/logo.png" alt="БУФЕТ"><div>© БУФЕТ. Продукты Горного Алтая. ИП Аксенов М.В.<br>Фото природы: «Бирюзовая Катунь и быстрая Чуя» - Rost.galis, CC BY-SA 4.0; «Chemal Katun Mouth» - SilvioMartin, CC BY-SA 4.0; «Altai maral 2» - Dmitry A. Mottl, CC BY-SA 3.0 (Wikimedia Commons).</div></div></footer>
+
+<nav class="dock">
+  <a href="#top" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Главная</a>
+  <a href="#catalog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Каталог</a>
+  <a href="#contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Контакты</a>
+  <a href="#" id="cartBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h11L21 7H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>Корзина<span class="cnt" id="cnt">0</span></a>
+</nav>
+<div class="toast" id="toast">Добавлено в корзину</div>
+<div class="modal" id="modal"><div class="mb"><div class="im" id="mIm"></div><div class="tx"><button class="x" id="mX">×</button><h3 id="mH"></h3><p id="mD"></p><p class="sost" id="mS"></p><div class="row" style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span class="pz" id="mP" style="font:800 22px Unbounded"></span><button class="btn" id="mAdd" style="padding:12px 18px;font-size:14px">В корзину</button></div></div></div></div>
+
+<script>
+const CATS=[
+ {id:'meat',name:'Дикое мясо и деликатесы',d:'Дикое мясо и сырокопченые деликатесы (марал, як, конина) — чистый белок, мощь и первозданный вкус.',img:'m1'},
+ {id:'tea',name:'Целебный чай',d:'Целебные сборы и таёжный чай — аромат диких трав, энергия утром и глубокий релакс вечером.',img:'t1'},
+ {id:'sweet',name:'Таёжные сладости',d:'Натуральные сладости и кедровый грильяж — полезное лакомство без капли химии, которое можно даже детям.',img:'c1'},
+ {id:'semi',name:'Пельмени и манты',d:'Настоящие пельмени и манты ручной лепки — когда сочно, сытно и по-домашнему.',img:'p2'},
+ {id:'can',name:'Тушёнка',d:'Домашняя тушёнка по старинным рецептам — честный состав, сытость и польза настоящего цельного мяса.',img:'k2'},
+ {id:'cosm',name:'Алтайская косметика',d:'Травяное мыло ручной работы и органические губки для тела. Ощутите силу алтайской природы и устройте спа-ритуал у себя дома.',img:'g1'}];
+const P=[
+ ['meat','m1','Мясо варёно-копчёное','Из марала, конины, яка (сарлыка) и говядины — по старинной технологии. Домашний посол 10 суток без инъекций, копчение на буковой щепе. Чистый, насыщенный вкус мяса с лёгкой дымной нотой.','','1 кг',2900,'хит'],
+ ['meat','m2','Балык свиной','Нежный и сочный свиной балык — изысканный деликатес из отборной свинины. Аппетитная прослойка жира делает его особенно вкусным и ароматным.','','1 кг',1300],
+ ['meat','m3','Корейка варёно-копчёная','Ароматная и сытная свиная корейка с насыщенным вкусом и красивой мраморной текстурой.','','1 кг',1200],
+ ['meat','m4','Рулет мясной из корейки б/к','Свиной рулет с чесноком и пряностями. Удобная нарезка, сочная серединка и пряная корочка — хит любой мясной тарелки.','','1 кг',1250],
+ ['meat','m5','Шпик корейковый солёный','Ароматное сало с нежной прослойкой мяса, приготовленное методом варки и копчения. Идеальная закуска к ржаному хлебу и горчице.','','1 кг',950],
+ ['tea','t1','Чай «Горы Алтая» (бодрящий)','Укрепит здоровье, восстановит силы, поднимет настроение и зарядит энергией на целый день.','Лист смородины черной, лист курильского чая, плоды облепихи, плоды шиповника, лист бадана, лист облепихи, мелисса.','100 г, ручной сбор',450,'хит'],
+ ['tea','t2','Чай «Катунский хребет» (освежающий)','Оригинальный вкус и аромат. Подарит радость и повысит жизненный тонус.','Лист смородины черной, лист курильского чая, плоды шиповника, лист бадана, лист мяты перечной.','100 г, ручной сбор',450],
+ ['tea','t3','Чай «Озеро Тумана» (успокаивающий)','Необычный вкус. Поможет избежать стресса и сбалансирует нервную систему.','Плоды боярышника, трава чабреца, плоды шиповника, кукурузные рыльца, трава володушки, трава зверобоя.','100 г, ручной сбор',450],
+ ['tea','t4','Напиток чайный «Ягодка» витаминный','Общеукрепляющий витаминный напиток: ягоды и листья самых полезных растений Горного Алтая.','Бадан, курильский чай, лист малины, чабрец, лист смородины, ягода шиповника, ягода облепихи.','дикорастущие травы',450],
+ ['tea','t5','Напиток чайный «Батыр» для здоровья мужчин','Повышение жизненного тонуса, поддержка мужского здоровья.','Иван-чай, бадан, шиповник, красный корень, золотой корень.','дикорастущие травы',450],
+ ['tea','t6','Напиток чайный «Золотая луна» для здоровья женщин','Ароматный напиток, поддерживающий женское здоровье, гормональный баланс и красоту.','Кипрей, лабазник, лист малины, лист смородины, лаванда, красная щётка, душица.','дикорастущие травы',450],
+ ['tea','t7','Чай в пирамидках «Мир Алтая» (иммунный)','Освежающий чай с множеством вкусовых оттенков. Способствует пищеварению, ускоряет метаболизм, восстанавливает силы.','Мята, кипрей, чага, земляника, курильский чай.','в пирамидках',340],
+ ['tea','t8','Чёрный чай с Саган Дайля (тонизирующий)','Саган Дайля с отборным чёрным чаем: уникальный вкус, тонизирующее действие, повышает работоспособность.','Чай чёрный (индийский), саган дайля.','',450],
+ ['sweet','c1','«Кедровое ассорти»','Кедровый орех с алтайскими ягодами — клюквой, брусникой, черникой, облепихой и красной смородиной, кедровая халва и натуральный мёд в тёмном шоколаде. Подарочный набор.','Ядро кедрового ореха, горно-алтайский мёд, натуральный шоколад, вяленые ягоды, кедровая халва.','200 г',1300,'подарок'],
+ ['sweet','c2','Конфеты «Горно-Алтайский кедр»','Тёмный шоколад, целая горсть кедрового ореха и алтайский мёд. Большая подарочная упаковка.','Ядро кедрового ореха, горно-алтайский мёд, натуральный шоколад.','большая упаковка',1300],
+ ['sweet','c3','Конфеты «Кедровый микс»','Облепиха, алтайский мёд и кедровые орехи в тёмном шоколаде. Вкусы: облепиха, черника, брусника, клубника, клюква.','','100 г',650],
+ ['sweet','c4','«Матрёшки кедровые»','Шоколадные матрёшки с кедровым орехом, клюквой и алтайским мёдом — в тёмном и молочном шоколаде.','','',500],
+ ['sweet','c5','Шоколадный зайчик с печеньем и сгущёнкой','Не пустая фигурка, а почти пирожное: молочный шоколад, печенье со сгущёнкой и кокосовая стружка.','','',380],
+ ['semi','p1','Пельмени «Русские»','Свинина, говядина.','','0,8 кг',550],
+ ['semi','p2','Пельмени «Сибирские» из мяса марала','Мясо марала, свинина, говядина.','','0,8 кг',600,'марал'],
+ ['semi','p3','Пельмени «Домашние»','Свинина, говядина.','','0,8 кг',550],
+ ['semi','p4','Пельмени «Элитные» из мяса марала','Мясо марала (оленя).','','0,8 кг',600,'марал'],
+ ['semi','p5','Манты «Домашние»','Свинина, говядина, шпик.','','1 кг',800],
+ ['semi','p6','Манты «Таёжные» с бараниной','Баранина, жир-сырец бараний.','','1 кг',950],
+ ['semi','p7','Манты «Элитные» с мясом марала','Мясо марала (оленя).','','1 кг',880,'марал'],
+ ['semi','','Котлеты «Нежные» из мяса курицы','Мясо курицы.','','1 кг',880],
+ ['can','','Оленина тушёная','Тушёнка из мяса оленя в жестяной банке.','','ж/б',0],
+ ['can','k2','Марал мясо тушёное','Тушёнка из благородного мяса марала. Только мясо и мараловый жир. Жестяная (0,338 л) или ламистерная (0,25 л) банка.','Срок годности: 5 лет — жестяная банка, 3 года — ламистер.','ж/б 0,338 л',0,'марал'],
+ ['can','k3','Мясо яка (сарлыка) тушёное','Экзотическая тушёнка: мясо яка и его жир, без искусственных добавок. Уникальный вкус дикого мяса.','Срок годности: 5 лет — жестяная банка, 3 года — ламистер.','ж/б 0,338 л',0],
+ ['can','k4','Свинина тушёная','Классическая тушёнка: сочное мясо в собственном жиру с чёрным перцем и лавровым листом. Без субпродуктов и добавок.','Срок годности 5 лет.','ж/б',0],
+ ['can','k5','Баранина тушёная','Ароматная баранина в бараньем жире с чёрным перцем и лавровым листом. Без искусственных компонентов.','Срок хранения 5 лет.','ж/б',0],
+ ['cosm','g1','Мочалка льняная с органическим мылом','Просто намочите — и мочалка готова: льняные волокна мягко очищают кожу, органическое мыло нежно пенится. Карман фиксирует мочалку на руке для массажа.','','1 шт.',350],
+ ['cosm','','Пенящиеся губки 2 в 1','Губка пропитана мягкой моющей основой — принять душ легко и удобно.','','1 шт.',0]];
+const $=s=>document.querySelector(s);
+const ICON='<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="36" height="28" rx="4"/><circle cx="17" cy="20" r="3"/><path d="m6 34 11-9 8 7 6-5 11 9"/></svg>';
+const price=v=>v?v.toLocaleString('ru-RU')+' ₽':'';
+$('#catsEl').innerHTML=CATS.map(c=>`<div class="cat" data-c="${c.id}"><h3>${c.name}</h3><p>${c.d}</p><span class="go">Смотреть →</span><img src="img/${c.img}.jpg" alt=""></div>`).join('');
+let cur='all';
+function drawTabs(){$('#tabs').innerHTML=[['all','Все товары'],...CATS.map(c=>[c.id,c.name])].map(([id,n])=>`<button class="tab ${id===cur?'on':''}" data-c="${id}">${n}</button>`).join('')}
+function drawGrid(){$('#grid').innerHTML=P.map((p,i)=>[p,i]).filter(([p])=>cur==='all'||p[0]===cur).map(([p,i])=>`<div class="pr">
+  <div class="im" data-i="${i}">${p[1]?`<img src="img/${p[1]}.jpg" alt="">`:`<div class="noimg"><div>${ICON}Фото пришлёте -<br>поставлю</div></div>`}${p[7]?`<span class="tag">${p[7]}</span>`:''}</div>
+  <div class="b"><h4>${p[2]}</h4><p class="d">${p[3]}</p><div class="w">${p[5]}</div>
+  <div class="row">${p[6]?`<span class="pz">${price(p[6])}</span>`:`<span class="pz q">Цена уточняется</span>`}<button class="add" data-i="${i}" aria-label="В корзину"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button></div></div></div>`).join('')}
+drawTabs();drawGrid();
+let n=0;const toast=$('#toast');
+function add(){n++;$('#cnt').textContent=n;toast.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>toast.classList.remove('on'),1400)}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('.tab,.cat,.add,.pr .im,#mX,#mAdd,#cartBtn');if(!t)return;
+  if(t.matches('.tab')){cur=t.dataset.c;drawTabs();drawGrid()}
+  else if(t.matches('.cat')){cur=t.dataset.c;drawTabs();drawGrid();$('#catalog').scrollIntoView()}
+  else if(t.matches('.add')||t.id==='mAdd'){add();if(t.id==='mAdd')$('#modal').classList.remove('on')}
+  else if(t.matches('.pr .im')){const p=P[+t.dataset.i];$('#mIm').innerHTML=p[1]?`<img src="img/${p[1]}.jpg" alt="">`:`<div class="pr"><div class="noimg" style="aspect-ratio:1">${ICON}</div></div>`;$('#mH').textContent=p[2];$('#mD').textContent=p[3];$('#mS').textContent=p[4]?'Состав: '+p[4]:'';$('#mP').textContent=p[6]?price(p[6]):'Цена уточняется';$('#modal').classList.add('on')}
+  else if(t.id==='mX')$('#modal').classList.remove('on');
+  else if(t.id==='cartBtn'){e.preventDefault();toast.textContent=n?`В корзине товаров: ${n}. Оформление заказа - в Тильде`:'Корзина пока пуста';add&&toast.classList.add('on');setTimeout(()=>{toast.classList.remove('on');toast.textContent='Добавлено в корзину'},1800)}
+});
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('on')});
+</script>
+</body>
+</html>
