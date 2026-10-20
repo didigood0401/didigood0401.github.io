@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Доставка Почтой России в Shop-Script - демо</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--tx:#1c2230;--mut:#6b7385;--line:#e3e6ec;--acc:#2a5bd7;--acc-l:#eaf0fd;--ok:#1f9d55;--pr:#0055a6;--warn:#c2410c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--acc)}
+input,select,button{font:inherit;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+@media(max-width:600px){.wrap{padding:0 16px}}
+.demo{background:#14213d;color:#dfe6f5;font-size:13.5px}
+.demo .wrap{display:flex;gap:10px 18px;align-items:center;justify-content:space-between;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.demo b{color:#fff}
+.demo nav{display:flex;gap:4px}
+.demo nav a{color:#fff;opacity:.7;padding:4px 12px;border-radius:20px;text-decoration:none}
+.demo nav a.on{opacity:1;background:rgba(255,255,255,.14)}
+.shop{background:#fff;border-bottom:1px solid var(--line)}
+.shop .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.logo{font-weight:700;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.logo i{width:32px;height:32px;border-radius:50%;background:#3f7d4f;display:grid;place-items:center;color:#fff;font-style:normal;font-size:17px}
+.shop nav{display:flex;gap:22px;color:var(--mut);font-size:14px;margin-left:auto}
+@media(max-width:700px){.shop nav{display:none}}
+h1{font-size:28px;letter-spacing:-.02em;margin:28px 0 20px}
+.page{display:none}.page.on{display:block}
+.grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start;padding-bottom:60px}
+@media(max-width:940px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:18px}
+@media(max-width:600px){.card{padding:18px 16px}}
+.card h2{font-size:17px;margin:0 0 16px;display:flex;align-items:center;gap:10px}
+.card h2 span{width:26px;height:26px;border-radius:50%;background:var(--acc-l);color:var(--acc);display:grid;place-items:center;font-size:13px;flex:none}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.f2{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--mut);margin-bottom:5px}
+.in{width:100%;height:44px;border:1px solid var(--line);border-radius:8px;padding:0 12px;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s}
+.in:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-l)}
+.hint{font-size:12.5px;color:var(--mut);margin-top:5px;min-height:19px}
+.hint.ok{color:var(--ok)}.hint.err{color:var(--warn)}
+.ix{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.ix button{border:1px solid var(--line);background:#fff;border-radius:20px;padding:3px 10px;font-size:12.5px;cursor:pointer;color:var(--mut)}
+.ix button:hover{border-color:var(--acc);color:var(--acc)}
+.dl{display:grid;gap:10px}
+.opt{display:grid;grid-template-columns:22px 44px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:14px 16px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:#b9c6e8}
+.opt.sel{border-color:var(--acc);background:#f7f9ff}
+.opt input{accent-color:var(--acc);width:18px;height:18px;margin:0}
+.opt .ic{width:44px;height:44px;border-radius:8px;background:#e8f0fb;display:grid;place-items:center}
+.opt .ic svg{width:26px;height:26px}
+.opt b{display:block;font-weight:600}
+.opt small{color:var(--mut);font-size:13px}
+.opt .pr{text-align:right;font-weight:700;font-size:16px;white-space:nowrap}
+.opt .pr small{display:block;font-weight:400;font-size:12px}
+.opt.dis{opacity:.5;cursor:default}
+.sk{height:72px;border-radius:10px;background:linear-gradient(90deg,#eef0f4 0%,#f7f8fa 50%,#eef0f4 100%);background-size:200% 100%;animation:sk 1.2s linear infinite}
+@keyframes sk{to{background-position:-200% 0}}
+.empty{border:1px dashed var(--line);border-radius:10px;padding:18px;color:var(--mut);font-size:14px;text-align:center}
+.cart{display:grid;gap:14px}
+.it{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center}
+.it .ph{width:56px;height:56px;border-radius:8px;display:grid;place-items:center;font-size:26px}
+.it b{display:block;font-weight:500;font-size:14px;line-height:1.35}
+.it small{color:var(--mut);font-size:12.5px}
+.it .q{display:flex;align-items:center;gap:6px;margin-top:4px}
+.it .q button{width:24px;height:24px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer;line-height:1}
+.it .s{font-weight:600;white-space:nowrap}
+.tot{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;display:grid;gap:8px;font-size:14px}
+.tot div{display:flex;justify-content:space-between;gap:10px}
+.tot .mut{color:var(--mut)}
+.tot .big{font-size:20px;font-weight:700;padding-top:6px}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;height:50px;border:0;border-radius:10px;background:var(--acc);color:#fff;font-weight:600;cursor:pointer;margin-top:16px}
+.btn:hover{background:#1f4bbd}
+.btn:disabled{background:#a9b5d6;cursor:default}
+.side{position:sticky;top:16px}
+.note{font-size:12.5px;color:var(--mut);margin-top:10px}
+.free{background:#ecfdf3;color:#166534;border-radius:8px;padding:9px 12px;font-size:13px;margin-top:12px}
+.free i{display:block;height:5px;background:#cdeedb;border-radius:4px;margin-top:6px;overflow:hidden}.free i b{display:block;height:100%;background:var(--ok);border-radius:4px;transition:width .3s}
+
+/* админка */
+.adm{display:grid;grid-template-columns:220px 1fr;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:60px}
+@media(max-width:820px){.adm{grid-template-columns:1fr}.adm aside{display:none}}
+.adm aside{background:#f8f9fb;border-right:1px solid var(--line);padding:18px 0;font-size:14px}
+.adm aside div{padding:8px 20px;color:var(--mut)}
+.adm aside div.on{color:var(--tx);font-weight:600;background:#fff;box-shadow:inset 3px 0 0 var(--acc)}
+.adm aside h6{margin:12px 20px 6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9aa1b0}
+.adm main{padding:24px 28px}
+@media(max-width:600px){.adm main{padding:18px 16px}}
+.adm h3{margin:0 0 4px;font-size:19px}
+.adm .sub{color:var(--mut);font-size:13.5px;margin:0 0 22px}
+.st{display:grid;grid-template-columns:230px 1fr;gap:10px 22px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+@media(max-width:700px){.st{grid-template-columns:1fr;gap:6px}}
+.st>span{font-size:14px;font-weight:500}
+.st>span small{display:block;font-weight:400;color:var(--mut);font-size:12.5px}
+.st .in{max-width:340px}
+.chk{display:flex;flex-wrap:wrap;gap:8px 18px}
+.chk label{display:flex;align-items:center;gap:8px;color:var(--tx);font-size:14px;margin:0;cursor:pointer}
+.chk input{accent-color:var(--acc);width:17px;height:17px}
+.conn{display:flex;align-items:center;gap:10px;background:#ecfdf3;border:1px solid #bbe7cc;color:#166534;border-radius:8px;padding:10px 14px;font-size:13.5px;margin-bottom:6px}
+.conn i{width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none}
+.save{display:flex;gap:12px;align-items:center;margin-top:22px;flex-wrap:wrap}
+.save .btn{width:auto;padding:0 26px;margin:0;height:44px}
+.save span{font-size:13.5px;color:var(--ok);opacity:0;transition:opacity .3s}.save span.on{opacity:1}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#9aa1b0;font-weight:600;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tw{overflow-x:auto}
+.bd{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12.5px;font-weight:500;white-space:nowrap}
+.bd.n{background:#fff4e5;color:#b45309}.bd.c{background:var(--acc-l);color:var(--acc)}.bd.p{background:#ecfdf3;color:#166534}
+.sm{border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 12px;font-size:13px;cursor:pointer;white-space:nowrap}
+.sm:hover{border-color:var(--acc);color:var(--acc)}
+.sm.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+.trk{font-family:ui-monospace,Consolas,monospace;font-size:13px}
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 22px}
+@media(max-width:820px){.how{grid-template-columns:1fr 1fr}}
+.how div{background:#f8f9fb;border:1px solid var(--line);border-radius:10px;padding:14px;font-size:13.5px}
+.how b{display:block;color:var(--acc);font-size:12px;margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="demo"><div class="wrap">
+  <span><b>Демо:</b> официальный модуль Почты России в Shop-Script. Тарифы и сроки считаются вживую через калькулятор Почты.</span>
+  <nav><a href="#checkout" data-p="checkout" class="on">Оформление заказа</a><a href="#settings" data-p="settings">Настройки плагина</a><a href="#orders" data-p="orders">Отправления</a></nav>
+</div></div>
+<div class="shop"><div class="wrap"><div class="logo"><i>❦</i>Чайная лавка</div><nav><span>Каталог</span><span>Доставка и оплата</span><span>Контакты</span><span>Корзина</span></nav></div></div>
+
+<!-- оформление заказа -->
+<section class="page on" id="checkout"><div class="wrap">
+<h1>Оформление заказа</h1>
+<div class="grid">
+  <div>
+    <div class="card"><h2><span>1</span>Контактные данные</h2>
+      <div class="f2"><div><label>Имя и фамилия</label><input class="in" value="Анна Смирнова"></div><div><label>Телефон</label><input class="in" value="+7 900 000-00-00"></div></div>
+    </div>
+    <div class="card"><h2><span>2</span>Адрес доставки</h2>
+      <div class="f2">
+        <div><label>Почтовый индекс</label><input class="in" id="to" inputmode="numeric" maxlength="6" placeholder="6 цифр" value="454000">
+          <div class="hint" id="toh"></div>
+          <div class="ix">Попробовать: <button data-i="190000">СПб</button><button data-i="620014">Екатеринбург</button><button data-i="630099">Новосибирск</button><button data-i="690091">Владивосток</button><button data-i="683000">Камчатка</button></div>
+        </div>
+        <div><label>Улица, дом, квартира</label><input class="in" value="ул. Труда, д. 10, кв. 5"></div>
+      </div>
+    </div>
+    <div class="card"><h2><span>3</span>Способ доставки</h2>
+      <div class="dl" id="dl"></div>
+      <div class="note" id="dn">Стоимость и сроки приходят из калькулятора Почты России (tariff.pochta.ru) для отправки из <b id="fromName">Москвы</b>, вес посылки <b id="wt">-</b>.</div>
+    </div>
+  </div>
+  <div class="side"><div class="card"><h2>Ваш заказ</h2>
+    <div class="cart" id="cart"></div>
+    <div class="tot">
+      <div class="mut"><span>Товары</span><span id="sGoods"></span></div>
+      <div class="mut"><span>Доставка</span><span id="sDel">выберите способ</span></div>
+      <div class="big"><span>Итого</span><span id="sTot"></span></div>
+    </div>
+    <div class="free" id="free"></div>
+    <button class="btn" id="go" disabled>Оформить заказ</button>
+    <div class="note">Это демо: заказ не создаётся, данные никуда не отправляются.</div>
+  </div></div>
+</div>
+</div></section>
+
+<!-- настройки плагина -->
+<section class="page" id="settings"><div class="wrap">
+<h1>Настройки плагина</h1>
+<div class="adm">
+  <aside><h6>Магазин</h6><div>Заказы</div><div>Товары</div><div>Покупатели</div><h6>Настройки</h6><div>Оплата</div><div class="on">Доставка</div><div>Статусы заказов</div><div>Оформление заказа</div></aside>
+  <main>
+    <h3>Почта России (официальный модуль)</h3>
+    <p class="sub">Доставка → Почта России → Конфигурация. Изменения сразу применяются к форме заказа во вкладке «Оформление заказа».</p>
+    <div class="conn"><i></i>Личный кабинет otpravka.pochta.ru подключён по API-токену</div>
+    <div class="st"><span>Индекс отделения отправки<small>Откуда магазин сдаёт посылки</small></span><input class="in" id="cFrom" value="125009" maxlength="6" inputmode="numeric"></div>
+    <div class="st"><span>Виды отправлений<small>Что увидит покупатель</small></span><div class="chk">
+      <label><input type="checkbox" value="4030" checked>Посылка</label>
+      <label><input type="checkbox" value="47030" checked>Посылка 1 класса</label>
+      <label><input type="checkbox" value="7030" checked>EMS</label></div></div>
+    <div class="st"><span>Вес упаковки, г<small>Добавляется к весу товаров</small></span><input class="in" id="cPack" type="number" value="150" min="0" step="10"></div>
+    <div class="st"><span>Вес товара по умолчанию, г<small>Если у товара вес не указан</small></span><input class="in" type="number" value="300" min="0" step="10"></div>
+    <div class="st"><span>Наценка на доставку, %<small>Например, на упаковку и сдачу</small></span><input class="in" id="cMark" type="number" value="0" min="0" max="100"></div>
+    <div class="st"><span>Бесплатная доставка от, ₽<small>0 - отключено</small></span><input class="in" id="cFree" type="number" value="5000" min="0" step="500"></div>
+    <div class="st"><span>Округление стоимости<small>Как показывать цену в корзине</small></span><select class="in" id="cRound"><option value="1">До рубля</option><option value="10" selected>До 10 ₽</option><option value="50">До 50 ₽</option></select></div>
+    <div class="st"><span>Наложенный платёж<small>Оплата при получении</small></span><div class="chk"><label><input type="checkbox" id="cCod">Разрешить</label></div></div>
+    <div class="save"><button class="btn" id="saveBtn">Сохранить</button><span id="saved">Сохранено. Форма заказа пересчитана.</span></div>
+  </main>
+</div>
+</div></section>
+
+<!-- отправления -->
+<section class="page" id="orders"><div class="wrap">
+<h1>Отправления</h1>
+<div class="how"><div><b>Шаг 1</b>Заказ оформлен на сайте с доставкой Почтой</div><div><b>Шаг 2</b>«Создать отправление» - заказ уходит в ЛК otpravka.pochta.ru</div><div><b>Шаг 3</b>Отправления собираются в партию на день</div><div><b>Шаг 4</b>Печать ярлыков и формы, трек-номер уходит покупателю</div></div>
+<div class="adm" style="grid-template-columns:1fr"><main>
+  <h3>Заказы с доставкой Почтой России</h3><p class="sub">Нажмите кнопки в таблице - так будет выглядеть работа с отправлениями.</p>
+  <div class="tw"><table><thead><tr><th>Заказ</th><th>Покупатель</th><th>Индекс</th><th>Вид</th><th>Вес</th><th>Статус</th><th></th></tr></thead><tbody id="ob"></tbody></table></div>
+  <div class="save"><button class="btn" id="batch">Сформировать партию</button><span id="bmsg"></span></div>
+</main></div>
+</div></section>
+
+<script>
+const API='https://tariff.pochta.ru/v2/calculate/';
+const KINDS={4030:{n:'Посылка',d:'Обычная посылка, до отделения'},47030:{n:'Посылка 1 класса',d:'Быстрее обычной, авиа и наземно'},7030:{n:'EMS',d:'Ускоренная, курьером до двери'}};
+const icon='<svg viewBox="0 0 24 24" fill="none" stroke="#0055a6" stroke-width="1.6" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9M7.5 5.2l9 4.6"/></svg>';
+const cart=[{n:'Улун «Те Гуань Инь», 250 г',e:'🍃',bg:'#e9f3e6',p:1290,w:270,q:1},{n:'Чайник из исинской глины, 200 мл',e:'☕',bg:'#f6ebe2',p:2450,w:420,q:1},{n:'Пиалы керамические, набор 4 шт.',e:'🍵',bg:'#e8eef7',p:890,w:380,q:1}];
+const cfg={from:'125009',kinds:[4030,47030,7030],pack:150,mark:0,free:5000,round:10};
+let sel=null,res={},seq=0,fromName='Москвы';
+const $=id=>document.getElementById(id),rub=v=>Math.round(v).toLocaleString('ru-RU')+' ₽';
+const goods=()=>cart.reduce((s,i)=>s+i.p*i.q,0),weight=()=>cart.reduce((s,i)=>s+i.w*i.q,0)+(+cfg.pack||0);
+
+function drawCart(){
+  $('cart').innerHTML=cart.map((i,k)=>`<div class="it"><div class="ph" style="background:${i.bg}">${i.e}</div><div><b>${i.n}</b><div class="q"><button data-k="${k}" data-d="-1">−</button><small>${i.q} шт. · ${i.w*i.q} г</small><button data-k="${k}" data-d="1">+</button></div></div><div class="s">${rub(i.p*i.q)}</div></div>`).join('');
+}
+$('cart').onclick=e=>{const b=e.target.closest('button');if(!b)return;const it=cart[b.dataset.k];it.q=Math.max(1,Math.min(9,it.q+ +b.dataset.d));drawCart();calc()};
+
+function price(kop){let v=kop/100*(1+(+cfg.mark||0)/100);const r=+cfg.round||1;return Math.ceil(v/r)*r}
+const isFree=()=>cfg.free>0&&goods()>=cfg.free;
+function days(d){if(!d)return'';const a=d.min,b=d.max;const w=n=>n%10==1&&n%100!=11?'день':n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'дня':'дней';return a==b?`${a} ${w(a)}`:`${a}-${b} ${w(b)}`}
+
+async function q(kind,ep,to,w){
+  const u=`${API}${ep}?json&object=${kind}&from=${cfg.from}&to=${to}&weight=${w}&pack=10&date=${new Date().toISOString().slice(0,10).replace(/-/g,'')}`;
+  const r=await fetch(u);return r.json();
+}
+async function calc(){
+  const to=$('to').value.trim(),w=weight(),my=++seq;
+  $('wt').textContent=(w/1000).toLocaleString('ru-RU',{maximumFractionDigits:2})+' кг';
+  if(!/^\d{6}$/.test(to)){$('toh').className='hint';$('toh').textContent='Введите индекс - стоимость рассчитается автоматически';$('dl').innerHTML='<div class="empty">Укажите почтовый индекс, чтобы увидеть варианты доставки</div>';res={};sel=null;sum();return}
+  $('toh').className='hint';$('toh').textContent='Ищем отделение...';
+  $('dl').innerHTML=cfg.kinds.map(()=>'<div class="sk"></div>').join('')||'<div class="empty">В настройках не выбран ни один вид отправления</div>';
+  const out={};let place='';
+  await Promise.all(cfg.kinds.map(async k=>{try{
+    const [t,d]=await Promise.all([q(k,'tariff',to,w),q(k,'delivery',to,w)]);
+    const po=(t.postoffice||[]).find(p=>p.index==to);if(po&&po.name)place=po.name;
+    if(t.paynds&&!t.errors)out[k]={kop:t.paynds,del:d.delivery};else out[k]={err:(t.errors&&t.errors[0]&&t.errors[0].msg)||'недоступно'};
+  }catch(e){out[k]={err:'нет связи с калькулятором Почты'}}}));
+  if(my!==seq)return;
+  res=out;
+  const okAny=Object.values(out).some(o=>o.kop);
+  if(okAny){$('toh').className='hint ok';$('toh').textContent='✓ '+(place?place.charAt(0)+place.slice(1).toLowerCase()+', ':'')+'отделение '+to}
+  else{$('toh').className='hint err';$('toh').textContent='По этому индексу Почта не принимает отправления. Проверьте индекс.'}
+  if(!out[sel]||!out[sel].kop)sel=cfg.kinds.find(k=>out[k]&&out[k].kop)||null;
+  draw();
+}
+function draw(){
+  $('dl').innerHTML=cfg.kinds.map(k=>{const o=res[k]||{},K=KINDS[k];
+    if(!o.kop)return`<div class="opt dis"><input type="radio" disabled><span class="ic">${icon}</span><span><b>${K.n}</b><small>Недоступно для этого направления</small></span><span class="pr">-</span></div>`;
+    const p=price(o.kop),f=isFree();
+    return`<label class="opt${sel==k?' sel':''}"><input type="radio" name="d" value="${k}"${sel==k?' checked':''}><span class="ic">${icon}</span><span><b>${K.n}</b><small>${K.d} · ${days(o.del)}</small></span><span class="pr">${f?'<span style="color:var(--ok)">Бесплатно</span><small><s>'+rub(p)+'</s></small>':rub(p)}${cfg.cod?'<small>можно оплатить при получении</small>':''}</span></label>`}).join('');
+  sum();
+}
+$('dl').onchange=e=>{sel=+e.target.value;draw()};
+function sum(){
+  const g=goods();$('sGoods').textContent=rub(g);
+  const o=res[sel];let d=null;if(o&&o.kop)d=isFree()?0:price(o.kop);
+  $('sDel').textContent=d===null?'выберите способ':d===0?'бесплатно':rub(d);
+  $('sTot').textContent=rub(g+(d||0));$('go').disabled=d===null;
+  const fr=$('free');if(cfg.free>0){fr.style.display='';fr.innerHTML=isFree()?'Доставка бесплатная - сумма заказа больше '+rub(cfg.free):'До бесплатной доставки осталось '+rub(cfg.free-g)+`<i><b style="width:${Math.min(100,g/cfg.free*100)}%"></b></i>`}else fr.style.display='none';
+}
+$('go').onclick=()=>{$('go').textContent='✓ Заказ оформлен (демо)';setTimeout(()=>$('go').textContent='Оформить заказ',2500)};
+let tm;$('to').oninput=()=>{$('to').value=$('to').value.replace(/\D/g,'');clearTimeout(tm);tm=setTimeout(calc,450)};
+document.querySelectorAll('.ix button').forEach(b=>b.onclick=()=>{$('to').value=b.dataset.i;calc()});
+
+// настройки
+function readCfg(){
+  const f=$('cFrom').value.trim();if(/^\d{6}$/.test(f))cfg.from=f;
+  cfg.kinds=[...document.querySelectorAll('#settings .chk input[value]')].filter(i=>i.checked).map(i=>+i.value);
+  cfg.pack=+$('cPack').value||0;cfg.mark=+$('cMark').value||0;cfg.free=+$('cFree').value||0;cfg.round=+$('cRound').value;cfg.cod=$('cCod').checked;
+  fromName=cfg.from==='125009'?'Москвы':'отделения '+cfg.from;$('fromName').textContent=fromName;
+}
+$('saveBtn').onclick=()=>{readCfg();calc();$('saved').classList.add('on');setTimeout(()=>$('saved').classList.remove('on'),2200)};
+
+// отправления
+const orders=[{n:'#1042',c:'Анна С.',i:'454000',k:'Посылка 1 класса',w:'1,22 кг',s:'n'},{n:'#1041',c:'Игорь П.',i:'190000',k:'Посылка',w:'0,57 кг',s:'n'},{n:'#1040',c:'Мария К.',i:'620014',k:'EMS',w:'2,10 кг',s:'c',t:'80089316842311'},{n:'#1038',c:'Олег Д.',i:'630099',k:'Посылка',w:'0,95 кг',s:'p',t:'80089316799024'}];
+const SN={n:['n','Новый'],c:['c','Отправление создано'],p:['p','В партии']};
+function drawOrders(){
+  $('ob').innerHTML=orders.map((o,k)=>`<tr><td><b>${o.n}</b></td><td>${o.c}</td><td>${o.i}</td><td>${o.k}</td><td>${o.w}</td><td><span class="bd ${SN[o.s][0]}">${SN[o.s][1]}</span>${o.t?'<br><span class="trk">'+o.t+'</span>':''}</td><td>${o.s=='n'?`<button class="sm pri" data-k="${k}">Создать отправление</button>`:`<button class="sm" data-l="${k}">Ярлык PDF</button>`}</td></tr>`).join('');
+}
+$('ob').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.k!==undefined){const o=orders[b.dataset.k];b.textContent='Отправляем...';b.disabled=true;setTimeout(()=>{o.s='c';o.t='800893'+String(Math.floor(1e7+Math.random()*9e7)).slice(0,8);drawOrders()},800)}
+  else{b.textContent='✓ Ярлык скачан (демо)';setTimeout(drawOrders,1600)}};
+$('batch').onclick=()=>{const c=orders.filter(o=>o.s=='c');c.forEach(o=>o.s='p');drawOrders();$('bmsg').classList.add('on');$('bmsg').textContent=c.length?`Партия на ${new Date().toLocaleDateString('ru-RU')}: ${c.length} отпр. Форма 103 и ярлыки готовы к печати (демо).`:'Нет отправлений для партии - сначала создайте отправление.'};
+
+// вкладки
+function show(p){document.querySelectorAll('.page').forEach(s=>s.classList.toggle('on',s.id===p));document.querySelectorAll('.demo nav a').forEach(a=>a.classList.toggle('on',a.dataset.p===p));scrollTo(0,0)}
+document.querySelectorAll('.demo nav a').forEach(a=>a.onclick=e=>{e.preventDefault();history.replaceState(null,'','#'+a.dataset.p);show(a.dataset.p)});
+if(['settings','orders'].includes(location.hash.slice(1)))show(location.hash.slice(1));
+
+drawCart();drawOrders();calc();
+</script>
+</body>
+</html>
