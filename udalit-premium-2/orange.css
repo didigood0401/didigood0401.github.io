@@ -129,3 +129,7 @@ html.doc-open,html.doc-open body{overflow:hidden}
  .socials{margin-left:0;order:2}
  .site-footer>a:last-child{margin-left:auto}
 }
+.yt-pill{display:inline-flex;align-items:center;gap:7px}
+.yt-pill svg{width:16px;height:16px;fill:none;stroke:#ff2a2a;stroke-width:2}
+.yt-pill svg .fill{fill:#ff2a2a;stroke:none}
+.socials a[aria-label^="YouTube"]:hover{background:#ff2a2a}
