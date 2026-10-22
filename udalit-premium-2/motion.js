@@ -86,6 +86,8 @@
   mark($$('.product-card'), 'r', .1);
   mark($$('.catalog-note'));
   mark($$('.benefit'), 'r', .1);
+  mark($$('.docs-facts > div'), 'r', .08);
+  mark($$('.doc-card'), 'r', .12);
   mark($$('.benefits-banner'));
   mark($$('.use-card'), 'r', .1);
   $$('.use-image').forEach((el, i) => { el.classList.add('r-img'); el.style.setProperty('--d', (i * .1 + .15).toFixed(2) + 's'); });

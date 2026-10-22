@@ -66,3 +66,66 @@
  .benefits-banner img{height:60%!important;right:-4%!important;bottom:-4%!important;opacity:1!important}
 }
 @media(prefers-reduced-motion:reduce){.bb-badges li{opacity:1;transform:none;animation:none!important}}
+
+/* «Прошло проверку» — ссылка на документы */
+.bb-badges .bb-b3{pointer-events:auto;padding:0}
+.bb-b3>a{display:flex;align-items:center;gap:11px;padding:9px 16px 9px 9px;color:inherit;text-decoration:none;border-radius:inherit}
+.bb-b3>a::after{content:"↗";color:#7fe3ff;margin-left:2px;transition:transform .35s var(--e-out)}
+.bb-b3:hover{background:rgba(255,255,255,.2);border-color:rgba(127,227,255,.6)}
+.bb-b3:hover>a::after{transform:translate(3px,-3px)}
+@media(max-width:800px){.bb-b3>a{padding:7px 13px 7px 7px;gap:9px}}
+
+/* ---------- документы ---------- */
+.section-docs{padding-top:120px}
+.docs-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:18px}
+.docs-facts>div{background:#fff;border:1px solid #e3ebf2;border-radius:21px;padding:24px 22px}
+.docs-facts b{display:block;font-family:var(--heavy);font-weight:900;font-size:clamp(34px,3.4vw,52px);line-height:1;letter-spacing:-.03em;background:var(--liquid);-webkit-background-clip:text;background-clip:text;color:transparent;padding-top:.08em}
+.docs-facts span{display:block;margin-top:10px;font-size:12px;line-height:1.5;color:#6b7c90}
+.docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.doc-card{display:grid;grid-template-columns:minmax(150px,38%) 1fr;gap:28px;align-items:center;background:#fff;border:1px solid #e1e8ee;border-radius:30px;padding:22px;box-shadow:0 16px 48px rgba(23,69,110,.055);transition:box-shadow .5s var(--e-out),border-color .4s,transform .5s var(--e-out)}
+.doc-card:hover{border-color:#bfe3f7;box-shadow:0 30px 70px rgba(8,92,170,.14);transform:translateY(-6px)}
+.doc-thumb{position:relative;border:0;padding:0;background:#eef4f9;border-radius:16px;overflow:hidden;aspect-ratio:1075/1300;box-shadow:0 14px 30px rgba(9,21,43,.14);transform:rotate(-2deg);transition:transform .6s var(--e-out),box-shadow .5s}
+.doc-thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+.doc-thumb::after{content:"Открыть";position:absolute;inset:auto 10px 10px;padding:9px;border-radius:10px;background:rgba(9,21,43,.82);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .4s var(--e-out)}
+.doc-card:hover .doc-thumb{transform:rotate(0) scale(1.03);box-shadow:0 22px 44px rgba(9,21,43,.2)}
+.doc-card:hover .doc-thumb::after{opacity:1;transform:none}
+.doc-info h3{font-family:var(--heavy);font-size:clamp(28px,2.6vw,38px);line-height:1;letter-spacing:-.03em;margin:12px 0 13px}
+.doc-info p{font-size:12px;line-height:1.6;color:#6e7d8c;margin:0 0 22px}
+.doc-actions{display:flex;gap:10px;align-items:stretch}
+.doc-actions .product-button{width:auto;flex:1;margin:0}
+.doc-pdf{display:inline-flex;align-items:center;justify-content:center;padding:0 16px;border-radius:13px;border:1px solid #cddae8;color:var(--ink);font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap;transition:border-color .3s,background .3s}
+.doc-pdf:hover{border-color:#8fd2f5;background:#f2faff}
+
+.doc-modal{position:fixed;inset:0;z-index:95;display:flex;flex-direction:column;background:rgba(5,12,25,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);animation:m-fade .35s both}
+.doc-modal[hidden]{display:none}
+.doc-modal-bar{display:flex;align-items:center;gap:14px;padding:14px 20px;color:#fff}
+.doc-modal-title{flex:1;font-family:var(--heavy);font-size:18px;letter-spacing:.02em}
+.doc-modal .doc-pdf{color:#fff;border-color:rgba(255,255,255,.3);padding:10px 16px}
+.doc-modal .doc-pdf:hover{background:rgba(255,255,255,.1)}
+.doc-close{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:16px}
+.doc-close:hover{background:#fff;color:var(--ink)}
+.doc-pages{flex:1;overflow:auto;overscroll-behavior:contain;padding:10px 16px 40px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.doc-pages img{width:min(900px,100%);height:auto;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.45);animation:m-up .6s var(--e-out) both}
+.doc-pages img+img{animation-delay:.1s}
+html.doc-open,html.doc-open body{overflow:hidden}
+
+/* ---------- Instagram ---------- */
+.ig-pill{display:inline-flex;align-items:center;gap:7px}
+.ig-pill svg,.socials svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.ig-pill svg .fill,.socials svg .fill{fill:currentColor;stroke:none}
+.ig-pill{background:linear-gradient(#f5fbff,#f5fbff) padding-box,linear-gradient(120deg,#ffb04d,#ff5a3c,#c33bd1) border-box!important;border:1px solid transparent!important}
+.socials{display:flex;gap:10px;margin-left:auto}
+.socials a{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:1px solid #d6e2ec;color:var(--ink);transition:background .3s,color .3s,border-color .3s,transform .35s var(--e-out)}
+.socials a:hover{background:linear-gradient(130deg,#ffb04d,#ff5a3c 45%,#c33bd1);border-color:transparent;color:#fff;transform:translateY(-3px)}
+.socials svg{width:19px;height:19px}
+.site-footer>a:last-child{margin-left:0}
+
+@media(max-width:1080px){.docs-facts{grid-template-columns:repeat(2,1fr)}.docs-grid{grid-template-columns:1fr}}
+@media(max-width:540px){
+ .docs-facts{gap:10px}.docs-facts>div{padding:18px 16px}
+ .doc-card{grid-template-columns:1fr;padding:16px;gap:20px}
+ .doc-thumb{max-height:340px;transform:none}
+ .doc-actions{flex-wrap:wrap}
+ .socials{margin-left:0;order:2}
+ .site-footer>a:last-child{margin-left:auto}
+}
