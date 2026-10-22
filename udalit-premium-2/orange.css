@@ -3,9 +3,10 @@
    2) блок «Продукция» на оранжевом фоне (раскрывается «занавесом», как тёмные блоки). */
 
 /* ---------- первый экран ---------- */
-.hero-title-one .ink{font-size:.62em;letter-spacing:-.04em;color:var(--ink);margin-bottom:6px}
-.hero-title-one .liquid{font-size:1em;padding-top:.14em;margin-top:-.14em}
-.hero-title-one .liquid+.liquid{margin-top:-.16em}
+.hero-title-one>span{font-size:.8em;letter-spacing:-.045em}
+.hero-title-one .ink{color:var(--ink)}
+.hero-title-one .liquid{padding-top:.14em;margin-top:-.14em}
+@media(max-width:540px){.hero-title-one>span{font-size:.95em}}
 
 /* ---------- оранжевый блок продукции ---------- */
 .p-orange{--or1:#ffa53a;--or2:#ff7a1a;--or3:#f0570c;position:relative;isolation:isolate;overflow:hidden;margin-top:30px;background:linear-gradient(135deg,var(--or1) 0%,var(--or2) 48%,var(--or3) 100%);clip-path:inset(0 calc(var(--c,0) * 4vw) round calc(var(--c,0) * 56px))}
