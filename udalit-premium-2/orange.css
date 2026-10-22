@@ -28,3 +28,41 @@
  .p-orange .section-products{padding-top:90px;padding-bottom:80px}
 }
 @media(prefers-reduced-motion:reduce){.p-orange{clip-path:none}}
+
+/* ---------- фото товаров на оранжевом (исходники заказчика, фон перекрашен) ---------- */
+.orange-photos .blue-tint .product-image{background:radial-gradient(circle at 50% 38%,#ffd2a0 0%,#ff9a3c 45%,#f0620f 100%)}
+.orange-photos .product-image.single img{filter:drop-shadow(0 22px 22px rgba(110,35,0,.32))}
+.orange-photos .product-top span:last-child{background:#fff1e4;color:#e2560a}
+.orange-photos .product-card:hover .product-top span:last-child{background:#ff7a1a;color:#fff}
+.orange-photos .product-card:hover{border-color:#ffd0a6;box-shadow:0 30px 70px rgba(200,80,10,.16)}
+
+/* ---------- всплывающие свойства вокруг бутылки ---------- */
+.bb-badges{list-style:none;margin:0;padding:0;position:absolute;inset:0;z-index:4;pointer-events:none}
+.bb-badges li{position:absolute;display:flex;align-items:center;gap:11px;padding:9px 16px 9px 9px;border-radius:999px;color:#fff;white-space:nowrap;background:rgba(255,255,255,.12);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.28);box-shadow:0 16px 40px rgba(0,10,40,.28);opacity:0;transform:translateY(34px) scale(.55)}
+.bb-badges i{width:38px;height:38px;flex-shrink:0;display:grid;place-items:center;border-radius:50%;background:linear-gradient(130deg,#04ccf6,#0473e1 90%);box-shadow:0 6px 16px rgba(4,115,225,.45)}
+.bb-badges svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bb-badges span{display:flex;flex-direction:column;font-size:11px;line-height:1.3;color:#cfe9ff}
+.bb-badges b{font-family:var(--heavy);font-size:17px;font-weight:800;letter-spacing:.01em;text-transform:uppercase;color:#fff}
+.bb-b1{right:calc(21% + 215px);top:18%}
+.bb-b2{right:calc(21% - 250px);top:24%}
+.bb-b3{right:calc(21% + 190px);top:60%}
+.benefits-banner.in .bb-badges li,.benefits-banner:not(.r) .bb-badges li{animation:bb-pop .9s var(--e-out) forwards,bb-bob 5s ease-in-out infinite}
+.benefits-banner .bb-b1{animation-delay:.55s,1.6s!important}
+.benefits-banner .bb-b2{animation-delay:.85s,2.4s!important}
+.benefits-banner .bb-b3{animation-delay:1.15s,3.1s!important}
+@keyframes bb-pop{0%{opacity:0;transform:translateY(34px) scale(.55)}60%{opacity:1;transform:translateY(-6px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes bb-bob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+
+@media(max-width:1080px){
+ .bb-b1{right:calc(21% + 140px)}.bb-b2{right:12px;top:10%}.bb-b3{right:calc(21% + 120px)}
+}
+@media(max-width:800px){
+ .benefits-banner{height:auto;min-height:520px;align-items:flex-start}
+ .bb-badges{inset:auto auto 22px 22px;display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+ .bb-badges li{position:static;padding:7px 13px 7px 7px;gap:9px}
+ .bb-badges i{width:30px;height:30px}.bb-badges svg{width:16px;height:16px}
+ .bb-badges b{font-size:14px}.bb-badges span{font-size:10px}
+ .benefits-banner .round-arrow{position:absolute;right:22px;top:22px}
+ .benefits-banner img{height:60%!important;right:-4%!important;bottom:-4%!important;opacity:1!important}
+}
+@media(prefers-reduced-motion:reduce){.bb-badges li{opacity:1;transform:none;animation:none!important}}
