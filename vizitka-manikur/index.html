@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Визитка мастера маникюра - образец</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--blush:#f4dcd6;--rose:#d9a1a0;--deep:#7a4b52;--milk:#fbf6f2;--gold:#c8a27a;--ink:#3d2b2f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:linear-gradient(160deg,#efe6e1,#e3d3cd);min-height:100vh;font-family:Manrope,sans-serif;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:28px;padding:40px 16px}
+h1{font:500 15px Manrope;letter-spacing:.24em;text-transform:uppercase;color:var(--deep)}
+.row{display:flex;gap:32px;flex-wrap:wrap;justify-content:center}
+.card{width:540px;max-width:100%;aspect-ratio:90/50;border-radius:14px;position:relative;overflow:hidden;box-shadow:0 24px 50px rgba(122,75,82,.22),0 2px 6px rgba(0,0,0,.06)}
+/* лицо */
+.f{background:radial-gradient(circle at 78% 30%,#fff 0,var(--milk) 30%,var(--blush) 100%)}
+.f .name{position:absolute;left:8%;top:22%;font:500 54px/1 "Cormorant Garamond";color:var(--deep)}
+.f .name i{font-style:italic;color:var(--rose)}
+.f .role{position:absolute;left:8.3%;top:52%;font:600 11px Manrope;letter-spacing:.32em;text-transform:uppercase;color:var(--deep)}
+.f .line{position:absolute;left:8.3%;top:61%;width:60px;height:1px;background:var(--gold)}
+.f .tag{position:absolute;left:8.3%;bottom:13%;font:italic 500 17px "Cormorant Garamond";color:var(--deep);opacity:.85}
+.f svg{position:absolute;right:-2%;top:6%;height:92%}
+/* оборот */
+.b{background:var(--deep);color:var(--milk)}
+.b .l{position:absolute;left:8%;top:14%;bottom:14%;display:flex;flex-direction:column;justify-content:space-between}
+.b .l b{font:500 30px/1 "Cormorant Garamond";color:var(--blush)}
+.b .l p{font-size:13px;line-height:1.75;opacity:.92}
+.b .l p span{color:var(--gold);display:inline-block;width:18px}
+.b .qr{position:absolute;right:8%;top:50%;transform:translateY(-50%);background:var(--milk);padding:10px;border-radius:10px;text-align:center}
+.b .qr small{display:block;color:var(--deep);font:600 9px Manrope;letter-spacing:.2em;margin-top:6px}
+.b .dots{position:absolute;right:0;bottom:0;width:38%;height:30%;background:radial-gradient(circle,rgba(244,220,214,.25) 1.2px,transparent 1.6px) 0 0/12px 12px}
+.note{font-size:13px;color:var(--deep);opacity:.8;text-align:center;max-width:620px;line-height:1.6}
+</style></head><body>
+<h1>Визитка мастера маникюра · образец</h1>
+<div class="row">
+ <div class="card f">
+  <div class="name">Вале<i>рия</i></div>
+  <div class="role">Мастер маникюра</div>
+  <div class="line"></div>
+  <div class="tag">аккуратно, бережно, надолго</div>
+  <svg viewBox="0 0 220 300" aria-hidden="true">
+   <defs><linearGradient id="n1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9b8b4"/><stop offset="1" stop-color="#c98c8e"/></linearGradient>
+   <linearGradient id="n2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+   <g transform="rotate(-18 110 150)">
+    <path d="M70 300 C60 220 62 150 78 108 C92 70 140 70 152 108 C166 150 168 220 160 300Z" fill="#f2d5cd"/>
+    <path d="M86 128 C86 92 136 92 136 128 L136 176 C136 190 86 190 86 176Z" fill="url(#n1)"/>
+    <path d="M94 120 C96 102 112 100 116 116 L112 168 C104 170 96 160 94 150Z" fill="url(#n2)"/>
+    <circle cx="124" cy="140" r="3.2" fill="#c8a27a"/><circle cx="118" cy="152" r="2" fill="#c8a27a"/>
+   </g>
+   <circle cx="182" cy="56" r="5" fill="#c8a27a" opacity=".8"/><circle cx="196" cy="80" r="2.5" fill="#c8a27a" opacity=".7"/>
+  </svg>
+ </div>
+ <div class="card b">
+  <div class="l">
+   <b>Запись онлайн</b>
+   <p><span>✆</span>+7 900 000-00-00<br><span>✈</span>@nails_example<br><span>⌂</span>ул. Примерная, 1</p>
+  </div>
+  <div class="qr"><div id="qr"></div><small>ЗАПИСЬ</small></div>
+  <div class="dots"></div>
+ </div>
+</div>
+<p class="note">Образец: имя, телефон и адрес вымышленные. Формат 90×50 мм, макет для печати сдаю в PDF с вылетами 2 мм и в PNG для мессенджеров. QR ведёт на вашу ссылку записи.</p>
+<script>new QRCode(document.getElementById('qr'),{text:'https://example.com/zapis',width:92,height:92,colorDark:'#7a4b52',colorLight:'#fbf6f2'});</script>
+</body></html>
