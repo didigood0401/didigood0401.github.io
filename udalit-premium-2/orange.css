@@ -1,0 +1,30 @@
+/* UdaLit — премиум, правки заказчика:
+   1) заголовок первого экрана «Одно средство для всей уборки»;
+   2) блок «Продукция» на оранжевом фоне (раскрывается «занавесом», как тёмные блоки). */
+
+/* ---------- первый экран ---------- */
+.hero-title-one .ink{font-size:.62em;letter-spacing:-.04em;color:var(--ink);margin-bottom:6px}
+.hero-title-one .liquid{font-size:1em;padding-top:.14em;margin-top:-.14em}
+.hero-title-one .liquid+.liquid{margin-top:-.16em}
+
+/* ---------- оранжевый блок продукции ---------- */
+.p-orange{--or1:#ffa53a;--or2:#ff7a1a;--or3:#f0570c;position:relative;isolation:isolate;overflow:hidden;margin-top:30px;background:linear-gradient(135deg,var(--or1) 0%,var(--or2) 48%,var(--or3) 100%);clip-path:inset(0 calc(var(--c,0) * 4vw) round calc(var(--c,0) * 56px))}
+.p-orange::before{content:"";position:absolute;z-index:-1;width:900px;height:900px;right:-260px;top:-420px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,226,150,.55),transparent);animation:m-drift 15s ease-in-out infinite alternate;pointer-events:none}
+.p-orange::after{content:"";position:absolute;z-index:-1;width:800px;height:800px;left:-300px;bottom:-380px;border-radius:50%;background:radial-gradient(closest-side,rgba(200,60,0,.35),transparent);animation:m-drift 12s ease-in-out infinite alternate-reverse;pointer-events:none}
+.p-orange .section-products{padding-top:130px;padding-bottom:110px}
+.p-orange .section-products::before{display:none}
+.p-orange .eyebrow{color:rgba(9,21,43,.78)}
+.p-orange .section-header h2{color:var(--ink)}
+.p-orange .section-dot{color:#fff}
+.p-orange .section-header p{color:rgba(9,21,43,.72)}
+.p-orange .text-link{color:var(--ink);border-bottom-color:rgba(9,21,43,.35)}
+.p-orange .text-link:hover{color:#fff;border-bottom-color:#fff}
+.p-orange .catalog-note{color:rgba(9,21,43,.62)}
+.p-orange .product-card{border-color:rgba(255,255,255,.6);box-shadow:0 24px 60px rgba(120,40,0,.22)}
+.p-orange .product-card:hover{border-color:#fff;box-shadow:0 34px 80px rgba(110,30,0,.32)}
+
+@media(max-width:800px){
+ .p-orange{clip-path:inset(0 calc(var(--c,0) * 3vw) round calc(var(--c,0) * 32px))}
+ .p-orange .section-products{padding-top:90px;padding-bottom:80px}
+}
+@media(prefers-reduced-motion:reduce){.p-orange{clip-path:none}}
