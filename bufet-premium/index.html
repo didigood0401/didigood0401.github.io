@@ -70,7 +70,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:2
 .maral .ph img{border-radius:190px 190px 10px 10px;aspect-ratio:3/4;width:100%;object-fit:cover;object-position:58% 50%}
 .maral figcaption{text-align:center;margin-top:12px;font:italic 500 19px "Cormorant Garamond";color:#efe6d6}
 @media(max-width:1080px){.maral{display:none}}
-@media(max-width:640px){.hero{min-height:640px}.hero .shade{background:linear-gradient(180deg,rgba(10,14,12,.35),rgba(10,14,12,.7) 55%,var(--ink))}.hero .wrap{justify-content:flex-end;padding-bottom:110px}.coord{display:none}.hmeta .wrap{justify-content:center}}
+@media(max-width:640px){.hero{min-height:640px}.hero .shade{background:linear-gradient(180deg,rgba(10,14,12,.3),rgba(10,14,12,.45) 50%,rgba(10,14,12,.72) 82%,var(--ink))}.hero .wrap{justify-content:flex-end;padding-bottom:110px}.coord{display:none}.hmeta .wrap{justify-content:center}}
 
 /* бегущая строка */
 .ribbon{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:var(--ink2)}
@@ -139,7 +139,7 @@ section{padding:110px 0;position:relative}
 
 /* почему мы */
 .why{background:var(--ink2);overflow:hidden}
-.why .bgimg{position:absolute;inset:-12% 0;background:url(img/katun2.jpg) center/cover;opacity:.28;will-change:transform}
+.why .bgimg{position:absolute;inset:-12% 0;background:url(img/katun2.jpg) center/cover;opacity:.42;filter:saturate(1.35) brightness(1.15);will-change:transform}
 .why .bgimg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink2),rgba(20,27,24,.55) 40%,rgba(20,27,24,.55) 60%,var(--ink2))}
 .why .wrap{position:relative}
 .rs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -452,7 +452,7 @@ const front=new THREE.DirectionalLight('#9fb6d8',.35);front.position.set(80,60,2
 
 // вода: бирюзовая, с бликами неба и мягкой рябью
 const wg=new THREE.PlaneGeometry(W,D,MOB?60:120,MOB?80:160);wg.rotateX(-Math.PI/2);wg.translate(0,0,-D/2+170);
-const wmat=new THREE.MeshPhysicalMaterial({color:'#1fb3a6',roughness:.12,metalness:0,clearcoat:1,clearcoatRoughness:.08,envMapIntensity:1.4,emissive:'#0b4a45',emissiveIntensity:.5,transparent:true,opacity:.94});
+const wmat=new THREE.MeshPhysicalMaterial({color:'#14d6c4',roughness:.12,metalness:0,clearcoat:1,clearcoatRoughness:.08,envMapIntensity:1.4,emissive:'#0aa898',emissiveIntensity:.9,transparent:true,opacity:1,toneMapped:false});
 const water=new THREE.Mesh(wg,wmat);water.position.y=-.05;s.add(water);
 const wp=wg.attributes.position,w0=Float32Array.from(wp.array);
 
