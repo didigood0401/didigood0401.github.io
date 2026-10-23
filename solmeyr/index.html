@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solmeyr - частная авиация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b1022; --ink2:#141a33; --cream:#f4ecdf; --muted:#a9a6b8;
+  --gold:#d9b47a; --gold2:#f3d9a8; --line:rgba(244,236,223,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--ink);color:var(--cream);font-family:Manrope,system-ui,sans-serif}
+body{overflow-x:hidden}
+.hero{position:relative;min-height:100vh;padding:0 64px;display:grid;grid-template-rows:auto 1fr auto;
+  background:
+   radial-gradient(1100px 600px at 78% 55%,rgba(232,140,92,.22),transparent 60%),
+   radial-gradient(900px 500px at 10% 0%,rgba(92,104,190,.25),transparent 60%),
+   linear-gradient(180deg,#0b1022 0%,#121733 60%,#1a1830 100%);overflow:hidden}
+.grain{position:absolute;inset:0;opacity:.07;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;height:96px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:12px;font-family:"Cormorant Garamond",serif;font-size:28px;letter-spacing:.32em;font-weight:600}
+.logo svg{width:30px;height:30px}
+.menu{display:flex;gap:40px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.menu a{color:inherit;text-decoration:none;transition:color .3s}
+.menu a:hover{color:var(--cream)}
+.navr{display:flex;align-items:center;gap:28px;font-size:14px}
+.navr .ph{color:var(--cream);letter-spacing:.04em}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 13px Manrope;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border:0;text-decoration:none}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold) 60%,#b88d52);color:#1a1424;box-shadow:0 10px 40px -10px rgba(217,180,122,.6)}
+.btn-line{border:1px solid rgba(244,236,223,.35);color:var(--cream);background:transparent}
+
+.main{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:40px 0}
+.kicker{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.kicker:before{content:"";width:44px;height:1px;background:var(--gold)}
+h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(56px,6.4vw,104px);line-height:.95;letter-spacing:-.01em;margin:28px 0 30px}
+h1 em{font-style:italic;background:linear-gradient(100deg,var(--gold2),#f0a77b 55%,#e07c6a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:470px;font-size:17px;line-height:1.65;color:var(--muted);font-weight:300}
+.cta{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
+
+/* porthole */
+.port-wrap{position:relative;justify-self:center;width:min(420px,34vw);aspect-ratio:.72}
+.port{position:absolute;inset:0;border-radius:50%/36%;padding:26px;
+  background:linear-gradient(145deg,#2a2f4a,#0d1124 70%);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.08),0 60px 120px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.05)}
+.port:after{content:"";position:absolute;inset:10px;border-radius:50%/36%;border:1px solid rgba(217,180,122,.35)}
+.glass{position:relative;width:100%;height:100%;border-radius:50%/36%;overflow:hidden;
+  background:linear-gradient(180deg,#2c3a7a 0%,#6c5aa3 32%,#e7907a 62%,#f6c98e 74%,#fde7c0 80%,#f5d1a5 100%);
+  box-shadow:inset 0 0 40px rgba(0,0,0,.55)}
+.sun{position:absolute;left:50%;top:71%;width:120px;height:120px;margin:-60px;border-radius:50%;
+  background:radial-gradient(circle,#fff8e6 0 28%,rgba(255,226,170,.7) 40%,transparent 70%);filter:blur(1px)}
+.cloud{position:absolute;left:-30%;width:160%;height:40%;top:74%;
+  background:
+   radial-gradient(60px 26px at 10% 40%,#fbe3c4 60%,transparent 62%),
+   radial-gradient(90px 34px at 24% 55%,#f7d6b6 60%,transparent 62%),
+   radial-gradient(70px 30px at 40% 35%,#fde8cf 60%,transparent 62%),
+   radial-gradient(110px 40px at 56% 60%,#f3cdb0 60%,transparent 62%),
+   radial-gradient(80px 30px at 72% 40%,#fce6cc 60%,transparent 62%),
+   radial-gradient(100px 36px at 88% 58%,#f2c9ab 60%,transparent 62%),
+   linear-gradient(180deg,transparent 45%,#e9b998 46%,#c98c86 100%);
+  filter:blur(3px);animation:drift 26s linear infinite}
+.cloud.c2{top:83%;opacity:.9;filter:blur(5px);animation-duration:40s;animation-direction:reverse}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-18%)}}
+.jet{position:absolute;top:34%;left:-70%;width:210px;animation:fly 14s linear infinite;opacity:.9}
+@keyframes fly{0%{transform:translate(0,10px) rotate(-6deg)}100%{transform:translate(560px,-50px) rotate(-6deg)}}
+.trail{position:absolute;right:88px;top:13px;width:160px;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.7))}
+.shine{position:absolute;inset:0;border-radius:50%/36%;background:linear-gradient(120deg,rgba(255,255,255,.18),transparent 35%)}
+.tag{position:absolute;z-index:4;background:rgba(16,20,42,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--line);border-radius:18px;padding:16px 20px;font-size:13px;color:var(--muted)}
+.tag b{display:block;font:500 26px "Cormorant Garamond",serif;color:var(--cream);margin-bottom:2px}
+.t1{left:-34%;top:18%}.t2{right:-26%;bottom:20%}
+.t1 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7fe0a8;margin-right:8px;box-shadow:0 0 10px #7fe0a8}
+
+/* booking bar */
+.book{position:relative;z-index:3;display:grid;grid-template-columns:repeat(4,1fr) auto;align-items:center;margin-bottom:48px;
+  background:rgba(244,236,223,.06);border:1px solid var(--line);border-radius:24px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px}
+.f{padding:14px 22px;border-right:1px solid var(--line)}
+.f:nth-child(4){border-right:0}
+.f small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.f span{font-size:16px}
+.f span i{font-style:normal;color:var(--muted);font-size:13px;margin-left:6px}
+.book .btn{padding:20px 30px;margin-left:8px}
+.note{position:absolute;left:0;right:0;bottom:14px;text-align:center;font-size:11px;color:rgba(169,166,184,.6);z-index:3}
+
+@media (max-width:900px){
+  .hero{padding:0 20px}
+  nav{height:72px}.menu,.navr .ph{display:none}
+  .logo{font-size:22px}.navr .btn{padding:11px 16px;font-size:11px}
+  .main{grid-template-columns:1fr;gap:28px;padding:28px 0 20px}
+  h1{font-size:52px;margin:18px 0 18px}
+  .lead{font-size:15px}
+  .cta{margin-top:26px}.cta .btn{flex:1;justify-content:center;padding:15px 14px;font-size:11px}
+  .port-wrap{width:64%;order:-1;margin-top:6px}
+  .t1{left:-36%;top:10%;padding:10px 14px}.t2{right:-38%;bottom:12%;padding:10px 14px}
+  .tag b{font-size:20px}.tag{font-size:11px}
+  .book{grid-template-columns:1fr 1fr;margin-bottom:40px}
+  .f{border-right:0;border-bottom:1px solid var(--line);padding:12px 14px}
+  .f:nth-child(odd){border-right:1px solid var(--line)}
+  .book .btn{grid-column:1/-1;justify-content:center;margin:10px 0 0}
+}
+@media (prefers-reduced-motion:reduce){.cloud,.jet{animation:none}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="grain"></div>
+  <nav>
+    <div class="logo">
+      <svg viewBox="0 0 32 32" fill="none" stroke="#d9b47a" stroke-width="1.4"><circle cx="16" cy="16" r="14.5"/><path d="M5 20c6-1 15-5 22-12M12 19l4 7M18 15l7 2"/></svg>
+      SOLMEYR
+    </div>
+    <div class="menu"><a href="#">Чартеры</a><a href="#">Флот</a><a href="#">Сервис на борту</a><a href="#">Членство</a><a href="#">О нас</a></div>
+    <div class="navr"><span class="ph">+7 (900) 000-00-00</span><a class="btn btn-line" href="#">Связаться</a></div>
+  </nav>
+
+  <div class="main">
+    <div>
+      <div class="kicker">Частная авиация · 24/7</div>
+      <h1>Небо <em>по вашему</em><br>расписанию</h1>
+      <p class="lead">Бизнес-джеты в любую точку мира с вылетом за 4 часа. Персональный менеджер, VIP-терминал и сервис на борту - от трансфера до ужина от шефа.</p>
+      <div class="cta">
+        <a class="btn btn-gold" href="#">Рассчитать перелёт →</a>
+        <a class="btn btn-line" href="#">Смотреть флот</a>
+      </div>
+    </div>
+
+    <div class="port-wrap">
+      <div class="port"><div class="glass">
+        <div class="sun"></div>
+        <svg class="jet" viewBox="-160 0 280 30"><defs><linearGradient id="tr"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".75"/></linearGradient></defs><rect x="-160" y="15.5" width="164" height="1.6" fill="url(#tr)"/>
+          <path fill="#2a2440" d="M6 17c10-2 50-6 82-6 10 0 20 2 26 5-6 2-16 4-26 4-30 0-70-1-82-3z"/>
+          <path fill="#2a2440" d="M50 15 64 2h6L62 15zM52 19l16 10h6l-10-10zM6 17 2 7h5l10 9z"/>
+        </svg>
+        <div class="cloud"></div><div class="cloud c2"></div>
+        <div class="shine"></div>
+      </div></div>
+      <div class="tag t1"><b>4 часа</b><span class="dot"></span>от заявки до вылета</div>
+      <div class="tag t2"><b>1 200+</b>аэропортов мира</div>
+    </div>
+  </div>
+
+  <div class="book">
+    <div class="f"><small>Откуда</small><span>Москва<i>VKO</i></span></div>
+    <div class="f"><small>Куда</small><span>Ницца<i>NCE</i></span></div>
+    <div class="f"><small>Дата</small><span>24 октября<i>10:30</i></span></div>
+    <div class="f"><small>Пассажиры</small><span>4 гостя</span></div>
+    <a class="btn btn-gold" href="#">Подобрать борт</a>
+  </div>
+  <div class="note">Эскиз первого экрана · название и данные условные</div>
+</section>
+</body>
+</html>
