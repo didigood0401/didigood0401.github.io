@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>БУФЕТ - легендарные вкусы Горного Алтая (эскиз «Золотая осень»)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f5eee2; --cream2:#ece2d0; --paper:#fffaf2;
+  --ink:#1b2a36; --ink2:#3b4a56; --muted:#7a7468;
+  --gold:#c8862b; --gold2:#e2a94e; --lake:#1f3e57; --katun:#23998f; --red:#c8261f;
+  --line:rgba(27,42,54,.12);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:Manrope,system-ui,sans-serif;
+  --ease:cubic-bezier(.7,0,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+.serif{font-family:var(--serif)}
+.eyebrow{font:700 12px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.note{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;background:rgba(27,42,54,.88);color:#f5eee2;font-size:12px;padding:8px 16px;border-radius:99px;backdrop-filter:blur(6px);white-space:nowrap}
+@media(max-width:760px){.note{white-space:normal;width:calc(100% - 24px);text-align:center}}
+
+/* прелоадер */
+.pre{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center;color:var(--cream)}
+.pre-in{text-align:center}
+.pre img{width:220px;filter:brightness(0) invert(1);opacity:.95}
+.pre-n{font:600 13px var(--sans);letter-spacing:.3em;margin-top:18px;color:var(--gold2)}
+.pre-bar{width:220px;height:1px;background:rgba(245,238,226,.2);margin:14px auto 0;overflow:hidden}
+.pre-bar i{display:block;height:100%;width:0;background:var(--gold2)}
+
+/* шапка */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,box-shadow .4s,transform .5s var(--ease)}
+header.solid{background:rgba(245,238,226,.86);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+header.hide{transform:translateY(-100%)}
+.nav{height:78px;display:flex;align-items:center;gap:36px}
+.logo img{height:30px;width:auto}
+header:not(.solid) .logo img{filter:brightness(0) invert(1)}
+.menu{display:flex;gap:28px;font-size:14px;font-weight:600;margin-left:auto}
+header:not(.solid) .menu,header:not(.solid) .phone{color:#fff}
+.menu a{position:relative}
+.menu a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.menu a:hover::after{transform:scaleX(1);transform-origin:left}
+.phone{font-weight:700;font-size:15px}
+.cart-btn{position:relative;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;transition:transform .3s}
+.cart-btn:hover{transform:scale(1.06)}
+.cart-btn svg{width:20px}
+.cart-btn b{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--red);font-size:11px;display:grid;place-items:center;padding:0 5px}
+.cart-btn.bump{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.25)}}
+@media(max-width:900px){.menu,.phone{display:none}.nav{justify-content:space-between}}
+
+/* первый экран */
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;color:#fff}
+.hero-bg{position:absolute;inset:-6% 0 0 0;will-change:transform}
+.hero-bg img{width:100%;height:112%;object-fit:cover;object-position:50% 40%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,24,33,.55) 0%,rgba(14,24,33,.05) 38%,rgba(14,24,33,.15) 62%,rgba(14,24,33,.78) 100%)}
+.hero-in{position:absolute;left:0;right:0;bottom:9vh;z-index:2}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(52px,8.6vw,138px);line-height:.92;letter-spacing:-.01em;max-width:1100px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.line{display:block;overflow:hidden;padding-bottom:.06em}
+.line>span{display:block}
+.hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-top:34px;flex-wrap:wrap}
+.hero p{max-width:470px;font-size:17px;line-height:1.6;color:rgba(255,255,255,.88)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 28px;border-radius:99px;font-weight:700;font-size:15px;position:relative;overflow:hidden;isolation:isolate;transition:color .4s}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;transform:translateY(101%);transition:transform .5s var(--ease)}
+.btn:hover::before{transform:translateY(0)}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold::before{background:var(--ink)}
+.btn-glass{border:1px solid rgba(255,255,255,.5);color:#fff;backdrop-filter:blur(6px)}.btn-glass::before{background:#fff}.btn-glass:hover{color:var(--ink)}
+.btn-ink{background:var(--ink);color:var(--cream)}.btn-ink::before{background:var(--gold)}
+.badges{position:absolute;top:120px;right:32px;z-index:2;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px);border-radius:99px;padding:9px 16px 9px 10px;font-size:13px;font-weight:600}
+.badge i{width:26px;height:26px;border-radius:50%;background:var(--gold);display:grid;place-items:center}
+.badge svg{width:14px}
+.scroll-hint{position:absolute;left:50%;bottom:22px;z-index:2;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;opacity:.8;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint i{width:1px;height:40px;background:linear-gradient(#fff,transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:760px){.badges{top:auto;bottom:calc(9vh + 2px);right:auto;left:18px;flex-direction:row;display:none}
+  .hero h1{font-size:46px}.hero p{font-size:15px}.hero-in{bottom:11vh}.wrap{padding:0 18px}.btn{height:50px;padding:0 22px}
+  .cats-head{flex-direction:column;align-items:flex-start;margin-bottom:28px}.cats-head p{display:none}.note{font-size:11px}}
+
+/* бегущая строка */
+.marquee{background:var(--ink);color:var(--cream);overflow:hidden;padding:22px 0;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:46px;font-family:var(--serif);font-size:34px;font-style:italic}
+.marquee-track span{display:inline-flex;align-items:center;gap:46px}
+.marquee-track span::after{content:"✦";font-size:16px;color:var(--gold2);font-style:normal}
+
+/* манифест */
+.manifest{padding:150px 0 130px;position:relative}
+.manifest p.big{font-family:var(--serif);font-size:clamp(34px,4.6vw,68px);line-height:1.12;font-weight:500;max-width:1120px}
+.manifest .w{opacity:.14;transition:none}
+.manifest-imgs{position:relative;height:0}
+.float{position:absolute;border-radius:50%;overflow:hidden;box-shadow:0 30px 60px rgba(27,42,54,.18)}
+.float img{width:100%;height:100%;object-fit:cover}
+.f1{width:220px;height:220px;right:4%;top:-560px}
+.f2{width:150px;height:150px;right:20%;top:-180px}
+@media(max-width:900px){.f1,.f2{display:none}}
+.manifest .sign{margin-top:46px;display:flex;align-items:center;gap:18px;color:var(--muted);font-size:14px}
+.manifest .sign b{display:block;color:var(--ink);font-size:15px}
+
+/* категории: горизонтальная лента */
+.cats{background:var(--paper);overflow:hidden}
+.cats-pin{height:100vh;display:flex;flex-direction:column;justify-content:center}
+.cats-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:44px}
+.cats-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(40px,5vw,76px);line-height:1}
+.cats-head h2 em{color:var(--gold);font-style:italic}
+.cats-head p{max-width:380px;color:var(--muted);font-size:15px;line-height:1.6}
+.cats-track{display:flex;gap:26px;padding-left:max(32px,calc((100vw - 1320px)/2 + 32px));will-change:transform}
+.cat{flex:0 0 420px;height:min(56vh,500px);border-radius:28px;position:relative;overflow:hidden;cursor:pointer;color:#fff;background:var(--lake)}
+.cat .ph{position:absolute;inset:0}
+.cat .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.2s var(--ease)}
+.cat:hover .ph img{transform:scale(1)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,24,33,.05) 30%,rgba(14,24,33,.85))}
+.cat .pack{position:absolute;right:22px;top:22px;width:150px;height:150px;border-radius:22px;background:#fff;padding:12px;z-index:2;box-shadow:0 20px 40px rgba(0,0,0,.25);transform:rotate(4deg);transition:transform .6s var(--ease)}
+.cat:hover .pack{transform:rotate(-2deg) translateY(-6px) scale(1.04)}
+.cat .pack img{width:100%;height:100%;object-fit:contain}
+.cat-body{position:absolute;left:28px;right:28px;bottom:26px;z-index:2}
+.cat .num{font:700 12px var(--sans);letter-spacing:.24em;color:var(--gold2)}
+.cat h3{font-family:var(--serif);font-weight:600;font-size:36px;line-height:1.02;margin:10px 0}
+.cat p{font-size:14px;line-height:1.55;color:rgba(255,255,255,.85);max-height:0;opacity:0;overflow:hidden;transition:max-height .6s var(--ease),opacity .5s}
+.cat:hover p{max-height:120px;opacity:1}
+.cat .more{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;margin-top:14px;color:var(--gold2)}
+.cats-progress{height:2px;background:var(--line);margin-top:44px;position:relative;max-width:1256px}
+.cats-progress i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold)}
+@media(max-width:760px){.cat{flex-basis:78vw}.cat p{max-height:none;opacity:1}}
+
+/* раскрывающееся фото */
+.reveal-scene{height:220vh;position:relative}
+.reveal-sticky{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden}
+.reveal-frame{position:absolute;inset:0;clip-path:inset(30% 34% 30% 34% round 28px);will-change:clip-path}
+.reveal-frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.3)}
+.reveal-text{position:relative;z-index:2;text-align:center;color:#fff;pointer-events:none}
+.reveal-text h2{font-family:var(--serif);font-weight:600;font-size:clamp(46px,7vw,112px);line-height:.95;text-shadow:0 10px 50px rgba(0,0,0,.35)}
+.reveal-text h2 em{font-style:italic;color:var(--gold2)}
+.reveal-text p{margin-top:18px;font-size:16px;opacity:.9}
+.reveal-cap{position:absolute;left:32px;bottom:26px;z-index:2;color:rgba(255,255,255,.8);font-size:12px;letter-spacing:.14em}
+
+/* каталог */
+.catalog{padding:130px 0 120px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:40px;flex-wrap:wrap}
+.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(40px,5vw,72px);line-height:1}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.tab{height:42px;padding:0 18px;border-radius:99px;border:1px solid var(--line);font-size:14px;font-weight:600;transition:background .3s,color .3s,border-color .3s}
+.tab:hover{border-color:var(--ink)}
+.tab.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+.card{background:var(--paper);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s}
+.card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(27,42,54,.12)}
+.card .im{aspect-ratio:1;background:#fff;display:grid;place-items:center;overflow:hidden;position:relative}
+.card .im img{width:84%;height:84%;object-fit:contain;transition:transform .8s var(--ease)}
+.card:hover .im img{transform:scale(1.07)}
+.card .tag{position:absolute;left:12px;top:12px;background:var(--gold);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px}
+.card .tag.m{background:var(--katun)}
+.card .bd{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.card h4{font-size:15px;line-height:1.35;font-weight:700;margin-bottom:6px}
+.card .wt{font-size:12px;color:var(--muted)}
+.card .row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px}
+.card .pr{font-family:var(--serif);font-weight:700;font-size:24px}
+.card .pr small{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--muted)}
+.add{width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;transition:background .3s,transform .3s}
+.add:hover{background:var(--gold);transform:rotate(90deg)}
+.add svg{width:18px}
+.noimg{width:100%;height:100%;display:grid;place-items:center;color:#b8ad9b;font-size:12px;text-align:center;background:repeating-linear-gradient(45deg,#f6efe3 0 10px,#fbf6ee 10px 20px)}
+.noimg svg{width:36px;margin:0 auto 6px}
+
+/* три причины: стопка карточек */
+.why{padding:40px 0 140px}
+.why h2{font-family:var(--serif);font-weight:600;font-size:clamp(36px,4.4vw,64px);line-height:1.05;max-width:900px;margin-bottom:60px}
+.why h2 em{font-style:italic;color:var(--gold)}
+.stack{position:relative}
+.reason{position:sticky;top:110px;height:420px;border-radius:32px;display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden;margin-bottom:40px;box-shadow:0 -10px 40px rgba(27,42,54,.08)}
+.reason:nth-child(1){background:var(--lake);color:#fff}
+.reason:nth-child(2){background:#d9c19a;color:var(--ink);top:130px}
+.reason:nth-child(3){background:var(--katun);color:#fff;top:150px}
+.reason .tx{padding:52px;display:flex;flex-direction:column}
+.reason .n{font-family:var(--serif);font-size:90px;line-height:.8;font-weight:600;opacity:.35}
+.reason h3{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1;margin:auto 0 16px}
+.reason p{font-size:16px;line-height:1.6;max-width:430px;opacity:.88}
+.reason .ic{width:62px;height:62px;border-radius:18px;background:rgba(255,255,255,.16);display:grid;place-items:center;margin-top:22px}
+.reason .ic svg{width:32px}
+.reason .ph img{width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){.reason{grid-template-columns:1fr;height:auto}.reason .ph{height:200px}.reason .tx{padding:30px}.reason h3{font-size:34px;margin-top:30px}}
+
+/* доставка + контакты */
+.contacts{background:var(--ink);color:var(--cream);padding:120px 0 40px;position:relative;overflow:hidden}
+.contacts::before{content:"";position:absolute;right:-200px;top:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,134,43,.35),transparent 65%)}
+.ct-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:50px;position:relative}
+.contacts h2{font-family:var(--serif);font-weight:600;font-size:clamp(44px,5.6vw,86px);line-height:.95}
+.contacts h2 em{font-style:italic;color:var(--gold2)}
+.ct{border-top:1px solid rgba(245,238,226,.2);padding-top:22px}
+.ct small{display:block;color:var(--gold2);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px}
+.ct a.tel{font-family:var(--serif);font-size:34px;font-weight:600;display:block}
+.ct p{color:rgba(245,238,226,.7);font-size:14px;line-height:1.6;margin-top:8px}
+.ct .btns{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.ct .btns a{height:42px;padding:0 18px;border-radius:99px;border:1px solid rgba(245,238,226,.3);display:inline-flex;align-items:center;font-size:13px;font-weight:700;transition:background .3s,color .3s}
+.ct .btns a:hover{background:var(--cream);color:var(--ink)}
+@media(max-width:900px){.ct-grid{grid-template-columns:1fr}}
+.wordmark{margin-top:110px;position:relative}
+.wordmark img{width:100%;filter:brightness(0) invert(1);opacity:.08}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:30px;font-size:12px;color:rgba(245,238,226,.5);line-height:1.6}
+.foot .cr{max-width:760px}
+
+/* корзина и карточка товара */
+.shade{position:fixed;inset:0;background:rgba(14,24,33,.5);backdrop-filter:blur(4px);z-index:70;opacity:0;pointer-events:none;transition:opacity .4s}
+.shade.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(480px,100%);background:var(--cream);z-index:80;transform:translateX(100%);transition:transform .6s var(--ease);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dr-h{display:flex;justify-content:space-between;align-items:center;padding:26px 30px;border-bottom:1px solid var(--line)}
+.dr-h h3{font-family:var(--serif);font-size:34px;font-weight:600}
+.x{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);font-size:20px}
+.dr-b{flex:1;overflow:auto;padding:20px 30px}
+.dr-f{padding:22px 30px 30px;border-top:1px solid var(--line)}
+.ci{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.ci .ti{width:64px;height:64px;border-radius:14px;background:#fff;display:grid;place-items:center;overflow:hidden}
+.ci .ti img{width:86%;height:86%;object-fit:contain}
+.ci h5{font-size:14px;line-height:1.3}
+.qty{display:flex;align-items:center;gap:10px;margin-top:6px;font-weight:700;font-size:14px}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line)}
+.ci .sum{font-weight:800;font-size:14px}
+.total{display:flex;justify-content:space-between;font-family:var(--serif);font-size:30px;font-weight:700;margin-bottom:16px}
+.dr-f input{width:100%;height:50px;border-radius:14px;border:1px solid var(--line);background:var(--paper);padding:0 16px;font:inherit;margin-bottom:10px}
+.dr-f .btn{width:100%;justify-content:center}
+.empty{color:var(--muted);text-align:center;padding:60px 0}
+.pd{position:fixed;left:50%;top:50%;z-index:80;width:min(940px,calc(100% - 32px));max-height:calc(100% - 40px);overflow:auto;background:var(--paper);border-radius:30px;display:grid;grid-template-columns:1fr 1fr;transform:translate(-50%,-46%) scale(.96);opacity:0;pointer-events:none;transition:transform .6s var(--ease),opacity .4s}
+.pd.on{transform:translate(-50%,-50%);opacity:1;pointer-events:auto}
+.pd .im{background:#fff;display:grid;place-items:center;min-height:380px}
+.pd .im img{width:80%;height:80%;object-fit:contain}
+.pd .tx{padding:44px 40px;display:flex;flex-direction:column;gap:14px}
+.pd h3{font-family:var(--serif);font-size:40px;line-height:1.02;font-weight:600}
+.pd .ds{font-size:15px;line-height:1.65;color:var(--ink2)}
+.pd .cmp{font-size:13px;line-height:1.6;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.pd .x{position:absolute;right:16px;top:16px;background:var(--paper)}
+@media(max-width:760px){.pd{grid-template-columns:1fr}.pd .im{min-height:240px}.pd .tx{padding:28px}}
+.toast{position:fixed;left:50%;top:96px;z-index:90;transform:translate(-50%,-30px);opacity:0;background:var(--ink);color:var(--cream);padding:12px 20px;border-radius:99px;font-size:14px;font-weight:600;transition:transform .5s var(--ease),opacity .4s;pointer-events:none}
+.toast.on{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+
+<div class="pre" id="pre"><div class="pre-in"><img src="img/logo.png" alt="БУФЕТ"><div class="pre-n"><span id="preN">0</span>%</div><div class="pre-bar"><i id="preBar"></i></div></div></div>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a class="logo" href="#top"><img src="img/logo.png" alt="БУФЕТ - продукты Горного Алтая"></a>
+    <nav class="menu"><a href="#cats" data-go>Наши яства</a><a href="#catalog" data-go>Каталог</a><a href="#why" data-go>Почему мы</a><a href="#contacts" data-go>Контакты</a></nav>
+    <a class="phone" href="tel:89081045144">8 908 104-51-44</a>
+    <button class="cart-btn" id="cartBtn" aria-label="Корзина"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><b id="cartN">0</b></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg"><img src="img/dzhang.jpg" alt="Озеро Джангысколь и Северо-Чуйский хребет осенью"></div>
+  <div class="badges">
+    <div class="badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></i>Доставка по России</div>
+    <div class="badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></i>100% натуральное</div>
+  </div>
+  <div class="hero-in wrap">
+    <div class="eyebrow" style="color:var(--gold2)" data-hero>Гастрономия Горного Алтая</div>
+    <h1><span class="line"><span>Легендарные вкусы</span></span><span class="line"><span><em>Горного Алтая</em></span></span></h1>
+    <div class="hero-row">
+      <p data-hero>Гастрономические сокровища с доставкой по России. Деликатесы из марала, целебный высокогорный чай и натуральные таёжные сладости - всё лучшее, что создали горы для вашей силы и здоровья.</p>
+      <div class="hero-cta" data-hero><a class="btn btn-gold" href="#catalog" data-go>Хочу попробовать Алтай!</a><a class="btn btn-glass" href="#cats" data-go>Смотреть категории</a></div>
+    </div>
+  </div>
+  <div class="scroll-hint">ЛИСТАЙТЕ<i></i></div>
+</section>
+
+<div class="marquee"><div class="marquee-track" id="mq"><span>Марал</span><span>Як</span><span>Кедровый орех</span><span>Облепиха</span><span>Таёжный чай</span><span>Алтайский мёд</span><span>Ручная лепка</span><span>Буковая щепа</span></div></div>
+
+<section class="manifest">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:28px">О нас</div>
+    <p class="big" id="mf">Мы привозим с Алтая то, что там едят сами: мясо пастбищного марала и яка, чай из трав ручного сбора, кедр и облепиху. Без ГМО, без инъекций и без спешки - так, как готовили в горах всегда.</p>
+    <div class="manifest-imgs">
+      <div class="float f1" data-speed="-.25"><img src="img/cone.jpg" alt="Кедровая шишка"></div>
+      <div class="float f2" data-speed=".2"><img src="img/buckthorn.jpg" alt="Облепиха"></div>
+    </div>
+    <div class="sign"><div><b>Людмила и Михаил</b>основатели «БУФЕТ»</div></div>
+  </div>
+</section>
+
+<section class="cats" id="cats">
+  <div class="cats-pin" id="catsPin">
+    <div class="wrap cats-head">
+      <div><div class="eyebrow" style="margin-bottom:16px">Наши яства</div><h2>Золотой фонд <em>алтайской кухни</em></h2></div>
+      <p>Шесть направлений, которые мы привозим с Алтая. Нажмите на категорию - откроются её товары.</p>
+    </div>
+    <div class="cats-track" id="catsTrack"></div>
+    <div class="wrap"><div class="cats-progress"><i id="catsBar"></i></div></div>
+  </div>
+</section>
+
+<section class="reveal-scene" id="rv">
+  <div class="reveal-sticky">
+    <div class="reveal-frame" id="rvFrame"><img id="rvImg" src="img/belukha2.jpg" alt="Белуха и Аккемское озеро"></div>
+    <div class="reveal-text"><h2>Из сердца<br><em>Алтая</em></h2><p>Белуха, 4506 м - самая высокая вершина Сибири</p></div>
+    <div class="reveal-cap">АККЕМСКОЕ ОЗЕРО · ГОРНЫЙ АЛТАЙ</div>
+  </div>
+</section>
+
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow" style="margin-bottom:16px">Каталог</div><h2>Всё, что привезли<br>с Алтая</h2></div><p style="max-width:360px;color:var(--muted);line-height:1.6">Нажмите на товар, чтобы прочитать описание и состав. Корзина сама посчитает сумму.</p></div>
+    <div class="tabs" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px">Почему мы</div>
+    <h2>3 причины, почему наши продукты заказывают <em>себе, маме, друзьям и коллегам</em></h2>
+    <div class="stack">
+      <div class="reason"><div class="tx"><div class="n">01</div><h3>Без ГМО и антибиотиков</h3><p>Мясо пастбищных животных, травы и ягоды без химии и инъекций.</p><div class="ic"><svg viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 4h8M14 4v8L7 25a2 2 0 0 0 2 3h14a2 2 0 0 0 2-3l-7-13V4"/><path d="M5 27 27 5"/></svg></div></div><div class="ph"><img src="img/maral.jpg" alt="Алтайский марал"></div></div>
+      <div class="reason"><div class="tx"><div class="n">02</div><h3>Заряд энергии на весь день</h3><p>Чистый белок марала и яка, целебные сборы трав: сила гор в каждом продукте.</p><div class="ic" style="background:rgba(27,42,54,.1)"><svg viewBox="0 0 32 32" fill="none" stroke="#1b2a36" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="22" height="13" rx="3"/><path d="M28 14v5M9 16.5h4M11 14.5v4"/></svg></div></div><div class="ph"><img src="img/cone.jpg" alt="Кедр"></div></div>
+      <div class="reason"><div class="tx"><div class="n">03</div><h3>100% экологически чистый регион</h3><p>Всё производится в Горном Алтае, вдали от заводов и больших трасс.</p><div class="ic"><svg viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M3 26 12 10l5 8 4-5 8 13Z"/><path d="m9.5 14.5 2.5 2 2-1.5"/></svg></div></div><div class="ph"><img src="img/katun2.jpg" alt="Река Катунь"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="ct-grid">
+      <h2>Закажите<br><em>вкус Алтая</em></h2>
+      <div class="ct"><small>Заказы и вопросы</small><a class="tel" href="tel:89081045144">8 908 104-51-44</a><p>Людмила - оформит заказ и подскажет, что выбрать в подарок.</p><div class="btns"><a href="#">Написать в MAX</a><a href="tel:89081045144">Позвонить</a></div></div>
+      <div class="ct"><small>Сетевые и корпоративные клиенты</small><a class="tel" href="tel:89095370807">8 909 537-08-07</a><p>Михаил. ИП Аксенов М.В.<br>Адрес: добавим ваш адрес · Доставка по России</p></div>
+    </div>
+    <div class="wordmark"><img src="img/logo.png" alt=""></div>
+    <div class="foot"><span>© БУФЕТ. Продукты Горного Алтая. ИП Аксенов М.В.</span><span class="cr" id="credits"></span></div>
+  </div>
+</section>
+
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer"><div class="dr-h"><h3>Корзина</h3><button class="x" data-close>×</button></div><div class="dr-b" id="cartList"></div>
+  <div class="dr-f"><div class="total"><span>Итого</span><span id="cartSum">0 ₽</span></div><form id="order"><input required placeholder="Ваше имя"><input required type="tel" placeholder="Телефон"><button class="btn btn-ink" type="submit">Оформить заказ</button></form></div></aside>
+<div class="pd" id="pd"><button class="x" data-close>×</button><div class="im" id="pdIm"></div><div class="tx" id="pdTx"></div></div>
+<div class="toast" id="toast">Добавлено в корзину</div>
+<div class="note">Эскиз «Золотая осень» для обсуждения: тексты и товары из ТЗ, фото товаров ваши</div>
+
+<script src="data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const STILL = new URLSearchParams(location.search).has('still');
+const RED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const rub = v => v ? v.toLocaleString('ru-RU') + ' ₽' : '';
+const PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+const NOIMG = '<div class="noimg"><div><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="36" height="28" rx="4"/><circle cx="17" cy="20" r="3"/><path d="m6 34 11-9 8 7 6-5 11 9"/></svg>фото добавим</div></div>';
+// фон категорий: атмосферные кадры под каждую категорию
+const CAT_BG = {meat: 'maral', tea: 'belukha', sweet: 'cone', semi: 'dzhang', can: 'katun2', cosm: 'buckthorn'};
+const items = P.map((p, i) => ({id: i, cat: p[0], img: p[1], name: p[2], desc: p[3], cmp: p[4], wt: p[5], price: p[6], tag: p[7] || ''}));
+
+/* ---------- категории ---------- */
+$('#catsTrack').innerHTML = CATS.map((c, i) => `
+  <div class="cat" data-cat="${c.id}">
+    <div class="ph"><img src="img/${CAT_BG[c.id]}.jpg" alt="" loading="lazy"></div>
+    <div class="pack"><img src="img/${c.img}.jpg" alt="${c.name}"></div>
+    <div class="cat-body"><div class="num">0${i + 1} / 06</div><h3>${c.name}</h3><p>${c.d}</p><span class="more">Смотреть товары →</span></div>
+  </div>`).join('');
+
+/* ---------- каталог ---------- */
+let cur = 'all';
+$('#tabs').innerHTML = [['all', 'Все товары'], ...CATS.map(c => [c.id, c.name])].map(([id, n]) => `<button class="tab${id === 'all' ? ' on' : ''}" data-tab="${id}">${n}</button>`).join('');
+function cardHTML(p) {
+  const pr = p.price ? `<span class="pr">${rub(p.price)}</span>` : `<span class="pr"><small>цена по запросу</small></span>`;
+  const tag = p.tag ? `<span class="tag${p.tag === 'марал' ? ' m' : ''}">${p.tag}</span>` : '';
+  return `<div class="card" data-id="${p.id}"><div class="im">${p.img ? `<img src="img/${p.img}.jpg" alt="${p.name}" loading="lazy">` : NOIMG}${tag}</div>
+    <div class="bd"><h4>${p.name}</h4><span class="wt">${p.wt}</span><div class="row">${pr}${p.price ? `<button class="add" data-add="${p.id}" aria-label="В корзину">${PLUS}</button>` : ''}</div></div></div>`;
+}
+function renderGrid(anim) {
+  const list = items.filter(p => cur === 'all' || p.cat === cur);
+  $('#grid').innerHTML = list.map(cardHTML).join('');
+  if (anim && !RED) gsap.from('#grid .card', {y: 40, opacity: 0, duration: .7, stagger: .04, ease: 'power3.out'});
+  ScrollTrigger.refresh();
+}
+renderGrid(false);
+$('#tabs').addEventListener('click', e => {
+  const b = e.target.closest('.tab'); if (!b) return;
+  $$('.tab').forEach(t => t.classList.toggle('on', t === b)); cur = b.dataset.tab; renderGrid(true);
+});
+
+/* ---------- корзина и карточка товара ---------- */
+const cart = {};
+function openLayer(el) { $('#shade').classList.add('on'); el.classList.add('on'); lenis && lenis.stop(); }
+function closeAll() { $$('.drawer,.pd,.shade').forEach(x => x.classList.remove('on')); lenis && lenis.start(); }
+function renderCart() {
+  const ids = Object.keys(cart).filter(k => cart[k] > 0);
+  const n = ids.reduce((a, k) => a + cart[k], 0), sum = ids.reduce((a, k) => a + cart[k] * items[k].price, 0);
+  $('#cartN').textContent = n; $('#cartSum').textContent = sum.toLocaleString('ru-RU') + ' ₽';
+  $('#cartList').innerHTML = ids.length ? ids.map(k => { const p = items[k]; return `<div class="ci"><div class="ti">${p.img ? `<img src="img/${p.img}.jpg" alt="">` : ''}</div>
+    <div><h5>${p.name}</h5><div class="qty"><button data-q="${k}" data-d="-1">−</button>${cart[k]}<button data-q="${k}" data-d="1">+</button></div></div><div class="sum">${rub(cart[k] * p.price)}</div></div>`; }).join('')
+    : '<div class="empty">Корзина пока пуста.<br>Добавьте вкус Алтая!</div>';
+}
+function add(id) {
+  cart[id] = (cart[id] || 0) + 1; renderCart();
+  const b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
+  const t = $('#toast'); t.classList.add('on'); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('on'), 1600);
+}
+function showProduct(id) {
+  const p = items[id];
+  $('#pdIm').innerHTML = p.img ? `<img src="img/${p.img}.jpg" alt="${p.name}">` : NOIMG;
+  $('#pdTx').innerHTML = `<div class="eyebrow">${CATS.find(c => c.id === p.cat).name}</div><h3>${p.name}</h3><div class="ds">${p.desc}</div>
+    ${p.cmp ? `<div class="cmp"><b>Состав:</b> ${p.cmp}</div>` : ''}<div class="wt" style="color:var(--muted);font-size:13px">${p.wt}</div>
+    <div style="display:flex;align-items:center;gap:20px;margin-top:auto"><span class="serif" style="font-size:36px;font-weight:700">${p.price ? rub(p.price) : 'Цена по запросу'}</span>
+    ${p.price ? `<button class="btn btn-ink" data-add="${p.id}">В корзину</button>` : `<a class="btn btn-ink" href="tel:89081045144">Узнать цену</a>`}</div>`;
+  openLayer($('#pd'));
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-add]'); if (a) { e.stopPropagation(); add(+a.dataset.add); return; }
+  const q = e.target.closest('[data-q]'); if (q) { cart[q.dataset.q] = Math.max(0, cart[q.dataset.q] + +q.dataset.d); renderCart(); return; }
+  if (e.target.closest('[data-close]') || e.target.id === 'shade') { closeAll(); return; }
+  const c = e.target.closest('.card'); if (c) { showProduct(+c.dataset.id); return; }
+  const cat = e.target.closest('.cat'); if (cat) {
+    cur = cat.dataset.cat; $$('.tab').forEach(t => t.classList.toggle('on', t.dataset.tab === cur)); renderGrid(true);
+    lenis ? lenis.scrollTo('#catalog', {offset: -60}) : $('#catalog').scrollIntoView(); return; }
+  const go = e.target.closest('[data-go]'); if (go && lenis) { e.preventDefault(); lenis.scrollTo(go.getAttribute('href'), {offset: -40}); }
+});
+$('#cartBtn').addEventListener('click', () => openLayer($('#drawer')));
+$('#order').addEventListener('submit', e => { e.preventDefault(); $('#cartList').innerHTML = '<div class="empty"><b style="font-size:20px;color:var(--ink)">Спасибо!</b><br>Людмила перезвонит, чтобы подтвердить заказ.</div>'; });
+addEventListener('keydown', e => e.key === 'Escape' && closeAll());
+renderCart();
+
+/* ---------- подписи к фото ---------- */
+$('#credits').innerHTML = 'Фото пейзажей: Wikimedia Commons - «Осень на озере Джангысколь», Discoverynn, CC BY-SA 4.0; «Г. Белуха», AnnaMozhaeva0612, CC BY-SA 4.0; «Siberian pine cone», Vyacheslav Argenberg, CC BY 4.0; «Hippophaë rhamnoides», Jaana Siitonen, CC BY 4.0; «Belukha from Kurunda», Katancev, CC BY-SA 3.0; «Chemal Katun Mouth», SilvioMartin, CC BY-SA 4.0; «Altai maral 2», Dmitry A. Mottl, CC BY-SA 3.0. Фото товаров - заказчика.';
+
+/* ---------- движение ---------- */
+gsap.registerPlugin(ScrollTrigger);
+let lenis = null;
+if (!RED && !STILL) {
+  lenis = new Lenis({lerp: .09, smoothWheel: true});
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+}
+// шапка: прозрачная на первом экране, прячется при прокрутке вниз
+let lastY = 0;
+ScrollTrigger.create({start: 0, end: 'max', onUpdate: s => {
+  const y = s.scroll(); $('#hd').classList.toggle('solid', y > innerHeight * .8);
+  $('#hd').classList.toggle('hide', y > lastY && y > innerHeight); lastY = y; }});
+
+function intro() {
+  const tl = gsap.timeline();
+  tl.from('#heroBg img', {scale: 1.25, duration: 2.4, ease: 'expo.out'}, 0)
+    .from('.hero h1 .line>span', {yPercent: 110, duration: 1.3, stagger: .12, ease: 'expo.out'}, .25)
+    .from('[data-hero]', {y: 26, opacity: 0, duration: 1, stagger: .1, ease: 'power3.out'}, .55)
+    .from('.badge', {x: 40, opacity: 0, duration: .9, stagger: .1, ease: 'power3.out'}, .7)
+    .from('header', {y: -40, opacity: 0, duration: .9, ease: 'power3.out'}, .6);
+}
+if (STILL || RED) { $('#pre').remove(); } else {
+  const o = {v: 0};
+  gsap.to(o, {v: 100, duration: 1.4, ease: 'power2.inOut', onUpdate: () => { $('#preN').textContent = Math.round(o.v); $('#preBar').style.width = o.v + '%'; },
+    onComplete: () => gsap.to('#pre', {yPercent: -100, duration: 1, ease: 'expo.inOut', onComplete: () => $('#pre').remove()}) });
+  gsap.delayedCall(1.75, intro);
+}
+
+if (!RED) {
+  // параллакс первого экрана
+  gsap.to('#heroBg', {yPercent: 18, scale: 1.08, ease: 'none', scrollTrigger: {trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true}});
+  gsap.to('.hero-in', {y: -120, opacity: 0, ease: 'none', scrollTrigger: {trigger: '.hero', start: '40% top', end: 'bottom top', scrub: true}});
+  // бегущая строка: скорость зависит от прокрутки
+  const mq = $('#mq'); mq.innerHTML += mq.innerHTML;
+  const mqTw = gsap.to(mq, {xPercent: -50, duration: 26, ease: 'none', repeat: -1});
+  ScrollTrigger.create({onUpdate: s => gsap.to(mqTw, {timeScale: 1 + Math.min(4, Math.abs(s.getVelocity()) / 400), duration: .3, overwrite: true, onComplete: () => gsap.to(mqTw, {timeScale: 1, duration: 1})})});
+  // манифест: слова проявляются по мере чтения
+  const mf = $('#mf'); mf.innerHTML = mf.textContent.split(' ').map(w => `<span class="w">${w}</span>`).join(' ');
+  gsap.to('#mf .w', {opacity: 1, stagger: .05, ease: 'none', scrollTrigger: {trigger: '#mf', start: 'top 80%', end: 'bottom 45%', scrub: true}});
+  $$('.float').forEach(f => gsap.to(f, {y: () => innerHeight * +f.dataset.speed, ease: 'none', scrollTrigger: {trigger: '.manifest', start: 'top bottom', end: 'bottom top', scrub: true}}));
+  // категории: горизонтальная лента с закреплением
+  const track = $('#catsTrack'), dist = () => track.scrollWidth - innerWidth + 64;
+  gsap.to(track, {x: () => -dist(), ease: 'none', scrollTrigger: {trigger: '#catsPin', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true,
+    onUpdate: s => $('#catsBar').style.width = s.progress * 100 + '%'}});
+  // раскрытие фото Белухи из маленького окна на весь экран
+  gsap.timeline({scrollTrigger: {trigger: '#rv', start: 'top top', end: 'bottom bottom', scrub: true}})
+    .to('#rvFrame', {clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none'}, 0)
+    .to('#rvImg', {scale: 1, ease: 'none'}, 0)
+    .from('.reveal-text', {scale: .7, opacity: 0, ease: 'none', duration: .5}, .25);
+  // заголовки секций
+  $$('.sec-head h2, .why h2, .contacts h2').forEach(h => gsap.from(h, {y: 60, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: {trigger: h, start: 'top 85%'}}));
+  gsap.from('#grid .card', {y: 50, opacity: 0, duration: .9, stagger: .04, ease: 'power3.out', scrollTrigger: {trigger: '#grid', start: 'top 85%'}});
+  // карточки причин слегка уменьшаются, когда на них наезжает следующая
+  $$('.reason').forEach((r, i, all) => { if (i < all.length - 1) gsap.to(r, {scale: .94, opacity: .7, ease: 'none', scrollTrigger: {trigger: all[i + 1], start: 'top bottom', end: 'top 160px', scrub: true}}); });
+  gsap.from('.wordmark img', {yPercent: 40, opacity: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: {trigger: '.wordmark', start: 'top 95%'}});
+}
+if (STILL) document.body.dataset.done = 1;
+</script>
+</body>
+</html>
