@@ -159,6 +159,8 @@ header:not(.solid) .menu,header:not(.solid) .phone{color:#fff}
 .card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(27,42,54,.12)}
 .card .im{aspect-ratio:1;background:#fff;display:grid;place-items:center;overflow:hidden;position:relative}
 .card .im img{width:84%;height:84%;object-fit:contain;transition:transform .8s var(--ease)}
+.card .im img.scene,.pd .im img.scene,.cat .pack img.scene{width:100%;height:100%;object-fit:cover}
+.cat .pack:has(img.scene){padding:0;overflow:hidden}
 .card:hover .im img{transform:scale(1.07)}
 .card .tag{position:absolute;left:12px;top:12px;background:var(--gold);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px}
 .card .tag.m{background:var(--katun)}
@@ -244,6 +246,13 @@ header:not(.solid) .menu,header:not(.solid) .phone{color:#fff}
 @media(max-width:760px){.pd{grid-template-columns:1fr}.pd .im{min-height:240px}.pd .tx{padding:28px}}
 .toast{position:fixed;left:50%;top:96px;z-index:90;transform:translate(-50%,-30px);opacity:0;background:var(--ink);color:var(--cream);padding:12px 20px;border-radius:99px;font-size:14px;font-weight:600;transition:transform .5s var(--ease),opacity .4s;pointer-events:none}
 .toast.on{transform:translate(-50%,0);opacity:1}
+/* ?still: статичная версия для снимка всей страницы */
+body.still header{position:absolute}body.still .note,body.still .scroll-hint,body.still .cats-progress{display:none}
+body.still .cats-pin{height:auto;padding:110px 0}body.still .cats-track{flex-wrap:wrap;width:100%;max-width:1320px;margin:0 auto;padding:0 32px;align-self:center}body.still .float{display:none}
+body.still .cat{flex:1 1 380px}body.still .cat p{max-height:none;opacity:1}
+body.still .reveal-scene{height:auto}body.still .reveal-sticky{position:relative;height:88vh}
+body.still .reveal-frame{clip-path:none}body.still .reveal-frame img{transform:none}
+body.still .reason{position:relative;top:0!important}
 </style>
 </head>
 <body>
@@ -361,13 +370,14 @@ const PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 const NOIMG = '<div class="noimg"><div><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="36" height="28" rx="4"/><circle cx="17" cy="20" r="3"/><path d="m6 34 11-9 8 7 6-5 11 9"/></svg>фото добавим</div></div>';
 // фон категорий: атмосферные кадры под каждую категорию
 const CAT_BG = {meat: 'maral', tea: 'belukha', sweet: 'cone', semi: 'dzhang', can: 'katun2', cosm: 'buckthorn'};
+const SC = id => /^k\ds$/.test(id) ? ' class="scene"' : '';
 const items = P.map((p, i) => ({id: i, cat: p[0], img: p[1], name: p[2], desc: p[3], cmp: p[4], wt: p[5], price: p[6], tag: p[7] || ''}));
 
 /* ---------- категории ---------- */
 $('#catsTrack').innerHTML = CATS.map((c, i) => `
   <div class="cat" data-cat="${c.id}">
     <div class="ph"><img src="img/${CAT_BG[c.id]}.jpg" alt="" loading="lazy"></div>
-    <div class="pack"><img src="img/${c.img}.jpg" alt="${c.name}"></div>
+    <div class="pack"><img src="img/${c.img}.jpg"${SC(c.img)} alt="${c.name}"></div>
     <div class="cat-body"><div class="num">0${i + 1} / 06</div><h3>${c.name}</h3><p>${c.d}</p><span class="more">Смотреть товары →</span></div>
   </div>`).join('');
 
@@ -377,7 +387,7 @@ $('#tabs').innerHTML = [['all', 'Все товары'], ...CATS.map(c => [c.id, 
 function cardHTML(p) {
   const pr = p.price ? `<span class="pr">${rub(p.price)}</span>` : `<span class="pr"><small>цена по запросу</small></span>`;
   const tag = p.tag ? `<span class="tag${p.tag === 'марал' ? ' m' : ''}">${p.tag}</span>` : '';
-  return `<div class="card" data-id="${p.id}"><div class="im">${p.img ? `<img src="img/${p.img}.jpg" alt="${p.name}" loading="lazy">` : NOIMG}${tag}</div>
+  return `<div class="card" data-id="${p.id}"><div class="im">${p.img ? `<img src="img/${p.img}.jpg"${SC(p.img)} alt="${p.name}" loading="lazy">` : NOIMG}${tag}</div>
     <div class="bd"><h4>${p.name}</h4><span class="wt">${p.wt}</span><div class="row">${pr}${p.price ? `<button class="add" data-add="${p.id}" aria-label="В корзину">${PLUS}</button>` : ''}</div></div></div>`;
 }
 function renderGrid(anim) {
@@ -411,7 +421,7 @@ function add(id) {
 }
 function showProduct(id) {
   const p = items[id];
-  $('#pdIm').innerHTML = p.img ? `<img src="img/${p.img}.jpg" alt="${p.name}">` : NOIMG;
+  $('#pdIm').innerHTML = p.img ? `<img src="img/${p.img}.jpg"${SC(p.img)} alt="${p.name}">` : NOIMG;
   $('#pdTx').innerHTML = `<div class="eyebrow">${CATS.find(c => c.id === p.cat).name}</div><h3>${p.name}</h3><div class="ds">${p.desc}</div>
     ${p.cmp ? `<div class="cmp"><b>Состав:</b> ${p.cmp}</div>` : ''}<div class="wt" style="color:var(--muted);font-size:13px">${p.wt}</div>
     <div style="display:flex;align-items:center;gap:20px;margin-top:auto"><span class="serif" style="font-size:36px;font-weight:700">${p.price ? rub(p.price) : 'Цена по запросу'}</span>
@@ -465,7 +475,8 @@ if (STILL || RED) { $('#pre').remove(); } else {
   gsap.delayedCall(1.75, intro);
 }
 
-if (!RED) {
+if (STILL) document.body.classList.add('still');
+if (!RED && !STILL) {
   // параллакс первого экрана
   gsap.to('#heroBg', {yPercent: 18, scale: 1.08, ease: 'none', scrollTrigger: {trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true}});
   gsap.to('.hero-in', {y: -120, opacity: 0, ease: 'none', scrollTrigger: {trigger: '.hero', start: '40% top', end: 'bottom top', scrub: true}});
