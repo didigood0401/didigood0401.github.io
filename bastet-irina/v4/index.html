@@ -134,31 +134,68 @@ button,input,select,textarea{font:inherit;color:inherit}
 .state__halo{position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle,rgba(233,180,110,.28),transparent 62%);filter:blur(30px);z-index:-1}
 @media(max-width:860px){.state{grid-template-columns:1fr}.state__media{max-width:300px}}
 
-/* ---------- seven days: horizontal light ---------- */
-.days{position:relative;background:var(--night-2);overflow:hidden}
-.days__glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 70% at 70% 50%,var(--hue,rgba(194,65,59,.35)),transparent 70%);transition:background .6s}
-.days__pin{position:relative;height:100svh;display:flex;align-items:center;overflow:hidden}
-.days__track{display:flex;gap:clamp(16px,2vw,28px);padding:0 var(--m);align-items:stretch;will-change:transform}
-.days__intro{flex:0 0 min(560px,86vw);display:flex;flex-direction:column;justify-content:center;padding-right:clamp(20px,4vw,60px)}
-.days__intro p{margin-top:24px;max-width:40ch;color:var(--on-dark-2)}
-.days__count{margin-top:28px;font-family:var(--serif);font-size:var(--lead);color:var(--gold-2)}
-.card{position:relative;flex:0 0 clamp(280px,26vw,380px);height:min(70svh,560px);border-radius:24px;overflow:hidden;padding:30px 28px;display:flex;flex-direction:column;
-  background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(232,207,159,.18);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.card::before{content:"";position:absolute;width:150%;aspect-ratio:1;left:-25%;top:-70%;border-radius:50%;background:radial-gradient(circle,var(--c),transparent 62%);opacity:.75;transition:opacity .6s,transform .8s var(--ease)}
-.card:hover::before{opacity:.85;transform:translateY(8%)}
-.card>*{position:relative}
-.card__dot{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 24px 4px var(--c)}
-.card h3{font-family:var(--serif);font-weight:300;font-size:clamp(34px,2.8vw,46px);line-height:1;margin-top:auto}
-.card ul{list-style:none;margin-top:18px;display:grid;gap:8px;font-size:16px;color:var(--on-dark-2)}
-.card--price{background:var(--goldgrad);color:var(--night);box-shadow:0 30px 80px -30px rgba(232,190,120,.6)}
-.card--price ul{color:rgba(23,11,20,.8)}
-.card--price .big{font-family:var(--serif);font-weight:300;font-size:clamp(56px,5vw,84px);line-height:.9;margin-top:auto;letter-spacing:-.03em}
+/* ---------- seven colours: the mandala ---------- */
+@property --mc{syntax:'<color>';inherits:true;initial-value:#b8323f}
+.mandala{--mc:#b8323f;position:relative;background:var(--night);overflow:hidden;transition:--mc 1.2s var(--ease)}
+.md__pin{position:relative;height:100svh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:clamp(24px,4vw,72px);padding:84px var(--m) 36px;overflow:hidden}
+.md__bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(42% 58% at 27% 52%,color-mix(in srgb,var(--mc) 48%,transparent),transparent 72%),radial-gradient(30% 40% at 85% 15%,rgba(232,190,120,.12),transparent 70%)}
+.md__art{position:relative;justify-self:center;width:min(42vw,76svh);aspect-ratio:1}
+.md__art svg{position:relative;width:100%;height:100%;overflow:visible;z-index:1}
+.md__core{position:absolute;left:50%;top:50%;width:30%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,246,228,.85) 0%,color-mix(in srgb,var(--mc) 70%,transparent) 32%,transparent 70%);filter:blur(6px);mix-blend-mode:screen;opacity:.55;transition:opacity 1s,width 1.2s var(--ease)}
+.mandala.done .md__core{opacity:1;width:46%}
+.md__fol circle{fill:none;stroke:rgba(232,207,159,.17);stroke-width:.55}
+.md__seed .f{fill:var(--c);fill-opacity:0;transition:fill-opacity 1.2s var(--ease)}
+.md__seed .s{fill:none;stroke:var(--c);stroke-width:1.5;stroke-dasharray:302;stroke-dashoffset:302;transition:stroke-dashoffset 1.4s var(--ease)}
+.md__seed g.on .s{stroke-dashoffset:0}
+.md__seed g.on .f{fill-opacity:.13}
+.md__seed g.now .f{fill-opacity:.24}
+.md__petals path{fill:rgba(232,207,159,.03);stroke:rgba(232,207,159,.42);stroke-width:.6}
+.md__petals path.in{stroke:rgba(232,207,159,.22)}
+.md__ring{fill:none;stroke:rgba(232,207,159,.35);stroke-width:.6}
+.md__ring--dots{stroke-dasharray:1 5;stroke-linecap:round;stroke-width:1.2}
+.md__gems circle{fill:var(--c);opacity:.22;transition:opacity .8s}
+.md__gems circle.halo{opacity:0;transition:opacity .8s}
+.md__gems g.on circle{opacity:1}
+.md__gems g.on circle.halo{opacity:.35}
+.md__rays line{stroke:rgba(255,226,180,.0);stroke-width:.6;transition:stroke 1.4s}
+.mandala.done .md__rays line{stroke:rgba(255,226,180,.2)}
+.md__copy{position:relative;z-index:2;max-width:560px}
+.md__lead{margin-top:20px;color:var(--on-dark-2);max-width:46ch}
+.md__day{margin-top:clamp(20px,4svh,40px);display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.md__dn{font-size:var(--small);letter-spacing:.06em;color:var(--gold-2)}
+.md__date{display:inline-flex;align-items:center;gap:16px;font-family:var(--serif);font-weight:300;font-size:clamp(40px,4.4vw,72px);line-height:1;letter-spacing:-.02em}
+.md__date i{flex:0 0 auto;width:.32em;height:.32em;border-radius:50%;background:var(--mc);box-shadow:0 0 22px 4px color-mix(in srgb,var(--mc) 70%,transparent)}
+.md__dots{list-style:none;display:flex;gap:10px;margin-top:22px}
+.md__dots li{width:34px;height:4px;border-radius:4px;background:rgba(232,207,159,.18);position:relative;overflow:hidden}
+.md__dots li::after{content:"";position:absolute;inset:0;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.md__dots li.on::after{transform:scaleX(1)}
+.md__arc{margin-top:22px;display:flex;gap:10px 22px;flex-wrap:wrap;font-family:var(--serif);font-style:italic;font-size:clamp(18px,1.5vw,22px);color:rgba(241,226,210,.35)}
+.md__arc span{transition:color .8s}
+.md__arc span.on{color:var(--gold-2)}
+.md__foot{margin-top:clamp(22px,4svh,40px);display:flex;align-items:center;flex-wrap:wrap;gap:16px 26px}
+.md__price{font-family:var(--serif);font-weight:300;font-size:clamp(30px,2.6vw,42px);line-height:1}
+.md__price small{display:block;font-family:var(--sans);font-size:14px;color:var(--on-dark-2);margin-top:6px}
+.md__meta{margin-top:18px;font-size:var(--small);color:var(--on-dark-2)}
 @media(max-width:860px){
-  .days__pin{height:auto;padding:110px 0 90px}
-  .days__track{flex-direction:column;width:100%}
-  .days__intro{flex:none;padding:0 0 12px}
-  .card{flex:none;height:auto;min-height:260px;width:100%}
+  .md__bg{background:radial-gradient(85% 42% at 50% 30%,color-mix(in srgb,var(--mc) 42%,transparent),transparent 72%)}
+  .md__pin{grid-template-columns:1fr;align-content:center;gap:8px;padding:70px var(--m) 20px}
+  .md__art{width:min(80vw,40svh)}
+  .md__copy{max-width:none}
+  .md__copy .h{font-size:clamp(30px,8.4vw,40px)}
+  .md__lead{display:none}
+  .md__day{margin-top:10px;gap:10px}
+  .md__date{font-size:clamp(30px,8.6vw,40px);gap:12px}
+  .md__dots{margin-top:12px;gap:7px}
+  .md__dots li{flex:1;width:auto}
+  .md__arc{margin-top:12px;font-size:17px;gap:4px 16px}
+  .md__foot{margin-top:16px;gap:12px 18px}
+  .md__foot .btn{min-height:48px;padding:0 22px}
+  .md__price{font-size:26px}
+  .md__meta{margin-top:10px;font-size:14px}
 }
+@media(max-width:860px) and (max-height:700px){.md__art{width:min(72vw,34svh)}.md__arc{display:none}}
+.md__intro-m{display:none}
+@media(max-width:860px){.md__intro-m{display:block;padding:110px var(--m) 0;background:var(--night)}.md__intro-m p{color:var(--on-dark-2);max-width:46ch}}
 
 /* ---------- path accordion ---------- */
 .path{padding:clamp(120px,14vw,220px) var(--m);background:var(--cream);color:var(--ink);position:relative;overflow:hidden}
@@ -335,9 +372,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .lowfx .hero__glow{filter:blur(36px)}
 .lowfx .hero__glow--b,.lowfx .state__halo{display:none}
 .lowfx .arch::after{filter:blur(18px);opacity:.75}
-.lowfx .card,.lowfx .nav.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none}
+.lowfx .nav.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none}
 .lowfx .nav.scrolled{background:rgba(23,11,20,.96)}
-.lowfx .card::before{opacity:.6}
+.lowfx .md__seed .s{filter:none}
 .lowfx .stage__beam{filter:none;opacity:.5}
 .lowfx .foot__name.gold-text,.lowfx .plan--b .price{animation:none;background-position:50% 0}
 .lowfx .foot::before,.lowfx .plan--b::before{filter:none}
@@ -410,23 +447,26 @@ button,input,select,textarea{font:inherit;color:inherit}
   </div>
 </section>
 
-<!-- SEVEN DAYS: horizontal -->
-<section class="days" id="training">
-  <div class="days__glow" id="daysGlow" aria-hidden="true"></div>
-  <div class="days__pin" id="daysPin">
-    <div class="days__track" id="track">
-      <div class="days__intro">
-        <h2 class="h">Семь дней, <em>семь цветов</em></h2>
-        <p>Практический живой модуль подготовки фасилитаторов InnerDance. Уфа, 30 октября – 5 ноября 2026. Каждый день посвящён одному цвету мандалы: теорию вы проживаете на себе.</p>
-        <p class="days__count">До старта <span id="days">несколько дней</span></p>
+<!-- SEVEN COLOURS: mandala -->
+<div class="md__intro-m" aria-hidden="true"><p>Программа построена как последовательное проживание семи цветов мандалы InnerDance. Каждый день посвящён одному её уровню: метод вы не изучаете со стороны, а проживаете на себе.</p></div>
+<section class="mandala" id="training" aria-labelledby="md-h">
+  <div class="md__pin" id="mdPin">
+    <div class="md__bg" aria-hidden="true"></div>
+    <div class="md__art">
+      <div class="md__core" aria-hidden="true"></div>
+      <svg id="md" viewBox="-215 -215 430 430" role="img" aria-label="Мандала из семи цветов: каждый день обучения зажигает один круг"></svg>
+    </div>
+    <div class="md__copy">
+      <h2 class="h" id="md-h">Семь дней, <em>семь цветов</em></h2>
+      <p class="md__lead">Программа построена как последовательное проживание семи цветов мандалы InnerDance. Каждый день посвящён одному её уровню: метод вы не изучаете со стороны, а проживаете на себе.</p>
+      <div class="md__day" aria-live="polite"><span class="md__dn" id="mdN">День 1 из 7</span><span class="md__date"><i aria-hidden="true"></i><span id="mdDate">30 октября</span></span></div>
+      <ol class="md__dots" id="mdDots" aria-hidden="true"></ol>
+      <p class="md__arc" id="mdArc"><span>восприятие</span><span>сознание</span><span>внутренняя трансформация</span></p>
+      <div class="md__foot">
+        <a class="btn" href="#contact" data-topic="Обучение InnerDance">Забронировать место <i>→</i></a>
+        <p class="md__price">2 100 €<small>первый модуль · 7 дней в Уфе</small></p>
       </div>
-      <article class="card" style="--c:#c2413b"><span class="card__dot"></span><h3>Метод</h3><ul><li>философия и принципы InnerDance</li><li>образовательная система мандалы</li><li>семь цветов как путь развития</li></ul></article>
-      <article class="card" style="--c:#d9793a"><span class="card__dot"></span><h3>Наука</h3><ul><li>основы нейронауки</li><li>автономная нервная система</li><li>феноменология</li><li>изменённые состояния сознания</li></ul></article>
-      <article class="card" style="--c:#e3b54a"><span class="card__dot"></span><h3>Звук</h3><ul><li>музыкальная архитектура процесса</li><li>ежедневные процессы InnerDance</li></ul></article>
-      <article class="card" style="--c:#5e9a6a"><span class="card__dot"></span><h3>Мастерство</h3><ul><li>навыки фасилитации</li><li>практические упражнения</li><li>супервизия и обратная связь</li></ul></article>
-      <article class="card" style="--c:#4f86b8"><span class="card__dot"></span><h3>Интеграция</h3><ul><li>интеграция полученного опыта</li><li>проживание метода на себе</li></ul></article>
-      <article class="card" style="--c:#6a5bb8"><span class="card__dot"></span><h3>Сертификат</h3><ul><li>сертификат о прохождении первого модуля</li><li>дорога к международной сертификации</li></ul></article>
-      <article class="card card--price" style="--c:#fff2d8"><h3 class="sr">Стоимость модуля</h3><p class="big">2 100 €</p><ul><li>7 дней очно в Уфе</li><li>инвестиция в первый модуль</li><li><a class="link" href="#path">весь путь до сертификата ниже</a></li></ul></article>
+      <p class="md__meta">Уфа · 30 октября – 5 ноября 2026 · до старта <span id="days">несколько дней</span></p>
     </div>
   </div>
 </section>
@@ -656,6 +696,42 @@ if(window.qrcode){
   $('#qrTg').innerHTML=qrSvg('https://t.me/energy_bastet',{...QC,icon:'<path fill="currentColor" d="M21.9 4.3 18.8 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 12.9 2 11.4c-1-.3-1-1 .2-1.5L20.6 2.8c.9-.3 1.6.2 1.3 1.5z"/>'});
 }else{$('.qrs').style.display='none'}
 
+/* seven colours: build the mandala */
+const MC=['#c2414f','#d4813a','#dcb24a','#3f9a6b','#3a7cc0','#5a57b8','#9a5cc4'];
+const DATES=['30 октября','31 октября','1 ноября','2 ноября','3 ноября','4 ноября','5 ноября'];
+(function(){
+  const NS='http://www.w3.org/2000/svg',svg=$('#md'),el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e};
+  const defs=el('defs',{});const f=el('filter',{id:'mglow',x:'-50%',y:'-50%',width:'200%',height:'200%'},defs);
+  el('feGaussianBlur',{stdDeviation:'2.6',result:'b'},f);const m=el('feMerge',{},f);el('feMergeNode',{in:'b'},m);el('feMergeNode',{in:'SourceGraphic'},m);
+  const r=48,hex=k=>[...Array(6)].map((_,i)=>[k*r*Math.cos(Math.PI/3*i-Math.PI/2),k*r*Math.sin(Math.PI/3*i-Math.PI/2)]);
+  const rays=el('g',{class:'md__rays'});for(let i=0;i<72;i++){const a=i*Math.PI/36;el('line',{x1:(62*Math.cos(a)).toFixed(1),y1:(62*Math.sin(a)).toFixed(1),x2:(150*Math.cos(a)).toFixed(1),y2:(150*Math.sin(a)).toFixed(1)},rays)}
+  const fol=el('g',{class:'md__fol'});
+  const pts=[[0,0],...hex(1),...hex(2),...[...Array(6)].map((_,i)=>{const a=Math.PI/3*i-Math.PI/2+Math.PI/6;return[Math.sqrt(3)*r*Math.cos(a),Math.sqrt(3)*r*Math.sin(a)]})];
+  pts.forEach(([x,y])=>el('circle',{cx:x.toFixed(2),cy:y.toFixed(2),r},fol));
+  el('circle',{r:r*3,class:'md__ring'});
+  const pet=el('g',{class:'md__petals',id:'mdPetals'});
+  for(let i=0;i<28;i++)el('path',{d:'M0,-150 C11,-158 14,-174 0,-188 C-14,-174 -11,-158 0,-150Z',transform:`rotate(${i*360/28})`},pet);
+  for(let i=0;i<14;i++)el('path',{class:'in',d:'M0,-146 C20,-160 26,-182 0,-200 C-26,-182 -20,-160 0,-146Z',transform:`rotate(${i*360/14+360/28})`},pet);
+  el('circle',{r:204,class:'md__ring md__ring--dots'});el('circle',{r:212,class:'md__ring'});
+  const seed=el('g',{class:'md__seed'});const sp=[...hex(1),[0,0]];
+  const seeds=sp.map(([x,y],i)=>{const g=el('g',{style:`--c:${MC[i]}`},seed);el('circle',{class:'f',cx:x.toFixed(2),cy:y.toFixed(2),r},g);el('circle',{class:'s',cx:x.toFixed(2),cy:y.toFixed(2),r,transform:`rotate(-90 ${x.toFixed(2)} ${y.toFixed(2)})`,filter:'url(#mglow)'},g);return g});
+  const gemsG=el('g',{class:'md__gems',id:'mdGems'});
+  const gems=MC.map((c,i)=>{const a=-Math.PI/2+i*2*Math.PI/7,x=196*Math.cos(a),y=196*Math.sin(a);const g=el('g',{style:`--c:${c}`},gemsG);el('circle',{class:'halo',cx:x.toFixed(1),cy:y.toFixed(1),r:13,filter:'url(#mglow)'},g);el('circle',{cx:x.toFixed(1),cy:y.toFixed(1),r:5.5},g);return g});
+  $('#mdDots').innerHTML=MC.map(c=>`<li style="--c:${c}"></li>`).join('');
+  const dots=$$('#mdDots li'),arc=$$('#mdArc span'),sec=$('.mandala');
+  let cur=-1;
+  window.__mdSet=function(n){
+    if(n===cur)return;cur=n;
+    seeds.forEach((g,i)=>{g.classList.toggle('on',i<=n);g.classList.toggle('now',i===n)});
+    gems.forEach((g,i)=>g.classList.toggle('on',i<=n));dots.forEach((d,i)=>d.classList.toggle('on',i<=n));
+    arc.forEach((a,i)=>a.classList.toggle('on',n>=[0,2,5][i]));
+    sec.style.setProperty('--mc',MC[n]);sec.classList.toggle('done',n===6);
+    $('#mdN').textContent=`День ${n+1} из 7`;$('#mdDate').textContent=DATES[n];
+    if(window.gsap&&!reduced)gsap.fromTo('#mdDate',{y:16,opacity:0},{y:0,opacity:1,duration:.6,ease:'power3.out'});
+  };
+  window.__mdSet(reduced||!window.gsap?6:0);
+})();
+
 /* days to the start */
 const start=new Date('2026-10-30T10:00:00+05:00'), d=Math.ceil((start-Date.now())/864e5);
 const plural=(n,a,b,c)=>{const m=n%10,h=n%100;return m==1&&h!=11?a:m>=2&&m<=4&&(h<10||h>=20)?b:c};
@@ -794,19 +870,16 @@ G.fromTo('.state__media figure',{clipPath:'inset(30% 20% 30% 20% round 200px 200
 $$('section,footer').forEach(sec=>{const items=$$('[data-rise]',sec);if(!items.length)return;
   G.to(items,{opacity:1,y:0,duration:1.1,stagger:.08,ease:'power3.out',scrollTrigger:{trigger:sec,start:'top 72%',once:true}})});
 
-/* seven days: horizontal scroll, light changes colour */
-const hues=['rgba(194,65,59,.38)','rgba(217,121,58,.38)','rgba(227,181,74,.34)','rgba(94,154,106,.36)','rgba(79,134,184,.38)','rgba(106,91,184,.4)','rgba(232,190,120,.42)'];
+/* seven colours: the mandala lights up day by day */
+ScrollTrigger.config({ignoreMobileResize:true});
+ScrollTrigger.create({trigger:'#mdPin',start:'top top',end:()=>'+='+Math.round(innerHeight*3),pin:true,scrub:true,anticipatePin:1,invalidateOnRefresh:true,
+  onUpdate:s=>window.__mdSet(Math.min(6,Math.floor(s.progress*7.4)))});
+const pet=$('#mdPetals'),gemG=$('#mdGems');
+ScrollTrigger.create({trigger:'#mdPin',start:'top bottom',end:()=>'+='+Math.round(innerHeight*4),scrub:true,onUpdate:s=>pet.setAttribute('transform',`rotate(${(-30+70*s.progress).toFixed(2)})`)});
+if(!low){let ga=0;G.ticker.add((t,dt)=>{ga=(ga+dt*.0022)%360;gemG.setAttribute('transform',`rotate(${ga.toFixed(3)})`)})}
+G.from('.md__art',{scale:.86,opacity:0,duration:1.6,ease:'expo.out',scrollTrigger:{trigger:'.mandala',start:'top 70%',once:true}});
+G.from('.md__copy > *',{y:24,opacity:0,duration:1,stagger:.07,ease:'power3.out',scrollTrigger:{trigger:'.mandala',start:'top 60%',once:true}});
 const mm=G.matchMedia();
-mm.add('(min-width:861px)',()=>{
-  const track=$('#track');
-  const dist=()=>track.scrollWidth-innerWidth;
-  G.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#daysPin',start:'top top',end:()=>'+='+dist(),pin:true,scrub:.8,invalidateOnRefresh:true,
-    onUpdate:s=>{const i=Math.min(6,Math.floor(s.progress*7));$('#daysGlow').style.setProperty('--hue',hues[i])}}});
-  G.from('.card',{y:80,opacity:0,rotate:2,stagger:.08,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'#daysPin',start:'top 60%',once:true}});
-});
-mm.add('(max-width:860px)',()=>{
-  $$('.card').forEach((c,i)=>{G.from(c,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 88%',once:true,onEnter:()=>$('#daysGlow').style.setProperty('--hue',hues[i])}})});
-});
 
 /* accordion rises */
 G.from('.acc__p',{yPercent:14,opacity:0,stagger:.1,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'#acc',start:'top 80%',once:true}});
