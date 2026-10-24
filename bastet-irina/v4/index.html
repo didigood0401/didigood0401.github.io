@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bastet Irina · телесно-звуковая терапия и обучение InnerDance</title>
+<meta name="description" content="Личные сессии телесно-звуковой терапии в Уфе и онлайн. Подготовка фасилитаторов InnerDance: 30 октября – 5 ноября 2026, Уфа.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#170b14; --night-2:#21101c; --plum:#341629; --wine:#52203d;
+  --gold:#c9a063; --gold-2:#e8cf9f; --champagne:#f3e3c7; --blush:#f1d8ca; --cream:#f8eee6;
+  --ink:#2a1222; --muted:#7a5868; --on-dark:#f1e2d2; --on-dark-2:#c8aeb0;
+  --serif:"Noto Serif Display",Georgia,serif; --sans:Manrope,system-ui,sans-serif;
+  --small:clamp(.875rem,.85rem + .1vw,.9375rem);
+  --body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --lead:clamp(1.375rem,1.1rem + 1vw,2.25rem);
+  --head:clamp(2.6rem,1.4rem + 4.6vw,6rem);
+  --m:clamp(16px,3vw,44px);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --goldgrad:linear-gradient(100deg,#b8894c 0%,#e8cf9f 28%,#fff4dc 42%,#d8b47a 58%,#a77a3f 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;background:var(--night);overflow-x:clip}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{overflow-x:clip;background:var(--night);color:var(--on-dark);font:400 var(--body)/1.6 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video,canvas{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--gold);color:var(--night)}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.h{font-family:var(--serif);font-weight:300;font-size:var(--head);line-height:.98;letter-spacing:-.025em}
+.h em,.em{font-style:italic;color:var(--gold-2)}
+.light .h em{color:var(--wine)}
+.gold-text{background:var(--goldgrad);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite}
+@keyframes sheen{from{background-position:110% 0}to{background-position:-110% 0}}
+.light{background:var(--cream);color:var(--ink)}
+
+/* film grain over everything */
+.grain{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+/* cursor light */
+.torch{position:fixed;left:0;top:0;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;z-index:80;
+  background:radial-gradient(circle,rgba(240,205,150,.16) 0%,rgba(240,205,150,.06) 35%,transparent 68%);mix-blend-mode:screen;opacity:0;transition:opacity .6s}
+.torch.on{opacity:1}
+
+/* buttons */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:.7em;min-height:56px;padding:0 30px;border:0;cursor:pointer;border-radius:999px;
+  background:var(--goldgrad);background-size:180% 100%;background-position:100% 0;color:var(--night);font:600 var(--small)/1 var(--sans);letter-spacing:.03em;text-decoration:none;
+  box-shadow:0 10px 40px -12px rgba(232,190,120,.55),inset 0 1px 0 rgba(255,255,255,.5);
+  transition:transform .4s var(--ease),background-position .8s var(--ease),box-shadow .4s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.65) 50%,transparent 70%);transform:translateX(-120%);transition:transform .9s var(--ease)}
+.btn:hover{transform:translateY(-2px);background-position:0 0;box-shadow:0 16px 50px -12px rgba(232,190,120,.75),inset 0 1px 0 rgba(255,255,255,.6)}
+.btn:hover::after{transform:translateX(120%)}
+.btn:active{transform:scale(.98)}
+.btn i{font-style:normal;transition:transform .4s var(--ease)}
+.btn:hover i{transform:translateX(4px)}
+.btn--ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px rgba(232,207,159,.6)}
+.btn--ghost:hover{box-shadow:inset 0 0 0 1px var(--gold-2),0 0 30px -6px rgba(232,207,159,.4)}
+.light .btn--ghost{box-shadow:inset 0 0 0 1px rgba(42,18,34,.45)}
+.btn--dark{background:var(--night);color:var(--champagne);box-shadow:0 10px 30px -14px rgba(23,11,20,.6)}
+.link{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px;text-decoration-thickness:1px;transition:text-decoration-color .35s,color .35s}
+.link:hover{text-decoration-color:currentColor;color:var(--gold-2)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px var(--m);transition:background-color .5s,transform .5s var(--ease),padding .5s var(--ease)}
+.nav.scrolled{background:rgba(23,11,20,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding-top:12px;padding-bottom:12px}
+.nav.hide{transform:translateY(-100%)}
+.nav__wm{font-family:var(--serif);font-size:19px;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:var(--champagne)}
+.nav__links{display:flex;align-items:center;gap:clamp(18px,2.4vw,40px);font-size:var(--small)}
+.nav__links a:not(.btn){text-decoration:none;opacity:.85;transition:opacity .3s,color .3s}
+.nav__links a:not(.btn):hover{opacity:1;color:var(--gold-2)}
+.nav .btn{min-height:44px;padding:0 22px}
+@media(max-width:760px){.nav__links a:not(.btn){display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);background:var(--night)}
+.hero__glow{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;mix-blend-mode:screen}
+.hero__glow--a{width:62vw;height:62vw;right:-12vw;top:-18vw;background:radial-gradient(circle,rgba(233,180,110,.55),rgba(160,70,110,.18) 50%,transparent 70%)}
+.hero__glow--b{width:44vw;height:44vw;left:-14vw;bottom:-20vw;background:radial-gradient(circle,rgba(150,70,140,.45),transparent 70%)}
+.hero__pulse{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:radial-gradient(circle,rgba(255,230,180,.9),rgba(233,180,110,.35) 40%,transparent 70%);opacity:0;pointer-events:none;z-index:4}
+.hero__portrait{position:absolute;top:0;right:0;bottom:0;width:min(58vw,1000px);z-index:1}
+.hero__portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 100%),linear-gradient(0deg,transparent 0%,#000 26%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 100%),linear-gradient(0deg,transparent 0%,#000 26%);
+  -webkit-mask-composite:source-in;mask-composite:intersect}
+.hero__dust{position:absolute;inset:0;z-index:2;pointer-events:none;width:100%;height:100%}
+.hero__copy{position:relative;z-index:3;grid-column:1;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--m) clamp(40px,7vh,80px)}
+.hero__wm{font-family:var(--serif);font-weight:300;font-size:clamp(64px,10.4vw,176px);line-height:.86;letter-spacing:-.035em;margin-left:-.04em}
+.hero__wm span{display:block}
+.hero__wm span+span{padding-left:.55em;font-style:italic}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(26px,2.4vw,40px);line-height:1.15;letter-spacing:-.01em;margin-top:clamp(20px,3vh,34px);max-width:25ch;color:var(--on-dark)}
+.hero__facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px;font-size:16px;color:var(--on-dark-2)}
+.hero__facts b{font-weight:500;color:var(--gold-2)}
+.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:34px}
+.bowlbtn{display:inline-flex;align-items:center;gap:14px;background:none;border:0;cursor:pointer;color:var(--on-dark-2);font-size:var(--small);text-align:left;line-height:1.35}
+.bowlbtn img{width:74px;height:auto;filter:drop-shadow(0 8px 18px rgba(233,180,110,.35));transition:transform .5s var(--ease)}
+.bowlbtn:hover img{transform:translateY(-3px) rotate(-4deg)}
+.bowlbtn:hover{color:var(--gold-2)}
+.no-js .bowlbtn{display:none}
+.hero__scroll{position:absolute;z-index:3;right:var(--m);bottom:28px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-2);writing-mode:vertical-rl}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero__portrait{position:relative;width:100%;height:66svh;grid-row:1}
+  .hero__portrait img{object-position:40% 10%;
+    -webkit-mask-image:linear-gradient(0deg,transparent 0%,rgba(0,0,0,.35) 22%,#000 52%);mask-image:linear-gradient(0deg,transparent 0%,rgba(0,0,0,.35) 22%,#000 52%)}
+  .hero__copy{grid-row:2;padding-top:0;margin-top:-17svh}
+  .hero__wm{font-size:clamp(56px,17vw,110px)}
+  .hero h1{font-size:25px}
+  .hero__cta .btn{width:100%}
+  .hero__scroll{display:none}
+}
+
+/* ---------- statement: words light up ---------- */
+.state{position:relative;overflow:clip;padding:clamp(130px,14vw,230px) var(--m);display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,80px);align-items:center;background:var(--night)}
+.state__txt{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.6vw,58px);line-height:1.12;letter-spacing:-.015em}
+.state__txt .w{opacity:.16;transition:none}
+.state__txt .em{color:var(--gold-2)}
+.state__note{margin-top:36px;max-width:52ch;color:var(--on-dark-2)}
+.state__media{position:relative}
+.state__media figure{position:relative;border-radius:200px 200px 6px 6px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 40px 120px -40px rgba(233,180,110,.45)}
+.state__media video,.state__media img{width:100%;height:100%;object-fit:cover}
+.state__media figcaption{margin-top:14px;font-size:var(--small);color:var(--on-dark-2)}
+.state__halo{position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle,rgba(233,180,110,.28),transparent 62%);filter:blur(30px);z-index:-1}
+@media(max-width:860px){.state{grid-template-columns:1fr}.state__media{max-width:300px}}
+
+/* ---------- seven days: horizontal light ---------- */
+.days{position:relative;background:var(--night-2);overflow:hidden}
+.days__glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 70% at 70% 50%,var(--hue,rgba(194,65,59,.35)),transparent 70%);transition:background .6s}
+.days__pin{position:relative;height:100svh;display:flex;align-items:center;overflow:hidden}
+.days__track{display:flex;gap:clamp(16px,2vw,28px);padding:0 var(--m);align-items:stretch;will-change:transform}
+.days__intro{flex:0 0 min(560px,86vw);display:flex;flex-direction:column;justify-content:center;padding-right:clamp(20px,4vw,60px)}
+.days__intro p{margin-top:24px;max-width:40ch;color:var(--on-dark-2)}
+.days__count{margin-top:28px;font-family:var(--serif);font-size:var(--lead);color:var(--gold-2)}
+.card{position:relative;flex:0 0 clamp(280px,26vw,380px);height:min(70svh,560px);border-radius:24px;overflow:hidden;padding:30px 28px;display:flex;flex-direction:column;
+  background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(232,207,159,.18);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.card::before{content:"";position:absolute;width:150%;aspect-ratio:1;left:-25%;top:-70%;border-radius:50%;background:radial-gradient(circle,var(--c),transparent 62%);opacity:.75;transition:opacity .6s,transform .8s var(--ease)}
+.card:hover::before{opacity:.85;transform:translateY(8%)}
+.card>*{position:relative}
+.card__dot{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 24px 4px var(--c)}
+.card h3{font-family:var(--serif);font-weight:300;font-size:clamp(34px,2.8vw,46px);line-height:1;margin-top:auto}
+.card ul{list-style:none;margin-top:18px;display:grid;gap:8px;font-size:16px;color:var(--on-dark-2)}
+.card--price{background:var(--goldgrad);color:var(--night);box-shadow:0 30px 80px -30px rgba(232,190,120,.6)}
+.card--price ul{color:rgba(23,11,20,.8)}
+.card--price .big{font-family:var(--serif);font-weight:300;font-size:clamp(56px,5vw,84px);line-height:.9;margin-top:auto;letter-spacing:-.03em}
+@media(max-width:860px){
+  .days__pin{height:auto;padding:110px 0 90px}
+  .days__track{flex-direction:column;width:100%}
+  .days__intro{flex:none;padding:0 0 12px}
+  .card{flex:none;height:auto;min-height:260px;width:100%}
+}
+
+/* ---------- path accordion ---------- */
+.path{padding:clamp(120px,14vw,220px) var(--m);background:var(--cream);color:var(--ink);position:relative;overflow:hidden}
+.path::before{content:"";position:absolute;width:70vw;height:70vw;right:-25vw;top:-30vw;border-radius:50%;background:radial-gradient(circle,rgba(232,190,140,.55),transparent 65%);pointer-events:none}
+.path__intro{position:relative;display:grid;grid-template-columns:6fr 5fr;gap:32px;align-items:end;margin-bottom:64px}
+.path__intro p{max-width:52ch}
+.acc{position:relative;display:flex;height:580px;border-radius:28px;overflow:hidden;box-shadow:0 50px 120px -50px rgba(52,22,41,.6)}
+.acc__p{position:relative;flex:1 1 0;min-width:0;overflow:hidden;transition:flex-grow .7s var(--ease);background:var(--night);color:var(--on-dark)}
+.acc__p:nth-child(2){background:var(--plum)}.acc__p:nth-child(3){background:var(--wine)}
+.acc__p:nth-child(4){background:var(--goldgrad);color:var(--night)}
+.acc__p::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(80% 60% at 80% 0%,rgba(240,205,150,.18),transparent 60%)}
+.acc__p.open{flex-grow:4.4}
+.acc__tab{position:absolute;inset:0;z-index:2;border:0;background:none;cursor:pointer;text-align:left;padding:30px 24px;display:flex;align-items:flex-end;color:inherit}
+.acc__tab span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--serif);font-size:24px;white-space:nowrap;transition:opacity .3s}
+.acc__tab:hover span{color:var(--gold-2)}
+.acc__p:nth-child(4) .acc__tab:hover span{color:var(--wine)}
+.acc__p.open .acc__tab{pointer-events:none}
+.acc__p.open .acc__tab span{opacity:0}
+.acc__body{position:absolute;inset:0;z-index:1;padding:40px 44px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;opacity:0;visibility:hidden;transition:opacity .4s .15s,visibility 0s .6s;width:calc((100vw - 2 * var(--m)) * .595)}
+.acc__p.open .acc__body{opacity:1;visibility:visible;transition:opacity .6s .3s,visibility 0s}
+.acc__body h3{font-family:var(--serif);font-weight:300;font-size:clamp(32px,2.9vw,48px);line-height:1.02;letter-spacing:-.02em;max-width:16ch}
+.acc__where{margin-top:12px;font-size:var(--small);color:var(--gold-2)}
+.acc__p:nth-child(4) .acc__where{color:var(--wine)}
+.acc__left{display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.acc__left p{max-width:40ch}
+.acc__pr{display:flex;align-items:baseline;gap:12px;font-size:var(--small)}
+.acc__price{font-family:var(--serif);font-weight:300;font-size:clamp(48px,4.8vw,80px);line-height:1;letter-spacing:-.02em}
+.acc__list{list-style:none;font-size:16px;line-height:1.4;display:grid;gap:10px;align-content:start}
+.acc__list li{padding-left:20px;position:relative}
+.acc__list li::before{content:"";position:absolute;left:0;top:.5em;width:7px;height:7px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 10px var(--gold)}
+.acc__total{display:flex;flex-direction:column;gap:20px;justify-content:space-between;height:100%}
+.acc__ctas{display:flex;flex-wrap:wrap;gap:12px}
+@media(max-width:980px){
+  .path__intro{grid-template-columns:1fr}
+  .acc{flex-direction:column;height:auto}
+  .acc__p{flex:none;transition:none}
+  .acc__tab{position:relative;inset:auto;width:100%;min-height:68px;padding:18px 22px;align-items:center}
+  .acc__tab span{writing-mode:horizontal-tb;transform:none;font-size:20px}
+  .acc__p.open .acc__tab{display:none}
+  .acc__body{position:relative;inset:auto;width:auto;grid-template-columns:1fr;padding:30px 22px 34px;display:none;gap:24px}
+  .acc__p.open .acc__body{display:grid}
+}
+
+/* ---------- sessions ---------- */
+.plans{position:relative;display:grid;grid-template-columns:5fr 7fr;min-height:92svh;overflow:clip}
+.plan{position:relative;display:flex;flex-direction:column;padding:clamp(100px,9vw,140px) clamp(22px,3.4vw,56px) 48px;overflow:hidden}
+.plan--a{background:var(--blush);color:var(--ink)}
+.plan--b{background:var(--plum);color:var(--on-dark)}
+.plan--b::before{content:"";position:absolute;width:90%;aspect-ratio:1;right:-30%;bottom:-40%;border-radius:50%;background:radial-gradient(circle,rgba(233,180,110,.45),transparent 65%);filter:blur(20px)}
+.plan--a::before{content:"";position:absolute;width:80%;aspect-ratio:1;left:-30%;top:-30%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.7),transparent 65%)}
+.plan>*{position:relative}
+.plan h2{font-family:var(--serif);font-weight:300;font-size:clamp(42px,4.6vw,80px);line-height:1;letter-spacing:-.025em}
+.plan__for{margin-top:18px;font-size:clamp(18px,1.4vw,21px);max-width:30ch;line-height:1.45}
+.plan__incl{margin-top:16px;max-width:44ch;opacity:.85}
+.plan__foot{margin-top:auto;padding-top:48px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.price__w{display:flex;align-items:baseline;gap:12px;font-size:18px;font-weight:500}
+.price{font-family:var(--serif);font-weight:300;font-size:clamp(64px,8.4vw,150px);line-height:.86;letter-spacing:-.035em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.plan--b .price{background:var(--goldgrad);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite}
+.switch{position:absolute;top:clamp(28px,3vw,44px);right:clamp(22px,3.4vw,56px);display:flex;font-size:var(--small);border-radius:999px;padding:4px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(232,207,159,.25);z-index:2}
+.switch button{border:0;background:none;cursor:pointer;padding:9px 18px;min-height:40px;border-radius:999px;color:var(--on-dark);transition:background .4s var(--ease),color .4s}
+.switch button[aria-pressed=true]{background:var(--goldgrad);color:var(--night)}
+.plans__note{grid-column:1/-1;padding:20px var(--m);font-size:var(--small);background:var(--night);color:var(--on-dark-2)}
+@media(max-width:860px){
+  .plans{grid-template-columns:1fr}
+  .plan--b{order:-1}
+  .plan{min-height:74svh}
+  .switch{position:relative;top:auto;right:auto;align-self:flex-start;margin-bottom:28px}
+  .plan__foot .btn{width:100%}
+  .price{font-size:clamp(64px,21vw,120px)}
+}
+
+/* ---------- about: Irina large ---------- */
+.about{position:relative;background:var(--night);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:100svh;overflow:hidden}
+.about__img{position:relative;overflow:hidden}
+.about__img img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform-origin:50% 40%}
+.about__img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,var(--night) 100%),linear-gradient(0deg,rgba(23,11,20,.5),transparent 35%)}
+.about__leak{position:absolute;z-index:2;inset:-20% -60%;background:linear-gradient(105deg,transparent 40%,rgba(255,215,160,.32) 48%,rgba(255,240,215,.5) 50%,rgba(255,215,160,.32) 52%,transparent 60%);mix-blend-mode:screen;pointer-events:none;transform:translateX(-60%)}
+.about__copy{position:relative;z-index:3;padding:clamp(110px,10vw,170px) var(--m) clamp(80px,8vw,120px) clamp(20px,3vw,40px);display:flex;flex-direction:column;justify-content:center}
+.about__roles{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 30px}
+.about__roles span{padding:8px 16px;border-radius:999px;font-size:var(--small);box-shadow:inset 0 0 0 1px rgba(232,207,159,.4);color:var(--gold-2)}
+.about__txt{font-family:var(--serif);font-weight:300;font-size:clamp(21px,1.75vw,28px);line-height:1.32;max-width:34ch}
+.about__txt p+p{margin-top:18px}
+.hl{color:var(--gold-2);font-style:italic}
+.about__diploma{margin-top:34px;display:flex;align-items:center;gap:16px;font-size:16px;color:var(--on-dark-2)}
+.about__diploma b{display:block;font-weight:500;color:var(--on-dark)}
+.seal{flex:0 0 58px;height:58px;border-radius:50%;background:var(--goldgrad);display:grid;place-items:center;color:var(--night);font-family:var(--serif);font-size:22px;box-shadow:0 0 30px -4px rgba(232,190,120,.6)}
+@media(max-width:860px){
+  .about{grid-template-columns:1fr}
+  .about__img{height:78svh}
+  .about__img::after{background:linear-gradient(0deg,var(--night) 0%,transparent 45%)}
+  .about__copy{margin-top:-18svh;padding-top:0}
+}
+
+/* ---------- author course ---------- */
+.course{position:relative;padding:clamp(120px,14vw,220px) var(--m);background:var(--wine);overflow:hidden}
+.course__grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,5vw,90px);align-items:center}
+.stage{position:relative;aspect-ratio:4/5;display:grid;place-items:end center;padding-bottom:16%}
+.stage__beam{position:absolute;left:50%;top:-12%;width:120%;height:100%;transform:translateX(-50%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);background:linear-gradient(180deg,rgba(255,226,180,.55),rgba(255,226,180,.08) 75%,transparent);filter:blur(6px);opacity:.75}
+.stage__pool{position:absolute;bottom:8%;left:50%;width:90%;height:16%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(255,226,180,.55),transparent 70%);filter:blur(8px)}
+.stage img{position:relative;width:82%;height:auto;filter:drop-shadow(0 30px 40px rgba(23,11,20,.55)) brightness(1.08)}
+.stage figcaption{position:absolute;left:0;right:0;bottom:0;text-align:center;font-size:var(--small);color:var(--on-dark-2)}
+.course__lead{font-family:var(--serif);font-weight:300;font-size:var(--lead);line-height:1.25;margin:26px 0 22px;max-width:30ch}
+.course__three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:34px 0 40px}
+.course__three div{border-radius:20px;padding:22px 20px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(232,207,159,.22)}
+.course__three p{font-family:var(--serif);font-size:clamp(24px,2vw,32px);line-height:1;color:var(--gold-2)}
+.course__three small{display:block;font-size:15px;margin-top:8px;color:var(--on-dark-2)}
+@media(max-width:860px){.course__grid{grid-template-columns:1fr}.stage{max-width:380px;margin:0 auto}.course__three{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact{position:relative;padding:clamp(120px,10vw,170px) var(--m);background:var(--cream);color:var(--ink);overflow:hidden}
+.contact::before{content:"";position:absolute;width:80vw;height:80vw;left:-30vw;bottom:-50vw;border-radius:50%;background:radial-gradient(circle,rgba(233,190,140,.5),transparent 65%)}
+.coupon{--notch:30px;--cut:46%;position:relative;max-width:1200px;margin:0 auto;border-radius:30px;background:var(--night);color:var(--on-dark);display:grid;grid-template-columns:46fr 54fr;overflow:hidden;
+  box-shadow:0 60px 140px -50px rgba(52,22,41,.7)}
+.coupon::before{content:"";position:absolute;width:70%;aspect-ratio:1;right:-25%;top:-50%;border-radius:50%;background:radial-gradient(circle,rgba(233,180,110,.32),transparent 62%);pointer-events:none}
+.coupon__notch{position:absolute;left:var(--cut);width:var(--notch);height:var(--notch);margin-left:calc(var(--notch)/-2);border-radius:50%;background:var(--cream);z-index:2}
+.coupon__notch--t{top:calc(var(--notch)/-2)}.coupon__notch--b{bottom:calc(var(--notch)/-2)}
+.coupon__l{position:relative;padding:52px;display:flex;flex-direction:column;justify-content:space-between;gap:34px;border-right:4px dotted rgba(232,207,159,.45)}
+.coupon__l h2{font-family:var(--serif);font-weight:300;font-size:clamp(38px,3.6vw,60px);line-height:1;letter-spacing:-.02em}
+.coupon__links{display:grid;gap:8px;font-family:var(--serif);font-weight:300;font-size:var(--lead)}
+.coupon__links a{text-decoration:none}
+.coupon__hint{font-size:var(--small);color:var(--on-dark-2)}
+.coupon form{position:relative;padding:52px;display:grid;gap:12px;align-content:center}
+.coupon input,.coupon select,.coupon textarea{width:100%;min-height:56px;border:0;border-radius:16px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(232,207,159,.18);color:var(--on-dark);padding:14px 18px;font-size:16px;outline:none;transition:box-shadow .3s,background .3s}
+.coupon option{color:#222}
+.coupon textarea{min-height:90px;resize:vertical}
+.coupon select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23e8cf9f' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
+.coupon ::placeholder{color:rgba(241,226,210,.6)}
+.coupon input:focus,.coupon select:focus,.coupon textarea:focus{box-shadow:inset 0 0 0 1px var(--gold-2),0 0 24px -6px rgba(232,207,159,.5);background:rgba(255,255,255,.1)}
+.coupon input[aria-invalid=true]{box-shadow:inset 0 0 0 1px #f0a08f}
+.coupon .btn{width:100%;margin-top:6px}
+@media(max-width:860px){
+  .coupon{grid-template-columns:1fr}
+  .coupon__notch{display:none}
+  .coupon__l{border-right:0;border-bottom:4px dotted rgba(232,207,159,.45);padding:34px 22px}
+  .coupon form{padding:28px 22px 34px}
+}
+
+/* ---------- footer ---------- */
+.foot{position:relative;overflow:hidden;display:flex;flex-direction:column;padding:clamp(100px,10vw,150px) var(--m) 0;background:var(--night);min-height:min(100svh,1000px)}
+.foot::before{content:"";position:absolute;width:90vw;height:60vw;left:50%;bottom:-30vw;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(233,180,110,.35),transparent 65%);filter:blur(30px)}
+.foot>*{position:relative}
+.foot__top{display:grid;grid-template-columns:7fr 2fr 3fr;gap:24px;align-items:start}
+.foot__top h2{max-width:12ch;font-family:var(--serif);font-weight:300;font-size:clamp(46px,5.6vw,100px);line-height:.98;letter-spacing:-.025em;margin-bottom:36px}
+.foot__links{grid-column:3;display:grid;gap:10px;font-family:var(--serif);font-weight:300;font-size:var(--lead)}
+.foot__links a{text-decoration:none}
+.foot__legal{margin-top:auto;padding-top:80px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--on-dark-2);padding-bottom:10px}
+.foot__legal p{max-width:120ch}
+.foot__name{font-family:var(--serif);font-weight:300;font-style:italic;font-size:29vw;line-height:.8;letter-spacing:-.04em;white-space:nowrap;transform:translateY(20%);margin:0 calc(var(--m) * -1);padding-left:calc(var(--m) - 1.2vw);pointer-events:none;user-select:none}
+@media(max-width:760px){
+  .foot__top{grid-template-columns:1fr}
+  .foot__top h2{font-size:12vw}
+  .foot__top .btn{width:100%}
+  .foot__links{grid-column:1;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:22px;margin-top:20px}
+  .foot__name{font-size:36vw}
+}
+
+/* ---------- motion helpers ---------- */
+.js [data-rise]{opacity:0;transform:translateY(30px)}
+.veil{position:fixed;inset:0;z-index:100;background:var(--night);pointer-events:none}
+.no-js .veil{display:none}
+@media (prefers-reduced-motion:reduce){
+  .js [data-rise]{opacity:1;transform:none}
+  .veil,.torch,.grain{display:none}
+  .gold-text,.plan--b .price{animation:none}
+  .state__txt .w{opacity:1}
+}
+</style>
+</head>
+<body class="no-js">
+<script>document.body.classList.replace('no-js','js')</script>
+<div class="veil" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="torch" id="torch" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="nav__wm" href="#top">Bastet</a>
+  <nav class="nav__links" aria-label="Разделы">
+    <a href="#training">Обучение</a>
+    <a href="#sessions">Сессии</a>
+    <a href="#about">Об Ирине</a>
+    <a class="btn" href="#contact">Записаться</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__glow hero__glow--a" aria-hidden="true"></div>
+  <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
+  <div class="hero__portrait" id="heroPortrait"><img src="assets/irina-big.webp" width="1280" height="2006" alt="Ирина, энерготерапевт и фасилитатор InnerDance, в золотом свете" fetchpriority="high"></div>
+  <canvas class="hero__dust" id="dust" aria-hidden="true"></canvas>
+  <div class="hero__pulse" id="pulse" aria-hidden="true"></div>
+  <div class="hero__copy">
+    <p class="hero__wm gold-text" aria-label="Bastet Irina"><span>Bastet</span><span>Irina</span></p>
+    <h1>Телесно-звуковая терапия и обучение InnerDance</h1>
+    <div class="hero__facts">
+      <span><b>Личные сессии</b> по записи · Уфа и онлайн</span>
+      <span><b>Набор InnerDance</b> · 30 октября – 5 ноября</span>
+    </div>
+    <div class="hero__cta">
+      <a class="btn" href="#contact">Записаться к Ирине <i>→</i></a>
+      <button class="bowlbtn" id="bowl" type="button"><img src="assets/bowl-cut.webp" width="1400" height="1235" alt=""><span>Коснитесь чаши,<br>чтобы услышать её тон</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="state" aria-labelledby="st-h">
+  <div>
+    <h2 class="sr" id="st-h">Подход</h2>
+    <p class="state__txt" id="words">Без давления и без лишней эзотерики. <span class="em">Тело, звук и энергия</span> возвращают силы, внутреннюю опору и вкус к жизни.</p>
+    <p class="state__note" data-rise>Научный подход к тонким энергиям: автономная нервная система, нейронаука, феноменология и изменённые состояния сознания. Без обещаний чудес.</p>
+  </div>
+  <div class="state__media" data-rise>
+    <div class="state__halo" aria-hidden="true"></div>
+    <figure>
+      <video src="assets/tuning-fork-creates-waves-in-water.webm" poster="assets/tuning-fork-creates-waves-in-water-poster.jpg" muted loop playsinline preload="none" width="1280" height="720" aria-label="Камертон касается воды, и по ней расходятся волны"></video>
+    </figure>
+    <p class="state__media figcaption" style="margin-top:14px;font-size:var(--small);color:var(--on-dark-2)">Звук камертона рисует волны на воде. Тело на 60% состоит из неё.</p>
+  </div>
+</section>
+
+<!-- SEVEN DAYS: horizontal -->
+<section class="days" id="training">
+  <div class="days__glow" id="daysGlow" aria-hidden="true"></div>
+  <div class="days__pin" id="daysPin">
+    <div class="days__track" id="track">
+      <div class="days__intro">
+        <h2 class="h">Семь дней, <em>семь цветов</em></h2>
+        <p>Практический живой модуль подготовки фасилитаторов InnerDance. Уфа, 30 октября – 5 ноября 2026. Каждый день посвящён одному цвету мандалы: теорию вы проживаете на себе.</p>
+        <p class="days__count">До старта <span id="days">несколько дней</span></p>
+      </div>
+      <article class="card" style="--c:#c2413b"><span class="card__dot"></span><h3>Метод</h3><ul><li>философия и принципы InnerDance</li><li>образовательная система мандалы</li><li>семь цветов как путь развития</li></ul></article>
+      <article class="card" style="--c:#d9793a"><span class="card__dot"></span><h3>Наука</h3><ul><li>основы нейронауки</li><li>автономная нервная система</li><li>феноменология</li><li>изменённые состояния сознания</li></ul></article>
+      <article class="card" style="--c:#e3b54a"><span class="card__dot"></span><h3>Звук</h3><ul><li>музыкальная архитектура процесса</li><li>ежедневные процессы InnerDance</li></ul></article>
+      <article class="card" style="--c:#5e9a6a"><span class="card__dot"></span><h3>Мастерство</h3><ul><li>навыки фасилитации</li><li>практические упражнения</li><li>супервизия и обратная связь</li></ul></article>
+      <article class="card" style="--c:#4f86b8"><span class="card__dot"></span><h3>Интеграция</h3><ul><li>интеграция полученного опыта</li><li>проживание метода на себе</li></ul></article>
+      <article class="card" style="--c:#6a5bb8"><span class="card__dot"></span><h3>Сертификат</h3><ul><li>сертификат о прохождении первого модуля</li><li>дорога к международной сертификации</li></ul></article>
+      <article class="card card--price" style="--c:#fff2d8"><h3 class="sr">Стоимость модуля</h3><p class="big">2 100 €</p><ul><li>7 дней очно в Уфе</li><li>инвестиция в первый модуль</li><li><a class="link" href="#path">весь путь до сертификата ниже</a></li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- PATH -->
+<section class="path light" id="path">
+  <div class="path__intro">
+    <h2 class="h" data-rise>Путь к <em>сертификату</em></h2>
+    <p data-rise>InnerDance объединяет современное понимание автономной нервной системы, нейронауки и феноменологии с практикой сопровождения человека. Три этапа ведут к международному сертификату фасилитатора, подписанному Pi Villaraza.</p>
+  </div>
+  <div class="acc" id="acc">
+    <div class="acc__p open">
+      <button class="acc__tab" type="button" aria-expanded="true"><span>Очный модуль</span></button>
+      <div class="acc__body">
+        <div class="acc__left">
+          <div><h3>Практический живой модуль</h3><p class="acc__where">Уфа · 30 октября – 5 ноября 2026 · 7 дней</p></div>
+          <p>Участники проходят путь через семь цветов мандалы, постепенно раскрывая философию метода, структуру восприятия и основы процесса InnerDance.</p>
+          <div class="acc__pr"><div class="acc__price">2 100 €</div><span>инвестиция</span></div>
+        </div>
+        <ul class="acc__list"><li>философия и основные принципы InnerDance</li><li>образовательная система мандалы</li><li>проживание семи цветов мандалы</li><li>основы нейронауки и автономная нервная система</li><li>феноменология и изменённые состояния сознания</li><li>музыкальная архитектура процесса</li><li>развитие навыков фасилитации</li><li>ежедневные процессы и практические упражнения</li><li>супервизия и профессиональная обратная связь</li><li>сертификат о прохождении первого модуля</li></ul>
+      </div>
+    </div>
+    <div class="acc__p">
+      <button class="acc__tab" type="button" aria-expanded="false"><span>Онлайн-сертификация</span></button>
+      <div class="acc__body">
+        <div class="acc__left">
+          <div><h3>Международная программа с Pi Villaraza</h3><p class="acc__where">Закрытая международная платформа · в своём темпе</p></div>
+          <p>Все лекции и материалы сохраняются в записи: программу можно проходить откуда угодно и когда удобно.</p>
+          <div class="acc__pr"><div class="acc__price">800 €</div><span>инвестиция</span></div>
+        </div>
+        <ul class="acc__list"><li>доступ к международной образовательной платформе</li><li>полный архив видеолекций Pi Villaraza</li><li>обучение в собственном темпе</li><li>дополнительные материалы</li><li>подготовка к международной аттестации</li><li>итоговый экзамен</li><li>сертификат InnerDance Facilitator, подписанный лично Pi Villaraza</li></ul>
+      </div>
+    </div>
+    <div class="acc__p">
+      <button class="acc__tab" type="button" aria-expanded="false"><span>Сообщество</span></button>
+      <div class="acc__body">
+        <div class="acc__left">
+          <div><h3>Studious Mundos Community</h3><p class="acc__where">После международной сертификации</p></div>
+          <p>Международное пространство непрерывного обучения, исследований и профессионального развития фасилитаторов InnerDance.</p>
+          <div class="acc__pr"><div class="acc__price">Включено</div></div>
+        </div>
+        <ul class="acc__list"><li>живые онлайн-встречи с Pi Villaraza</li><li>встречи с ведущими тренерами и старшими фасилитаторами</li><li>новые материалы и исследования</li><li>международное профессиональное сообщество</li><li>обмен опытом, совместные исследования, супервизия</li><li>развитие собственной практики</li></ul>
+      </div>
+    </div>
+    <div class="acc__p">
+      <button class="acc__tab" type="button" aria-expanded="false"><span>Полная сертификация</span></button>
+      <div class="acc__body">
+        <div class="acc__total">
+          <div><h3>Весь путь до сертификата</h3><p class="acc__where">Очный модуль, онлайн-программа и вступление в сообщество</p></div>
+          <div class="acc__pr"><div class="acc__price">2 900 €</div><span>за весь путь</span></div>
+        </div>
+        <div class="acc__total">
+          <p>Полная программа в PDF: философия метода, содержание всех трёх этапов, инвестиция и путь до международного сертификата.</p>
+          <div class="acc__ctas">
+            <a class="btn btn--dark" href="#contact" data-topic="Обучение InnerDance">Забронировать место <i>→</i></a>
+            <a class="btn btn--ghost" href="assets/InnerDance_Facilitator_Training.pdf" download>Программа, PDF · 330 КБ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSIONS -->
+<section class="plans" id="sessions">
+  <div class="plan plan--a">
+    <h2 data-rise>В группе</h2>
+    <p class="plan__for" data-rise>Для тех, кто хочет мягко войти в практику и почувствовать поле группы.</p>
+    <p class="plan__incl" data-rise>Звук, дыхание и энергия, которые поддерживают и восстанавливают. Хорошее начало, чтобы понять, как метод работает именно с вами.</p>
+    <div class="plan__foot">
+      <div class="price__w"><div class="price"><span data-price data-off="2600" data-on="1200">2 600</span> ₽</div><span data-mode-label>офлайн</span></div>
+      <a class="btn btn--dark" href="#contact" data-kind="Групповая сессия">Записаться <i>→</i></a>
+    </div>
+  </div>
+  <div class="plan plan--b">
+    <div class="switch" role="group" aria-label="Формат">
+      <button type="button" aria-pressed="true" data-mode="0">Офлайн, Уфа</button>
+      <button type="button" aria-pressed="false" data-mode="1">Онлайн</button>
+    </div>
+    <h2 data-rise>Личная <em class="em">сессия</em></h2>
+    <p class="plan__for" data-rise>Для того, кто устал держаться и хочет вернуть энергию, опору и вкус к жизни.</p>
+    <p class="plan__incl" data-rise>Глубокая работа с вашим запросом: тело, звук и энергия в темпе, который подходит именно вам. Бережно, спокойно и без давления. Время подбирается лично, без спешки.</p>
+    <div class="plan__foot">
+      <div class="price__w"><div class="price"><span data-price data-off="5000" data-on="3500">5 000</span> ₽</div><span data-mode-label>офлайн</span></div>
+      <a class="btn" href="#contact" data-kind="Индивидуальная сессия">Записаться <i>→</i></a>
+    </div>
+  </div>
+  <p class="plans__note">Офлайн в Уфе: индивидуально 5 000 ₽, в группе 2 600 ₽ · Онлайн: индивидуально 3 500 ₽, в группе 1 200 ₽</p>
+</section>
+
+<!-- ABOUT: Irina large -->
+<section class="about" id="about">
+  <div class="about__img" id="aboutImg">
+    <img src="assets/irina-face.webp" width="1180" height="1431" alt="Портрет Ирины крупным планом" loading="lazy">
+    <div class="about__leak" id="leak" aria-hidden="true"></div>
+  </div>
+  <div class="about__copy">
+    <h2 class="h" data-rise>Об <em>Ирине</em></h2>
+    <div class="about__roles" data-rise><span>Преподаватель</span><span>Энерготерапевт</span><span>Фасилитатор InnerDance</span></div>
+    <div class="about__txt" data-rise>
+      <p>Ирина соединяет бережную работу с <span class="hl">телом, звуком и энергией</span> с ясным пониманием того, как устроена нервная система.</p>
+      <p>Без давления и без лишней эзотерики: только то, что помогает вернуть <span class="hl">силы и опору</span>. В Уфе она проводит очный модуль подготовки фасилитаторов и сопровождает участников на пути к международной сертификации с Pi Villaraza.</p>
+    </div>
+    <div class="about__diploma" data-rise><span class="seal" aria-hidden="true">B</span><span><b>Integrative Energy School</b>Дипломированный специалист международной школы</span></div>
+  </div>
+</section>
+
+<!-- AUTHOR COURSE -->
+<section class="course" id="course">
+  <div class="course__grid">
+    <figure class="stage" data-rise>
+      <div class="stage__beam" id="beam" aria-hidden="true"></div>
+      <div class="stage__pool" aria-hidden="true"></div>
+      <img src="assets/bowl-cut.webp" width="1400" height="1235" alt="Поющая чаша в луче света" loading="lazy">
+      <figcaption>Поющая чаша: звук, с которого начинается практика</figcaption>
+    </figure>
+    <div>
+      <h2 class="h" data-rise>Обучение на <em>энергопрактика</em></h2>
+      <p class="course__lead" data-rise>Управление реальностью через своё тело: для себя и чтобы помогать другим.</p>
+      <p data-rise style="max-width:52ch;color:var(--on-dark-2)">Активация внутреннего навигатора и сильной интуиции для жизни и бизнеса. Ресурсное состояние, которое заряжает здоровьем и энергией для любых целей.</p>
+      <div class="course__three" data-rise>
+        <div><p>Тело</p><small>работа с телом</small></div>
+        <div><p>Звук</p><small>работа со звуком</small></div>
+        <div><p>Энергия</p><small>работа с энергией</small></div>
+      </div>
+      <a class="btn" href="#contact" data-topic="Обучение на энергопрактика" data-rise>Узнать о ближайшем старте <i>→</i></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="coupon" data-rise>
+    <span class="coupon__notch coupon__notch--t" aria-hidden="true"></span><span class="coupon__notch coupon__notch--b" aria-hidden="true"></span>
+    <div class="coupon__l">
+      <h2>Записаться<br><em class="em">к Ирине</em></h2>
+      <div>
+        <div class="coupon__links">
+          <a class="link" href="tel:+79050000530">8 905 000 05 30</a>
+          <a class="link" href="https://t.me/energy_bastet" target="_blank" rel="noopener">Telegram · @energy_bastet</a>
+          <a class="link" href="https://www.instagram.com/bastet_irina?xtok=dDZpYXI2djJjODBo" target="_blank" rel="noopener">Instagram · @bastet_irina</a>
+        </div>
+        <p class="coupon__hint" style="margin-top:22px">Напишите, что вам откликается, и Ирина подберёт формат лично.</p>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <label class="sr" for="fn">Ваше имя</label>
+      <input id="fn" name="name" autocomplete="name" placeholder="Как к вам обращаться" required>
+      <label class="sr" for="fp">Телефон</label>
+      <input id="fp" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Телефон для ответа" required>
+      <label class="sr" for="ft">Что вас интересует</label>
+      <select id="ft" name="topic">
+        <option>Индивидуальная сессия · офлайн</option>
+        <option>Индивидуальная сессия · онлайн</option>
+        <option>Групповая сессия · офлайн</option>
+        <option>Групповая сессия · онлайн</option>
+        <option>Обучение InnerDance</option>
+        <option>Обучение на энергопрактика</option>
+        <option>Консультация</option>
+      </select>
+      <label class="sr" for="fm">Комментарий</label>
+      <textarea id="fm" name="msg" placeholder="Комментарий, если хочется"></textarea>
+      <button class="btn" type="submit">Отправить в WhatsApp <i>→</i></button>
+      <p class="coupon__hint">Откроется WhatsApp с готовым сообщением, останется нажать «Отправить».</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__top">
+    <div>
+      <h2 data-rise>Начните <em class="em">с одной</em> сессии</h2>
+      <a class="btn" href="#contact" data-rise>Записаться <i>→</i></a>
+    </div>
+    <div class="foot__links" data-rise>
+      <a class="link" href="tel:+79050000530">Позвонить</a>
+      <a class="link" href="https://wa.me/79050000530" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="link" href="https://t.me/energy_bastet" target="_blank" rel="noopener">Telegram</a>
+      <a class="link" href="https://www.instagram.com/bastet_irina?xtok=dDZpYXI2djJjODBo" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="foot__legal">
+    <p>© 2026 Bastet Irina · Гармония тела, спокойствие ума, жизнь в балансе</p>
+    <p>Фото: «Singing bowls», Юкатан, CC BY-SA 3.0 (фон удалён); «Tuning fork creates waves in water», Lordgurke, CC BY-SA 4.0, Wikimedia Commons; </p>
+  </div>
+  <div class="foot__name gold-text" aria-hidden="true" id="fname">Bastet</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(()=>{
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(pointer:fine)').matches;
+const G=window.gsap;
+
+/* days to the start */
+const start=new Date('2026-10-30T10:00:00+05:00'), d=Math.ceil((start-Date.now())/864e5);
+const plural=(n,a,b,c)=>{const m=n%10,h=n%100;return m==1&&h!=11?a:m>=2&&m<=4&&(h<10||h>=20)?b:c};
+$('#days').textContent=d>0?d+' '+plural(d,'день','дня','дней'):'— набор на следующий поток';
+
+/* split statement into words */
+const words=$('#words');
+(function split(node){[...node.childNodes].forEach(n=>{
+  if(n.nodeType===3){const f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(t=>{if(!t)return;if(/^\s+$/.test(t))f.append(t);else{const s=document.createElement('span');s.className='w';s.textContent=t;f.append(s)}});n.replaceWith(f)}
+  else split(n)})})(words);
+
+/* gold dust */
+const cv=$('#dust'),cx=cv.getContext('2d');let W,H,parts=[],boost=0,dustOn=true;
+function size(){const r=cv.getBoundingClientRect(),dpr=Math.min(devicePixelRatio,2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+function seed(){parts=Array.from({length:Math.round(Math.min(90,W/14))},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.4,v:Math.random()*.35+.08,a:Math.random()*Math.PI*2,t:Math.random()*.02+.006}))}
+size();seed();addEventListener('resize',()=>{size();seed()});
+function draw(){
+  if(dustOn){
+    cx.clearRect(0,0,W,H);
+    for(const p of parts){
+      p.y-=p.v*(1+boost*6);p.x+=Math.sin(p.a)*.25*(1+boost*3);p.a+=p.t;
+      if(p.y<-10){p.y=H+10;p.x=Math.random()*W}
+      const tw=.45+.55*Math.sin(p.a*3);
+      cx.beginPath();cx.fillStyle=`rgba(255,${210+Math.round(tw*30)},${150+Math.round(tw*40)},${.25+tw*.6})`;
+      cx.shadowColor='rgba(255,210,150,.9)';cx.shadowBlur=8;cx.arc(p.x,p.y,p.r*(1+boost),0,7);cx.fill();
+    }
+    boost*=.97;
+  }
+  requestAnimationFrame(draw);
+}
+if(!reduced)requestAnimationFrame(draw);
+new IntersectionObserver(e=>dustOn=e[0].isIntersecting).observe($('#hero'));
+
+/* the bowl rings: sound + light */
+let ac;
+function ring(){
+  try{
+    ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();
+    const t=ac.currentTime,f=196,out=ac.createGain();out.gain.value=.55;out.connect(ac.destination);
+    [[1,1,9],[2.76,.42,6],[5.4,.2,4],[8.93,.08,2.6]].forEach(([r,a,dec])=>[-.6,.6].forEach(det=>{
+      const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f*r+det*r;
+      g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(a*.5,t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+dec);
+      o.connect(g).connect(out);o.start(t);o.stop(t+dec+.1)}));
+  }catch(e){}
+  boost=1.4;
+  if(G&&!reduced){
+    const b=$('#bowl img').getBoundingClientRect(),h=$('#hero').getBoundingClientRect();
+    G.set('#pulse',{left:b.left-h.left+b.width/2,top:b.top-h.top+b.height/2});
+    G.fromTo('#pulse',{scale:1,opacity:1},{scale:Math.max(innerWidth,innerHeight)/3.5,opacity:0,duration:2.6,ease:'power2.out'});
+    G.fromTo('.hero__glow--a',{opacity:1.6},{opacity:1,duration:2.4,ease:'power2.out'});
+    G.fromTo('#bowl img',{rotate:0},{keyframes:[{rotate:-6,duration:.08},{rotate:4,duration:.12},{rotate:-2,duration:.16},{rotate:0,duration:.4}]});
+  }
+}
+$('#bowl').addEventListener('click',ring);
+
+/* accordion */
+const panels=$$('.acc__p');
+panels.forEach(p=>$('.acc__tab',p).addEventListener('click',()=>{
+  panels.forEach(q=>{q.classList.toggle('open',q===p);$('.acc__tab',q).setAttribute('aria-expanded',q===p)});
+  if(G&&!reduced)G.fromTo($$('.acc__body h3,.acc__where,.acc__body p,.acc__list li,.acc__pr',p),{y:18,opacity:0},{y:0,opacity:1,duration:.7,stagger:.03,delay:.25,ease:'power3.out'});
+}));
+
+/* sessions toggle */
+let mode=0;const fmt=n=>Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ');
+$$('[data-mode]').forEach(b=>b.addEventListener('click',()=>{
+  mode=+b.dataset.mode;$$('[data-mode]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  $$('[data-mode-label]').forEach(l=>l.textContent=mode?'онлайн':'офлайн');
+  $$('[data-price]').forEach(el=>{const to=+(mode?el.dataset.on:el.dataset.off),from=+el.textContent.replace(/\D/g,'');
+    if(!G||reduced){el.textContent=fmt(to);return}const o={v:from};G.to(o,{v:to,duration:.9,ease:'power3.out',onUpdate:()=>el.textContent=fmt(o.v)})});
+}));
+$$('[data-topic]').forEach(a=>a.addEventListener('click',()=>{$('#ft').value=a.dataset.topic}));
+$$('[data-kind]').forEach(a=>a.addEventListener('click',()=>{$('#ft').value=a.dataset.kind+' · '+(mode?'онлайн':'офлайн')}));
+
+/* form → WhatsApp */
+$('#form').addEventListener('submit',e=>{
+  e.preventDefault();const f=e.target;let ok=true;
+  ['name','phone'].forEach(n=>{const bad=!f[n].value.trim();f[n].setAttribute('aria-invalid',bad);if(bad)ok=false});
+  if(!ok){(f.name.value.trim()?f.phone:f.name).focus();return}
+  const txt=`Здравствуйте, Ирина! Меня зовут ${f.name.value.trim()}.\nИнтересует: ${f.topic.value}.\nТелефон: ${f.phone.value.trim()}`+(f.msg.value.trim()?`\n${f.msg.value.trim()}`:'');
+  window.open('https://wa.me/79050000530?text='+encodeURIComponent(txt),'_blank');
+});
+
+/* video only in view */
+const vid=$('video');
+new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){vid.preload='auto';vid.play().catch(()=>{})}else vid.pause()}),{threshold:.2}).observe(vid);
+
+/* nav */
+const nav=$('#nav');let lastY=0;
+addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y>40);nav.classList.toggle('hide',y>lastY&&y>innerHeight*.9);lastY=y},{passive:true});
+
+/* cursor light */
+if(fine&&!reduced){
+  const torch=$('#torch');let tx=innerWidth/2,ty=innerHeight/2,cx2=tx,cy2=ty;
+  addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;torch.classList.add('on')},{passive:true});
+  document.addEventListener('pointerleave',()=>torch.classList.remove('on'));
+  (function loop(){cx2+=(tx-cx2)*.12;cy2+=(ty-cy2)*.12;torch.style.transform=`translate(${cx2}px,${cy2}px)`;requestAnimationFrame(loop)})();
+}
+
+if(!G||reduced){$('.veil')&&$('.veil').remove();$$('[data-rise]').forEach(el=>{el.style.opacity=1;el.style.transform='none'});$$('.w').forEach(w=>w.style.opacity=1);return}
+
+G.registerPlugin(ScrollTrigger);
+if(window.Lenis){
+  const lenis=new Lenis({lerp:.085});lenis.on('scroll',ScrollTrigger.update);
+  G.ticker.add(t=>lenis.raf(t*1000));G.ticker.lagSmoothing(0);
+  $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length<2)return;const t=$(id);if(!t)return;e.preventDefault();lenis.scrollTo(t,{duration:1.6,easing:x=>1-Math.pow(1-x,4)})}));
+}
+
+/* intro: light opens from her eyes */
+const tl=G.timeline({defaults:{ease:'expo.out'}});
+tl.to('.veil',{opacity:0,duration:.6,ease:'power2.out'})
+  .set('.veil',{display:'none'})
+  .fromTo('#heroPortrait',{clipPath:'circle(0% at 62% 26%)'},{clipPath:'circle(150% at 62% 26%)',duration:2.2,ease:'power2.inOut'},0)
+  .from('#heroPortrait img',{scale:1.18,duration:2.6,ease:'power3.out'},0)
+  .from('.hero__glow',{opacity:0,scale:.6,duration:2,stagger:.2},0)
+  .from('.hero__wm span',{yPercent:60,opacity:0,duration:1,stagger:.1},.1)
+  .from('.hero h1',{y:20,opacity:0,duration:.9},.3)
+  .from('.hero__facts > *, .hero__cta > *',{y:16,opacity:0,duration:.8,stagger:.06},.4)
+  .from('.nav',{yPercent:-100,duration:1},.3);
+
+/* hero: glows drift, portrait parallax */
+G.to('.hero__glow--a',{x:'-6vw',y:'4vw',duration:9,yoyo:true,repeat:-1,ease:'sine.inOut'});
+G.to('.hero__glow--b',{x:'8vw',y:'-5vw',duration:11,yoyo:true,repeat:-1,ease:'sine.inOut'});
+G.to('#heroPortrait img',{yPercent:10,scale:1.06,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+G.to('.hero__copy',{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+/* statement: words light up one by one */
+G.to('#words .w',{opacity:1,stagger:.12,ease:'none',scrollTrigger:{trigger:'.state',start:'top 75%',end:'center 45%',scrub:.4}});
+G.fromTo('.state__media figure',{clipPath:'inset(30% 20% 30% 20% round 200px 200px 6px 6px)'},{clipPath:'inset(0% 0% 0% 0% round 200px 200px 6px 6px)',ease:'none',scrollTrigger:{trigger:'.state',start:'top 80%',end:'center 55%',scrub:true}});
+
+/* generic entrances */
+$$('section,footer').forEach(sec=>{const items=$$('[data-rise]',sec);if(!items.length)return;
+  G.to(items,{opacity:1,y:0,duration:1.1,stagger:.08,ease:'power3.out',scrollTrigger:{trigger:sec,start:'top 72%',once:true}})});
+
+/* seven days: horizontal scroll, light changes colour */
+const hues=['rgba(194,65,59,.38)','rgba(217,121,58,.38)','rgba(227,181,74,.34)','rgba(94,154,106,.36)','rgba(79,134,184,.38)','rgba(106,91,184,.4)','rgba(232,190,120,.42)'];
+const mm=G.matchMedia();
+mm.add('(min-width:861px)',()=>{
+  const track=$('#track');
+  const dist=()=>track.scrollWidth-innerWidth;
+  G.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#daysPin',start:'top top',end:()=>'+='+dist(),pin:true,scrub:.8,invalidateOnRefresh:true,
+    onUpdate:s=>{const i=Math.min(6,Math.floor(s.progress*7));$('#daysGlow').style.setProperty('--hue',hues[i])}}});
+  G.from('.card',{y:80,opacity:0,rotate:2,stagger:.08,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'#daysPin',start:'top 60%',once:true}});
+});
+mm.add('(max-width:860px)',()=>{
+  $$('.card').forEach((c,i)=>{G.from(c,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 88%',once:true,onEnter:()=>$('#daysGlow').style.setProperty('--hue',hues[i])}})});
+});
+
+/* accordion rises */
+G.from('.acc__p',{yPercent:14,opacity:0,stagger:.1,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'#acc',start:'top 80%',once:true}});
+
+/* sessions: plum field opens from the seam */
+mm.add('(min-width:861px)',()=>{
+  G.fromTo('.plan--b',{clipPath:'inset(0 0 0 100%)'},{clipPath:'inset(0 0 0 0%)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:'.plans',start:'top 70%',once:true}});
+});
+
+/* about: big portrait zooms out, a light leak passes */
+G.fromTo('#aboutImg img',{scale:1.3},{scale:1,ease:'none',scrollTrigger:{trigger:'.about',start:'top bottom',end:'center center',scrub:true}});
+G.to('#leak',{xPercent:60,ease:'none',scrollTrigger:{trigger:'.about',start:'top 80%',end:'bottom 20%',scrub:true}});
+
+/* course: spotlight breathes, bowl turns */
+G.to('#beam',{opacity:.45,duration:2.8,yoyo:true,repeat:-1,ease:'sine.inOut'});
+G.fromTo('.stage img',{rotate:-5,y:20},{rotate:3,y:-10,ease:'none',scrollTrigger:{trigger:'.course',start:'top bottom',end:'bottom top',scrub:true}});
+
+/* footer name rises */
+G.from('#fname',{yPercent:60,ease:'none',scrollTrigger:{trigger:'.foot',start:'top bottom',end:'bottom bottom',scrub:true}});
+})();
+</script>
+</body>
+</html>
