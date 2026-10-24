@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>БУФЕТ - легендарные вкусы Горного Алтая (премиум-эскиз)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='90 150 820 550' fill='none' stroke='%23d2ad6a' stroke-width='60' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218'/%3E%3C/svg%3E">
+<meta name="description" content="Деликатесы из марала, целебный высокогорный чай и натуральные таёжные сладости с доставкой по России.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d1210;--ink2:#141b18;--card:#1a221e;--line:rgba(239,230,214,.12);--tx:#efe6d6;--mut:#a9a294;--gold:#d2ad6a;--gold2:#f0d39a;--tq:#3fd0c4;--red:#e2241c;--red2:#ff4a3d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--tx);font:16px/1.6 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+@media(max-width:640px){.wrap{padding:0 16px}}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.05}
+.kick{display:inline-flex;align-items:center;gap:12px;font:700 12px Manrope;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.kick:before{content:"";width:34px;height:1px;background:currentColor}
+.note .lg{}@media(max-width:640px){.note .lg{display:none}}
+.note{position:relative;z-index:30;background:linear-gradient(90deg,#173c38,#1d4a45);color:#d8f3ef;font-size:13px;font-weight:600;text-align:center;padding:7px 16px}
+
+/* ---------- шапка ---------- */
+header{position:absolute;left:0;right:0;top:34px;z-index:20}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:22px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo img{width:150px;filter:drop-shadow(0 3px 14px rgba(0,0,0,.45))}
+.mk{display:block;flex:none;color:var(--gold2)}.logo .mk{width:58px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}footer .mk{width:54px;opacity:.9}
+@media(max-width:640px){.logo .mk{width:44px}}
+.logo span{font:600 11px Manrope;letter-spacing:2.4px;text-transform:uppercase;color:#e7dccb;opacity:.85;border-left:1px solid rgba(255,255,255,.3);padding-left:14px;line-height:1.35}
+.hnav{display:flex;gap:30px;font-weight:600;font-size:14px;letter-spacing:.3px}
+.hnav a{opacity:.85;transition:.2s}.hnav a:hover{opacity:1;color:var(--gold2)}
+.hr{display:flex;align-items:center;gap:14px}
+.htel{font-weight:800;white-space:nowrap;font-size:15px}
+.hcart{position:relative;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(13,18,16,.35);backdrop-filter:blur(8px);display:grid;place-items:center;cursor:pointer}
+.hcart svg{width:20px;height:20px}
+.cnt{position:absolute;right:-3px;top:-3px;min-width:20px;height:20px;border-radius:10px;background:var(--red);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:.25s}
+.cnt.on{transform:scale(1)}
+@media(max-width:960px){.hnav,.logo span{display:none}}
+@media(max-width:640px){.logo img{width:112px}.htel{display:none}}
+
+/* ---------- первый экран: 3D ---------- */
+.hero{position:relative;height:100vh;min-height:680px;max-height:1100px;overflow:hidden;background:#1c2c3c}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(10,14,12,.78) 0%,rgba(10,14,12,.45) 38%,rgba(10,14,12,0) 70%),linear-gradient(0deg,var(--ink) 0%,rgba(13,18,16,0) 30%)}
+.hero .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:90px;padding-bottom:90px}
+.hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(46px,7.2vw,104px);letter-spacing:-1px;max-width:820px;line-height:.95;text-shadow:0 4px 40px rgba(0,0,0,.35)}
+.hero h1 i{font-style:italic;color:var(--gold2);font-weight:500}
+.hero .lead{font:600 clamp(15px,1.5vw,19px) Manrope;letter-spacing:.4px;color:#f3e9da;margin:22px 0 0;max-width:620px}
+.hero p.sub{max-width:540px;color:#d6cdbf;margin:14px 0 30px;font-size:16px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.badge{display:flex;align-items:center;gap:10px;background:rgba(13,18,16,.42);backdrop-filter:blur(10px);border:1px solid rgba(240,211,154,.35);border-radius:40px;padding:7px 18px 7px 8px;font-weight:700;font-size:13px;letter-spacing:.3px}
+.badge i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold));display:grid;place-items:center}
+.badge svg{width:17px;height:17px}
+.cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;background:var(--red);color:#fff;font-weight:800;font-size:15px;letter-spacing:.5px;text-transform:uppercase;border-radius:60px;padding:19px 30px;border:0;cursor:pointer;overflow:hidden;box-shadow:0 14px 40px rgba(226,36,28,.38);transition:.25s}
+.btn:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:.6s}
+.btn:hover{background:var(--red2);transform:translateY(-2px)}.btn:hover:after{left:130%}
+.btn svg{width:20px;height:20px}
+.ghost{font-weight:700;font-size:14px;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px}
+.ghost:hover{color:var(--gold2);border-color:var(--gold2)}
+.hmeta{position:absolute;left:0;right:0;bottom:28px}
+.hero .hmeta .wrap{flex-direction:row;display:flex;justify-content:space-between;align-items:flex-end;height:auto;padding:0 24px}
+.coord{font:600 11px Manrope;letter-spacing:2.5px;text-transform:uppercase;color:rgba(239,230,214,.7)}
+.coord b{display:block;font:italic 500 22px "Cormorant Garamond";letter-spacing:0;text-transform:none;color:var(--tx);margin-top:4px}
+.scroll{display:flex;flex-direction:column;align-items:center;gap:8px;font:700 10px Manrope;letter-spacing:3px;text-transform:uppercase;color:rgba(239,230,214,.7)}
+.scroll i{width:1px;height:46px;background:linear-gradient(var(--gold2),transparent);animation:drop 2s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* галерея в стиле ВК: пост с мозаикой фото, по клику - просмотр с листанием */
+.vk{width:340px;border-radius:18px;background:rgba(13,18,16,.55);backdrop-filter:blur(12px);border:1px solid rgba(240,211,154,.35);padding:12px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.vk .hd{display:flex;align-items:center;gap:10px;padding:2px 4px 10px}
+.vk .av{width:38px;height:38px;border-radius:50%;background:#1a221e;border:1px solid rgba(240,211,154,.45);display:grid;place-items:center}.vk .av .mk{width:24px}
+.vk .hd b{display:block;font-size:14px;line-height:1.2}.vk .hd span{font-size:12px;color:var(--mut)}
+.vk .mo{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:3px;aspect-ratio:1/1;border-radius:12px;overflow:hidden}
+.vk .mo button{position:relative;border:0;padding:0;margin:0;cursor:zoom-in;overflow:hidden;background:#1a221e}
+.vk .mo button:first-child{grid-row:span 2}
+.vk .mo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.vk .mo button:hover img{transform:scale(1.06)}
+.vk .mo i{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.45);font:800 22px Manrope;font-style:normal;color:#fff}
+.vk .ft{display:flex;gap:16px;padding:10px 4px 0;font-size:12.5px;color:var(--mut);font-weight:600}.vk .ft svg{width:16px;height:16px;vertical-align:-3px;margin-right:5px}
+/* вариант 2: галерея-арка по размеру исходного фото марала, листается, миниатюры снизу */
+.arc{position:absolute;right:max(24px,calc(50% - 596px));top:50%;transform:translateY(-38%);width:270px;z-index:3;margin:0}
+.arc .ph{position:relative;border-radius:200px 200px 16px 16px;overflow:hidden;border:1px solid rgba(240,211,154,.6);padding:8px;background:rgba(13,18,16,.35);backdrop-filter:blur(6px)}
+.arc .sl{position:relative;aspect-ratio:3/4;border-radius:190px 190px 10px 10px;overflow:hidden;cursor:zoom-in}
+.arc .sl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.1s ease,transform 6s ease}
+.arc .sl img.on{opacity:1;transform:scale(1)}
+.arc .gb{position:absolute;top:56%;width:34px;height:34px;border-radius:50%;border:1px solid rgba(240,211,154,.5);background:rgba(13,18,16,.55);color:#fff;font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(6px);opacity:.85}
+.arc .gb:hover{background:var(--gold2);color:var(--ink)}.arc .gb.gl{left:16px}.arc .gb.gr{right:16px}
+.arc .gn{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);background:rgba(13,18,16,.6);backdrop-filter:blur(6px);border-radius:20px;padding:3px 11px;font-size:11.5px;font-weight:800;letter-spacing:1px}
+.arc .th{display:flex;gap:6px;margin-top:10px;overflow-x:auto;scrollbar-width:none;justify-content:center}.arc .th::-webkit-scrollbar{display:none}
+.arc .th button{flex:none;width:46px;height:46px;border-radius:10px;overflow:hidden;padding:0;border:1px solid rgba(240,211,154,.25);background:#1a221e;cursor:pointer;opacity:.55;transition:.3s}
+.arc .th button.on{opacity:1;border-color:var(--gold2);box-shadow:0 0 0 2px rgba(240,211,154,.25)}
+.arc .th img{width:100%;height:100%;object-fit:cover}
+.arc figcaption{text-align:center;margin-top:10px;font:italic 500 18px "Cormorant Garamond";color:#efe6d6;min-height:2.6em;line-height:1.3}
+.vkm .arc{position:relative;right:auto;top:auto;transform:none;width:100%;max-width:340px;margin:0 auto}
+@media(max-width:1080px){.hero .arc{display:none}}
+.vlink{color:#fff;text-decoration:underline;text-underline-offset:3px;margin-left:10px}
+.hero .vk{position:absolute;right:max(24px,calc(50% - 596px));top:50%;transform:translateY(-40%);z-index:3}
+.vkm{display:none;padding:34px 0 0}.vkm .vk{width:100%;max-width:520px;margin:0 auto}
+@media(max-width:1080px){.hero .vk{display:none}.vkm{display:block}}
+.lb{position:fixed;inset:0;z-index:80;background:rgba(5,7,6,.94);display:none;align-items:center;justify-content:center}
+.lb.on{display:flex;animation:fade .25s}
+.lb img{max-width:min(92vw,1400px);max-height:84vh;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6);user-select:none}
+.lb .cnt2{position:absolute;left:24px;top:20px;font-weight:700;font-size:14px;color:#cfc6b8}
+.lb .cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;font:italic 500 22px "Cormorant Garamond";color:#efe6d6;padding:0 70px}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.08);color:#fff;width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:26px;line-height:1;display:grid;place-items:center}
+.lb button:hover{background:rgba(255,255,255,.18)}.lb .pv{left:20px;top:50%;margin-top:-26px}.lb .nx{right:20px;top:50%;margin-top:-26px}.lb .cl{right:20px;top:14px;font-size:32px}
+@media(max-width:640px){.lb .pv,.lb .nx{display:none}.lb .cap{font-size:18px;padding:0 16px}}
+@media(max-width:640px){.hero{min-height:640px}.hero .shade{background:linear-gradient(180deg,rgba(10,14,12,.3),rgba(10,14,12,.45) 50%,rgba(10,14,12,.72) 82%,var(--ink))}.hero .wrap{justify-content:flex-end;padding-bottom:110px}.coord{display:none}.hmeta .wrap{justify-content:center}}
+
+/* бегущая строка */
+.ribbon{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:var(--ink2)}
+.ribbon div{display:flex;gap:46px;width:max-content;animation:run 40s linear infinite;font:italic 500 26px "Cormorant Garamond";color:#d9cfbf;white-space:nowrap}
+.ribbon span{display:flex;align-items:center;gap:46px}.ribbon span:after{content:"✦";font-style:normal;font-size:14px;color:var(--gold)}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* секции */
+section{padding:110px 0;position:relative}
+@media(max-width:640px){section{padding:76px 0}}
+.sh{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:46px}
+.sh h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(34px,4.4vw,62px);max-width:860px;margin-top:16px;letter-spacing:-.5px}
+.sh h2 i{color:var(--gold2);font-weight:500}
+.sh p{color:var(--mut);max-width:360px;margin:0;font-size:15px}
+@media(max-width:860px){.sh{grid-template-columns:1fr}}
+
+/* категории: бенто */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:280px;gap:18px;perspective:1200px}
+.cat{position:relative;grid-column:span 4;border-radius:26px;overflow:hidden;cursor:pointer;background:linear-gradient(150deg,#1d2622,#141b18);border:1px solid var(--line);display:grid;grid-template-columns:1fr 46%;transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s}
+.cat:nth-child(2),.cat:nth-child(3){grid-column:span 6}
+.cat.big{grid-column:span 6;grid-row:span 2;grid-template-columns:1fr;grid-template-rows:auto 1fr}
+.cat .pic{order:2;position:relative;margin:12px 12px 12px 0;border-radius:18px;overflow:hidden;transform:translateZ(36px)}
+.cat.big .pic{margin:0 14px 14px}
+.cat:hover{border-color:rgba(240,211,154,.5)}
+.cat .glare{position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(255,236,200,.12),transparent 45%);opacity:0;transition:.3s;pointer-events:none;z-index:2}
+.cat:hover .glare{opacity:1}
+.cat .t{position:relative;padding:24px 18px 22px 24px;display:flex;flex-direction:column;min-width:0;transform:translateZ(24px)}
+.cat.big .t{padding:32px 34px 22px}
+.cat .n{font:700 11px Manrope;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase}
+.cat h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;margin:10px 0 0}
+.cat.big h3{font-size:46px}
+.cat p{color:var(--mut);font-size:13.5px;margin:10px 0 0;line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.cat.big p{font-size:15.5px;max-width:460px}
+.cat .go{margin-top:auto;padding-top:14px;display:flex;align-items:center;gap:10px;font-weight:800;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+.cat.big .go{position:absolute;right:34px;top:34px;padding:0}
+.cat .go i{width:34px;height:34px;border-radius:50%;border:1px solid rgba(240,211,154,.5);display:grid;place-items:center;transition:.3s}
+.cat:hover .go i{background:var(--gold2);color:var(--ink)}
+.cat .go svg{width:14px;height:14px}
+@media(max-width:960px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:270px}.bento .cat{grid-column:span 1;grid-row:span 1}.cat.big{grid-template-columns:1fr 46%;grid-template-rows:none}.cat.big .pic{margin:12px 12px 12px 0}.cat.big .t{padding:24px 18px 22px 24px}.cat.big h3{font-size:27px}.cat.big p{font-size:13.5px}.cat.big .go{position:static;padding-top:14px}}
+@media(max-width:600px){.bento{grid-template-columns:1fr;grid-auto-rows:250px}}
+
+/* каталог */
+.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-bottom:34px;position:sticky;top:0;z-index:8;background:linear-gradient(var(--ink) 75%,transparent);padding:14px 0 18px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;background:transparent;border:1px solid var(--line);border-radius:40px;padding:10px 18px;font-weight:700;font-size:14px;cursor:pointer;transition:.2s;color:var(--tx)}
+.tab:hover{border-color:rgba(240,211,154,.5)}.tab.on{background:var(--tx);color:var(--ink);border-color:var(--tx)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:780px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+.pr{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:.3s}
+.pr:hover{transform:translateY(-4px);border-color:rgba(240,211,154,.35);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.pr .im{aspect-ratio:1;cursor:pointer;overflow:hidden}
+.pr .tag{position:absolute;left:12px;top:12px;background:var(--ink);color:var(--gold2);font-size:10.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;border-radius:20px;padding:5px 11px}
+.noimg{width:100%;height:100%;display:grid;place-items:center;color:#b3a993;font-size:12px;text-align:center}
+.noimg svg{width:54px;height:54px;margin:0 auto 6px;display:block}
+.pr .b{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
+.pr h3{font-family:Manrope;font-size:15px;font-weight:700;line-height:1.35}
+.pr .w{color:var(--mut);font-size:12.5px;margin-top:5px}
+.pr .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:14px}
+.pz{font:700 24px "Cormorant Garamond";white-space:nowrap}.pz.q{font:600 13px Manrope;color:var(--mut)}
+.add{width:44px;height:44px;flex:none;border-radius:50%;border:0;background:var(--gold2);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:.2s}
+.add:hover{background:#fff;transform:rotate(90deg)}.add svg{width:18px;height:18px}
+@media(max-width:780px){.pr h3{font-size:13.5px}.pz{font-size:20px}.add{width:38px;height:38px}.pr .b{padding:12px}}
+
+/* сцена-подложка под фото товаров: однотонный фон снимка убирается скриптом, товар встаёт на стол */
+.stg{position:relative;background:#14110d url(../img/stage.jpg) center/cover}
+.stg:before{content:"";position:absolute;left:calc(50% - var(--sw,.6)*46%);width:calc(var(--sw,.6)*92%);bottom:17.5%;height:7%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.7),transparent);opacity:0;pointer-events:none}
+.stg.cut:before{opacity:1}
+.stg img{position:absolute;left:13%;width:74%;bottom:20%;height:64%;object-fit:contain;object-position:50% 100%;opacity:0;transform-origin:50% 100%;transition:opacity .4s,transform .5s}
+.stg img.cut{opacity:1;filter:sepia(.07) saturate(1.06) contrast(1.04) brightness(.97) drop-shadow(0 3px 3px rgba(0,0,0,.55)) drop-shadow(0 14px 18px rgba(0,0,0,.45)) drop-shadow(-6px -2px 18px rgba(255,206,140,.16));-webkit-box-reflect:below 1px linear-gradient(transparent 72%,rgba(255,255,255,.18))}
+.stg img.scene{opacity:1;left:0;bottom:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:50% 50%}
+.stg img.raw{opacity:1}
+.stg .noimg{position:absolute;inset:0;color:#d8cdb8;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.cat:hover .stg img,.pr:hover .stg img{transform:scale(1.06)}
+
+/* почему мы */
+.why{background:var(--ink2);overflow:hidden}
+.why .bgimg{position:absolute;inset:-12% 0;background:url(../img/lake.jpg) center 35%/cover;opacity:.6;filter:saturate(1.25) brightness(1.1);will-change:transform}
+.why .bgimg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink2),rgba(20,27,24,.55) 40%,rgba(20,27,24,.55) 60%,var(--ink2))}
+.why .wrap{position:relative}
+.rs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.rs{grid-template-columns:1fr}}
+.r{border:1px solid var(--line);border-radius:26px;padding:34px 30px;background:rgba(13,18,16,.55);backdrop-filter:blur(10px)}
+.r .num{font:italic 500 64px "Cormorant Garamond";color:transparent;-webkit-text-stroke:1px rgba(240,211,154,.55);line-height:1}
+.r svg{width:64px;height:64px;margin:20px 0 18px}
+.r svg *{stroke-dasharray:200;stroke-dashoffset:200;transition:stroke-dashoffset 1.6s ease}
+.r.in svg *{stroke-dashoffset:0}
+.r h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:30px}
+.r p{color:var(--mut);font-size:14.5px;margin:10px 0 0}
+
+/* контакты */
+.ct{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:20px}
+@media(max-width:960px){.ct{grid-template-columns:1fr}}
+.cc{border:1px solid var(--line);border-radius:26px;padding:32px;background:var(--card);display:flex;flex-direction:column;gap:6px}
+.cc.main{background:linear-gradient(140deg,#7d1410,#c41f18 55%,#e2241c);border:0}
+.cc small{font:700 11px Manrope;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold2)}
+.cc.main small{color:#ffd9c8}
+.cc .ph{font:600 clamp(30px,3vw,40px) "Cormorant Garamond";margin-top:8px}
+.cc .who{color:var(--mut);font-weight:600}.cc.main .who{color:#ffe1d6}
+.cc .mx{margin-top:auto;padding-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.cc .mx a{border:1px solid rgba(255,255,255,.45);border-radius:40px;padding:10px 18px;font-weight:700;font-size:14px}
+.cc .mx a:hover{background:#fff;color:#a51a14}
+.cc .req{color:var(--mut);font-size:14.5px;line-height:1.7}
+footer{border-top:1px solid var(--line);padding:34px 0 120px;color:#857e72;font-size:12px}
+footer .wrap{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+footer img{width:96px;opacity:.9}
+footer .cr{color:#6f695f;font-size:11px;margin-top:4px}
+
+/* реквизиты ИП: 4 варианта на выбор (?ip=1..4) */
+.ipv{display:none!important}
+[data-ip="1"] .i1,[data-ip="2"] .i2,[data-ip="3"] .i3,[data-ip="4"] .i4{display:revert!important}
+[data-ip="1"] .i1.fx,[data-ip="2"] .i2.fx,[data-ip="3"] .i3.fx,[data-ip="4"] .i4.fx{display:flex!important}
+[data-ip="1"] .i1.gr,[data-ip="2"] .i2.gr,[data-ip="3"] .i3.gr,[data-ip="4"] .i4.gr{display:grid!important}
+.req2{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:12px 0 0;font-size:14px}.req2 dt{color:var(--mut)}.req2 dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}
+.copy{margin-top:auto;align-self:flex-start;display:inline-flex;gap:10px;align-items:center;border:1px solid rgba(240,211,154,.45);border-radius:40px;padding:10px 18px;font-weight:700;font-size:13px;color:var(--gold2);background:none;cursor:pointer}
+.copy:hover{background:var(--gold2);color:var(--ink)}.copy svg{width:16px;height:16px}
+.trust{margin-top:20px;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;border:1px solid rgba(240,211,154,.3);border-radius:30px;padding:34px 44px;background:radial-gradient(600px 220px at 0% 50%,rgba(210,173,106,.14),transparent),var(--ink2)}
+.seal{width:140px;height:140px;border-radius:50%;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 35% 30%,#f6dca4,#c79a52 60%,#8d6630);box-shadow:0 14px 40px rgba(0,0,0,.45),inset 0 0 0 6px rgba(255,255,255,.12)}
+.seal svg{position:absolute;inset:0}.seal i{font:italic 700 36px "Cormorant Garamond";color:#3a2510}
+.trust small{font:700 11px Manrope;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold2)}
+.trust h3{font:600 clamp(28px,3vw,40px) "Cormorant Garamond";line-height:1.05;margin-top:6px}.trust h3 i{color:var(--gold2);white-space:nowrap}
+.trust p{margin:10px 0 0;color:var(--mut);max-width:560px;font-size:14.5px}
+.trust .nums{text-align:right;font-size:13px;color:var(--mut);line-height:1.9}.trust .nums b{color:var(--tx);font-variant-numeric:tabular-nums}
+@media(max-width:860px){.trust{grid-template-columns:1fr;gap:18px;padding:28px 24px;text-align:left}.seal{width:110px;height:110px}.trust .nums{text-align:left}}
+footer details{width:100%}footer summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:40px;padding:9px 16px;font-weight:700;font-size:13px;color:var(--tx)}
+footer summary::-webkit-details-marker{display:none}footer summary svg{width:14px;height:14px;transition:.3s}footer details[open] summary svg{transform:rotate(180deg)}
+.reqs{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 24px;color:var(--tx);font-size:13.5px}
+.reqs small{display:block;color:var(--mut);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:4px}
+.reqs .docs{grid-column:1/-1;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-wrap:wrap;gap:10px 26px;color:var(--gold2);font-weight:600}
+@media(max-width:760px){.reqs{grid-template-columns:1fr 1fr}}
+.ipsw{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:6px;background:rgba(13,18,16,.88);backdrop-filter:blur(10px);border:1px solid rgba(240,211,154,.4);border-radius:40px;padding:6px 6px 6px 16px;font-size:12px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.ipsw a{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line)}.ipsw a.on{background:var(--gold2);color:var(--ink);border-color:var(--gold2)}
+
+/* корзина */
+.drawer{position:fixed;inset:0;z-index:50;pointer-events:none}
+.drawer .ov{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0;transition:.3s}
+.drawer .pn{position:absolute;right:0;top:0;bottom:0;width:min(440px,100%);background:var(--ink2);border-left:1px solid var(--line);transform:translateX(100%);transition:.4s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+.drawer.on{pointer-events:auto}.drawer.on .ov{opacity:1}.drawer.on .pn{transform:none}
+.pn .hd{display:flex;justify-content:space-between;align-items:center;padding:24px 24px 16px;border-bottom:1px solid var(--line)}
+.pn .hd h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:34px}
+.x{background:none;border:0;font-size:30px;cursor:pointer;line-height:1;color:var(--tx)}
+.items{flex:1;overflow:auto;padding:8px 24px}
+.it{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.it .ti{width:64px;height:64px;border-radius:14px;overflow:hidden}
+.it b{display:block;font-size:14px;line-height:1.3}.it span{color:var(--mut);font-size:13px}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:none;cursor:pointer;color:var(--tx)}
+.empty{color:var(--mut);text-align:center;padding:60px 10px}
+.ft{padding:20px 24px 26px;border-top:1px solid var(--line)}
+.sum{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.sum b{font:700 32px "Cormorant Garamond"}
+.ft .btn{width:100%;justify-content:center}
+.ft form{display:none;flex-direction:column;gap:10px;margin-bottom:12px}
+.ft form.on{display:flex}
+.ft input{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;color:var(--tx);font:15px Manrope}
+.ft .ok{display:none;text-align:center;padding:10px;color:var(--tq);font-weight:700}
+
+/* карточка товара */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:60;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.on{display:flex;animation:fade .25s}
+@keyframes fade{from{opacity:0}}
+.mb{background:var(--ink2);border:1px solid var(--line);border-radius:28px;max-width:920px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1.15fr}
+@media(max-width:760px){.mb{grid-template-columns:1fr}}
+.mb .im{aspect-ratio:1;min-height:320px}
+.mb .tx{padding:32px;position:relative}
+.mb .tx .x{position:absolute;right:20px;top:16px}
+.mb h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:36px;padding-right:30px}
+.mb .w{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:10px}
+.mb p{color:#d6cec3;font-size:14.5px;white-space:pre-line}.mb .sost{color:var(--mut);font-size:13.5px;border-top:1px solid var(--line);padding-top:14px}
+.mb .row{display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:14px}
+.mb .pz{font-size:34px}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;background:var(--tx);color:var(--ink);font-weight:800;font-size:14px;border-radius:40px;padding:13px 22px;z-index:70;transition:.3s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.ribbon div{animation:none}}
+</style>
+</head>
+<body>
+<div class="note">Вариант 2 премиум-эскиза<span class="lg">: живой 3D-первый экран, корзина с подсчётом суммы. Тексты из ТЗ, фото товаров ваши</span><a class="vlink" href="../">открыть вариант 1</a></div>
+
+<header><div class="wrap">
+  <a class="logo" href="#top"><svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg><img src="../img/logo.png" alt="БУФЕТ"><span>Продукты<br>Горного Алтая</span></a>
+  <nav class="hnav"><a href="#cats">Наши яства</a><a href="#catalog">Каталог</a><a href="#why">Почему мы</a><a href="#contacts">Контакты</a></nav>
+  <div class="hr"><a class="htel" href="tel:89081045144">8 908 104-51-44</a>
+    <button class="hcart" id="cartBtn" aria-label="Корзина"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cnt" id="cnt">0</span></button></div>
+</div></header>
+
+<div class="hero" id="top">
+  <canvas id="gl"></canvas>
+  <div class="shade"></div>
+  <div class="wrap">
+    <span class="kick">Гастрономия Горного Алтая</span>
+    <h1 style="margin-top:18px">Легендарные вкусы <i>Горного Алтая</i></h1>
+    <p class="lead">Гастрономические сокровища с доставкой по России</p>
+    <p class="sub">Деликатесы из марала, целебный высокогорный чай и натуральные таёжные сладости. Всё лучшее, что создали горы для вашей силы и здоровья.</p>
+    <div class="badges">
+      <span class="badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="#1a140a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></svg></i>Имеется доставка</span>
+      <span class="badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="#1a140a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg></i>100% натуральное</span>
+    </div>
+    <div class="cta"><a class="btn" href="#catalog">Хочу попробовать Алтай! <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="ghost" href="#cats">Смотреть категории</a></div>
+  </div>
+  <figure class="arc" data-arcbox></figure>
+  <div class="hmeta"><div class="wrap"><div class="coord">Река Катунь<b>Горный Алтай</b></div><div class="scroll"><i></i>Листайте</div><div style="width:120px"></div></div></div>
+</div>
+
+<div class="ribbon"><div id="rib"></div></div>
+<div class="vkm"><div class="wrap"><figure class="arc" data-arcbox></figure></div></div>
+<div class="lb" id="lb"><span class="cnt2" id="lbN"></span><img id="lbI" alt=""><div class="cap" id="lbC"></div><button class="pv" data-lb="-1" aria-label="Назад">‹</button><button class="nx" data-lb="1" aria-label="Вперёд">›</button><button class="cl" data-lbx aria-label="Закрыть">×</button></div>
+
+<section id="cats"><div class="wrap">
+  <div class="sh rv"><div><span class="kick">Наши яства</span><h2>Золотой фонд алтайской кухни: <i>выберите своё удовольствие</i></h2></div><p>Шесть направлений, которые мы привозим с Алтая. Нажмите на категорию, чтобы открыть товары.</p></div>
+  <div class="bento" id="bento"></div>
+</div></section>
+
+<section id="catalog" style="padding-top:20px"><div class="wrap">
+  <div class="sh rv"><div><span class="kick">Каталог</span><h2>Всё, что привезли <i>с Алтая</i></h2></div><p>Нажмите на фото, чтобы прочитать описание и состав.</p></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="why" id="why"><div class="bgimg" id="whyBg"></div><div class="wrap">
+  <div class="sh rv"><div><span class="kick">Почему мы</span><h2>3 причины, почему наши продукты уже заказывают <i>себе, маме, друзьям и коллегам</i></h2></div></div>
+  <div class="rs">
+    <div class="r rv"><div class="num">01</div><svg viewBox="0 0 64 64" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M25 8h14M28 8v16L15 50a4 4 0 0 0 3.6 6h26.8a4 4 0 0 0 3.6-6L36 24V8" stroke="#f0d39a"/><path d="M20 40h24" stroke="#f0d39a"/><path d="M8 56 56 8" stroke="#ff4a3d"/></svg><h3>Без ГМО и антибиотиков</h3><p>Мясо пастбищных животных, травы и ягоды без химии.</p></div>
+    <div class="r rv"><div class="num">02</div><svg viewBox="0 0 64 64" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="20" width="42" height="26" rx="5" stroke="#f0d39a"/><path d="M55 28v10" stroke="#f0d39a"/><path d="M16 27v12M24 27v12M32 27v12" stroke="#3fd0c4"/></svg><h3>Заряд энергии на весь день</h3><p>Чистый белок марала и яка, целебные сборы трав: сила гор в каждом продукте.</p></div>
+    <div class="r rv"><div class="num">03</div><svg viewBox="0 0 64 64" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 54 24 18l11 18 7-10 18 28Z" stroke="#f0d39a"/><path d="m19 29 5 4 5-6" stroke="#efe6d6"/><circle cx="48" cy="12" r="4" stroke="#3fd0c4"/></svg><h3>100% экологически чистый регион</h3><p>Всё производится в Горном Алтае, вдали от заводов и больших трасс.</p></div>
+  </div>
+</div></section>
+
+<section id="contacts"><div class="wrap">
+  <div class="sh rv"><div><span class="kick">Контакты</span><h2>Закажите <i>вкус Алтая</i></h2></div></div>
+  <div class="ct rv">
+    <div class="cc main"><small>Заказы и вопросы</small><a class="ph" href="tel:89081045144">8 908 104-51-44</a><div class="who">Людмила</div>
+      <div class="mx"><a href="#">Написать в MAX</a><a href="tel:89081045144">Позвонить</a></div></div>
+    <div class="cc"><small>Сетевые и корпоративные клиенты</small><a class="ph" href="tel:89095370807">8 909 537-08-07</a><div class="who">Михаил</div></div>
+    <div class="cc ipv i1 i3 i4 fx"><small>Реквизиты</small><div class="req" style="margin-top:10px">ИП Аксенов М.В.<br>Адрес: <i>добавим ваш адрес</i><br>Доставка по России</div></div>
+    <div class="cc ipv i2 fx"><small>Продавец</small><div class="serif" style="font-size:28px;font-weight:600;margin-top:6px">ИП Аксенов М. В.</div>
+      <dl class="req2"><dt>ИНН</dt><dd>000000000000</dd><dt>ОГРНИП</dt><dd>000000000000000</dd><dt>Адрес</dt><dd><i>добавим ваш адрес</i></dd></dl>
+      <button class="copy" id="copyReq" style="margin-top:18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Скопировать реквизиты</span></button></div>
+  </div>
+  <div class="trust ipv i3 gr rv">
+    <div class="seal"><svg viewBox="0 0 140 140"><defs><path id="sp" d="M70 70m-54 0a54 54 0 1 1 108 0a54 54 0 1 1-108 0"/></defs><circle cx="70" cy="70" r="40" fill="none" stroke="#3a2510" stroke-opacity=".35"/><text font-family="Manrope" font-weight="800" font-size="9" letter-spacing="2.4" fill="#3a2510"><textPath href="#sp">ОФИЦИАЛЬНЫЙ ПРОДАВЕЦ · ГОРНЫЙ АЛТАЙ ·</textPath></text></svg><i>ИП</i></div>
+    <div><small>Прямо от производителей Алтая</small><h3>Работаем официально - <i>ИП Аксенов М. В.</i></h3><p>Без посредников и перекупщиков. На каждый заказ - чек и документы, на продукцию - сертификаты и декларации соответствия.</p></div>
+    <div class="nums">ИНН <b>000000000000</b><br>ОГРНИП <b>000000000000000</b><br>Доставка по всей России</div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg><img src="../img/logo.png" alt="БУФЕТ"><div>© БУФЕТ. Продукты Горного Алтая. ИП Аксенов М.В.<span class="ipv i1 i2 i3"> · ИНН 000000000000 · ОГРНИП 000000000000000</span>
+  <details class="ipv i4" style="margin-top:12px"><summary>Реквизиты и документы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <div class="reqs"><div><small>Продавец</small>ИП Аксенов М. В.</div><div><small>ИНН</small>000000000000</div><div><small>ОГРНИП</small>000000000000000</div><div><small>Адрес</small><i>добавим ваш адрес</i></div>
+    <div class="docs"><span>Публичная оферта</span><span>Политика конфиденциальности</span><span>Доставка и оплата</span><span>Сертификаты</span></div></div></details>
+  <div class="cr">3D-пейзаж первого экрана нарисован программно. Фото марала: «Altai maral 2» - Dmitry A. Mottl, CC BY-SA 3.0 (Wikimedia Commons).</div></div></div></footer>
+<div class="ipsw" id="ipsw">Реквизиты ИП:<a href="?ip=1">1</a><a href="?ip=2">2</a><a href="?ip=3">3</a><a href="?ip=4">4</a></div>
+
+<div class="drawer" id="drawer"><div class="ov" data-close></div><div class="pn">
+  <div class="hd"><h3>Корзина</h3><button class="x" data-close aria-label="Закрыть">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="ft"><div class="sum"><span>Итого</span><b id="sum">0 ₽</b></div>
+    <form id="order"><input required placeholder="Ваше имя"><input required type="tel" placeholder="Телефон"><input placeholder="Город доставки"></form>
+    <div class="ok" id="ok">Спасибо! Людмила перезвонит, чтобы подтвердить заказ.</div>
+    <button class="btn" id="checkout">Оформить заказ</button></div>
+</div></div>
+
+<div class="modal" id="modal"><div class="mb"><div class="im stg" id="mIm"></div><div class="tx"><button class="x" data-mclose aria-label="Закрыть">×</button><h3 id="mH"></h3><div class="w" id="mW"></div><p id="mD"></p><p class="sost" id="mS"></p><div class="row"><span class="pz" id="mP"></span><button class="btn" id="mAdd" style="padding:15px 22px;font-size:13px">В корзину</button></div></div></div></div>
+<div class="toast" id="toast">Добавлено в корзину</div>
+
+<script>
+const CATS=[
+ {id:'meat',name:'Дикое мясо и деликатесы',d:'Дикое мясо и сырокопченые деликатесы (марал, як, конина) - чистый белок, мощь и первозданный вкус.',img:'m1'},
+ {id:'tea',name:'Целебный чай',d:'Целебные сборы и таёжный чай - аромат диких трав, энергия утром и глубокий релакс вечером.',img:'t1'},
+ {id:'sweet',name:'Таёжные сладости',d:'Натуральные сладости и кедровый грильяж - полезное лакомство без капли химии, которое можно даже детям.',img:'c1'},
+ {id:'semi',name:'Пельмени и манты',d:'Настоящие пельмени и манты ручной лепки - когда сочно, сытно и по-домашнему.',img:'p2'},
+ {id:'can',name:'Тушёнка',d:'Домашняя тушёнка по старинным рецептам - честный состав, сытость и польза настоящего цельного мяса.',img:'cans-katun'},
+ {id:'cosm',name:'Алтайская косметика',d:'Травяное мыло ручной работы и органические губки для тела. Ощутите силу алтайской природы и устройте спа-ритуал у себя дома.',img:'g1'}];
+const P=[
+ ['meat','m1','Мясо варёно-копчёное','Из марала, конины, яка (сарлыка) и говядины - по старинной технологии. Домашний посол 10 суток без инъекций, копчение на буковой щепе. Чистый, насыщенный вкус мяса с лёгкой дымной нотой.','','1 кг',2900,'хит'],
+ ['meat','m2','Балык свиной','Нежный и сочный свиной балык - изысканный деликатес из отборной свинины. Аппетитная прослойка жира делает его особенно вкусным и ароматным.','','1 кг',1300],
+ ['meat','m3','Корейка варёно-копчёная','Ароматная и сытная свиная корейка с насыщенным вкусом и красивой мраморной текстурой.','','1 кг',1200],
+ ['meat','m4','Рулет мясной из корейки б/к','Свиной рулет с чесноком и пряностями. Удобная нарезка, сочная серединка и пряная корочка - хит любой мясной тарелки.','','1 кг',1250],
+ ['meat','m5','Шпик корейковый солёный','Ароматное сало с нежной прослойкой мяса, приготовленное методом варки и копчения. Идеальная закуска к ржаному хлебу и горчице.','','1 кг',950],
+ ['tea','t1','Чай «Горы Алтая» (бодрящий)','Укрепит здоровье, восстановит силы, поднимет настроение и зарядит энергией на целый день.','Лист смородины черной, лист курильского чая, плоды облепихи, плоды шиповника, лист бадана, лист облепихи, мелисса.','100 г, ручной сбор',450,'хит'],
+ ['tea','t2','Чай «Катунский хребет» (освежающий)','Оригинальный вкус и аромат. Подарит радость и повысит жизненный тонус.','Лист смородины черной, лист курильского чая, плоды шиповника, лист бадана, лист мяты перечной.','100 г, ручной сбор',450],
+ ['tea','t3','Чай «Озеро Тумана» (успокаивающий)','Необычный вкус. Поможет избежать стресса и сбалансирует нервную систему.','Плоды боярышника, трава чабреца, плоды шиповника, кукурузные рыльца, трава володушки, трава зверобоя.','100 г, ручной сбор',450],
+ ['tea','t4','Напиток чайный «Ягодка» витаминный','Общеукрепляющий витаминный напиток: ягоды и листья самых полезных растений Горного Алтая.','Бадан, курильский чай, лист малины, чабрец, лист смородины, ягода шиповника, ягода облепихи.','дикорастущие травы',450],
+ ['tea','t5','Напиток чайный «Батыр» для здоровья мужчин','Повышение жизненного тонуса, поддержка мужского здоровья.','Иван-чай, бадан, шиповник, красный корень, золотой корень.','дикорастущие травы',450],
+ ['tea','t6','Напиток чайный «Золотая луна» для здоровья женщин','Ароматный напиток, поддерживающий женское здоровье, гормональный баланс и красоту.','Кипрей, лабазник, лист малины, лист смородины, лаванда, красная щётка, душица.','дикорастущие травы',450],
+ ['tea','t7','Чай в пирамидках «Мир Алтая» (иммунный)','Освежающий чай с множеством вкусовых оттенков. Способствует пищеварению, ускоряет метаболизм, восстанавливает силы.','Мята, кипрей, чага, земляника, курильский чай.','в пирамидках',340],
+ ['tea','t8','Чёрный чай с Саган Дайля (тонизирующий)','Саган Дайля с отборным чёрным чаем: уникальный вкус, тонизирующее действие, повышает работоспособность.','Чай чёрный (индийский), саган дайля.','',450],
+ ['sweet','c1','«Кедровое ассорти»','Кедровый орех с алтайскими ягодами - клюквой, брусникой, черникой, облепихой и красной смородиной, кедровая халва и натуральный мёд в тёмном шоколаде. Подарочный набор.','Ядро кедрового ореха, горно-алтайский мёд, натуральный шоколад, вяленые ягоды, кедровая халва.','200 г',1300,'подарок'],
+ ['sweet','c2','Конфеты «Горно-Алтайский кедр»','Тёмный шоколад, целая горсть кедрового ореха и алтайский мёд. Большая подарочная упаковка.','Ядро кедрового ореха, горно-алтайский мёд, натуральный шоколад.','большая упаковка',1300],
+ ['sweet','c3','Конфеты «Кедровый микс»','Облепиха, алтайский мёд и кедровые орехи в тёмном шоколаде. Вкусы: облепиха, черника, брусника, клубника, клюква.','','100 г',650],
+ ['sweet','c4','«Матрёшки кедровые»','Шоколадные матрёшки с кедровым орехом, клюквой и алтайским мёдом - в тёмном и молочном шоколаде.','','',500],
+ ['sweet','c5','Шоколадный зайчик с печеньем и сгущёнкой','Не пустая фигурка, а почти пирожное: молочный шоколад, печенье со сгущёнкой и кокосовая стружка.','','',380],
+ ['semi','p1','Пельмени «Русские»','Свинина, говядина.','','0,8 кг',550],
+ ['semi','p2','Пельмени «Сибирские» из мяса марала','Мясо марала, свинина, говядина.','','0,8 кг',600,'марал'],
+ ['semi','p3','Пельмени «Домашние»','Свинина, говядина.','','0,8 кг',550],
+ ['semi','p4','Пельмени «Элитные» из мяса марала','Мясо марала (оленя).','','0,8 кг',600,'марал'],
+ ['semi','p5','Манты «Домашние»','Свинина, говядина, шпик.','','1 кг',800],
+ ['semi','p6','Манты «Таёжные» с бараниной','Баранина, жир-сырец бараний.','','1 кг',950],
+ ['semi','p7','Манты «Элитные» с мясом марала','Мясо марала (оленя).','','1 кг',880,'марал'],
+ ['semi','','Котлеты «Нежные» из мяса курицы','Мясо курицы.','','1 кг',880],
+ ['can','','Оленина тушёная','Тушёнка из мяса оленя в жестяной банке.','','ж/б',0],
+ ['can','k2','Марал мясо тушёное','Тушёнка из благородного мяса марала. Только мясо и мараловый жир. Жестяная (0,338 л) или ламистерная (0,25 л) банка.','Срок годности: 5 лет - жестяная банка, 3 года - ламистер.','ж/б 0,338 л',0,'марал'],
+ ['can','k3','Мясо яка (сарлыка) тушёное','Экзотическая тушёнка: мясо яка и его жир, без искусственных добавок. Уникальный вкус дикого мяса.','Срок годности: 5 лет - жестяная банка, 3 года - ламистер.','ж/б 0,338 л',0],
+ ['can','k4','Свинина тушёная','Классическая тушёнка: сочное мясо в собственном жиру с чёрным перцем и лавровым листом. Без субпродуктов и добавок.','Срок годности 5 лет.','ж/б',0],
+ ['can','k5','Баранина тушёная','Ароматная баранина в бараньем жире с чёрным перцем и лавровым листом. Без искусственных компонентов.','Срок хранения 5 лет.','ж/б',0],
+ ['cosm','g1','Мочалка льняная с органическим мылом','Просто намочите - и мочалка готова: льняные волокна мягко очищают кожу, органическое мыло нежно пенится. Карман фиксирует мочалку на руке для массажа.','','1 шт.',350],
+ ['cosm','','Пенящиеся губки 2 в 1','Губка пропитана мягкой моющей основой - принять душ легко и удобно.','','1 шт.',0]];
+
+const $=s=>document.querySelector(s);
+const NOIMG='<div class="noimg"><div><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="36" height="28" rx="4"/><circle cx="17" cy="20" r="3"/><path d="m6 34 11-9 8 7 6-5 11 9"/></svg>фото добавим</div></div>';
+const price=v=>v?v.toLocaleString('ru-RU')+' ₽':'';
+const ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+
+$('#rib').innerHTML=(w=>w+w)(['марал','як (сарлык)','кедровый орех','облепиха','саган дайля','бадан','алтайский мёд','курильский чай','ручная лепка','таёжные травы'].map(t=>`<span>${t}</span>`).join(''));
+
+$('#bento').innerHTML=CATS.map((c,i)=>`<div class="cat rv ${i<1?'big':''}" data-c="${c.id}"><div class="pic stg"><img src="../img/${c.img}.jpg" alt=""></div><div class="glare"></div>
+  <div class="t"><div class="n">0${i+1} · ${P.filter(p=>p[0]===c.id).length} товаров</div><h3>${c.name}</h3><p>${c.d}</p><div class="go"><i>${ARROW}</i>Смотреть</div></div></div>`).join('');
+
+let cur='all';
+function drawTabs(){$('#tabs').innerHTML=[['all','Все товары'],...CATS.map(c=>[c.id,c.name])].map(([id,n])=>`<button class="tab ${id===cur?'on':''}" data-t="${id}">${n}</button>`).join('')}
+function drawGrid(){$('#grid').innerHTML=P.map((p,i)=>[p,i]).filter(([p])=>cur==='all'||p[0]===cur).map(([p,i])=>`<div class="pr">
+  <div class="im stg" data-i="${i}">${p[1]?`<img loading="lazy" src="../img/${p[1]}.jpg" alt="">`:NOIMG}${p[7]?`<span class="tag">${p[7]}</span>`:''}</div>
+  <div class="b"><h3>${p[2]}</h3><div class="w">${p[5]||'&nbsp;'}</div>
+  <div class="row">${p[6]?`<span class="pz">${price(p[6])}</span>`:'<span class="pz q">Цена уточняется</span>'}<button class="add" data-a="${i}" aria-label="В корзину">${PLUS}</button></div></div></div>`).join('')}
+drawTabs();drawGrid();
+
+/* корзина */
+const cart=new Map();
+function drawCart(){const n=[...cart.values()].reduce((a,b)=>a+b,0);$('#cnt').textContent=n;$('#cnt').classList.toggle('on',n>0);
+  let s=0,ask=false;
+  $('#items').innerHTML=n?[...cart].map(([i,q])=>{const p=P[i];s+=p[6]*q;if(!p[6])ask=true;return`<div class="it"><div class="ti stg">${p[1]?`<img src="../img/${p[1]}.jpg" alt="">`:''}</div>
+    <div><b>${p[2]}</b><span>${p[6]?price(p[6])+' × '+q:'цену уточним'}</span></div><div class="qty"><button data-q="${i}" data-d="-1">−</button>${q}<button data-q="${i}" data-d="1">+</button></div></div>`}).join(''):'<div class="empty">Корзина пока пуста.<br>Добавьте что-нибудь вкусное из каталога.</div>';
+  $('#sum').textContent=(s?s.toLocaleString('ru-RU')+' ₽':'0 ₽')+(ask?' +':'');}
+const toast=$('#toast');
+function add(i){cart.set(i,(cart.get(i)||0)+1);drawCart();toast.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>toast.classList.remove('on'),1400)}
+let mi=0;
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-t],[data-c],[data-a],.pr .im,[data-close],[data-mclose],#mAdd,#cartBtn,[data-q],#checkout,.modal');if(!t)return;
+  if(t.dataset.t){cur=t.dataset.t;drawTabs();drawGrid()}
+  else if(t.dataset.c){cur=t.dataset.c;drawTabs();drawGrid();$('#catalog').scrollIntoView({behavior:'smooth'})}
+  else if(t.dataset.a){add(+t.dataset.a)}
+  else if(t.dataset.q){const i=+t.dataset.q,q=(cart.get(i)||0)+ +t.dataset.d;q>0?cart.set(i,q):cart.delete(i);drawCart()}
+  else if(t.id==='cartBtn'){$('#drawer').classList.add('on')}
+  else if(t.hasAttribute('data-close')){$('#drawer').classList.remove('on')}
+  else if(t.id==='checkout'){const f=$('#order');if(!cart.size)return;if(!f.classList.contains('on')){f.classList.add('on');t.textContent='Отправить заявку'}else if(f.reportValidity()){f.classList.remove('on');$('#ok').style.display='block';t.style.display='none';cart.clear();drawCart()}}
+  else if(t.matches('.pr .im')){mi=+t.dataset.i;const p=P[mi];$('#mIm').className='im stg';$('#mIm').innerHTML=p[1]?`<img src="../img/${p[1]}.jpg" alt="">`:NOIMG;$('#mH').textContent=p[2];$('#mW').textContent=p[5];$('#mD').textContent=p[3];$('#mS').textContent=p[4]?'Состав: '+p[4]:'';$('#mS').style.display=p[4]?'':'none';$('#mP').textContent=p[6]?price(p[6]):'Цена уточняется';$('#modal').classList.add('on')}
+  else if(t.id==='mAdd'){add(mi);$('#modal').classList.remove('on')}
+  else if(t.hasAttribute('data-mclose')||e.target===t&&t.classList.contains('modal')){$('#modal').classList.remove('on')}
+});
+drawCart();
+
+/* галерея: добавить фото - дописать строку в GAL */
+const GAL=[
+ ['cans-katun','Тушёнка и паштет из марала на берегу горной реки'],
+ ['maral','Алтайский марал - символ гор'],
+ ['lake','Горный Алтай: тишина, чистая вода и кедровая тайга']];
+const MK=`<svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg>`;
+document.querySelectorAll('[data-vk]').forEach(v=>{v.innerHTML=`<div class="hd"><span class="av">${MK}</span><div><b>БУФЕТ · Горный Алтай</b><span>фотоальбом · ${GAL.length} фото</span></div></div>
+  <div class="mo">${GAL.slice(0,3).map(([f],i)=>`<button data-g="${i}" aria-label="Открыть фото"><img src="../img/${f}.jpg" alt="${GAL[i][1]}" loading="lazy">${i===2&&GAL.length>3?`<i>+${GAL.length-3}</i>`:''}</button>`).join('')}</div>
+  <div class="ft"><button data-g="0" style="background:none;border:0;padding:0;color:var(--gold2);font:inherit;cursor:pointer">Смотреть все фото →</button></div></div>`});
+let gi=0;const lb=$('#lb');
+function showG(i){gi=(i+GAL.length)%GAL.length;$('#lbI').src='../img/'+GAL[gi][0]+'.jpg';$('#lbC').textContent=GAL[gi][1];$('#lbN').textContent=(gi+1)+' из '+GAL.length;lb.classList.add('on')}
+document.addEventListener('click',e=>{const g=e.target.closest('[data-g]'),n=e.target.closest('[data-lb]');
+  if(g)showG(+g.dataset.g);else if(n)showG(gi+ +n.dataset.lb);else if(e.target.closest('[data-lbx]')||e.target===lb)lb.classList.remove('on');else if(e.target.id==='lbI')showG(gi+1)});
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowRight')showG(gi+1);if(e.key==='ArrowLeft')showG(gi-1)});
+{let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)showG(gi+(dx<0?1:-1))})}
+
+/* галерея-арка: автолистание, стрелки, миниатюры; по клику - крупный просмотр */
+document.querySelectorAll('[data-arcbox]').forEach(f=>{let k=0,tm;
+  f.innerHTML=`<div class="ph"><div class="sl">${GAL.map(([g,c],i)=>`<img src="../img/${g}.jpg" alt="${c}" class="${i?'':'on'}">`).join('')}</div>
+    <button class="gb gl" aria-label="Назад">‹</button><button class="gb gr" aria-label="Вперёд">›</button><span class="gn"></span></div>
+    <div class="th">${GAL.map(([g],i)=>`<button aria-label="Фото ${i+1}"><img src="../img/${g}.jpg" alt="" loading="lazy"></button>`).join('')}</div><figcaption></figcaption>`;
+  const im=[...f.querySelectorAll('.sl img')],tb=[...f.querySelectorAll('.th button')];
+  const go=i=>{k=(i+GAL.length)%GAL.length;im.forEach((e,j)=>e.classList.toggle('on',j===k));tb.forEach((e,j)=>e.classList.toggle('on',j===k));
+    f.querySelector('.gn').textContent=(k+1)+' / '+GAL.length;f.querySelector('figcaption').textContent=GAL[k][1];clearInterval(tm);tm=setInterval(()=>go(k+1),5000)};
+  f.querySelector('.gb.gl').onclick=()=>go(k-1);f.querySelector('.gb.gr').onclick=()=>go(k+1);tb.forEach((b,j)=>b.onclick=()=>go(j));
+  f.querySelector('.sl').onclick=()=>showG(k);go(0)});
+
+/* реквизиты ИП: вариант из адреса ?ip=N, по умолчанию 3 */
+{const n=(location.search.match(/ip=([1-4])/)||[])[1]||'3';document.body.dataset.ip=n;
+ document.querySelectorAll('#ipsw a').forEach(a=>{a.classList.toggle('on',a.textContent===n);a.href='?ip='+a.textContent+'#contacts'});
+ const cb=$('#copyReq');cb&&cb.addEventListener('click',()=>{navigator.clipboard&&navigator.clipboard.writeText('ИП Аксенов М. В.\nИНН 000000000000\nОГРНИП 000000000000000');cb.querySelector('span').textContent='Скопировано'})}
+
+/* подложка: у снимка с однотонным фоном (белым, серым, чёрным) фон убирается, товар ставится на сцену.
+   Пёстрый край = готовая фотосцена, её показываем целиком. Новые фото обрабатываются так же, без доработок. */
+const CUT=new Map();
+function cutBg(im){
+  const k=Math.min(1,900/Math.max(im.naturalWidth,im.naturalHeight)),w=Math.round(im.naturalWidth*k),h=Math.round(im.naturalHeight*k);
+  const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0,w,h);
+  const D=x.getImageData(0,0,w,h),d=D.data,N=w*h,edge=[];
+  for(let i=0;i<w;i++)edge.push(i,(h-1)*w+i);for(let j=1;j<h-1;j++)edge.push(j*w,j*w+w-1);
+  // цвета фона: до двух преобладающих цветов по краю (белый лист, чёрная подложка под лотком)
+  const dc=(p,cl)=>{const r=d[p*4]-cl[0],g=d[p*4+1]-cl[1],b=d[p*4+2]-cl[2];return Math.sqrt(r*r+g*g+b*b)};
+  const med=ps=>[0,1,2].map(ch=>{const a=ps.map(p=>d[p*4+ch]).sort((u,v)=>u-v);return a[a.length>>1]});
+  // фото-сцена с однотонными полосами по краям (тёмная студия на белом листе): полосы обрезаем, фото показываем целиком
+  const trim=()=>{const cl=med(edge),ok=p=>dc(p,cl)<30;let x0=0,x1=w-1,y0=0,y1=h-1;
+    const colF=xx=>{let n=0;for(let y=0;y<h;y++)n+=ok(y*w+xx);return n/h},rowF=y=>{let n=0;for(let xx=0;xx<w;xx++)n+=ok(y*w+xx);return n/w};
+    while(x0<w/3&&colF(x0)>.9)x0++;while(x1>w*2/3&&colF(x1)>.9)x1--;while(y0<h/3&&rowF(y0)>.9)y0++;while(y1>h*2/3&&rowF(y1)>.9)y1--;
+    if(x0+w-1-x1+y0+h-1-y1<Math.min(w,h)*.04)return Promise.resolve(null);
+    const o=document.createElement('canvas');o.width=x1-x0+1;o.height=y1-y0+1;o.getContext('2d').drawImage(c,x0,y0,o.width,o.height,0,0,o.width,o.height);
+    return new Promise(res=>o.toBlob(bl=>res(bl?{url:URL.createObjectURL(bl),ar:o.width/o.height,scene:1}:null),'image/jpeg',.9))};
+  const bgs=[];let rest=edge;
+  for(let i=0;i<2&&rest.length>edge.length*.12;i++){const cl=med(rest);if(i&&cl[0]+cl[1]+cl[2]<450||rest.filter(p=>dc(p,cl)<30).length<edge.length*.15)break;bgs.push(cl);rest=rest.filter(p=>dc(p,cl)>=30)}
+  if(!bgs.length||rest.length>edge.length*.3)return trim();
+  const dv=new Uint8Array(N),bi=new Uint8Array(N);
+  for(let p=0;p<N;p++){let m=1e9;for(let i=0;i<bgs.length;i++){const v=dc(p,bgs[i]);if(v<m){m=v;bi[p]=i}}dv[p]=m>255?255:m}
+  const T1=14,T2=58,a=new Uint8Array(N).fill(255),fl=new Uint8Array(N),q=new Int32Array(N);let qh=0,qt=0;
+  const push=n=>{if(!fl[n]&&dv[n]<T2){fl[n]=1;q[qt++]=n}};
+  for(const p of edge)push(p);
+  while(qh<qt){const p=q[qh++],e=dv[p],px=p%w;a[p]=e<=T1?0:Math.round(255*(e-T1)/(T2-T1));
+    if(px>0)push(p-1);if(px<w-1)push(p+1);if(p>=w)push(p-w);if(p<N-w)push(p+w)}
+  // замкнутые «окна» цвета фона внутри товара (между ручками, в прозрачном лотке) тоже убираем
+  for(let p0=0;p0<N;p0++){if(fl[p0]||dv[p0]>=10)continue;qh=qt=0;fl[p0]=2;q[qt++]=p0;
+    while(qh<qt){const p=q[qh++],px=p%w;for(const n of [px>0?p-1:-1,px<w-1?p+1:-1,p-w,p+w])if(n>=0&&n<N&&!fl[n]&&dv[n]<10){fl[n]=2;q[qt++]=n}}
+    if(qt>N*.003)for(let i=0;i<qt;i++)a[q[i]]=0}
+  // край: сжать на 1px (без светлого ореола), смягчить, затухание у края кадра, снять оттенок фона
+  const er=a.slice();
+  for(let y=1;y<h-1;y++)for(let xx=1;xx<w-1;xx++){const p=y*w+xx;if(a[p])er[p]=Math.min(a[p],a[p-1],a[p+1],a[p-w],a[p+w])}
+  const b=er.slice(),F=Math.round(Math.min(w,h)*.08),hit=ps=>ps.filter(p=>er[p]>128).length>ps.length*.03,col=xx=>[...Array(h).keys()].map(y=>y*w+xx);
+  const tT=hit([...Array(w).keys()]),tB=hit([...Array(w).keys()].map(i=>(h-1)*w+i)),tL=hit(col(0)),tR=hit(col(w-1));let x0=w,y0=h,x1=0,y1=0;
+  for(let y=0;y<h;y++)for(let xx=0;xx<w;xx++){const p=y*w+xx;
+    if(y>0&&y<h-1&&xx>0&&xx<w-1&&er[p]!==er[p-1]+er[p+1]+er[p-w]+er[p+w]>>2)b[p]=(er[p]*4+er[p-1]+er[p+1]+er[p-w]+er[p+w])>>3;
+    let al=b[p];if(tT||tB||tL||tR){const m=Math.min(1,tT?y/F:1,tB?(h-1-y)/F:1,tL?xx/F:1,tR?(w-1-xx)/F:1);al=Math.round(al*m*m*(3-2*m))}d[p*4+3]=al;
+    if(al&&al<255){const f=al/255,cl=bgs[bi[p]];for(let ch=0;ch<3;ch++)d[p*4+ch]=Math.max(0,Math.min(255,(d[p*4+ch]-cl[ch]*(1-f))/f))}
+    if(al>24){if(xx<x0)x0=xx;if(xx>x1)x1=xx;if(y<y0)y0=y;if(y>y1)y1=y}}
+  if(x1<=x0)return Promise.resolve(null);
+  x.putImageData(D,0,0);
+  const o=document.createElement('canvas');o.width=x1-x0+5;o.height=y1-y0+5;o.getContext('2d').drawImage(c,x0-2,y0-2,o.width,o.height,0,0,o.width,o.height);
+  return new Promise(res=>o.toBlob(bl=>res(bl?{url:URL.createObjectURL(bl),ar:o.width/o.height}:undefined)))}
+function stage(im){
+  if(im.dataset.st)return;im.dataset.st=1;const box=im.parentElement,src=im.src;
+  if(!CUT.has(src)){let r;try{r=cutBg(im)}catch(e){r=Promise.resolve(undefined)}CUT.set(src,r)}
+  CUT.get(src).then(r=>{if(r===undefined)im.classList.add('raw');else if(r===null||r.scene){if(r)im.src=r.url;im.classList.add('scene');box.classList.add('scene')}else{im.src=r.url;im.classList.add('cut');box.classList.add('cut');const bx=box.getBoundingClientRect(),bw=bx.width||1,bh=bx.height||1;box.style.setProperty('--sw',Math.min(.74*bw,.64*bh*r.ar)/bw)}})}
+document.addEventListener('load',e=>{const t=e.target;if(t.tagName==='IMG'&&t.parentElement.classList.contains('stg'))stage(t)},true);
+document.addEventListener('error',e=>{const t=e.target;if(t.tagName==='IMG')t.classList.add('raw')},true);
+setInterval(()=>document.querySelectorAll('.stg>img:not([data-st])').forEach(i=>i.complete&&i.naturalWidth&&stage(i)),400);
+
+/* наклон карточек категорий */
+document.querySelectorAll('.cat').forEach(c=>{
+  c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    c.style.transform=`rotateY(${(x-.5)*8}deg) rotateX(${(.5-y)*8}deg)`;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')});
+  c.addEventListener('pointerleave',()=>c.style.transform='')});
+
+/* появление при прокрутке */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+if(location.search.includes('still'))document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+addEventListener('scroll',()=>{const b=$('#whyBg'),r=b.parentElement.getBoundingClientRect();b.style.transform=`translateY(${r.top*-.12}px)`},{passive:true});
+</script>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+<script type="module">
+/* ---------- 3D-пейзаж: горы, бирюзовая Катунь, туман, птицы ---------- */
+import * as THREE from 'three';
+const cv=document.getElementById('gl'),hero=document.getElementById('top');
+const Q=new URLSearchParams(location.search),STILL=Q.has('still');
+const MOB=matchMedia('(max-width:760px)').matches,RED=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const r=new THREE.WebGLRenderer({canvas:cv,antialias:true,preserveDrawingBuffer:STILL,powerPreference:'high-performance'});
+r.setPixelRatio(Math.min(devicePixelRatio,MOB?1.5:2));r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.05;
+const s=new THREE.Scene(),cam=new THREE.PerspectiveCamera(52,1,.5,1400);
+const HOR=new THREE.Color('#f2b98c'),TOP=new THREE.Color('#1d3654');
+s.fog=new THREE.FogExp2(HOR.clone().lerp(new THREE.Color('#b9a6a8'),.35),.0042);
+
+// шум симплекса 2D
+const perm=new Uint8Array(512);{const p=[...Array(256).keys()];let k=7;for(let i=255;i>0;i--){k=(k*16807)%2147483647;const j=k%(i+1);[p[i],p[j]]=[p[j],p[i]]}for(let i=0;i<512;i++)perm[i]=p[i&255]}
+const G=[[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]];
+function sn(x,y){const F=.366025403,Gs=.211324865,s0=(x+y)*F,i=Math.floor(x+s0),j=Math.floor(y+s0),t=(i+j)*Gs,x0=x-(i-t),y0=y-(j-t),i1=x0>y0?1:0,j1=1-i1;
+  const x1=x0-i1+Gs,y1=y0-j1+Gs,x2=x0-1+2*Gs,y2=y0-1+2*Gs,ii=i&255,jj=j&255;let n=0;
+  for(const [dx,dy,gi] of [[x0,y0,perm[ii+perm[jj]]],[x1,y1,perm[ii+i1+perm[jj+j1]]],[x2,y2,perm[ii+1+perm[jj+1]]]]){let tt=.5-dx*dx-dy*dy;if(tt>0){const g=G[gi&7];tt*=tt;n+=tt*tt*(g[0]*dx+g[1]*dy)}}
+  return 70*n}
+const fbm=(x,y,o=5)=>{let a=0,f=1,w=.5;for(let i=0;i<o;i++){a+=w*sn(x*f,y*f);f*=2.03;w*=.5}return a};
+const ridge=(x,y)=>{let a=0,f=1,w=.55,pr=1;for(let i=0;i<6;i++){let n=1-Math.abs(sn(x*f,y*f));n*=n;a+=n*w*pr;pr=n;f*=2.1;w*=.5}return a};
+const sm=(a,b,v)=>{const t=Math.min(1,Math.max(0,(v-a)/(b-a)));return t*t*(3-2*t)};
+const riverX=z=>34*Math.sin(z*.011)+14*Math.sin(z*.029+1.3);
+function H(x,z){const d=Math.abs(x-riverX(z)),v=sm(8,95,d),far=1+Math.min(.9,Math.max(0,-z-50)/160);
+  const m=Math.pow(.62*ridge(x*.004+3,z*.004)+.38*(fbm(x*.003,z*.003,3)+.5),1.35)*58*far*(.35+.65*sm(25,150,d)),base=fbm(x*.02,z*.02,4)*5;
+  return -3.2+sm(4.5,9,d)*3.4+v*(m+base+6)+(1-v)*fbm(x*.08,z*.08,2)*.6}
+
+// рельеф
+const W=520,D=640,SX=MOB?150:280,SZ=MOB?190:340;
+const g=new THREE.PlaneGeometry(W,D,SX,SZ);g.rotateX(-Math.PI/2);g.translate(0,0,-D/2+170);
+const pos=g.attributes.position,col=new Float32Array(pos.count*3);
+const C={peb:new THREE.Color('#8f8c7d'),mead:new THREE.Color('#5a7a43'),for1:new THREE.Color('#1f3b2a'),for2:new THREE.Color('#2b4a31'),rock:new THREE.Color('#6d6a63'),rock2:new THREE.Color('#4f4c49'),snow:new THREE.Color('#f4f3ef')},c=new THREE.Color();
+for(let i=0;i<pos.count;i++){const x=pos.getX(i),z=pos.getZ(i),h=H(x,z);pos.setY(i,h);
+  const sl=Math.min(1,Math.hypot(H(x+1.5,z)-h,H(x,z+1.5)-h)/2.2),n=fbm(x*.05,z*.05,3);
+  if(h<.6)c.copy(C.peb);
+  else{c.copy(C.mead).lerp(n>0?C.for1:C.for2,sm(2,14,h+n*6));
+    c.lerp(n>.1?C.rock:C.rock2,sm(.45,.8,sl+n*.2)*sm(8,22,h)+sm(38,60,h)*.7);
+    c.lerp(C.snow,sm(54,62,h+n*10)*(1-sm(.75,.95,sl)))}
+  col.set([c.r,c.g,c.b],i*3)}
+g.setAttribute('color',new THREE.BufferAttribute(col,3));g.computeVertexNormals();
+s.add(new THREE.Mesh(g,new THREE.MeshStandardMaterial({vertexColors:true,roughness:.95,metalness:0})));
+
+// небо: градиент, низкое солнце за горами
+const SUN=new THREE.Vector3(-.28,.075,-1).normalize();
+const sky=new THREE.Mesh(new THREE.SphereGeometry(1000,32,16),new THREE.ShaderMaterial({side:THREE.BackSide,depthWrite:false,fog:false,
+  uniforms:{top:{value:TOP},hor:{value:HOR},sun:{value:SUN}},
+  vertexShader:'varying vec3 vd;void main(){vd=normalize(position);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+  fragmentShader:`uniform vec3 top,hor,sun;varying vec3 vd;void main(){float y=max(vd.y,0.);vec3 c=mix(hor,top,pow(y,.45));
+    float sd=max(dot(normalize(vd),sun),0.);c+=vec3(1.,.78,.5)*pow(sd,8.)*.35+vec3(1.,.9,.7)*pow(sd,90.)*.8+vec3(1.)*smoothstep(.9993,.9997,sd);
+    c=mix(c,hor*1.05,smoothstep(.0,-.15,vd.y));gl_FragColor=vec4(c,1.);}`}));
+s.add(sky);
+const pm=new THREE.PMREMGenerator(r),es=new THREE.Scene();es.add(sky.clone());const env=pm.fromScene(es,.02).texture;
+s.environment=env;s.environmentIntensity=.35;
+
+// свет
+const sunL=new THREE.DirectionalLight('#ffcf9c',2.4);sunL.position.copy(SUN).multiplyScalar(300).add(new THREE.Vector3(0,60,0));s.add(sunL);
+s.add(new THREE.HemisphereLight('#a9bfdc','#2b2a20',.75));
+const front=new THREE.DirectionalLight('#9fb6d8',.35);front.position.set(80,60,200);s.add(front);
+
+// вода: бирюзовая, с бликами неба и мягкой рябью
+const wg=new THREE.PlaneGeometry(W,D,MOB?60:120,MOB?80:160);wg.rotateX(-Math.PI/2);wg.translate(0,0,-D/2+170);
+const wmat=new THREE.MeshPhysicalMaterial({color:'#0b8f8a',roughness:.06,metalness:0,clearcoat:1,clearcoatRoughness:.04,envMapIntensity:1.8,emissive:'#077a74',emissiveIntensity:.9,transparent:true,opacity:1,toneMapped:false});
+// перелив: светлые струи бегут по течению, оттенок гуляет от изумрудного к лазурному, на скользящем взгляде - блеск
+const wU={value:0};
+wmat.onBeforeCompile=sh=>{sh.uniforms.uT=wU;
+  sh.vertexShader='varying vec3 vW;\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvW=(modelMatrix*vec4(transformed,1.)).xyz;');
+  sh.fragmentShader='uniform float uT;varying vec3 vW;\n'+sh.fragmentShader.replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
+    float rx=34.*sin(vW.z*.011)+14.*sin(vW.z*.029+1.3),dep=1.-smoothstep(3.,26.,abs(vW.x-rx));
+    vec3 shallow=vec3(.10,.78,.70),deep=vec3(.0,.30,.36);
+    vec3 wc=mix(shallow,deep,pow(dep,.8));
+    wc=mix(wc,vec3(.0,.48,.62),.25+.25*sin(vW.x*.04+vW.z*.02+uT*.3));
+    float fl=vW.z*.42-uT*2.6,cr=vW.x*.6;
+    float st=pow(max(0.,.55*sin(fl+sin(cr+uT*.5)*1.6)+.45*sin(fl*2.3-cr*1.7-uT*1.1)),6.);
+    float fr=pow(1.-abs(dot(normalize(normal),normalize(vViewPosition))),4.);
+    totalEmissiveRadiance=wc*.95+vec3(.55,1.,.92)*st*.45*(1.-dep*.5)+vec3(.6,.95,1.)*fr*.22;`)};
+const water=new THREE.Mesh(wg,wmat);water.position.y=-.05;s.add(water);
+const wp=wg.attributes.position,w0=Float32Array.from(wp.array);
+
+// туман над рекой
+const ft=(()=>{const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d'),gr=x.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=gr;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)})();
+const NM=MOB?160:340,mg=new THREE.BufferGeometry(),mp=new Float32Array(NM*3);
+for(let i=0;i<NM;i++){const z=150-Math.random()*520;mp.set([riverX(z)+(Math.random()-.5)*60,2+Math.random()*10,z],i*3)}
+mg.setAttribute('position',new THREE.BufferAttribute(mp,3));
+const mist=new THREE.Points(mg,new THREE.PointsMaterial({map:ft,size:46,color:'#ffe6d2',transparent:true,opacity:.07,depthWrite:false,sizeAttenuation:true}));s.add(mist);
+
+// птицы
+const birds=[];const bm=new THREE.LineBasicMaterial({color:'#1b1a1c',transparent:true,opacity:.75,fog:true});
+for(let i=0;i<6;i++){const bg=new THREE.BufferGeometry();bg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(9),3));const b=new THREE.Line(bg,bm);b.userData={a:Math.random()*6.3,r:30+Math.random()*30,y:34+Math.random()*12,cz:-60-Math.random()*40,sp:.08+Math.random()*.05,ph:Math.random()*6};s.add(b);birds.push(b)}
+
+// камера: медленный полёт вдоль реки + отклик на мышь и прокрутку
+let mx=0,my=0,tmx=0,tmy=0,scr=0;
+addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5},{passive:true});
+addEventListener('scroll',()=>{scr=Math.min(1,scrollY/innerHeight)},{passive:true});
+function size(){const w=hero.clientWidth,h=hero.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.fov=w/h<1?68:52;cam.updateProjectionMatrix()}
+size();addEventListener('resize',size);
+let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(hero);
+const t0=performance.now();
+function frame(now){
+  const t=STILL?+(Q.get('t')||18):(now-t0)/1000;
+  mx+=(tmx-mx)*.04;my+=(tmy-my)*.04;
+  const k=RED?.3:.5-.5*Math.cos(t*.045),z=125-k*95;
+  cam.position.set(riverX(z)*.85+mx*8,24+scr*26-my*3,z);
+  const lz=z-95;cam.lookAt(riverX(lz)*.9+mx*10,13+scr*6,lz);
+  for(let i=0;i<wp.count;i++){const x=w0[i*3],zz=w0[i*3+2];wp.setY(i,.18*Math.sin(x*.35+t*1.3)*Math.cos(zz*.3+t*.9))}
+  wp.needsUpdate=true;wg.computeVertexNormals();wU.value=t;
+  mist.position.x=Math.sin(t*.05)*6;mist.position.z=(t*.8)%30;
+  for(const b of birds){const u=b.userData,a=u.a+t*u.sp,cx=riverX(u.cz)+Math.cos(a)*u.r,cz=u.cz+Math.sin(a)*u.r*.6,f=Math.sin(t*6+u.ph)*.9,p=b.geometry.attributes.position;
+    const dx=-Math.sin(a),dz=Math.cos(a)*.6;p.setXYZ(0,cx-dz*1.6,u.y+f,cz+dx*1.6);p.setXYZ(1,cx,u.y,cz);p.setXYZ(2,cx+dz*1.6,u.y+f,cz-dx*1.6);p.needsUpdate=true}
+  r.render(s,cam)}
+if(STILL){frame(0);window.DONE=1}
+else r.setAnimationLoop(now=>{if(vis)frame(now)});
+</script>
+</body>
+</html>
