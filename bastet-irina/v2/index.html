@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BASTET IRINA — обучение InnerDance и энергосессии</title>
+<meta name="description" content="Обучение на фасилитатора InnerDance и энергопрактика, энергетические сессии. BASTET IRINA — научный подход к тонким энергиям.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3ece0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Literata:ital,opsz,wght@0,7..72,400;1,7..72,400;1,7..72,500&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee; --parch:#f3ece0; --parch-2:#ebe2d2; --sand:#ddd0bb;
+  --ink:#2a231d; --ink-2:#4a4037; --muted:#6b5f52;
+  --terra:#a3461f; --terra-2:#c2643a; --terra-soft:#e8c9b4;
+  --forest:#26301f; --forest-2:#334028; --olive:#5d6b45; --sage:#a9b18f;
+  --on-forest:#efe7d8; --on-forest-2:#c9c3ad; --terra-light:#e48b60;
+  --line:rgba(42,35,29,.16); --line-f:rgba(239,231,216,.16);
+  --display:"Prata",Georgia,serif; --serif:"Literata",Georgia,serif; --sans:"Golos Text",system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip;scrollbar-color:var(--sand) var(--parch)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font-family:var(--sans);color:var(--ink);background:var(--parch);line-height:1.6;font-size:17px;font-variant-numeric:lining-nums;caret-color:var(--terra);overflow-x:hidden}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--parch)}
+::-webkit-scrollbar-thumb{background:var(--sand);border-radius:10px;border:2px solid var(--parch)}
+::selection{background:var(--terra);color:var(--paper)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:4px}
+.forest :focus-visible{outline-color:var(--terra-light)}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+section{position:relative}
+.pad{padding:clamp(88px,11vw,152px) 0}
+
+/* type */
+.h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,4.6vw,62px);line-height:1.08;letter-spacing:-.01em;text-wrap:balance;color:var(--ink)}
+.h2 em,.h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--terra)}
+.forest .h2{color:var(--on-forest)}
+.forest .h2 em{color:var(--terra-light)}
+.lead{font-family:var(--serif);font-size:clamp(19px,1.6vw,22px);line-height:1.5;color:var(--ink-2);max-width:60ch}
+.forest .lead{color:var(--on-forest-2)}
+.small{font-size:14px;color:var(--muted)}
+.rule{height:1px;background:var(--line);border:0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 28px;border-radius:2px;font-weight:500;font-size:15px;letter-spacing:.01em;transition:background .35s,color .35s,box-shadow .35s,transform .35s var(--ease)}
+.btn svg{width:18px;height:18px;transition:transform .4s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn--terra{background:var(--terra);color:var(--paper);box-shadow:0 10px 24px -14px rgba(163,70,31,.8)}
+.btn--terra:hover{background:#8c3a17;box-shadow:0 16px 30px -14px rgba(163,70,31,.9)}
+.btn--line{box-shadow:inset 0 0 0 1px currentColor}
+.btn--line:hover{background:var(--ink);color:var(--paper);box-shadow:inset 0 0 0 1px var(--ink)}
+.forest .btn--line:hover{background:var(--on-forest);color:var(--forest)}
+.link{position:relative;display:inline-flex;align-items:center;gap:10px;font-weight:500;color:var(--terra);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px;transition:text-underline-offset .3s}
+.link:hover{text-underline-offset:9px}
+.link svg{width:16px;height:16px}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s,box-shadow .4s,transform .5s var(--ease)}
+.nav.scrolled{background:rgba(243,236,224,.94);box-shadow:0 1px 0 var(--line)}
+.nav.hide{transform:translateY(-100%)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px}
+.logo{font-family:var(--display);font-size:22px;letter-spacing:.06em;color:var(--ink);display:flex;align-items:baseline;gap:8px}
+.logo i{font-family:var(--serif);font-style:italic;font-size:17px;letter-spacing:0;color:var(--terra)}
+.nav__links{display:flex;gap:30px;font-size:15px;color:var(--ink-2)}
+.nav__links a{padding:6px 0;background:linear-gradient(var(--terra),var(--terra)) 0 100%/0 1px no-repeat;transition:background-size .45s var(--ease),color .3s}
+.nav__links a:hover{background-size:100% 1px;color:var(--ink)}
+.nav .btn{min-height:44px;padding:0 20px;font-size:14px}
+.burger{display:none;width:46px;height:46px;position:relative}
+.burger span{position:absolute;left:11px;right:11px;height:1.5px;background:var(--ink);transition:.4s var(--ease)}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){top:27px}
+.menu-open .burger span:nth-child(1){top:22px;transform:rotate(45deg)}
+.menu-open .burger span:nth-child(2){top:22px;transform:rotate(-45deg)}
+.mmenu{position:fixed;inset:0;z-index:45;background:var(--parch);display:flex;flex-direction:column;justify-content:center;padding:96px 24px 40px;clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease);visibility:hidden}
+.menu-open .mmenu{clip-path:inset(0);visibility:visible}
+.mmenu a{font-family:var(--display);font-size:34px;line-height:1.2;padding:10px 0;border-bottom:1px solid var(--line)}
+.mmenu .btn{margin-top:30px;font-family:var(--sans);font-size:15px;border:0;padding:0 28px}
+
+/* hero */
+.hero{padding:132px 0 0;overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(32px,5vw,80px);align-items:end}
+.hero__name{font-family:var(--display);font-size:clamp(15px,1.3vw,18px);letter-spacing:.32em;text-transform:uppercase;color:var(--olive)}
+.h1{font-family:var(--display);font-weight:400;font-size:clamp(42px,6.6vw,96px);line-height:1.02;letter-spacing:-.02em;color:var(--ink);margin:26px 0 30px;text-wrap:balance}
+.hero__sub{display:flex;flex-wrap:wrap;gap:6px 22px;font-family:var(--serif);font-style:italic;font-size:clamp(18px,1.5vw,21px);color:var(--ink-2);padding-top:22px;border-top:1px solid var(--line);max-width:640px}
+.hero__sub span:not(:last-child)::after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--terra);margin-left:22px;vertical-align:middle}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.hero__art{position:relative;padding-bottom:40px}
+.hero__frame{position:relative;aspect-ratio:3/4;border-radius:220px 220px 0 0;overflow:hidden;background:var(--parch-2)}
+.hero__frame img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.hero__frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(42,35,29,.08);border-radius:inherit}
+.hero__cap{display:flex;justify-content:space-between;gap:16px;margin-top:14px;font-size:13px;color:var(--muted)}
+.bowl{display:inline-flex;align-items:center;gap:10px;color:var(--terra);font-weight:500;font-size:14px}
+.bowl svg{width:20px;height:20px}
+.bowl:hover{color:#8c3a17}
+.ring{position:absolute;border-radius:50%;border:1px solid var(--terra);pointer-events:none;transform:translate(-50%,-50%);animation:ring 2.8s var(--ease) forwards}
+@keyframes ring{from{width:24px;height:24px;opacity:.8}to{width:560px;height:560px;opacity:0}}
+
+/* ticket */
+.ticket{margin-top:clamp(56px,7vw,96px);background:var(--forest);color:var(--on-forest)}
+.ticket__in{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:clamp(20px,4vw,56px);min-height:112px;padding:22px 0}
+.ticket__k{font-family:var(--display);font-size:clamp(20px,2vw,26px)}
+.ticket__d{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--on-forest-2)}
+.cd{display:flex;gap:22px}
+.cd div{text-align:left}
+.cd b{display:block;font-family:var(--display);font-weight:400;font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.cd small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--on-forest-2)}
+.ticket .btn--terra{background:var(--terra-light);color:var(--forest);box-shadow:none}
+.ticket .btn--terra:hover{background:var(--on-forest)}
+
+/* training */
+.tr__head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(40px,6vw,96px);align-items:start}
+.tr__name{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--terra);margin-bottom:20px}
+.tr__head .lead{margin-top:28px}
+.meta{border-top:1px solid var(--ink)}
+.meta div{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.meta dt{font-size:14px;color:var(--muted)}
+.meta dd{font-family:var(--display);font-size:22px;text-align:right}
+.meta + .btn{margin-top:28px;width:100%}
+.what{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(40px,6vw,96px);margin-top:clamp(80px,10vw,140px);padding-top:clamp(40px,5vw,64px);border-top:1px solid var(--line)}
+.what h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.what h3 em{font-family:var(--serif);color:var(--terra)}
+.what__q{font-family:var(--serif);font-size:clamp(23px,2.4vw,33px);line-height:1.35;color:var(--ink);text-wrap:pretty}
+.what__q em{font-style:italic;color:var(--terra)}
+.what__p p+p{margin-top:24px;color:var(--ink-2);max-width:60ch}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(56px,6vw,88px);border-top:1px solid var(--ink)}
+.pillars li{list-style:none;padding:28px 24px 0 0;font-family:var(--display);font-size:clamp(20px,1.8vw,25px);line-height:1.2}
+.pillars li+li{padding-left:24px;border-left:1px solid var(--line)}
+.pillars svg{display:block;width:40px;height:40px;color:var(--terra);margin-bottom:20px}
+
+/* mandala */
+.forest{background:var(--forest);color:var(--on-forest)}
+.mandala{overflow:hidden}
+.md__pin{min-height:100svh;display:flex;align-items:center;padding:96px 0}
+.md__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center;width:100%}
+.md__svg{position:relative;width:min(100%,540px);aspect-ratio:1;justify-self:center}
+.md__svg svg{width:100%;height:100%;overflow:visible}
+.md__svg .pet circle{transition:fill-opacity .9s var(--ease),stroke-opacity .9s var(--ease)}
+.md__svg .pet .s{fill:none;stroke-width:1.2;stroke-opacity:.28}
+.md__svg .pet .f{stroke:none;fill-opacity:0}
+.md__svg .pet.on .s{stroke-opacity:1}
+.md__svg .pet.on .f{fill-opacity:.2}
+.md__center{position:absolute;inset:0;display:grid;place-items:center;text-align:center;pointer-events:none}
+.md__center b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(60px,7vw,92px);line-height:1}
+.md__center small{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--on-forest-2)}
+.mandala .lead{margin-top:26px}
+.days{margin-top:36px;border-top:1px solid var(--line-f)}
+.day{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:16px;padding:13px 0;border-bottom:1px solid var(--line-f);color:rgba(239,231,216,.45);transition:color .6s}
+.day i{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--c);transition:background .6s}
+.day.on{color:var(--on-forest)}
+.day.on i{background:var(--c)}
+.day b{font-weight:500;font-size:16px}
+.day span{font-family:var(--serif);font-style:italic;font-size:16px}
+
+/* stages */
+.stages{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink)}
+.stage{display:grid;grid-template-columns:120px minmax(0,1fr) 220px;gap:clamp(20px,4vw,56px);padding:clamp(36px,4vw,56px) 0;border-bottom:1px solid var(--line)}
+.stage__num{font-family:var(--display);font-size:clamp(56px,6vw,84px);line-height:.9;color:var(--terra)}
+.stage__k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);font-weight:600}
+.stage h3{font-family:var(--display);font-weight:400;font-size:clamp(25px,2.5vw,34px);line-height:1.15;margin:12px 0 10px;text-wrap:balance}
+.stage__where{font-family:var(--serif);font-style:italic;color:var(--muted)}
+.stage p.d{margin-top:20px;color:var(--ink-2);max-width:64ch}
+.stage__price{text-align:right}
+.stage__price b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(36px,3.6vw,52px);line-height:1}
+.stage__price small{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
+.acc{margin-top:24px}
+.acc__btn{display:inline-flex;align-items:center;gap:14px;padding:10px 0;font-weight:500;color:var(--terra);text-align:left}
+.acc__btn i{position:relative;width:14px;height:14px;flex-shrink:0}
+.acc__btn i::before,.acc__btn i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;background:currentColor;transition:transform .5s var(--ease)}
+.acc__btn i::after{transform:rotate(90deg)}
+.acc.open .acc__btn i::after{transform:rotate(0)}
+.acc__body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
+.acc.open .acc__body{grid-template-rows:1fr}
+.acc__body>div{overflow:hidden}
+.list{list-style:none;columns:2;column-gap:44px;padding:14px 0 4px}
+.list li{break-inside:avoid;position:relative;padding:9px 0 9px 22px;font-size:15.5px;line-height:1.45;border-bottom:1px solid var(--line)}
+.list li::before{content:"";position:absolute;left:0;top:18px;width:9px;height:1px;background:var(--terra)}
+
+/* price */
+.price{background:var(--paper)}
+.pr__head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.pr{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--ink)}
+.pr__row{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:clamp(16px,3vw,48px);align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
+.pr__k{font-family:var(--display);font-size:20px;color:var(--terra)}
+.pr__t{color:var(--ink-2)}
+.pr__p{font-family:var(--display);font-size:clamp(30px,3vw,42px);line-height:1;white-space:nowrap}
+.pr__p--word{font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.2vw,30px);color:var(--olive)}
+.pr__total{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:clamp(20px,4vw,56px);align-items:center;margin-top:28px;padding:clamp(28px,3vw,40px) clamp(24px,3vw,44px);background:var(--terra);color:var(--paper)}
+.pr__total h3{font-family:var(--display);font-weight:400;font-size:clamp(24px,2.4vw,32px);line-height:1.1}
+.pr__total p{margin-top:6px;color:#f6dccd;font-size:15px}
+.pr__total .pr__p{font-size:clamp(48px,5vw,72px)}
+.pr__total .btn{background:var(--paper);color:var(--terra);box-shadow:none}
+.pr__total .btn:hover{background:var(--forest);color:var(--paper)}
+
+/* download */
+.dl{background:var(--paper);padding-top:0}
+.dl__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:center;padding-top:clamp(56px,6vw,88px);border-top:1px solid var(--line)}
+.pages{position:relative;height:clamp(320px,34vw,460px)}
+.pages img{position:absolute;width:52%;top:6%;left:24%;box-shadow:0 2px 4px rgba(42,35,29,.08),0 28px 50px -24px rgba(42,35,29,.45);transition:transform .9s var(--ease)}
+.pages img:nth-child(1){transform:rotate(-6deg) translateX(-34%)}
+.pages img:nth-child(2){transform:rotate(5deg) translateX(34%)}
+.dl__in:hover .pages img:nth-child(1){transform:rotate(-9deg) translateX(-44%)}
+.dl__in:hover .pages img:nth-child(2){transform:rotate(8deg) translateX(44%)}
+.dl__in:hover .pages img:nth-child(3){transform:translateY(-10px)}
+.dl ul{list-style:none;margin:28px 0 34px;border-top:1px solid var(--line)}
+.dl li{padding:13px 0 13px 22px;border-bottom:1px solid var(--line);position:relative;color:var(--ink-2)}
+.dl li::before{content:"";position:absolute;left:0;top:25px;width:9px;height:1px;background:var(--terra)}
+.dl__file{margin-top:14px;font-size:13px;color:var(--muted)}
+
+/* practitioner */
+.prac{background:var(--sage);color:var(--forest)}
+.prac__grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(40px,6vw,96px);align-items:end}
+.prac__name{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--forest);margin-bottom:20px}
+.prac .h2{color:var(--forest)}
+.prac .h2 em{color:#5e240c}
+.prac__q{font-family:var(--serif);font-size:clamp(20px,1.8vw,24px);line-height:1.45;color:var(--forest)}
+.chips{list-style:none;margin:30px 0 34px;border-top:1px solid rgba(38,48,31,.3)}
+.chips li{padding:12px 0;border-bottom:1px solid rgba(38,48,31,.3);font-weight:500}
+.prac .btn--terra{background:var(--forest);color:var(--on-forest);box-shadow:none}
+.prac .btn--terra:hover{background:#7d3214}
+
+/* requests */
+.req__head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
+.req__aside{font-family:var(--serif);font-style:italic;font-size:clamp(20px,1.8vw,24px);line-height:1.5;color:var(--olive);text-align:right}
+.req__grid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);column-gap:clamp(24px,3vw,48px);margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--ink)}
+.rq{display:grid;grid-template-columns:28px 1fr;gap:16px;align-items:start;padding:22px 0;border-bottom:1px solid var(--line)}
+.rq svg{width:26px;height:26px;color:var(--terra);margin-top:2px}
+.rq p{font-size:16px;line-height:1.45}
+.req__cta{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;margin-top:clamp(40px,5vw,64px)}
+.req__cta p{font-family:var(--display);font-size:clamp(22px,2.2vw,30px);line-height:1.25;max-width:24ch}
+
+/* sessions */
+.ses{background:var(--paper)}
+.ses__head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.tog{display:inline-flex;position:relative;box-shadow:inset 0 0 0 1px var(--ink);border-radius:2px}
+.tog button{position:relative;z-index:1;min-height:48px;padding:0 26px;font-weight:500;font-size:15px;transition:color .4s}
+.tog button.on{color:var(--paper)}
+.tog i{position:absolute;top:0;bottom:0;left:0;background:var(--ink);border-radius:2px;transition:transform .6s var(--ease),width .6s var(--ease)}
+.ses__grid{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--ink)}
+.sc{display:flex;flex-direction:column;padding:clamp(28px,3vw,44px) clamp(0px,3vw,44px) clamp(28px,3vw,44px) 0}
+.sc+.sc{border-left:1px solid var(--line);padding-left:clamp(24px,3vw,44px);padding-right:0}
+.sc__k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);font-weight:600}
+.sc h3{font-family:var(--display);font-weight:400;font-size:clamp(30px,3vw,40px);line-height:1.1;margin:12px 0 14px}
+.sc p{color:var(--ink-2);max-width:44ch;flex:1}
+.sc__bot{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-top:34px}
+.sc__p{font-family:var(--display);font-size:clamp(46px,4.6vw,62px);line-height:1;font-variant-numeric:tabular-nums}
+.sc__p small{font-size:.45em;margin-left:6px;color:var(--muted)}
+.sc__fmt{font-family:var(--serif);font-style:italic;color:var(--muted);margin-top:8px}
+.ses__note{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+
+/* about */
+.ab__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,7vw,112px);align-items:center}
+.ab__ph{aspect-ratio:4/5;overflow:hidden;border-radius:2px}
+.ab__ph img{width:100%;height:112%;object-fit:cover;object-position:50% 20%}
+.ab__roles{display:flex;flex-wrap:wrap;gap:4px 0;margin:26px 0 30px;font-family:var(--serif);font-style:italic;font-size:20px;color:var(--terra-light)}
+.ab__roles span:not(:last-child)::after{content:"·";margin:0 14px;color:var(--on-forest-2)}
+.ab__dip{display:flex;gap:18px;align-items:center;margin-top:34px;padding:22px 0;border-top:1px solid var(--line-f);border-bottom:1px solid var(--line-f)}
+.ab__dip svg{width:44px;height:44px;color:var(--terra-light);flex-shrink:0}
+.ab__dip b{font-weight:600;color:var(--on-forest)}
+.ab__vals{display:flex;flex-wrap:wrap;gap:8px 30px;margin-top:30px;font-family:var(--display);font-size:clamp(22px,2vw,28px)}
+
+/* vizitka */
+.viz__grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(40px,6vw,96px);align-items:center;margin-top:clamp(40px,5vw,64px)}
+.card3d{perspective:1600px;width:100%;max-width:640px;aspect-ratio:1.75;cursor:pointer}
+.card3d__in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 1.2s var(--ease)}
+.card3d.flip .card3d__in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:6px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 2px 4px rgba(42,35,29,.08),0 36px 60px -30px rgba(42,35,29,.5)}
+.face--back{transform:rotateY(180deg)}
+.flip-hint{margin-top:18px;font-size:14px;color:var(--muted)}
+.qrs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.qr{display:block;background:#fff;padding:18px;box-shadow:inset 0 0 0 1px var(--line);text-align:center;transition:box-shadow .4s,transform .5s var(--ease)}
+.qr:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px var(--terra),0 24px 40px -28px rgba(42,35,29,.5)}
+.qr__code{aspect-ratio:1}
+.qr__code svg{width:100%;height:100%;display:block}
+.qr b{display:block;margin-top:12px;font-weight:600;font-size:15px}
+.qr small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.viz__dl{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:26px}
+
+/* contact */
+.ct__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,112px)}
+.contact .lead{margin-top:26px}
+.ct__phone{display:inline-block;font-family:var(--display);font-size:clamp(34px,4vw,54px);line-height:1;margin:36px 0 26px;font-variant-numeric:tabular-nums;background:linear-gradient(var(--terra-light),var(--terra-light)) 0 100%/0 1px no-repeat;padding-bottom:8px;transition:background-size .5s var(--ease)}
+.ct__phone:hover{background-size:100% 1px}
+.ct__soc{display:flex;flex-wrap:wrap;gap:10px}
+.ct__soc a{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;box-shadow:inset 0 0 0 1px var(--line-f);border-radius:2px;font-weight:500;font-size:15px;transition:box-shadow .3s,background .3s}
+.ct__soc a:hover{box-shadow:inset 0 0 0 1px var(--terra-light);background:rgba(239,231,216,.05)}
+.ct__soc svg{width:19px;height:19px;color:var(--terra-light)}
+form{display:grid;gap:8px;align-content:start}
+.f{position:relative}
+.f input,.f select,.f textarea{width:100%;height:64px;padding:26px 0 8px;border:0;border-bottom:1px solid rgba(239,231,216,.3);border-radius:0;background:transparent;color:var(--on-forest);font:inherit;font-size:17px;outline:none;transition:border-color .35s;-webkit-appearance:none;appearance:none}
+.f textarea{height:104px;resize:vertical;padding-top:32px}
+.f select option{color:var(--ink);background:var(--paper)}
+.f label{position:absolute;left:0;top:22px;font-size:16px;color:var(--on-forest-2);pointer-events:none;transition:.35s var(--ease)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--terra-light)}
+.f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label,.f select+label{top:4px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-light)}
+.f--sel::after{content:"";position:absolute;right:4px;top:32px;width:8px;height:8px;border-right:1.5px solid var(--terra-light);border-bottom:1.5px solid var(--terra-light);transform:rotate(45deg);pointer-events:none}
+.f.bad input{border-color:#f0a58a}
+.f__err{display:none;font-size:13px;color:#f0a58a;margin-top:6px}
+.f.bad .f__err{display:block}
+form .btn{margin-top:22px;background:var(--terra-light);color:var(--forest);box-shadow:none}
+form .btn:hover{background:var(--on-forest)}
+.f__note{font-size:13px;color:var(--on-forest-2);margin-top:4px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:clamp(80px,10vw,128px);padding-top:28px;border-top:1px solid var(--line-f);font-size:14px;color:var(--on-forest-2)}
+.foot .logo{color:var(--on-forest);font-size:19px}
+.foot .logo i{color:var(--terra-light);font-size:15px}
+
+/* mobile bar */
+.mbar{display:none}
+
+/* gentle entrance: visible by default, enhanced only with JS */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:1080px){
+  .nav__links{display:none}
+  .burger{display:block}
+  .nav .btn{display:none}
+  .pillars{grid-template-columns:1fr 1fr}
+  .pillars li:nth-child(3){padding-left:0;border-left:0}
+  .pillars li{padding-bottom:28px}
+  .pillars li:nth-child(n+3){border-top:1px solid var(--line)}
+  .req__grid{grid-template-columns:1fr 1fr}
+  .ticket__in{grid-template-columns:1fr auto;row-gap:16px}
+  .ticket .btn{grid-column:1/-1;justify-self:start}
+}
+@media (max-width:860px){
+  body{font-size:16px}
+  .hero{padding-top:104px}
+  .hero__grid,.tr__head,.what,.md__grid,.dl__in,.prac__grid,.ab__grid,.viz__grid,.ct__grid{grid-template-columns:1fr}
+  .hero__art{order:-1;width:min(56%,260px);padding-bottom:0}
+  .hero__frame{aspect-ratio:4/5;border-radius:160px 160px 0 0}
+  .hero__cap span{display:none}
+  .hero__cap{justify-content:flex-start}
+  .h1{margin:18px 0 24px}
+  .md__pin{min-height:auto}
+  .md__svg{width:min(100%,380px)}
+  .stage{grid-template-columns:1fr;gap:12px}
+  .stage__price{text-align:left;margin-top:10px}
+  .list{columns:1}
+  .pr__row{grid-template-columns:1fr auto;gap:6px 20px}
+  .pr__t{grid-column:1/-1;grid-row:2}
+  .pr__total{grid-template-columns:1fr;gap:18px}
+  .pr__total .btn{justify-self:start}
+  .req__head{grid-template-columns:1fr}
+  .req__aside{text-align:left}
+  .ses__grid{grid-template-columns:1fr}
+  .sc{padding:30px 0}
+  .sc+.sc{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  .ab__ph{max-width:380px}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;gap:6px;padding:6px;background:var(--forest);border-radius:4px;box-shadow:0 18px 40px -12px rgba(38,48,31,.6);transform:translateY(150%);transition:transform .6s var(--ease)}
+  .mbar.show{transform:none}
+  .mbar a{flex:1;min-height:50px;display:grid;place-items:center;font-weight:500;font-size:15px;color:var(--on-forest);border-radius:2px}
+  .mbar a:first-child{background:var(--terra-light);color:var(--forest)}
+  .foot{padding-bottom:84px}
+}
+@media (max-width:560px){
+  .pillars{grid-template-columns:1fr}
+  .pillars li,.pillars li+li{padding:22px 0;border-left:0}
+  .pillars li+li{border-top:1px solid var(--line)}
+  .pillars svg{margin-bottom:14px}
+  .req__grid{grid-template-columns:1fr}
+  .hero__cta .btn{width:100%}
+  .ticket__in{grid-template-columns:1fr}
+  .cd{gap:18px}
+  .qrs{gap:10px}
+  .qr{padding:12px}
+  .qr b{font-size:13px}
+  .tog{width:100%}
+  .tog button{flex:1}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="lotus" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M24 8c4 5 6 10 6 15s-2.5 9-6 12c-3.5-3-6-7-6-12s2-10 6-15z"/><path d="M18 18c-4-1-8-1-11 0 0 7 4 13 11 16 3 1 4.5 1 6 1"/><path d="M30 18c4-1 8-1 11 0 0 7-4 13-11 16-3 1-4.5 1-6 1"/><path d="M8 38c5 2 11 3 16 3s11-1 16-3"/></g></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3 18.8 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 12.9 2 11.4c-1-.3-1-1 .2-1.5L20.6 2.8c.9-.3 1.6.2 1.3 1.5z"/></symbol>
+    <symbol id="ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.2.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a href="#top" class="logo">Bastet <i>Irina</i></a>
+    <nav class="nav__links" aria-label="Разделы">
+      <a href="#training">Обучение</a>
+      <a href="#path">Программа</a>
+      <a href="#price">Стоимость</a>
+      <a href="#sessions">Сессии</a>
+      <a href="#about">Обо мне</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a href="#contact" class="btn btn--terra" data-topic="Обучение InnerDance">Записаться</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mmenu" id="mmenu" aria-label="Меню">
+  <a href="#training">Обучение</a>
+  <a href="#path">Программа</a>
+  <a href="#price">Стоимость</a>
+  <a href="#program-pdf">Скачать PDF</a>
+  <a href="#sessions">Сессии</a>
+  <a href="#about">Обо мне</a>
+  <a href="#contact">Контакты</a>
+  <a href="#contact" class="btn btn--terra" data-topic="Обучение InnerDance">Записаться на обучение</a>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__txt">
+      <div class="hero__name">Bastet Irina · телесно-звуковая терапия</div>
+      <h1 class="h1">Верни себе энергию, внутреннюю опору <em>и вкус к жизни</em></h1>
+      <div class="hero__sub"><span>Гармония тела</span><span>Спокойствие ума</span><span>Жизнь в балансе</span></div>
+      <div class="hero__cta">
+        <a href="#training" class="btn btn--terra">Обучение InnerDance <svg><use href="#arrow"/></svg></a>
+        <a href="#sessions" class="btn btn--line">Энергосессия</a>
+      </div>
+    </div>
+    <div class="hero__art">
+      <div class="hero__frame"><img src="../assets/portrait.jpg" alt="Ирина, энерготерапевт и фасилитатор" id="heroImg"></div>
+      <div class="hero__cap">
+        <span>Научный подход к тонким энергиям</span>
+        <button class="bowl" id="bowl" aria-label="Услышать звук поющей чаши"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M8 20h8"/><path d="M15 3c1.2 1.2 1.2 3 0 4.2M18 1.5c2.2 2.2 2.2 5.6 0 7.8"/></svg>Поющая чаша</button>
+      </div>
+    </div>
+  </div>
+  <div class="ticket forest" id="ticket">
+    <div class="wrap ticket__in">
+      <div class="ticket__k">Набор на обучение · Уфа</div>
+      <div class="ticket__d">30 октября — 5 ноября 2026</div>
+      <div class="cd" id="cd" aria-label="До начала обучения"><div><b data-cd="d">0</b><small>дней</small></div><div><b data-cd="h">0</b><small>часов</small></div><div><b data-cd="m">0</b><small>минут</small></div></div>
+      <a href="#contact" class="btn btn--terra" data-topic="Обучение InnerDance">Забронировать место <svg><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING -->
+<section class="training pad" id="training">
+  <div class="wrap">
+    <div class="tr__head">
+      <div class="rv">
+        <p class="tr__name">InnerDance Facilitator Training</p>
+        <h2 class="h2">Практический живой модуль <em>подготовки фасилитаторов</em></h2>
+        <p class="lead">Семидневная программа подготовки фасилитаторов InnerDance — погружение в философию метода, образовательную систему мандалы и практику InnerDance.</p>
+      </div>
+      <div class="rv">
+        <dl class="meta">
+          <div><dt>Город</dt><dd>Уфа</dd></div>
+          <div><dt>Даты</dt><dd>30 октября — 5 ноября 2026</dd></div>
+          <div><dt>Формат</dt><dd>7 дней очно</dd></div>
+        </dl>
+        <a href="#contact" class="btn btn--terra" data-topic="Обучение InnerDance">Забронировать место <svg><use href="#arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="what">
+      <h3 class="rv">Что такое <em>InnerDance</em></h3>
+      <div class="what__p rv">
+        <p class="what__q">InnerDance — это образовательная система, объединяющая современное понимание работы <em>автономной нервной системы</em>, нейронауки, феноменологии и практики сопровождения человека через изменённые состояния сознания.</p>
+        <p>Обучение сочетает теоретические знания, личное проживание процессов и формирование профессиональных навыков фасилитации.</p>
+      </div>
+    </div>
+
+    <ul class="pillars rv">
+      <li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M24 4v40M24 12c-6 0-10 4-10 8m10 2c-8 0-13 4-13 9m13-1c-5 0-8 3-8 7M24 12c6 0 10 4 10 8m-10 2c8 0 13 4 13 9m-13-1c5 0 8 3 8 7"/><circle cx="14" cy="20" r="2"/><circle cx="34" cy="20" r="2"/><circle cx="11" cy="31" r="2"/><circle cx="37" cy="31" r="2"/></svg>Автономная нервная система</li>
+      <li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 8a8 8 0 0 0-8 8 7 7 0 0 0-4 12 7 7 0 0 0 6 10 6 6 0 0 0 10 2V10a6 6 0 0 0-4-2zM28 8a8 8 0 0 1 8 8 7 7 0 0 1 4 12 7 7 0 0 1-6 10 6 6 0 0 1-10 2"/><path d="M24 18h-6m6 10h-8m8-6h6m-6 10h8"/></svg>Основы нейронауки</li>
+      <li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="24" cy="24" r="6"/><path d="M4 24s8-12 20-12 20 12 20 12-8 12-20 12S4 24 4 24z"/><path d="M24 4v4m0 32v4"/></svg>Феноменология</li>
+      <li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 24c4-8 8-8 12 0s8 8 12 0 8-8 12 0"/><path d="M6 32c4-8 8-8 12 0s8 8 12 0 8-8 12 0" opacity=".5"/><path d="M6 16c4-8 8-8 12 0s8 8 12 0 8-8 12 0" opacity=".5"/></svg>Изменённые состояния сознания</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MANDALA -->
+<section class="mandala forest" id="mandala">
+  <div class="md__pin">
+    <div class="wrap md__grid">
+      <div class="md__svg">
+        <svg viewBox="-110 -110 220 220" id="mdSvg" aria-hidden="true"></svg>
+        <div class="md__center"><div><b id="mdNum">1</b><small>цвет из семи</small></div></div>
+      </div>
+      <div>
+        <h2 class="h2">Программа построена как проживание <em>семи цветов мандалы</em></h2>
+        <p class="lead">Каждый день посвящён одному из её уровней и позволяет не только изучить философию метода, но и прожить её через собственный опыт — постепенно раскрывая уровни восприятия, сознания и внутренней трансформации.</p>
+        <div class="days" id="days"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATH -->
+<section class="path pad" id="path">
+  <div class="wrap">
+    <h2 class="h2 rv">Образовательный путь состоит из <em>трёх последовательных этапов</em></h2>
+    <div class="stages">
+
+      <article class="stage rv">
+        <div class="stage__num">I</div>
+        <div>
+          <div class="stage__k">Очно</div>
+          <h3>Практический живой модуль подготовки фасилитаторов</h3>
+          <div class="stage__where">Уфа · 30 октября — 5 ноября 2026</div>
+          <p class="d">Семь дней очного обучения, в которых теория неотделима от практики. Участники проходят путь через семь цветов мандалы, постепенно раскрывая философию метода, структуру человеческого восприятия и основы процесса InnerDance.</p>
+          <div class="acc open">
+            <button class="acc__btn" aria-expanded="true"><i></i>В программу первого модуля входят</button>
+            <div class="acc__body"><div><ul class="list">
+              <li>философия и основные принципы InnerDance</li>
+              <li>образовательная система мандалы InnerDance — целостная модель развития человеческого восприятия</li>
+              <li>проживание семи цветов мандалы как последовательного образовательного пути</li>
+              <li>основы нейронауки</li>
+              <li>автономная нервная система</li>
+              <li>феноменология</li>
+              <li>изменённые состояния сознания</li>
+              <li>музыкальная архитектура процесса InnerDance</li>
+              <li>развитие навыков фасилитации</li>
+              <li>ежедневные процессы InnerDance</li>
+              <li>практические упражнения</li>
+              <li>супервизия и профессиональная обратная связь</li>
+              <li>интеграция полученного опыта</li>
+              <li>сертификат о прохождении первого модуля</li>
+            </ul></div></div>
+          </div>
+        </div>
+        <div class="stage__price"><b>2 100 €</b><small>инвестиция</small></div>
+      </article>
+
+      <article class="stage rv">
+        <div class="stage__num">II</div>
+        <div>
+          <div class="stage__k">Онлайн</div>
+          <h3>Международная онлайн-программа сертификации с Pi Villaraza</h3>
+          <div class="stage__where">Закрытая международная платформа · в собственном темпе</div>
+          <p class="d">После очного обучения участники получают доступ к закрытой международной образовательной платформе InnerDance под руководством Pi Villaraza. Все лекции и материалы сохраняются в записи — программу можно проходить в удобном темпе независимо от места проживания.</p>
+          <div class="acc">
+            <button class="acc__btn" aria-expanded="false"><i></i>В программу второго модуля входят</button>
+            <div class="acc__body"><div><ul class="list">
+              <li>доступ к международной образовательной платформе</li>
+              <li>полный архив видеолекций и материалов Pi Villaraza</li>
+              <li>обучение в собственном темпе</li>
+              <li>дополнительные образовательные материалы</li>
+              <li>подготовка к международной аттестации</li>
+              <li>итоговый экзамен</li>
+              <li>международный сертификат InnerDance Facilitator, подписанный лично Pi Villaraza</li>
+            </ul></div></div>
+          </div>
+        </div>
+        <div class="stage__price"><b>800 €</b><small>инвестиция</small></div>
+      </article>
+
+      <article class="stage rv">
+        <div class="stage__num">III</div>
+        <div>
+          <div class="stage__k">Сообщество</div>
+          <h3>Studious Mundos Community</h3>
+          <div class="stage__where">Международное пространство непрерывного обучения, исследований и профессионального развития</div>
+          <p class="d">После успешного прохождения международной сертификации участники становятся частью Studious Mundos Community — международного образовательного сообщества InnerDance.</p>
+          <div class="acc">
+            <button class="acc__btn" aria-expanded="false"><i></i>Участники сообщества получают</button>
+            <div class="acc__body"><div><ul class="list">
+              <li>регулярные живые онлайн-встречи с Pi Villaraza</li>
+              <li>встречи с ведущими международными тренерами и старшими фасилитаторами InnerDance</li>
+              <li>доступ к новым образовательным материалам и исследованиям</li>
+              <li>участие в международном профессиональном сообществе</li>
+              <li>пространство для обмена опытом, совместных исследований и супервизии</li>
+              <li>непрерывное развитие собственной практики в международной системе InnerDance</li>
+            </ul></div></div>
+          </div>
+        </div>
+        <div class="stage__price"><b style="font-family:var(--serif);font-style:italic;font-size:clamp(26px,2.4vw,32px);color:var(--olive)">включено</b><small>после сертификации</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price pad" id="price">
+  <div class="wrap">
+    <div class="pr__head rv">
+      <h2 class="h2">Инвестиция <em>в обучение</em></h2>
+    </div>
+    <div class="pr rv">
+      <div class="pr__row"><div class="pr__k">I этап</div><div class="pr__t">Практический живой модуль подготовки фасилитаторов, Уфа</div><div class="pr__p">2 100 €</div></div>
+      <div class="pr__row"><div class="pr__k">II этап</div><div class="pr__t">Международная онлайн-программа сертификации с Pi Villaraza</div><div class="pr__p">800 €</div></div>
+      <div class="pr__row"><div class="pr__k">III этап</div><div class="pr__t">Доступ в Studious Mundos Community — после успешного прохождения международной сертификации</div><div class="pr__p pr__p--word">включено</div></div>
+    </div>
+    <div class="pr__total rv">
+      <div><h3>Полная сертификация</h3><p>Путь до международного сертификата InnerDance Facilitator и вступления в сообщество</p></div>
+      <div class="pr__p">2 900 €</div>
+      <a href="#contact" class="btn" data-topic="Обучение InnerDance">Забронировать место <svg><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="dl pad" id="program-pdf">
+  <div class="wrap dl__in">
+    <div class="pages rv">
+      <img src="../assets/pdf-p4.png" alt="" loading="lazy">
+      <img src="../assets/pdf-p7.png" alt="" loading="lazy">
+      <img src="../assets/pdf-p1.png" alt="Обложка программы InnerDance Facilitator Training" loading="lazy">
+    </div>
+    <div class="rv">
+      <h2 class="h2" style="font-size:clamp(30px,3.6vw,48px)">Полная программа обучения <em>в PDF</em></h2>
+      <ul>
+        <li>философия метода и образовательная система мандалы</li>
+        <li>содержание всех трёх этапов</li>
+        <li>инвестиция и путь до международного сертификата</li>
+      </ul>
+      <a class="btn btn--terra" href="../assets/InnerDance_Facilitator_Training.pdf" download="InnerDance_Facilitator_Training.pdf">Скачать программу <svg><use href="#down"/></svg></a>
+      <div class="dl__file">PDF · 8 страниц · 330 КБ</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTITIONER -->
+<section class="prac pad" id="practitioner">
+  <div class="wrap prac__grid">
+    <div class="rv">
+      <p class="prac__name">Обучение на энергопрактика</p>
+      <h2 class="h2">Авторский курс по управлению реальностью <em>через своё тело</em></h2>
+    </div>
+    <div class="rv">
+      <p class="prac__q">Активация внутреннего навигатора, сильной интуиции для жизни и бизнеса, ресурсного состояния для заряда здоровья и энергии для любых целей.</p>
+      <ul class="chips"><li>Работа с телом</li><li>Работа со звуком</li><li>Работа с энергией</li><li>Для себя и чтобы помогать другим</li></ul>
+      <a href="#contact" class="btn btn--terra" data-topic="Обучение на энергопрактика">Узнать о ближайшем старте <svg><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- REQUESTS -->
+<section class="req pad" id="requests">
+  <div class="wrap">
+    <div class="req__head rv">
+      <h2 class="h2">Глубокая работа с телом, <em>звуком и энергией</em></h2>
+      <p class="req__aside">Гармония тела<br>Спокойствие ума<br>Жизнь в балансе</p>
+    </div>
+    <ul class="req__grid rv" id="reqGrid"></ul>
+    <div class="req__cta rv">
+      <p>Узнали себя? Начните с одной сессии — бережно, спокойно и без давления.</p>
+      <a href="#sessions" class="btn btn--line">Выбрать формат <svg><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- SESSIONS -->
+<section class="ses pad" id="sessions">
+  <div class="wrap">
+    <div class="ses__head rv">
+      <h2 class="h2">Верни себе энергию <em>и внутреннюю опору</em></h2>
+      <div class="tog" id="tog" role="group" aria-label="Формат сессии"><i></i><button class="on" aria-pressed="true">Офлайн</button><button aria-pressed="false">Онлайн</button></div>
+    </div>
+    <div class="ses__grid rv">
+      <div class="sc">
+        <div class="sc__k">Индивидуально</div>
+        <h3>Личная сессия</h3>
+        <p>Глубокая работа с вашим запросом: тело, звук и энергия — в темпе, который подходит именно вам.</p>
+        <div class="sc__bot"><div><div class="sc__p"><span data-p="5000|3500">5 000</span><small>₽</small></div><div class="sc__fmt" data-f>офлайн-встреча</div></div>
+          <a href="#contact" class="btn btn--terra js-ses" data-kind="Индивидуальная сессия">Записаться <svg><use href="#arrow"/></svg></a></div>
+      </div>
+      <div class="sc">
+        <div class="sc__k">В группе</div>
+        <h3>Групповая сессия</h3>
+        <p>Мягкое погружение в поле группы: звук, дыхание и энергия, которые поддерживают и восстанавливают.</p>
+        <div class="sc__bot"><div><div class="sc__p"><span data-p="2600|1200">2 600</span><small>₽</small></div><div class="sc__fmt" data-f>офлайн-встреча</div></div>
+          <a href="#contact" class="btn btn--terra js-ses" data-kind="Групповая сессия">Записаться <svg><use href="#arrow"/></svg></a></div>
+      </div>
+    </div>
+    <p class="ses__note">Офлайн: индивидуально 5 000 ₽, в группе 2 600 ₽ · Онлайн: индивидуально 3 500 ₽, в группе 1 200 ₽</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about forest pad" id="about">
+  <div class="wrap ab__grid">
+    <div class="ab__ph rv"><img src="../assets/portrait.jpg" alt="Ирина — BASTET IRINA" loading="lazy" id="abImg"></div>
+    <div class="rv">
+      <h2 class="h2">Научный подход <em>к тонким энергиям</em></h2>
+      <div class="ab__roles"><span>Преподаватель</span><span>Энерготерапевт</span><span>Фасилитатор</span></div>
+      <p class="lead">Я соединяю бережную работу с телом, звуком и энергией с ясным пониманием того, как устроена нервная система. Без давления и без лишней эзотерики — только то, что помогает вернуть силы и опору.</p>
+      <div class="ab__dip">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="24" cy="18" r="12"/><circle cx="24" cy="18" r="7"/><path d="m16 27-4 15 7-3 5 6 2-12m6-6 4 15-7-3-5 6"/></svg>
+        <p>Дипломированный специалист международной школы <b>Integrative Energy School</b></p>
+      </div>
+      <div class="ab__vals"><span>Гармония</span><span>Баланс</span><span>Внутренняя сила</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIZITKA + QR -->
+<section class="viz pad" id="card">
+  <div class="wrap">
+    <h2 class="h2 rv">Сохраните контакты <em>в один клик</em></h2>
+    <div class="viz__grid">
+      <div class="rv">
+        <div class="card3d" id="card3d" role="button" tabindex="0" aria-label="Перевернуть визитку">
+          <div class="card3d__in">
+            <div class="face face--front">
+              <svg viewBox="0 0 700 400" width="100%" height="100%" font-family="'Golos Text', sans-serif" style="font-variant-numeric:lining-nums">
+                <rect width="700" height="400" fill="#26301f"/>
+                <rect x="20" y="20" width="660" height="360" fill="none" stroke="#efe7d8" stroke-opacity=".22"/>
+                <text x="58" y="96" font-family="Prata, serif" font-size="15" letter-spacing="5" fill="#a9b18f">ТЕЛЕСНО-ЗВУКОВАЯ ТЕРАПИЯ</text>
+                <text x="56" y="178" font-family="Prata, serif" font-size="64" fill="#efe7d8">Bastet <tspan font-family="Literata, serif" font-style="italic" fill="#e48b60">Irina</tspan></text>
+                <text x="58" y="216" font-size="14" letter-spacing="3.4" fill="#c9c3ad" font-weight="500">ЭНЕРГОТЕРАПЕВТ · ПРЕПОДАВАТЕЛЬ · ФАСИЛИТАТОР</text>
+                <text x="58" y="254" font-family="Literata, serif" font-style="italic" font-size="21" fill="#c9c3ad">Научный подход к тонким энергиям</text>
+                <line x1="58" y1="284" x2="642" y2="284" stroke="#efe7d8" stroke-opacity=".22"/>
+                <text x="58" y="342" font-family="Prata, serif" font-size="40" fill="#efe7d8">8 905 000 05 30</text>
+                <use href="#lotus" x="596" y="304" width="46" height="46" color="#e48b60"/>
+              </svg>
+            </div>
+            <div class="face face--back">
+              <svg viewBox="0 0 700 400" width="100%" height="100%" font-family="'Golos Text', sans-serif">
+                <rect width="700" height="400" fill="#f3ece0"/>
+                <rect x="20" y="20" width="660" height="360" fill="none" stroke="#2a231d" stroke-opacity=".18"/>
+                <text x="350" y="66" text-anchor="middle" font-family="Prata, serif" font-size="24" fill="#2a231d">Bastet <tspan font-family="Literata, serif" font-style="italic" fill="#a3461f">Irina</tspan></text>
+                <rect x="96" y="88" width="226" height="226" fill="#fff"/>
+                <rect x="378" y="88" width="226" height="226" fill="#fff"/>
+                <g id="qrIgCard" transform="translate(109 101)"></g>
+                <g id="qrTgCard" transform="translate(391 101)"></g>
+                <text x="209" y="342" text-anchor="middle" font-size="17" font-weight="600" fill="#2a231d">@bastet_irina</text>
+                <text x="209" y="364" text-anchor="middle" font-size="11" letter-spacing="3" fill="#6b5f52" font-weight="500">INSTAGRAM</text>
+                <text x="491" y="342" text-anchor="middle" font-size="17" font-weight="600" fill="#2a231d">@energy_bastet</text>
+                <text x="491" y="364" text-anchor="middle" font-size="11" letter-spacing="3" fill="#6b5f52" font-weight="500">TELEGRAM</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p class="flip-hint">Нажмите на визитку, чтобы перевернуть</p>
+      </div>
+      <div class="rv">
+        <div class="qrs">
+          <a class="qr" href="https://www.instagram.com/bastet_irina?xtok=dDZpYXI2djJjODBo" target="_blank" rel="noopener"><div class="qr__code" id="qrIg"></div><b>@bastet_irina</b><small>Instagram</small></a>
+          <a class="qr" href="https://t.me/energy_bastet" target="_blank" rel="noopener"><div class="qr__code" id="qrTg"></div><b>@energy_bastet</b><small>Telegram</small></a>
+        </div>
+        <div class="viz__dl">
+          <a class="link" href="../assets/vizitka-bastet-irina.png" download>Скачать визитку (PNG)</a>
+          <a class="link" href="tel:+79050000530">Позвонить</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact forest pad" id="contact">
+  <div class="wrap">
+    <div class="ct__grid">
+      <div class="rv">
+        <h2 class="h2">Оставьте заявку — <em>я свяжусь с вами</em></h2>
+        <p class="lead">Обучение, сессия или консультация — напишите, что вам откликается, и мы подберём формат.</p>
+        <a href="tel:+79050000530" class="ct__phone">8 905 000 05 30</a>
+        <div class="ct__soc">
+          <a href="https://t.me/energy_bastet" target="_blank" rel="noopener"><svg><use href="#tg"/></svg>Telegram</a>
+          <a href="https://wa.me/79050000530" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a>
+          <a href="https://www.instagram.com/bastet_irina?xtok=dDZpYXI2djJjODBo" target="_blank" rel="noopener"><svg><use href="#ig"/></svg>Instagram</a>
+        </div>
+      </div>
+      <form id="form" class="rv" novalidate>
+        <div class="f"><input id="fn" name="name" placeholder=" " required autocomplete="name"><label for="fn">Ваше имя</label><div class="f__err">Напишите, как к вам обращаться</div></div>
+        <div class="f"><input id="fp" name="phone" type="tel" placeholder=" " required autocomplete="tel"><label for="fp">Телефон</label><div class="f__err">Укажите номер, чтобы Ирина могла ответить</div></div>
+        <div class="f f--sel"><select id="ft" name="topic">
+          <option>Обучение InnerDance</option>
+          <option>Обучение на энергопрактика</option>
+          <option>Индивидуальная сессия · офлайн</option>
+          <option>Индивидуальная сессия · онлайн</option>
+          <option>Групповая сессия · офлайн</option>
+          <option>Групповая сессия · онлайн</option>
+          <option>Консультация</option>
+        </select><label for="ft">Что вас интересует</label></div>
+        <div class="f"><textarea id="fm" name="msg" placeholder=" "></textarea><label for="fm">Комментарий (необязательно)</label></div>
+        <button class="btn" type="submit">Отправить в WhatsApp <svg><use href="#arrow"/></svg></button>
+        <p class="f__note">Откроется WhatsApp с готовым сообщением — останется нажать «Отправить»</p>
+      </form>
+    </div>
+    <footer class="foot">
+      <a href="#top" class="logo">Bastet <i>Irina</i></a>
+      <span>Гармония · Баланс · Внутренняя сила</span>
+      <span>© 2026</span>
+    </footer>
+  </div>
+</section>
+</main>
+
+<div class="mbar" id="mbar"><a href="#contact" data-topic="Обучение InnerDance">Записаться</a><a href="tel:+79050000530">Позвонить</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+(function(){
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS='http://www.w3.org/2000/svg';
+
+/* mandala of seven colours — earthy pigments */
+const COLORS=['#d4573f','#e08a3c','#e3b53a','#8fb35a','#5ea3c4','#7d86d1','#b47cc9'];
+const DATES=['30 октября','31 октября','1 ноября','2 ноября','3 ноября','4 ноября','5 ноября'];
+const md=$('#mdSvg'), R=46;
+const pos=[[0,0]].concat([0,1,2,3,4,5].map(i=>[R*Math.cos(Math.PI/3*i-Math.PI/2),R*Math.sin(Math.PI/3*i-Math.PI/2)]));
+const order=[1,2,3,4,5,6,0];
+const ring=document.createElementNS(NS,'circle');ring.setAttribute('r',R*2+8);ring.setAttribute('fill','none');ring.setAttribute('stroke','rgba(239,231,216,.22)');md.appendChild(ring);
+const pets=order.map((pi,i)=>{
+  const g=document.createElementNS(NS,'g');g.setAttribute('class','pet');
+  const f=document.createElementNS(NS,'circle');f.setAttribute('class','f');f.setAttribute('cx',pos[pi][0]);f.setAttribute('cy',pos[pi][1]);f.setAttribute('r',R);f.setAttribute('fill',COLORS[i]);
+  const s=document.createElementNS(NS,'circle');s.setAttribute('class','s');s.setAttribute('cx',pos[pi][0]);s.setAttribute('cy',pos[pi][1]);s.setAttribute('r',R);s.setAttribute('stroke',COLORS[i]);
+  g.append(f,s);md.appendChild(g);return g;
+});
+$('#days').innerHTML=COLORS.map((c,i)=>`<div class="day" style="--c:${c}"><i></i><b>День ${i+1}</b><span>${DATES[i]}</span></div>`).join('');
+const days=$$('.day');
+function setDay(n){pets.forEach((p,i)=>p.classList.toggle('on',i<=n));days.forEach((d,i)=>d.classList.toggle('on',i<=n));$('#mdNum').textContent=n+1}
+setDay(reduced?6:0);
+
+/* requests */
+const IC={
+ lotus:'<use href="#lotus"/>',
+ heart:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M9 11h6"/>',
+ cycle:'<path d="M20 12a8 8 0 0 1-14 5.3M4 12a8 8 0 0 1 14-5.3"/><path d="M18 3v4h-4M6 21v-4h4"/>',
+ target:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/>',
+ battery:'<rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10v4M6 10v4"/>',
+ moon:'<path d="M19 14.5A7.5 7.5 0 1 1 9.5 5a6 6 0 0 0 9.5 9.5z"/><path d="M15 4l.6 1.4L17 6l-1.4.6L15 8l-.6-1.4L13 6l1.4-.6z"/>',
+ balance:'<path d="M12 4v16M5 20h14M6 8h12"/><path d="M6 8l-3 6h6zM18 8l-3 6h6z"/>',
+ seated:'<circle cx="12" cy="5" r="2"/><path d="M12 8v6m-6 5c2-3 4-4 6-4s4 1 6 4M7 11l5 1 5-1"/>',
+ flame:'<path d="M12 21c-4 0-6-3-6-6 0-4 4-6 4-10 3 2 4 4 4 6 1-1 1.5-2 1.5-3 2 2 2.5 4 2.5 7 0 3-2 6-6 6z"/>'
+};
+const REQ=[
+ ['lotus','Депрессия. Отсутствие желания жить и действовать'],
+ ['cycle','Нарушения обмена веществ. Компульсивное переедание'],
+ ['heart','Абьюзивные и созависимые отношения'],
+ ['target','Непонимание истинных желаний, отсутствие целей'],
+ ['battery','Хроническая усталость, упадок сил'],
+ ['balance','Дисбаланс симпатической и парасимпатической нервной системы'],
+ ['moon','Постоянный стресс, тревожность, плохой сон'],
+ ['seated','Отсутствие самореализации'],
+ ['flame','Низкое либидо, потеря сексуальной энергии и чувствительности']
+];
+$('#reqGrid').innerHTML=REQ.map(([i,t])=>`<li class="rq"><svg viewBox="${i==='lotus'?'0 0 48 48':'0 0 24 24'}" fill="none" stroke="currentColor" stroke-width="${i==='lotus'?2.2:1.4}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[i]}</svg><p>${t}</p></li>`).join('');
+
+/* QR codes */
+function qrSvg(text,opt){
+  const q=qrcode(0,'H');q.addData(text);q.make();
+  const n=q.getModuleCount(), size=opt.size, m=size/(n+2), off=m;
+  const inFinder=(r,c)=>(r<7&&c<7)||(r<7&&c>=n-7)||(r>=n-7&&c<7);
+  const lo=Math.floor(n/2)-3, hi=Math.floor(n/2)+3;
+  let s='';
+  for(let r=0;r<n;r++)for(let c=0;c<n;c++){
+    if(!q.isDark(r,c)||inFinder(r,c))continue;
+    if(r>=lo&&r<=hi&&c>=lo&&c<=hi)continue;
+    s+=`<rect x="${(off+c*m).toFixed(2)}" y="${(off+r*m).toFixed(2)}" width="${(m*.92).toFixed(2)}" height="${(m*.92).toFixed(2)}" rx="${(m*.3).toFixed(2)}"/>`;
+  }
+  const fin=(r,c)=>{const x=off+c*m,y=off+r*m;return `<rect x="${x+m*.5}" y="${y+m*.5}" width="${m*6}" height="${m*6}" rx="${m*1.4}" fill="none" stroke="${opt.c2}" stroke-width="${m}"/><rect x="${x+m*2}" y="${y+m*2}" width="${m*3}" height="${m*3}" rx="${m*.7}" fill="${opt.c2}"/>`};
+  const cx=off+(n/2)*m, cs=m*7.4;
+  const logo=`<rect x="${cx-cs/2}" y="${cx-cs/2}" width="${cs}" height="${cs}" rx="${cs*.22}" fill="${opt.c2}"/><svg x="${cx-cs*.32}" y="${cx-cs*.32}" width="${cs*.64}" height="${cs*.64}" viewBox="0 0 24 24" color="#fff">${opt.icon}</svg>`;
+  return `<svg xmlns="${NS}" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}"><rect width="${size}" height="${size}" fill="#fff"/><g fill="${opt.c1}">${s}</g>${fin(0,0)}${fin(0,n-7)}${fin(n-7,0)}${logo}</svg>`;
+}
+const IG={url:'https://www.instagram.com/bastet_irina?xtok=dDZpYXI2djJjODBo',icon:'<g fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/></g><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/>'};
+const TG={url:'https://t.me/energy_bastet',icon:'<path fill="currentColor" d="M21.9 4.3 18.8 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 12.9 2 11.4c-1-.3-1-1 .2-1.5L20.6 2.8c.9-.3 1.6.2 1.3 1.5z"/>'};
+const QC={c1:'#26301f',c2:'#a3461f'};
+$('#qrIg').innerHTML=qrSvg(IG.url,{...QC,size:400,icon:IG.icon});
+$('#qrTg').innerHTML=qrSvg(TG.url,{...QC,size:400,icon:TG.icon});
+$('#qrIgCard').innerHTML=qrSvg(IG.url,{...QC,size:200,icon:IG.icon}).replace(/^<svg[^>]*>|<\/svg>$/g,'');
+$('#qrTgCard').innerHTML=qrSvg(TG.url,{...QC,size:200,icon:TG.icon}).replace(/^<svg[^>]*>|<\/svg>$/g,'');
+
+/* countdown — Уфа, UTC+5 */
+const start=new Date('2026-10-30T10:00:00+05:00');
+function tick(){const d=Math.max(0,start-Date.now());
+  $('[data-cd=d]').textContent=Math.floor(d/864e5);$('[data-cd=h]').textContent=Math.floor(d/36e5)%24;$('[data-cd=m]').textContent=Math.floor(d/6e4)%60;
+  if(d===0)$('#cd').style.display='none'}
+tick();setInterval(tick,30000);
+
+/* singing bowl */
+let ac;
+$('#bowl').addEventListener('click',e=>{
+  ac=ac||new (window.AudioContext||window.webkitAudioContext)();
+  const t=ac.currentTime,out=ac.createGain();out.gain.value=.22;out.connect(ac.destination);
+  [[196,1,9],[196*2.71,.45,7],[196*5.12,.22,5],[196*8.3,.1,3.5],[197.2,.6,9]].forEach(([f,a,d])=>{
+    const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(a,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d);
+    o.connect(g).connect(out);o.start(t);o.stop(t+d+.1);
+  });
+  if(reduced)return;
+  const art=$('.hero__frame'),b=art.getBoundingClientRect();
+  for(let i=0;i<3;i++){const r=document.createElement('span');r.className='ring';r.style.left=b.width/2+'px';r.style.top=b.height*.4+'px';r.style.animationDelay=(i*.5)+'s';art.appendChild(r);setTimeout(()=>r.remove(),4500)}
+});
+
+/* menu */
+const burger=$('#burger');
+function menu(open){document.body.classList.toggle('menu-open',open);burger.setAttribute('aria-expanded',open)}
+burger.addEventListener('click',()=>menu(!document.body.classList.contains('menu-open')));
+$$('#mmenu a').forEach(a=>a.addEventListener('click',()=>menu(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape')menu(false)});
+
+/* accordions */
+$$('.acc__btn').forEach(b=>b.addEventListener('click',()=>{const o=b.parentElement.classList.toggle('open');b.setAttribute('aria-expanded',o);setTimeout(()=>window.ScrollTrigger&&ScrollTrigger.refresh(),750)}));
+
+/* sessions toggle */
+const tog=$('#tog'),pill=$('i',tog),tb=$$('button',tog);let mode=0;
+function fmt(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')}
+function animNum(el,to){const from=+(el.textContent.replace(/\D/g,''))||0;if(!window.gsap||reduced){el.textContent=fmt(to);return}
+  const o={v:from};gsap.to(o,{v:to,duration:.8,ease:'power3.out',onUpdate:()=>el.textContent=fmt(o.v)})}
+function setMode(m){mode=m;tb.forEach((b,i)=>{b.classList.toggle('on',i===m);b.setAttribute('aria-pressed',i===m)});
+  pill.style.width=tb[m].offsetWidth+'px';pill.style.transform=`translateX(${tb[m].offsetLeft}px)`;
+  $$('[data-p]').forEach(el=>animNum(el,+el.dataset.p.split('|')[m]));
+  $$('[data-f]').forEach(el=>el.textContent=m?'онлайн-встреча':'офлайн-встреча')}
+tb.forEach((b,i)=>b.addEventListener('click',()=>setMode(i)));
+requestAnimationFrame(()=>setMode(0));
+addEventListener('resize',()=>setMode(mode));
+
+/* prefill form topic */
+$$('[data-topic]').forEach(a=>a.addEventListener('click',()=>{$('#ft').value=a.dataset.topic}));
+$$('.js-ses').forEach(a=>a.addEventListener('click',()=>{$('#ft').value=a.dataset.kind+' · '+(mode?'онлайн':'офлайн')}));
+
+/* form → WhatsApp */
+$('#form').addEventListener('submit',e=>{e.preventDefault();const f=e.target;let ok=true;
+  ['name','phone'].forEach(n=>{const i=f[n],bad=!i.value.trim();i.parentElement.classList.toggle('bad',bad);if(bad)ok=false});
+  if(!ok){f.querySelector('.bad input').focus();return}
+  const txt=`Здравствуйте, Ирина! Меня зовут ${f.name.value.trim()}.\nИнтересует: ${f.topic.value}.\nТелефон: ${f.phone.value.trim()}`+(f.msg.value.trim()?`\n${f.msg.value.trim()}`:'');
+  window.open('https://wa.me/79050000530?text='+encodeURIComponent(txt),'_blank');
+});
+$$('#form input').forEach(i=>i.addEventListener('input',()=>i.value.trim()&&i.parentElement.classList.remove('bad')));
+
+/* vizitka flip */
+const card=$('#card3d');
+card.addEventListener('click',()=>card.classList.toggle('flip'));
+card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.classList.toggle('flip')}});
+
+/* nav + mobile bar */
+let lastY=0;
+addEventListener('scroll',()=>{const y=scrollY;$('#nav').classList.toggle('scrolled',y>30);
+  $('#nav').classList.toggle('hide',y>lastY&&y>600&&!document.body.classList.contains('menu-open'));lastY=y;
+  $('#mbar').classList.toggle('show',y>innerHeight*.8&&y<document.body.scrollHeight-innerHeight*1.6)},{passive:true});
+
+/* entrances */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{rootMargin:'0px 0px -8% 0px'});
+$$('.rv').forEach(el=>io.observe(el));
+setTimeout(()=>$$('.rv').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('in')}),50);
+
+if(!window.gsap||reduced)return;
+gsap.registerPlugin(ScrollTrigger);
+if(window.Lenis){const lenis=new Lenis({lerp:.1,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+  $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');const t=id==='#top'?0:$(id);if(t===null)return;e.preventDefault();lenis.scrollTo(t,{offset:id==='#top'?0:-70,duration:1.4})}));}
+
+/* hero: the portrait rises out of the parchment */
+gsap.from('.hero__frame',{clipPath:'inset(100% 0 0 0)',duration:1.6,ease:'expo.inOut'});
+gsap.from('#heroImg',{scale:1.25,duration:2.2,ease:'expo.out'});
+gsap.to('#heroImg',{yPercent:8,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+/* the authored moment: seven colours open one by one */
+const mm=gsap.matchMedia();
+mm.add('(min-width:861px)',()=>{
+  ScrollTrigger.create({trigger:'.mandala',start:'top top',end:'+=1700',pin:'.md__pin',scrub:true,onUpdate:s=>setDay(Math.min(6,Math.floor(s.progress*7.2)))});
+  gsap.to('#mdSvg',{rotate:60,ease:'none',scrollTrigger:{trigger:'.mandala',start:'top top',end:'+=1700',scrub:true}});
+});
+mm.add('(max-width:860px)',()=>{
+  ScrollTrigger.create({trigger:'#days',start:'top 85%',end:'bottom 45%',scrub:true,onUpdate:s=>setDay(Math.min(6,Math.floor(s.progress*7.2)))});
+});
+})();
+</script>
+</body>
+</html>
