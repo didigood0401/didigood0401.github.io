@@ -81,18 +81,21 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media(max-width:760px){.nav__links a:not(.btn){display:none}}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);background:var(--night)}
+.hero{position:relative;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);background:var(--night)}
 .hero__glow{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;mix-blend-mode:screen}
 .hero__glow--a{width:62vw;height:62vw;right:-12vw;top:-18vw;background:radial-gradient(circle,rgba(233,180,110,.55),rgba(160,70,110,.18) 50%,transparent 70%)}
 .hero__glow--b{width:44vw;height:44vw;left:-14vw;bottom:-20vw;background:radial-gradient(circle,rgba(150,70,140,.45),transparent 70%)}
 .hero__pulse{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:radial-gradient(circle,rgba(255,230,180,.9),rgba(233,180,110,.35) 40%,transparent 70%);opacity:0;pointer-events:none;z-index:4}
-.hero__portrait{position:absolute;top:0;right:0;bottom:0;width:min(58vw,1000px);z-index:1}
-.hero__portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 100%),linear-gradient(0deg,transparent 0%,#000 26%);
-  mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 100%),linear-gradient(0deg,transparent 0%,#000 26%);
-  -webkit-mask-composite:source-in;mask-composite:intersect}
+.hero__side{position:relative;z-index:3;grid-column:2;display:grid;place-items:center;padding:110px var(--m) 60px}
+.arch{position:relative;width:min(30vw,400px)}
+.arch::before{content:"";position:absolute;inset:-16px;border-radius:999px 999px 30px 30px;box-shadow:inset 0 0 0 1px rgba(232,207,159,.55);pointer-events:none}
+.arch::after{content:"";position:absolute;inset:-26%;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(233,180,110,.42),rgba(160,70,110,.14) 48%,transparent 70%);filter:blur(30px)}
+.hero__portrait{position:relative;border-radius:999px 999px 22px 22px;overflow:hidden;aspect-ratio:640/1003;box-shadow:0 40px 100px -30px rgba(0,0,0,.7)}
+.hero__portrait img{width:100%;height:100%;object-fit:cover}
+.arch__cap{margin-top:30px;text-align:center;font-size:var(--small);color:var(--on-dark-2)}
+.arch__cap b{display:block;font-family:var(--serif);font-weight:300;font-size:22px;color:var(--gold-2)}
 .hero__dust{position:absolute;inset:0;z-index:2;pointer-events:none;width:100%;height:100%}
-.hero__copy{position:relative;z-index:3;grid-column:1;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--m) clamp(40px,7vh,80px)}
+.hero__copy{position:relative;z-index:3;grid-column:1;grid-row:1;display:flex;flex-direction:column;justify-content:center;padding:120px var(--m) clamp(40px,7vh,80px)}
 .hero__wm{font-family:var(--serif);font-weight:300;font-size:clamp(64px,10.4vw,176px);line-height:.86;letter-spacing:-.035em;margin-left:-.04em}
 .hero__wm span{display:block}
 .hero__wm span+span{padding-left:.55em;font-style:italic}
@@ -108,10 +111,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero__scroll{position:absolute;z-index:3;right:var(--m);bottom:28px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-2);writing-mode:vertical-rl}
 @media(max-width:860px){
   .hero{grid-template-columns:1fr;min-height:auto}
-  .hero__portrait{position:relative;width:100%;height:66svh;grid-row:1}
-  .hero__portrait img{object-position:40% 10%;
-    -webkit-mask-image:linear-gradient(0deg,transparent 0%,rgba(0,0,0,.35) 22%,#000 52%);mask-image:linear-gradient(0deg,transparent 0%,rgba(0,0,0,.35) 22%,#000 52%)}
-  .hero__copy{grid-row:2;padding-top:0;margin-top:-17svh}
+  .hero__side{grid-column:1;grid-row:1;padding:100px var(--m) 10px}
+  .arch{width:min(70vw,300px)}
+  .arch__cap{display:none}
+  .hero__copy{grid-row:2;padding-top:30px}
   .hero__wm{font-size:clamp(56px,17vw,110px)}
   .hero h1{font-size:25px}
   .hero__cta .btn{width:100%}
@@ -229,9 +232,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* ---------- about: Irina large ---------- */
 .about{position:relative;background:var(--night);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:100svh;overflow:hidden}
-.about__img{position:relative;overflow:hidden}
-.about__img img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform-origin:50% 40%}
-.about__img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,var(--night) 100%),linear-gradient(0deg,rgba(23,11,20,.5),transparent 35%)}
+.about__img{position:relative;display:grid;place-items:center;padding:clamp(100px,9vw,150px) var(--m)}
+.about__frame{position:relative;width:min(34vw,420px);aspect-ratio:470/570;border-radius:999px 999px 22px 22px;overflow:hidden;box-shadow:0 50px 120px -40px rgba(0,0,0,.8)}
+.about__frame img{width:100%;height:100%;object-fit:cover}
+.about__img::before{content:"";position:absolute;width:min(48vw,620px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(233,180,110,.32),transparent 65%);filter:blur(20px)}
+.about__img::after{content:"";position:absolute;width:calc(min(34vw,420px) + 32px);aspect-ratio:470/570;border-radius:999px 999px 30px 30px;box-shadow:inset 0 0 0 1px rgba(232,207,159,.5);transform:translate(0,0);pointer-events:none}
 .about__leak{position:absolute;z-index:2;inset:-20% -60%;background:linear-gradient(105deg,transparent 40%,rgba(255,215,160,.32) 48%,rgba(255,240,215,.5) 50%,rgba(255,215,160,.32) 52%,transparent 60%);mix-blend-mode:screen;pointer-events:none;transform:translateX(-60%)}
 .about__copy{position:relative;z-index:3;padding:clamp(110px,10vw,170px) var(--m) clamp(80px,8vw,120px) clamp(20px,3vw,40px);display:flex;flex-direction:column;justify-content:center}
 .about__roles{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 30px}
@@ -244,9 +249,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 .seal{flex:0 0 58px;height:58px;border-radius:50%;background:var(--goldgrad);display:grid;place-items:center;color:var(--night);font-family:var(--serif);font-size:22px;box-shadow:0 0 30px -4px rgba(232,190,120,.6)}
 @media(max-width:860px){
   .about{grid-template-columns:1fr}
-  .about__img{height:78svh}
-  .about__img::after{background:linear-gradient(0deg,var(--night) 0%,transparent 45%)}
-  .about__copy{margin-top:-18svh;padding-top:0}
+  .about__img{padding:100px var(--m) 20px}
+  .about__frame{width:min(76vw,330px)}
+  .about__img::after{width:calc(min(76vw,330px) + 28px)}
+  .about__copy{padding-top:30px}
 }
 
 /* ---------- author course ---------- */
@@ -277,6 +283,14 @@ button,input,select,textarea{font:inherit;color:inherit}
 .coupon__links{display:grid;gap:8px;font-family:var(--serif);font-weight:300;font-size:var(--lead)}
 .coupon__links a{text-decoration:none}
 .coupon__hint{font-size:var(--small);color:var(--on-dark-2)}
+.qrs{display:grid;grid-template-columns:repeat(2,minmax(0,150px));gap:16px;margin-top:26px}
+.qr{display:block;text-decoration:none;text-align:center;color:var(--on-dark);transition:transform .5s var(--ease)}
+.qr:hover{transform:translateY(-5px)}
+.qr__code{display:block;background:#fff;border-radius:18px;padding:10px;box-shadow:0 0 0 1px rgba(232,207,159,.5),0 20px 40px -20px rgba(233,180,110,.6)}
+.qr__code svg{display:block;width:100%;height:auto}
+.qr b{display:block;margin-top:10px;font-weight:500;font-size:15px}
+.qr small{display:block;font-size:13px;color:var(--on-dark-2)}
+.no-js .qrs{display:none}
 .coupon form{position:relative;padding:52px;display:grid;gap:12px;align-content:center}
 .coupon input,.coupon select,.coupon textarea{width:100%;min-height:56px;border:0;border-radius:16px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(232,207,159,.18);color:var(--on-dark);padding:14px 18px;font-size:16px;outline:none;transition:box-shadow .3s,background .3s}
 .coupon option{color:#222}
@@ -346,7 +360,6 @@ button,input,select,textarea{font:inherit;color:inherit}
 <section class="hero" id="hero">
   <div class="hero__glow hero__glow--a" aria-hidden="true"></div>
   <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
-  <div class="hero__portrait" id="heroPortrait"><img src="assets/irina-big.webp" width="1280" height="2006" alt="Ирина, энерготерапевт и фасилитатор InnerDance, в золотом свете" fetchpriority="high"></div>
   <canvas class="hero__dust" id="dust" aria-hidden="true"></canvas>
   <div class="hero__pulse" id="pulse" aria-hidden="true"></div>
   <div class="hero__copy">
@@ -360,6 +373,12 @@ button,input,select,textarea{font:inherit;color:inherit}
       <a class="btn" href="#contact">Записаться к Ирине <i>→</i></a>
       <button class="bowlbtn" id="bowl" type="button"><img src="assets/bowl-cut.webp" width="1400" height="1235" alt=""><span>Коснитесь чаши,<br>чтобы услышать её тон</span></button>
     </div>
+  </div>
+  <div class="hero__side">
+    <figure class="arch">
+      <div class="hero__portrait" id="heroPortrait"><img src="assets/irina.webp" width="640" height="1003" alt="Ирина, энерготерапевт и фасилитатор InnerDance, в золотом свете" fetchpriority="high"></div>
+      <figcaption class="arch__cap"><b>Ирина</b>преподаватель · энерготерапевт · фасилитатор</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -489,8 +508,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 <!-- ABOUT: Irina large -->
 <section class="about" id="about">
   <div class="about__img" id="aboutImg">
-    <img src="assets/irina-face.webp" width="1180" height="1431" alt="Портрет Ирины крупным планом" loading="lazy">
-    <div class="about__leak" id="leak" aria-hidden="true"></div>
+    <div class="about__frame"><img src="assets/irina-face.webp" width="470" height="570" alt="Портрет Ирины" loading="lazy"><div class="about__leak" id="leak" aria-hidden="true"></div></div>
   </div>
   <div class="about__copy">
     <h2 class="h" data-rise>Об <em>Ирине</em></h2>
@@ -538,7 +556,11 @@ button,input,select,textarea{font:inherit;color:inherit}
           <a class="link" href="https://t.me/energy_bastet" target="_blank" rel="noopener">Telegram · @energy_bastet</a>
           <a class="link" href="https://www.instagram.com/bastet_irina?xtok=dDZpYXI2djJjODBo" target="_blank" rel="noopener">Instagram · @bastet_irina</a>
         </div>
-        <p class="coupon__hint" style="margin-top:22px">Напишите, что вам откликается, и Ирина подберёт формат лично.</p>
+        <div class="qrs" aria-label="QR-коды для телефона">
+          <a class="qr" href="https://www.instagram.com/bastet_irina?xtok=dDZpYXI2djJjODBo" target="_blank" rel="noopener"><span class="qr__code" id="qrIg"></span><b>@bastet_irina</b><small>Instagram</small></a>
+          <a class="qr" href="https://t.me/energy_bastet" target="_blank" rel="noopener"><span class="qr__code" id="qrTg"></span><b>@energy_bastet</b><small>Telegram</small></a>
+        </div>
+        <p class="coupon__hint" style="margin-top:22px">Наведите камеру телефона на код или напишите, что вам откликается: Ирина подберёт формат лично.</p>
       </div>
     </div>
     <form id="form" novalidate>
@@ -589,12 +611,36 @@ button,input,select,textarea{font:inherit;color:inherit}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
 (()=>{
 const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fine=matchMedia('(pointer:fine)').matches;
 const G=window.gsap;
+
+/* QR codes: crisp vector, drawn in the browser */
+function qrSvg(text,opt){
+  const q=qrcode(0,'H');q.addData(text);q.make();
+  const n=q.getModuleCount(),size=opt.size,m=size/(n+2),off=m;
+  const inFinder=(r,c)=>(r<7&&c<7)||(r<7&&c>=n-7)||(r>=n-7&&c<7);
+  const lo=Math.floor(n/2)-3,hi=Math.floor(n/2)+3;
+  let s='';
+  for(let r=0;r<n;r++)for(let c=0;c<n;c++){
+    if(!q.isDark(r,c)||inFinder(r,c))continue;
+    if(r>=lo&&r<=hi&&c>=lo&&c<=hi)continue;
+    s+=`<rect x="${(off+c*m).toFixed(2)}" y="${(off+r*m).toFixed(2)}" width="${(m*.92).toFixed(2)}" height="${(m*.92).toFixed(2)}" rx="${(m*.3).toFixed(2)}"/>`;
+  }
+  const fin=(r,c)=>{const x=off+c*m,y=off+r*m;return `<rect x="${x+m*.5}" y="${y+m*.5}" width="${m*6}" height="${m*6}" rx="${m*1.8}" fill="none" stroke="${opt.c2}" stroke-width="${m}"/><rect x="${x+m*2}" y="${y+m*2}" width="${m*3}" height="${m*3}" rx="${m*.9}" fill="${opt.c2}"/>`};
+  const cx=off+(n/2)*m,cs=m*7.4;
+  const logo=`<rect x="${cx-cs/2}" y="${cx-cs/2}" width="${cs}" height="${cs}" rx="${cs*.28}" fill="${opt.c2}"/><svg x="${cx-cs*.32}" y="${cx-cs*.32}" width="${cs*.64}" height="${cs*.64}" viewBox="0 0 24 24" color="#fff">${opt.icon}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" role="img" aria-label="QR-код"><rect width="${size}" height="${size}" fill="#fff"/><g fill="${opt.c1}">${s}</g>${fin(0,0)}${fin(0,n-7)}${fin(n-7,0)}${logo}</svg>`;
+}
+if(window.qrcode){
+  const QC={c1:'#2a1222',c2:'#52203d',size:300};
+  $('#qrIg').innerHTML=qrSvg('https://www.instagram.com/bastet_irina?xtok=dDZpYXI2djJjODBo',{...QC,icon:'<g fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/></g><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/>'});
+  $('#qrTg').innerHTML=qrSvg('https://t.me/energy_bastet',{...QC,icon:'<path fill="currentColor" d="M21.9 4.3 18.8 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 12.9 2 11.4c-1-.3-1-1 .2-1.5L20.6 2.8c.9-.3 1.6.2 1.3 1.5z"/>'});
+}else{$('.qrs').style.display='none'}
 
 /* days to the start */
 const start=new Date('2026-10-30T10:00:00+05:00'), d=Math.ceil((start-Date.now())/864e5);
@@ -707,8 +753,8 @@ if(window.Lenis){
 const tl=G.timeline({defaults:{ease:'expo.out'}});
 tl.to('.veil',{opacity:0,duration:.6,ease:'power2.out'})
   .set('.veil',{display:'none'})
-  .fromTo('#heroPortrait',{clipPath:'circle(0% at 62% 26%)'},{clipPath:'circle(150% at 62% 26%)',duration:2.2,ease:'power2.inOut'},0)
-  .from('#heroPortrait img',{scale:1.18,duration:2.6,ease:'power3.out'},0)
+  .fromTo('#heroPortrait',{clipPath:'circle(0% at 55% 26%)'},{clipPath:'circle(120% at 55% 26%)',duration:1.8,ease:'power2.inOut'},0)
+  .from('.arch',{y:40,opacity:0,duration:1.4},0)
   .from('.hero__glow',{opacity:0,scale:.6,duration:2,stagger:.2},0)
   .from('.hero__wm span',{yPercent:60,opacity:0,duration:1,stagger:.1},.1)
   .from('.hero h1',{y:20,opacity:0,duration:.9},.3)
@@ -718,7 +764,8 @@ tl.to('.veil',{opacity:0,duration:.6,ease:'power2.out'})
 /* hero: glows drift, portrait parallax */
 G.to('.hero__glow--a',{x:'-6vw',y:'4vw',duration:9,yoyo:true,repeat:-1,ease:'sine.inOut'});
 G.to('.hero__glow--b',{x:'8vw',y:'-5vw',duration:11,yoyo:true,repeat:-1,ease:'sine.inOut'});
-G.to('#heroPortrait img',{yPercent:10,scale:1.06,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+G.to('.arch',{yPercent:-12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
 G.to('.hero__copy',{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
 
 /* statement: words light up one by one */
@@ -752,8 +799,8 @@ mm.add('(min-width:861px)',()=>{
 });
 
 /* about: big portrait zooms out, a light leak passes */
-G.fromTo('#aboutImg img',{scale:1.3},{scale:1,ease:'none',scrollTrigger:{trigger:'.about',start:'top bottom',end:'center center',scrub:true}});
-G.to('#leak',{xPercent:60,ease:'none',scrollTrigger:{trigger:'.about',start:'top 80%',end:'bottom 20%',scrub:true}});
+G.fromTo('.about__frame',{clipPath:'inset(18% 10% 18% 10% round 999px 999px 22px 22px)'},{clipPath:'inset(0% 0% 0% 0% round 999px 999px 22px 22px)',ease:'none',scrollTrigger:{trigger:'.about',start:'top 85%',end:'center center',scrub:true}});
+G.fromTo('#leak',{xPercent:-60},{xPercent:60,ease:'none',scrollTrigger:{trigger:'.about',start:'top 80%',end:'bottom 20%',scrub:true}});
 
 /* course: spotlight breathes, bowl turns */
 G.to('#beam',{opacity:.45,duration:2.8,yoyo:true,repeat:-1,ease:'sine.inOut'});
