@@ -92,10 +92,9 @@ section{padding:110px 0;position:relative}
 .cat{position:relative;grid-column:span 4;border-radius:26px;overflow:hidden;cursor:pointer;background:linear-gradient(150deg,#1d2622,#141b18);border:1px solid var(--line);display:grid;grid-template-columns:1fr 46%;transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s}
 .cat:nth-child(2),.cat:nth-child(3){grid-column:span 6}
 .cat.big{grid-column:span 6;grid-row:span 2;grid-template-columns:1fr;grid-template-rows:auto 1fr}
-.cat .pic{order:2;position:relative;margin:12px 12px 12px 0;border-radius:18px;background:radial-gradient(circle at 50% 42%,#fffaf1,#e7dccb);overflow:hidden;transform:translateZ(36px)}
+.cat .pic{order:2;position:relative;margin:12px 12px 12px 0;border-radius:18px;overflow:hidden;transform:translateZ(36px)}
 .cat.big .pic{margin:0 14px 14px}
-.cat .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:10%;mix-blend-mode:multiply;transition:transform .5s}
-.cat:hover{border-color:rgba(240,211,154,.5)}.cat:hover .pic img{transform:scale(1.07)}
+.cat:hover{border-color:rgba(240,211,154,.5)}
 .cat .glare{position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(255,236,200,.12),transparent 45%);opacity:0;transition:.3s;pointer-events:none;z-index:2}
 .cat:hover .glare{opacity:1}
 .cat .t{position:relative;padding:24px 18px 22px 24px;display:flex;flex-direction:column;min-width:0;transform:translateZ(24px)}
@@ -122,9 +121,7 @@ section{padding:110px 0;position:relative}
 @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:780px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
 .pr{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:.3s}
 .pr:hover{transform:translateY(-4px);border-color:rgba(240,211,154,.35);box-shadow:0 24px 50px rgba(0,0,0,.35)}
-.pr .im{position:relative;background:radial-gradient(circle at 50% 40%,#fbf7f0,#e9e1d3);aspect-ratio:1;cursor:pointer;overflow:hidden}
-.pr .im img{width:100%;height:100%;object-fit:contain;padding:16px;transition:.5s;mix-blend-mode:multiply}
-.pr:hover .im img{transform:scale(1.06)}
+.pr .im{aspect-ratio:1;cursor:pointer;overflow:hidden}
 .pr .tag{position:absolute;left:12px;top:12px;background:var(--ink);color:var(--gold2);font-size:10.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;border-radius:20px;padding:5px 11px}
 .noimg{width:100%;height:100%;display:grid;place-items:center;color:#b3a993;font-size:12px;text-align:center}
 .noimg svg{width:54px;height:54px;margin:0 auto 6px;display:block}
@@ -136,6 +133,16 @@ section{padding:110px 0;position:relative}
 .add{width:44px;height:44px;flex:none;border-radius:50%;border:0;background:var(--gold2);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:.2s}
 .add:hover{background:#fff;transform:rotate(90deg)}.add svg{width:18px;height:18px}
 @media(max-width:780px){.pr h3{font-size:13.5px}.pz{font-size:20px}.add{width:38px;height:38px}.pr .b{padding:12px}}
+
+/* сцена-подложка под фото товаров: однотонный фон снимка убирается скриптом, товар встаёт на стол */
+.stg{position:relative;background:#14110d url(img/stage.jpg) center/cover}
+.stg:before{content:"";position:absolute;left:20%;right:20%;bottom:17%;height:8%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.7),transparent);opacity:0;pointer-events:none}
+.stg.cut:before{opacity:1}
+.stg img{position:absolute;left:13%;width:74%;bottom:20%;height:64%;object-fit:contain;object-position:50% 100%;opacity:0;transform-origin:50% 100%;transition:opacity .4s,transform .5s}
+.stg img.cut{opacity:1;filter:drop-shadow(0 12px 14px rgba(0,0,0,.5)) drop-shadow(0 0 24px rgba(255,214,160,.14));-webkit-box-reflect:below 1px linear-gradient(transparent 72%,rgba(255,255,255,.18))}
+.stg img.scene{opacity:1;left:0;bottom:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:50% 50%}
+.stg img.raw{opacity:1}
+.cat:hover .stg img,.pr:hover .stg img{transform:scale(1.06)}
 
 /* почему мы */
 .why{background:var(--ink2);overflow:hidden}
@@ -179,7 +186,7 @@ footer img{width:96px;opacity:.9}
 .x{background:none;border:0;font-size:30px;cursor:pointer;line-height:1;color:var(--tx)}
 .items{flex:1;overflow:auto;padding:8px 24px}
 .it{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
-.it .ti{width:64px;height:64px;border-radius:14px;background:#efe8db;overflow:hidden}.it .ti img{width:100%;height:100%;object-fit:contain;padding:4px;mix-blend-mode:multiply}
+.it .ti{width:64px;height:64px;border-radius:14px;overflow:hidden}
 .it b{display:block;font-size:14px;line-height:1.3}.it span{color:var(--mut);font-size:13px}
 .qty{display:flex;align-items:center;gap:8px}
 .qty button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:none;cursor:pointer;color:var(--tx)}
@@ -199,8 +206,7 @@ footer img{width:96px;opacity:.9}
 @keyframes fade{from{opacity:0}}
 .mb{background:var(--ink2);border:1px solid var(--line);border-radius:28px;max-width:920px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1.15fr}
 @media(max-width:760px){.mb{grid-template-columns:1fr}}
-.mb .im{background:radial-gradient(circle at 50% 40%,#fbf7f0,#e3dacb);min-height:320px;display:grid;place-items:center}
-.mb .im img{width:100%;aspect-ratio:1;object-fit:contain;padding:22px;mix-blend-mode:multiply}
+.mb .im{aspect-ratio:1;min-height:320px}
 .mb .tx{padding:32px;position:relative}
 .mb .tx .x{position:absolute;right:20px;top:16px}
 .mb h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:36px;padding-right:30px}
@@ -287,7 +293,7 @@ footer img{width:96px;opacity:.9}
     <button class="btn" id="checkout">Оформить заказ</button></div>
 </div></div>
 
-<div class="modal" id="modal"><div class="mb"><div class="im" id="mIm"></div><div class="tx"><button class="x" data-mclose aria-label="Закрыть">×</button><h3 id="mH"></h3><div class="w" id="mW"></div><p id="mD"></p><p class="sost" id="mS"></p><div class="row"><span class="pz" id="mP"></span><button class="btn" id="mAdd" style="padding:15px 22px;font-size:13px">В корзину</button></div></div></div></div>
+<div class="modal" id="modal"><div class="mb"><div class="im stg" id="mIm"></div><div class="tx"><button class="x" data-mclose aria-label="Закрыть">×</button><h3 id="mH"></h3><div class="w" id="mW"></div><p id="mD"></p><p class="sost" id="mS"></p><div class="row"><span class="pz" id="mP"></span><button class="btn" id="mAdd" style="padding:15px 22px;font-size:13px">В корзину</button></div></div></div></div>
 <div class="toast" id="toast">Добавлено в корзину</div>
 
 <script>
@@ -341,13 +347,13 @@ const PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
 
 $('#rib').innerHTML=(w=>w+w)(['марал','як (сарлык)','кедровый орех','облепиха','саган дайля','бадан','алтайский мёд','курильский чай','ручная лепка','таёжные травы'].map(t=>`<span>${t}</span>`).join(''));
 
-$('#bento').innerHTML=CATS.map((c,i)=>`<div class="cat rv ${i<1?'big':''}" data-c="${c.id}"><div class="pic"><img src="img/${c.img}.jpg" alt=""></div><div class="glare"></div>
+$('#bento').innerHTML=CATS.map((c,i)=>`<div class="cat rv ${i<1?'big':''}" data-c="${c.id}"><div class="pic stg"><img src="img/${c.img}.jpg" alt=""></div><div class="glare"></div>
   <div class="t"><div class="n">0${i+1} · ${P.filter(p=>p[0]===c.id).length} товаров</div><h3>${c.name}</h3><p>${c.d}</p><div class="go"><i>${ARROW}</i>Смотреть</div></div></div>`).join('');
 
 let cur='all';
 function drawTabs(){$('#tabs').innerHTML=[['all','Все товары'],...CATS.map(c=>[c.id,c.name])].map(([id,n])=>`<button class="tab ${id===cur?'on':''}" data-t="${id}">${n}</button>`).join('')}
 function drawGrid(){$('#grid').innerHTML=P.map((p,i)=>[p,i]).filter(([p])=>cur==='all'||p[0]===cur).map(([p,i])=>`<div class="pr">
-  <div class="im" data-i="${i}">${p[1]?`<img loading="lazy" src="img/${p[1]}.jpg" alt="">`:NOIMG}${p[7]?`<span class="tag">${p[7]}</span>`:''}</div>
+  <div class="im stg" data-i="${i}">${p[1]?`<img loading="lazy" src="img/${p[1]}.jpg" alt="">`:NOIMG}${p[7]?`<span class="tag">${p[7]}</span>`:''}</div>
   <div class="b"><h3>${p[2]}</h3><div class="w">${p[5]||'&nbsp;'}</div>
   <div class="row">${p[6]?`<span class="pz">${price(p[6])}</span>`:'<span class="pz q">Цена уточняется</span>'}<button class="add" data-a="${i}" aria-label="В корзину">${PLUS}</button></div></div></div>`).join('')}
 drawTabs();drawGrid();
@@ -356,7 +362,7 @@ drawTabs();drawGrid();
 const cart=new Map();
 function drawCart(){const n=[...cart.values()].reduce((a,b)=>a+b,0);$('#cnt').textContent=n;$('#cnt').classList.toggle('on',n>0);
   let s=0,ask=false;
-  $('#items').innerHTML=n?[...cart].map(([i,q])=>{const p=P[i];s+=p[6]*q;if(!p[6])ask=true;return`<div class="it"><div class="ti">${p[1]?`<img src="img/${p[1]}.jpg" alt="">`:''}</div>
+  $('#items').innerHTML=n?[...cart].map(([i,q])=>{const p=P[i];s+=p[6]*q;if(!p[6])ask=true;return`<div class="it"><div class="ti stg">${p[1]?`<img src="img/${p[1]}.jpg" alt="">`:''}</div>
     <div><b>${p[2]}</b><span>${p[6]?price(p[6])+' × '+q:'цену уточним'}</span></div><div class="qty"><button data-q="${i}" data-d="-1">−</button>${q}<button data-q="${i}" data-d="1">+</button></div></div>`}).join(''):'<div class="empty">Корзина пока пуста.<br>Добавьте что-нибудь вкусное из каталога.</div>';
   $('#sum').textContent=(s?s.toLocaleString('ru-RU')+' ₽':'0 ₽')+(ask?' +':'');}
 const toast=$('#toast');
@@ -371,11 +377,47 @@ document.addEventListener('click',e=>{
   else if(t.id==='cartBtn'){$('#drawer').classList.add('on')}
   else if(t.hasAttribute('data-close')){$('#drawer').classList.remove('on')}
   else if(t.id==='checkout'){const f=$('#order');if(!cart.size)return;if(!f.classList.contains('on')){f.classList.add('on');t.textContent='Отправить заявку'}else if(f.reportValidity()){f.classList.remove('on');$('#ok').style.display='block';t.style.display='none';cart.clear();drawCart()}}
-  else if(t.matches('.pr .im')){mi=+t.dataset.i;const p=P[mi];$('#mIm').innerHTML=p[1]?`<img src="img/${p[1]}.jpg" alt="">`:NOIMG;$('#mH').textContent=p[2];$('#mW').textContent=p[5];$('#mD').textContent=p[3];$('#mS').textContent=p[4]?'Состав: '+p[4]:'';$('#mS').style.display=p[4]?'':'none';$('#mP').textContent=p[6]?price(p[6]):'Цена уточняется';$('#modal').classList.add('on')}
+  else if(t.matches('.pr .im')){mi=+t.dataset.i;const p=P[mi];$('#mIm').className='im stg';$('#mIm').innerHTML=p[1]?`<img src="img/${p[1]}.jpg" alt="">`:NOIMG;$('#mH').textContent=p[2];$('#mW').textContent=p[5];$('#mD').textContent=p[3];$('#mS').textContent=p[4]?'Состав: '+p[4]:'';$('#mS').style.display=p[4]?'':'none';$('#mP').textContent=p[6]?price(p[6]):'Цена уточняется';$('#modal').classList.add('on')}
   else if(t.id==='mAdd'){add(mi);$('#modal').classList.remove('on')}
   else if(t.hasAttribute('data-mclose')||e.target===t&&t.classList.contains('modal')){$('#modal').classList.remove('on')}
 });
 drawCart();
+
+/* подложка: у снимка с однотонным фоном (белым, серым, чёрным) фон убирается, товар ставится на сцену.
+   Пёстрый край = готовая фотосцена, её показываем целиком. Новые фото обрабатываются так же, без доработок. */
+const CUT=new Map();
+function cutBg(im){
+  const k=Math.min(1,900/Math.max(im.naturalWidth,im.naturalHeight)),w=Math.round(im.naturalWidth*k),h=Math.round(im.naturalHeight*k);
+  const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0,w,h);
+  const D=x.getImageData(0,0,w,h),d=D.data,N=w*h,edge=[];
+  for(let i=0;i<w;i++)edge.push(i,(h-1)*w+i);for(let j=1;j<h-1;j++)edge.push(j*w,j*w+w-1);
+  const med=ch=>{const a=edge.map(p=>d[p*4+ch]).sort((a,b)=>a-b);return a[a.length>>1]},bg=[med(0),med(1),med(2)];
+  const dist=p=>{const r=d[p*4]-bg[0],g=d[p*4+1]-bg[1],b=d[p*4+2]-bg[2];return Math.sqrt(r*r+g*g+b*b)};
+  if(edge.filter(p=>dist(p)<30).length<edge.length*.6)return Promise.resolve(null);
+  const T1=14,T2=58,a=new Uint8Array(N).fill(255),seen=new Uint8Array(N),q=new Int32Array(N);let qh=0,qt=0;
+  const push=n=>{if(!seen[n]){seen[n]=1;if(dist(n)<T2)q[qt++]=n}};
+  for(const p of edge)push(p);
+  while(qh<qt){const p=q[qh++],e=dist(p),px=p%w;a[p]=e<=T1?0:Math.round(255*(e-T1)/(T2-T1));
+    if(px>0)push(p-1);if(px<w-1)push(p+1);if(p>=w)push(p-w);if(p<N-w)push(p+w)}
+  // мягкий край, затухание там, где товар упирается в край кадра, снятие ореола цвета фона
+  const b=a.slice(),F=Math.round(Math.min(w,h)*.08),hit=ps=>ps.filter(p=>a[p]>128).length>ps.length*.03,col=xx=>[...Array(h).keys()].map(y=>y*w+xx);
+  const tT=hit([...Array(w).keys()]),tB=hit([...Array(w).keys()].map(i=>(h-1)*w+i)),tL=hit(col(0)),tR=hit(col(w-1));let x0=w,y0=h,x1=0,y1=0;
+  for(let y=0;y<h;y++)for(let xx=0;xx<w;xx++){const p=y*w+xx;
+    if(y>0&&y<h-1&&xx>0&&xx<w-1&&(seen[p]||seen[p-1]||seen[p+1]||seen[p-w]||seen[p+w]))b[p]=(a[p]*4+a[p-1]+a[p+1]+a[p-w]+a[p+w])>>3;
+    let al=b[p];if(tT||tB||tL||tR){const m=Math.min(1,tT?y/F:1,tB?(h-1-y)/F:1,tL?xx/F:1,tR?(w-1-xx)/F:1);al=Math.round(al*m*m*(3-2*m))}d[p*4+3]=al;
+    if(al&&al<255){const f=al/255;for(let ch=0;ch<3;ch++)d[p*4+ch]=Math.max(0,Math.min(255,(d[p*4+ch]-bg[ch]*(1-f))/f))}
+    if(al>24){if(xx<x0)x0=xx;if(xx>x1)x1=xx;if(y<y0)y0=y;if(y>y1)y1=y}}
+  if(x1<=x0)return Promise.resolve(null);
+  x.putImageData(D,0,0);
+  const o=document.createElement('canvas');o.width=x1-x0+5;o.height=y1-y0+5;o.getContext('2d').drawImage(c,x0-2,y0-2,o.width,o.height,0,0,o.width,o.height);
+  return new Promise(res=>o.toBlob(bl=>res(bl?URL.createObjectURL(bl):undefined)))}
+function stage(im){
+  if(im.dataset.st)return;im.dataset.st=1;const box=im.parentElement,src=im.src;
+  if(!CUT.has(src)){let r;try{r=cutBg(im)}catch(e){r=Promise.resolve(undefined)}CUT.set(src,r)}
+  CUT.get(src).then(r=>{if(r===undefined)im.classList.add('raw');else if(r===null){im.classList.add('scene');box.classList.add('scene')}else{im.src=r;im.classList.add('cut');box.classList.add('cut')}})}
+document.addEventListener('load',e=>{const t=e.target;if(t.tagName==='IMG'&&t.parentElement.classList.contains('stg'))stage(t)},true);
+document.addEventListener('error',e=>{const t=e.target;if(t.tagName==='IMG')t.classList.add('raw')},true);
+setInterval(()=>document.querySelectorAll('.stg>img:not([data-st])').forEach(i=>i.complete&&i.naturalWidth&&stage(i)),400);
 
 /* наклон карточек категорий */
 document.querySelectorAll('.cat').forEach(c=>{
@@ -453,6 +495,16 @@ const front=new THREE.DirectionalLight('#9fb6d8',.35);front.position.set(80,60,2
 // вода: бирюзовая, с бликами неба и мягкой рябью
 const wg=new THREE.PlaneGeometry(W,D,MOB?60:120,MOB?80:160);wg.rotateX(-Math.PI/2);wg.translate(0,0,-D/2+170);
 const wmat=new THREE.MeshPhysicalMaterial({color:'#14d6c4',roughness:.12,metalness:0,clearcoat:1,clearcoatRoughness:.08,envMapIntensity:1.4,emissive:'#0aa898',emissiveIntensity:.9,transparent:true,opacity:1,toneMapped:false});
+// перелив: светлые струи бегут по течению, оттенок гуляет от изумрудного к лазурному, на скользящем взгляде - блеск
+const wU={value:0};
+wmat.onBeforeCompile=sh=>{sh.uniforms.uT=wU;
+  sh.vertexShader='varying vec3 vW;\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvW=(modelMatrix*vec4(transformed,1.)).xyz;');
+  sh.fragmentShader='uniform float uT;varying vec3 vW;\n'+sh.fragmentShader.replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
+    float fl=vW.z*.32-uT*2.2,cr=vW.x*.45;
+    float st=pow(max(0.,.6*sin(fl+sin(cr+uT*.6)*1.8)+.4*sin(fl*1.9-cr*1.3-uT*.8)),4.);
+    vec3 tq=mix(vec3(0.,.95,.72),vec3(.08,.78,1.),.5+.5*sin(vW.x*.05+vW.z*.025+uT*.35));
+    float fr=pow(1.-abs(dot(normalize(normal),normalize(vViewPosition))),3.);
+    totalEmissiveRadiance=mix(totalEmissiveRadiance,tq,.6)+vec3(.55,1.,.9)*(st*.9+fr*.35);`)};
 const water=new THREE.Mesh(wg,wmat);water.position.y=-.05;s.add(water);
 const wp=wg.attributes.position,w0=Float32Array.from(wp.array);
 
@@ -482,7 +534,7 @@ function frame(now){
   cam.position.set(riverX(z)*.85+mx*8,24+scr*26-my*3,z);
   const lz=z-95;cam.lookAt(riverX(lz)*.9+mx*10,13+scr*6,lz);
   for(let i=0;i<wp.count;i++){const x=w0[i*3],zz=w0[i*3+2];wp.setY(i,.18*Math.sin(x*.35+t*1.3)*Math.cos(zz*.3+t*.9))}
-  wp.needsUpdate=true;wg.computeVertexNormals();
+  wp.needsUpdate=true;wg.computeVertexNormals();wU.value=t;
   mist.position.x=Math.sin(t*.05)*6;mist.position.z=(t*.8)%30;
   for(const b of birds){const u=b.userData,a=u.a+t*u.sp,cx=riverX(u.cz)+Math.cos(a)*u.r,cz=u.cz+Math.sin(a)*u.r*.6,f=Math.sin(t*6+u.ph)*.9,p=b.geometry.attributes.position;
     const dx=-Math.sin(a),dz=Math.cos(a)*.6;p.setXYZ(0,cx-dz*1.6,u.y+f,cz+dx*1.6);p.setXYZ(1,cx,u.y,cz);p.setXYZ(2,cx+dz*1.6,u.y+f,cz-dx*1.6);p.needsUpdate=true}
