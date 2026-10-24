@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>БУФЕТ - легендарные вкусы Горного Алтая (премиум-эскиз)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='90 150 820 550' fill='none' stroke='%23d2ad6a' stroke-width='60' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218'/%3E%3C/svg%3E">
 <meta name="description" content="Деликатесы из марала, целебный высокогорный чай и натуральные таёжные сладости с доставкой по России.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,6 +27,8 @@ header{position:absolute;left:0;right:0;top:34px;z-index:20}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:22px}
 .logo{display:flex;align-items:center;gap:14px}
 .logo img{width:150px;filter:drop-shadow(0 3px 14px rgba(0,0,0,.45))}
+.mk{display:block;flex:none;color:var(--gold2)}.logo .mk{width:58px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}footer .mk{width:54px;opacity:.9}
+@media(max-width:640px){.logo .mk{width:44px}}
 .logo span{font:600 11px Manrope;letter-spacing:2.4px;text-transform:uppercase;color:#e7dccb;opacity:.85;border-left:1px solid rgba(255,255,255,.3);padding-left:14px;line-height:1.35}
 .hnav{display:flex;gap:30px;font-weight:600;font-size:14px;letter-spacing:.3px}
 .hnav a{opacity:.85;transition:.2s}.hnav a:hover{opacity:1;color:var(--gold2)}
@@ -65,11 +68,28 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:2
 .scroll{display:flex;flex-direction:column;align-items:center;gap:8px;font:700 10px Manrope;letter-spacing:3px;text-transform:uppercase;color:rgba(239,230,214,.7)}
 .scroll i{width:1px;height:46px;background:linear-gradient(var(--gold2),transparent);animation:drop 2s infinite}
 @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-.maral{position:absolute;right:max(24px,calc(50% - 596px));top:50%;transform:translateY(-36%);width:270px;z-index:3}
-.maral .ph{border-radius:200px 200px 16px 16px;overflow:hidden;border:1px solid rgba(240,211,154,.6);padding:8px;background:rgba(13,18,16,.35);backdrop-filter:blur(6px)}
-.maral .ph img{border-radius:190px 190px 10px 10px;aspect-ratio:3/4;width:100%;object-fit:cover;object-position:58% 50%}
-.maral figcaption{text-align:center;margin-top:12px;font:italic 500 19px "Cormorant Garamond";color:#efe6d6}
-@media(max-width:1080px){.maral{display:none}}
+/* галерея в стиле ВК: пост с мозаикой фото, по клику - просмотр с листанием */
+.vk{width:340px;border-radius:18px;background:rgba(13,18,16,.55);backdrop-filter:blur(12px);border:1px solid rgba(240,211,154,.35);padding:12px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.vk .hd{display:flex;align-items:center;gap:10px;padding:2px 4px 10px}
+.vk .av{width:38px;height:38px;border-radius:50%;background:#1a221e;border:1px solid rgba(240,211,154,.45);display:grid;place-items:center}.vk .av .mk{width:24px}
+.vk .hd b{display:block;font-size:14px;line-height:1.2}.vk .hd span{font-size:12px;color:var(--mut)}
+.vk .mo{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:3px;aspect-ratio:1/1;border-radius:12px;overflow:hidden}
+.vk .mo button{position:relative;border:0;padding:0;margin:0;cursor:zoom-in;overflow:hidden;background:#1a221e}
+.vk .mo button:first-child{grid-row:span 2}
+.vk .mo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.vk .mo button:hover img{transform:scale(1.06)}
+.vk .mo i{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.45);font:800 22px Manrope;font-style:normal;color:#fff}
+.vk .ft{display:flex;gap:16px;padding:10px 4px 0;font-size:12.5px;color:var(--mut);font-weight:600}.vk .ft svg{width:16px;height:16px;vertical-align:-3px;margin-right:5px}
+.hero .vk{position:absolute;right:max(24px,calc(50% - 596px));top:50%;transform:translateY(-40%);z-index:3}
+.vkm{display:none;padding:34px 0 0}.vkm .vk{width:100%;max-width:520px;margin:0 auto}
+@media(max-width:1080px){.hero .vk{display:none}.vkm{display:block}}
+.lb{position:fixed;inset:0;z-index:80;background:rgba(5,7,6,.94);display:none;align-items:center;justify-content:center}
+.lb.on{display:flex;animation:fade .25s}
+.lb img{max-width:min(92vw,1400px);max-height:84vh;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6);user-select:none}
+.lb .cnt2{position:absolute;left:24px;top:20px;font-weight:700;font-size:14px;color:#cfc6b8}
+.lb .cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;font:italic 500 22px "Cormorant Garamond";color:#efe6d6;padding:0 70px}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.08);color:#fff;width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:26px;line-height:1;display:grid;place-items:center}
+.lb button:hover{background:rgba(255,255,255,.18)}.lb .pv{left:20px;top:50%;margin-top:-26px}.lb .nx{right:20px;top:50%;margin-top:-26px}.lb .cl{right:20px;top:14px;font-size:32px}
+@media(max-width:640px){.lb .pv,.lb .nx{display:none}.lb .cap{font-size:18px;padding:0 16px}}
 @media(max-width:640px){.hero{min-height:640px}.hero .shade{background:linear-gradient(180deg,rgba(10,14,12,.3),rgba(10,14,12,.45) 50%,rgba(10,14,12,.72) 82%,var(--ink))}.hero .wrap{justify-content:flex-end;padding-bottom:110px}.coord{display:none}.hmeta .wrap{justify-content:center}}
 
 /* бегущая строка */
@@ -136,10 +156,10 @@ section{padding:110px 0;position:relative}
 
 /* сцена-подложка под фото товаров: однотонный фон снимка убирается скриптом, товар встаёт на стол */
 .stg{position:relative;background:#14110d url(img/stage.jpg) center/cover}
-.stg:before{content:"";position:absolute;left:20%;right:20%;bottom:17%;height:8%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.7),transparent);opacity:0;pointer-events:none}
+.stg:before{content:"";position:absolute;left:calc(50% - var(--sw,.6)*46%);width:calc(var(--sw,.6)*92%);bottom:17.5%;height:7%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.7),transparent);opacity:0;pointer-events:none}
 .stg.cut:before{opacity:1}
 .stg img{position:absolute;left:13%;width:74%;bottom:20%;height:64%;object-fit:contain;object-position:50% 100%;opacity:0;transform-origin:50% 100%;transition:opacity .4s,transform .5s}
-.stg img.cut{opacity:1;filter:drop-shadow(0 12px 14px rgba(0,0,0,.5)) drop-shadow(0 0 24px rgba(255,214,160,.14));-webkit-box-reflect:below 1px linear-gradient(transparent 72%,rgba(255,255,255,.18))}
+.stg img.cut{opacity:1;filter:sepia(.07) saturate(1.06) contrast(1.04) brightness(.97) drop-shadow(0 3px 3px rgba(0,0,0,.55)) drop-shadow(0 14px 18px rgba(0,0,0,.45)) drop-shadow(-6px -2px 18px rgba(255,206,140,.16));-webkit-box-reflect:below 1px linear-gradient(transparent 72%,rgba(255,255,255,.18))}
 .stg img.scene{opacity:1;left:0;bottom:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:50% 50%}
 .stg img.raw{opacity:1}
 .stg .noimg{position:absolute;inset:0;color:#d8cdb8;text-shadow:0 2px 10px rgba(0,0,0,.6)}
@@ -147,7 +167,7 @@ section{padding:110px 0;position:relative}
 
 /* почему мы */
 .why{background:var(--ink2);overflow:hidden}
-.why .bgimg{position:absolute;inset:-12% 0;background:url(img/katun2.jpg) center/cover;opacity:.42;filter:saturate(1.35) brightness(1.15);will-change:transform}
+.why .bgimg{position:absolute;inset:-12% 0;background:url(img/lake.jpg) center 35%/cover;opacity:.6;filter:saturate(1.25) brightness(1.1);will-change:transform}
 .why .bgimg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink2),rgba(20,27,24,.55) 40%,rgba(20,27,24,.55) 60%,var(--ink2))}
 .why .wrap{position:relative}
 .rs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -253,7 +273,7 @@ footer summary::-webkit-details-marker{display:none}footer summary svg{width:14p
 <div class="note">Премиум-эскиз для обсуждения<span class="lg">: живой 3D-первый экран, корзина с подсчётом суммы. Тексты из ТЗ, фото товаров ваши</span></div>
 
 <header><div class="wrap">
-  <a class="logo" href="#top"><img src="img/logo.png" alt="БУФЕТ"><span>Продукты<br>Горного Алтая</span></a>
+  <a class="logo" href="#top"><svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg><img src="img/logo.png" alt="БУФЕТ"><span>Продукты<br>Горного Алтая</span></a>
   <nav class="hnav"><a href="#cats">Наши яства</a><a href="#catalog">Каталог</a><a href="#why">Почему мы</a><a href="#contacts">Контакты</a></nav>
   <div class="hr"><a class="htel" href="tel:89081045144">8 908 104-51-44</a>
     <button class="hcart" id="cartBtn" aria-label="Корзина"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cnt" id="cnt">0</span></button></div>
@@ -273,11 +293,13 @@ footer summary::-webkit-details-marker{display:none}footer summary svg{width:14p
     </div>
     <div class="cta"><a class="btn" href="#catalog">Хочу попробовать Алтай! <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="ghost" href="#cats">Смотреть категории</a></div>
   </div>
-  <figure class="maral" style="margin:0"><div class="ph"><img src="img/maral.jpg" alt="Алтайский марал"></div><figcaption>Алтайский марал - символ гор</figcaption></figure>
+  <div class="vk" data-vk></div>
   <div class="hmeta"><div class="wrap"><div class="coord">Река Катунь<b>Горный Алтай</b></div><div class="scroll"><i></i>Листайте</div><div style="width:120px"></div></div></div>
 </div>
 
 <div class="ribbon"><div id="rib"></div></div>
+<div class="vkm"><div class="wrap"><div class="vk" data-vk></div></div></div>
+<div class="lb" id="lb"><span class="cnt2" id="lbN"></span><img id="lbI" alt=""><div class="cap" id="lbC"></div><button class="pv" data-lb="-1" aria-label="Назад">‹</button><button class="nx" data-lb="1" aria-label="Вперёд">›</button><button class="cl" data-lbx aria-label="Закрыть">×</button></div>
 
 <section id="cats"><div class="wrap">
   <div class="sh rv"><div><span class="kick">Наши яства</span><h2>Золотой фонд алтайской кухни: <i>выберите своё удовольствие</i></h2></div><p>Шесть направлений, которые мы привозим с Алтая. Нажмите на категорию, чтобы открыть товары.</p></div>
@@ -317,11 +339,11 @@ footer summary::-webkit-details-marker{display:none}footer summary svg{width:14p
   </div>
 </div></section>
 
-<footer><div class="wrap"><img src="img/logo.png" alt="БУФЕТ"><div>© БУФЕТ. Продукты Горного Алтая. ИП Аксенов М.В.<span class="ipv i1 i2 i3"> · ИНН 000000000000 · ОГРНИП 000000000000000</span>
+<footer><div class="wrap"><svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg><img src="img/logo.png" alt="БУФЕТ"><div>© БУФЕТ. Продукты Горного Алтая. ИП Аксенов М.В.<span class="ipv i1 i2 i3"> · ИНН 000000000000 · ОГРНИП 000000000000000</span>
   <details class="ipv i4" style="margin-top:12px"><summary>Реквизиты и документы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></summary>
     <div class="reqs"><div><small>Продавец</small>ИП Аксенов М. В.</div><div><small>ИНН</small>000000000000</div><div><small>ОГРНИП</small>000000000000000</div><div><small>Адрес</small><i>добавим ваш адрес</i></div>
     <div class="docs"><span>Публичная оферта</span><span>Политика конфиденциальности</span><span>Доставка и оплата</span><span>Сертификаты</span></div></div></details>
-  <div class="cr">3D-пейзаж первого экрана нарисован программно. Фото: «Chemal Katun Mouth» - SilvioMartin, CC BY-SA 4.0; «Altai maral 2» - Dmitry A. Mottl, CC BY-SA 3.0 (Wikimedia Commons).</div></div></div></footer>
+  <div class="cr">3D-пейзаж первого экрана нарисован программно. Фото марала: «Altai maral 2» - Dmitry A. Mottl, CC BY-SA 3.0 (Wikimedia Commons).</div></div></div></footer>
 <div class="ipsw" id="ipsw">Реквизиты ИП:<a href="?ip=1">1</a><a href="?ip=2">2</a><a href="?ip=3">3</a><a href="?ip=4">4</a></div>
 
 <div class="drawer" id="drawer"><div class="ov" data-close></div><div class="pn">
@@ -342,7 +364,7 @@ const CATS=[
  {id:'tea',name:'Целебный чай',d:'Целебные сборы и таёжный чай - аромат диких трав, энергия утром и глубокий релакс вечером.',img:'t1'},
  {id:'sweet',name:'Таёжные сладости',d:'Натуральные сладости и кедровый грильяж - полезное лакомство без капли химии, которое можно даже детям.',img:'c1'},
  {id:'semi',name:'Пельмени и манты',d:'Настоящие пельмени и манты ручной лепки - когда сочно, сытно и по-домашнему.',img:'p2'},
- {id:'can',name:'Тушёнка',d:'Домашняя тушёнка по старинным рецептам - честный состав, сытость и польза настоящего цельного мяса.',img:'k2'},
+ {id:'can',name:'Тушёнка',d:'Домашняя тушёнка по старинным рецептам - честный состав, сытость и польза настоящего цельного мяса.',img:'cans-katun'},
  {id:'cosm',name:'Алтайская косметика',d:'Травяное мыло ручной работы и органические губки для тела. Ощутите силу алтайской природы и устройте спа-ритуал у себя дома.',img:'g1'}];
 const P=[
  ['meat','m1','Мясо варёно-копчёное','Из марала, конины, яка (сарлыка) и говядины - по старинной технологии. Домашний посол 10 суток без инъекций, копчение на буковой щепе. Чистый, насыщенный вкус мяса с лёгкой дымной нотой.','','1 кг',2900,'хит'],
@@ -423,6 +445,22 @@ document.addEventListener('click',e=>{
 });
 drawCart();
 
+/* галерея: добавить фото - дописать строку в GAL */
+const GAL=[
+ ['cans-katun','Тушёнка и паштет из марала на берегу горной реки'],
+ ['maral','Алтайский марал - символ гор'],
+ ['lake','Горный Алтай: тишина, чистая вода и кедровая тайга']];
+const MK=`<svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg>`;
+document.querySelectorAll('[data-vk]').forEach(v=>{v.innerHTML=`<div class="hd"><span class="av">${MK}</span><div><b>БУФЕТ · Горный Алтай</b><span>фотоальбом · ${GAL.length} фото</span></div></div>
+  <div class="mo">${GAL.slice(0,3).map(([f],i)=>`<button data-g="${i}" aria-label="Открыть фото"><img src="img/${f}.jpg" alt="${GAL[i][1]}" loading="lazy">${i===2&&GAL.length>3?`<i>+${GAL.length-3}</i>`:''}</button>`).join('')}</div>
+  <div class="ft"><button data-g="0" style="background:none;border:0;padding:0;color:var(--gold2);font:inherit;cursor:pointer">Смотреть все фото →</button></div></div>`});
+let gi=0;const lb=$('#lb');
+function showG(i){gi=(i+GAL.length)%GAL.length;$('#lbI').src='img/'+GAL[gi][0]+'.jpg';$('#lbC').textContent=GAL[gi][1];$('#lbN').textContent=(gi+1)+' из '+GAL.length;lb.classList.add('on')}
+document.addEventListener('click',e=>{const g=e.target.closest('[data-g]'),n=e.target.closest('[data-lb]');
+  if(g)showG(+g.dataset.g);else if(n)showG(gi+ +n.dataset.lb);else if(e.target.closest('[data-lbx]')||e.target===lb)lb.classList.remove('on');else if(e.target.id==='lbI')showG(gi+1)});
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowRight')showG(gi+1);if(e.key==='ArrowLeft')showG(gi-1)});
+{let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)showG(gi+(dx<0?1:-1))})}
+
 /* реквизиты ИП: вариант из адреса ?ip=N, по умолчанию 3 */
 {const n=(location.search.match(/ip=([1-4])/)||[])[1]||'3';document.body.dataset.ip=n;
  document.querySelectorAll('#ipsw a').forEach(a=>{a.classList.toggle('on',a.textContent===n);a.href='?ip='+a.textContent+'#contacts'});
@@ -436,30 +474,48 @@ function cutBg(im){
   const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0,w,h);
   const D=x.getImageData(0,0,w,h),d=D.data,N=w*h,edge=[];
   for(let i=0;i<w;i++)edge.push(i,(h-1)*w+i);for(let j=1;j<h-1;j++)edge.push(j*w,j*w+w-1);
-  const med=ch=>{const a=edge.map(p=>d[p*4+ch]).sort((a,b)=>a-b);return a[a.length>>1]},bg=[med(0),med(1),med(2)];
-  const dist=p=>{const r=d[p*4]-bg[0],g=d[p*4+1]-bg[1],b=d[p*4+2]-bg[2];return Math.sqrt(r*r+g*g+b*b)};
-  if(edge.filter(p=>dist(p)<30).length<edge.length*.6)return Promise.resolve(null);
-  const T1=14,T2=58,a=new Uint8Array(N).fill(255),seen=new Uint8Array(N),q=new Int32Array(N);let qh=0,qt=0;
-  const push=n=>{if(!seen[n]){seen[n]=1;if(dist(n)<T2)q[qt++]=n}};
+  // цвета фона: до двух преобладающих цветов по краю (белый лист, чёрная подложка под лотком)
+  const dc=(p,cl)=>{const r=d[p*4]-cl[0],g=d[p*4+1]-cl[1],b=d[p*4+2]-cl[2];return Math.sqrt(r*r+g*g+b*b)};
+  const med=ps=>[0,1,2].map(ch=>{const a=ps.map(p=>d[p*4+ch]).sort((u,v)=>u-v);return a[a.length>>1]});
+  // фото-сцена с однотонными полосами по краям (тёмная студия на белом листе): полосы обрезаем, фото показываем целиком
+  const trim=()=>{const cl=med(edge),ok=p=>dc(p,cl)<30;let x0=0,x1=w-1,y0=0,y1=h-1;
+    const colF=xx=>{let n=0;for(let y=0;y<h;y++)n+=ok(y*w+xx);return n/h},rowF=y=>{let n=0;for(let xx=0;xx<w;xx++)n+=ok(y*w+xx);return n/w};
+    while(x0<w/3&&colF(x0)>.9)x0++;while(x1>w*2/3&&colF(x1)>.9)x1--;while(y0<h/3&&rowF(y0)>.9)y0++;while(y1>h*2/3&&rowF(y1)>.9)y1--;
+    if(x0+w-1-x1+y0+h-1-y1<Math.min(w,h)*.04)return Promise.resolve(null);
+    const o=document.createElement('canvas');o.width=x1-x0+1;o.height=y1-y0+1;o.getContext('2d').drawImage(c,x0,y0,o.width,o.height,0,0,o.width,o.height);
+    return new Promise(res=>o.toBlob(bl=>res(bl?{url:URL.createObjectURL(bl),ar:o.width/o.height,scene:1}:null),'image/jpeg',.9))};
+  const bgs=[];let rest=edge;
+  for(let i=0;i<2&&rest.length>edge.length*.12;i++){const cl=med(rest);if(i&&cl[0]+cl[1]+cl[2]<450||rest.filter(p=>dc(p,cl)<30).length<edge.length*.15)break;bgs.push(cl);rest=rest.filter(p=>dc(p,cl)>=30)}
+  if(!bgs.length||rest.length>edge.length*.3)return trim();
+  const dv=new Uint8Array(N),bi=new Uint8Array(N);
+  for(let p=0;p<N;p++){let m=1e9;for(let i=0;i<bgs.length;i++){const v=dc(p,bgs[i]);if(v<m){m=v;bi[p]=i}}dv[p]=m>255?255:m}
+  const T1=14,T2=58,a=new Uint8Array(N).fill(255),fl=new Uint8Array(N),q=new Int32Array(N);let qh=0,qt=0;
+  const push=n=>{if(!fl[n]&&dv[n]<T2){fl[n]=1;q[qt++]=n}};
   for(const p of edge)push(p);
-  while(qh<qt){const p=q[qh++],e=dist(p),px=p%w;a[p]=e<=T1?0:Math.round(255*(e-T1)/(T2-T1));
+  while(qh<qt){const p=q[qh++],e=dv[p],px=p%w;a[p]=e<=T1?0:Math.round(255*(e-T1)/(T2-T1));
     if(px>0)push(p-1);if(px<w-1)push(p+1);if(p>=w)push(p-w);if(p<N-w)push(p+w)}
-  // мягкий край, затухание там, где товар упирается в край кадра, снятие ореола цвета фона
-  const b=a.slice(),F=Math.round(Math.min(w,h)*.08),hit=ps=>ps.filter(p=>a[p]>128).length>ps.length*.03,col=xx=>[...Array(h).keys()].map(y=>y*w+xx);
+  // замкнутые «окна» цвета фона внутри товара (между ручками, в прозрачном лотке) тоже убираем
+  for(let p0=0;p0<N;p0++){if(fl[p0]||dv[p0]>=10)continue;qh=qt=0;fl[p0]=2;q[qt++]=p0;
+    while(qh<qt){const p=q[qh++],px=p%w;for(const n of [px>0?p-1:-1,px<w-1?p+1:-1,p-w,p+w])if(n>=0&&n<N&&!fl[n]&&dv[n]<10){fl[n]=2;q[qt++]=n}}
+    if(qt>N*.003)for(let i=0;i<qt;i++)a[q[i]]=0}
+  // край: сжать на 1px (без светлого ореола), смягчить, затухание у края кадра, снять оттенок фона
+  const er=a.slice();
+  for(let y=1;y<h-1;y++)for(let xx=1;xx<w-1;xx++){const p=y*w+xx;if(a[p])er[p]=Math.min(a[p],a[p-1],a[p+1],a[p-w],a[p+w])}
+  const b=er.slice(),F=Math.round(Math.min(w,h)*.08),hit=ps=>ps.filter(p=>er[p]>128).length>ps.length*.03,col=xx=>[...Array(h).keys()].map(y=>y*w+xx);
   const tT=hit([...Array(w).keys()]),tB=hit([...Array(w).keys()].map(i=>(h-1)*w+i)),tL=hit(col(0)),tR=hit(col(w-1));let x0=w,y0=h,x1=0,y1=0;
   for(let y=0;y<h;y++)for(let xx=0;xx<w;xx++){const p=y*w+xx;
-    if(y>0&&y<h-1&&xx>0&&xx<w-1&&(seen[p]||seen[p-1]||seen[p+1]||seen[p-w]||seen[p+w]))b[p]=(a[p]*4+a[p-1]+a[p+1]+a[p-w]+a[p+w])>>3;
+    if(y>0&&y<h-1&&xx>0&&xx<w-1&&er[p]!==er[p-1]+er[p+1]+er[p-w]+er[p+w]>>2)b[p]=(er[p]*4+er[p-1]+er[p+1]+er[p-w]+er[p+w])>>3;
     let al=b[p];if(tT||tB||tL||tR){const m=Math.min(1,tT?y/F:1,tB?(h-1-y)/F:1,tL?xx/F:1,tR?(w-1-xx)/F:1);al=Math.round(al*m*m*(3-2*m))}d[p*4+3]=al;
-    if(al&&al<255){const f=al/255;for(let ch=0;ch<3;ch++)d[p*4+ch]=Math.max(0,Math.min(255,(d[p*4+ch]-bg[ch]*(1-f))/f))}
+    if(al&&al<255){const f=al/255,cl=bgs[bi[p]];for(let ch=0;ch<3;ch++)d[p*4+ch]=Math.max(0,Math.min(255,(d[p*4+ch]-cl[ch]*(1-f))/f))}
     if(al>24){if(xx<x0)x0=xx;if(xx>x1)x1=xx;if(y<y0)y0=y;if(y>y1)y1=y}}
   if(x1<=x0)return Promise.resolve(null);
   x.putImageData(D,0,0);
   const o=document.createElement('canvas');o.width=x1-x0+5;o.height=y1-y0+5;o.getContext('2d').drawImage(c,x0-2,y0-2,o.width,o.height,0,0,o.width,o.height);
-  return new Promise(res=>o.toBlob(bl=>res(bl?URL.createObjectURL(bl):undefined)))}
+  return new Promise(res=>o.toBlob(bl=>res(bl?{url:URL.createObjectURL(bl),ar:o.width/o.height}:undefined)))}
 function stage(im){
   if(im.dataset.st)return;im.dataset.st=1;const box=im.parentElement,src=im.src;
   if(!CUT.has(src)){let r;try{r=cutBg(im)}catch(e){r=Promise.resolve(undefined)}CUT.set(src,r)}
-  CUT.get(src).then(r=>{if(r===undefined)im.classList.add('raw');else if(r===null){im.classList.add('scene');box.classList.add('scene')}else{im.src=r;im.classList.add('cut');box.classList.add('cut')}})}
+  CUT.get(src).then(r=>{if(r===undefined)im.classList.add('raw');else if(r===null||r.scene){if(r)im.src=r.url;im.classList.add('scene');box.classList.add('scene')}else{im.src=r.url;im.classList.add('cut');box.classList.add('cut');const bx=box.getBoundingClientRect(),bw=bx.width||1,bh=bx.height||1;box.style.setProperty('--sw',Math.min(.74*bw,.64*bh*r.ar)/bw)}})}
 document.addEventListener('load',e=>{const t=e.target;if(t.tagName==='IMG'&&t.parentElement.classList.contains('stg'))stage(t)},true);
 document.addEventListener('error',e=>{const t=e.target;if(t.tagName==='IMG')t.classList.add('raw')},true);
 setInterval(()=>document.querySelectorAll('.stg>img:not([data-st])').forEach(i=>i.complete&&i.naturalWidth&&stage(i)),400);
