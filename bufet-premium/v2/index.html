@@ -184,7 +184,7 @@ section{padding:110px 0;position:relative}
 
 /* почему мы */
 .why{background:var(--ink2);overflow:hidden}
-.why .bgimg{position:absolute;inset:-12% 0;background:url(../img/lake.jpg) center 35%/cover;opacity:.6;filter:saturate(1.25) brightness(1.1);will-change:transform}
+.why .bgimg{position:absolute;inset:-12% 0;background:url(../img/la07.jpg) center 35%/cover;opacity:.6;filter:saturate(1.25) brightness(1.1);will-change:transform}
 .why .bgimg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink2),rgba(20,27,24,.55) 40%,rgba(20,27,24,.55) 60%,var(--ink2))}
 .why .wrap{position:relative}
 .rs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -381,7 +381,7 @@ const CATS=[
  {id:'tea',name:'Целебный чай',d:'Целебные сборы и таёжный чай - аромат диких трав, энергия утром и глубокий релакс вечером.',img:'t1'},
  {id:'sweet',name:'Таёжные сладости',d:'Натуральные сладости и кедровый грильяж - полезное лакомство без капли химии, которое можно даже детям.',img:'c1'},
  {id:'semi',name:'Пельмени и манты',d:'Настоящие пельмени и манты ручной лепки - когда сочно, сытно и по-домашнему.',img:'p2'},
- {id:'can',name:'Тушёнка',d:'Домашняя тушёнка по старинным рецептам - честный состав, сытость и польза настоящего цельного мяса.',img:'cans-katun'},
+ {id:'can',name:'Тушёнка',d:'Домашняя тушёнка по старинным рецептам - честный состав, сытость и польза настоящего цельного мяса.',img:'la01'},
  {id:'cosm',name:'Алтайская косметика',d:'Травяное мыло ручной работы и органические губки для тела. Ощутите силу алтайской природы и устройте спа-ритуал у себя дома.',img:'g1'}];
 const P=[
  ['meat','m1','Мясо варёно-копчёное','Из марала, конины, яка (сарлыка) и говядины - по старинной технологии. Домашний посол 10 суток без инъекций, копчение на буковой щепе. Чистый, насыщенный вкус мяса с лёгкой дымной нотой.','','1 кг',2900,'хит'],
@@ -464,9 +464,21 @@ drawCart();
 
 /* галерея: добавить фото - дописать строку в GAL */
 const GAL=[
- ['cans-katun','Тушёнка и паштет из марала на берегу горной реки'],
- ['maral','Алтайский марал - символ гор'],
- ['lake','Горный Алтай: тишина, чистая вода и кедровая тайга']];
+ ['la01','Наша тушёнка и паштет на берегу Катуни'],
+ ['la04','Кони у горной реки'],
+ ['la02','Изгиб Катуни с высоты'],
+ ['la05','Марсианские горы - красные склоны Кызыл-Чина'],
+ ['la07','Зеркальная гладь горного озера'],
+ ['la03','Бирюзовое озеро под снежной вершиной'],
+ ['la06','Горная долина и серпантин перевала'],
+ ['la08','Долина Катуни: лес, река и простор'],
+ ['la09','Закат над хребтами'],
+ ['la12','Бирюзовая вода в кедровой тайге'],
+ ['la10','Осень на горном озере'],
+ ['la11','Снежные хребты над долиной'],
+ ['la14','Зелёные долины Алтая'],
+ ['la13','Деревня у подножия гор'],
+ ['la15','Горная дорога в сердце Алтая']];
 const MK=`<svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg>`;
 document.querySelectorAll('[data-vk]').forEach(v=>{v.innerHTML=`<div class="hd"><span class="av">${MK}</span><div><b>БУФЕТ · Горный Алтай</b><span>фотоальбом · ${GAL.length} фото</span></div></div>
   <div class="mo">${GAL.slice(0,3).map(([f],i)=>`<button data-g="${i}" aria-label="Открыть фото"><img src="../img/${f}.jpg" alt="${GAL[i][1]}" loading="lazy">${i===2&&GAL.length>3?`<i>+${GAL.length-3}</i>`:''}</button>`).join('')}</div>
