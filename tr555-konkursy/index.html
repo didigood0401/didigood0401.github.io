@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Конкурсы в темах — TR555</title>
+<meta name="description" content="Пишите в тему с призом и собирайте отклик читателей. Кто первым наберёт порог баллов, получает денежный приз на свой счёт. Бесплатно, на любом тарифе.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-body:"Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --c-bg:#f8fafc; --c-surface:#fff; --c-border:#1e293b14; --c-text:#1e293b; --c-muted:#64748b;
+  --c-accent:#2563eb; --c-accent-hover:#1d4ed8; --c-accent-soft:#3b82f61a; --c-accent-ink:#fff;
+  --c-badge-bg:#eef2f7; --c-badge-text:#475569;
+  --c-prize:#b45309; --c-prize-soft:#fef3c7; --c-prize-line:#f59e0b;
+  --c-mat:#2563eb; --c-like:#7c3aed; --c-rev:#0d9488; --c-ok:#16a34a; --c-ok-soft:#dcfce7;
+  --radius-sm:12px; --radius-md:18px; --radius-lg:28px; --radius-full:999px;
+  --shadow-btn:0 1px 3px #0000000a; --shadow-panel:0 8px 30px #0000000f; --shadow-float:0 10px 40px #0000001a;
+  --shadow-glow:0 0 0 1px var(--c-accent-soft), 0 8px 30px #3b82f62e;
+  --ease-out:cubic-bezier(.22,1,.36,1); --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --gutter:clamp(16px, 2.4vw, 32px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --c-bg:#0a0a0a; --c-surface:#171717; --c-border:#262626; --c-text:#fafafa; --c-muted:#a3a3a3;
+    --c-accent:#6d8cfa; --c-accent-hover:#5a7af0; --c-accent-soft:#6d8cfa24; --c-accent-ink:#0a0a0a;
+    --c-badge-bg:#262626; --c-badge-text:#a3a3a3;
+    --c-prize:#fbbf24; --c-prize-soft:#fbbf241f; --c-prize-line:#f59e0b;
+    --c-mat:#6d8cfa; --c-like:#a78bfa; --c-rev:#2dd4bf; --c-ok:#4ade80; --c-ok-soft:#4ade801f;
+    --shadow-panel:0 8px 30px #0000004d; --shadow-float:0 10px 40px #00000073;
+    --shadow-glow:0 0 0 1px var(--c-accent-soft), 0 8px 30px #6d8cfa38;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --c-bg:#0a0a0a; --c-surface:#171717; --c-border:#262626; --c-text:#fafafa; --c-muted:#a3a3a3;
+  --c-accent:#6d8cfa; --c-accent-hover:#5a7af0; --c-accent-soft:#6d8cfa24; --c-accent-ink:#0a0a0a;
+  --c-badge-bg:#262626; --c-badge-text:#a3a3a3;
+  --c-prize:#fbbf24; --c-prize-soft:#fbbf241f; --c-prize-line:#f59e0b;
+  --c-mat:#6d8cfa; --c-like:#a78bfa; --c-rev:#2dd4bf; --c-ok:#4ade80; --c-ok-soft:#4ade801f;
+  --shadow-panel:0 8px 30px #0000004d; --shadow-float:0 10px 40px #00000073;
+  --shadow-glow:0 0 0 1px var(--c-accent-soft), 0 8px 30px #6d8cfa38;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--c-bg);color:var(--c-text);font:16px/1.6 var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--c-surface) 92%, transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-border)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:58px}
+.logo img{height:30px;display:block}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--c-border);border-radius:var(--radius-full);font-size:14px;color:var(--c-muted);background:var(--c-surface)}
+.top .sp{flex:1}
+.top .login{font-size:14px;font-weight:600;color:var(--c-muted);padding:8px 10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--radius-full);font-weight:600;font-size:15px;padding:13px 24px;border:1px solid transparent;cursor:pointer;transition:transform .16s var(--ease-out), background .16s, box-shadow .28s, border-color .16s, color .16s;font-family:inherit;text-align:center}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--c-accent);color:var(--c-accent-ink);box-shadow:var(--shadow-glow)}
+.btn-primary:hover{background:var(--c-accent-hover)}
+.btn-ghost{background:var(--c-surface);border-color:var(--c-border);color:var(--c-text);box-shadow:var(--shadow-btn)}
+.btn-ghost:hover{border-color:var(--c-accent);color:var(--c-accent)}
+.btn-sm{padding:8px 16px;font-size:14px}
+
+/* common */
+section{padding-block:clamp(48px, 7vw, 88px)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-accent);margin:0 0 14px}
+h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.12}
+h2{font-size:clamp(28px, 4vw, 40px);font-weight:700;text-wrap:balance}
+.lead{color:var(--c-muted);font-size:clamp(16px, 1.6vw, 18px);max-width:640px;margin:16px 0 0}
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-panel)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease-out), transform .6s var(--ease-out)}
+.reveal.in{opacity:1;transform:none}
+.prize-chip{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px;color:var(--c-prize);background:var(--c-prize-soft);padding:4px 10px;border-radius:var(--radius-full)}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:4px 10px;border-radius:var(--radius-full);background:var(--c-badge-bg);color:var(--c-badge-text)}
+.ico{width:1em;height:1em;display:inline-block;vertical-align:-.12em;flex:none}
+
+/* hero */
+.hero{padding-top:clamp(20px, 3vw, 32px)}
+.hero-card{padding:clamp(24px, 5vw, 56px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px, 4vw, 56px);align-items:center;overflow:hidden;position:relative}
+.hero-card::before{content:"";position:absolute;right:-120px;top:-140px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle, color-mix(in srgb, var(--c-prize-line) 22%, transparent), transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(32px, 4.6vw, 54px);font-weight:800;text-wrap:balance}
+.hero h1 .hl{color:var(--c-accent)}
+.hero h1 .gold{color:var(--c-prize);white-space:nowrap}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.chips{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:24px;font-size:14px;font-weight:500}
+.chips span{display:inline-flex;align-items:center;gap:8px}
+.chips i{width:26px;height:26px;border-radius:50%;background:var(--c-accent-soft);color:var(--c-accent);display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:700}
+
+/* live contest card */
+.stage{position:relative}
+.cc{position:relative;padding:22px 22px 18px;border-radius:var(--radius-md);background:var(--c-surface);border:1px solid var(--c-border);box-shadow:var(--shadow-float)}
+.cc-top{display:flex;gap:14px;align-items:flex-start}
+.cup{width:46px;height:46px;border-radius:50%;background:var(--c-prize-soft);color:var(--c-prize);display:grid;place-items:center;flex:none;font-size:22px}
+.cc-top small{display:block;font-size:12px;color:var(--c-muted)}
+.cc-sum{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.cc-top p{margin:2px 0 0;font-size:13.5px;color:var(--c-muted);line-height:1.45}
+.cc-meta{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0 16px;font-size:12.5px;color:var(--c-muted)}
+.cc-meta span{display:inline-flex;align-items:center;gap:6px}
+.score-row{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:600}
+.score-row b{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.score-row b small{font-size:14px;color:var(--c-muted);font-weight:600}
+.bar{display:flex;gap:3px;height:8px;border-radius:99px;background:var(--c-badge-bg);overflow:hidden;margin:8px 0 12px}
+.bar i{display:block;height:100%;width:0;border-radius:99px;transition:width .55s var(--ease-out)}
+.bar .m{background:var(--c-mat)} .bar .l{background:var(--c-like)} .bar .r{background:var(--c-rev)}
+.rows{display:grid;gap:6px}
+.rows div{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;border-radius:10px;background:var(--c-bg);font-size:13px}
+.rows div span:first-child{display:inline-flex;align-items:center;gap:8px;color:var(--c-muted)}
+.rows div span:first-child::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.rows .m span:first-child{color:var(--c-mat)} .rows .l span:first-child{color:var(--c-like)} .rows .r span:first-child{color:var(--c-rev)}
+.rows em{font-style:normal;color:var(--c-muted);font-size:12px;margin-left:10px}
+.feed-h{font-size:13px;font-weight:700;margin:16px 0 6px}
+.feed{list-style:none;margin:0;padding:0;height:150px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(#000 70%, transparent);mask-image:linear-gradient(#000 70%, transparent)}
+.feed li{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:13px;animation:slidein .45s var(--ease-out)}
+.feed .av{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:10.5px;font-weight:700;flex:none;background:var(--c-accent-soft);color:var(--c-accent)}
+.feed .av.l{background:color-mix(in srgb, var(--c-like) 15%, transparent);color:var(--c-like)}
+.feed .av.r{background:color-mix(in srgb, var(--c-rev) 15%, transparent);color:var(--c-rev)}
+.feed .tx{flex:1;min-width:0;line-height:1.3}
+.feed .tx small{display:block;color:var(--c-muted);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.feed .pl{color:var(--c-ok);font-weight:700}
+@keyframes slidein{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+.toast{position:absolute;left:-28px;bottom:-26px;display:flex;gap:12px;align-items:center;max-width:330px;padding:12px 16px;border-radius:16px;background:var(--c-surface);border:1px solid var(--c-border);box-shadow:var(--shadow-float);font-size:13px;line-height:1.35;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .4s, transform .5s var(--ease-spring);pointer-events:none}
+.toast.on{opacity:1;transform:none}
+.toast .cup{width:36px;height:36px;font-size:17px}
+.toast b{display:block;font-size:13.5px}
+.toast small{color:var(--c-muted)}
+.demo-note{position:absolute;z-index:2;right:12px;top:-11px;border:1px solid var(--c-border);font-size:11px;font-weight:600;letter-spacing:.04em;background:var(--c-badge-bg);color:var(--c-badge-text);padding:3px 10px;border-radius:99px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4, 1fr);gap:16px;margin-top:36px}
+.step{padding:24px 22px;position:relative}
+.n{width:30px;height:30px;border-radius:50%;background:var(--c-accent-soft);color:var(--c-accent);display:grid;place-items:center;font-weight:700;font-size:14px;margin-bottom:16px}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{margin:0;color:var(--c-muted);font-size:15px}
+.step .pts{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+.pt{font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:99px}
+.pt.m{color:var(--c-mat);background:color-mix(in srgb, var(--c-mat) 12%, transparent)}
+.pt.l{color:var(--c-like);background:color-mix(in srgb, var(--c-like) 12%, transparent)}
+.pt.r{color:var(--c-rev);background:color-mix(in srgb, var(--c-rev) 12%, transparent)}
+.step.win{background:linear-gradient(160deg, var(--c-prize-soft), var(--c-surface) 70%)}
+.step.win .n{background:var(--c-prize-line);color:#fff}
+
+/* calculator */
+.calc{padding:clamp(24px, 4vw, 44px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px, 4vw, 48px);margin-top:36px}
+.thr{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.thr button{font:600 14px var(--font-body);padding:8px 16px;border-radius:99px;border:1px solid var(--c-border);background:var(--c-surface);color:var(--c-text);cursor:pointer;transition:background .16s, color .16s, border-color .16s}
+.thr button[aria-pressed="true"]{background:var(--c-text);color:var(--c-surface);border-color:var(--c-text)}
+.thr-l{font-size:13px;color:var(--c-muted);margin:0 0 10px;font-weight:600}
+.ctl{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid var(--c-border)}
+.ctl:last-child{border-bottom:1px solid var(--c-border)}
+.ctl .lb b{display:block;font-size:16px}
+.ctl .lb small{color:var(--c-muted);font-size:13px}
+.stp{display:flex;align-items:center;gap:6px}
+.stp button{width:38px;height:38px;border-radius:50%;border:1px solid var(--c-border);background:var(--c-surface);color:var(--c-text);font:600 19px/1 var(--font-body);cursor:pointer;transition:transform .12s, border-color .16s}
+.stp button:hover{border-color:var(--c-accent);color:var(--c-accent)}
+.stp button:active{transform:scale(.92)}
+.stp output{min-width:34px;text-align:center;font-weight:700;font-size:18px}
+.res{display:flex;flex-direction:column;justify-content:center}
+.big{font-size:clamp(54px, 8vw, 84px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.big small{font-size:.32em;color:var(--c-muted);letter-spacing:0;font-weight:700}
+.res .bar{height:12px;margin:18px 0 14px}
+.verdict{font-size:17px;font-weight:600;min-height:3.2em;margin:0}
+.verdict.ok{color:var(--c-ok)}
+.ways{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.ways li{font-size:13px;padding:6px 12px;border-radius:99px;background:var(--c-bg);border:1px solid var(--c-border)}
+.ways-l{font-size:13px;color:var(--c-muted);margin:16px 0 0}
+
+/* contests */
+.cgrid{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px;margin-top:36px}
+.ct{padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px;transition:transform .28s var(--ease-out), box-shadow .28s}
+.ct:hover{transform:translateY(-3px);box-shadow:var(--shadow-glow)}
+.ct .hd{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--c-muted);font-weight:600}
+.ct h3{font-size:20px}
+.ct .meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--c-muted)}
+.ct .go{margin-top:auto;padding-top:6px;font-size:14px;font-weight:600;color:var(--c-accent)}
+.ex-tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--c-badge-bg);color:var(--c-badge-text)}
+.c-note{margin-top:16px;font-size:14px;color:var(--c-muted)}
+
+/* fair */
+.fair{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px;margin-top:36px}
+.fair .card{padding:24px}
+.fair .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--c-accent-soft);color:var(--c-accent);font-size:20px}
+.fair h3{font-size:17px;margin:14px 0 6px}
+.fair p{margin:0;color:var(--c-muted);font-size:14.5px}
+
+/* split: account + notifications */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+.split .card{padding:clamp(22px, 3vw, 32px)}
+.split h3{font-size:20px;margin-bottom:8px}
+.split p{margin:0;color:var(--c-muted);font-size:15px}
+.acc{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.acc div{padding:14px;border-radius:14px;background:var(--c-bg)}
+.acc small{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-muted)}
+.acc b{font-size:22px}
+.acc .hi b{color:var(--c-accent)}
+.op{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13.5px}
+.op span:last-child{color:var(--c-ok);font-weight:700;white-space:nowrap}
+.nt{margin-top:20px;display:grid;gap:10px}
+.nt div{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:var(--c-bg);font-size:13.5px;line-height:1.4}
+.nt div b{display:block;font-size:14px}
+.nt div small{color:var(--c-muted)}
+.nt .dot{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--c-prize-soft);color:var(--c-prize);font-size:15px}
+.chan{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+
+/* faq */
+.faq{max-width:820px;margin-top:30px}
+details{border-bottom:1px solid var(--c-border);padding:18px 4px}
+summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--c-accent);font-size:22px;line-height:1;transition:transform .28s var(--ease-out)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:12px 0 0;color:var(--c-muted)}
+
+/* final */
+.final{padding:clamp(32px, 6vw, 64px);text-align:center;background:linear-gradient(135deg, #1d4ed8, #2563eb 45%, #b45309 130%);color:#fff;border:0;position:relative;overflow:hidden}
+.final h2{color:#fff}
+.final p{color:#ffffffd9;max-width:600px;margin:16px auto 0;font-size:18px}
+.final .btn{background:#fff;color:#1d4ed8;margin-top:28px}
+.final .btn:hover{transform:translateY(-1px) scale(1.02)}
+
+footer{border-top:1px solid var(--c-border);background:var(--c-surface);padding-block:28px;margin-top:40px;font-size:14px;color:var(--c-muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer img{height:26px;display:block;margin-bottom:6px}
+
+@media (max-width: 960px){
+  .hero-card{grid-template-columns:1fr}
+  .stage{max-width:520px;width:100%;margin-inline:auto;padding-bottom:34px}
+  .toast{left:8px;bottom:0}
+  .steps{grid-template-columns:repeat(2, 1fr)}
+  .calc,.split{grid-template-columns:1fr}
+  .cgrid,.fair{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 640px){
+  .top .pill,.top .login{display:none}
+  .steps,.cgrid,.fair{grid-template-columns:1fr}
+  .hero .cta .btn{width:100%}
+  .cc{padding:18px 16px 14px}
+  .cc-sum{font-size:26px}
+  .toast{right:8px;max-width:none}
+  .acc b{font-size:19px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4" stroke-linecap="round"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="https://tr555.ru/" aria-label="TR555"><img src="logo.webp" alt="TR555"></a>
+    <a class="pill" href="https://tr555.ru/contests"><svg class="ico"><use href="#i-cup"/></svg> Все конкурсы</a>
+    <span class="sp"></span>
+    <a class="login" href="https://tr555.ru/login">Войти</a>
+    <a class="btn btn-primary btn-sm" href="https://tr555.ru/register">Регистрация</a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="card hero-card">
+      <div>
+        <p class="eyebrow">Конкурсы в темах · TR555</p>
+        <h1>Пишите в тему. Первым наберите порог. <span class="gold">Заберите приз.</span></h1>
+        <p class="lead">В темах с призом каждый ваш текст, лайк и рецензия читателя приносят баллы. Кто первым дойдёт до порога, получает деньги на свой счёт на платформе. Участвуют все авторы, на любом тарифе.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://tr555.ru/contests">🏆 Смотреть конкурсы</a>
+          <a class="btn btn-ghost" href="#calc">Сколько нужно до приза?</a>
+        </div>
+        <div class="chips">
+          <span><i>+5</i>за материал</span>
+          <span><i>+10</i>за лайк</span>
+          <span><i>+20</i>за рецензию</span>
+        </div>
+      </div>
+
+      <div class="stage" aria-label="Пример: так выглядит конкурс на странице темы">
+        <span class="demo-note">так это выглядит на сайте</span>
+        <div class="cc" id="cc">
+          <div class="cc-top">
+            <div class="cup"><svg class="ico"><use href="#i-cup"/></svg></div>
+            <div>
+              <small>Конкурс в теме «Телепорт»</small>
+              <div class="cc-sum num">5 000 ₽</div>
+              <p>Тому, кто первым наберёт <span class="num">100</span> баллов</p>
+            </div>
+          </div>
+          <div class="cc-meta">
+            <span><svg class="ico"><use href="#i-clock"/></svg><span class="num" id="timer">5 дн. 6 ч</span></span>
+            <span><svg class="ico"><use href="#i-info"/></svg>Как это работает?</span>
+          </div>
+          <div class="score-row"><span>Ваш рейтинг в конкурсе</span><b class="num"><span id="sc">0</span> <small>/ 100</small></b></div>
+          <div class="bar"><i class="m" id="bm"></i><i class="l" id="bl"></i><i class="r" id="br"></i></div>
+          <div class="rows">
+            <div class="m"><span>Материалы</span><span class="num"><b id="nm">0</b>/10<em id="pm">0 баллов</em></span></div>
+            <div class="l"><span>Лайки</span><span class="num"><b id="nl">0</b><em id="pl">0 баллов</em></span></div>
+            <div class="r"><span>Рецензии</span><span class="num"><b id="nr">0</b><em id="pr">0 баллов</em></span></div>
+          </div>
+          <div class="feed-h">История начислений</div>
+          <ul class="feed" id="feed"></ul>
+        </div>
+        <div class="toast" id="toast" role="status">
+          <div class="cup"><svg class="ico"><use href="#i-cup"/></svg></div>
+          <div><b>Порог 100 взят первым!</b><small>Модератор проверит результат, и 5 000 ₽ придут на ваш счёт.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section style="padding-top:clamp(24px,4vw,48px)">
+  <div class="wrap">
+    <p class="eyebrow reveal">Как это работает</p>
+    <h2 class="reveal">Четыре шага от текста до приза</h2>
+    <p class="lead reveal">Никакого жюри и голосования «по знакомству». Счёт идёт по понятным правилам, и вы всегда видите свой рейтинг.</p>
+    <div class="steps">
+      <div class="card step reveal">
+        <div class="n">1</div>
+        <h3>Выберите тему с призом</h3>
+        <p>Конкурсные темы отмечены суммой приза и сроком. В одной теме идёт один конкурс.</p>
+        <div class="pts"><span class="prize-chip"><svg class="ico"><use href="#i-cup"/></svg>3 000 ₽ · 8 дн.</span></div>
+      </div>
+      <div class="card step reveal">
+        <div class="n">2</div>
+        <h3>Пишите в тему</h3>
+        <p>Рассказ, статья, сценарий. Каждый новый материал после модерации приносит баллы. В зачёт идут до 10 текстов.</p>
+        <div class="pts"><span class="pt m">+5 материал</span></div>
+      </div>
+      <div class="card step reveal">
+        <div class="n">3</div>
+        <h3>Собирайте отклик</h3>
+        <p>Лайки других авторов и рецензии на ваши тексты весят больше, чем сами тексты. Пишите так, чтобы хотелось ответить.</p>
+        <div class="pts"><span class="pt l">+10 лайк</span><span class="pt r">+20 рецензия</span></div>
+      </div>
+      <div class="card step win reveal">
+        <div class="n">4</div>
+        <h3>Первым до порога</h3>
+        <p>Как только вы набрали порог, результат уходит на проверку. После неё приз зачисляется в «Мой счёт».</p>
+        <div class="pts"><span class="prize-chip"><svg class="ico"><use href="#i-check"/></svg>Приз ваш</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALC -->
+<section style="padding-top:0" id="calc">
+  <div class="wrap">
+    <p class="eyebrow reveal">Калькулятор</p>
+    <h2 class="reveal">Сколько нужно до приза?</h2>
+    <p class="lead reveal">Подвигайте цифры и посмотрите, как быстро набирается порог. Подсказка: одна рецензия стоит как четыре текста.</p>
+    <div class="card calc reveal">
+      <div>
+        <p class="thr-l">Порог конкурса</p>
+        <div class="thr" id="thr">
+          <button type="button" data-t="60" aria-pressed="false">60 баллов</button>
+          <button type="button" data-t="80" aria-pressed="false">80 баллов</button>
+          <button type="button" data-t="100" aria-pressed="true">100 баллов</button>
+        </div>
+        <div class="ctl"><div class="lb"><b>Материалы</b><small>+5 за каждый, в зачёт до 10</small></div>
+          <div class="stp" data-k="m"><button type="button" aria-label="Меньше материалов">−</button><output class="num">2</output><button type="button" aria-label="Больше материалов">+</button></div></div>
+        <div class="ctl"><div class="lb"><b>Лайки</b><small>+10 от другого автора</small></div>
+          <div class="stp" data-k="l"><button type="button" aria-label="Меньше лайков">−</button><output class="num">3</output><button type="button" aria-label="Больше лайков">+</button></div></div>
+        <div class="ctl"><div class="lb"><b>Рецензии</b><small>+20 за опубликованную</small></div>
+          <div class="stp" data-k="r"><button type="button" aria-label="Меньше рецензий">−</button><output class="num">1</output><button type="button" aria-label="Больше рецензий">+</button></div></div>
+      </div>
+      <div class="res">
+        <div class="big num"><span id="cs">60</span> <small>/ <span id="ct">100</span></small></div>
+        <div class="bar"><i class="m" id="cbm"></i><i class="l" id="cbl"></i><i class="r" id="cbr"></i></div>
+        <p class="verdict" id="cv"></p>
+        <p class="ways-l" id="cwl">Например, так:</p>
+        <ul class="ways" id="cw"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTESTS -->
+<section style="padding-top:0" id="contests">
+  <div class="wrap">
+    <p class="eyebrow reveal">Конкурсы</p>
+    <h2 class="reveal" id="c-title">Так выглядят темы с призом</h2>
+    <p class="lead reveal" id="c-lead">Конкурсы запускаются в разных разделах: проза, сценарии, статьи о технологиях будущего. Новые появляются на странице «Конкурсы».</p>
+    <div class="cgrid" id="cgrid">
+      <a class="card ct reveal" href="https://tr555.ru/contests">
+        <div class="hd"><span>Сценарии</span><span class="ex-tag">пример</span></div>
+        <h3>Телепорт</h3>
+        <div class="meta"><span class="prize-chip"><svg class="ico"><use href="#i-cup"/></svg>5 000 ₽</span><span><svg class="ico"><use href="#i-clock"/></svg> 5 дн. 6 ч</span></div>
+        <div class="meta">Порог 100 баллов</div>
+        <span class="go">Открыть →</span>
+      </a>
+      <a class="card ct reveal" href="https://tr555.ru/contests">
+        <div class="hd"><span>Проза</span><span class="ex-tag">пример</span></div>
+        <h3>Город через 50 лет</h3>
+        <div class="meta"><span class="prize-chip"><svg class="ico"><use href="#i-cup"/></svg>3 000 ₽</span><span><svg class="ico"><use href="#i-clock"/></svg> 8 дн. 23 ч</span></div>
+        <div class="meta">Порог 60 баллов</div>
+        <span class="go">Открыть →</span>
+      </a>
+      <a class="card ct reveal" href="https://tr555.ru/contests">
+        <div class="hd"><span>Технологии</span><span class="ex-tag">пример</span></div>
+        <h3>Боевой ИИ: как его переиграть</h3>
+        <div class="meta"><span class="prize-chip"><svg class="ico"><use href="#i-cup"/></svg>4 000 ₽</span><span><svg class="ico"><use href="#i-clock"/></svg> 13 дн.</span></div>
+        <div class="meta">Порог 80 баллов</div>
+        <span class="go">Открыть →</span>
+      </a>
+    </div>
+    <p class="c-note reveal" id="c-note">Суммы и сроки здесь для примера. Актуальные конкурсы, призы и сроки на странице <a href="https://tr555.ru/contests" style="color:var(--c-accent);font-weight:600">«Конкурсы»</a>.</p>
+  </div>
+</section>
+
+<!-- FAIR -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow reveal">Честные правила</p>
+    <h2 class="reveal">Выигрывает текст, а не накрутка</h2>
+    <p class="lead reveal">Правила одинаковые для всех и фиксируются в момент запуска конкурса. Пока конкурс идёт, их никто не меняет.</p>
+    <div class="fair">
+      <div class="card reveal"><div class="ic"><svg class="ico"><use href="#i-reset"/></svg></div><h3>Все стартуют с нуля</h3><p>Считается только то, что появилось после старта: новые тексты и отклик на них. Старые заслуги не дают форы, ваша репутация в профиле при этом остаётся с вами.</p></div>
+      <div class="card reveal"><div class="ic"><svg class="ico"><use href="#i-user"/></svg></div><h3>Лайки от живых авторов</h3><p>Лайк засчитывается, только если у поставившего есть свой опубликованный материал. Свой лайк не считается, рецензия от одного человека на текст одна.</p></div>
+      <div class="card reveal"><div class="ic"><svg class="ico"><use href="#i-shield"/></svg></div><h3>Проверка перед выплатой</h3><p>Модератор вручную смотрит тексты и лайки победителя. Если порог взят нечестно, приз переходит следующему автору, который его набрал.</p></div>
+      <div class="card reveal"><div class="ic"><svg class="ico"><use href="#i-eye"/></svg></div><h3>Без гонки за лидером</h3><p>Каждый видит только свои баллы с расшифровкой: за что и когда начислено. Вы соревнуетесь с порогом, а не следите за чужим счётом.</p></div>
+      <div class="card reveal"><div class="ic"><svg class="ico"><use href="#i-flag"/></svg></div><h3>Можно пожаловаться</h3><p>Заметили накрутку? На странице конкурса есть кнопка «Пожаловаться». Резкий рост рейтинга система отмечает сама.</p></div>
+      <div class="card reveal"><div class="ic"><svg class="ico"><use href="#i-clock"/></svg></div><h3>Понятный срок</h3><p>У каждого конкурса есть дата окончания. Если порог до неё никто не взял, конкурс закрывается без победителя, и это видно всем.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOUNT + NOTIFY -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow reveal">После победы</p>
+    <h2 class="reveal">Приз приходит на ваш счёт, а новости в Телеграм</h2>
+    <div class="split">
+      <div class="card reveal">
+        <h3>«Мой счёт»</h3>
+        <p>Приз зачисляется на баланс «К выводу». Вывести его на карту можно после верификации. Если счёта ещё нет, приз дождётся, пока вы его откроете.</p>
+        <div class="acc">
+          <div class="hi"><small>Баланс</small><b class="num">5 000 ₽</b></div>
+          <div><small>К выводу</small><b class="num">5 000 ₽</b></div>
+          <div class="op"><span>🏆 Приз конкурса · «Телепорт»</span><span class="num">+5 000 ₽</span></div>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h3>Узнаете первым</h3>
+        <p>Порог взят, приз зачислен, новый конкурс в теме: уведомления приходят в колокольчик на сайте, на почту и в Телеграм.</p>
+        <div class="nt">
+          <div><span class="dot"><svg class="ico"><use href="#i-cup"/></svg></span><span><b>Приз 5 000 ₽ зачислен</b><small>Вы первым набрали 100 баллов в теме «Телепорт».</small></span></div>
+          <div><span class="dot"><svg class="ico"><use href="#i-bell"/></svg></span><span><b>Порог 100 в конкурсе взят</b><small>Результат проверяют, мы сообщим, когда приз будет зачислен.</small></span></div>
+        </div>
+        <div class="chan"><span class="badge">🔔 На сайте</span><span class="badge">✉️ Почта</span><span class="badge">✈️ Телеграм-бот</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow reveal">Вопросы</p>
+    <h2 class="reveal">Коротко о главном</h2>
+    <div class="faq reveal">
+      <details open><summary>Сколько стоит участие?</summary><p>Нисколько. Участвуют все авторы на любом тарифе, включая бесплатный. Регистрация занимает минуту.</p></details>
+      <details><summary>Нужно ли подавать заявку?</summary><p>Нет. Просто пишите в тему, где идёт конкурс. Баллы начисляются автоматически, а прогресс виден на странице темы и прямо в редакторе.</p></details>
+      <details><summary>У меня уже есть тексты в этой теме. Они считаются?</summary><p>Нет, в зачёт идёт только то, что появилось после старта конкурса. Так у новичков и опытных авторов равные шансы.</p></details>
+      <details><summary>Можно написать 30 коротких текстов и выиграть?</summary><p>В зачёт идут не больше 10 материалов, это 50 баллов. Остальное придётся добрать откликом читателей, поэтому выгоднее писать хорошо, чем много.</p></details>
+      <details><summary>Как получить деньги?</summary><p>После проверки модератором приз приходит в раздел «Мой счёт». Вывести его на карту можно после верификации.</p></details>
+      <details><summary>Что если порог никто не наберёт?</summary><p>Конкурс закроется в назначенную дату без победителя. Следите за новыми: они появляются на странице «Конкурсы», а уведомление можно получать в Телеграм.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="card final reveal">
+      <h2>Следующий приз может быть вашим</h2>
+      <p>Зарегистрируйтесь бесплатно, выберите тему с призом и напишите первый текст уже сегодня.</p>
+      <a class="btn" href="https://tr555.ru/register">🚀 Участвовать бесплатно</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><img src="logo.webp" alt="TR555">Платформа для авторов будущего</div>
+    <div>© 2026 TR555. 555 смыслов. 555 идей. Вдохновляй. Твори.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nf = function(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); };
+  function plural(n, a, b, c){ n = Math.abs(n) % 100; var d = n % 10; return n > 10 && n < 20 ? c : d === 1 ? a : d > 1 && d < 5 ? b : c; }
+
+  /* Яндекс Метрика: номер счётчика (0 = выключено, на tr555.ru счётчик уже подключён через /metrika.js) */
+  var YM_ID = 0;
+  function goal(name){ if (YM_ID && window.ym) ym(YM_ID, 'reachGoal', name); }
+
+  /* метки рекламы (utm_*, yclid) передаём дальше на tr555.ru, цели — по кликам */
+  var tags = (location.search.slice(1).split('&')).filter(function(p){ return /^(utm_\w+|yclid)=/.test(p); }).join('&');
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href^="https://tr555.ru"]');
+    if (!a) return;
+    var h = a.getAttribute('href');
+    goal(/\/register/.test(h) ? 'register_click' : /\/login/.test(h) ? 'login_click'
+       : /\/contests/.test(h) ? 'contest_click' : 'site_click');
+    if (tags && !a.dataset.tagged){ a.href = h + (h.indexOf('?') < 0 ? '?' : '&') + tags; a.dataset.tagged = 1; }
+  });
+
+  /* заголовок под объявление Директа: ?v=money | prose | scenario | start */
+  var V = {
+    money:    ['Ваш рассказ может <span class="gold">принести деньги</span>', 'Пишите в тему с призом и собирайте лайки и рецензии читателей. Кто первым наберёт порог баллов, получает приз на свой счёт.'],
+    prose:    ['Конкурс для тех, кто пишет <span class="hl">прозу</span>', 'Рассказы о городе, будущем и людях в нём. Каждый текст и каждая рецензия приближают вас к призу.'],
+    scenario: ['Напишите сценарий и <span class="gold">выиграйте приз</span>', 'Продолжение фильма, сценарий игры, история про телепорт. В конкурсных темах ваша идея может стоить денег.'],
+    start:    ['Первый текст и <span class="hl">сразу в конкурс</span>', 'Все стартуют с нуля: старые тексты не считаются, поэтому у новичка столько же шансов, сколько у опытного автора.']
+  };
+  var v = (location.search.match(/[?&]v=(\w+)/) || [])[1];
+  if (V[v]){ document.querySelector('.hero h1').innerHTML = V[v][0]; document.querySelector('.hero .lead').textContent = V[v][1]; }
+
+  /* живая карточка конкурса: баллы капают, на 100 — уведомление */
+  var P = {m:5, l:10, r:20}, TH = 100;
+  var people = [['ИВ','Ира Вельт'],['ДК','Дима Корн'],['АС','Аля Сим'],['ТР','Тим Рокс'],['МН','Маша Нор'],['ГЛ','Гоша Лис'],['ЕБ','Ева Бран']];
+  var mats = ['Обратный билет','Двойник на перроне','Последняя кабина','Шум в канале'];
+  var script = ['m','l','l','m','r','l','m','l','r','l'];  /* 5+10+10+5+20+10+5+10+20+10 = 105 */
+  var st, step, feed = document.getElementById('feed'), toast = document.getElementById('toast');
+  function $(id){ return document.getElementById(id); }
+  function paint(){
+    var s = st.m*P.m + st.l*P.l + st.r*P.r, k = 100/Math.max(TH, s);
+    $('sc').textContent = Math.min(s, 999);
+    $('nm').textContent = st.m; $('nl').textContent = st.l; $('nr').textContent = st.r;
+    $('pm').textContent = st.m*P.m + ' ' + plural(st.m*P.m,'балл','балла','баллов');
+    $('pl').textContent = st.l*P.l + ' баллов'; $('pr').textContent = st.r*P.r + ' баллов';
+    $('bm').style.width = st.m*P.m*k + '%'; $('bl').style.width = st.l*P.l*k + '%'; $('br').style.width = st.r*P.r*k + '%';
+    return s;
+  }
+  function add(kind){
+    st[kind]++;
+    var li = document.createElement('li'), who = people[(step*3) % people.length], mt = mats[st.m ? (st.m-1) % mats.length : 0];
+    var title = kind === 'm' ? 'Новый материал' : kind === 'l' ? 'Лайк от ' + who[1] : 'Рецензия от ' + who[1];
+    li.innerHTML = '<span class="av ' + (kind === 'm' ? '' : kind) + '">' + (kind === 'm' ? '✎' : who[0]) + '</span>'
+      + '<span class="tx">' + title + '<small>«' + mt + '» · только что</small></span><span class="pl num">+' + P[kind] + '</span>';
+    feed.insertBefore(li, feed.firstChild);
+    while (feed.children.length > 6) feed.removeChild(feed.lastChild);
+    return paint();
+  }
+  function reset(){
+    st = {m:0, l:0, r:0}; step = 0; feed.innerHTML = ''; toast.classList.remove('on'); paint();
+  }
+  function run(){
+    if (step >= script.length){ return; }
+    var s = add(script[step++]);
+    if (s >= TH){ setTimeout(function(){ toast.classList.add('on'); }, 500); setTimeout(function(){ reset(); setTimeout(run, 900); }, 6500); return; }
+    setTimeout(run, 1100 + Math.random()*700);
+  }
+  reset();
+  if (reduce){ script.forEach(function(k){ add(k); step++; }); toast.classList.add('on'); }
+  else setTimeout(run, 700);
+
+  /* таймер */
+  var end = Date.now() + ((5*24 + 6)*60 + 14)*60000;
+  function tick(){ var ms = end - Date.now(), m = Math.floor(ms/60000), d = Math.floor(m/1440), h = Math.floor(m%1440/60), mm = m%60;
+    $('timer').textContent = d + ' дн. ' + h + ' ч ' + (mm < 10 ? '0' : '') + mm + ' мин'; }
+  tick(); setInterval(tick, 20000);
+
+  /* калькулятор */
+  var C = {m:2, l:3, r:1, t:100}, calcUsed = false;
+  function ways(left){
+    /* короткие сочетания, которыми можно добрать оставшиеся баллы */
+    var out = [], maxM = 10 - C.m;
+    for (var r = 0; r <= 5; r++) for (var l = 0; l <= 10; l++){
+      var rest = left - r*20 - l*10, m = rest > 0 ? Math.ceil(rest/5) : 0;
+      if (m > maxM) continue;
+      if (r*20 + l*10 + m*5 - left >= 10 && (m || l || r)) continue;
+      out.push({m:m, l:l, r:r, n:m+l+r});
+    }
+    out.sort(function(a, b){ return a.n - b.n || b.r - a.r; });
+    var seen = {}, res = [];
+    out.forEach(function(w){ var key = (w.r>0)+'' + (w.l>0) + (w.m>0); if (!seen[key] && res.length < 3){ seen[key] = 1; res.push(w); } });
+    return res.map(function(w){
+      var p = [];
+      if (w.r) p.push(w.r + ' ' + plural(w.r,'рецензия','рецензии','рецензий'));
+      if (w.l) p.push(w.l + ' ' + plural(w.l,'лайк','лайка','лайков'));
+      if (w.m) p.push(w.m + ' ' + plural(w.m,'текст','текста','текстов'));
+      return p.join(' + ');
+    });
+  }
+  function calc(){
+    var pm = Math.min(C.m, 10)*5, pl = C.l*10, pr = C.r*20, s = pm + pl + pr, k = 100/Math.max(C.t, s);
+    $('cs').textContent = s; $('ct').textContent = C.t;
+    $('cbm').style.width = pm*k + '%'; $('cbl').style.width = pl*k + '%'; $('cbr').style.width = pr*k + '%';
+    var v = $('cv'), left = C.t - s;
+    if (left <= 0){
+      v.className = 'verdict ok'; v.textContent = 'Порог взят! Если вы первый, приз ваш после проверки модератора.';
+      $('cwl').hidden = true; $('cw').innerHTML = '';
+    } else {
+      v.className = 'verdict'; v.textContent = 'До порога ' + left + ' ' + plural(left,'балл','балла','баллов') + '.';
+      $('cwl').hidden = false;
+      $('cw').innerHTML = ways(left).map(function(t){ return '<li>' + t + '</li>'; }).join('');
+    }
+    document.querySelectorAll('.stp').forEach(function(el){ el.querySelector('output').textContent = C[el.dataset.k]; });
+  }
+  document.querySelectorAll('.stp').forEach(function(el){
+    var b = el.querySelectorAll('button'), k = el.dataset.k, max = k === 'm' ? 10 : 30;
+    b[0].addEventListener('click', function(){ C[k] = Math.max(0, C[k]-1); used(); calc(); });
+    b[1].addEventListener('click', function(){ C[k] = Math.min(max, C[k]+1); used(); calc(); });
+  });
+  document.querySelectorAll('#thr button').forEach(function(b){
+    b.addEventListener('click', function(){
+      C.t = +b.dataset.t; used();
+      document.querySelectorAll('#thr button').forEach(function(x){ x.setAttribute('aria-pressed', x === b); });
+      calc();
+    });
+  });
+  function used(){ if (!calcUsed){ calcUsed = true; goal('calc_use'); } }
+  calc();
+
+  /* реальные конкурсы: на tr555.ru подтягиваем идущие из API, иначе остаются примеры */
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function prizeSum(c){
+    var p = c.prizes != null ? c.prizes : c.prize;
+    if (Array.isArray(p)) return p.reduce(function(a, x){ return a + Number(x && typeof x === 'object' ? (x.amount != null ? x.amount : x.value) : x) || 0; }, 0);
+    return Number(p && typeof p === 'object' ? p.amount : p) || 0;
+  }
+  function left(iso){ var m = Math.max(0, Math.floor((new Date(iso) - Date.now())/60000)), d = Math.floor(m/1440), h = Math.floor(m%1440/60);
+    return d ? d + ' дн. ' + h + ' ч' : h + ' ч ' + (m%60) + ' мин'; }
+  if (/(^|\.)tr555\.ru$/.test(location.hostname) && window.fetch){
+    fetch('/api/contests?state=active&page=1', {credentials:'same-origin'}).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+      if (!d || !d.items || !d.items.length) return;
+      $('c-title').textContent = 'Идут сейчас';
+      $('c-lead').textContent = 'Выберите тему и напишите первый текст. Чем раньше начнёте, тем больше времени на отклик читателей.';
+      $('c-note').innerHTML = 'Все конкурсы и завершённые итоги на странице <a href="https://tr555.ru/contests" style="color:var(--c-accent);font-weight:600">«Конкурсы»</a>.';
+      $('cgrid').innerHTML = d.items.slice(0, 6).map(function(c){
+        var t = c.topic || {};
+        return '<a class="card ct reveal in" href="https://tr555.ru/contests/' + esc(c.id) + '">'
+          + '<div class="hd"><span>' + esc(t.sectionName) + '</span></div><h3>' + esc(t.name) + '</h3>'
+          + '<div class="meta"><span class="prize-chip"><svg class="ico"><use href="#i-cup"/></svg>' + nf(prizeSum(c)) + ' ₽</span>'
+          + (c.endsAt ? '<span><svg class="ico"><use href="#i-clock"/></svg> ' + left(c.endsAt) + '</span>' : '') + '</div>'
+          + (c.threshold ? '<div class="meta">Порог ' + esc(c.threshold) + ' баллов</div>' : '')
+          + '<span class="go">Участвовать →</span></a>';
+      }).join('');
+    }).catch(function(){});
+  }
+
+  /* reveal on scroll */
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || reduce){ els.forEach(function(e){ e.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+    els.forEach(function(e){ io.observe(e); });
+  }
+})();
+</script>
+</body>
+</html>
