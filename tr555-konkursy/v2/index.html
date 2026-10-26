@@ -266,14 +266,7 @@ footer img{height:26px;display:block;margin-bottom:6px}
 .rot .bot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px}
 .rot .go{font-size:15px;font-weight:600;color:var(--c-accent)}
 .rot .sw{display:inline-block;will-change:transform,opacity}
-.rdots{display:flex;gap:6px}
-.rdots button{width:22px;height:4px;border-radius:99px;border:0;padding:0;background:var(--c-border);cursor:pointer;position:relative;overflow:hidden}
-.rdots button::after{content:"";position:absolute;inset:0;background:var(--c-accent);transform:scaleX(0);transform-origin:left}
-.rdots button.done::after{transform:scaleX(1)}
-.rdots button.cur::after{animation:rfill var(--dur,4200ms) linear forwards}
-.rot.paused .rdots button.cur::after{animation-play-state:paused}
-@keyframes rfill{to{transform:scaleX(1)}}
-@media (max-width: 640px){ .rot{padding:22px 18px 18px} .rot h3{min-height:2.4em} .rot .hook{min-height:4.5em;font-size:15px} .rdots button{width:14px} }
+@media (max-width: 640px){ .rot{padding:22px 18px 18px} .rot h3{min-height:2.4em} .rot .hook{min-height:4.5em;font-size:15px} }
 @media (prefers-reduced-motion: reduce){
   *{transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none}
@@ -434,11 +427,11 @@ footer img{height:26px;display:block;margin-bottom:6px}
     <h2 class="reveal" id="c-title">Так выглядят темы с призом</h2>
     <p class="lead reveal" id="c-lead">Конкурсы запускаются в разных разделах: проза, сценарии, статьи о технологиях будущего. Новые появляются на странице «Конкурсы».</p>
     <a class="card rot reveal" id="rot" href="https://tr555.ru/contests" aria-live="polite">
-      <div class="hd"><span class="l"><span class="sw" id="r-sec">Сценарии</span><span class="ex-tag" id="r-tag">пример</span></span><span class="cnt" id="r-cnt">1 / 8</span></div>
+      <div class="hd"><span class="l"><span class="sw" id="r-sec">Сценарии</span><span class="ex-tag" id="r-tag">пример</span></span></div>
       <h3><span class="sw" id="r-name">Телепорт</span></h3>
       <p class="hook"><span class="sw" id="r-hook">Кабина ошиблась адресом. Куда попал герой и как ему вернуться?</span></p>
       <div class="meta"><span class="sw"><span class="prize-chip"><svg class="ico"><use href="#i-cup"/></svg><span id="r-prize">5 000 ₽</span></span></span><span class="sw"><svg class="ico"><use href="#i-clock"/></svg> <span id="r-left">5 дн. 6 ч</span></span><span class="sw" id="r-th">Порог 100 баллов</span></div>
-      <div class="bot"><span class="go" id="r-go">Открыть →</span><div class="rdots" id="rdots"></div></div>
+      <div class="bot"><span class="go" id="r-go">Открыть →</span></div>
     </a>
     <p class="c-note reveal" id="c-note">Суммы и сроки здесь для примера. Актуальные конкурсы, призы и сроки на странице <a href="https://tr555.ru/contests" style="color:var(--c-accent);font-weight:600">«Конкурсы»</a>.</p>
   </div>
@@ -694,54 +687,41 @@ footer img{height:26px;display:block;margin-bottom:6px}
     {s:'Сценарии', n:'Последний рейс на орбиту', h:'Короткий сценарий: одна станция, один корабль, одно место на борту.', p:4500, d:'9 дн. 8 ч', t:100},
     {s:'Проза', n:'Письмо из 2100 года', h:'Ваш правнук пишет вам письмо. О чём он попросит?', p:3000, d:'11 дн. 2 ч', t:60}
   ];
-  var ri = 0, rDur = 4200, rT, rot = $('rot'), rdots = $('rdots'), rPaused = false, rLeft = rDur, rStart;
+  var ri = 0, rDur = 2600, rT, rot = $('rot'), rPaused = false, rLeft = rDur, rStart;
   function rFill(i){
     var c = R[i];
     $('r-sec').textContent = c.s; $('r-name').textContent = c.n; $('r-hook').textContent = c.h;
     $('r-prize').textContent = nf(c.p) + ' ₽'; $('r-left').textContent = c.d;
-    $('r-th').textContent = 'Порог ' + c.t + ' баллов'; $('r-cnt').textContent = (i+1) + ' / ' + R.length;
+    $('r-th').textContent = 'Порог ' + c.t + ' баллов';
     if (c.id) rot.href = 'https://tr555.ru/contests/' + c.id;
-    Array.prototype.forEach.call(rdots.children, function(b, k){
-      b.className = k < i ? 'done' : ''; b.setAttribute('aria-pressed', k === i);
-    });
-    var b = rdots.children[i]; void b.offsetWidth; b.className = 'cur';
   }
   function rGo(i){
     i = (i + R.length) % R.length;
     var sw = rot.querySelectorAll('.sw');
     if (reduce || !sw[0].animate){ ri = i; rFill(i); rArm(rDur); return; }
     sw.forEach(function(el, k){
-      el.animate([{opacity:1, transform:'none', filter:'blur(0)'}, {opacity:0, transform:'translateY(-12px)', filter:'blur(4px)'}],
-        {duration:220, delay:k*35, easing:'cubic-bezier(.4,0,1,1)', fill:'forwards'});
+      el.animate([{opacity:1, transform:'none', filter:'blur(0)'}, {opacity:0, transform:'translateY(-8px)', filter:'blur(2px)'}],
+        {duration:320, delay:k*25, easing:'ease-in-out', fill:'forwards'});
     });
     setTimeout(function(){
       ri = i; rFill(i);
       sw.forEach(function(el, k){
-        el.animate([{opacity:0, transform:'translateY(14px)', filter:'blur(4px)'}, {opacity:1, transform:'none', filter:'blur(0)'}],
-          {duration:420, delay:k*45, easing:'cubic-bezier(.22,1,.36,1)', fill:'forwards'});
+        el.animate([{opacity:0, transform:'translateY(8px)', filter:'blur(2px)'}, {opacity:1, transform:'none', filter:'blur(0)'}],
+          {duration:520, delay:k*30, easing:'cubic-bezier(.22,1,.36,1)', fill:'forwards'});
       });
       rArm(rDur);
-    }, 220 + sw.length*35);
+    }, 320 + sw.length*25);
   }
   function rArm(ms){ clearTimeout(rT); rLeft = ms; rStart = Date.now(); if (!rPaused) rT = setTimeout(function(){ rGo(ri + 1); }, ms); }
   function rPause(on){
     if (on === rPaused) return; rPaused = on; rot.classList.toggle('paused', on);
     if (on){ clearTimeout(rT); rLeft = Math.max(300, rLeft - (Date.now() - rStart)); } else rArm(rLeft);
   }
-  function rDots(){
-    rdots.innerHTML = '';
-    R.forEach(function(c, k){
-      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Тема «' + c.n + '»');
-      b.style.setProperty('--dur', rDur + 'ms');
-      b.addEventListener('click', function(e){ e.preventDefault(); if (k !== ri){ rPaused = false; rot.classList.remove('paused'); rGo(k); } });
-      rdots.appendChild(b);
-    });
-  }
   rot.addEventListener('mouseenter', function(){ rPause(true); });
   rot.addEventListener('mouseleave', function(){ rPause(false); });
   var rIn = !('IntersectionObserver' in window);
   document.addEventListener('visibilitychange', function(){ rPause(document.hidden || !rIn); });
-  rDots(); rFill(0);
+  rFill(0);
   /* крутим, только когда окно на экране */
   rPaused = true; rot.classList.add('paused');
   if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ rIn = es[0].isIntersecting; rPause(!rIn || document.hidden); }, {threshold:.4}).observe(rot);
@@ -768,7 +748,7 @@ footer img{height:26px;display:block;margin-bottom:6px}
           p:prizeSum(c), d:c.endsAt ? left(c.endsAt) : 'идёт', t:c.threshold || '?'};
       });
       $('r-tag').hidden = true; $('r-go').textContent = 'Участвовать →';
-      rDots(); ri = 0; rFill(0); rArm(rDur);
+      ri = 0; rFill(0); rArm(rDur);
     }).catch(function(){});
   }
 
