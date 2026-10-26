@@ -104,6 +104,13 @@ h2{font-size:clamp(28px, 4vw, 40px);font-weight:700;text-wrap:balance}
 .cc-top p{margin:2px 0 0;font-size:13.5px;color:var(--c-muted);line-height:1.45}
 .cc-meta{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0 16px;font-size:12.5px;color:var(--c-muted)}
 .cc-meta span{display:inline-flex;align-items:center;gap:6px}
+.cc-meta .cc-sec{padding:2px 9px;border-radius:99px;background:var(--c-badge-bg);color:var(--c-badge-text);font-weight:600}
+.tdots{margin-left:auto;gap:5px}
+.tdots button{width:7px;height:7px;padding:0;border:0;border-radius:99px;background:var(--c-border);cursor:pointer;position:relative;transition:width .35s var(--ease-out), background .35s}
+.tdots button[aria-pressed="true"]{width:20px;background:var(--c-prize-line)}
+.tdots button::after{content:"";position:absolute;inset:-8px -3px}
+.cc-top > div:last-child, .cc-meta .cc-sec{transition:opacity .3s, transform .4s var(--ease-out)}
+.cc.swap .cc-top > div:last-child, .cc.swap .cc-sec{opacity:0;transform:translateY(6px)}
 .score-row{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:600}
 .score-row b{font-size:26px;font-weight:800;letter-spacing:-.02em}
 .score-row b small{font-size:14px;color:var(--c-muted);font-weight:600}
@@ -303,16 +310,17 @@ footer img{height:26px;display:block;margin-bottom:6px}
           <div class="cc-top">
             <div class="cup"><svg class="ico"><use href="#i-cup"/></svg></div>
             <div>
-              <small>Конкурс в теме «Телепорт»</small>
-              <div class="cc-sum num">5 000 ₽</div>
-              <p>Тому, кто первым наберёт <span class="num">100</span> баллов</p>
+              <small id="ctopic">Конкурс в теме «Телепорт»</small>
+              <div class="cc-sum num" id="cprize">5 000 ₽</div>
+              <p>Тому, кто первым наберёт <span class="num" id="cth">100</span> баллов</p>
             </div>
           </div>
           <div class="cc-meta">
             <span><svg class="ico"><use href="#i-clock"/></svg><span class="num" id="timer">5 дн. 6 ч</span></span>
-            <span><svg class="ico"><use href="#i-info"/></svg>Как это работает?</span>
+            <span class="cc-sec" id="csec">Сценарии</span>
+            <span class="tdots" id="tdots" aria-label="Темы"></span>
           </div>
-          <div class="score-row"><span>Ваш рейтинг в конкурсе</span><b class="num"><span id="sc">0</span> <small>/ 100</small></b></div>
+          <div class="score-row"><span>Ваш рейтинг в конкурсе</span><b class="num"><span id="sc">0</span> <small>/ <span id="cth2">100</span></small></b></div>
           <div class="bar"><i class="m" id="bm"></i><i class="l" id="bl"></i><i class="r" id="br"></i></div>
           <div class="rows">
             <div class="m"><span>Материалы</span><span class="num"><b id="nm">0</b>/10<em id="pm">0 баллов</em></span></div>
@@ -324,7 +332,7 @@ footer img{height:26px;display:block;margin-bottom:6px}
         </div>
         <div class="toast" id="toast" role="status">
           <div class="cup"><svg class="ico"><use href="#i-cup"/></svg></div>
-          <div><b>Порог 100 взят первым!</b><small>Модератор проверит результат, и 5 000 ₽ придут на ваш счёт.</small></div>
+          <div><b id="tt">Порог 100 взят первым!</b><small id="ts">Модератор проверит результат, и 5 000 ₽ придут на ваш счёт.</small></div>
         </div>
       </div>
     </div>
@@ -347,7 +355,7 @@ footer img{height:26px;display:block;margin-bottom:6px}
       <div class="card step reveal">
         <div class="n">2</div>
         <h3>Пишите в тему</h3>
-        <p>Рассказ, статья, сценарий. Каждый новый материал после модерации приносит баллы. В зачёт идут до 10 текстов.</p>
+        <p>Рассказ, статья, сценарий. Баллы приходят, когда материал прошёл модерацию, а короткие отписки её не проходят. В зачёт идут до 10 текстов.</p>
         <div class="pts"><span class="pt m">+5 материал</span></div>
       </div>
       <div class="card step reveal">
@@ -485,7 +493,7 @@ footer img{height:26px;display:block;margin-bottom:6px}
       <details open><summary>Сколько стоит участие?</summary><p>Нисколько. Участвуют все авторы на любом тарифе, включая бесплатный. Регистрация занимает минуту.</p></details>
       <details><summary>Нужно ли подавать заявку?</summary><p>Нет. Просто пишите в тему, где идёт конкурс. Баллы начисляются автоматически, а прогресс виден на странице темы и прямо в редакторе.</p></details>
       <details><summary>У меня уже есть тексты в этой теме. Они считаются?</summary><p>Нет, в зачёт идёт только то, что появилось после старта конкурса. Так у новичков и опытных авторов равные шансы.</p></details>
-      <details><summary>Можно написать 30 коротких текстов и выиграть?</summary><p>В зачёт идут не больше 10 материалов, это 50 баллов. Остальное придётся добрать откликом читателей, поэтому выгоднее писать хорошо, чем много.</p></details>
+      <details><summary>Можно написать 30 коротких текстов и выиграть?</summary><p>Нет. Мало просто написать текст: каждый материал сначала проходит модерацию, и баллы начисляются только после неё. Слишком короткий текст, отписка «для галочки» или пустой пересказ модерацию не пройдут, и баллов за них не будет.</p><p>К тому же в зачёт идут не больше 10 материалов, это 50 баллов. Остальное придётся добрать откликом читателей, поэтому выгоднее писать хорошо, чем много.</p></details>
       <details><summary>Как получить деньги?</summary><p>После проверки модератором приз приходит в раздел «Мой счёт». Вывести его на карту можно после верификации.</p></details>
       <details><summary>Что если порог никто не наберёт?</summary><p>Конкурс закроется в назначенную дату без победителя. Следите за новыми: они появляются на странице «Конкурсы», а уведомление можно получать в Телеграм.</p></details>
     </div>
@@ -545,8 +553,16 @@ footer img{height:26px;display:block;margin-bottom:6px}
   /* живая карточка конкурса: баллы капают, на 100 — уведомление */
   var P = {m:5, l:10, r:20}, TH = 100;
   var people = [['ИВ','Ира Вельт'],['ДК','Дима Корн'],['АС','Аля Сим'],['ТР','Тим Рокс'],['МН','Маша Нор'],['ГЛ','Гоша Лис'],['ЕБ','Ева Бран']];
-  var mats = ['Обратный билет','Двойник на перроне','Последняя кабина','Шум в канале'];
-  var script = ['m','l','l','m','r','l','m','l','r','l'];  /* 5+10+10+5+20+10+5+10+20+10 = 105 */
+  /* темы по кругу: после каждого приза карточка переключается на следующую */
+  var T = [
+    {n:'Телепорт', s:'Сценарии', p:5000, t:100, d:5*24+6, mats:['Обратный билет','Двойник на перроне','Последняя кабина','Шум в канале']},
+    {n:'Город через 50 лет', s:'Проза', p:3000, t:60, d:8*24+23, mats:['Крыши без проводов','Лифт на сороковой','Утро без пробок']},
+    {n:'Боевой ИИ: как его переиграть', s:'Технологии', p:4000, t:80, d:13*24, mats:['Слепая зона','Ложный сигнал','Протокол тишины']},
+    {n:'Первая зима на Марсе', s:'Проза', p:6000, t:120, d:3*24+17, mats:['Купол номер три','Письмо с Земли','Красная пыль','Теплица']},
+    {n:'Машина времени на один день', s:'Сценарии', p:3500, t:80, d:10*24+4, mats:['Вчерашний звонок','Петля в 9:15','Чужой выпускной']}
+  ];
+  var pool = ['m','l','l','m','r','l','m','l','r','l','l','r','m','l'];
+  var ti = 0, tp, mats, script, end, timer;
   var st, step, feed = document.getElementById('feed'), toast = document.getElementById('toast');
   function $(id){ return document.getElementById(id); }
   function paint(){
@@ -561,28 +577,50 @@ footer img{height:26px;display:block;margin-bottom:6px}
   function add(kind){
     st[kind]++;
     var li = document.createElement('li'), who = people[(step*3) % people.length], mt = mats[st.m ? (st.m-1) % mats.length : 0];
-    var title = kind === 'm' ? 'Новый материал' : kind === 'l' ? 'Лайк от ' + who[1] : 'Рецензия от ' + who[1];
+    var title = kind === 'm' ? 'Материал прошёл модерацию' : kind === 'l' ? 'Лайк от ' + who[1] : 'Рецензия от ' + who[1];
     li.innerHTML = '<span class="av ' + (kind === 'm' ? '' : kind) + '">' + (kind === 'm' ? '✎' : who[0]) + '</span>'
       + '<span class="tx">' + title + '<small>«' + mt + '» · только что</small></span><span class="pl num">+' + P[kind] + '</span>';
     feed.insertBefore(li, feed.firstChild);
     while (feed.children.length > 6) feed.removeChild(feed.lastChild);
     return paint();
   }
+  function topic(i){
+    ti = (i + T.length) % T.length; tp = T[ti]; TH = tp.t; mats = tp.mats;
+    script = []; for (var s = 0, j = 0; s < TH; j++){ var k = pool[j % pool.length]; script.push(k); s += P[k]; }
+    end = Date.now() + (tp.d*60 + 14)*60000; tick();
+    $('ctopic').textContent = 'Конкурс в теме «' + tp.n + '»'; $('csec').textContent = tp.s;
+    $('cprize').textContent = nf(tp.p) + ' ₽'; $('cth').textContent = $('cth2').textContent = TH;
+    $('tt').textContent = 'Порог ' + TH + ' взят первым!';
+    $('ts').textContent = 'Модератор проверит результат, и ' + nf(tp.p) + ' ₽ придут на ваш счёт.';
+    dots.forEach(function(b, k){ b.setAttribute('aria-pressed', k === ti); });
+  }
+  var dots = T.map(function(t, k){
+    var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Тема «' + t.n + '»');
+    b.addEventListener('click', function(){ if (k !== ti) next(k); });
+    $('tdots').appendChild(b); return b;
+  });
+  function next(i){
+    clearTimeout(timer); toast.classList.remove('on'); $('cc').classList.add('swap');
+    timer = setTimeout(function(){
+      topic(i); reset(); $('cc').classList.remove('swap');
+      if (reduce) full(); else timer = setTimeout(run, 700);
+    }, 350);
+  }
+  function full(){ script.forEach(function(k){ add(k); step++; }); toast.classList.add('on'); }
   function reset(){
     st = {m:0, l:0, r:0}; step = 0; feed.innerHTML = ''; toast.classList.remove('on'); paint();
   }
   function run(){
     if (step >= script.length){ return; }
     var s = add(script[step++]);
-    if (s >= TH){ setTimeout(function(){ toast.classList.add('on'); }, 500); setTimeout(function(){ reset(); setTimeout(run, 900); }, 6500); return; }
-    setTimeout(run, 1100 + Math.random()*700);
+    if (s >= TH){ timer = setTimeout(function(){ toast.classList.add('on'); timer = setTimeout(function(){ next(ti + 1); }, 5000); }, 500); return; }
+    timer = setTimeout(run, 1000 + Math.random()*600);
   }
-  reset();
-  if (reduce){ script.forEach(function(k){ add(k); step++; }); toast.classList.add('on'); }
-  else setTimeout(run, 700);
+  topic(0); reset();
+  if (reduce) full();
+  else timer = setTimeout(run, 700);
 
   /* таймер */
-  var end = Date.now() + ((5*24 + 6)*60 + 14)*60000;
   function tick(){ var ms = end - Date.now(), m = Math.floor(ms/60000), d = Math.floor(m/1440), h = Math.floor(m%1440/60), mm = m%60;
     $('timer').textContent = d + ' дн. ' + h + ' ч ' + (mm < 10 ? '0' : '') + mm + ' мин'; }
   tick(); setInterval(tick, 20000);
