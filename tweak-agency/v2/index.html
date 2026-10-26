@@ -189,7 +189,7 @@ button,input,select{font:inherit;color:inherit}
 .slot{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:clamp(220px,22vw,320px);padding:clamp(22px,2.4vw,34px);border:1px dashed rgba(26,20,18,.28);background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(26,20,18,.025) 14px 15px);color:inherit;text-decoration:none;transition:background-color .4s}
 .slot--wide{grid-column:span 2}
 .slot__n{font-family:var(--serif);font-style:italic;font-size:clamp(54px,6vw,96px);line-height:.8;color:rgba(26,20,18,.18)}
-.slot__tag{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.slot__tag{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
 .slot p{font-family:var(--serif);font-size:clamp(19px,1.5vw,24px);line-height:1.2;color:var(--ink-2)}
 .slot--cta{grid-column:span 2;border:0;background:var(--red);color:#fff}
 .slot--cta .slot__n{color:rgba(255,255,255,.5);font-style:normal}
@@ -236,7 +236,7 @@ button,input,select{font:inherit;color:inherit}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .fld{display:grid;gap:8px}
 .fld--full{grid-column:1/-1}
-.fld label{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.fld label{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
 .fld input,.fld select{width:100%;min-height:54px;border:0;border-radius:0;background:#fff;box-shadow:inset 0 0 0 1px rgba(26,20,18,.14);padding:0 16px;font-size:16px;outline:none;transition:box-shadow .3s}
 .fld select{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23b80d18' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 16px center}
 .fld input:focus,.fld select:focus{box-shadow:inset 0 0 0 2px var(--red)}
@@ -255,6 +255,7 @@ button,input,select{font:inherit;color:inherit}
 .contacts a{text-decoration:none;color:#f6efe8;transition:color .3s}
 .contacts a:hover{color:#ff5a5f}
 .contacts span{color:rgba(246,239,232,.75)}
+@media(max-width:860px){.contacts{gap:0 26px}.contacts a,.foot__row a{display:inline-flex;align-items:center;min-height:44px}.foot__row nav{gap:0 22px}}
 @media(max-width:640px){.form{grid-template-columns:1fr}}
 
 /* footer */
@@ -262,7 +263,7 @@ button,input,select{font:inherit;color:inherit}
 .big{font-family:var(--sans);font-weight:700;font-size:clamp(46px,11vw,190px);line-height:.95;letter-spacing:.06em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px rgba(246,239,232,.7);white-space:nowrap}
 .big .st{color:var(--red-2);-webkit-text-stroke:0;font-size:.4em;vertical-align:middle;margin:0 .2em}
 .big .fill{background:linear-gradient(90deg,#f6efe8 0 50%,transparent 50%) 100% 0/200% 100% no-repeat;-webkit-background-clip:text;background-clip:text}
-.foot__row{margin-top:60px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 30px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,239,232,.7)}
+.foot__row{margin-top:60px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,232,.7)}
 .foot__row nav{display:flex;flex-wrap:wrap;gap:12px 26px}
 .foot__row a{text-decoration:none}
 .foot__row a:hover{color:#fff}
@@ -308,7 +309,7 @@ button,input,select{font:inherit;color:inherit}
 .sc h3{font-family:var(--serif);font-weight:800;font-size:clamp(46px,6.4vw,104px);line-height:.95;letter-spacing:-.025em;margin-top:18px}
 .sc p{margin-top:22px;max-width:44ch;font-size:clamp(16px,1.2vw,18px);opacity:.85}
 .sc ul{list-style:none;margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
-.sc li{padding:8px 14px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;box-shadow:inset 0 0 0 1px currentColor;opacity:.8}
+.sc li{padding:8px 14px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;box-shadow:inset 0 0 0 1px currentColor;opacity:.8}
 .sc__l{display:flex;flex-direction:column}
 .sc__l .btn{margin-top:auto;align-self:flex-start}
 .sc:nth-child(1) .btn,.sc:nth-child(5) .btn{background:var(--red);color:#fff}
@@ -456,10 +457,10 @@ button,input,select{font:inherit;color:inherit}
       <p class="work__note" data-rise>Раздел наполняется. Здесь будут разборы проектов: задача, что сделали и какой получился результат.</p>
     </div>
     <div class="slots">
-      <article class="slot slot--wide" data-rise><span class="slot__n">01</span><span class="slot__tag">Кейс готовится</span><p>Задача · решение · результат в цифрах</p></article>
-      <article class="slot" data-rise><span class="slot__n">02</span><span class="slot__tag">Кейс готовится</span><p>Скоро здесь</p></article>
-      <article class="slot" data-rise><span class="slot__n">03</span><span class="slot__tag">Кейс готовится</span><p>Скоро здесь</p></article>
-      <a class="slot slot--cta" href="#contact" data-rise><span class="slot__n">✦</span><span class="slot__tag">Ваш бренд</span><p>Станьте одним из первых кейсов <i>→</i></p></a>
+      <article class="slot slot--wide" data-rise><span class="slot__n" aria-hidden="true">01</span><span class="slot__tag">Кейс готовится</span><p>Задача · решение · результат в цифрах</p></article>
+      <article class="slot" data-rise><span class="slot__n" aria-hidden="true">02</span><span class="slot__tag">Кейс готовится</span><p>Скоро здесь</p></article>
+      <article class="slot" data-rise><span class="slot__n" aria-hidden="true">03</span><span class="slot__tag">Кейс готовится</span><p>Скоро здесь</p></article>
+      <a class="slot slot--cta" href="#contact" data-rise><span class="slot__n" aria-hidden="true">✦</span><span class="slot__tag">Ваш бренд</span><p>Станьте одним из первых кейсов <i>→</i></p></a>
     </div>
   </div>
 </section>
@@ -502,7 +503,7 @@ button,input,select{font:inherit;color:inherit}
       <form class="form" id="leadForm" novalidate>
         <div class="fld"><label for="fName">Как вас зовут</label><input id="fName" name="name" placeholder="Имя" autocomplete="name" required></div>
         <div class="fld"><label for="fContact">Телефон или Telegram</label><input id="fContact" name="contact" placeholder="+7… или @username" required></div>
-        <fieldset class="fld fld--full" style="border:0"><legend style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Что нужно</legend>
+        <fieldset class="fld fld--full" style="border:0"><legend style="font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Что нужно</legend>
           <div class="chips" id="chips">
             <label><input type="checkbox" name="topic" value="Сайт"><span>Сайт</span></label>
             <label><input type="checkbox" name="topic" value="Креатив"><span>Креатив</span></label>
