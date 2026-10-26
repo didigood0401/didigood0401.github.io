@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Документы - БУФЕТ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='90 150 820 550' fill='none' stroke='%23d2ad6a' stroke-width='60' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="doc.css">
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="./"><img src="img/logo.png" alt="БУФЕТ"><span>Продукты<br>Горного Алтая</span></a><nav><a href="politika.html">Политика</a><a href="./#contacts">Контакты</a><a class="back" href="./">← На главную</a></nav></div></header>
+
+<main class="wrap doc">
+<span class="kick">Документы</span>
+<h1>Декларации, сертификаты <i>и реквизиты</i></h1>
+<p class="lead">Вся продукция БУФЕТ продаётся с документами. Нажмите на документ, чтобы открыть его или скачать в PDF.</p>
+
+<!-- Сюда кладутся PDF: заменить блок .pv.wait на ссылку href="docs/имя-файла.pdf" -->
+<div class="dgrid">
+  <div class="dc"><div class="pv wait"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><b>Декларация соответствия</b></div></div><h3>Тушёнка и мясные консервы</h3><small>Мясо марала, оленина, говядина</small><span class="go">PDF добавим</span></div>
+  <div class="dc"><div class="pv wait"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><b>Декларация соответствия</b></div></div><h3>Алтайский травяной чай</h3><small>Сборы и фиточаи</small><span class="go">PDF добавим</span></div>
+  <div class="dc"><div class="pv wait"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><b>Сертификат</b></div></div><h3>Таёжные сладости</h3><small>Конфеты, мёд, орехи</small><span class="go">PDF добавим</span></div>
+  <a class="dc" href="politika.html"><div class="pv"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><b>Политика конфиденциальности</b></div></div><h3>Обработка персональных данных</h3><small>152-ФЗ, согласие на обработку</small><span class="go">Открыть →</span></a>
+</div>
+
+<section class="box" id="rekvizity"><h2>Реквизиты продавца</h2>
+<dl class="req">
+  <dt>Продавец</dt><dd>Индивидуальный предприниматель Аксенов Михаил Викторович</dd>
+  <dt>ИНН</dt><dd>552002405474</dd>
+  <dt>ОГРНИП</dt><dd>326040000015016</dd>
+  <dt>Юридический адрес</dt><dd>649240, Республика Алтай, Чемальский район, с. Турбаза Катунь, ул. Ягодная, д. 12А</dd>
+  <dt>Телефон</dt><dd><a href="tel:89081045144">8 908 104-51-44</a> (Людмила)</dd>
+</dl>
+<button class="copy" id="copy"><span>Скопировать реквизиты</span></button></section>
+</main>
+
+<footer><div class="wrap">© БУФЕТ. Продукты Горного Алтая. ИП Аксенов М. В. · ИНН 552002405474 · ОГРНИП 326040000015016<nav><a href="politika.html">Политика конфиденциальности</a><a href="dokumenty.html">Документы</a><a href="https://vk.ru/bufet55" target="_blank" rel="noopener">ВКонтакте</a></nav></div></footer>
+<script>
+document.getElementById('copy').addEventListener('click',function(){var t=document.querySelector('.req').innerText;navigator.clipboard&&navigator.clipboard.writeText(t);this.querySelector('span').textContent='Скопировано'})
+</script>
+</body>
+</html>
