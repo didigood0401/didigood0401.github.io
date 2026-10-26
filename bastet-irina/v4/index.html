@@ -456,12 +456,35 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 @media(max-width:340px){.docs__grid{grid-template-columns:1fr}}
 
+/* ---------- reviews ---------- */
+.rev{position:relative;background:linear-gradient(180deg,var(--night) 0%,var(--plum) 46%,var(--night-2) 100%);padding:clamp(100px,11vw,180px) var(--m) clamp(90px,10vw,160px);overflow:clip}
+.rev::before{content:"";position:absolute;width:70vw;height:70vw;left:-28vw;top:18%;border-radius:50%;background:radial-gradient(circle,rgba(160,70,120,.28),transparent 62%);pointer-events:none}
+.rev__head{position:relative;display:grid;grid-template-columns:6fr 5fr;gap:32px;align-items:end;margin-bottom:clamp(44px,5vw,80px)}
+.rev__head p{max-width:46ch;color:var(--on-dark-2)}
+.rev__lead{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,3vw,48px);max-width:1180px;margin:0 0 clamp(56px,6vw,96px)}
+.rev__mark{font-family:var(--serif);font-size:clamp(110px,14vw,220px);line-height:.7;color:transparent;background:var(--goldgrad);-webkit-background-clip:text;background-clip:text}
+.rev__lead blockquote{font-family:var(--serif);font-weight:300;font-size:clamp(25px,2.6vw,44px);line-height:1.22;letter-spacing:-.01em;max-width:30ch}
+.rev__lead blockquote em{color:var(--gold-2)}
+.rev__by{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-top:26px;font-size:var(--small);color:var(--on-dark-2)}
+.rev__by b{font-family:var(--serif);font-weight:300;font-size:24px;color:var(--champagne)}
+.rev__orig{border:0;background:none;padding:0;cursor:pointer;color:var(--gold-2);text-decoration:underline;text-decoration-color:rgba(232,207,159,.4);text-underline-offset:5px;font-size:var(--small);transition:text-decoration-color .3s}
+.rev__orig:hover{text-decoration-color:currentColor}
+.rev__grid{position:relative;columns:3 300px;column-gap:clamp(16px,2vw,28px)}
+.rv{break-inside:avoid;margin:0 0 clamp(16px,2vw,28px);padding:clamp(24px,2.4vw,36px);border-radius:22px;background:linear-gradient(160deg,rgba(255,240,220,.07),rgba(255,240,220,.02));box-shadow:inset 0 0 0 1px rgba(232,207,159,.16);transition:box-shadow .5s var(--ease),background-color .5s}
+.rv:hover{box-shadow:inset 0 0 0 1px rgba(232,207,159,.42),0 30px 70px -40px rgba(233,180,110,.5)}
+.rv__tag{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.rv blockquote{margin-top:16px;font-family:var(--serif);font-weight:300;font-size:clamp(18px,1.3vw,21px);line-height:1.45;color:var(--on-dark)}
+.rv blockquote p+p{margin-top:12px}
+.rv footer{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(232,207,159,.16)}
+.rv footer b{font-family:var(--serif);font-weight:300;font-size:22px;color:var(--champagne)}
+@media(max-width:860px){.rev__head{grid-template-columns:1fr}.rev__lead{grid-template-columns:1fr;gap:0}.rev__mark{font-size:110px;height:.5em}}
+
 /* ---------- lightbox ---------- */
 .lb{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(14,6,12,.94);color:var(--on-dark);z-index:200}
 .lb::backdrop{background:transparent}
 .lb[open]{display:grid;grid-template-rows:1fr auto}
 .lb__stage{position:relative;display:grid;place-items:center;min-height:0;padding:64px clamp(12px,7vw,110px) 10px}
-.lb__img{max-width:100%;max-height:100%;width:auto;height:auto;border-radius:10px;box-shadow:0 40px 120px -30px rgba(0,0,0,.9);object-fit:contain}
+.lb__img{max-width:100%;max-height:calc(100svh - 160px);width:auto;height:auto;border-radius:10px;box-shadow:0 40px 120px -30px rgba(0,0,0,.9);object-fit:contain}
 .lb__bar{display:flex;align-items:center;justify-content:center;gap:12px 22px;flex-wrap:wrap;padding:14px var(--m) 22px;font-size:var(--small);color:var(--on-dark-2);text-align:center}
 .lb__bar a{color:var(--gold-2)}
 .lb__x,.lb__nav{position:absolute;display:grid;place-items:center;width:52px;height:52px;border:0;border-radius:50%;cursor:pointer;background:rgba(255,255,255,.08);color:var(--champagne);font-size:22px;box-shadow:inset 0 0 0 1px rgba(232,207,159,.35);transition:background .3s}
@@ -511,6 +534,7 @@ button,input,select,textarea{font:inherit;color:inherit}
     <a href="#sessions">Сессии</a>
     <a class="wide" href="#sound">Музыка</a>
     <a href="#gallery">Галерея</a>
+      <a class="wide" href="#reviews">Отзывы</a>
     <a href="#diplomas">Дипломы</a>
     <a class="btn" href="#contact">Записаться</a>
   </nav>
@@ -757,6 +781,52 @@ button,input,select,textarea{font:inherit;color:inherit}
       <button class="gi r11" type="button" data-lb="gal" data-full="assets/gal/gruppa-studiya.webp" data-cap="Группа после практики"><img src="assets/gal/gruppa-studiya-s.webp" width="405" height="720" alt="Группа участниц стоит в светлом зале" loading="lazy" style="object-position:50% 52%"></button>
       <button class="gi r11" type="button" data-lb="gal" data-full="assets/gal/gruppa-cvety.webp" data-cap="Встреча группы: цветы и тёплые лица"><img src="assets/gal/gruppa-cvety-s.webp" width="405" height="720" alt="Группа участниц с цветами сидит на полу" loading="lazy" style="object-position:50% 70%"></button>
     </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="rev" id="reviews" aria-labelledby="rv-h">
+  <div class="rev__head">
+    <h2 class="h" id="rv-h" data-rise>Слова <em>после практики</em></h2>
+    <p data-rise>Сообщения, которые участницы присылали Ирине после сессий и групповых практик. Тексты без правок по смыслу, у каждого можно открыть оригинал переписки.</p>
+  </div>
+  <figure class="rev__lead" data-rise>
+    <span class="rev__mark" aria-hidden="true">“</span>
+    <div>
+      <blockquote><p>Следующим днём я чувствовала такое <em>внутреннее спокойствие и умиротворение</em>, зажим с солнечного сплетения ушёл тем же вечером. Прошло уже 4 дня, а я до сих пор нахожусь под колоссально сильным внутренним резонансом.</p></blockquote>
+      <figcaption class="rev__by"><b>Влада</b><span>личная сессия Кундалини · апрель 2025</span><button class="rev__orig" type="button" data-lb="rev" data-full="assets/rev/vlada.webp" data-cap="Отзыв Влады после личной сессии Кундалини · апрель 2025" data-alt="Скриншот переписки: отзыв Влады">Читать полностью</button></figcaption>
+    </div>
+  </figure>
+  <div class="rev__grid">
+    <article class="rv" data-rise>
+      <p class="rv__tag">Активация Кундалини</p>
+      <blockquote>
+        <p>Я нигде не читала о практике и её влиянии специально, чтобы не было реакции от «ума». Но то, что происходило во время практики, это чудеса какие-то.</p>
+        <p>Мой основной запрос был на исцеление душевное и физическое. Во вторую ночь после практики я увидела сон, где выговариваю все обиды человеку, на которого держала обиду в реальной жизни, и мне так полегчало, будто это была терапия у психолога.</p>
+        <p>Также на третий день после практики решилась пойти на танцы, нашла в себе энергию, хотя до этого было много внутреннего сопротивления.</p>
+      </blockquote>
+      <footer><b>Участница практики</b><button class="rev__orig" type="button" data-lb="rev" data-full="assets/rev/uchastnica.webp" data-cap="Отзыв участницы практики по активации Кундалини · февраль 2025" data-alt="Скриншот отзыва участницы практики">Оригинал</button></footer>
+    </article>
+    <article class="rv" data-rise>
+      <p class="rv__tag">Кундалини · февраль 2025</p>
+      <blockquote><p>Я осталась в полном восторге от практики «Кундалини». Обстановка была невероятно приятной и располагающей. Музыка уносила в потусторонний мир блаженства и умиротворения, наполняя душу невероятным чувством счастья. Тепло от прикосновений этих очаровательных мастеров проникало в каждую клетку тела, избавляя его от боли.</p></blockquote>
+      <footer><b>Айгуль</b><button class="rev__orig" type="button" data-lb="rev" data-full="assets/rev/aygul.webp" data-cap="Отзыв Айгуль о практике Кундалини · февраль 2025" data-alt="Скриншот переписки: отзыв Айгуль">Оригинал</button></footer>
+    </article>
+    <article class="rv" data-rise>
+      <p class="rv__tag">Кундалини · февраль 2025</p>
+      <blockquote><p>Атмосфера зала и ваши энергии полностью расположили к доверию и погружению в практику. Музыка вызывала бури контрастных эмоций и видений, а прикосновения - мощные отклики в теле. Словами не описать того состояния эйфории, лёгкости и счастья, с которым я вышла после этой волшебной, исцеляющей душу и тело практики.</p></blockquote>
+      <footer><b>Алёна</b><button class="rev__orig" type="button" data-lb="rev" data-full="assets/rev/alena.webp" data-cap="Отзыв Алёны о практике Кундалини · февраль 2025" data-alt="Скриншот переписки: отзыв Алёны">Оригинал</button></footer>
+    </article>
+    <article class="rv" data-rise>
+      <p class="rv__tag">Кундалини · февраль 2025</p>
+      <blockquote><p>Я в полном восторге! После практики я, как обычно, была в непонятном состоянии, но прошло 4 дня, и я чётко понимаю, чего я хочу. Меня не кидает из стороны в сторону.</p></blockquote>
+      <footer><b>Вероника</b><button class="rev__orig" type="button" data-lb="rev" data-full="assets/rev/veronika.webp" data-cap="Отзыв Вероники о практике Кундалини · февраль 2025" data-alt="Скриншот переписки: отзыв Вероники">Оригинал</button></footer>
+    </article>
+    <article class="rv" data-rise>
+      <p class="rv__tag">Практика · март 2025</p>
+      <blockquote><p>С тобой очень комфортно и приятно. Чувствую, что перезагрузилась, очень необычные ощущения. Думаю, что эффект ещё будет раскрываться. Обязательно приду ещё.</p></blockquote>
+      <footer><b>Элина</b><button class="rev__orig" type="button" data-lb="rev" data-full="assets/rev/elina.webp" data-cap="Отзыв Элины после практики · март 2025" data-alt="Скриншот переписки: отзыв Элины">Оригинал</button></footer>
+    </article>
   </div>
 </section>
 
@@ -1033,7 +1103,7 @@ document.body.append(lb);
 let lbSet=[],lbI=0;
 function lbShow(i){
   lbI=(i+lbSet.length)%lbSet.length;const e=lbSet[lbI],img=$('.lb__img',lb);
-  img.src=e.dataset.full;img.alt=$('img',e).alt;$('.lb__cap',lb).textContent=e.dataset.cap;$('.lb__n',lb).textContent=`${lbI+1} / ${lbSet.length}`;
+  img.src=e.dataset.full;img.alt=e.dataset.alt||$('img',e).alt;$('.lb__cap',lb).textContent=e.dataset.cap;$('.lb__n',lb).textContent=`${lbI+1} / ${lbSet.length}`;
   const pdf=$('.lb__pdf',lb);pdf.hidden=!e.dataset.pdf;if(e.dataset.pdf){pdf.href=e.dataset.pdf;pdf.setAttribute('download',e.closest('.doc').querySelector('[download]').getAttribute('download'))}
   if(G&&!reduced)G.fromTo(img,{opacity:0,scale:.97},{opacity:1,scale:1,duration:.5,ease:'power3.out'});
 }
