@@ -687,7 +687,7 @@ footer img{height:26px;display:block;margin-bottom:6px}
     {s:'Сценарии', n:'Последний рейс на орбиту', h:'Короткий сценарий: одна станция, один корабль, одно место на борту.', p:4500, d:'9 дн. 8 ч', t:100},
     {s:'Проза', n:'Письмо из 2100 года', h:'Ваш правнук пишет вам письмо. О чём он попросит?', p:3000, d:'11 дн. 2 ч', t:60}
   ];
-  var ri = 0, rDur = 2600, rT, rot = $('rot'), rPaused = false, rLeft = rDur, rStart;
+  var ri = 0, rDur = 1600, rT, rot = $('rot'), rPaused = false, rLeft = rDur, rStart;
   function rFill(i){
     var c = R[i];
     $('r-sec').textContent = c.s; $('r-name').textContent = c.n; $('r-hook').textContent = c.h;
@@ -701,16 +701,16 @@ footer img{height:26px;display:block;margin-bottom:6px}
     if (reduce || !sw[0].animate){ ri = i; rFill(i); rArm(rDur); return; }
     sw.forEach(function(el, k){
       el.animate([{opacity:1, transform:'none', filter:'blur(0)'}, {opacity:0, transform:'translateY(-8px)', filter:'blur(2px)'}],
-        {duration:320, delay:k*25, easing:'ease-in-out', fill:'forwards'});
+        {duration:260, delay:k*15, easing:'ease-in-out', fill:'forwards'});
     });
     setTimeout(function(){
       ri = i; rFill(i);
       sw.forEach(function(el, k){
         el.animate([{opacity:0, transform:'translateY(8px)', filter:'blur(2px)'}, {opacity:1, transform:'none', filter:'blur(0)'}],
-          {duration:520, delay:k*30, easing:'cubic-bezier(.22,1,.36,1)', fill:'forwards'});
+          {duration:420, delay:k*20, easing:'cubic-bezier(.22,1,.36,1)', fill:'forwards'});
       });
       rArm(rDur);
-    }, 320 + sw.length*25);
+    }, 260 + sw.length*15);
   }
   function rArm(ms){ clearTimeout(rT); rLeft = ms; rStart = Date.now(); if (!rPaused) rT = setTimeout(function(){ rGo(ri + 1); }, ms); }
   function rPause(on){
