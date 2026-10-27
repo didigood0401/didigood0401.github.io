@@ -356,7 +356,7 @@ footer summary::-webkit-details-marker{display:none}footer summary svg{width:14p
   <div class="hd"><h3>Корзина</h3><button class="x" data-close aria-label="Закрыть">×</button></div>
   <div class="items" id="items"></div>
   <div class="ft"><div class="sum"><span>Итого</span><b id="sum">0 ₽</b></div>
-    <form id="order"><input required placeholder="Ваше имя"><input required type="tel" placeholder="Телефон"><input placeholder="Город доставки"><label class="agree"><input type="checkbox" required> <span>Согласен(на) на <a href="politika.html#soglasie" target="_blank">обработку персональных данных</a> и с <a href="politika.html" target="_blank">политикой конфиденциальности</a></span></label></form>
+    <form id="order"><input required name="name" placeholder="Ваше имя"><input required name="tel" type="tel" placeholder="Телефон"><input name="city" placeholder="Город доставки"><label class="agree"><input type="checkbox" required> <span>Согласен(на) на <a href="politika.html#soglasie" target="_blank">обработку персональных данных</a> и с <a href="politika.html" target="_blank">политикой конфиденциальности</a></span></label></form>
     <div class="ok" id="ok">Спасибо! Людмила перезвонит, чтобы подтвердить заказ.</div>
     <button class="btn" id="checkout">Оформить заказ</button></div>
 </div></div>
@@ -437,7 +437,23 @@ function drawCart(){const n=[...cart.values()].reduce((a,b)=>a+b,0);$('#cnt').te
     <div><b>${p[2]}</b><span>${p[6]?price(p[6])+' × '+q:'цену уточним'}</span></div><div class="qty"><button data-q="${i}" data-d="-1">−</button>${q}<button data-q="${i}" data-d="1">+</button></div></div>`}).join(''):'<div class="empty">Корзина пока пуста.<br>Добавьте что-нибудь вкусное из каталога.</div>';
   $('#sum').textContent=(s?s.toLocaleString('ru-RU')+' ₽':'0 ₽')+(ask?' +':'');}
 const toast=$('#toast');
-function add(i){cart.set(i,(cart.get(i)||0)+1);drawCart();toast.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>toast.classList.remove('on'),1400)}
+/* заказ уходит письмом на почту Людмилы (FormSubmit); если сервис недоступен - открываем письмо в почтовой программе */
+const MAIL='bufet55@mail.ru';
+function sendOrder(f,t){let s=0,ask=false;const lines=[...cart].map(([i,q])=>{const p=P[i];s+=p[6]*q;if(!p[6])ask=true;return`${p[2]} - ${q} шт. × ${p[6]?price(p[6]):'цену уточнить'}`});
+  const sum=(s?s.toLocaleString('ru-RU')+' ₽':'0 ₽')+(ask?' + позиции с ценой по запросу':''),v=n=>f.elements[n].value.trim();
+  const d={'Имя':v('name'),'Телефон':v('tel'),'Город':v('city')||'не указан',...Object.fromEntries(lines.map((l,k)=>['Товар '+(k+1),l])),'Итого':sum,_subject:`Заказ с сайта БУФЕТ - ${v('name')}, ${sum}`,_template:'box',_captcha:'false'};
+  const done=()=>{f.classList.remove('on');f.reset();$('#ok').style.display='block';t.style.display='none';t.disabled=false;cart.clear();drawCart()};
+  t.disabled=true;t.textContent='Отправляем…';
+  fetch('https://formsubmit.co/ajax/'+MAIL,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)})
+   .then(r=>r.json()).then(j=>{if(String(j.success)!=='true')throw 0;done()})
+   .catch(()=>{location.href='mailto:'+MAIL+'?subject='+encodeURIComponent(d._subject)+'&body='+encodeURIComponent(`Имя: ${d['Имя']}
+Телефон: ${d['Телефон']}
+Город: ${d['Город']}
+
+${lines.join('\n')}
+
+Итого: ${sum}`);done()})}
+function add(i){if($('#ok').style.display==='block'){$('#ok').style.display='';const c=$('#checkout');c.style.display='';c.textContent='Оформить заказ'}cart.set(i,(cart.get(i)||0)+1);drawCart();toast.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>toast.classList.remove('on'),1400)}
 let mi=0;
 document.addEventListener('click',e=>{
   const t=e.target.closest('[data-t],[data-c],[data-a],.pr .im,[data-close],[data-mclose],#mAdd,#cartBtn,[data-q],#checkout,.modal');if(!t)return;
@@ -447,7 +463,7 @@ document.addEventListener('click',e=>{
   else if(t.dataset.q){const i=+t.dataset.q,q=(cart.get(i)||0)+ +t.dataset.d;q>0?cart.set(i,q):cart.delete(i);drawCart()}
   else if(t.id==='cartBtn'){$('#drawer').classList.add('on')}
   else if(t.hasAttribute('data-close')){$('#drawer').classList.remove('on')}
-  else if(t.id==='checkout'){const f=$('#order');if(!cart.size)return;if(!f.classList.contains('on')){f.classList.add('on');t.textContent='Отправить заявку'}else if(f.reportValidity()){f.classList.remove('on');$('#ok').style.display='block';t.style.display='none';cart.clear();drawCart()}}
+  else if(t.id==='checkout'){const f=$('#order');if(!cart.size)return;if(!f.classList.contains('on')){f.classList.add('on');t.textContent='Отправить заявку'}else if(f.reportValidity())sendOrder(f,t)}
   else if(t.matches('.pr .im')){mi=+t.dataset.i;const p=P[mi];$('#mIm').className='im stg';$('#mIm').innerHTML=p[1]?`<img src="img/${p[1]}.jpg" alt="">`:NOIMG;$('#mH').textContent=p[2];$('#mW').textContent=p[5];$('#mD').textContent=p[3];$('#mS').textContent=p[4]?'Состав: '+p[4]:'';$('#mS').style.display=p[4]?'':'none';$('#mP').textContent=p[6]?price(p[6]):'Цена уточняется';$('#modal').classList.add('on')}
   else if(t.id==='mAdd'){add(mi);$('#modal').classList.remove('on')}
   else if(t.hasAttribute('data-mclose')||e.target===t&&t.classList.contains('modal')){$('#modal').classList.remove('on')}
