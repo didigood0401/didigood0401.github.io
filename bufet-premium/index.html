@@ -410,6 +410,11 @@ const P=[
  ['cosm','gb','Пенящиеся губки 2 в 1','Губка пропитана мягкой моющей основой - принять душ легко и удобно!','Четыре вида: «Молодость и упругость» - с пантогематогеном и маслом зародышей пшеницы; «Увлажнение и питание» - с мёдом и цветочной пыльцой; «Свежесть и сияние» - с экстрактом хвои алтайского кедра; «Энергия и тонус» - с экстрактом золотого и красного корней.','1 шт.',350],
  ['cosm','ml','Мыло ручной работы','Натуральное мыло ручной работы собственного производства - прекрасный подарок для себя и близких. Мёд, каменное масло, мумиё, кедровая живица, пихтовое масло, голубая глина - натуральные продукты Республики Алтай. Все компоненты только натуральные, а уникальная технология сохраняет все полезные вещества.','Виды: липовое с мёдом, кедровое, с каменным маслом, с мумиё.','1 шт.',220]];
 
+/* готовые подложки (img/cut, считаны заранее тем же cutBg): c - товар без фона, t - обрезанная фотосцена, s - фото целиком.
+   Нового фото здесь нет - оно обработается в браузере, как раньше */
+const PRE={"m1":["c",1.3198],"t1":["c",1.18],"c1":["s"],"p2":["t",0.7734],"la01":["s"],"g1":["c",1.1683],"m2":["c",0.8644],"m3":["c",1.6883],"m4":["c",1.1662],"m5":["c",1.25],"t2":["c",1.0673],"t3":["c",1.1583],"t4":["c",0.7584],"t5":["c",0.7657],"t6":["c",0.76],"t7":["c",0.9682],"t8":["c",0.9535],"c2":["c",1],"c3":["s"],"c4":["s"],"c5":["c",1],"tc":["c",2.2532],"mr":["t",1.1092],"p1":["t",0.8187],"p3":["t",0.8063],"p4":["t",0.7406],"p5":["t",0.8281],"p6":["t",0.7797],"p7":["t",0.8797],"k2":["c",0.6781],"k3":["c",0.6856],"k4":["c",0.6867],"k5":["c",0.6938],"gb":["c",0.9983],"ml":["c",1.128]};
+const SRC=n=>{const m=PRE[n];return m&&m[0]!=='s'?'img/cut/'+n+(m[0]==='c'?'.webp':'.jpg'):'img/'+n+'.jpg'};
+
 const $=s=>document.querySelector(s);
 const NOIMG='<div class="noimg"><div><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="36" height="28" rx="4"/><circle cx="17" cy="20" r="3"/><path d="m6 34 11-9 8 7 6-5 11 9"/></svg>фото добавим</div></div>';
 const price=v=>v?v.toLocaleString('ru-RU')+' ₽':'';
@@ -418,13 +423,13 @@ const PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
 
 $('#rib').innerHTML=(w=>w+w)(['марал','як (сарлык)','кедровый орех','облепиха','саган дайля','бадан','алтайский мёд','курильский чай','ручная лепка','таёжные травы'].map(t=>`<span>${t}</span>`).join(''));
 
-$('#bento').innerHTML=CATS.map((c,i)=>`<div class="cat rv ${i<1?'big':''}" data-c="${c.id}"><div class="pic stg"><img src="img/${c.img}.jpg" alt=""></div><div class="glare"></div>
+$('#bento').innerHTML=CATS.map((c,i)=>`<div class="cat rv ${i<1?'big':''}" data-c="${c.id}"><div class="pic stg"><img src="${SRC(c.img)}" alt=""></div><div class="glare"></div>
   <div class="t"><div class="n">0${i+1} · ${P.filter(p=>p[0]===c.id).length} товаров</div><h3>${c.name}</h3><p>${c.d}</p><div class="go"><i>${ARROW}</i>Смотреть</div></div></div>`).join('');
 
 let cur='all';
 function drawTabs(){$('#tabs').innerHTML=[['all','Все товары'],...CATS.map(c=>[c.id,c.name])].map(([id,n])=>`<button class="tab ${id===cur?'on':''}" data-t="${id}">${n}</button>`).join('')}
 function drawGrid(){$('#grid').innerHTML=P.map((p,i)=>[p,i]).filter(([p])=>cur==='all'||p[0]===cur).map(([p,i])=>`<div class="pr">
-  <div class="im stg" data-i="${i}">${p[1]?`<img loading="lazy" src="img/${p[1]}.jpg" alt="">`:NOIMG}${p[7]?`<span class="tag">${p[7]}</span>`:''}</div>
+  <div class="im stg" data-i="${i}">${p[1]?`<img loading="lazy" src="${SRC(p[1])}" alt="">`:NOIMG}${p[7]?`<span class="tag">${p[7]}</span>`:''}</div>
   <div class="b"><h3>${p[2]}</h3><div class="w">${p[5]||'&nbsp;'}</div>
   <div class="row">${p[6]?`<span class="pz">${price(p[6])}</span>`:'<span class="pz q">Цена уточняется</span>'}<button class="add" data-a="${i}" aria-label="В корзину">${PLUS}</button></div></div></div>`).join('')}
 drawTabs();drawGrid();
@@ -433,7 +438,7 @@ drawTabs();drawGrid();
 const cart=new Map();
 function drawCart(){const n=[...cart.values()].reduce((a,b)=>a+b,0);$('#cnt').textContent=n;$('#cnt').classList.toggle('on',n>0);
   let s=0,ask=false;
-  $('#items').innerHTML=n?[...cart].map(([i,q])=>{const p=P[i];s+=p[6]*q;if(!p[6])ask=true;return`<div class="it"><div class="ti stg">${p[1]?`<img src="img/${p[1]}.jpg" alt="">`:''}</div>
+  $('#items').innerHTML=n?[...cart].map(([i,q])=>{const p=P[i];s+=p[6]*q;if(!p[6])ask=true;return`<div class="it"><div class="ti stg">${p[1]?`<img src="${SRC(p[1])}" alt="">`:''}</div>
     <div><b>${p[2]}</b><span>${p[6]?price(p[6])+' × '+q:'цену уточним'}</span></div><div class="qty"><button data-q="${i}" data-d="-1">−</button>${q}<button data-q="${i}" data-d="1">+</button></div></div>`}).join(''):'<div class="empty">Корзина пока пуста.<br>Добавьте что-нибудь вкусное из каталога.</div>';
   $('#sum').textContent=(s?s.toLocaleString('ru-RU')+' ₽':'0 ₽')+(ask?' +':'');}
 const toast=$('#toast');
@@ -464,7 +469,7 @@ document.addEventListener('click',e=>{
   else if(t.id==='cartBtn'){$('#drawer').classList.add('on')}
   else if(t.hasAttribute('data-close')){$('#drawer').classList.remove('on')}
   else if(t.id==='checkout'){const f=$('#order');if(!cart.size)return;if(!f.classList.contains('on')){f.classList.add('on');t.textContent='Отправить заявку'}else if(f.reportValidity())sendOrder(f,t)}
-  else if(t.matches('.pr .im')){mi=+t.dataset.i;const p=P[mi];$('#mIm').className='im stg';$('#mIm').innerHTML=p[1]?`<img src="img/${p[1]}.jpg" alt="">`:NOIMG;$('#mH').textContent=p[2];$('#mW').textContent=p[5];$('#mD').textContent=p[3];$('#mS').textContent=p[4]?'Состав: '+p[4]:'';$('#mS').style.display=p[4]?'':'none';$('#mP').textContent=p[6]?price(p[6]):'Цена уточняется';$('#modal').classList.add('on')}
+  else if(t.matches('.pr .im')){mi=+t.dataset.i;const p=P[mi];$('#mIm').className='im stg';$('#mIm').innerHTML=p[1]?`<img src="${SRC(p[1])}" alt="">`:NOIMG;$('#mH').textContent=p[2];$('#mW').textContent=p[5];$('#mD').textContent=p[3];$('#mS').textContent=p[4]?'Состав: '+p[4]:'';$('#mS').style.display=p[4]?'':'none';$('#mP').textContent=p[6]?price(p[6]):'Цена уточняется';$('#modal').classList.add('on')}
   else if(t.id==='mAdd'){add(mi);$('#modal').classList.remove('on')}
   else if(t.hasAttribute('data-mclose')||e.target===t&&t.classList.contains('modal')){$('#modal').classList.remove('on')}
 });
@@ -489,10 +494,10 @@ const GAL=[
  ['la15','Горная дорога в сердце Алтая']];
 const MK=`<svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg>`;
 document.querySelectorAll('[data-vk]').forEach(v=>{v.innerHTML=`<div class="hd"><span class="av">${MK}</span><div><b>БУФЕТ · Горный Алтай</b><span>фотоальбом · ${GAL.length} фото</span></div></div>
-  <div class="mo">${GAL.slice(0,3).map(([f],i)=>`<button data-g="${i}" aria-label="Открыть фото"><img src="img/${f}.jpg" alt="${GAL[i][1]}" loading="lazy">${i===2&&GAL.length>3?`<i>+${GAL.length-3}</i>`:''}</button>`).join('')}</div>
+  <div class="mo">${GAL.slice(0,3).map(([f],i)=>`<button data-g="${i}" aria-label="Открыть фото"><img src="img/th/${f}.jpg" alt="${GAL[i][1]}" loading="lazy" decoding="async">${i===2&&GAL.length>3?`<i>+${GAL.length-3}</i>`:''}</button>`).join('')}</div>
   <div class="ft"><button data-g="0" style="background:none;border:0;padding:0;color:var(--gold2);font:inherit;cursor:pointer">Смотреть все фото →</button></div></div>`});
 let gi=0;const lb=$('#lb');
-function showG(i){gi=(i+GAL.length)%GAL.length;$('#lbI').src='img/'+GAL[gi][0]+'.jpg';$('#lbC').textContent=GAL[gi][1];$('#lbN').textContent=(gi+1)+' из '+GAL.length;lb.classList.add('on')}
+function showG(i){gi=(i+GAL.length)%GAL.length;$('#lbI').src='img/'+GAL[gi][0]+'.jpg';$('#lbC').textContent=GAL[gi][1];$('#lbN').textContent=(gi+1)+' из '+GAL.length;lb.classList.add('on');[1,-1].forEach(k=>{new Image().src='img/'+GAL[(gi+k+GAL.length)%GAL.length][0]+'.jpg'})}
 document.addEventListener('click',e=>{const g=e.target.closest('[data-g]'),n=e.target.closest('[data-lb]');
   if(g)showG(+g.dataset.g);else if(n)showG(gi+ +n.dataset.lb);else if(e.target.closest('[data-lbx]')||e.target===lb)lb.classList.remove('on');else if(e.target.id==='lbI')showG(gi+1)});
 addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowRight')showG(gi+1);if(e.key==='ArrowLeft')showG(gi-1)});
@@ -554,6 +559,8 @@ function cutBg(im){
   return new Promise(res=>o.toBlob(bl=>res(bl?{url:URL.createObjectURL(bl),ar:o.width/o.height}:undefined)))}
 function stage(im){
   if(im.dataset.st)return;im.dataset.st=1;const box=im.parentElement,src=im.src;
+  const pm=PRE[(src.match(/img\/(?:cut\/)?(\w+)\.(?:jpg|webp)$/)||[])[1]];
+  if(pm){if(pm[0]!=='c'){im.classList.add('scene');box.classList.add('scene')}else{im.classList.add('cut');box.classList.add('cut');const bx=box.getBoundingClientRect(),bw=bx.width||1,bh=bx.height||1;box.style.setProperty('--sw',Math.min(.74*bw,.64*bh*pm[1])/bw)}return}
   if(!CUT.has(src)){let r;try{r=cutBg(im)}catch(e){r=Promise.resolve(undefined)}CUT.set(src,r)}
   CUT.get(src).then(r=>{if(r===undefined)im.classList.add('raw');else if(r===null||r.scene){if(r)im.src=r.url;im.classList.add('scene');box.classList.add('scene')}else{im.src=r.url;im.classList.add('cut');box.classList.add('cut');const bx=box.getBoundingClientRect(),bw=bx.width||1,bh=bx.height||1;box.style.setProperty('--sw',Math.min(.74*bw,.64*bh*r.ar)/bw)}})}
 document.addEventListener('load',e=>{const t=e.target;if(t.tagName==='IMG'&&t.parentElement.classList.contains('stg'))stage(t)},true);
