@@ -23,7 +23,7 @@ h1,h2,h3{margin:0;font-weight:600;line-height:1.05}
 .note{position:relative;z-index:30;background:linear-gradient(90deg,#173c38,#1d4a45);color:#d8f3ef;font-size:13px;font-weight:600;text-align:center;padding:7px 16px}
 
 /* ---------- шапка ---------- */
-header{position:absolute;left:0;right:0;top:34px;z-index:20}
+header{position:absolute;left:0;right:0;top:0;z-index:20}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:22px}
 .logo{display:flex;align-items:center;gap:14px}
 .logo img{width:150px;filter:drop-shadow(0 3px 14px rgba(0,0,0,.45))}
@@ -225,7 +225,7 @@ footer summary::-webkit-details-marker{display:none}footer summary svg{width:14p
 .reqs small{display:block;color:var(--mut);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:4px}
 .reqs .docs{grid-column:1/-1;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-wrap:wrap;gap:10px 26px;color:var(--gold2);font-weight:600}
 @media(max-width:760px){.reqs{grid-template-columns:1fr 1fr}}
-.ipsw{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:6px;background:rgba(13,18,16,.88);backdrop-filter:blur(10px);border:1px solid rgba(240,211,154,.4);border-radius:40px;padding:6px 6px 6px 16px;font-size:12px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.ipsw[hidden]{display:none}.ipsw{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:6px;background:rgba(13,18,16,.88);backdrop-filter:blur(10px);border:1px solid rgba(240,211,154,.4);border-radius:40px;padding:6px 6px 6px 16px;font-size:12px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .ipsw a{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line)}.ipsw a.on{background:var(--gold2);color:var(--ink);border-color:var(--gold2)}
 
 /* корзина */
@@ -276,7 +276,6 @@ footer summary::-webkit-details-marker{display:none}footer summary svg{width:14p
 </style>
 </head>
 <body>
-<div class="note">Премиум-эскиз для обсуждения<span class="lg">: живой 3D-первый экран, корзина с подсчётом суммы. Тексты из ТЗ, фото товаров ваши</span></div>
 
 <header><div class="wrap">
   <a class="logo" href="#top"><svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg><img src="img/logo.png" alt="БУФЕТ"><span>Продукты<br>Горного Алтая</span></a>
@@ -330,8 +329,8 @@ footer summary::-webkit-details-marker{display:none}footer summary svg{width:14p
 <section id="contacts"><div class="wrap">
   <div class="sh rv"><div><span class="kick">Контакты</span><h2>Закажите <i>вкус Алтая</i></h2></div></div>
   <div class="ct rv">
-    <div class="cc main"><small>Заказы и вопросы</small><a class="ph" href="tel:89081045144">8 908 104-51-44</a><div class="who">Людмила</div>
-      <div class="mx"><a href="#" id="maxBtn">Написать в MAX</a><a href="tel:89081045144">Позвонить</a><a href="https://vk.ru/bufet55" target="_blank" rel="noopener">ВКонтакте</a></div></div>
+    <div class="cc main"><small>Заказы и вопросы</small><a class="ph" href="tel:89081045144">8 908 104-51-44</a><div class="who">Людмила · <a href="mailto:bufet55@mail.ru" style="color:inherit">bufet55@mail.ru</a></div>
+      <div class="mx"><a href="https://max.ru/join/s2KRsfP2pN2Nrt1LxLnPmlrAJ46EEgvrh-e1xk69fJ4" id="maxBtn" target="_blank" rel="noopener">Написать в MAX</a><a href="mailto:bufet55@mail.ru">Написать на почту</a><a href="tel:89081045144">Позвонить</a><a href="https://vk.ru/bufet55" target="_blank" rel="noopener">ВКонтакте</a></div></div>
     <div class="cc"><small>Сетевые и корпоративные клиенты</small><a class="ph" href="tel:89095370807">8 909 537-08-07</a><div class="who">Михаил</div><div class="mx"><a class="vkb" href="https://vk.ru/bufet55" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.8 17.5C6.9 17.5 3.6 13.5 3.5 6.8h2.9c.1 4.9 2.3 7 4 7.4V6.8h2.8v4.2c1.7-.2 3.4-2.1 4-4.2H20c-.5 2.6-2.4 4.5-3.8 5.3 1.4.6 3.6 2.4 4.4 5.4h-3.1c-.7-2.1-2.3-3.7-4.4-3.9v3.9z"/></svg>Группа ВКонтакте</a></div></div>
     <div class="cc ipv i1 i3 i4 fx"><small>Реквизиты</small><div class="req" style="margin-top:10px">ИП Аксенов М.В.<br>Адрес: Респ. Алтай, Чемальский р-н, с. Турбаза Катунь, ул. Ягодная, д. 12А<br>Доставка по России</div></div>
     <div class="cc ipv i2 fx"><small>Продавец</small><div class="serif" style="font-size:28px;font-weight:600;margin-top:6px">ИП Аксенов М. В.</div>
@@ -346,12 +345,12 @@ footer summary::-webkit-details-marker{display:none}footer summary svg{width:14p
 </div></section>
 
 <footer><div class="wrap"><svg class="mk" viewBox="90 150 820 550" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M148 683 382 296l56 72 117-201 300 516M107 685h785M268 398l218 145 304-218"/></svg><img src="img/logo.png" alt="БУФЕТ"><div>© БУФЕТ. Продукты Горного Алтая. ИП Аксенов М.В.<span class="ipv i1 i2 i3"> · ИНН 552002405474 · ОГРНИП 326040000015016</span>
-  <nav class="flinks"><a href="politika.html">Политика конфиденциальности</a><a href="dokumenty.html">Документы</a><a href="https://vk.ru/bufet55" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.8 17.5C6.9 17.5 3.6 13.5 3.5 6.8h2.9c.1 4.9 2.3 7 4 7.4V6.8h2.8v4.2c1.7-.2 3.4-2.1 4-4.2H20c-.5 2.6-2.4 4.5-3.8 5.3 1.4.6 3.6 2.4 4.4 5.4h-3.1c-.7-2.1-2.3-3.7-4.4-3.9v3.9z"/></svg>ВКонтакте</a></nav>
+  <nav class="flinks"><a href="mailto:bufet55@mail.ru">bufet55@mail.ru</a><a href="https://max.ru/join/s2KRsfP2pN2Nrt1LxLnPmlrAJ46EEgvrh-e1xk69fJ4" target="_blank" rel="noopener">MAX</a><a href="politika.html">Политика конфиденциальности</a><a href="dokumenty.html">Документы</a><a href="https://vk.ru/bufet55" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.8 17.5C6.9 17.5 3.6 13.5 3.5 6.8h2.9c.1 4.9 2.3 7 4 7.4V6.8h2.8v4.2c1.7-.2 3.4-2.1 4-4.2H20c-.5 2.6-2.4 4.5-3.8 5.3 1.4.6 3.6 2.4 4.4 5.4h-3.1c-.7-2.1-2.3-3.7-4.4-3.9v3.9z"/></svg>ВКонтакте</a></nav>
   <details class="ipv i4" style="margin-top:12px"><summary>Реквизиты и документы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></summary>
     <div class="reqs"><div><small>Продавец</small>ИП Аксенов М. В.</div><div><small>ИНН</small>552002405474</div><div><small>ОГРНИП</small>326040000015016</div><div><small>Адрес</small>Респ. Алтай, Чемальский р-н, с. Турбаза Катунь, ул. Ягодная, д. 12А</div>
     <div class="docs"><a href="politika.html">Политика конфиденциальности</a><a href="dokumenty.html">Декларации и сертификаты</a><a href="https://vk.ru/bufet55" target="_blank" rel="noopener">ВКонтакте</a></div></div></details>
   <div class="cr">3D-пейзаж первого экрана нарисован программно. Фото марала: «Altai maral 2» - Dmitry A. Mottl, CC BY-SA 3.0 (Wikimedia Commons).</div></div></div></footer>
-<div class="ipsw" id="ipsw">Реквизиты ИП:<a href="?ip=1">1</a><a href="?ip=2">2</a><a href="?ip=3">3</a><a href="?ip=4">4</a></div>
+<div class="ipsw" id="ipsw" hidden>Реквизиты ИП:<a href="?ip=1">1</a><a href="?ip=2">2</a><a href="?ip=3">3</a><a href="?ip=4">4</a></div>
 
 <div class="drawer" id="drawer"><div class="ov" data-close></div><div class="pn">
   <div class="hd"><h3>Корзина</h3><button class="x" data-close aria-label="Закрыть">×</button></div>
@@ -409,7 +408,7 @@ const P=[
  ['can','k5','Баранина тушёная','Ароматная баранина в бараньем жире с чёрным перцем и лавровым листом. Без искусственных компонентов.','Срок хранения 5 лет.','ж/б',0],
  ['cosm','g1','Мочалка льняная с органическим мылом','Просто намочите - и мочалка готова: льняные волокна мягко очищают кожу, органическое мыло нежно пенится. Карман фиксирует мочалку на руке для массажа.','','1 шт.',350],
  ['cosm','gb','Пенящиеся губки 2 в 1','Губка пропитана мягкой моющей основой - принять душ легко и удобно!','Четыре вида: «Молодость и упругость» - с пантогематогеном и маслом зародышей пшеницы; «Увлажнение и питание» - с мёдом и цветочной пыльцой; «Свежесть и сияние» - с экстрактом хвои алтайского кедра; «Энергия и тонус» - с экстрактом золотого и красного корней.','1 шт.',350],
- ['cosm','ml','Мыло ручной работы','Натуральное мыло ручной работы собственного производства - прекрасный подарок для себя и близких. Мёд, каменное масло, мумиё, кедровая живица, пихтовое масло, голубая глина - натуральные продукты Республики Алтай. Все компоненты только натуральные, а уникальная технология сохраняет все полезные вещества.','Виды: липовое с мёдом, кедровое, с каменным маслом, с мумиё.','1 шт.',0]];
+ ['cosm','ml','Мыло ручной работы','Натуральное мыло ручной работы собственного производства - прекрасный подарок для себя и близких. Мёд, каменное масло, мумиё, кедровая живица, пихтовое масло, голубая глина - натуральные продукты Республики Алтай. Все компоненты только натуральные, а уникальная технология сохраняет все полезные вещества.','Виды: липовое с мёдом, кедровое, с каменным маслом, с мумиё.','1 шт.',220]];
 
 const $=s=>document.querySelector(s);
 const NOIMG='<div class="noimg"><div><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="36" height="28" rx="4"/><circle cx="17" cy="20" r="3"/><path d="m6 34 11-9 8 7 6-5 11 9"/></svg>фото добавим</div></div>';
@@ -483,8 +482,8 @@ document.addEventListener('click',e=>{const g=e.target.closest('[data-g]'),n=e.t
 addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowRight')showG(gi+1);if(e.key==='ArrowLeft')showG(gi-1)});
 {let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)showG(gi+(dx<0?1:-1))})}
 
-/* MAX: ссылка на профиль Людмилы (max.ru/u/...). Пока её нет - кнопка копирует номер */
-{const MAX_URL='',b=$('#maxBtn');if(MAX_URL){b.href=MAX_URL;b.target='_blank';b.rel='noopener'}else b.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText('+79081045144');const t=$('#toast'),o=t.textContent;t.textContent='Номер скопирован: найдите +7 908 104-51-44 в MAX';t.classList.add('on');clearTimeout(t.t);t.t=setTimeout(()=>{t.classList.remove('on');t.textContent=o},3200)})}
+/* MAX: ссылка от Людмилы; если пусто - кнопка копирует номер */
+{const MAX_URL='https://max.ru/join/s2KRsfP2pN2Nrt1LxLnPmlrAJ46EEgvrh-e1xk69fJ4',b=$('#maxBtn');if(MAX_URL){b.href=MAX_URL;b.target='_blank';b.rel='noopener'}else b.addEventListener('click',e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText('+79081045144');const t=$('#toast'),o=t.textContent;t.textContent='Номер скопирован: найдите +7 908 104-51-44 в MAX';t.classList.add('on');clearTimeout(t.t);t.t=setTimeout(()=>{t.classList.remove('on');t.textContent=o},3200)})}
 
 /* реквизиты ИП: вариант из адреса ?ip=N, по умолчанию 3 */
 {const n=(location.search.match(/ip=([1-4])/)||[])[1]||'3';document.body.dataset.ip=n;
