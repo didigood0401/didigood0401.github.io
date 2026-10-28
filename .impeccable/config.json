@@ -1,0 +1,89 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "v4/index.html"
+        ],
+        "createdAt": "2026-10-26T08:16:07.924Z",
+        "reason": "model triage: flagged #c8aeb0 is v4 palette rose-tinted secondary text (--on-dark-2), not neutral gray"
+      },
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "bufet-premium/index.html"
+        ],
+        "createdAt": "2026-10-26T17:55:11.308Z",
+        "reason": "client (Людмила) chose this variant's look from a screenshot 2026-10-26; doc pages mirror it"
+      },
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "bufet-premium/dokumenty.html"
+        ],
+        "createdAt": "2026-10-26T17:55:11.998Z",
+        "reason": "client (Людмила) chose this variant's look from a screenshot 2026-10-26; doc pages mirror it"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "bufet-premium/index.html"
+        ],
+        "createdAt": "2026-10-26T18:11:08.206Z",
+        "reason": "client (Людмила) chose this variant's look from a screenshot 2026-10-26"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "bufet-premium/index.html"
+        ],
+        "createdAt": "2026-10-26T18:11:08.875Z",
+        "reason": "client (Людмила) chose this variant's look from a screenshot 2026-10-26"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "thld-premium/karta/index.html"
+        ],
+        "createdAt": "2026-10-28T12:32:11.046Z",
+        "reason": "Claude: only infinite animation is the preloader progress bar"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "wigwam-demo/index.html"
+        ],
+        "createdAt": "2026-10-28T12:32:11.778Z",
+        "reason": "Claude: decorative category strip in pitch demo, stops under reduced motion"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "wigwam-demo/index.html"
+        ],
+        "createdAt": "2026-10-28T12:32:12.489Z",
+        "reason": "Claude: cream is the client's own brand-banner background on wigwam-market.ru"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "wigwam-demo/index.html"
+        ],
+        "createdAt": "2026-10-28T12:32:13.238Z",
+        "reason": "Claude: flagged full-bleed bands/sections have var(--pad) inset; rail and marquee are edge-to-edge by design"
+      }
+    ]
+  }
+}
