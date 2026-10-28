@@ -92,6 +92,15 @@
         ],
         "createdAt": "2026-10-28T13:20:04.777Z",
         "reason": "Claude: sections inset via .wrap padding, spec tables have 13px/16px cell padding, boxes have 22-34px padding - detector reads flush wrappers"
+      },
+      {
+        "rule": "oversized-h1",
+        "value": "*",
+        "files": [
+          "glikan/index.html"
+        ],
+        "createdAt": "2026-10-28T13:27:50.957Z",
+        "reason": "Claude: 4-word client tagline from Glikan deck, capped at 56px (fits column 360-1920px); subtitle, CTAs and stats stay above the fold"
       }
     ]
   }
