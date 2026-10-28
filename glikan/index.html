@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>НПП «Гликан» - специализированные реагенты для нефтедобычи</title>
+<meta name="description" content="ООО «НПП Гликан» (Уфа): ингибиторы гидратообразования, бактерициды «Глицид» и растворители АСПО. Разработка, производство и сопровождение с 2017 года.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Onest:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="img/logo.png">
+<style>
+:root{
+  --navy:#20253a; --navy2:#2a2f47; --navy3:#343a57; --ink:#151827; --steel:#5b6280;
+  --red:#bb322b; --red2:#9f2721; --gray:#a7a9b4; --line:#e2e4ea; --bg:#f6f7fa; --white:#fff;
+  --mute:#5d6175; --on-dark:rgba(255,255,255,.78);
+  --disp:"Onest",system-ui,sans-serif; --text:"Golos Text",system-ui,sans-serif;
+  --pad:clamp(18px,4.4vw,72px); --max:1320px;
+  --ease:cubic-bezier(.23,1,.32,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--text);color:var(--ink);background:var(--white);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.h{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;line-height:1.05}
+.kick{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.kick::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
+.btn{display:inline-flex;align-items:center;gap:12px;height:54px;padding:0 26px;border-radius:6px;background:var(--red);color:#fff;font-weight:600;font-size:16px;transition:background-color .25s ease,transform .16s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:18px;height:18px;transition:transform .3s var(--ease)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--red2)}.btn:hover svg{transform:translateX(4px)}}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.4)}
+@media (hover:hover) and (pointer:fine){.btn.ghost:hover{background:rgba(255,255,255,.08)}}
+
+/* шапка */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:40;transition:background-color .3s ease,box-shadow .3s ease}
+.hdr .wrap{display:flex;align-items:center;gap:30px;height:76px}
+.hdr.solid{background:rgba(32,37,58,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.hdr__logo img{height:50px;width:auto}
+.nav{display:flex;gap:28px;margin-left:auto;font-size:15px;font-weight:500;color:#fff}
+.nav a{opacity:.82;transition:opacity .2s ease}
+.nav a:hover{opacity:1}
+.hdr .btn{height:44px;padding:0 18px;font-size:14.5px}
+.burger{display:none;width:44px;height:44px;margin-left:auto;border-radius:6px;border:1px solid rgba(255,255,255,.3);position:relative}
+.burger i,.burger i::before,.burger i::after{position:absolute;left:12px;width:18px;height:2px;background:#fff;border-radius:2px;content:""}
+.burger i{top:21px}.burger i::before{top:-6px;left:0}.burger i::after{top:6px;left:0}
+
+/* первый экран */
+.hero{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:150px 0 0}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 78% 40%,rgba(84,96,140,.38),transparent 70%),radial-gradient(40% 50% at 10% 100%,rgba(187,50,43,.18),transparent 70%)}
+.hero__grid{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;min-height:calc(88svh - 150px)}
+.hero h1{font-size:clamp(28px,3.85vw,58px);margin:22px 0 26px}
+.hero h1 .ln{display:block;overflow:hidden}.hero h1 .ln>span{display:block}
+.hero h1 em{font-style:normal;color:#ff8a7f}
+.hero p{max-width:560px;color:var(--on-dark);font-size:clamp(17px,1.3vw,19px);margin-bottom:36px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px}
+.mol{position:relative;width:100%;max-width:600px;aspect-ratio:1;justify-self:end}
+.mol svg{width:100%;height:100%;overflow:visible}
+.mol .spin{transform-origin:300px 300px;animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mol .bond{stroke:#7a819d;stroke-width:9;stroke-linecap:round}
+.mol .atom{transform-box:fill-box;transform-origin:center}
+.mol .tag{font:600 13px var(--text);fill:rgba(255,255,255,.7);letter-spacing:.06em}
+.stats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.12);margin-top:30px}
+.stats div{padding:30px 24px 36px 0}
+.stats div+div{padding-left:28px;border-left:1px solid rgba(255,255,255,.12)}
+.stats b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(32px,3.4vw,52px);line-height:1}
+.stats b small{font-size:.5em;font-weight:600;margin-left:4px}
+.stats span{display:block;margin-top:10px;font-size:14.5px;color:var(--on-dark);line-height:1.4}
+
+/* доверие */
+.trust{background:var(--bg);padding:44px 0}
+.trust .wrap{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+.trust p{font-weight:600;color:var(--mute);font-size:15px;max-width:220px;line-height:1.4}
+.trust ul{list-style:none;display:flex;gap:18px;flex:1;flex-wrap:wrap}
+.trust li{flex:1;min-width:170px;height:104px;background:#fff;border:1px solid var(--line);border-radius:8px;display:grid;place-items:center;padding:14px 22px}
+.trust li img{max-height:72px;max-width:100%;width:auto;filter:grayscale(1) contrast(1.1);opacity:.78;transition:filter .3s ease,opacity .3s ease}
+@media (hover:hover) and (pointer:fine){.trust li:hover img{filter:none;opacity:1}}
+
+/* секции */
+.sec{padding:clamp(80px,10vw,140px) 0}
+.sec__head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.sec__head h2{font-size:clamp(32px,4vw,58px);margin-top:16px}
+.sec__head p{color:var(--mute);max-width:520px}
+.rv{opacity:0;transform:translateY(26px)}
+
+/* о компании */
+.about{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,6vw,90px);align-items:start}
+.about__img{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/5;background:var(--navy)}
+.about__img img{width:100%;height:100%;object-fit:cover}
+.about__img figcaption{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(32,37,58,.9);color:#fff;padding:16px 18px;border-radius:8px;font-size:14.5px;line-height:1.45}
+.about__img figcaption b{display:block;font-family:var(--disp);font-size:17px;margin-bottom:4px}
+.lead{font-size:clamp(18px,1.5vw,21px);line-height:1.55;color:var(--ink)}
+.dirs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px}
+.dir{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid var(--line);border-radius:8px;transition:border-color .25s ease,box-shadow .25s ease}
+@media (hover:hover) and (pointer:fine){.dir:hover{border-color:#c9ccd7;box-shadow:0 14px 30px -20px rgba(32,37,58,.35)}}
+.dir i{flex:none;width:40px;height:40px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-style:normal;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--red)}
+.dir b{font-weight:600;font-size:16px;line-height:1.35}
+
+/* история */
+.hist{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.hist .sec__head p{color:var(--on-dark)}
+.tl{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.tl__line{position:absolute;left:0;right:0;top:9px;height:2px;background:rgba(255,255,255,.14)}
+.tl__line i{position:absolute;inset:0;background:var(--red);transform-origin:left;transform:scaleX(0)}
+.st{position:relative;padding-top:42px}
+.st::before{content:"";position:absolute;top:0;left:0;width:20px;height:20px;border-radius:50%;background:var(--navy);border:2px solid var(--red)}
+.st .y{font-family:var(--disp);font-weight:700;font-size:22px;color:#ff8a7f}
+.st b{display:block;font-weight:600;font-size:17px;margin:10px 0 8px;line-height:1.3}
+.st p{font-size:14.5px;color:var(--on-dark);line-height:1.5}
+
+/* продукция */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px;border-bottom:1px solid var(--line)}
+.tab{position:relative;padding:14px 4px 16px;margin-right:22px;font-weight:600;font-size:16px;color:var(--mute);transition:color .2s ease}
+.tab::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.tab[aria-selected=true]{color:var(--ink)}.tab[aria-selected=true]::after{transform:none}
+.panel{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,4vw,60px);align-items:start}
+.panel[hidden]{display:none}
+.panel h3{font-family:var(--disp);font-size:clamp(26px,2.4vw,36px);line-height:1.1;margin-bottom:16px}
+.panel p{color:var(--mute);margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 26px}
+.chips span{padding:7px 14px;border-radius:30px;background:var(--bg);font-weight:600;font-size:14px}
+.ticks{list-style:none;display:grid;gap:12px}
+.ticks li{display:flex;gap:12px;font-size:15.5px;line-height:1.45}
+.ticks li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.3l2.6 2.5L13 6.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px}
+.spec{border:1px solid var(--line);border-radius:10px;overflow:auto;background:#fff}
+.spec table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.spec th,.spec td{padding:13px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.spec thead th{background:var(--navy);color:#fff;font-weight:600;font-size:14px}
+.spec tbody th{font-weight:500;color:var(--mute);width:38%}
+.spec tr:last-child td,.spec tr:last-child th{border-bottom:0}
+.spec .num{font-variant-numeric:tabular-nums;font-weight:600}
+.spec caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:13px;color:var(--mute)}
+
+/* преимущества ИГО */
+.adv{background:var(--bg)}
+.adv__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border-radius:10px;padding:28px;border:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.card .n{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--red)}
+.card b{font-family:var(--disp);font-size:21px;line-height:1.2}
+.card p{font-size:15px;color:var(--mute)}
+.card.big{grid-row:span 2;background:var(--navy);color:#fff;border:0;justify-content:space-between;overflow:hidden;position:relative}
+.card.big .ratio{font-family:var(--disp);font-weight:700;font-size:clamp(70px,8vw,120px);line-height:.9;letter-spacing:-.04em}
+.card.big p{color:var(--on-dark)}
+.card.big img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28}
+.card.big>*{position:relative}
+.cls{display:flex;gap:10px;margin-top:6px}
+.cls span{flex:1;border-radius:8px;padding:12px;background:var(--bg);font-size:13.5px;line-height:1.35}
+.cls span b{display:block;font-size:24px}
+.cls span:first-child{background:#fbe9e7}
+.foot{font-size:13px;color:var(--mute);margin-top:22px}
+
+/* результаты */
+.res{display:grid;grid-template-columns:1.25fr .75fr;gap:20px}
+.box{border:1px solid var(--line);border-radius:10px;padding:clamp(22px,3vw,34px);background:#fff}
+.box h3{font-family:var(--disp);font-size:22px;line-height:1.2;margin-bottom:6px}
+.box>p{color:var(--mute);font-size:15px}
+.chart{margin-top:22px}
+.chart svg{width:100%;height:auto;overflow:visible}
+.chart .gl{stroke:var(--line)}
+.chart .ax{font:500 13px var(--text);fill:var(--mute)}
+.chart .lbl{font:700 14px var(--disp);fill:var(--ink)}
+.bars{display:grid;gap:22px;margin-top:22px}
+.bars h4{font-weight:600;font-size:15.5px;margin-bottom:10px}
+.bar{display:grid;grid-template-columns:150px 1fr 46px;gap:12px;align-items:center;font-size:14px;margin-top:8px}
+.bar span:first-child{color:var(--mute)}
+.bar .tr{height:10px;border-radius:6px;background:var(--bg);overflow:hidden}
+.bar .tr i{display:block;height:100%;background:var(--navy);border-radius:6px;transform-origin:left;transform:scaleX(var(--v))}
+.bar .tr.r i{background:var(--red)}
+.bar b{text-align:right;font-variant-numeric:tabular-nums}
+.acts{display:flex;gap:14px;margin-top:22px}
+.acts figure{flex:1;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff}
+.acts img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.acts figcaption{font-size:13px;color:var(--mute);padding:10px 12px;line-height:1.35}
+
+/* контакты */
+.cta{background:var(--navy);color:#fff;border-radius:14px;padding:clamp(34px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);position:relative;overflow:hidden}
+.cta::after{content:"";position:absolute;right:-120px;bottom:-120px;width:360px;height:360px;border-radius:50%;border:2px solid rgba(255,255,255,.08);box-shadow:0 0 0 60px rgba(255,255,255,.03)}
+.cta h2{font-size:clamp(30px,3.4vw,48px)}
+.cta>div>p{color:var(--on-dark);margin:16px 0 28px}
+.person{display:flex;gap:16px;align-items:center;padding:18px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.person i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-style:normal;font-family:var(--disp);font-weight:700;font-size:18px}
+.person b{display:block;font-size:17px}
+.person span{font-size:14px;color:var(--on-dark)}
+.person a{display:block;font-weight:600;margin-top:2px}
+.clinks{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:18px;font-weight:500}
+.clinks a{border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px}
+form.f{position:relative;z-index:1;display:grid;gap:12px;align-content:start}
+.f label{display:grid;gap:6px;font-size:14px;font-weight:500;color:var(--on-dark)}
+.f input,.f textarea,.f select{width:100%;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff;border-radius:6px;padding:13px 14px;font:16px var(--text);transition:border-color .2s ease,background-color .2s ease}
+.f select option{color:var(--ink);background:#fff}
+.f input:focus,.f textarea:focus,.f select:focus{outline:none;border-color:#ff8a7f;background:rgba(255,255,255,.1)}
+.f textarea{min-height:96px;resize:vertical}
+.f .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f small{font-size:12.5px;color:var(--on-dark);line-height:1.45}
+.f small a{text-decoration:underline}
+.f .ok{display:none;padding:14px;border-radius:6px;background:rgba(255,255,255,.1);font-weight:500}
+.f.sent .ok{display:block}
+
+/* подвал */
+.ftr{background:var(--ink);color:rgba(255,255,255,.78);padding:60px 0 30px;margin-top:clamp(80px,10vw,140px);font-size:14.5px}
+.ftr__grid{display:grid;grid-template-columns:1.2fr 1fr 1.3fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ftr img{height:46px;width:auto;margin-bottom:16px}
+.ftr h4{color:#fff;font-weight:600;font-size:15px;margin-bottom:12px}
+.ftr dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px}
+.ftr dt{color:rgba(255,255,255,.6)}
+.ftr dd{color:#fff;font-variant-numeric:tabular-nums}
+.ftr__bot{display:flex;justify-content:space-between;gap:20px;padding-top:22px;font-size:13px;color:rgba(255,255,255,.62);flex-wrap:wrap}
+
+@media (max-width:1020px){
+  .nav,.hdr .btn{display:none}.burger{display:block}
+  .menu-open .nav{display:flex;position:fixed;inset:76px 0 auto 0;flex-direction:column;gap:0;background:var(--navy);padding:10px var(--pad) 24px;box-shadow:0 20px 30px -20px rgba(0,0,0,.5)}
+  .menu-open .nav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);opacity:1}
+  .hero{padding-top:110px}
+  .hero__grid{grid-template-columns:1fr;min-height:0}
+  .mol{max-width:380px;margin:0 auto;order:-1}
+  .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(3){padding-left:0;border-left:0}
+  .stats div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)}
+  .sec__head,.about,.panel,.res,.cta,.ftr__grid{grid-template-columns:1fr}
+  .about__img{max-width:520px;aspect-ratio:4/3}
+  .tl{grid-template-columns:1fr;gap:0}.tl__line{left:9px;right:auto;top:0;bottom:0;width:2px;height:auto}.tl__line i{transform-origin:top;transform:scaleY(0)}
+  .st{padding:0 0 28px 44px}.st::before{top:2px}
+  .adv__grid{grid-template-columns:1fr 1fr}.card.big{grid-column:span 2;grid-row:auto;min-height:280px}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .hero h1{font-size:7.6vw}
+  .dirs,.adv__grid{grid-template-columns:1fr}.card.big{grid-column:auto}
+  .stats div{padding:22px 10px 24px 0}.stats div+div{padding-left:14px}
+  .bar{grid-template-columns:110px 1fr 40px}
+  .f .row2{grid-template-columns:1fr}
+  .trust li{min-width:140px;height:80px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .mol .spin{animation:none}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="hdr__logo" href="#top" aria-label="НПП «Гликан» - на главную"><img src="img/logo-light.png" alt="Гликан" width="77" height="42"></a>
+    <nav class="nav" id="nav" aria-label="Разделы">
+      <a href="#about">О компании</a><a href="#products">Продукция</a><a href="#adv">Преимущества</a><a href="#results">Результаты</a><a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn" href="#contacts">Запросить КП</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__grid">
+        <div>
+          <h1 class="h" style="margin-top:0"><span class="ln"><span>Специализированные</span></span><span class="ln"><span>реагенты</span></span><span class="ln"><span>для <em>нефтедобычи</em></span></span></h1>
+          <p>Научно-производственное предприятие из Уфы. Разрабатываем и производим ингибиторы гидратообразования, бактерициды и растворители АСПО. Подбираем реагент под параметры конкретного месторождения и сопровождаем применение.</p>
+          <div class="hero__cta"><a class="btn" href="#contacts">Запросить коммерческое предложение <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a><a class="btn ghost" href="#products">Продукция</a></div>
+        </div>
+        <div class="mol" aria-hidden="true">
+          <svg viewBox="0 0 600 600" id="molSvg">
+            <g class="spin" id="mol"></g>
+          </svg>
+        </div>
+      </div>
+      <div class="stats">
+        <div><b data-n="2017">2017</b><span>год основания, разработки на базе УФИЦ РАН, УГНТУ и БашНИПИнефть</span></div>
+        <div><b data-n="12">12</b><span>месторождений ПАО «НК «Роснефть» с опытно-промышленными испытаниями</span></div>
+        <div><b data-n="1500">1500<small>т</small></b><span>объём поставок реагентов в 2025 году</span></div>
+        <div><b data-n="2">2</b><span>производственные площадки: Урал и Приволжье</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Нам доверяют">
+    <div class="wrap">
+      <p>Опыт испытаний и поставок на объектах крупнейших нефтяных компаний</p>
+      <ul>
+        <li><img src="img/p-rosneft.png" alt="ПАО «НК «Роснефть»" loading="lazy"></li>
+        <li><img src="img/p-lukoil.png" alt="ПАО «ЛУКОЙЛ»" loading="lazy"></li>
+        <li><img src="img/p-nnk.png" alt="АО «ННК»" loading="lazy"></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="wrap about">
+      <figure class="about__img rv"><img src="img/lab.webp" alt="Лабораторные испытания реагента" loading="lazy"><figcaption><b>Собственная лаборатория</b>Полный комплекс испытаний: от разработки продукта до входного контроля сырья.</figcaption></figure>
+      <div>
+        <span class="kick">О компании</span>
+        <h2 class="h rv" style="font-size:clamp(32px,4vw,58px);margin:16px 0 24px">Наука и производство в одной компании</h2>
+        <p class="lead rv">ООО «НПП Гликан» специализируется на научных исследованиях и разработках в области естественных и технических наук. У нас есть опыт исследовательской работы и техническая оснащённость для полного комплекса лабораторных исследований и испытаний.</p>
+        <div class="dirs">
+          <div class="dir rv"><i>01</i><b>Исследования в области применения сорбционных материалов</b></div>
+          <div class="dir rv"><i>02</i><b>Научно-исследовательские работы</b></div>
+          <div class="dir rv"><i>03</i><b>Разработка нефтепромысловых реагентов</b></div>
+          <div class="dir rv"><i>04</i><b>Адаптация реагентов под параметры объектов</b></div>
+          <div class="dir rv"><i>05</i><b>Патентование разработок для заказчика</b></div>
+          <div class="dir rv"><i>06</i><b>Научное и техническое сопровождение</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec hist">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="kick" style="color:#ff8a7f">История</span><h2 class="h rv">От лабораторной технологии до поставок на месторождения</h2></div><p class="rv">Над технологией работает консорциум ведущих научных учреждений Республики Башкортостан: УФИЦ РАН, УГНТУ и БашНИПИнефть.</p></div>
+      <div class="tl" id="tl">
+        <div class="tl__line"><i id="tlLine"></i></div>
+        <div class="st rv"><div class="y">2017</div><b>Разработка технологии</b><p>Инновационная технология создаётся вместе с научными институтами региона.</p></div>
+        <div class="st rv"><div class="y">2020</div><b>Запуск производства</b><p>Две площадки - в Уральском и Приволжском федеральных округах.</p></div>
+        <div class="st rv"><div class="y">2020</div><b>Опытно-промышленные испытания</b><p>Испытания на 12 месторождениях ПАО «НК «Роснефть».</p></div>
+        <div class="st rv"><div class="y">2021-2022</div><b>Патенты и коммерциализация</b><p>Поставки ИГО «Гликан» на месторождения ПАО «НК «Роснефть».</p></div>
+        <div class="st rv"><div class="y">2022 - н.в.</div><b>Расширение линейки</b><p>Новые реагенты, разрешительная документация, международные выставки.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="products">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="kick">Продукция</span><h2 class="h rv">Три линейки реагентов под задачи промысла</h2></div><p class="rv">Подбор марки и концентрации - по результатам лабораторных испытаний на пробах заказчика.</p></div>
+      <div class="tabs" role="tablist" aria-label="Линейки продукции">
+        <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Ингибиторы гидратообразования</button>
+        <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Бактерицид «Глицид»</button>
+        <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Растворитель АСПО</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+        <div>
+          <h3>ИГО «Гликан»</h3>
+          <p>Ингибиторы гидратообразования трёх типов: термодинамические, кинетические и на основе антиагломерантов. Тип выбирается по условиям добычи.</p>
+          <div class="chips"><span>РМ</span><span>РЛ</span><span>РУ</span><span>РН</span></div>
+          <ul class="ticks"><li>Ниже железнодорожный тариф, чем у метанола</li><li>Не нужна лицензия на операции со сливо-наливными грузами</li><li>Выше биоразлагаемость, ниже токсичность</li></ul>
+        </div>
+        <div class="spec"><table>
+          <thead><tr><th>Показатель</th><th>РМ</th><th>РЛ</th><th>РУ</th><th>РН</th></tr></thead>
+          <tbody>
+            <tr><th>Температура застывания, °C, не выше</th><td class="num">−50</td><td class="num">−50</td><td class="num">−50</td><td class="num">−30</td></tr>
+            <tr><th>Плотность при 20 °C, г/см³</th><td class="num">0,830</td><td class="num">0,870</td><td class="num">0,960</td><td class="num">1,05</td></tr>
+            <tr><th>Вязкость, мм²/с, при 20 °C / −40 °C</th><td class="num" colspan="4">не более 17 / 450</td></tr>
+            <tr><th>Скорость коррозии Ст-3, г/(м²·ч)</th><td colspan="4">0,089 для фонда скважин, 0,125 для остальных направлений</td></tr>
+            <tr><th>Хлорорганические соединения</th><td colspan="4">отсутствие</td></tr>
+            <tr><th>Внешний вид</th><td colspan="4">жидкость от светло-жёлтого до светло-коричневого цвета</td></tr>
+          </tbody>
+          <caption>Плотность ±5 %. Не допускается расслоение или осадок при выдерживании товарной формы не менее суток.</caption>
+        </table></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <div>
+          <h3>Бактерицид «Глицид»</h3>
+          <p>Защищает нефтяное оборудование от коррозии, вызванной сульфатвосстанавливающими бактериями. Марки рассчитаны на разные климатические зоны: от юга до севера.</p>
+          <div class="chips"><span>Марка Ю</span><span>Марка Ц</span><span>Марка С</span></div>
+          <ul class="ticks"><li>Борьба с микробиологической коррозией труб и оборудования</li><li>Предотвращение образования сероводорода (H₂S)</li><li>Против биоплёнок и механических загрязнений</li><li>Действует на аэробные и анаэробные бактерии без выработки резистентности, при малых концентрациях</li></ul>
+        </div>
+        <div class="spec"><table>
+          <thead><tr><th>Показатель</th><th>Ю</th><th>Ц</th><th>С</th></tr></thead>
+          <tbody>
+            <tr><th>Температура застывания, °C, не выше</th><td class="num">−30</td><td class="num">−40</td><td class="num">−50</td></tr>
+            <tr><th>Плотность при 20 °C, г/см³, не менее</th><td class="num" colspan="3">0,95</td></tr>
+            <tr><th>Вязкость, мм²/с, при 20 °C / −40 °C</th><td class="num" colspan="3">не более 20 / 500</td></tr>
+            <tr><th>Скорость коррозии Ст-3, г/(м²·ч)</th><td colspan="3">0,089 для фонда скважин, 0,125 для остальных направлений</td></tr>
+            <tr><th>Внешний вид</th><td colspan="3">прозрачная бесцветная или светло-жёлтая жидкость</td></tr>
+          </tbody>
+          <caption>Работает в широком диапазоне температур и солёности, совместим с другими реагентами.</caption>
+        </table></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+        <div>
+          <h3>Растворитель АСПО «Гликан»</h3>
+          <p>Очищает нефтяное оборудование от асфальтосмолопарафиновых отложений. Работает в широком диапазоне температур, защищает оборудование от простоев.</p>
+          <div class="chips"><span>GL-2</span><span>GL-3</span><span>GL-4</span></div>
+          <ul class="ticks"><li>Мощное растворяющее действие</li><li>Подбор концентрации по лабораторным испытаниям на реальных образцах АСПО заказчика</li><li>GL-2 - растворитель-ингибитор АСПО</li></ul>
+        </div>
+        <div class="spec"><table>
+          <thead><tr><th>Показатель</th><th>GL-2</th><th>GL-3</th><th>GL-4</th></tr></thead>
+          <tbody>
+            <tr><th>Температура застывания, °C, не выше</th><td class="num">−50</td><td class="num">−50</td><td class="num">−50</td></tr>
+            <tr><th>Плотность при 20 °C, г/см³</th><td class="num">0,742-0,820</td><td class="num">0,725-0,801</td><td class="num">0,796-0,880</td></tr>
+            <tr><th>Температура вспышки в закрытом тигле, °C</th><td class="num">35</td><td class="num">33</td><td class="num">41</td></tr>
+            <tr><th>Температура начала кипения, °C</th><td class="num" colspan="3">не менее 30</td></tr>
+            <tr><th>Вязкость, мм²/с, при 20 °C / −40 °C</th><td class="num" colspan="3">не более 20 / 500</td></tr>
+            <tr><th>Хлорорганические соединения</th><td colspan="3">отсутствие</td></tr>
+          </tbody>
+          <caption>Однородная жидкость от светло-жёлтого до тёмно-жёлтого цвета.</caption>
+        </table></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec adv" id="adv">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="kick">Уникальность ИГО «Гликан»</span><h2 class="h rv">Почему выгоднее метанола</h2></div><p class="rv">Сравнение по результатам опытно-промышленных испытаний. Эффективность зависит от параметров флюида и марки ИГО.</p></div>
+      <div class="adv__grid">
+        <div class="card big rv"><img src="img/plant.webp" alt="" loading="lazy"><span class="n">01 · Эффективность</span><div><div class="ratio">1:10</div><p style="margin-top:14px">Расход ИГО «Гликан» относительно метанола по результатам ОПИ. Комбинированный механизм действия.</p></div></div>
+        <div class="card rv"><span class="n">02</span><b>Снижение издержек</b><p>Меньше транспортных расходов, площади хранения и сопутствующих затрат.</p></div>
+        <div class="card rv"><span class="n">03</span><b>«Зелёный» ингибитор</b><p>Пониженное содержание вредных веществ в составе продукта.</p></div>
+        <div class="card rv"><span class="n">04</span><b>Безопасен для НПЗ</b><p>На 100 % отделяется на этапе сепарирования воды и не влияет на подготовку нефти.</p></div>
+        <div class="card rv"><span class="n">05</span><b>Класс опасности ниже</b><div class="cls"><span><b>3.3</b>ИГО «Гликан»</span><span><b>3.2</b>метанол</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="results">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="kick">Результаты</span><h2 class="h rv">Цифры, подтверждённые на объектах</h2></div><p class="rv">Опыт испытаний на объектах ПАО «НК «Роснефть», ПАО «ЛУКОЙЛ», АО «ННК» и других компаний.</p></div>
+      <div class="res">
+        <div class="box rv">
+          <h3>Объём поставок реагентов</h3><p>тонн в год, производство ООО «НПП Гликан»</p>
+          <div class="chart"><svg viewBox="0 0 640 300" role="img" aria-label="Поставки: 2020 - 10 т, 2021 - 25 т, 2022 - 150 т, 2023 - 420 т, 2024 - 700 т, 2025 - 1500 т" id="chart"></svg></div>
+        </div>
+        <div class="box rv">
+          <h3>Растворитель АСПО</h3><p>лабораторные испытания на реальных образцах АСПО заказчика</p>
+          <div class="bars">
+            <div><h4>GL-2 · растворитель-ингибитор</h4>
+              <div class="bar"><span>Моющая (ЭМ)</span><span class="tr r"><i style="--v:.95"></i></span><b>95 %</b></div>
+              <div class="bar"><span>Диспергирующая (ЭД)</span><span class="tr"><i style="--v:.49"></i></span><b>49 %</b></div>
+              <div class="bar"><span>Растворяющая (ЭР)</span><span class="tr"><i style="--v:.46"></i></span><b>46 %</b></div></div>
+            <div><h4>GL-3 · растворитель</h4>
+              <div class="bar"><span>Моющая (ЭМ)</span><span class="tr r"><i style="--v:.95"></i></span><b>95 %</b></div>
+              <div class="bar"><span>Диспергирующая (ЭД)</span><span class="tr"><i style="--v:.54"></i></span><b>54 %</b></div>
+              <div class="bar"><span>Растворяющая (ЭР)</span><span class="tr"><i style="--v:.41"></i></span><b>41 %</b></div></div>
+          </div>
+          <div class="acts"><figure><img src="img/act1.webp" alt="" loading="lazy"><figcaption>Акт ОПИ ИГО «Гликан РУ»</figcaption></figure><figure><img src="img/act2.webp" alt="" loading="lazy"><figcaption>Отчёт о проведении ОПИ - предоставим по запросу</figcaption></figure></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="contacts">
+    <div class="cta">
+      <div>
+        <span class="kick" style="color:#ff8a7f">Контакты</span>
+        <h2 class="h" style="margin-top:16px">Подберём реагент под ваше месторождение</h2>
+        <p>Опишите задачу и условия: проведём лабораторные испытания и подготовим коммерческое предложение.</p>
+        <div class="person"><i>СИ</i><div><b>Исаев Семён Сергеевич</b><span>Коммерческий директор</span><a href="tel:+79196040180">+7 (919) 604-01-80</a></div></div>
+        <div class="clinks"><a href="mailto:nppglycan@mail.ru">nppglycan@mail.ru</a><span>glycan.ru</span></div>
+      </div>
+      <form class="f" id="form" novalidate>
+        <div class="row2"><label>Имя<input name="name" autocomplete="name" required></label><label>Компания<input name="company" autocomplete="organization"></label></div>
+        <div class="row2"><label>Телефон<input name="phone" type="tel" autocomplete="tel" required></label><label>E-mail<input name="email" type="email" autocomplete="email"></label></div>
+        <label>Реагент<select name="product"><option>Ингибитор гидратообразования</option><option>Бактерицид «Глицид»</option><option>Растворитель АСПО</option><option>Разработка под задачу</option></select></label>
+        <label>Задача и условия<textarea name="msg" placeholder="Месторождение, обводнённость, температура, объёмы"></textarea></label>
+        <button class="btn" type="submit">Отправить запрос <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button>
+        <small>Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Демо-форма: письмо откроется в почтовой программе.</small>
+        <p class="ok" role="status">Спасибо! Письмо с запросом подготовлено в вашей почтовой программе.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div><img src="img/logo-light.png" alt="Гликан" width="84" height="46"><p>ООО «Научно-производственное предприятие Гликан». Специализированные реагенты для нефтедобычи.</p></div>
+      <div><h4>Контакты</h4><p><a href="tel:+79196040180">+7 (919) 604-01-80</a><br><a href="mailto:nppglycan@mail.ru">nppglycan@mail.ru</a><br>450005, Республика Башкортостан, г. Уфа, ул. 8 Марта, д. 12/1, каб. 27</p></div>
+      <div><h4>Реквизиты</h4><dl><dt>ИНН</dt><dd>0274929242</dd><dt>КПП</dt><dd>027801001</dd><dt>ОГРН</dt><dd>1170280050093</dd><dt>ОКПО</dt><dd>19001114</dd><dt>Директор</dt><dd>Гайфуллин Марат Раитович</dd></dl></div>
+    </div>
+    <div class="ftr__bot"><span>© 2017-2026 ООО «НПП Гликан»</span><span>Демо-концепт сайта</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
+
+/* молекула из логотипа: кольцо (тёмные атомы), кислород (красные), водород (серые) */
+const C='#3a4163',O='#bb322b',H='#c9ccd7';
+const ring=[[300,170],[410,230],[410,350],[300,410],[190,350],[190,230]];
+const atoms=[...ring.map((p,i)=>({p,c:i===4?O:C,r:i===4?30:34}))];
+const ext=[[ring[0],[300,70],O,26],[[300,70],[370,30],H,15],[ring[1],[510,180],O,26],[[510,180],[560,230],H,15],[ring[2],[505,410],C,30],[[505,410],[560,500],O,26],[[560,500],[520,560],H,15],
+ [ring[3],[300,520],O,26],[[300,520],[240,565],H,15],[ring[5],[95,170],O,26],[[95,170],[50,110],H,15],[ring[4],[110,420],H,15]];
+const g=$('#mol'),bonds=el('g',{},g),nodes=el('g',{},g);
+const B=[];ring.forEach((p,i)=>B.push([p,ring[(i+1)%6]]));ext.forEach(e=>B.push([e[0],e[1]]));
+B.forEach(([a,b])=>el('line',{class:'bond',x1:a[0],y1:a[1],x2:b[0],y2:b[1]},bonds));
+const all=[...atoms,...ext.map(e=>({p:e[1],c:e[2],r:e[3]}))];
+all.forEach(a=>{const c=el('circle',{class:'atom',cx:a.p[0],cy:a.p[1],r:a.r,fill:a.c},nodes);if(a.c===C)el('circle',{cx:a.p[0]-a.r*.32,cy:a.p[1]-a.r*.32,r:a.r*.28,fill:'rgba(255,255,255,.18)'},nodes)});
+
+/* график поставок */
+const D=[[2020,10],[2021,25],[2022,150],[2023,420],[2024,700],[2025,1500]];
+const cs=$('#chart'),X=i=>40+i*(560/5),Y=v=>250-v/1500*210;
+[0,500,1000,1500].forEach(v=>{el('line',{class:'gl',x1:40,x2:600,y1:Y(v),y2:Y(v)},cs);el('text',{class:'ax',x:0,y:Y(v)+4},cs).textContent=v});
+D.forEach((d,i)=>{el('text',{class:'ax',x:X(i),y:285,'text-anchor':'middle'},cs).textContent=d[0]});
+const pts=D.map((d,i)=>[X(i),Y(d[1])]);
+const path='M'+pts.map(p=>p.join(' ')).join(' L');
+const area=el('path',{d:path+` L${X(5)} 250 L${X(0)} 250 Z`,fill:'rgba(187,50,43,.08)'},cs);
+const line=el('path',{d:path,fill:'none',stroke:'#bb322b','stroke-width':3,'stroke-linejoin':'round','stroke-linecap':'round'},cs);
+const dots=pts.map((p,i)=>{const gg=el('g',{class:'pt'},cs);el('circle',{cx:p[0],cy:p[1],r:6,fill:'#fff',stroke:'#bb322b','stroke-width':3},gg);el('text',{class:'lbl',x:p[0],y:p[1]-16,'text-anchor':'middle'},gg).textContent=D[i][1]+' т';return gg});
+
+/* вкладки продукции */
+const tabs=$$('.tab');
+function sel(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;$('#'+x.getAttribute('aria-controls')).hidden=!on});
+  if(!reduce&&window.gsap)gsap.fromTo('#'+t.getAttribute('aria-controls'),{opacity:0,y:14},{opacity:1,y:0,duration:.5,ease:'power3.out'})}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>sel(t));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];n.focus();sel(n)}})});
+
+/* меню и шапка */
+$('#burger').addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');$('#burger').setAttribute('aria-expanded',o)});
+$$('#nav a').forEach(a=>a.addEventListener('click',()=>{document.body.classList.remove('menu-open');$('#burger').setAttribute('aria-expanded',false)}));
+const onScroll=()=>$('#hdr').classList.toggle('solid',scrollY>30);addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* форма: письмо в почтовой программе (демо) */
+$('#form').addEventListener('submit',e=>{e.preventDefault();const f=e.target;
+  if(!f.name.value.trim()||!f.phone.value.trim()){(f.name.value.trim()?f.phone:f.name).focus();return}
+  const body=`Имя: ${f.name.value}\nКомпания: ${f.company.value}\nТелефон: ${f.phone.value}\nE-mail: ${f.email.value}\nРеагент: ${f.product.value}\n\n${f.msg.value}`;
+  location.href='mailto:nppglycan@mail.ru?subject='+encodeURIComponent('Запрос КП с сайта: '+f.product.value)+'&body='+encodeURIComponent(body);f.classList.add('sent')});
+
+if(reduce||!window.gsap){$$('.bar .tr i').forEach(i=>i.style.transform='scaleX(var(--v))');return}
+gsap.registerPlugin(ScrollTrigger);
+
+/* вступление: строки заголовка, молекула собирается */
+gsap.set('.hero h1 .ln>span',{yPercent:110});
+gsap.set('#mol .bond',{strokeDasharray:200,strokeDashoffset:200});
+gsap.set('#mol circle',{scale:0,transformOrigin:'50% 50%'});
+const tl=gsap.timeline({defaults:{ease:'expo.out'}});
+tl.to('.hero h1 .ln>span',{yPercent:0,duration:1.1,stagger:.08},.1)
+  .from('.hero p,.hero__cta',{opacity:0,y:18,duration:.8,stagger:.08},.35)
+  .to('#mol circle',{scale:1,duration:.7,stagger:{each:.03,from:'random'},ease:'back.out(1.8)'},.3)
+  .to('#mol .bond',{strokeDashoffset:0,duration:.9,stagger:.025,ease:'power2.out'},.55)
+  .from('.stats div',{opacity:0,y:20,duration:.8,stagger:.08},.7);
+/* лёгкий параллакс молекулы за курсором - только на ПК */
+if(fine){const mx=gsap.quickTo('.mol svg','x',{duration:1,ease:'power3'}),my=gsap.quickTo('.mol svg','y',{duration:1,ease:'power3'});
+  $('.hero').addEventListener('pointermove',e=>{mx((e.clientX/innerWidth-.5)*-18);my((e.clientY/innerHeight-.5)*-18)})}
+/* вращение молекулы только когда видна */
+ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom top',onToggle:s=>$('#mol').style.animationPlayState=s.isActive?'running':'paused'});
+
+/* счётчики */
+$$('.stats b').forEach(b=>{const n=+b.dataset.n;if(n===2017)return;const sm=b.querySelector('small');const o={v:0};
+  gsap.to(o,{v:n,duration:1.6,ease:'power2.out',delay:.9,onUpdate:()=>{b.firstChild.textContent=Math.round(o.v)}})});
+
+/* появление блоков */
+ScrollTrigger.batch('.rv',{start:'top 88%',once:true,onEnter:els=>gsap.to(els,{opacity:1,y:0,duration:.9,ease:'expo.out',stagger:.07})});
+gsap.to('#tlLine',{scale:1,ease:'none',scrollTrigger:{trigger:'#tl',start:'top 75%',end:'bottom 60%',scrub:.6}});
+gsap.from('.about__img img',{scale:1.15,duration:1.6,ease:'expo.out',scrollTrigger:{trigger:'.about__img',start:'top 85%'}});
+
+/* график рисуется */
+const L=line.getTotalLength();gsap.set(line,{strokeDasharray:L,strokeDashoffset:L});gsap.set(area,{opacity:0});gsap.set(dots,{opacity:0,y:8});
+ScrollTrigger.create({trigger:'#chart',start:'top 80%',once:true,onEnter:()=>{gsap.to(line,{strokeDashoffset:0,duration:1.6,ease:'power2.inOut'});gsap.to(area,{opacity:1,duration:1,delay:.8});gsap.to(dots,{opacity:1,y:0,duration:.5,stagger:.18,ease:'back.out(2)'})}});
+/* полосы эффективности */
+gsap.set('.bar .tr i',{scaleX:0});
+ScrollTrigger.create({trigger:'.bars',start:'top 85%',once:true,onEnter:()=>$$('.bar .tr i').forEach((i,k)=>gsap.to(i,{scaleX:+getComputedStyle(i).getPropertyValue('--v'),duration:1.2,delay:k*.06,ease:'expo.out'}))});
+})();
+</script>
+</body>
+</html>

@@ -83,6 +83,15 @@
         ],
         "createdAt": "2026-10-28T12:32:13.238Z",
         "reason": "Claude: flagged full-bleed bands/sections have var(--pad) inset; rail and marquee are edge-to-edge by design"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "glikan/index.html"
+        ],
+        "createdAt": "2026-10-28T13:20:04.777Z",
+        "reason": "Claude: sections inset via .wrap padding, spec tables have 13px/16px cell padding, boxes have 22-34px padding - detector reads flush wrappers"
       }
     ]
   }
