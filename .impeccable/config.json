@@ -101,6 +101,33 @@
         ],
         "createdAt": "2026-10-28T13:27:50.957Z",
         "reason": "Claude: 4-word client tagline from Glikan deck, capped at 56px (fits column 360-1920px); subtitle, CTAs and stats stay above the fold"
+      },
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "pin-wedding/index.html"
+        ],
+        "createdAt": "2026-10-28T13:41:55.523Z",
+        "reason": "Claude: wedding-agency Pinterest concept - ivory palette and italic serif are genre-appropriate; prof/plan cards have 26-48px padding"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "pin-wedding/index.html"
+        ],
+        "createdAt": "2026-10-28T13:41:56.180Z",
+        "reason": "Claude: wedding-agency Pinterest concept - ivory palette and italic serif are genre-appropriate; prof/plan cards have 26-48px padding"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "pin-wedding/index.html"
+        ],
+        "createdAt": "2026-10-28T13:41:56.833Z",
+        "reason": "Claude: wedding-agency Pinterest concept - ivory palette and italic serif are genre-appropriate; prof/plan cards have 26-48px padding"
       }
     ]
   }
