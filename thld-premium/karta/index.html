@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Карта объектов - Технохолдинг</title>
+<meta name="description" content="3D-карта объектов Технохолдинга: плоские кровли на Урале и в Сибири. Демо-концепт.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<style>
+:root{
+  --navy:#161d31; --navy2:#1f263a; --navy3:#262f48; --slate:#616982; --steel:#34454e;
+  --line:rgba(255,255,255,.16); --mute:rgba(255,255,255,.62); --white:#fff; --beige:#d9c2ad;
+  --t-prod:#d9c2ad; --t-com:#8ea6d1; --t-res:#b9c7a5; --t-soc:#e3a07c;
+  --disp:"Didact Gothic","Century Gothic",sans-serif; --text:"Manrope",system-ui,sans-serif;
+  --pad:clamp(16px,2.6vw,36px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--text);color:var(--white);background:var(--navy);-webkit-font-smoothing:antialiased;overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:1px solid currentColor;outline-offset:4px}
+.disp{font-family:var(--disp);text-transform:uppercase;letter-spacing:.01em;font-weight:400}
+
+#map{position:fixed;inset:0}
+.maplibregl-ctrl-attrib{background:rgba(22,29,49,.7)!important;color:rgba(255,255,255,.55)!important;font-size:10px}
+.maplibregl-ctrl-attrib a{color:rgba(255,255,255,.7)!important}
+.maplibregl-ctrl-attrib-button{filter:invert(1)}
+
+/* вуаль поверх карты для читаемости интерфейса */
+.veil{position:fixed;inset:0;pointer-events:none;background:
+  linear-gradient(180deg,rgba(22,29,49,.85) 0,rgba(22,29,49,0) 160px),
+  linear-gradient(0deg,rgba(22,29,49,.8) 0,rgba(22,29,49,0) 140px),
+  radial-gradient(120% 90% at 50% 45%,rgba(22,29,49,0) 55%,rgba(22,29,49,.55) 100%)}
+
+/* шапка */
+.top{position:fixed;left:0;right:0;top:0;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:calc(var(--pad) - 4px) var(--pad);pointer-events:none}
+.top>*{pointer-events:auto}
+.brand{display:flex;align-items:center;gap:16px}
+.brand img{height:30px;width:auto}
+.brand .sep{width:1px;height:28px;background:var(--line)}
+.brand .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.back{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 18px;border:1px solid rgba(255,255,255,.5);border-radius:40px;font-size:12px;letter-spacing:.03em;transition:background .35s,color .35s;white-space:nowrap}
+.back:hover{background:#fff;color:var(--navy)}
+
+/* заголовок и цифры */
+.head{position:fixed;left:var(--pad);top:calc(var(--pad) + 62px);max-width:520px;pointer-events:none;transition:opacity .6s,transform .6s}
+.head.away{opacity:0;transform:translateY(-12px)}
+.head h1{font-size:clamp(34px,4.6vw,72px);line-height:.95}
+.head h1 span{display:block;overflow:hidden}.head h1 span i{display:block;font-style:normal}
+.stats{display:flex;gap:clamp(18px,2.6vw,40px);margin-top:22px}
+.stats b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(22px,2.2vw,32px);line-height:1}
+.stats small{display:block;margin-top:6px;font-size:11.5px;line-height:1.35;color:var(--mute);max-width:110px}
+
+/* фильтры */
+.ctrl{position:fixed;left:var(--pad);bottom:calc(var(--pad) + 6px);width:min(420px,calc(100vw - 2*var(--pad)));background:rgba(22,29,49,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:4px;padding:18px 20px 16px}
+.ctrl h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:500;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.types{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 13px 0 11px;border:1px solid var(--line);border-radius:30px;font-size:12.5px;transition:border-color .3s,background .3s,opacity .3s}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.chip em{font-style:normal;color:var(--mute);font-size:11.5px}
+.chip[aria-pressed=false]{opacity:.6}.chip[aria-pressed=false] i{background:transparent;box-shadow:inset 0 0 0 1px var(--c)}
+.chip[aria-pressed=true]{border-color:rgba(255,255,255,.45)}
+.chip:hover{background:rgba(255,255,255,.06)}
+.years{display:flex;align-items:center;gap:14px}
+.play{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;transition:background .3s,color .3s}
+.play:hover{background:#fff;color:var(--navy)}
+.play svg{width:12px;height:12px}
+.yr{flex:1;min-width:0}
+.yr input{width:100%;-webkit-appearance:none;appearance:none;height:22px;background:transparent}
+.yr input::-webkit-slider-runnable-track{height:1px;background:rgba(255,255,255,.35)}
+.yr input::-moz-range-track{height:1px;background:rgba(255,255,255,.35)}
+.yr input::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--beige);margin-top:-6.5px;border:0}
+.yr input::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--beige);border:0}
+.yr .lim{display:flex;justify-content:space-between;font-size:11px;color:var(--mute);margin-top:2px}
+.ynow{flex:none;font-family:var(--disp);font-size:26px;line-height:1;min-width:64px;text-align:right}
+.views{display:flex;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.views button{height:30px;padding:0 14px;border:1px solid var(--line);border-radius:30px;font-size:12px;transition:background .3s,color .3s,border-color .3s}
+.views button:hover,.views button.on{background:#fff;color:var(--navy);border-color:#fff}
+.hint{font-size:11px;color:var(--mute);margin-top:10px;line-height:1.5}
+
+/* карточка объекта / список */
+.card{position:fixed;right:var(--pad);top:calc(var(--pad) + 52px);bottom:calc(var(--pad) + 6px);width:min(400px,calc(100vw - 2*var(--pad)));background:rgba(22,29,49,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:4px;display:flex;flex-direction:column;overflow:hidden;transform:translateX(calc(100% + 60px));transition:transform .7s cubic-bezier(.7,0,.2,1)}
+.card.on{transform:none}
+.card__x{position:absolute;right:12px;top:12px;width:34px;height:34px;border-radius:50%;background:rgba(22,29,49,.75);border:1px solid var(--line);z-index:2;display:grid;place-items:center}
+.card__x::before,.card__x::after{content:"";position:absolute;width:13px;height:1px;background:#fff;transform:rotate(45deg)}.card__x::after{transform:rotate(-45deg)}
+.card__scroll{overflow:auto;flex:1;overscroll-behavior:contain}
+.card__img{aspect-ratio:3/2;background:var(--navy3) center/cover no-repeat;position:relative}
+.card__img::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(0deg,rgba(22,29,49,.9),rgba(22,29,49,0))}
+.card__body{padding:20px 22px 24px}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.card h2{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:22px;line-height:1.15;margin:12px 0 16px}
+.dl{display:grid;grid-template-columns:110px 1fr;gap:10px 14px;font-size:13px;line-height:1.45;border-top:1px solid var(--line);padding-top:16px}
+.dl dt{color:var(--mute)}
+.note{margin-top:16px;font-size:11.5px;line-height:1.5;color:var(--mute);display:flex;gap:8px}
+.note::before{content:"";flex:none;width:6px;height:6px;border:1px solid var(--mute);border-radius:50%;margin-top:5px}
+.list{list-style:none}
+.list li button{display:grid;grid-template-columns:76px 1fr;gap:14px;width:100%;text-align:left;padding:12px 22px;border-top:1px solid var(--line);transition:background .25s}
+.list li button:hover{background:rgba(255,255,255,.05)}
+.list .th{width:76px;height:52px;background:var(--navy3) center/cover no-repeat;border-radius:2px}
+.list b{display:block;font-weight:500;font-size:13px;line-height:1.35}
+.list small{display:block;margin-top:4px;font-size:11.5px;color:var(--mute)}
+.lhead{padding:22px 22px 16px}
+.lhead h2{margin:10px 0 4px}
+.lhead p{font-size:12.5px;color:var(--mute)}
+.backlist{display:inline-flex;gap:8px;align-items:center;font-size:12px;color:var(--mute);margin-bottom:12px}
+.backlist:hover{color:#fff}
+
+/* всплывающая подпись */
+.tip{position:fixed;pointer-events:none;z-index:5;background:rgba(22,29,49,.92);border:1px solid var(--line);padding:8px 12px;border-radius:3px;font-size:12px;line-height:1.35;max-width:260px;opacity:0;transform:translate(-50%,calc(-100% - 14px));transition:opacity .2s}
+.tip.on{opacity:1}
+.tip small{display:block;color:var(--mute);font-size:11px;margin-top:2px}
+
+/* загрузка */
+.load{position:fixed;inset:0;background:var(--navy);display:grid;place-items:center;z-index:20;transition:opacity .8s}
+.load.off{opacity:0;pointer-events:none}
+.load div{display:flex;flex-direction:column;align-items:center;gap:18px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.load img{height:34px}
+.load i{display:block;width:140px;height:1px;background:rgba(255,255,255,.18);position:relative;overflow:hidden}
+.load i::after{content:"";position:absolute;inset:0;background:var(--beige);transform:translateX(-100%);animation:ld 1.4s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes ld{to{transform:translateX(100%)}}
+.demo{position:fixed;right:var(--pad);bottom:8px;font-size:11px;color:rgba(255,255,255,.62);pointer-events:none}
+
+@media (max-width:860px){
+  .head{top:calc(var(--pad) + 50px)}
+  .head h1{font-size:34px}
+  .stats{gap:18px;margin-top:14px}.stats b{font-size:20px}.stats small{font-size:10.5px}
+  .ctrl{padding:14px 14px 12px;bottom:calc(10px + env(safe-area-inset-bottom))}
+  .types{flex-wrap:nowrap;overflow-x:auto;margin:0 -14px 14px;padding:0 14px;scrollbar-width:none}.types::-webkit-scrollbar{display:none}
+  .chip{flex:none}
+  .hint{display:none}
+  .card{top:auto;left:10px;right:10px;width:auto;bottom:10px;max-height:72vh;transform:translateY(calc(100% + 40px))}
+  .brand .lbl,.brand .sep{display:none}
+  .demo{display:none}
+}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.load i::after{animation:none}}
+</style>
+</head>
+<body>
+<div id="map" aria-label="3D-карта объектов"></div>
+<div class="veil"></div>
+
+<div class="load" id="load"><div><img src="../img/logo.png" alt=""><i></i>Загружаем карту объектов</div></div>
+
+<header class="top">
+  <a class="brand" href="../"><img src="../img/logo.png" alt="Технохолдинг"><span class="sep"></span><span class="lbl">Карта объектов</span></a>
+  <a class="back" href="../#objects">← На главную</a>
+</header>
+
+<div class="head">
+  <h1 class="disp"><span><i>География</i></span><span><i>наших кровель</i></span></h1>
+  <div class="stats">
+    <div><b id="sObj">0</b><small>объектов на карте</small></div>
+    <div><b id="sPl">0</b><small>населённых пунктов</small></div>
+    <div><b id="sArea">0</b><small>тыс. м² кровель в каталоге</small></div>
+  </div>
+</div>
+
+<section class="ctrl" aria-label="Фильтры карты">
+  <h3>Тип объекта</h3>
+  <div class="types" id="types"></div>
+  <h3>Год реализации <span id="yCount"></span></h3>
+  <div class="years">
+    <button class="play" id="play" aria-label="Показать хронологию"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg></button>
+    <div class="yr"><input type="range" id="year" min="2005" max="2025" value="2025" aria-label="Показать объекты до года"><div class="lim"><span>2005</span><span>2025</span></div></div>
+    <div class="ynow" id="ynow">2025</div>
+  </div>
+  <div class="views">
+    <button data-view="ural" class="on">Урал</button>
+    <button data-view="chel">Челябинск</button>
+    <button data-view="russia">Вся география</button>
+  </div>
+  <p class="hint">Нажмите на столбик, чтобы открыть объект. Правая кнопка мыши - поворот и наклон.</p>
+  <p class="hint" style="display:block;margin-top:6px">Демо-концепт · данные каталога thld.su</p>
+</section>
+
+<aside class="card" id="card" aria-live="polite"><button class="card__x" id="cardX" aria-label="Закрыть"></button><div class="card__scroll" id="cardIn"></div></aside>
+<div class="tip" id="tip"></div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="data.js"></script>
+<script>
+(()=>{
+const OBJ=window.THLD_OBJECTS;
+const TYPES=[['Производственные','--t-prod','#d9c2ad'],['Коммерческие','--t-com','#8ea6d1'],['Жилые','--t-res','#b9c7a5'],['Социальные','--t-soc','#e3a07c']];
+const COLOR=Object.fromEntries(TYPES.map(t=>[t[0],t[2]]));
+const $=s=>document.querySelector(s);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobile=matchMedia('(max-width:860px)').matches;
+const state={types:new Set(TYPES.map(t=>t[0])),year:2025,grow:0};
+const fmt=n=>n.toLocaleString('ru-RU');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* шестигранная призма вокруг точки (радиус в метрах) */
+function hex(lon,lat,r,rot=0){const ring=[];const dLat=r/111320,dLon=r/(111320*Math.cos(lat*Math.PI/180));
+  for(let i=0;i<=6;i++){const a=(i%6)*Math.PI/3+rot;ring.push([lon+dLon*Math.cos(a),lat+dLat*Math.sin(a)])}return [ring]}
+
+const visible=()=>OBJ.filter(o=>state.types.has(o.type)&&(!o.y||o.y<=state.year));
+
+/* регионы: по населённому пункту - один высокий столбик */
+const AGGLO=new Set(['Челябинск','Копейск','Кременкуль','пос. Западный','Смолино','Лесной Остров','пос. Рощино','Чурилово','Карповый Пруд','пос. Терема','Новосинеглазово','пос. Газовик','Касарги']);
+const regionName=p=>AGGLO.has(p)?'Челябинск и пригороды':p;
+function placeGroups(list,byRegion){const g={};for(const o of list){const k=byRegion?regionName(o.place):o.place;(g[k]=g[k]||{place:k,items:[],lat:0,lon:0}).items.push(o)}
+  return Object.values(g).map(p=>{const pts=p.items.filter(o=>!o.precise);const src=pts.length?pts:p.items;
+    if(p.place==='Челябинск и пригороды'){p.lat=55.16;p.lon=61.40}else{p.lat=src.reduce((s,o)=>s+o.lat,0)/src.length;p.lon=src.reduce((s,o)=>s+o.lon,0)/src.length}
+    const c={};for(const o of p.items)c[o.type]=(c[o.type]||0)+1;p.main=Object.entries(c).sort((a,b)=>b[1]-a[1])[0][0];return p})}
+
+function buildData(){
+  const list=visible(),k=state.grow,places=placeGroups(list,false),regions=placeGroups(list,true);
+  const region={type:'FeatureCollection',features:regions.map(p=>({type:'Feature',id:hash(p.place),properties:{kind:'place',place:p.place,n:p.items.length,color:COLOR[p.main],h:(9000+Math.sqrt(p.items.length)*15000)*k},geometry:{type:'Polygon',coordinates:hex(p.lon,p.lat,p.items.length>20?8200:5200)}}))};
+  const labels={type:'FeatureCollection',features:regions.map(p=>({type:'Feature',properties:{label:p.place+'  '+p.items.length},geometry:{type:'Point',coordinates:[p.lon,p.lat]}}))};
+  const feats=[];
+  for(const o of list)if(o.precise)feats.push({type:'Feature',id:hash(o.id),properties:{kind:'obj',id:o.id,color:COLOR[o.type],h:(160+Math.sqrt(o.area||900)*5.2)*k},geometry:{type:'Polygon',coordinates:hex(o.lon,o.lat,95)}});
+  for(const p of places){const rest=p.items.filter(o=>!o.precise);if(!rest.length)continue;
+    feats.push({type:'Feature',id:hash('g'+p.place),properties:{kind:'group',place:p.place,n:rest.length,color:'#c9d1e3',h:(200+Math.sqrt(rest.length)*170)*k},geometry:{type:'Polygon',coordinates:hex(p.lon,p.lat,110+Math.sqrt(rest.length)*24,Math.PI/6)}})}
+  const glabels={type:'FeatureCollection',features:places.filter(p=>p.items.some(o=>!o.precise)).map(p=>({type:'Feature',properties:{label:p.place+' · '+p.items.filter(o=>!o.precise).length+' без адреса'},geometry:{type:'Point',coordinates:[p.lon,p.lat]}}))};
+  return {region,labels,glabels,objs:{type:'FeatureCollection',features:feats},list,places};
+}
+function hash(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))|0;return Math.abs(h)}
+
+/* стиль: тёмная подложка OpenFreeMap, перекрашенная в палитру сайта */
+async function loadStyle(){
+  const st=await (await fetch('https://tiles.openfreemap.org/styles/dark')).json();
+  const P={bg:'#161d31',water:'#0d1322',land2:'#1a2238',road:'#45537a',road2:'#2f3a58',label:'#8b93ab'};
+  for(const l of st.layers){const p=l.paint=l.paint||{};
+    if(l.type==='background')p['background-color']=P.bg;
+    else if(/water/.test(l.id)&&l.type==='fill')p['fill-color']=P.water;
+    else if(/waterway/.test(l.id))p['line-color']=P.water;
+    else if(l.type==='fill'&&/landcover|landuse|park/.test(l.id)){p['fill-color']=P.land2}
+    else if(l.id==='building'){p['fill-color']='#1d2540';p['fill-outline-color']='#2a3352'}
+    else if(l.type==='line'&&/highway|road|aeroway|railway/.test(l.id)){if(/casing/.test(l.id))p['line-color']='rgba(60,72,104,.55)';else if(!/dash/.test(l.id))p['line-color']=/major|motorway/.test(l.id)?P.road:P.road2}
+    else if(l.type==='line'&&/boundary/.test(l.id)){p['line-color']='rgba(150,160,190,.35)'}
+    if(l.type==='symbol'){p['text-color']=/place_city|place_town/.test(l.id)?'#aab2c8':P.label;p['text-halo-color']='rgba(22,29,49,.9)';p['text-halo-width']=1.2;
+      if(/highway_name|water_name|road_oneway|place_state|place_country/.test(l.id))l.layout=Object.assign(l.layout||{},{visibility:'none'});
+      else if(/place_/.test(l.id))l.layout=Object.assign(l.layout||{},{'text-field':['coalesce',['get','name:ru'],['get','name']]})}
+  }
+  st.sources.dem={type:'raster-dem',tiles:['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],encoding:'terrarium',tileSize:256,maxzoom:12,attribution:'Рельеф: Mapzen/AWS Terrain Tiles'};
+  const firstSym=st.layers.findIndex(l=>l.type==='symbol');
+  st.layers.splice(firstSym<0?st.layers.length:firstSym,0,
+    {id:'hill',type:'hillshade',source:'dem',paint:{'hillshade-shadow-color':'#0a0f1d','hillshade-highlight-color':'#3a4566','hillshade-accent-color':'#141b2e','hillshade-exaggeration':.55}},
+    {id:'b3d',type:'fill-extrusion',source:'openmaptiles','source-layer':'building',minzoom:13,filter:['!',['has','hide_3d']],
+      paint:{'fill-extrusion-color':'#2b3553','fill-extrusion-height':['get','render_height'],'fill-extrusion-base':['get','render_min_height'],'fill-extrusion-opacity':['interpolate',['linear'],['zoom'],13,0,14.5,.85]}});
+  return st;
+}
+
+let map,data,hoverId=null,hoverSrc=null;
+const VIEWS={
+  ural:{center:[61.2,55.6],zoom:mobile?5.6:6.3,pitch:56,bearing:-18},
+  chel:{center:[61.405,55.165],zoom:mobile?10.6:11.4,pitch:60,bearing:-24},
+  russia:{center:[78,58.5],zoom:mobile?2.6:3.4,pitch:40,bearing:0}
+};
+
+async function init(){
+  let style;try{style=await loadStyle()}catch(e){style='https://tiles.openfreemap.org/styles/dark'}
+  map=new maplibregl.Map({container:'map',style,center:[66,57],zoom:mobile?2.4:3.2,pitch:0,bearing:0,maxPitch:75,antialias:true,attributionControl:{compact:true},
+    dragRotate:true,touchPitch:true});
+  map.on('load',()=>{
+    data=buildData();
+    map.addSource('region',{type:'geojson',data:data.region});
+    map.addSource('objs',{type:'geojson',data:data.objs});
+    map.addSource('labels',{type:'geojson',data:data.labels});map.addSource('glabels',{type:'geojson',data:data.glabels});
+    map.addLayer({id:'region',type:'fill-extrusion',source:'region',maxzoom:9.6,paint:{
+      'fill-extrusion-color':['case',['boolean',['feature-state','hover'],false],'#ffffff',['get','color']],
+      'fill-extrusion-height':['get','h'],'fill-extrusion-base':0,
+      'fill-extrusion-opacity':['interpolate',['linear'],['zoom'],8.6,.92,9.6,0],'fill-extrusion-vertical-gradient':true}});
+    map.addLayer({id:'objs',type:'fill-extrusion',source:'objs',minzoom:8.6,paint:{
+      'fill-extrusion-color':['case',['boolean',['feature-state','hover'],false],'#ffffff',['boolean',['feature-state','sel'],false],'#ffffff',['==',['get','kind'],'group'],'#7d879f',['get','color']],
+      'fill-extrusion-height':['get','h'],'fill-extrusion-base':0,
+      'fill-extrusion-opacity':['interpolate',['linear'],['zoom'],8.6,0,9.6,.95]}});
+    map.addLayer({id:'labels',type:'symbol',source:'labels',maxzoom:9.4,layout:{'text-field':['get','label'],'text-font':['Noto Sans Regular'],'text-size':11.5,'text-letter-spacing':.06,'text-offset':[0,1.4],'text-anchor':'top','text-allow-overlap':false},
+      paint:{'text-color':'#e8ebf3','text-halo-color':'rgba(22,29,49,.95)','text-halo-width':1.4}});
+    map.addLayer({id:'glabels',type:'symbol',source:'glabels',minzoom:10,layout:{'text-field':['get','label'],'text-font':['Noto Sans Regular'],'text-size':11,'text-offset':[0,1.2],'text-anchor':'top'},
+      paint:{'text-color':'#c9d1e3','text-halo-color':'rgba(22,29,49,.95)','text-halo-width':1.4}});
+    $('#load').classList.add('off');
+    stats();intro();
+  });
+  map.on('mousemove',e=>{
+    const f=map.queryRenderedFeatures(e.point,{layers:['region','objs']})[0];
+    setHover(f);
+    const tip=$('#tip');
+    if(!f){tip.classList.remove('on');map.getCanvas().style.cursor='';return}
+    map.getCanvas().style.cursor='pointer';
+    const p=f.properties;let html;
+    if(p.kind==='obj'){const o=OBJ.find(x=>x.id===p.id);html=esc(o.t)+'<small>'+esc(o.type)+(o.y?' · '+o.y:'')+'</small>'}
+    else html=esc(p.place)+'<small>'+(p.kind==='group'?p.n+' '+plural(p.n)+' без точного адреса':p.n+' '+plural(p.n))+'</small>';
+    tip.innerHTML=html;tip.style.left=e.point.x+'px';tip.style.top=e.point.y+'px';tip.classList.add('on');
+  });
+  map.on('zoom',()=>$('.head').classList.toggle('away',map.getZoom()>8.8));
+  window.thldMap=map;
+  map.on('mouseout',()=>{setHover(null);$('#tip').classList.remove('on')});
+  map.on('click',e=>{
+    const f=map.queryRenderedFeatures(e.point,{layers:['region','objs']})[0];
+    if(!f)return;const p=f.properties;
+    if(p.kind==='obj')openObj(p.id,true);
+    else if(p.kind==='group')openPlace(p.place,true);
+    else if(p.place==='Челябинск и пригороды'){$('#card').classList.remove('on');map.flyTo({...VIEWS.chel,duration:2600,essential:true});document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('on',x.dataset.view==='chel'))}
+    else{openPlace(p.place,false);flyPlace(p.place)}
+  });
+}
+function setHover(f){
+  if(hoverId!==null)map.setFeatureState({source:hoverSrc,id:hoverId},{hover:false});
+  hoverId=f?f.id:null;hoverSrc=f?f.source:null;
+  if(f)map.setFeatureState({source:hoverSrc,id:hoverId},{hover:true});
+}
+const plural=n=>{const a=n%10,b=n%100;return a===1&&b!==11?'объект':a>=2&&a<=4&&(b<12||b>14)?'объекта':'объектов'};
+
+function refresh(){data=buildData();map.getSource('region').setData(data.region);map.getSource('objs').setData(data.objs);map.getSource('labels').setData(data.labels);map.getSource('glabels').setData(data.glabels);stats(true)}
+function stats(quick){
+  const l=data.list,area=l.reduce((s,o)=>s+(o.area||0),0);
+  count($('#sObj'),l.length,quick);count($('#sPl'),data.places.length,quick);count($('#sArea'),Math.round(area/1000),quick);
+  $('#yCount').textContent=l.length+' '+plural(l.length);
+}
+function count(el,to,quick){const from=+el.dataset.v||0;el.dataset.v=to;if(reduce||quick){el.textContent=fmt(to);return}
+  const t0=performance.now(),d=1400;(function f(t){const k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3);el.textContent=fmt(Math.round(from+(to-from)*e));if(k<1)requestAnimationFrame(f)})(t0)}
+
+/* вступление: облёт и рост столбиков */
+function intro(){
+  if(reduce){state.grow=1;refresh();map.jumpTo(VIEWS.ural);return}
+  map.flyTo({...VIEWS.ural,duration:4200,curve:1.3,essential:true});
+  setTimeout(()=>grow(0,1,2200),900);
+}
+function grow(from,to,dur){const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/dur);state.grow=from+(to-from)*(1-Math.pow(1-k,4));
+  data=buildData();map.getSource('region').setData(data.region);map.getSource('objs').setData(data.objs);if(k<1)requestAnimationFrame(f)})(t0)}
+
+function flyPlace(place){const p=data.places.find(x=>x.place===place);if(!p)return;
+  map.flyTo({center:[p.lon,p.lat],zoom:place==='Челябинск'?VIEWS.chel.zoom:12.2,pitch:60,bearing:map.getBearing()-12,duration:2600,essential:true,padding:padRight()})}
+function padRight(){return mobile?{bottom:innerHeight*.45}:{right:420}}
+
+/* карточки */
+let selId=null;
+function select(id){if(selId!==null)map.setFeatureState({source:'objs',id:selId},{sel:false});selId=id;if(id!==null)map.setFeatureState({source:'objs',id},{sel:true})}
+function objHtml(o,backPlace){
+  return (backPlace?'<div class="lhead" style="padding-bottom:0"><button class="backlist" data-back="'+esc(backPlace)+'">← '+esc(backPlace)+'</button></div>':'')+
+  '<div class="card__img" style="background-image:url(\''+(o.th||'')+'\')"></div><div class="card__body">'+
+  '<span class="tag" style="--c:'+COLOR[o.type]+'"><i></i>'+esc(o.type)+'</span><h2>'+esc(o.t)+'</h2><dl class="dl">'+
+  '<dt>Где</dt><dd>'+esc(o.addr||o.place)+'</dd>'+(o.y?'<dt>Год</dt><dd>'+o.y+'</dd>':'')+(o.area?'<dt>Площадь</dt><dd>'+fmt(o.area)+' м²</dd>':'')+
+  (o.roof?'<dt>Кровля</dt><dd>'+esc(o.roof)+'</dd>':'')+(o.cust?'<dt>Заказчик</dt><dd>'+esc(o.cust)+'</dd>':'')+'</dl>'+
+  (o.precise?'':'<p class="note">Точный адрес в каталоге не указан - объект показан в центре населённого пункта.</p>')+'</div>';
+}
+function openObj(id,fly,backPlace){const o=OBJ.find(x=>x.id===id);if(!o)return;
+  $('#cardIn').innerHTML=objHtml(o,backPlace);$('#cardIn').scrollTop=0;$('#card').classList.add('on');
+  select(o.precise?hash(o.id):null);
+  if(fly&&o.precise)map.flyTo({center:[o.lon,o.lat],zoom:Math.max(map.getZoom(),14.2),pitch:62,duration:2200,essential:true,padding:padRight()});
+}
+function openPlace(place,fly){
+  const items=data.list.filter(o=>o.place===place).sort((a,b)=>(b.y||0)-(a.y||0));if(!items.length)return;
+  $('#cardIn').innerHTML='<div class="lhead"><span class="tag" style="--c:#c9d1e3"><i></i>Населённый пункт</span><h2 class="disp" style="font-size:24px">'+esc(place)+'</h2><p>'+items.length+' '+plural(items.length)+' · '+fmt(items.reduce((s,o)=>s+(o.area||0),0))+' м²</p></div><ul class="list">'+
+    items.map(o=>'<li><button data-id="'+o.id+'"><span class="th" style="background-image:url(\''+(o.th||'')+'\')"></span><span><b>'+esc(o.t)+'</b><small>'+esc(o.type)+(o.y?' · '+o.y:'')+(o.area?' · '+fmt(o.area)+' м²':'')+'</small></span></button></li>').join('')+'</ul>';
+  $('#cardIn').scrollTop=0;$('#card').classList.add('on');select(null);
+  if(fly){const p=data.places.find(x=>x.place===place);if(p)map.flyTo({center:[p.lon,p.lat],zoom:Math.max(map.getZoom(),12),pitch:60,duration:2000,essential:true,padding:padRight()})}
+}
+$('#cardIn').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b){const pl=b.closest('.list')&&$('#cardIn h2')?$('#cardIn h2').textContent:null;openObj(b.dataset.id,true,pl);return}
+  const bk=e.target.closest('[data-back]');if(bk)openPlace(bk.dataset.back,false)});
+$('#cardX').addEventListener('click',()=>{$('#card').classList.remove('on');select(null)});
+addEventListener('keydown',e=>{if(e.key==='Escape'){$('#card').classList.remove('on');select(null)}});
+
+/* фильтры */
+const typesEl=$('#types');
+typesEl.innerHTML=TYPES.map(([t,v])=>'<button class="chip" aria-pressed="true" data-t="'+t+'" style="--c:var('+v+')"><i></i>'+t+' <em>'+OBJ.filter(o=>o.type===t).length+'</em></button>').join('');
+typesEl.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const t=b.dataset.t;
+  if(state.types.has(t)&&state.types.size===1){TYPES.forEach(x=>state.types.add(x[0]))}else if(state.types.has(t))state.types.delete(t);else state.types.add(t);
+  typesEl.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',state.types.has(c.dataset.t)));refresh()});
+const yr=$('#year');
+yr.addEventListener('input',()=>{state.year=+yr.value;$('#ynow').textContent=yr.value;stop();refresh()});
+let timer=null;
+function stop(){if(timer){clearInterval(timer);timer=null;$('#play').innerHTML='<svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg>'}}
+$('#play').addEventListener('click',()=>{if(timer){stop();return}
+  state.year=2005;yr.value=2005;$('#ynow').textContent=2005;refresh();
+  $('#play').innerHTML='<svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg>';
+  timer=setInterval(()=>{if(state.year>=2025){stop();return}state.year++;yr.value=state.year;$('#ynow').textContent=state.year;refresh()},reduce?200:650)});
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('on',x===b));
+  map.flyTo({...VIEWS[b.dataset.view],duration:reduce?0:2800,essential:true})}));
+
+init();
+})();
+</script>
+</body>
+</html>
