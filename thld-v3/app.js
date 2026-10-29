@@ -40,9 +40,14 @@ if (!RM && window.Lenis) {
 }
 gsap.registerPlugin(ScrollTrigger);
 
-/* ---------- видео героя: появится, когда положим hero.mp4 рядом ---------- */
+/* ---------- видео героя: пролёты над кровлями объектов; на телефоне лёгкая версия 720p, при «меньше движения» остаётся сцена ---------- */
 const v = $('#heroVideo');
-fetch('video/hero.mp4', { method: 'HEAD' }).then(r => { if (r.ok) { v.src = 'video/hero.mp4'; v.hidden = false; v.play().catch(() => {}); v.addEventListener('playing', () => $('#scene').style.opacity = 0, { once: true }); } }).catch(() => {});
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  v.src = innerWidth < 900 ? 'video/hero_720.mp4' : 'video/hero.mp4';
+  v.hidden = false;
+  v.addEventListener('playing', () => { v.classList.add('on'); $('#scene').style.opacity = 0; }, { once: true });
+  v.play().catch(() => {});
+}
 
 /* ---------- прелоадер: ТЕХНОХОЛДИНГ крутится и уходит ---------- */
 const word = $('#preWord');
