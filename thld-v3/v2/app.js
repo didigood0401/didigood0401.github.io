@@ -45,10 +45,10 @@ gsap.registerPlugin(ScrollTrigger);
 // ролика как картинку и запускаем видео при первом касании или прокрутке.
 const v = $('#heroVideo');
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const sm = innerWidth < 900;
+  const vert = innerWidth < 900 && innerHeight > innerWidth;   // телефон вертикально — свой вертикальный ролик 1080×1920
   v.muted = true; v.defaultMuted = true; v.setAttribute('autoplay', ''); v.preload = 'auto';
-  v.poster = sm ? '../video/hero_poster_720.jpg' : '../video/hero_poster.jpg';
-  v.src = sm ? '../video/hero_720.mp4' : '../video/hero.mp4';
+  v.poster = vert ? '../video/hero2_v.jpg' : '../video/hero2.jpg';
+  v.src = vert ? '../video/hero2_v.mp4' : '../video/hero2.mp4';
   v.hidden = false;
   const show = () => { v.classList.add('on'); $('#scene').style.opacity = 0; };
   v.addEventListener('playing', show, { once: true });
@@ -69,9 +69,8 @@ intro.from('#heroMedia', { scale: 1.42, duration: 3.4, ease: 'expo.out' }, 0)
   .from('.hero__h .ln>span', { yPercent: 110, duration: 1.4, ease: 'expo.out', stagger: .14 }, .35)
   .from('.hero .eb, .slogan, .hero__row > *', { y: 30, opacity: 0, duration: 1.3, ease: 'expo.out', stagger: .09 }, .7)
   .fromTo('#oneSheen', { backgroundPosition: '120% 0' }, { backgroundPosition: '-60% 0', duration: 2.4, ease: 'power2.inOut' }, 1);
-if (RM || sessionStorage.getItem('thldPre')) { $('#pre').remove(); intro.progress(1); }
+if (RM) { $('#pre').remove(); intro.progress(1); }
 else {
-  try { sessionStorage.setItem('thldPre', '1'); } catch (e) {}
   lenis?.stop();
   const n = { v: 0 }, tl = gsap.timeline({ paused: true });
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(() => requestAnimationFrame(() => tl.play())));
@@ -99,9 +98,7 @@ if (!RM) {
   gsap.to('.one', { yPercent: -18, scale: .92, ease: 'none', scrollTrigger: heroOut });
   gsap.to('#oneSheen', { backgroundPosition: '160% 0', ease: 'none', scrollTrigger: heroOut });
   gsap.to('.h2txt', { opacity: 0, y: -80, ease: 'none', scrollTrigger: { trigger: '#about', start: 'top 85%', end: 'top 25%', scrub: 1.2 } });
-  // листы плавно наезжают: чуть уменьшены и скруглены, выпрямляются при входе
-  $$('.sheet').forEach(el => gsap.fromTo(el, { scale: .955, borderRadius: '56px 56px 0 0' }, { scale: 1, borderRadius: '28px 28px 0 0', ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'top 35%', scrub: 1.2 } }));
-  $$('.rv').forEach(el => gsap.fromTo(el, { opacity: 0, y: 60, filter: 'blur(8px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 90%' } }));
+  $$('.rv').forEach(el => gsap.fromTo(el, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 90%' } }));
   $$('.clip').forEach(el => {
     gsap.to(el, { clipPath: 'inset(0% 0% 0% 0% round 24px)', duration: 2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
     const img = $('img', el); if (img) gsap.fromTo(img, { scale: 1.25 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true } });
@@ -111,7 +108,8 @@ if (!RM) {
 /* ---------- счётчики: считаются, пока листаете; остановились на цифрах — счёт плавно завершается ---------- */
 const cnt = $$('[data-count]').map((el, i) => {
   const to = +el.dataset.count, pre = el.dataset.pre || '', suf = el.dataset.suf || '', plus = 'plus' in el.dataset ? '<sup>+</sup>' : '';
-  return { to, i, put: v => el.innerHTML = pre + fmt(Math.round(v)) + suf + plus };
+  let last = '';
+  return { to, i, put: v => { const h = pre + fmt(Math.round(v)) + suf + plus; if (h !== last) el.innerHTML = last = h; } };
 });
 const easeC = p => 1 - Math.pow(1 - p, 2.2);
 if (RM) cnt.forEach(c => c.put(c.to));
@@ -127,8 +125,7 @@ else {
     if (st.p >= 1) return end();
     clearTimeout(idle); idle = setTimeout(finish, 260);  // прокрутка остановилась — досчитываем
   } });
-  gsap.fromTo('.numsband__bg img', { yPercent: -12, scale: 1.15 }, { yPercent: 12, scale: 1.05, ease: 'none', scrollTrigger: { trigger: '#numsband', start: 'top bottom', end: 'bottom top', scrub: true } });
-  gsap.from('.nums--glass .num', { y: 70, opacity: 0, duration: 1.6, ease: 'expo.out', stagger: .08, scrollTrigger: { trigger: '#nums', start: 'top 92%' } });
+  gsap.from('.nums--glass .num', { y: 50, opacity: 0, duration: 1.4, ease: 'expo.out', stagger: .07, scrollTrigger: { trigger: '#nums', start: 'top 92%' } });
 }
 
 /* ---------- услуги ---------- */

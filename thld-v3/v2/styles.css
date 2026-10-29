@@ -307,16 +307,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ===== вариант 2: стеклянная «1» с отражением, хром-цифры, стеклянные карточки ===== */
 .hero__media video{animation:breathe 16s ease-in-out infinite alternate}
 @keyframes breathe{from{transform:scale(1)}to{transform:scale(1.07)}}
-.hero2{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:clamp(20px,4vw,72px)}
-.one{position:relative;height:min(62svh,580px);aspect-ratio:100/160;margin:0 0 clamp(60px,10vh,120px) clamp(30px,4vw,70px);perspective:1200px;-webkit-box-reflect:below 6px linear-gradient(transparent 62%,rgba(255,255,255,.22))}
+.hero2{display:grid;grid-template-columns:1fr auto;align-items:end;gap:clamp(20px,4vw,72px)}
+.hero2 .h2txt{order:-1}
+/* «№1»: № и почти прозрачная стеклянная «1» — справа, отдельно от текста */
+.one{position:relative;align-self:start;height:min(40svh,380px);aspect-ratio:100/160;margin:clamp(110px,17vh,170px) clamp(40px,5vw,90px) 0 0;perspective:1200px;-webkit-box-reflect:below 4px linear-gradient(transparent 70%,rgba(255,255,255,.14))}
 .one__body{position:absolute;inset:0;transform-style:preserve-3d}
 .one__glass,.one__sheen{position:absolute;inset:0;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 160' preserveAspectRatio='none'%3E%3Cpath d='M36 1H69V159H36V40L9 52V20Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 160' preserveAspectRatio='none'%3E%3Cpath d='M36 1H69V159H36V40L9 52V20Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
-.one__glass{-webkit-backdrop-filter:blur(9px) brightness(1.45) saturate(1.35) contrast(1.08);backdrop-filter:blur(9px) brightness(1.45) saturate(1.35) contrast(1.08);
-  background:linear-gradient(158deg,rgba(255,255,255,.42),rgba(255,255,255,.06) 38%,rgba(255,255,255,.02) 58%,rgba(242,194,0,.16) 82%,rgba(255,255,255,.3))}
-.one__sheen{background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.75) 49%,rgba(255,255,255,.15) 53%,transparent 62%) 120% 0/260% 100% no-repeat;mix-blend-mode:screen}
-.one__edge{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 6px rgba(255,255,255,.35))}
-.one__no{position:absolute;left:0;bottom:16%;transform:translateX(-78%);font-size:clamp(40px,4.6vw,84px);font-weight:600;letter-spacing:-.04em;line-height:1;
-  background:linear-gradient(180deg,#fff3c2 0,#f2c200 38%,#8a6a00 52%,#ffe27a 66%,#c99a00 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4))}
+.one__glass{-webkit-backdrop-filter:blur(5px) brightness(1.18) saturate(1.1);backdrop-filter:blur(5px) brightness(1.18) saturate(1.1);
+  background:linear-gradient(158deg,rgba(255,255,255,.22),rgba(255,255,255,.03) 40%,rgba(255,255,255,0) 62%,rgba(255,255,255,.12))}
+.one__sheen{background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.5) 49%,rgba(255,255,255,.1) 53%,transparent 62%) 120% 0/260% 100% no-repeat;mix-blend-mode:screen}
+.one__edge{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.one__no{position:absolute;left:0;bottom:4%;transform:translateX(-92%);font-size:clamp(30px,3vw,54px);font-weight:500;letter-spacing:-.04em;line-height:1;color:#d4a72c}
 .h2txt{padding-bottom:clamp(40px,7vh,90px)}
 .hero2 .hero__h{font-size:clamp(44px,6.2vw,120px);margin:20px 0 18px}
 .slogan{max-width:620px;font-size:clamp(17px,1.35vw,21px);color:rgba(255,255,255,.78);margin-bottom:30px}
@@ -326,17 +327,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero2 .yrs b{font-weight:500;font-size:clamp(64px,7vw,120px)}
 .btn--glass{color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.32);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
 .btn--glass:hover{background:rgba(255,255,255,.2)}
-@media(max-width:900px){.hero2{grid-template-columns:1fr;align-content:end;gap:0}.one{height:19svh;margin:0 0 26px 46px}.hero2 .hero__h{font-size:clamp(36px,10vw,64px);margin-top:14px}.slogan{margin-bottom:20px;font-size:16px}.h2txt{padding-bottom:30px}.hero2 .yrs{padding-left:0;border:0}.hero2 .yrs b{font-size:64px}}
+@media(max-width:900px){.hero2{grid-template-columns:1fr;align-content:end;gap:0}.one{position:absolute;right:var(--pad);top:max(96px,13svh);height:15svh;margin:0}.one__no{font-size:26px}.hero2 .hero__h{font-size:clamp(36px,10vw,64px);margin-top:14px}.slogan{margin-bottom:20px;font-size:16px}.h2txt{padding-bottom:30px}.hero2 .yrs{padding-left:0;border:0}.hero2 .yrs b{font-size:64px}}
 
 .numsband{position:relative;margin:10px 0 clamp(50px,7vw,100px);border-radius:var(--r);overflow:hidden;padding:clamp(16px,3.2vw,48px);color:#fff;isolation:isolate}
 .numsband__bg{position:absolute;inset:0;z-index:-1;background:var(--d1)}
-.numsband__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.55) brightness(.62) contrast(1.05)}
+.numsband__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.45) brightness(.6) blur(3px);transform:scale(1.04)}
 .nums--glass{border:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.4vw,20px)}
 .nums--glass .num,.nums--glass .num+.num,.nums--glass .num:nth-child(even){padding:clamp(18px,2.4vw,36px);border:1px solid rgba(255,255,255,.22);border-radius:22px;
-  background:linear-gradient(150deg,rgba(255,255,255,.2),rgba(255,255,255,.05) 45%,rgba(255,255,255,.1));-webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);
+  background:linear-gradient(150deg,rgba(255,255,255,.2),rgba(255,255,255,.06) 45%,rgba(255,255,255,.12));
   box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(255,255,255,.08),0 20px 50px -20px rgba(0,0,0,.5)}
-.nums--glass .num b{background:linear-gradient(180deg,#fff 0,#eef1f4 40%,#9aa1aa 52%,#fff 66%,#c3c8cf 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
-.nums--glass .num b sup{-webkit-text-fill-color:var(--acc);color:var(--acc)}
+/* стекло без backdrop-filter: фон уже размыт и неподвижен — счёт при прокрутке не тормозит */
+.nums--glass .num b{color:#fff;font-variant-numeric:tabular-nums;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.nums--glass .num b sup{color:var(--acc)}
 .nums--glass .num span{color:rgba(255,255,255,.72)}
 .numsband__hint{margin-top:18px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:opacity .8s}
 .numsband__hint.off{opacity:0}

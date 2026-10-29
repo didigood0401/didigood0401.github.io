@@ -45,10 +45,10 @@ gsap.registerPlugin(ScrollTrigger);
 // ролика как картинку и запускаем видео при первом касании или прокрутке.
 const v = $('#heroVideo');
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const sm = innerWidth < 900;
+  const vert = innerWidth < 900 && innerHeight > innerWidth;   // телефон вертикально — свой вертикальный ролик 1080×1920
   v.muted = true; v.defaultMuted = true; v.setAttribute('autoplay', ''); v.preload = 'auto';
-  v.poster = sm ? 'video/hero_poster_720.jpg' : 'video/hero_poster.jpg';
-  v.src = sm ? 'video/hero_720.mp4' : 'video/hero.mp4';
+  v.poster = vert ? 'video/hero2_v.jpg' : 'video/hero2.jpg';
+  v.src = vert ? 'video/hero2_v.mp4' : 'video/hero2.mp4';
   v.hidden = false;
   const show = () => { v.classList.add('on'); $('#scene').style.opacity = 0; };
   v.addEventListener('playing', show, { once: true });
@@ -65,9 +65,8 @@ const intro = gsap.timeline({ paused: true });
 intro.from('.hero__h .ln>span', { yPercent: 110, duration: 1.1, ease: 'power4.out', stagger: .12 })
   .from('.hero .eb, .hero__row > *', { y: 30, opacity: 0, duration: .9, ease: 'power3.out', stagger: .08 }, '-=.7')
   .from('#heroMedia', { scale: 1.18, duration: 2.2, ease: 'power3.out' }, 0);
-if (RM || sessionStorage.getItem('thldPre')) { $('#pre').remove(); intro.progress(1); }
+if (RM) { $('#pre').remove(); intro.progress(1); }
 else {
-  try { sessionStorage.setItem('thldPre', '1'); } catch (e) {}
   lenis?.stop();
   const n = { v: 0 }, tl = gsap.timeline({ paused: true });
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(() => requestAnimationFrame(() => tl.play())));
