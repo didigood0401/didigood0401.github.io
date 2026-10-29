@@ -303,3 +303,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ct .h{font-size:clamp(36px,4.2vw,76px)}
 .sheet:not(.dark) .btn--o,.op-nav .btn--o{color:var(--ink)}
 .op-back{margin-top:120px}
+
+/* без системной кнопки «play» поверх видео (iPhone в режиме энергосбережения) */
+video::-webkit-media-controls,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none;opacity:0!important}

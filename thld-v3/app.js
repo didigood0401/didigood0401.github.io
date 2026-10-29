@@ -43,10 +43,12 @@ gsap.registerPlugin(ScrollTrigger);
 /* ---------- видео героя: пролёты над кровлями объектов; на телефоне лёгкая версия 720p, при «меньше движения» остаётся сцена ---------- */
 const v = $('#heroVideo');
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  v.muted = true; v.defaultMuted = true; v.setAttribute('autoplay', '');
   v.src = innerWidth < 900 ? 'video/hero_720.mp4' : 'video/hero.mp4';
   v.hidden = false;
   v.addEventListener('playing', () => { v.classList.add('on'); $('#scene').style.opacity = 0; }, { once: true });
-  v.play().catch(() => {});
+  // если телефон не дал автозапуск — запускаем при первом касании или прокрутке, без кнопки «play»
+  v.play().catch(() => ['touchstart', 'pointerdown', 'scroll'].forEach(ev => addEventListener(ev, () => v.play().catch(() => {}), { once: true, passive: true })));
 }
 
 /* ---------- прелоадер: ТЕХНОХОЛДИНГ крутится и уходит ---------- */
