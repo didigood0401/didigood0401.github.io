@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Собственная служба качества — ТехноХолдинг</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hdr hdr--light" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="hdr__logo" href="index.html"><img src="https://thld.su/assets/logo/logo-thld.png" alt="ТехноХолдинг"></a>
+    <nav><a href="index.html#services">Услуги</a><a href="index.html#objects">Объекты</a><a href="index.html#map-sec">Карта</a><a href="quality.html">Служба качества</a><a href="index.html#contacts">Контакты</a></nav>
+    <a class="hdr__tel" href="tel:+73512253040">8 (351) 225-30-40</a>
+  </div>
+</header>
+<main>
+  <section class="op-hero" style="height:92svh"><img src="https://thld.su/assets/quality/generated-20260927/quality-hero-team-higgsfield.jpg" alt="Инженеры службы качества"><div class="wrap">
+    <a class="op-back" href="index.html">← На главную</a>
+    <span class="eb" style="color:rgba(255,255,255,.75)">Собственная служба качества</span>
+    <h1 class="h" style="margin-top:18px">Качество —<br><span class="g" style="color:rgba(255,255,255,.55)">часть системы.</span></h1>
+  </div></section>
+
+  <section class="sheet"><div class="wrap sec">
+    <div class="sec__head">
+      <div><span class="eb"><b>01</b> / Наш подход</span><h2 class="h">Контроль на каждом этапе<br><span class="g">и забота о клиенте.</span></h2></div>
+      <div class="lead"><p>Независимая служба качества ТехноХОЛДИНГ контролирует все этапы — от входного контроля материалов до итоговой приёмки. Проверяем соответствие проекту и технологии, фиксируем каждый этап, контролируем устранение замечаний и держим клиента в курсе.</p><p style="margin-top:14px">Результат — прозрачный процесс, предсказуемое качество и уверенность в надёжности объекта. Наша цель — качество, которое не требует компромиссов и исправлений после сдачи.</p></div>
+    </div>
+    <div class="nums">
+      <div class="num"><b>100%</b><span>контроль на всех этапах</span></div>
+      <div class="num"><b>4</b><span>этапа проверки</span></div>
+      <div class="num"><b>до 10</b><span>лет гарантии</span></div>
+    </div>
+  </div></section>
+
+  <section class="sheet dark"><div class="wrap sec">
+    <div class="q">
+      <div class="q__img"><img src="https://thld.su/assets/quality/generated-20260927/quality-tablet-review.jpg" alt="Сверка с проектом" loading="lazy"></div>
+      <div><span class="eb"><b>02</b> / Как мы контролируем качество</span>
+        <ol class="steps">
+          <li><i>01</i><span>Входной контроль материалов<br><small style="color:var(--g4);font-weight:400;font-size:15px">Проверяем сертификаты, партии и условия хранения до начала монтажа.</small></span></li>
+          <li><i>02</i><span>Контроль в процессе<br><small style="color:var(--g4);font-weight:400;font-size:15px">Сварные швы, узлы и примыкания — с фотофиксацией каждого этапа.</small></span></li>
+          <li><i>03</i><span>Итоговая приёмка<br><small style="color:var(--g4);font-weight:400;font-size:15px">Совместный осмотр с заказчиком, сверка с проектом, исполнительная документация.</small></span></li>
+          <li><i>04</i><span>Обратная связь и сопровождение<br><small style="color:var(--g4);font-weight:400;font-size:15px">Остаёмся на связи после сдачи и отвечаем по гарантии.</small></span></li>
+        </ol>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="sheet"><div class="wrap sec">
+    <div class="sec__head"><div><span class="eb"><b>03</b> / На объектах</span><h2 class="h">Работа<br><span class="g">на объектах.</span></h2></div></div>
+    <div class="op-photos" id="qph" style="margin-top:0"></div>
+    <div style="margin-top:50px"><a class="btn" href="index.html#contacts">Обсудить проект <span class="ar">→</span></a></div>
+  </div></section>
+</main>
+<div class="lb" id="lb" role="dialog" aria-modal="true"><button class="lb__x" data-close aria-label="Закрыть">×</button><button class="lb__p" aria-label="Назад">‹</button><button class="lb__n" aria-label="Вперёд">›</button><img alt=""><div class="lb__c"></div></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+(() => {
+  const caps = ['Команда службы качества', 'Проверка качества сварного шва', 'Сверка с проектом', 'Фотофиксация результатов', 'Совместный осмотр узла', 'Контроль узлов и примыканий'];
+  const Q = THLD.quality, el = document.getElementById('qph');
+  el.innerHTML = Q.map((s, k) => `<button data-k="${k}"><img src="${s}" alt="${caps[k]}" loading="lazy"></button>`).join('');
+  el.onclick = e => { const b = e.target.closest('[data-k]'); if (b) openLB(Q.map((s, k) => ({ src: s, cap: caps[k] })), +b.dataset.k); };
+  const hdr = document.getElementById('hdr');
+  addEventListener('scroll', () => { const p = scrollY > innerHeight * .6; hdr.classList.toggle('solid', p); hdr.classList.toggle('hdr--light', !p); }, { passive: true });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Объект — ТехноХолдинг</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hdr hdr--light" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="hdr__logo" href="index.html"><img src="https://thld.su/assets/logo/logo-thld.png" alt="ТехноХолдинг"></a>
+    <nav><a href="index.html#services">Услуги</a><a href="index.html#objects">Объекты</a><a href="index.html#map-sec">Карта</a><a href="quality.html">Служба качества</a><a href="index.html#contacts">Контакты</a></nav>
+    <a class="hdr__tel" href="tel:+73512253040">8 (351) 225-30-40</a>
+  </div>
+</header>
+<main id="op"></main>
+<div class="lb" id="lb" role="dialog" aria-modal="true"><button class="lb__x" data-close aria-label="Закрыть">×</button><button class="lb__p" aria-label="Назад">‹</button><button class="lb__n" aria-label="Вперёд">›</button><img alt=""><div class="lb__c"></div></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+(() => {
+  const D = window.THLD, id = new URLSearchParams(location.search).get('id');
+  const i = Math.max(0, D.objects.findIndex(o => o.id === id)), o = D.objects[i];
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const prev = D.objects[(i - 1 + D.objects.length) % D.objects.length], next = D.objects[(i + 1) % D.objects.length];
+  document.title = o.t + ' — ТехноХолдинг';
+  const sp = o.spec || {}, has = k => Object.keys(sp).some(x => x.toLowerCase().includes(k));
+  const base = { 'Заказчик': o.cust, 'Тип объекта': o.type, 'Кровля': o.roof, 'Год': o.year || '' };
+  if (!has('располож')) base['Город'] = o.city; if (!has('объем') && !has('объём')) base['Площадь'] = o.area; if (!has('срок')) base['Сроки'] = o.period;
+  const specs = Object.assign(base, sp);
+  const ph = o.ph.length ? o.ph : [o.img];
+  document.getElementById('op').innerHTML = `
+  <section class="op-hero"><img src="${ph[0]}" alt="${esc(o.t)}"><div class="wrap">
+    <a class="op-back" href="index.html#objects">← Все объекты</a>
+    <span class="eb" style="color:rgba(255,255,255,.75)">${esc(o.type)}${o.year ? ' · ' + o.year : ''}</span>
+    <h1 class="h" style="margin-top:18px;max-width:1100px;font-size:clamp(34px,4.6vw,76px)">${esc(o.t)}</h1></div></section>
+  <section class="sheet"><div class="wrap sec">
+    <div class="op-grid">
+      <div><span class="eb"><b>01</b> / Об объекте</span>
+        <h2 class="h2" style="margin-top:18px">${esc(o.area)}<br><span class="g">${esc(o.roof)}</span></h2>
+        ${o.desc ? `<p class="lead" style="margin-top:24px">${esc(o.desc)}</p>` : ''}
+        ${o.work.length ? `<p style="margin-top:24px;color:var(--g5);font-size:15px">Виды работ: ${o.work.map(esc).join(', ')}</p>` : ''}
+      </div>
+      <dl class="op-spec">${Object.entries(specs).filter(([, v]) => v).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>
+    </div>
+    <div class="op-photos">${ph.map((s, k) => `<button data-k="${k}"><img src="${s}" alt="" loading="lazy"></button>`).join('')}</div>
+    <nav class="op-nav"><a class="btn btn--o" href="object.html?id=${encodeURIComponent(prev.id)}">← ${esc(prev.t.slice(0, 40))}</a><a class="btn" href="object.html?id=${encodeURIComponent(next.id)}">${esc(next.t.slice(0, 40))} →</a></nav>
+  </div></section>`;
+  document.querySelector('.op-photos').onclick = e => { const b = e.target.closest('[data-k]'); if (b) openLB(ph.map(s => ({ src: s, cap: o.t })), +b.dataset.k); };
+  const hdr = document.getElementById('hdr');
+  addEventListener('scroll', () => { const p = scrollY > innerHeight * .6; hdr.classList.toggle('solid', p); hdr.classList.toggle('hdr--light', !p); }, { passive: true });
+})();
+</script>
+</body>
+</html>

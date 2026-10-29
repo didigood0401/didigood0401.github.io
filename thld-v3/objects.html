@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Объекты — ТехноХолдинг</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body style="background:var(--d1)">
+<header class="hdr solid" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="hdr__logo" href="index.html"><img src="https://thld.su/assets/logo/logo-thld.png" alt="ТехноХолдинг"></a>
+    <nav><a href="index.html#services">Услуги</a><a href="objects.html">Объекты</a><a href="index.html#map-sec">Карта</a><a href="quality.html">Служба качества</a><a href="index.html#contacts">Контакты</a></nav>
+    <a class="hdr__tel" href="tel:+73512253040">8 (351) 225-30-40</a>
+  </div>
+</header>
+<main class="dark" style="color:#fff">
+  <div class="wrap" style="padding-top:150px;padding-bottom:100px">
+    <span class="eb"><b>03</b> / Наши объекты</span>
+    <h1 class="h" style="margin:22px 0 40px">Результат<br><span class="g">говорит за нас.</span></h1>
+    <div class="obj__bar"><div class="obj__f" id="objF"></div><div class="obj__years" id="objY"></div></div>
+    <p class="obj__count" id="objCount" style="color:var(--g4);margin:0 0 24px"></p>
+    <div class="grid-objs" id="grid"></div>
+  </div>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+(() => {
+  const D = THLD, esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const TYPES = ['Все объекты', 'Жилые', 'Коммерческие', 'Производственные', 'Социальные'];
+  const years = [...new Set(D.objects.map(o => o.year).filter(Boolean))].sort((a, b) => b - a);
+  let fT = 'Все объекты', fY = 'all';
+  const F = document.getElementById('objF'), Y = document.getElementById('objY');
+  F.innerHTML = TYPES.map((t, i) => `<button class="chip${i ? '' : ' on'}" data-t="${t}">${t}</button>`).join('');
+  Y.innerHTML = '<button class="on" data-y="all">Все годы</button>' + years.map(y => `<button data-y="${y}">${y}</button>`).join('') + '<button data-y="none">Без года</button>';
+  const draw = () => {
+    const L = D.objects.filter(o => (fT === 'Все объекты' || o.type === fT) && (fY === 'all' || (fY === 'none' ? !o.year : o.year === +fY)));
+    document.getElementById('objCount').textContent = 'Объектов: ' + L.length;
+    document.getElementById('grid').innerHTML = L.map(o => `<a class="card" href="object.html?id=${encodeURIComponent(o.id)}"><div class="card__img"><img src="${o.img}" alt="${esc(o.t)}" loading="lazy">${o.year ? `<span class="card__yr">${o.year}</span>` : ''}</div><div class="card__b"><h3>${esc(o.t)}</h3><div class="card__m">${esc(o.roof)}</div><div class="card__m">📍 ${esc(o.city || 'Челябинская область')}</div><div class="card__f"><div><small>Площадь кровли</small><b>${esc(o.area)}</b></div><span class="card__go">↗</span></div></div></a>`).join('');
+  };
+  F.onclick = e => { const b = e.target.closest('[data-t]'); if (!b) return; fT = b.dataset.t; F.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === b)); draw(); };
+  Y.onclick = e => { const b = e.target.closest('[data-y]'); if (!b) return; fY = b.dataset.y; Y.querySelectorAll('button').forEach(c => c.classList.toggle('on', c === b)); draw(); };
+  draw();
+})();
+</script>
+</body>
+</html>
