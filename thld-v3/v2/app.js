@@ -47,8 +47,8 @@ const v = $('#heroVideo');
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const vert = innerWidth < 900 && innerHeight > innerWidth;   // телефон вертикально — свой вертикальный ролик 1080×1920
   v.muted = true; v.defaultMuted = true; v.setAttribute('autoplay', ''); v.preload = 'auto';
-  v.poster = vert ? '../video/hero2_v.jpg' : '../video/hero2.jpg';
-  v.src = vert ? '../video/hero2_v.mp4' : '../video/hero2.mp4';
+  v.poster = vert ? '../video/hero2_v.jpg?v=3' : '../video/hero2.jpg';
+  v.src = vert ? '../video/hero2_v.mp4?v=3' : '../video/hero2.mp4';
   v.hidden = false;
   const show = () => { v.classList.add('on'); $('#scene').style.opacity = 0; };
   v.addEventListener('playing', show, { once: true });
