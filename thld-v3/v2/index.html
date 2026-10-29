@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ТехноХолдинг — №1 по плоским кровлям на Урале (вариант 2)</title>
+<meta name="description" content="Концепт главной страницы ТехноХолдинг: 20 лет на рынке, 1 500 000+ м² плоских кровель, объекты на карте, служба качества.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+<link rel="stylesheet" href="styles.css?v=2">
+<script>document.documentElement.classList.remove('no-js')</script>
+</head>
+<body>
+
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="pre__word" id="preWord">ТЕХНОХОЛДИНГ</div>
+  <div class="pre__bar"><span>Плоские кровли · Урал</span><span id="preN">0</span></div>
+  <div class="pre__line" id="preLine"></div>
+</div>
+
+<header class="hdr hdr--light" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="hdr__logo" href="#top" aria-label="ТехноХолдинг — на главную"><img id="logo" src="https://thld.su/assets/logo/logo-thld.png" alt="ТехноХолдинг"></a>
+    <nav aria-label="Разделы">
+      <a href="#services">Услуги</a><a href="#objects">Объекты</a><a href="#map-sec">Карта</a><a href="../quality.html">Служба качества</a><a href="#contacts">Контакты</a>
+    </nav>
+    <a class="hdr__tel" href="tel:+73512253040">8 (351) 225-30-40</a>
+    <button class="burger" id="burger" aria-label="Меню"><i></i><i></i></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Меню">
+  <button class="mnav__x" id="mnavX" aria-label="Закрыть">×</button>
+  <a href="#services">Услуги</a><a href="#objects">Объекты</a><a href="#map-sec">Карта объектов</a><a href="../quality.html">Служба качества</a><a href="#contacts">Контакты</a>
+  <a href="tel:+73512253040" style="font-size:22px;margin-top:auto">8 (351) 225-30-40</a>
+</nav>
+
+<main id="top">
+<!-- 1. Первый экран: видео (слот hero.mp4) или живая сцена из материалов сайта -->
+<section class="hero" id="hero" aria-label="ТехноХолдинг">
+  <div class="hero__media" id="heroMedia">
+    <div class="scene" id="scene">
+      <div class="sky" style="background-image:url(https://thld.su/assets/figma-hero/hero-bg-sky-extended-70-v1-1672w.webp)"></div>
+      <div class="cl" style="background-image:url(https://thld.su/assets/figma-hero/hero-clouds-loop-1536w.webp)"></div>
+      <div class="bld" style="background-image:url(https://thld.su/assets/figma-hero/building-hq/building-roof-longitudinal-2x-v9-2560w.webp)"></div>
+      <div class="cl cl2" style="background-image:url(https://thld.su/assets/figma-hero/hero-clouds-lower-mist-1536w.webp)"></div>
+    </div>
+    <video id="heroVideo" muted playsinline loop preload="none" hidden></video>
+  </div>
+  <div class="hero__shade"></div>
+  <div class="wrap hero__in hero2">
+    <div class="one" id="one" aria-hidden="true">
+      <span class="one__no">№</span>
+      <div class="one__body">
+        <div class="one__glass"></div>
+        <div class="one__sheen" id="oneSheen"></div>
+        <svg class="one__edge" viewBox="0 0 100 160" preserveAspectRatio="none"><defs>
+          <linearGradient id="ge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#fff" stop-opacity=".25"/><stop offset=".6" stop-color="#f2c200" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".8"/></linearGradient>
+          <linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+          <path d="M36 1H69V159H36V40L9 52V20Z" fill="none" stroke="url(#ge)" stroke-width="2.2" vector-effect="non-scaling-stroke"/>
+          <path d="M42 6V154" stroke="url(#gs)" stroke-width="1.4" vector-effect="non-scaling-stroke" opacity=".7"/>
+          <path d="M64 8V152" stroke="#fff" stroke-opacity=".18" stroke-width="5" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+    </div>
+    <div class="h2txt">
+      <span class="eb">ТехноХолдинг · Челябинск и Урал</span>
+      <h1 class="hero__h"><span class="sr">№1 </span><span class="ln"><span>По плоским кровлям</span></span><span class="ln"><span class="g">на Урале.</span></span></h1>
+      <p class="slogan"><b>Надёжность на высоте.</b> Там, где небо касается кровли, — начинается наше мастерство.</p>
+      <div class="hero__row">
+        <div class="yrs"><b class="chrome">20</b><span>лет<br>на рынке</span></div>
+        <div class="hero__btns">
+          <button class="btn btn--glass" data-modal="mission">Миссия компании</button>
+          <a class="btn btn--y" href="../quality.html">Служба качества <span class="ar">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll">Листайте</div>
+</section>
+
+<!-- 2. Компания + цифры (перенесены ниже первого экрана, считаются) -->
+<section class="sheet" id="about">
+  <div class="wrap sec">
+    <div class="sec__head">
+      <div><span class="eb"><b>01</b> / Компания</span><h2 class="h rv">Сильная инженерия.<br><span class="g">Спокойствие заказчика.</span></h2></div>
+      <p class="lead rv">Мы — ТехноХолдинг. Строительная компания, которая специализируется на плоских кровлях жилых комплексов, коммерческих и производственных зданий. Там, где небо касается кровли, начинается наше мастерство.</p>
+    </div>
+    <div class="numsband" id="numsband">
+      <div class="numsband__bg"><img src="https://thld.su/assets/footer/roof-sunset-topaz-4k-20260929-1920w.webp" alt="" loading="lazy"></div>
+      <div class="nums nums--glass" id="nums">
+        <div class="num"><b data-count="20">0</b><span>лет на рынке</span></div>
+        <div class="num"><b data-count="1500000" data-plus>0</b><span>м² выполненных кровель</span></div>
+        <div class="num"><b data-count="1000" data-plus>0</b><span>объектов</span></div>
+        <div class="num"><b data-count="48">0</b><span>городов</span></div>
+        <div class="num"><b data-count="90" data-suf="%">0</b><span>постоянных клиентов</span></div>
+        <div class="num"><b data-count="10" data-pre="до ">0</b><span>лет гарантии</span></div>
+      </div>
+      <div class="numsband__hint" id="numsHint">Листайте — цифры считаются</div>
+    </div>
+    <div class="company">
+      <div class="company__img clip"><img src="https://thld.su/assets/footer/roof-sunset-topaz-4k-20260929-960w.webp" alt="Плоская кровля на закате" loading="lazy"></div>
+      <div class="rv">
+        <p>За 20 лет мы выполнили более 1 500 000 м² кровель для жилых комплексов, промышленных предприятий, торговых и социальных объектов в 48 городах Урала и не только.</p>
+        <p>Работаем на ПВХ-мембранах и наплавляемых материалах ведущих производителей, проектируем и монтируем кровлю под ключ, сопровождаем объект после сдачи. Собственная служба качества проверяет каждый этап — от входного контроля материалов до итоговой приёмки.</p>
+        <a class="btn" href="#objects" style="margin-top:14px">Смотреть объекты <span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Услуги -->
+<section class="sheet mid" id="services">
+  <div class="wrap sec">
+    <div class="sec__head">
+      <div><span class="eb"><b>02</b> / Решения</span><h2 class="h rv">Всё начинается<br><span class="g">с правильной кровли.</span></h2></div>
+      <p class="lead rv">Подбираем систему под основание, нагрузку и бюджет объекта. Нажмите на направление — покажем, как это выглядит на наших объектах.</p>
+    </div>
+    <div class="svc">
+      <div class="svc__list" id="svcList"></div>
+      <figure class="svc__pic" id="svcPic"><figcaption id="svcCap"></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Объекты -->
+<section class="sheet dark" id="objects">
+  <div class="sec" style="padding-bottom:clamp(60px,8vw,110px)">
+    <div class="wrap">
+      <div class="sec__head">
+        <div><span class="eb"><b>03</b> / Наши объекты</span><h2 class="h rv">Результат<br><span class="g">говорит за нас.</span></h2></div>
+        <p class="lead rv">124 объекта из архива компании: название, город, тип кровли, площадь и год. Нажмите на карточку — откроется страница объекта со всеми фото.</p>
+      </div>
+      <div class="obj__bar">
+        <div class="obj__f" id="objF"></div>
+        <div class="obj__years" id="objY" aria-label="Год реализации"></div>
+      </div>
+    </div>
+    <div class="pinwrap" id="pin"><div class="track" id="track"></div></div>
+    <div class="wrap obj__foot"><span class="obj__count" id="objCount"></span><span>Листайте — объекты проезжают</span></div>
+  </div>
+</section>
+
+<!-- 5. Карта -->
+<section class="sheet" id="map-sec">
+  <div class="wrap sec">
+    <div class="sec__head">
+      <div><span class="eb"><b>04</b> / Карта объектов</span><h2 class="h rv">Наш опыт —<br><span class="g">на карте.</span></h2></div>
+      <p class="lead rv">Если в одной точке несколько объектов, нажмите на кружок — появится список с фото, как на Авито. Приближайте карту, чтобы увидеть каждый объект отдельно.</p>
+    </div>
+    <div class="map rv">
+      <div id="map" aria-label="Карта объектов"></div>
+      <aside class="mpanel" id="mpanel" aria-live="polite">
+        <div class="mpanel__h"><span id="mpTitle">Объекты</span><button class="mpanel__x" id="mpX" aria-label="Закрыть">×</button></div>
+        <div class="mpanel__list" id="mpList"></div>
+      </aside>
+      <div class="map__legend">Координаты подобраны по адресам из архива — для демо. На сайте подставим точные.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Есть основания нам доверять -->
+<section class="sheet mid" id="trust">
+  <div class="wrap sec">
+    <div class="sec__head">
+      <div><span class="eb"><b>05</b> / Преимущества</span><h2 class="h rv">Есть основания<br><span class="g">нам доверять.</span></h2></div>
+      <p class="lead rv">Сертификаты, допуски и награды — нажмите на карточку, чтобы рассмотреть документ.</p>
+    </div>
+    <div class="adv" id="adv"></div>
+  </div>
+</section>
+
+<!-- 7. Служба качества -->
+<section class="sheet dark" id="quality">
+  <div class="wrap sec">
+    <div class="q">
+      <div class="q__img clip"><img src="https://thld.su/assets/quality/generated-20260927/quality-hero-team-higgsfield.jpg" alt="Инженеры службы качества на кровле" loading="lazy"></div>
+      <div>
+        <span class="eb"><b>06</b> / Служба качества</span>
+        <h2 class="h rv" style="margin-top:22px">Качество —<br><span class="g">часть системы.</span></h2>
+        <ol class="steps">
+          <li><i>01</i>Входной контроль материалов</li>
+          <li><i>02</i>Контроль в процессе работ</li>
+          <li><i>03</i>Итоговая приёмка</li>
+          <li><i>04</i>Обратная связь и сопровождение клиента</li>
+        </ol>
+        <a class="btn btn--y" href="../quality.html">Подробнее о службе качества <span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Команда -->
+<section class="sheet" id="team">
+  <div class="wrap sec">
+    <div class="sec__head">
+      <div><span class="eb"><b>07</b> / Команда</span><h2 class="h rv">Люди, на которых<br><span class="g">можно положиться.</span></h2></div>
+      <p class="lead rv">Инженеры, монтажники, проектировщики и служба заботы о клиенте — одна команда на весь цикл работ.</p>
+    </div>
+    <div class="team">
+      <div class="team__ph clip"><img src="https://thld.su/assets/team/team-main-office-20261002-960w.webp" alt="Команда ТехноХолдинг" loading="lazy"><span>Наша команда</span></div>
+      <div class="team__ph clip"><img src="https://thld.su/assets/team/team-corporate-curling.jpg" alt="Корпоративный турнир по кёрлингу" loading="lazy"><span>Корпоративная жизнь</span></div>
+    </div>
+    <div class="deps" id="deps"></div>
+  </div>
+</section>
+
+<!-- 9. Рекомендации -->
+<section class="sheet mid" id="recs">
+  <div class="sec">
+    <div class="wrap sec__head">
+      <div><span class="eb"><b>08</b> / Рекомендации</span><h2 class="h rv">О нашей работе —<br><span class="g">словами заказчиков.</span></h2></div>
+      <p class="lead rv">Объект и рекомендательное письмо, которое мы за него получили. Нажмите, чтобы прочитать письмо.</p>
+    </div>
+    <div class="recs" id="recList"></div>
+  </div>
+</section>
+
+<!-- 10. Контакты -->
+<section class="sheet dark" id="contacts">
+  <div class="wrap sec" style="padding-bottom:40px">
+    <div class="ct">
+      <div>
+        <span class="eb"><b>09</b> / Начнём сотрудничество</span>
+        <h2 class="h rv" style="margin-top:22px">У каждого проекта есть точка старта.<br><span class="g">Давайте обсудим ваш.</span></h2>
+        <div class="ct__rows">
+          <div><small>Общие контакты</small><a href="tel:+73512253040">8 (351) 225-30-40</a><a href="mailto:info@thld.su" style="font-size:18px;color:var(--g4)">info@thld.su</a></div>
+          <div><small>Отдел продаж</small><a href="tel:+79058320078">8 905 832-00-78</a><a href="mailto:op@thld.su" style="font-size:18px;color:var(--g4)">op@thld.su</a></div>
+          <div class="wide"><small>Адрес офиса</small><p>г. Челябинск, ул. Труда, д. 174, 2 этаж (ТК «Манхэттен», вход «С»)</p></div>
+        </div>
+        <div class="ct__btns">
+          <a class="btn btn--y" href="https://thld.su/assets/footer/rekvizity-tekhnokholding.pdf" target="_blank" rel="noopener" download>Скачать реквизиты ↓</a>
+          <a class="btn btn--o" href="https://thld.su/assets/footer/catalog-objects-tekhnokholding-2026.pdf" target="_blank" rel="noopener" download>Скачать каталог ↓</a>
+          <a class="btn btn--o" href="https://max.ru/" target="_blank" rel="noopener">MAX</a>
+        </div>
+      </div>
+      <div class="ct__img clip"><img src="https://thld.su/assets/footer/roof-sunset-topaz-4k-20260929-960w.webp" alt="Кровля ТехноХолдинг на закате" loading="lazy"></div>
+    </div>
+    <div class="ftr" style="margin-top:70px"><span>© 2005–2026 ООО «Технохолдинг». Концепт сайта для согласования.</span><a href="#top">Наверх ↑</a></div>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="mission" role="dialog" aria-modal="true" aria-label="Миссия компании">
+  <div class="modal__b">
+    <button class="modal__x" data-close aria-label="Закрыть">×</button>
+    <span class="eb">Миссия компании</span>
+    <h3 class="h2" style="margin-top:18px">Там, где небо касается кровли, —<br><span class="g">начинается наше мастерство.</span></h3>
+    <p>Мы строим кровли, о которых заказчик может не думать десятилетиями. Наша задача — чтобы каждый объект был сухим, тёплым и безопасным, а процесс — понятным: от первого расчёта до гарантийного обслуживания.</p>
+    <p>Мы отвечаем за результат своей службой качества, обучаем специалистов в Академии ТЕХНОНИКОЛЬ и работаем только на проверенных материалах.</p>
+    <span class="tag-demo">Текст-заглушка — заменим на ваш</span>
+  </div>
+</div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр">
+  <button class="lb__x" data-close aria-label="Закрыть">×</button><button class="lb__p" aria-label="Назад">‹</button><button class="lb__n" aria-label="Вперёд">›</button>
+  <img alt=""><div class="lb__c"></div>
+</div>
+
+<script src="../data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script src="app.js?v=2"></script>
+</body>
+</html>

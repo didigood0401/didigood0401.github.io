@@ -41,12 +41,20 @@ if (!RM && window.Lenis) {
 gsap.registerPlugin(ScrollTrigger);
 
 /* ---------- видео героя: пролёты над кровлями объектов; на телефоне лёгкая версия 720p, при «меньше движения» остаётся сцена ---------- */
+// Телефоны могут запрещать автозапуск (энергосбережение, экономия трафика, встроенные браузеры) — тогда показываем первый кадр
+// ролика как картинку и запускаем видео при первом касании или прокрутке.
 const v = $('#heroVideo');
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  v.src = innerWidth < 900 ? 'video/hero_720.mp4' : 'video/hero.mp4';
+  const sm = innerWidth < 900;
+  v.muted = true; v.defaultMuted = true; v.setAttribute('autoplay', ''); v.preload = 'auto';
+  v.poster = sm ? 'video/hero_poster_720.jpg' : 'video/hero_poster.jpg';
+  v.src = sm ? 'video/hero_720.mp4' : 'video/hero.mp4';
   v.hidden = false;
-  v.addEventListener('playing', () => { v.classList.add('on'); $('#scene').style.opacity = 0; }, { once: true });
-  v.play().catch(() => {});
+  const show = () => { v.classList.add('on'); $('#scene').style.opacity = 0; };
+  v.addEventListener('playing', show, { once: true });
+  const tryPlay = () => v.play().catch(() => { show(); ['touchstart', 'pointerdown', 'scroll'].forEach(ev => addEventListener(ev, () => v.play().catch(() => {}), { once: true, passive: true })); });
+  v.readyState >= 2 ? tryPlay() : v.addEventListener('loadeddata', tryPlay, { once: true });
+  v.load();
 }
 
 /* ---------- прелоадер: ТЕХНОХОЛДИНГ крутится и уходит ---------- */
