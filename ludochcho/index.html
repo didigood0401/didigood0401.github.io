@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Людмила · @ludochcho - изделия из эпоксидной смолы ручной работы</title>
+<meta name="description" content="Сервировочные доски, светильники, ёлочные игрушки, броши, столы и панно из эпоксидной смолы ручной работы. Подарки для компаний. Горный Алтай, доставка по России.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef5f3;--paper:#fbfdfc;--ink:#13292c;--ink2:#40575a;--mut:#5d6c6d;--sea:#1aa7ad;--sea-d:#0d7178;--sea-l:#dff3f2;--orange:#b4511c;--line:rgba(19,41,44,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.kick{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea-d)}
+.kick::before{content:"";width:22px;height:2px;background:var(--orange);border-radius:2px}
+h2{font:600 clamp(34px,4.4vw,56px)/1.02 "Cormorant Garamond",Georgia,serif;letter-spacing:-.5px;margin:12px 0 14px}
+h2 i{color:var(--sea-d)}
+.lead{color:var(--ink2);font-size:17px;max-width:640px}
+.btn{display:inline-flex;align-items:center;gap:9px;height:52px;padding:0 24px;border-radius:999px;font-weight:700;font-size:15px;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-sea{background:var(--sea-d);color:#fff;box-shadow:0 10px 22px -14px rgba(19,41,44,.55)}
+.btn-sea:hover{background:#0a5f65}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn svg{width:18px;height:18px}
+/* шапка */
+header{position:sticky;top:0;z-index:20;background:rgba(238,245,243,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font:600 24px "Cormorant Garamond",serif;letter-spacing:.2px}
+.logo b{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8fe1e0,#1aa7ad 55%,#0d7178);box-shadow:inset 0 -3px 6px rgba(0,0,0,.18)}
+.logo small{display:block;font:600 11px Manrope;color:var(--mut);letter-spacing:.04em}
+nav.menu{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:14.5px}
+nav.menu a:hover{color:var(--sea-d)}
+header .btn{height:42px;padding:0 18px;font-size:14px}
+/* первый экран */
+.hero{padding:54px 0 70px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font:600 clamp(42px,5.6vw,76px)/.98 "Cormorant Garamond",Georgia,serif;letter-spacing:-1px;margin:16px 0 18px}
+.hero h1 i{color:var(--sea-d)}
+.hero .lead{font-size:18px}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px;color:var(--ink2);font-size:14px}
+.facts b{display:block;font:600 30px "Cormorant Garamond",serif;color:var(--ink);line-height:1}
+.hero-art{position:relative;height:620px}
+.hero-art .ph{position:absolute;border-radius:26px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(19,41,44,.55)}
+.hero-art .ph img{width:100%;height:100%;object-fit:cover}
+.hero-art .p1{left:0;top:30px;width:58%;height:540px}
+.hero-art .p2{right:0;top:0;width:44%;height:300px}
+.hero-art .p3{right:4%;bottom:0;width:40%;height:280px}
+.badge{position:absolute;left:44%;bottom:34px;background:var(--paper);border-radius:18px;padding:12px 16px;box-shadow:0 18px 36px -18px rgba(19,41,44,.5);font-size:13px;color:var(--ink2);max-width:210px}
+.badge b{display:block;color:var(--ink);font-size:15px}
+/* каталог */
+section{padding:84px 0}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.cat{background:var(--paper);border-radius:24px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
+.cat .imgs{display:grid;gap:4px;height:300px;background:#eee;grid-template-rows:minmax(0,1fr)}
+.cat .imgs.two{grid-template-columns:1fr 1fr}
+.cat .imgs.three{grid-template-columns:1.3fr 1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr)}
+.cat .imgs.three button:first-child{grid-row:span 2}
+.cat .imgs button{border:0;padding:0;cursor:zoom-in;overflow:hidden;background:#ddd;min-height:0;height:100%}
+.cat .imgs img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cat .imgs button:hover img{transform:scale(1.05)}
+.cat .bd{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cat h3{font:600 27px/1.05 "Cormorant Garamond",serif}
+.cat p{color:var(--ink2);font-size:14.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chips span{font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--sea-l);color:var(--sea-d)}
+.cat .ord{margin-top:auto;padding-top:10px;font-weight:700;font-size:14px;color:var(--orange);display:inline-flex;gap:6px;align-items:center;cursor:pointer;background:none;border:0;font-family:inherit;text-align:left}
+.also{margin-top:22px;background:var(--paper);border:1px dashed rgba(13,113,120,.35);border-radius:20px;padding:18px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--ink2);font-size:15px}
+.also b{color:var(--ink)}
+/* большие изделия */
+.big{background:var(--ink);color:#f2ede4}
+.big .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.big h2 i{color:#7fd9d6}
+.big .lead{color:#b9c6c4}
+.big .kick{color:#7fd9d6}
+.big-ph{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:240px 240px;gap:14px}
+.big-ph button{border:0;padding:0;border-radius:22px;overflow:hidden;cursor:zoom-in;background:#20393c}
+.big-ph button:first-child{grid-row:span 2}
+.big-ph img{width:100%;height:100%;object-fit:cover}
+.list{list-style:none;margin:22px 0 28px;display:flex;flex-direction:column;gap:12px}
+.list li{display:flex;gap:12px;align-items:flex-start}
+.list li::before{content:"";flex:none;width:10px;height:10px;margin-top:8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8fe1e0,#1aa7ad)}
+.big .btn-line{border-color:#f2ede4;color:#f2ede4}
+/* корпоративным */
+.corp .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cc{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px}
+.cc b{display:block;font:600 22px/1.1 "Cormorant Garamond",serif;margin-bottom:6px}
+.cc span{font-size:14px;color:var(--ink2)}
+.cc em{display:block;font-style:normal;font-weight:800;font-size:13px;color:var(--orange);margin-bottom:8px;letter-spacing:.08em}
+/* как заказать + форма */
+.order{background:var(--sea-l)}
+.order .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:18px;margin-top:26px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:46px 1fr;gap:14px}
+.steps li::before{content:counter(s);width:46px;height:46px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font:600 24px "Cormorant Garamond",serif;color:var(--sea-d);box-shadow:0 4px 10px -6px rgba(19,41,44,.35)}
+.steps b{display:block;font-size:16px}
+.steps span{font-size:14.5px;color:var(--ink2)}
+form{background:var(--paper);border-radius:26px;padding:28px;box-shadow:0 30px 60px -36px rgba(19,41,44,.45);display:flex;flex-direction:column;gap:14px}
+form h3{font:600 30px "Cormorant Garamond",serif}
+label{font-size:13px;font-weight:700;color:var(--ink2);display:flex;flex-direction:column;gap:6px}
+input,select,textarea{font:500 15px Manrope;color:var(--ink);border:1.5px solid var(--line);border-radius:14px;padding:13px 14px;background:#fff;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sea)}
+textarea{min-height:96px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.send{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.send .btn{justify-content:center;height:50px}
+.btn-wa{background:#1b7f45;color:#fff}
+.hint{font-size:12.5px;color:var(--mut)}
+/* контакты */
+footer{background:var(--ink);color:#b9c6c4;padding:46px 0 34px}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer .logo{color:#f2ede4}
+footer a{color:#f2ede4;font-weight:600}
+footer .c{display:flex;flex-direction:column;gap:6px;font-size:15px}
+/* просмотр фото */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,22,24,.92);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb img{max-width:min(1100px,100%);max-height:88vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;width:48px;height:48px;border-radius:50%;font-size:24px;cursor:pointer}
+.lb .x{top:18px;right:18px}.lb .pv{left:18px;top:50%;transform:translateY(-50%)}.lb .nx{right:18px;top:50%;transform:translateY(-50%)}
+.lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#d8e4e3;font-size:14px}
+@media(max-width:980px){nav.menu{display:none}.hero .wrap,.big .wrap,.corp .wrap,.order .wrap{grid-template-columns:1fr;gap:36px}.hero-art{height:520px}.cats{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.wrap{padding:0 16px}header .btn{display:none}.hero{padding:30px 0 50px}.hero-art{height:430px}.hero-art .p1{height:400px;top:20px}.hero-art .p2{height:210px}.hero-art .p3{height:190px}.badge{left:auto;right:8px;bottom:-14px}.cats{grid-template-columns:1fr}section{padding:60px 0}.cards{grid-template-columns:1fr}.two,.send{grid-template-columns:1fr}form{padding:20px}.facts{gap:20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+ <a class="logo" href="#"><b></b><span>Людмила<small>@ludochcho · смола ручной работы</small></span></a>
+ <nav class="menu"><a href="#works">Изделия</a><a href="#big">В интерьер</a><a href="#corp">Компаниям</a><a href="#order">Как заказать</a><a href="#contacts">Контакты</a></nav>
+ <a class="btn btn-sea" href="#order">Заказать</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+ <div>
+  <span class="kick">Эпоксидная смола · ручная работа</span>
+  <h1>Вещи, в которых <i>застыло</i> море, лето и праздник</h1>
+  <p class="lead">Я Людмила, делаю изделия из смолы с живым наполнением - цветами, фруктами, ракушками. От брошки и ёлочной игрушки до стола в интерьер. Каждая вещь - в единственном экземпляре.</p>
+  <div class="acts"><a class="btn btn-sea" href="#order">Заказать изделие</a><a class="btn btn-line" href="#corp">Подарки для компаний</a></div>
+  <div class="facts"><div><b>от мелочи</b>брошки, игрушки, подставки</div><div><b>до стола</b>столы, панно, картины</div><div><b>под ваш заказ</b>наполнение и цвет на выбор</div></div>
+ </div>
+ <div class="hero-art">
+  <div class="ph p1"><img src="img/svetilnik-s.webp" alt="Светильник из смолы с ракушками"></div>
+  <div class="ph p2"><img src="img/doski-frukty-s.webp" alt="Сервировочные доски из смолы с фруктами и цветами"></div>
+  <div class="ph p3"><img src="img/doski-kity-s.webp" alt="Деревянные доски с морской заливкой из смолы"></div>
+  <div class="badge"><b>Стол для музея</b>большие работы - тоже ко мне</div>
+ </div>
+</div></section>
+
+<section id="works"><div class="wrap">
+ <span class="kick">Изделия</span>
+ <h2>Что я <i>делаю</i></h2>
+ <p class="lead">Наполнение - любое: цветы, сухофрукты, ракушки, хвоя, блёстки. Можно повторить изделие из каталога или придумать своё.</p>
+ <div class="cats">
+  <article class="cat"><div class="imgs three"><button data-g="doski-frukty" data-c="Сервировочные доски с фруктами и цветами"><img src="img/doski-frukty-s.webp" alt="Сервировочные доски с фруктами" loading="lazy"></button><button data-g="doski-zima" data-c="Доски зимней серии"><img src="img/doski-zima-s.webp" alt="Доски зимней серии" loading="lazy"></button><button data-g="doski-kity" data-c="Деревянные доски с морской заливкой"><img src="img/doski-kity-s.webp" alt="Доски с морской заливкой" loading="lazy"></button></div>
+   <div class="bd"><h3>Сервировочные доски</h3><p>Для подачи сыра, фруктов, закусок и как украшение стола. Наполнение любое.</p><div class="chips"><span>цветы</span><span>фрукты</span><span>зимняя серия</span><span>серия «Глинтвейн»</span><span>морская</span></div><button class="ord" data-item="Сервировочная доска">Заказать доску →</button></div></article>
+
+  <article class="cat"><div class="imgs two"><button data-g="svetilnik" data-c="Светильник «Море» с ракушками"><img src="img/svetilnik-s.webp" alt="Светильник из смолы" loading="lazy"></button><button data-g="shkatulka-rakushki" data-c="Подставка с ракушками"><img src="img/shkatulka-rakushki-s.webp" alt="Подставка с ракушками" loading="lazy"></button></div>
+   <div class="bd"><h3>Светильники и подставки</h3><p>Светильники с подсветкой снизу - тёплый свет проходит сквозь «волну». Подставки под телефон и для мелочей.</p><div class="chips"><span>светильник</span><span>подставка под телефон</span><span>морская серия</span></div><button class="ord" data-item="Светильник или подставка">Заказать →</button></div></article>
+
+  <article class="cat"><div class="imgs two"><button data-g="oskolok-cvety" data-c="«Осколок» с цветами"><img src="img/oskolok-cvety-s.webp" alt="Осколок из смолы с цветами" loading="lazy"></button><button data-g="oskolki-more" data-c="«Осколки» морской серии"><img src="img/oskolki-more-s.webp" alt="Осколки морской серии" loading="lazy"></button></div>
+   <div class="bd"><h3>«Осколки»</h3><p>Свободная форма с разными наполнениями. Как подставка для украшений или для сервировки стола.</p><div class="chips"><span>для украшений</span><span>для сервировки</span><span>цветы</span><span>море</span></div><button class="ord" data-item="«Осколок»">Заказать «осколок» →</button></div></article>
+
+  <article class="cat"><div class="imgs three"><button data-g="elochnye-igrushki" data-c="Ёлочные игрушки"><img src="img/elochnye-igrushki-s.webp" alt="Ёлочные игрушки из смолы" loading="lazy"></button><button data-g="loshadki-igrushki" data-c="Лошадки-качалки на ёлку"><img src="img/loshadki-igrushki-s.webp" alt="Лошадки на ёлку" loading="lazy"></button><button data-g="igrushka-led" data-c="Игрушка «Лёд»"><img src="img/igrushka-led-s.webp" alt="Ёлочная игрушка Лёд" loading="lazy"></button></div>
+   <div class="bd"><h3>Новогодние игрушки</h3><p>Шары, лошадки, бутылочки, «лёд» - на ёлку и в подарок. Можно набором в одной гамме.</p><div class="chips"><span>на ёлку</span><span>наборы</span><span>в подарок</span></div><button class="ord" data-item="Новогодние игрушки">Заказать игрушки →</button></div></article>
+
+  <article class="cat"><div class="imgs two"><button data-g="broshi-loshadki" data-c="Броши-лошадки"><img src="img/broshi-loshadki-s.webp" alt="Броши лошадки из смолы" loading="lazy"></button><button data-g="kozlik" data-c="Козлик и капуста"><img src="img/kozlik-s.webp" alt="Козлик из смолы" loading="lazy"></button></div>
+   <div class="bd"><h3>Броши и мелочи</h3><p>Броши, броши-окошки, козлики, конфетки, «капуста» - маленькие вещи с характером.</p><div class="chips"><span>броши</span><span>броши-окошки</span><span>козлики</span><span>конфетки</span></div><button class="ord" data-item="Броши и мелочи">Заказать →</button></div></article>
+
+  <article class="cat"><div class="imgs two"><button data-g="melochi" data-c="Из мастерской"><img src="img/melochi-s.webp" alt="Изделия в мастерской" loading="lazy"></button><button data-g="stol-muzej" data-c="Стол для музея"><img src="img/stol-muzej-s.webp" alt="Большой стол для музея" loading="lazy"></button></div>
+   <div class="bd"><h3>Под ваш заказ</h3><p>Нет похожего в каталоге? Опишите идею - подберём форму, размер и наполнение.</p><div class="chips"><span>своё наполнение</span><span>фирменные цвета</span><span>любой размер</span></div><button class="ord" data-item="Изделие по моей идее">Обсудить идею →</button></div></article>
+ </div>
+</div></section>
+
+<section class="big" id="big"><div class="wrap">
+ <div>
+  <span class="kick">В интерьер</span>
+  <h2>Большие <i>работы</i></h2>
+  <p class="lead">Делаю и мелочь, и большой продукт в интерьер. Например, этот стол я сделала для музея.</p>
+  <ul class="list"><li>Столы и столешницы - с «рекой», морем, природным наполнением</li><li>Картины и панно из смолы</li><li>Для дома, ресторана, офиса, музея</li></ul>
+  <a class="btn btn-line" href="#order" data-item="Большое изделие в интерьер">Обсудить проект</a>
+ </div>
+ <div class="big-ph">
+  <button data-g="stol-muzej" data-c="Стол для музея"><img src="img/stol-muzej-s.webp" alt="Стол из смолы для музея" loading="lazy"></button>
+  <button data-g="oskolki-more" data-c="Морская серия"><img src="img/oskolki-more-s.webp" alt="Морская серия" loading="lazy"></button>
+  <button data-g="doski-kity" data-c="Дерево и смола"><img src="img/doski-kity-s.webp" alt="Дерево и смола" loading="lazy"></button>
+ </div>
+</div></section>
+
+<section class="corp" id="corp"><div class="wrap">
+ <div>
+  <span class="kick">Компаниям</span>
+  <h2>Подарки и интерьер <i>для бизнеса</i></h2>
+  <p class="lead">Сделаю серию подарков для сотрудников и партнёров, сувениры к праздникам или изделие в интерьер офиса и ресторана - в ваших фирменных цветах.</p>
+  <div class="acts" style="margin-top:24px"><a class="btn btn-sea" href="#order" data-item="Корпоративный заказ">Обсудить корпоративный заказ</a></div>
+ </div>
+ <div class="cards">
+  <div class="cc"><em>01</em><b>Новогодние подарки</b><span>Игрушки, доски, светильники наборами для команды и клиентов.</span></div>
+  <div class="cc"><em>02</em><b>В фирменных цветах</b><span>Подбираю цвет смолы и наполнение под ваш бренд.</span></div>
+  <div class="cc"><em>03</em><b>Серии под событие</b><span>Сувениры к конференции, юбилею, открытию.</span></div>
+  <div class="cc"><em>04</em><b>Интерьер</b><span>Столы, панно и картины для офиса, ресторана, отеля.</span></div>
+ </div>
+</div></section>
+
+<section class="order" id="order"><div class="wrap">
+ <div>
+  <span class="kick">Как заказать</span>
+  <h2>Просто <i>напишите</i></h2>
+  <ol class="steps">
+   <li><div><b>Выберите изделие или расскажите идею</b><span>Можно прислать фото-пример или описать словами.</span></div></li>
+   <li><div><b>Обсудим наполнение, цвет и размер</b><span>Подскажу, что получится красиво, и назову стоимость и срок.</span></div></li>
+   <li><div><b>Изготовление</b><span>Смола застывает не сразу - покажу фото готового изделия перед отправкой.</span></div></li>
+   <li><div><b>Доставка по России</b><span>Бережно упакую. Из Горного Алтая - в любой город.</span></div></li>
+  </ol>
+ </div>
+ <form id="f" novalidate>
+  <h3>Заявка на изделие</h3>
+  <div class="two"><label>Ваше имя<input name="name" autocomplete="name" placeholder="Анна"></label><label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label></div>
+  <label>Что хотите заказать<select name="item" id="item">
+   <option>Сервировочная доска</option><option>Светильник или подставка</option><option>«Осколок»</option><option>Новогодние игрушки</option><option>Броши и мелочи</option><option>Большое изделие в интерьер</option><option>Корпоративный заказ</option><option>Изделие по моей идее</option>
+  </select></label>
+  <label>Пожелания<textarea name="msg" placeholder="Например: доска с апельсинами и корицей, к 20 декабря, 3 штуки"></textarea></label>
+  <div class="send"><button class="btn btn-wa" type="submit" data-to="wa">Отправить в WhatsApp</button><a class="btn btn-line" href="tel:+79081045144">Позвонить</a></div>
+  <p class="hint">Нажмите - откроется WhatsApp с готовым сообщением, останется отправить.</p>
+ </form>
+</div></section>
+
+<footer id="contacts"><div class="wrap">
+ <div><a class="logo" href="#"><b></b><span>Людмила<small style="color:#a9bab8">@ludochcho · смола ручной работы</small></span></a><p style="margin-top:12px;max-width:340px;font-size:14px">Изделия из эпоксидной смолы ручной работы. Горный Алтай, доставка по России.</p></div>
+ <div class="c"><span>Телефон: <a href="tel:+79081045144">+7 908 104-51-44</a></span><span>WhatsApp: <a href="https://wa.me/79081045144" target="_blank" rel="noopener">написать</a></span><span>Мои работы: <b style="color:#f2ede4">@ludochcho</b></span></div>
+</div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фото"><button class="x" aria-label="Закрыть">×</button><button class="pv" aria-label="Предыдущее">‹</button><img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><button class="nx" aria-label="Следующее">›</button><p></p></div>
+
+<script>
+(function(){
+ // просмотр фото
+ var btns=[].slice.call(document.querySelectorAll('[data-g]')),seen={},list=[];
+ btns.forEach(function(b){if(!seen[b.dataset.g]){seen[b.dataset.g]=1;list.push(b)}});
+ var lb=document.getElementById('lb'),im=lb.querySelector('img'),cap=lb.querySelector('p'),cur=0;
+ function show(i){cur=(i+list.length)%list.length;var b=list[cur];im.src='img/'+b.dataset.g+'.webp';im.alt=b.dataset.c;cap.textContent=b.dataset.c;lb.classList.add('on');document.body.style.overflow='hidden'}
+ function close(){lb.classList.remove('on');document.body.style.overflow=''}
+ btns.forEach(function(b){b.addEventListener('click',function(){show(list.findIndex(function(x){return x.dataset.g===b.dataset.g}))})});
+ lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){show(cur-1)};lb.querySelector('.nx').onclick=function(){show(cur+1)};
+ lb.addEventListener('click',function(e){if(e.target===lb)close()});
+ document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+ // кнопки «Заказать» подставляют изделие в форму
+ var sel=document.getElementById('item');
+ document.querySelectorAll('[data-item]').forEach(function(a){a.addEventListener('click',function(e){
+  var v=a.dataset.item;[].forEach.call(sel.options,function(o){if(o.text===v)sel.value=v});
+  if(a.tagName==='BUTTON'){e.preventDefault();document.getElementById('order').scrollIntoView({behavior:'smooth'})}
+ })});
+ // заявка -> WhatsApp с готовым текстом
+ document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
+  var t='Здравствуйте, Людмила! Хочу заказать: '+f.item.value+(f.msg.value?'.\n'+f.msg.value:'')+(f.name.value?'\nИмя: '+f.name.value:'')+(f.phone.value?'\nТелефон: '+f.phone.value:'');
+  window.open('https://wa.me/79081045144?text='+encodeURIComponent(t),'_blank','noopener')});
+})();
+</script>
+</body>
+</html>
