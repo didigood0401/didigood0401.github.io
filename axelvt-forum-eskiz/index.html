@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Вибросообщество - эскиз портала для axelVT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#121c45;--brand:#1f3cc0;--brand-d:#162c93;--sky:#8cc9ec;--sky-d:#6db8e6;--sky-l:#e8f4fc;--soft:#f3f6fb;--soft2:#e9eef8;--line:#dfe4ee;--tx:#1e2535;--mut:#5c677d;--ok:#1d9a6c;--warn:#d9822b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:15px/1.55 "IBM Plex Sans",Arial,sans-serif;color:var(--tx);background:var(--soft);-webkit-font-smoothing:antialiased}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+.mono{font-family:"IBM Plex Mono",monospace}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.note{background:#fff6e6;border-bottom:1px solid #f0d9ad;color:#7a5410;font-size:13px;text-align:center;padding:7px 16px}
+/* шапка */
+.top{background:var(--navy);color:#fff}
+.top .wrap{display:flex;align-items:center;gap:22px;min-height:66px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:19px;letter-spacing:-.2px;white-space:nowrap}
+.logo:hover{text-decoration:none}
+.logo svg{width:34px;height:34px}
+.logo small{display:block;font:500 11px "IBM Plex Mono",monospace;color:var(--sky);letter-spacing:.06em;text-transform:uppercase}
+.search{flex:1;max-width:420px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:0 12px;height:40px;color:#b8c3e6;font-size:14px}
+.search svg{width:16px;height:16px;flex:none}
+.auth{margin-left:auto;display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 16px;border-radius:10px;font-weight:600;font-size:14px;border:1px solid transparent;cursor:pointer;white-space:nowrap;font-family:inherit}
+.btn:hover{text-decoration:none}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.25);background:none}
+.btn-sky{background:var(--sky);color:var(--navy)}
+.btn-brand{background:var(--brand);color:#fff}
+.btn-out{background:#fff;color:var(--brand);border-color:var(--line)}
+nav.tabs{background:var(--brand-d)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.tabs .wrap::-webkit-scrollbar{display:none}
+nav.tabs a{color:#dfe6ff;padding:13px 15px;font-weight:600;font-size:14.5px;white-space:nowrap;border-bottom:3px solid transparent;display:flex;align-items:center;gap:7px}
+nav.tabs a:hover{text-decoration:none;color:#fff}
+nav.tabs a.on{color:#fff;border-bottom-color:var(--sky)}
+nav.tabs .new{font:600 10.5px "IBM Plex Mono",monospace;background:var(--sky);color:var(--navy);border-radius:5px;padding:1px 5px}
+/* раскладка */
+main{padding:24px 0 60px}
+.page{display:none}.page.on{display:block}
+.grid{display:grid;grid-template-columns:1fr 300px;gap:22px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px}
+.card-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.card-h h2,.card-h h3{font-size:16.5px;font-weight:700}
+.card-h a{font-size:13.5px;font-weight:600}
+.stack>*+*{margin-top:22px}
+.ad{border:1.5px dashed #b9c6e6;background:repeating-linear-gradient(135deg,#f7f9fd 0 12px,#f1f5fc 12px 24px);border-radius:12px;color:var(--mut);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;gap:2px;font-size:13px}
+.ad b{font:600 11px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#8592b5}
+.ad-wide{height:96px}.ad-side{height:250px}
+/* главная */
+.hero{background:linear-gradient(120deg,var(--navy) 0%,#1b2c73 60%,var(--brand) 100%);color:#fff;border-radius:18px;padding:34px 34px 30px;position:relative;overflow:hidden}
+.hero svg.wave{position:absolute;right:-40px;top:-6px;width:520px;opacity:.18}
+.hero h1{font-size:clamp(26px,3.4vw,38px);line-height:1.12;letter-spacing:-.5px;max-width:640px;position:relative}
+.hero p{color:#c9d4f5;max-width:600px;margin-top:10px;font-size:16px;position:relative}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;position:relative}
+.stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:24px;position:relative}
+.stats div{font-size:13px;color:#b8c3e6}.stats b{display:block;font:600 22px "IBM Plex Mono",monospace;color:#fff}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.qk{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;color:var(--tx)}
+.qk:hover{text-decoration:none;border-color:var(--sky-d);box-shadow:0 8px 20px -14px rgba(31,60,192,.5)}
+.qk i{width:38px;height:38px;border-radius:10px;background:var(--sky-l);display:grid;place-items:center;color:var(--brand)}
+.qk i svg{width:20px;height:20px}
+.qk b{font-size:15.5px}.qk span{font-size:13px;color:var(--mut)}
+/* списки */
+.row{display:flex;gap:14px;align-items:flex-start;padding:13px 18px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.av{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff}
+.row .t{flex:1;min-width:0}
+.row .t a{font-weight:600;color:var(--tx)}
+.row .t small{display:block;color:var(--mut);font-size:12.5px;margin-top:2px}
+.row .r{font-size:12.5px;color:var(--mut);text-align:right;white-space:nowrap}
+.pill{display:inline-block;font:600 11px "IBM Plex Mono",monospace;padding:2px 7px;border-radius:5px;background:var(--soft2);color:var(--brand-d);margin-right:4px;vertical-align:1px}
+.pill.g{background:#e3f5ee;color:#13704e}.pill.o{background:#fdeedd;color:#9a5410}.pill.s{background:var(--sky-l);color:#1b5f8c}
+/* форум */
+.fcat{margin-top:22px}.fcat:first-child{margin-top:0}
+.fcat-h{background:var(--navy);color:#fff;border-radius:14px 14px 0 0;padding:11px 18px;font-weight:700;font-size:15px}
+.fnode{display:grid;grid-template-columns:44px 1fr 120px 260px;gap:14px;align-items:center;padding:14px 18px;border-top:1px solid var(--line);background:#fff}
+.fcat .fnode:last-child{border-radius:0 0 14px 14px}
+.fnode .ic{width:40px;height:40px;border-radius:10px;background:var(--sky-l);display:grid;place-items:center;color:var(--brand)}
+.fnode .ic svg{width:20px;height:20px}
+.fnode h4{font-size:15.5px}.fnode h4 a{color:var(--tx)}
+.fnode p{font-size:13px;color:var(--mut)}
+.fnode .num{font-size:12.5px;color:var(--mut);line-height:1.5}.fnode .num b{font-family:"IBM Plex Mono",monospace;color:var(--tx)}
+.fnode .last{display:flex;gap:10px;align-items:center;font-size:12.5px;color:var(--mut);min-width:0}
+.fnode .last .av{width:30px;height:30px;font-size:12px}
+.fnode .last a{display:block;font-weight:600;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+/* биржа */
+.bx-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.seg{display:flex;background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:none;font:600 14px "IBM Plex Sans";color:var(--mut);padding:8px 14px;border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--brand);color:#fff}
+.warn{display:flex;gap:10px;align-items:center;background:#fff4f0;border:1px solid #f6d3c6;color:#8b3a1d;border-radius:12px;padding:10px 14px;font-size:13.5px;margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:14px}
+.tags span{font-size:13px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.tags span.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.job{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:6px 16px}
+.job+.job{margin-top:12px}
+.job h3{font-size:16.5px}.job h3 a{color:var(--tx)}
+.job .meta{font-size:13px;color:var(--mut);display:flex;gap:14px;flex-wrap:wrap}
+.job .pay{font:600 16px "IBM Plex Mono",monospace;color:var(--navy);text-align:right;white-space:nowrap}
+.job p{grid-column:1/-1;font-size:14px;color:#3a4357}
+.job .tg{grid-column:1/-1}
+.bx-list[hidden]{display:none}
+/* статьи */
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.art{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;color:var(--tx)}
+.art:hover{text-decoration:none;border-color:var(--sky-d)}
+.art .th{height:150px;background:var(--navy);position:relative;overflow:hidden}
+.art .th svg{position:absolute;inset:0;width:100%;height:100%}
+.art .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.art h3{font-size:16px;line-height:1.3}
+.art p{font-size:13.5px;color:var(--mut)}
+.art .by{margin-top:auto;font-size:12.5px;color:var(--mut)}
+.art.big{grid-column:span 2;flex-direction:row}
+.art.big .th{height:auto;flex:1.2;min-height:230px}
+.art.big .bd{flex:1;padding:20px}
+.art.big h3{font-size:21px}
+/* библиотека */
+.lib-f{display:flex;gap:8px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);font-weight:600;padding:10px 18px;background:var(--soft)}
+.tbl td{padding:12px 18px;border-top:1px solid var(--line);vertical-align:top}
+.tbl td.code{font:600 13px "IBM Plex Mono",monospace;color:var(--navy);white-space:nowrap}
+.tbl td .dl{font-weight:600;font-size:13px;white-space:nowrap}
+/* учебные центры */
+.ucs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.uc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.uc .hd{display:flex;gap:12px;align-items:center}
+.uc .lg{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:700}
+.uc h3{font-size:16px}.uc small{color:var(--mut);font-size:12.5px}
+.uc ul{list-style:none;font-size:13.5px;display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.uc li{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding-top:6px}
+.uc li b{font:600 13px "IBM Plex Mono",monospace;white-space:nowrap}
+.side-h{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);font-weight:700;margin-bottom:8px}
+.sec-h{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}
+.sec-h h1{font-size:26px;letter-spacing:-.3px}
+.sec-h p{color:var(--mut);font-size:14px}
+footer{background:var(--navy);color:#aab5d8;font-size:13px;padding:26px 0}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+@media(max-width:980px){.grid{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}.arts,.ucs{grid-template-columns:1fr 1fr}.art.big{grid-column:span 2}.fnode{grid-template-columns:40px 1fr;}.fnode .num,.fnode .last{grid-column:2}.search{display:none}}
+@media(max-width:600px){.wrap{padding:0 14px}.hero{padding:24px 20px;border-radius:14px}.auth .btn-ghost{display:none}.arts,.ucs{grid-template-columns:1fr}.art.big{grid-column:auto;flex-direction:column}.art.big .th{min-height:170px}.job{grid-template-columns:1fr}.job .pay{text-align:left}.tbl th:nth-child(3),.tbl td:nth-child(3){display:none}.tbl td.code{white-space:normal;font-size:12px}.tbl td,.tbl th{padding:10px 12px}.lib-f{padding:12px}.row .r{display:none}.quick{grid-template-columns:1fr 1fr;gap:10px}.qk{padding:12px}}
+</style>
+</head>
+<body>
+<div class="note">Эскиз для обсуждения - название, тексты, пользователи и объявления условные. Нормативные документы - реальные, для примера наполнения.</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <symbol id="i-forum" viewBox="0 0 24 24"><path d="M4 5h12v9H8l-4 3z M8 17v1h8l4 3V9h-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-job" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 7V5h6v2M3 12h18" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z M8 20a3 3 0 0 1 0-6h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z M6 11v5c3 2 9 2 12 0v-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 12h3l2-6 3 12 3-9 2 6 2-3h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="15" cy="9" r="1.6" fill="currentColor"/><path d="M12 12l5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z M14 3v5h5M9 13h6M9 17h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M4 9h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z M16 11h2a2 2 0 0 1 0 4h-2 M8 3v3M12 3v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+ </defs>
+</svg>
+
+<header class="top">
+ <div class="wrap">
+  <a class="logo" href="#home" data-go="home"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f3cc0"/><path d="M5 18h4l3-8 4 15 4-11 3 7 2-3h4" fill="none" stroke="#8cc9ec" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Вибросообщество<small>форум · биржа · НТД</small></span></a>
+  <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Поиск по форуму, вакансиям и НТД</div>
+  <div class="auth"><a class="btn btn-ghost" href="#">Вход</a><a class="btn btn-sky" href="#">Регистрация</a></div>
+ </div>
+ <nav class="tabs"><div class="wrap">
+  <a href="#home" data-go="home" class="on">Главная</a>
+  <a href="#forum" data-go="forum">Форум</a>
+  <a href="#birzha" data-go="birzha">Биржа <span class="new">вакансии</span></a>
+  <a href="#articles" data-go="articles">Статьи</a>
+  <a href="#library" data-go="library">Библиотека НТД</a>
+  <a href="#centers" data-go="centers">Учебные центры</a>
+  <a href="#ads" data-go="ads">Реклама</a>
+ </div></nav>
+</header>
+
+<main><div class="wrap">
+
+<!-- ================= ГЛАВНАЯ ================= -->
+<section class="page on" id="p-home">
+ <div class="grid">
+  <div class="stack">
+   <div class="hero">
+    <svg class="wave" viewBox="0 0 560 160" aria-hidden="true"><path d="M0 80 C40 80 50 20 80 20 S120 140 150 140 190 50 220 50 260 110 290 110 330 70 360 70 400 95 430 95 470 80 560 80" fill="none" stroke="#8cc9ec" stroke-width="3"/><path d="M0 100 C50 100 60 60 95 60 S140 130 175 130 215 85 250 85 300 115 340 115 400 95 560 95" fill="none" stroke="#8cc9ec" stroke-width="1.5" opacity=".6"/></svg>
+    <h1>Сообщество специалистов по вибродиагностике</h1>
+    <p>Работа и подработки, обсуждение оборудования и методик, нормативная база и учебные центры - в одном месте.</p>
+    <div class="acts"><a class="btn btn-sky" href="#birzha" data-go="birzha">Найти работу</a><a class="btn btn-ghost" href="#birzha" data-go="birzha">Разместить вакансию</a><a class="btn btn-ghost" href="#forum" data-go="forum">Задать вопрос на форуме</a></div>
+    <div class="stats"><div><b>1 240</b>участников</div><div><b>86</b>вакансий и подработок</div><div><b>3 900</b>сообщений</div><div><b>140</b>документов НТД</div></div>
+   </div>
+
+   <div class="quick">
+    <a class="qk" href="#birzha" data-go="birzha"><i><svg><use href="#i-job"/></svg></i><b>Биржа</b><span>Вакансии, подработки, резюме</span></a>
+    <a class="qk" href="#forum" data-go="forum"><i><svg><use href="#i-forum"/></svg></i><b>Форум</b><span>Вопросы и опыт коллег</span></a>
+    <a class="qk" href="#library" data-go="library"><i><svg><use href="#i-book"/></svg></i><b>Библиотека НТД</b><span>ГОСТ, ISO, API, методики</span></a>
+    <a class="qk" href="#centers" data-go="centers"><i><svg><use href="#i-cap"/></svg></i><b>Обучение</b><span>Курсы и аттестация</span></a>
+   </div>
+
+   <div class="ad ad-wide"><b>Реклама · 1200×120</b>Баннер партнёра: производитель приборов, сервисная компания, учебный центр</div>
+
+   <div class="card">
+    <div class="card-h"><h2>Свежие вакансии и подработки</h2><a href="#birzha" data-go="birzha">Все на бирже →</a></div>
+    <div class="row"><span class="av" style="background:#1f3cc0">НП</span><div class="t"><a href="#birzha" data-go="birzha">Инженер-вибродиагност, II уровень</a><small><span class="pill g">вакансия</span>НПЗ, Республика Башкортостан · вахта 30/30</small></div><div class="r mono">от 180 000 ₽</div></div>
+    <div class="row"><span class="av" style="background:#d9822b">СК</span><div class="t"><a href="#birzha" data-go="birzha">Балансировка дымососов на ТЭЦ, 3 агрегата</a><small><span class="pill o">подработка</span>Пермь · 4-5 дней, со своим прибором</small></div><div class="r mono">90 000 ₽</div></div>
+    <div class="row"><span class="av" style="background:#1d9a6c">ЭМ</span><div class="t"><a href="#birzha" data-go="birzha">Монтаж и пусконаладка системы мониторинга на компрессорах</a><small><span class="pill g">вакансия</span>Новый Уренгой · командировки</small></div><div class="r mono">по договорённости</div></div>
+   </div>
+
+   <div class="card">
+    <div class="card-h"><h2>Активные темы форума</h2><a href="#forum" data-go="forum">Весь форум →</a></div>
+    <div class="row"><span class="av" style="background:#6db8e6">АК</span><div class="t"><a href="#forum" data-go="forum">Рост 1X на подшипнике насоса после ремонта - дисбаланс или расцентровка?</a><small>Диагностика насосов · 24 ответа</small></div><div class="r">12 мин назад</div></div>
+    <div class="row"><span class="av" style="background:#162c93">ВЛ</span><div class="t"><a href="#forum" data-go="forum">Как настроить пороги в стойке 3500 под ГОСТ ISO 20816</a><small>Системы мониторинга · 11 ответов</small></div><div class="r">40 мин назад</div></div>
+    <div class="row"><span class="av" style="background:#8a5cf0">ИР</span><div class="t"><a href="#forum" data-go="forum">Огибающая на редукторе: какие частоты смотреть в первую очередь</a><small>Методики и анализ спектров · 7 ответов</small></div><div class="r">2 ч назад</div></div>
+   </div>
+  </div>
+
+  <aside class="stack">
+   <div class="ad ad-side"><b>Реклама · 300×250</b>Место для баннера</div>
+   <div class="card">
+    <div class="card-h"><h3>Новое в библиотеке</h3></div>
+    <div class="row"><div class="t"><a href="#library" data-go="library">ГОСТ ISO 20816-1-2021</a><small>Измерения вибрации и оценка вибрационного состояния машин. Часть 1</small></div></div>
+    <div class="row"><div class="t"><a href="#library" data-go="library">ГОСТ ISO 1940-1-2007</a><small>Требования к качеству балансировки жёстких роторов</small></div></div>
+   </div>
+   <div class="card">
+    <div class="card-h"><h3>Ближайшие курсы</h3></div>
+    <div class="row"><div class="t"><a href="#centers" data-go="centers">Вибродиагностика, I уровень (ISO 18436-2)</a><small>Учебный центр «Ротор» · 10 ноября · Москва и онлайн</small></div></div>
+    <div class="row"><div class="t"><a href="#centers" data-go="centers">Балансировка в собственных опорах</a><small>Центр «ТехДиагност» · 17 ноября · Уфа</small></div></div>
+   </div>
+  </aside>
+ </div>
+</section>
+
+<!-- ================= ФОРУМ ================= -->
+<section class="page" id="p-forum">
+ <div class="sec-h"><div><h1>Форум</h1><p>Классический форум с разделами, поиском и уведомлениями об ответах</p></div><a class="btn btn-brand" href="#">+ Новая тема</a></div>
+ <div class="grid">
+  <div>
+   <div class="fcat">
+    <div class="fcat-h">Вибродиагностика</div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-wave"/></svg></span><div><h4><a href="#">Методики и анализ спектров</a></h4><p>Спектры, огибающая, фазовый анализ, тренды</p></div><div class="num">Темы: <b>412</b><br>Сообщения: <b>5.1K</b></div><div class="last"><span class="av" style="background:#8a5cf0">ИР</span><div><a href="#">Огибающая на редукторе: какие частоты…</a>2 ч назад · Ирина Р.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-gear"/></svg></span><div><h4><a href="#">Диагностика насосов, вентиляторов, компрессоров</a></h4><p>Разбор реальных случаев с оборудованием</p></div><div class="num">Темы: <b>298</b><br>Сообщения: <b>3.8K</b></div><div class="last"><span class="av" style="background:#6db8e6">АК</span><div><a href="#">Рост 1X на подшипнике насоса после ремонта</a>12 мин назад · Артём К.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-scale"/></svg></span><div><h4><a href="#">Балансировка и центровка</a></h4><p>Балансировка в собственных опорах, лазерная центровка</p></div><div class="num">Темы: <b>176</b><br>Сообщения: <b>2.2K</b></div><div class="last"><span class="av" style="background:#d9822b">СК</span><div><a href="#">Допуски центровки для муфт с высокой скоростью</a>вчера · Сергей К.</div></div></div>
+   </div>
+   <div class="fcat">
+    <div class="fcat-h">Оборудование и системы</div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-chip"/></svg></span><div><h4><a href="#">Системы мониторинга и защиты</a></h4><p>Стационарные системы, датчики, настройка уставок</p></div><div class="num">Темы: <b>233</b><br>Сообщения: <b>3.1K</b></div><div class="last"><span class="av" style="background:#162c93">ВЛ</span><div><a href="#">Пороги в стойке 3500 под ГОСТ ISO 20816</a>40 мин назад · Виктор Л.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-wave"/></svg></span><div><h4><a href="#">Приборы и программное обеспечение</a></h4><p>Сборщики данных, анализаторы, ПО - отзывы и сравнения</p></div><div class="num">Темы: <b>190</b><br>Сообщения: <b>2.6K</b></div><div class="last"><span class="av" style="background:#1d9a6c">ЕМ</span><div><a href="#">Какой датчик выбрать для низких оборотов</a>сегодня · Евгений М.</div></div></div>
+   </div>
+   <div class="fcat">
+    <div class="fcat-h">Профессия</div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-doc"/></svg></span><div><h4><a href="#">Нормативная документация</a></h4><p>Вопросы по ГОСТ, ISO, API и отраслевым стандартам</p></div><div class="num">Темы: <b>88</b><br>Сообщения: <b>940</b></div><div class="last"><span class="av" style="background:#1f3cc0">ДП</span><div><a href="#">Чем 20816 отличается от 10816 на практике</a>3 дня назад · Дмитрий П.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-cap"/></svg></span><div><h4><a href="#">Обучение и аттестация</a></h4><p>Уровни квалификации, экзамены, учебные центры</p></div><div class="num">Темы: <b>64</b><br>Сообщения: <b>710</b></div><div class="last"><span class="av" style="background:#8a5cf0">ОН</span><div><a href="#">Готовлюсь ко II уровню - что почитать</a>неделю назад · Олег Н.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-coffee"/></svg></span><div><h4><a href="#">Курилка</a></h4><p>Общение на любые темы</p></div><div class="num">Темы: <b>120</b><br>Сообщения: <b>1.9K</b></div><div class="last"><span class="av" style="background:#d9822b">МА</span><div><a href="#">Командировки: что берёте с собой</a>вчера · Максим А.</div></div></div>
+   </div>
+  </div>
+  <aside class="stack">
+   <div class="ad ad-side"><b>Реклама · 300×250</b>Место для баннера</div>
+   <div class="card"><div class="card-h"><h3>Статистика форума</h3></div><div class="row"><div class="t"><small>Темы: <b class="mono">1 581</b> · Сообщения: <b class="mono">20 350</b><br>Участники: <b class="mono">1 240</b> · Сейчас на сайте: <b class="mono">37</b></small></div></div></div>
+  </aside>
+ </div>
+</section>
+
+<!-- ================= БИРЖА ================= -->
+<section class="page" id="p-birzha">
+ <div class="sec-h"><div><h1>Биржа</h1><p>Вакансии, подработки и резюме специалистов по вибродиагностике и смежным методам</p></div><a class="btn btn-brand" href="#">+ Подать объявление</a></div>
+ <div class="bx-top">
+  <div class="seg" id="bx-seg"><button class="on" data-k="vac">Вакансии</button><button data-k="gig">Подработки</button><button data-k="res">Резюме</button><button data-k="ann">Объявления</button></div>
+ </div>
+ <div class="warn"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3 2 20h20z M12 10v4M12 17v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Осторожно, мошенники! Не переводите предоплату за «оформление» и «пропуска». Сомнительное объявление - нажмите «Пожаловаться».</div>
+ <div class="grid">
+  <div>
+   <div class="bx-list" data-k="vac">
+    <div class="job"><div><h3><a href="#">Инженер-вибродиагност, II уровень</a></h3><div class="meta"><span>ООО «НефтеПереработка» (пример)</span><span>Башкортостан</span><span>Вахта 30/30</span></div></div><div class="pay">от 180 000 ₽</div><p>Периодический контроль насосно-компрессорного оборудования, работа со стационарной системой мониторинга, отчёты и рекомендации по ремонту.</p><div class="tg"><span class="pill">вибродиагностика</span><span class="pill">ISO 18436-2 II</span><span class="pill s">вахта</span></div></div>
+    <div class="job"><div><h3><a href="#">Специалист по монтажу и пусконаладке систем мониторинга</a></h3><div class="meta"><span>ЭнергоМонтаж (пример)</span><span>ЯНАО</span><span>Командировки</span></div></div><div class="pay">по договорённости</div><p>Монтаж датчиков и стоек, наладка каналов, сдача заказчику. Опыт с системами защиты турбоагрегатов приветствуется.</p><div class="tg"><span class="pill">монтаж</span><span class="pill">системы защиты</span></div></div>
+    <div class="job"><div><h3><a href="#">Вибродиагност в сервисную компанию</a></h3><div class="meta"><span>ТехСервис (пример)</span><span>Екатеринбург</span><span>Полный день</span></div></div><div class="pay">120 000 - 150 000 ₽</div><p>Маршрутная диагностика у заказчиков, балансировка, центровка. Обучение за счёт компании.</p><div class="tg"><span class="pill">балансировка</span><span class="pill">центровка</span></div></div>
+   </div>
+   <div class="bx-list" data-k="gig" hidden>
+    <div class="job"><div><h3><a href="#">Балансировка дымососов на ТЭЦ, 3 агрегата</a></h3><div class="meta"><span>Пермь</span><span>4-5 дней</span><span>Со своим прибором</span></div></div><div class="pay">90 000 ₽</div><p>Нужен специалист с прибором для балансировки в собственных опорах. Проживание и дорога - за счёт заказчика.</p><div class="tg"><span class="pill o">подработка</span><span class="pill">балансировка</span></div></div>
+    <div class="job"><div><h3><a href="#">Разовое обследование вентиляторов градирни</a></h3><div class="meta"><span>Самара</span><span>1 день</span></div></div><div class="pay">25 000 ₽</div><p>Замеры и заключение о состоянии 6 вентиляторов, отчёт по форме заказчика.</p><div class="tg"><span class="pill o">подработка</span><span class="pill">вентиляторы</span></div></div>
+   </div>
+   <div class="bx-list" data-k="res" hidden>
+    <div class="job"><div><h3><a href="#">Инженер-вибродиагност, 9 лет опыта</a></h3><div class="meta"><span>Казань</span><span>Готов к командировкам</span></div></div><div class="pay">от 150 000 ₽</div><p>II уровень по ISO 18436-2, опыт на НПЗ и ТЭЦ, балансировка, лазерная центровка, работа со стационарными системами.</p><div class="tg"><span class="pill">резюме</span><span class="pill">II уровень</span></div></div>
+   </div>
+   <div class="bx-list" data-k="ann" hidden>
+    <div class="job"><div><h3><a href="#">Продаётся прибор для балансировки, б/у, с поверкой</a></h3><div class="meta"><span>Москва</span><span>Отличное состояние</span></div></div><div class="pay">95 000 ₽</div><p>Полный комплект: датчики, тахометр, кейс, ПО. Поверка до 2027 года.</p><div class="tg"><span class="pill">продам</span><span class="pill">приборы</span></div></div>
+   </div>
+  </div>
+  <aside class="stack">
+   <div class="card"><div class="card-h"><h3>Теги</h3></div><div class="tags"><span class="on">Все</span><span>Вибродиагностика</span><span>Балансировка</span><span>Центровка</span><span>Системы мониторинга</span><span>Монтаж</span><span>Термография</span><span>Анализ масел</span><span>Вахта</span><span>Удалённо</span></div></div>
+   <div class="ad ad-side"><b>Реклама · 300×250</b>Место для баннера</div>
+  </aside>
+ </div>
+</section>
+
+<!-- ================= СТАТЬИ ================= -->
+<section class="page" id="p-articles">
+ <div class="sec-h"><div><h1>Статьи</h1><p>Публикации участников и партнёров, в том числе интерактивные разборы</p></div><a class="btn btn-brand" href="#">+ Предложить статью</a></div>
+ <div class="arts">
+  <a class="art big" href="#"><div class="th"><svg viewBox="0 0 400 230" preserveAspectRatio="none"><rect width="400" height="230" fill="#0d1534"/><g stroke="#1c2a63" stroke-width="1">
+   <path d="M0 46h400M0 92h400M0 138h400M0 184h400M80 0v230M160 0v230M240 0v230M320 0v230"/></g><path d="M0 115 C20 115 25 60 45 60 S70 170 90 170 110 70 130 70 155 160 175 160 195 80 215 80 240 150 260 150 280 90 300 90 325 140 345 140 370 110 400 110" fill="none" stroke="#8cc9ec" stroke-width="2.5"/><path d="M0 115 C30 115 35 95 60 95 S95 135 120 135 155 98 180 98 215 128 240 128 280 104 300 104 360 118 400 118" fill="none" stroke="#d9822b" stroke-width="1.6" opacity=".8"/><text x="16" y="24" fill="#8cc9ec" font-family="IBM Plex Mono" font-size="12">CH1  1X 12.4 мкм  ∠ 47°</text></svg></div><div class="bd"><span class="pill s">интерактивная статья</span><h3>Осциллограмма канала 3500: как читать форму сигнала и не перепутать дефекты</h3><p>Разбор с живым графиком: двигаете ползунки фазы и амплитуды - и видите, как меняется сигнал при дисбалансе, расцентровке и задевании.</p><span class="by">С. Серебренников · 12 мин чтения</span></div></a>
+  <a class="art" href="#"><div class="th"><svg viewBox="0 0 300 150" preserveAspectRatio="none"><rect width="300" height="150" fill="#162c93"/><g fill="#8cc9ec"><rect x="20" y="110" width="14" height="30"/><rect x="45" y="60" width="14" height="80"/><rect x="70" y="95" width="14" height="45"/><rect x="95" y="30" width="14" height="110"/><rect x="120" y="100" width="14" height="40"/><rect x="145" y="80" width="14" height="60"/><rect x="170" y="115" width="14" height="25"/><rect x="195" y="70" width="14" height="70"/><rect x="220" y="105" width="14" height="35"/><rect x="245" y="120" width="14" height="20"/></g></svg></div><div class="bd"><h3>Спектр без загадок: 5 типовых картин дефектов</h3><p>Дисбаланс, расцентровка, ослабление, подшипники, зацепление.</p><span class="by">И. Романова · 8 мин</span></div></a>
+  <a class="art" href="#"><div class="th"><svg viewBox="0 0 300 150" preserveAspectRatio="none"><rect width="300" height="150" fill="#121c45"/><circle cx="150" cy="75" r="46" fill="none" stroke="#8cc9ec" stroke-width="3"/><circle cx="178" cy="52" r="7" fill="#d9822b"/><path d="M150 75 l30 30" stroke="#8cc9ec" stroke-width="3"/></svg></div><div class="bd"><h3>Балансировка в собственных опорах: пошагово</h3><p>Пробный груз, коэффициенты влияния, проверка результата.</p><span class="by">С. Калинин · 10 мин</span></div></a>
+  <a class="art" href="#"><div class="th"><svg viewBox="0 0 300 150" preserveAspectRatio="none"><rect width="300" height="150" fill="#1b2c73"/><path d="M30 120 L90 60 L150 90 L210 40 L270 70" fill="none" stroke="#8cc9ec" stroke-width="3"/><path d="M30 120 H270" stroke="#3b4c94"/><circle cx="210" cy="40" r="6" fill="#d9822b"/></svg></div><div class="bd"><h3>Тренды и уставки: когда пора останавливать агрегат</h3><p>Как выбрать пороги и не получить ложные срабатывания.</p><span class="by">В. Лебедев · 7 мин</span></div></a>
+  <div class="ad" style="min-height:230px"><b>Реклама · статья партнёра</b>Спонсорский материал с пометкой «Реклама»</div>
+ </div>
+</section>
+
+<!-- ================= БИБЛИОТЕКА ================= -->
+<section class="page" id="p-library">
+ <div class="sec-h"><div><h1>Библиотека НТД</h1><p>Стандарты, методики и техническая литература - с поиском и фильтрами</p></div></div>
+ <div class="grid">
+  <div class="card">
+   <div class="lib-f"><div class="seg"><button class="on">Все</button><button>ГОСТ</button><button>ISO</button><button>API</button><button>Методики</button><button>Книги</button></div></div>
+   <table class="tbl">
+    <thead><tr><th>Обозначение</th><th>Название</th><th>Раздел</th><th></th></tr></thead>
+    <tbody>
+     <tr><td class="code">ГОСТ ISO 20816-1-2021</td><td>Вибрация. Измерения вибрации и оценка вибрационного состояния машин. Часть 1. Общее руководство</td><td>Нормы вибрации</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">ГОСТ ISO 10816-3-2002</td><td>Вибрация. Контроль состояния машин по результатам измерений вибрации на невращающихся частях. Часть 3</td><td>Нормы вибрации</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">ГОСТ ISO 1940-1-2007</td><td>Вибрация. Требования к качеству балансировки жёстких роторов. Часть 1</td><td>Балансировка</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">ГОСТ Р ИСО 18436-2-2005</td><td>Контроль состояния и диагностика машин. Требования к обучению и сертификации персонала. Часть 2</td><td>Квалификация</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">ГОСТ Р ИСО 13373-1-2009</td><td>Контроль состояния и диагностика машин. Вибрационный контроль состояния машин. Часть 1. Общие методы</td><td>Методики</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">API 670</td><td>Machinery Protection Systems</td><td>Системы защиты</td><td><a class="dl" href="#">Описание</a></td></tr>
+    </tbody>
+   </table>
+  </div>
+  <aside class="stack">
+   <div class="card"><div class="card-h"><h3>Как устроено</h3></div><div class="row"><div class="t"><small>Документы с открытым доступом - файлом. Платные стандарты - карточкой с описанием и ссылкой на официальный источник. Участники могут предлагать материалы, модератор проверяет.</small></div></div></div>
+   <div class="ad ad-side"><b>Реклама · 300×250</b>Место для баннера</div>
+  </aside>
+ </div>
+</section>
+
+<!-- ================= УЧЕБНЫЕ ЦЕНТРЫ ================= -->
+<section class="page" id="p-centers">
+ <div class="sec-h"><div><h1>Учебные центры</h1><p>Каталог центров и курсов - центры добавляют свои программы и даты сами</p></div><a class="btn btn-brand" href="#">+ Добавить центр</a></div>
+ <div class="ucs">
+  <div class="uc"><div class="hd"><span class="lg" style="background:#1f3cc0">Р</span><div><h3>Учебный центр «Ротор»</h3><small>Москва · очно и онлайн (пример)</small></div></div><ul><li>Вибродиагностика, I уровень <b>10 ноя</b></li><li>Вибродиагностика, II уровень <b>1 дек</b></li><li>Анализ спектров для практиков <b>15 дек</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
+  <div class="uc"><div class="hd"><span class="lg" style="background:#1d9a6c">Т</span><div><h3>Центр «ТехДиагност»</h3><small>Уфа · очно (пример)</small></div></div><ul><li>Балансировка в собственных опорах <b>17 ноя</b></li><li>Лазерная центровка валов <b>24 ноя</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
+  <div class="uc"><div class="hd"><span class="lg" style="background:#d9822b">С</span><div><h3>Академия «Спектр»</h3><small>Онлайн (пример)</small></div></div><ul><li>Подготовка к аттестации по ISO 18436-2 <b>гибко</b></li><li>Стационарные системы мониторинга <b>8 дек</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
+ </div>
+</section>
+
+<!-- ================= РЕКЛАМА ================= -->
+<section class="page" id="p-ads">
+ <div class="sec-h"><div><h1>Реклама на портале</h1><p>Аудитория - практикующие специалисты и руководители служб диагностики</p></div></div>
+ <div class="ucs">
+  <div class="uc"><h3>Баннер на главной</h3><small>1200×120, под быстрыми ссылками</small><ul><li>Показы <b>все посетители</b></li></ul></div>
+  <div class="uc"><h3>Баннер в боковой колонке</h3><small>300×250, на форуме, бирже, в библиотеке</small><ul><li>Показы <b>все разделы</b></li></ul></div>
+  <div class="uc"><h3>Статья партнёра и выделенная вакансия</h3><small>Материал с пометкой «Реклама», вакансия в топе биржи</small><ul><li>Срок <b>от 7 дней</b></li></ul></div>
+ </div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap"><span>Вибросообщество · портал при axelvt.ru · эскиз</span><span>Правила · Реклама · Обратная связь</span></div></footer>
+
+<script>
+(function(){
+ var tabs=document.querySelectorAll('nav.tabs a');
+ function go(k){
+  if(!document.getElementById('p-'+k))k='home';
+  document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('on',p.id==='p-'+k)});
+  tabs.forEach(function(a){a.classList.toggle('on',a.dataset.go===k)});
+  window.scrollTo(0,0);
+ }
+ document.addEventListener('click',function(e){var a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();history.replaceState(null,'','#'+a.dataset.go);go(a.dataset.go)});
+ go(location.hash.slice(1)||'home');
+ var seg=document.getElementById('bx-seg');
+ seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
+  document.querySelectorAll('.bx-list').forEach(function(l){l.hidden=l.dataset.k!==b.dataset.k})});
+ document.querySelectorAll('.tags span,.lib-f .seg button').forEach(function(t){t.addEventListener('click',function(){t.parentNode.querySelectorAll('.on').forEach(function(x){x.classList.remove('on')});t.classList.add('on')})});
+})();
+</script>
+</body>
+</html>
