@@ -9,74 +9,84 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
-:root{--paper:#f5f1ea;--paper2:#ece6dc;--card:#fbf9f5;--ink:#10282b;--ink2:#3c5154;--mut:#566260;--sea:#0f7c83;--sea-l:#7fd6d2;--amber:#b0662a;--line:rgba(16,40,43,.14);--deep:#0b1c1e}
+/* Лагуна и смола: светлая бумага, насыщенная бирюза, коралл и золото как акценты */
+:root{--paper:#fbf8f3;--paper2:#f2ece2;--card:#ffffff;--ink:#0c2a30;--ink2:#35514f;--mut:#566563;
+--lagoon:#075e6b;--resin:#13a9ad;--resin-l:#8fe3df;--coral:#e0623a;--gold:#c4974a;--gold-d:#94692a;--deep:#052a31;--line:rgba(12,42,48,.13)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font:16px/1.65 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
-.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
-.serif{font-family:"Cormorant Garamond",Georgia,serif}
-.kick{display:inline-flex;align-items:center;gap:12px;font-weight:600;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--sea)}
-.kick::before{content:"";width:36px;height:1px;background:currentColor}
-h2{font:500 clamp(40px,5.2vw,74px)/.98 "Cormorant Garamond",Georgia,serif;letter-spacing:-.8px;margin:18px 0 20px}
-h2 i{color:var(--sea);font-weight:400}
+.wrap{max-width:1240px;margin:0 auto;padding-left:32px;padding-right:32px}
+.kick{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--lagoon)}
+.kick::before{content:"";width:36px;height:1px;background:var(--gold)}
+h2{font:500 clamp(40px,5.2vw,76px)/.98 "Cormorant Garamond",Georgia,serif;letter-spacing:-.8px;margin:18px 0 20px;text-wrap:balance}
+h2 i{color:var(--resin);font-weight:400}
 .lead{color:var(--ink2);font-size:17px;max-width:560px}
-.btn{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 30px;border-radius:999px;font-weight:600;font-size:14.5px;letter-spacing:.02em;border:1px solid transparent;cursor:pointer;transition:background .3s,color .3s,border-color .3s,transform .3s}
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;height:58px;padding:0 32px;border-radius:999px;font-weight:700;font-size:14.5px;letter-spacing:.02em;border:1px solid transparent;cursor:pointer;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,background .35s,color .35s}
 .btn:hover{transform:translateY(-2px)}
-.btn-ink{background:var(--ink);color:var(--paper)}
-.btn-ink:hover{background:var(--sea)}
+.btn-main{background:linear-gradient(135deg,var(--lagoon),#0a7d86);color:#fff;box-shadow:0 18px 34px -18px rgba(7,94,107,.8)}
+.btn-main::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s}
+.btn-main:hover::after{transform:translateX(120%)}
 .btn-line{border-color:var(--ink);color:var(--ink)}
 .btn-line:hover{background:var(--ink);color:var(--paper)}
 .btn svg{width:18px;height:18px}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+/* появление при прокрутке - только если работает JS */
+.js .reveal{opacity:0;transform:translateY(34px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
 
 /* шапка */
 header{position:fixed;top:0;left:0;right:0;z-index:30;transition:background .4s,box-shadow .4s}
-header.solid{background:rgba(245,241,234,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+header.solid{background:rgba(251,248,243,.88);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
 header .wrap{display:flex;align-items:center;gap:28px;height:84px}
 .logo{display:flex;flex-direction:column;line-height:1}
 .logo b{font:500 30px "Cormorant Garamond",serif;letter-spacing:.5px}
 .logo small{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut);margin-top:5px}
-nav.menu{display:flex;gap:30px;margin-left:auto;font-size:14px;font-weight:500}
+nav.menu{display:flex;gap:30px;margin-left:auto;font-size:14px;font-weight:600}
 nav.menu a{position:relative;padding:4px 0}
-nav.menu a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+nav.menu a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
 nav.menu a:hover::after{transform:scaleX(1)}
-header .btn{height:44px;padding:0 22px;font-size:13.5px}
+header .btn{height:46px;padding:0 24px;font-size:13.5px}
 
 /* первый экран */
-.hero{padding:150px 0 90px;position:relative}
-.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
-.hero h1{font:400 clamp(56px,7.6vw,118px)/.9 "Cormorant Garamond",Georgia,serif;letter-spacing:-2px;margin:26px 0 30px}
-.hero h1 i{color:var(--sea)}
-.hero h1 span{display:block}
+.hero{position:relative;padding:150px 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-10%;top:-18%;width:60vw;height:60vw;max-width:860px;max-height:860px;background:radial-gradient(closest-side,rgba(19,169,173,.22),rgba(19,169,173,.06) 60%,transparent);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+.hero h1{font:400 clamp(58px,7.8vw,124px)/.9 "Cormorant Garamond",Georgia,serif;letter-spacing:-2px;margin:26px 0 30px}
+.hero h1 span{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 span b{display:block;font-weight:400}
+.hero h1 i{font-style:italic;background:linear-gradient(100deg,var(--lagoon),var(--resin) 55%,#4fd0c9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.js .hero h1 span b{transform:translateY(105%);animation:rise 1.1s cubic-bezier(.2,.75,.15,1) forwards}
+.js .hero h1 span:nth-child(2) b{animation-delay:.12s}.js .hero h1 span:nth-child(3) b{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.js .hero .intro{opacity:0;animation:fade 1s .5s ease forwards}
+@keyframes fade{to{opacity:1}}
 .hero .acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
-.sign{display:flex;align-items:center;gap:16px;margin-top:48px;color:var(--mut);font-size:13.5px}
-.sign b{font:italic 400 26px "Cormorant Garamond",serif;color:var(--ink)}
-.sign i{width:1px;height:34px;background:var(--line)}
-.arch{position:relative;justify-self:end;width:min(100%,480px)}
-.arch .frame{position:relative;aspect-ratio:4/5.6;border-radius:999px 999px 26px 26px;overflow:hidden;box-shadow:0 60px 90px -50px rgba(11,28,30,.6)}
+.sign{display:flex;align-items:center;gap:16px;margin-top:44px;color:var(--mut);font-size:13.5px}
+.sign b{font:italic 400 26px "Cormorant Garamond",serif;color:var(--gold-d)}
+.sign i{width:1px;height:34px;background:var(--gold)}
+.arch{position:relative;justify-self:end;width:min(100%,470px)}
+.js .arch{opacity:0;transform:scale(.96) translateY(18px);animation:archIn 1.4s .15s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes archIn{to{opacity:1;transform:none}}
+.arch::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--gold);border-radius:999px 999px 28px 28px;pointer-events:none}
+.arch .frame{position:relative;aspect-ratio:4/5.6;border-radius:999px 999px 26px 26px;overflow:hidden;box-shadow:0 60px 90px -50px rgba(5,42,49,.7)}
 .arch .frame img{width:100%;height:100%;object-fit:cover}
-.caustic{position:absolute;inset:-20%;pointer-events:none;mix-blend-mode:soft-light;opacity:.55;background:
- radial-gradient(40% 30% at 30% 30%,rgba(255,255,255,.9),transparent 70%),
- radial-gradient(35% 25% at 70% 60%,rgba(127,214,210,.9),transparent 70%),
- radial-gradient(30% 22% at 40% 80%,rgba(255,255,255,.7),transparent 70%);
- animation:drift 14s ease-in-out infinite alternate}
+.caustic{position:absolute;inset:-20%;pointer-events:none;mix-blend-mode:soft-light;opacity:.6;background:radial-gradient(40% 30% at 30% 30%,rgba(255,255,255,.9),transparent 70%),radial-gradient(35% 25% at 70% 60%,rgba(143,227,223,.9),transparent 70%),radial-gradient(30% 22% at 40% 80%,rgba(255,255,255,.7),transparent 70%);animation:drift 16s ease-in-out infinite alternate}
 @keyframes drift{0%{transform:translate(-4%,-3%) rotate(0)}50%{transform:translate(5%,4%) rotate(6deg)}100%{transform:translate(-2%,6%) rotate(-4deg)}}
-.arch .orb{position:absolute;left:-70px;bottom:70px;width:170px;height:170px;border-radius:50%;overflow:hidden;border:6px solid var(--paper);box-shadow:0 30px 50px -26px rgba(11,28,30,.55)}
+.arch .orb{position:absolute;left:-74px;bottom:66px;width:170px;height:170px;border-radius:50%;overflow:hidden;border:6px solid var(--paper);box-shadow:0 30px 50px -26px rgba(5,42,49,.6);animation:bob 7s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
 .arch .orb img{width:100%;height:100%;object-fit:cover}
-.arch .tag{position:absolute;right:-18px;top:64px;background:var(--card);padding:14px 18px;border-radius:16px;box-shadow:0 24px 40px -24px rgba(11,28,30,.5);font-size:12.5px;color:var(--mut);max-width:190px}
+.arch .tag{position:absolute;right:-22px;top:62px;background:var(--card);padding:14px 18px;border-radius:16px;box-shadow:0 24px 40px -24px rgba(5,42,49,.5);font-size:12.5px;color:var(--mut);max-width:190px;border-top:2px solid var(--coral)}
 .arch .tag b{display:block;font:500 21px/1.1 "Cormorant Garamond",serif;color:var(--ink);margin-bottom:3px}
 
-/* бегущая строка */
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--paper2)}
-.marquee .tr{display:flex;width:max-content;animation:run 46s linear infinite}
-.marquee span{font:italic 400 34px "Cormorant Garamond",serif;white-space:nowrap;padding-right:28px;color:var(--ink2)}
-.marquee span::after{content:"✦";font-style:normal;font-size:14px;color:var(--amber);margin-left:28px;vertical-align:middle}
-@keyframes run{to{transform:translateX(-50%)}}
+/* живая смола */
+.pour{position:relative;height:200px;margin-top:20px;cursor:crosshair}
+.pour canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pour p{position:absolute;left:0;right:0;top:50%;text-align:center;font:italic 400 clamp(22px,2.6vw,32px) "Cormorant Garamond",serif;color:#eafaf8;text-shadow:0 2px 16px rgba(5,42,49,.5);pointer-events:none}
 
 section{padding:130px 0}
 
@@ -84,12 +94,28 @@ section{padding:130px 0}
 .about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:90px;align-items:center}
 .about .ph{position:relative}
 .about .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 8%;border-radius:24px}
-.about .ph figcaption{position:absolute;left:24px;bottom:-22px;background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:12px;font-size:13px}
+.about .ph figcaption{position:absolute;left:24px;bottom:-22px;background:var(--lagoon);color:#fff;padding:12px 18px;border-radius:12px;font-size:13px}
 blockquote{font:400 clamp(30px,3.4vw,46px)/1.15 "Cormorant Garamond",serif;letter-spacing:-.3px;margin:24px 0 30px}
-blockquote i{color:var(--sea)}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:40px}
+blockquote i{color:var(--resin)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gold);margin-top:40px}
 .facts div{padding:22px 18px 0 0;font-size:13.5px;color:var(--mut)}
 .facts b{display:block;font:500 30px/1.1 "Cormorant Garamond",serif;color:var(--ink);margin-bottom:4px}
+
+/* что сохраним */
+.keep{background:var(--paper2)}
+.keep .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.words{list-style:none;margin-top:30px;display:flex;flex-direction:column}
+.words button{display:flex;align-items:baseline;gap:18px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:14px 0;cursor:pointer;font:400 clamp(38px,4.6vw,64px)/1 "Cormorant Garamond",serif;color:rgba(12,42,48,.32);transition:color .4s,padding .4s}
+.words button small{font:600 12px Manrope;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);opacity:0;transition:opacity .4s}
+.words button[aria-pressed="true"]{color:var(--ink);padding-left:14px}
+.words button[aria-pressed="true"] i{color:var(--coral)}
+.words button i{font-style:italic;transition:color .4s}
+.words button[aria-pressed="true"] small{opacity:1}
+.stage{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:var(--deep);box-shadow:0 60px 90px -50px rgba(5,42,49,.6)}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .9s ease,transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.stage img.on{opacity:1;transform:none}
+.stage figcaption{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(251,248,243,.92);backdrop-filter:blur(8px);border-radius:14px;padding:12px 16px;font-size:14px;color:var(--ink2)}
+.stage figcaption b{color:var(--ink)}
 
 /* коллекции */
 .works{background:var(--card)}
@@ -97,107 +123,115 @@ blockquote i{color:var(--sea)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 30px}
 .item{display:flex;flex-direction:column}
 .item .pic{position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;cursor:zoom-in;border:0;padding:0;background:var(--paper2)}
-.item .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.item .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .8s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)}
 .item .pic img+img{opacity:0}
-.item:hover .pic img{transform:scale(1.04)}
-.item:hover .pic img+img{opacity:1}
-.item .no{position:absolute;left:18px;top:16px;z-index:2;font:italic 400 22px "Cormorant Garamond",serif;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.item:hover .pic img,.item:focus-within .pic img{transform:scale(1.045)}
+.item:hover .pic img+img,.item:focus-within .pic img+img{opacity:1}
+.item .no{position:absolute;left:18px;top:14px;z-index:2;font:italic 400 26px "Cormorant Garamond",serif;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.item .pic::after{content:"";position:absolute;inset:0;border-radius:20px;box-shadow:inset 0 0 0 1px rgba(196,151,74,0);transition:box-shadow .5s}
+.item:hover .pic::after{box-shadow:inset 0 0 0 2px rgba(196,151,74,.9)}
 .item h3{font:500 32px/1.05 "Cormorant Garamond",serif;margin:22px 0 8px}
 .item p{color:var(--ink2);font-size:14.5px}
-.item .chips{font-size:12.5px;color:var(--mut);margin-top:10px;letter-spacing:.02em}
-.item .ord{margin-top:16px;align-self:flex-start;background:none;border:0;border-bottom:1px solid var(--ink);padding:0 0 3px;font-weight:600;font-size:13.5px;cursor:pointer;transition:color .3s,border-color .3s}
-.item .ord:hover{color:var(--sea);border-color:var(--sea)}
+.item .chips{font-size:12.5px;color:var(--mut);margin-top:10px}
+.item .ord{margin-top:16px;align-self:flex-start;background:none;border:0;border-bottom:1px solid var(--coral);padding:4px 0;font-weight:700;font-size:13.5px;cursor:pointer;color:var(--ink);transition:color .3s}
+.item .ord:hover{color:var(--coral)}
 
 /* интерьер */
-.interior{position:relative;color:#eef3f1;padding:170px 0;overflow:hidden;background:var(--deep)}
-.interior .bg{position:absolute;inset:0;background:url(../img/oskolki-more.webp) center/cover;opacity:.55;transform:scale(1.08)}
-.interior::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,28,30,.95) 0%,rgba(11,28,30,.75) 45%,rgba(11,28,30,.2) 100%)}
+.interior{position:relative;color:#eef7f6;padding:170px 0;overflow:hidden;background:var(--deep)}
+.interior .bg{position:absolute;inset:0;background:url(../img/oskolki-more.webp) center/cover;opacity:.9}
+.interior::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,42,49,.96) 0%,rgba(5,42,49,.78) 42%,rgba(5,42,49,.12) 100%)}
 .interior .wrap{position:relative;z-index:1}
-.interior .kick{color:var(--sea-l)}
-.interior h2 i{color:var(--sea-l)}
-.interior .lead{color:#bccac8}
+.interior .kick{color:var(--resin-l)}
+.interior h2 i{color:var(--resin-l)}
+.interior .lead{color:#c7dad8}
 .interior ul{list-style:none;margin:34px 0 42px;max-width:520px}
-.interior li{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid rgba(238,243,241,.16);font-size:15.5px}
-.interior li span{color:#a9bbb9;font-size:13px}
-.interior .btn-line{border-color:#eef3f1;color:#eef3f1}
-.interior .btn-line:hover{background:#eef3f1;color:var(--deep)}
+.interior li{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid rgba(196,151,74,.35);font-size:15.5px}
+.interior li span{color:#b5cbc8;font-size:13px}
+.interior .btn-line{border-color:var(--gold);color:#fff}
+.interior .btn-line:hover{background:var(--gold);color:var(--deep)}
 
 /* компаниям */
 .corp .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px}
 .rows{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--line)}
-.row em{font:italic 400 30px/1 "Cormorant Garamond",serif;color:var(--amber)}
+.row{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--line);transition:padding .4s}
+.row:hover{padding-left:10px}
+.row em{font:italic 400 32px/1 "Cormorant Garamond",serif;color:var(--coral)}
 .row b{display:block;font:500 26px/1.1 "Cormorant Garamond",serif;margin-bottom:6px}
 .row span{color:var(--ink2);font-size:14.5px}
 
 /* как заказать */
-.how{background:var(--paper2)}
+.how{background:linear-gradient(160deg,#e7f6f4,#f6efe4)}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:60px;counter-reset:s;list-style:none}
-.steps li{counter-increment:s;border-top:1px solid var(--ink);padding-top:24px}
-.steps li::before{content:"0" counter(s);display:block;font:italic 400 44px/1 "Cormorant Garamond",serif;color:var(--sea);margin-bottom:18px}
-.steps b{display:block;font-size:16px;font-weight:600;margin-bottom:8px}
+.steps li{counter-increment:s;border-top:1px solid var(--lagoon);padding-top:24px}
+.steps li::before{content:"0" counter(s);display:block;font:italic 400 46px/1 "Cormorant Garamond",serif;color:var(--resin);margin-bottom:18px}
+.steps b{display:block;font-size:16px;font-weight:700;margin-bottom:8px}
 .steps span{color:var(--ink2);font-size:14.5px}
 
 /* заявка */
 .order .wrap{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
 .contacts{margin-top:40px;display:flex;flex-direction:column;gap:14px;font-size:15px}
 .contacts a{font:500 30px "Cormorant Garamond",serif;border-bottom:1px solid var(--line);padding-bottom:12px;display:flex;justify-content:space-between;align-items:center;transition:color .3s}
-.contacts a:hover{color:var(--sea)}
-.contacts a small{font:600 11.5px Manrope;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
-form{background:var(--card);border-radius:28px;padding:44px;box-shadow:0 50px 90px -60px rgba(11,28,30,.55);display:flex;flex-direction:column;gap:20px}
+.contacts a:hover{color:var(--lagoon)}
+.contacts a small{font:700 11.5px Manrope;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d)}
+form{position:relative;background:var(--card);border-radius:28px;padding:44px;box-shadow:0 50px 90px -60px rgba(5,42,49,.6);display:flex;flex-direction:column;gap:20px;border-top:3px solid var(--resin)}
 form h3{font:500 36px/1 "Cormorant Garamond",serif}
-label{font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);display:flex;flex-direction:column;gap:6px}
-input,select,textarea{font:500 16px Manrope;letter-spacing:0;text-transform:none;color:var(--ink);border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 0;background:transparent;width:100%}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sea)}
+label{font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);display:flex;flex-direction:column;gap:6px}
+input,select,textarea{font:500 16px Manrope;letter-spacing:0;text-transform:none;color:var(--ink);border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 2px;background:transparent;width:100%;transition:border-color .3s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--resin)}
 textarea{min-height:84px;resize:vertical}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 form .btn{justify-content:center;margin-top:6px}
 .hint{font-size:12.5px;color:var(--mut)}
 
-footer{background:var(--deep);color:#9fb1af;padding:70px 0 40px}
+footer{background:var(--deep);color:#a9c1be;padding:70px 0 40px;border-top:3px solid var(--gold)}
 footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end}
-footer .logo b{color:#eef3f1;font-size:44px}
-footer .logo small{color:#9fb1af}
+footer .logo b{color:#eef7f6;font-size:44px}
+footer .logo small{color:#a9c1be}
 footer p{font-size:13.5px;max-width:360px;margin-top:16px}
 footer .c{display:flex;flex-direction:column;gap:6px;font-size:14px;text-align:right}
-footer .c a{color:#eef3f1}
+footer .c a{color:#eef7f6}
 
 /* просмотр фото */
-.lb{position:fixed;inset:0;z-index:100;background:rgba(8,18,20,.94);display:none;align-items:center;justify-content:center;padding:24px}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(4,28,33,.95);display:none;align-items:center;justify-content:center;padding:24px}
 .lb.on{display:flex}
 .lb img{max-width:min(1100px,100%);max-height:86vh;border-radius:14px}
-.lb button{position:absolute;border:1px solid rgba(255,255,255,.25);background:none;color:#fff;width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer}
+.lb button{position:absolute;border:1px solid rgba(196,151,74,.6);background:none;color:#fff;width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer}
 .lb .x{top:20px;right:20px}.lb .pv{left:20px;top:50%;transform:translateY(-50%)}.lb .nx{right:20px;top:50%;transform:translateY(-50%)}
-.lb p{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#d6e2e0;font:italic 400 20px "Cormorant Garamond",serif}
+.lb p{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#d6e8e6;font:italic 400 20px "Cormorant Garamond",serif}
 
 @media(max-width:1020px){
  nav.menu{display:none}
- .hero .wrap,.about .wrap,.corp .wrap,.order .wrap{grid-template-columns:1fr;gap:60px}
+ .hero .wrap,.about .wrap,.corp .wrap,.order .wrap,.keep .wrap{grid-template-columns:1fr;gap:60px}
  .arch{justify-self:center}
  .grid{grid-template-columns:1fr 1fr}
  .steps{grid-template-columns:1fr 1fr}
  .works .head{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:620px){
- .wrap{padding:0 16px}
+ .wrap{padding-left:16px;padding-right:16px}
  header .wrap{height:70px}
  header .btn{display:none}
- .hero{padding:112px 0 64px}
+ .hero{padding:112px 0 24px}
  .hero h1{letter-spacing:-1px}
+ .arch::before{inset:-10px 10px 10px -10px}
  .arch .orb{width:116px;height:116px;left:-6px;bottom:40px}
  .arch .tag{right:-4px;top:30px}
+ .pour{height:150px}
  section{padding:84px 0}
  .interior{padding:110px 0}
- .interior::after{background:linear-gradient(180deg,rgba(11,28,30,.7),rgba(11,28,30,.95))}
+ .interior::after{background:linear-gradient(180deg,rgba(5,42,49,.72),rgba(5,42,49,.95))}
  .grid{grid-template-columns:1fr;gap:48px}
  .steps{grid-template-columns:1fr}
  .facts{grid-template-columns:1fr}
  .two{grid-template-columns:1fr}
  form{padding:28px 22px}
- .marquee span{font-size:26px}
  footer .c{text-align:left}
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto}
+ .js .reveal,.js .arch,.js .hero .intro{opacity:1;transform:none}
+ .js .hero h1 span b{transform:none}
+}
 </style>
 </head>
 <body>
@@ -205,16 +239,18 @@ footer .c a{color:#eef3f1}
 <header id="hdr"><div class="wrap">
  <a class="logo" href="#"><b>Людмила</b><small>смола ручной работы</small></a>
  <nav class="menu"><a href="#about">О мастере</a><a href="#works">Изделия</a><a href="#interior">В интерьер</a><a href="#corp">Компаниям</a><a href="#order">Заказать</a></nav>
- <a class="btn btn-ink" href="#order">Обсудить заказ</a>
+ <a class="btn btn-main" href="#order">Обсудить заказ</a>
 </div></header>
 
-<section class="hero"><div class="wrap">
+<section class="hero" style="padding-bottom:40px"><div class="wrap">
  <div>
-  <span class="kick">Мастерская эпоксидной смолы · Горный Алтай</span>
-  <h1><span>Застывшее</span><span><i>море,</i> лето</span><span>и праздник</span></h1>
-  <p class="lead">Изделия из смолы с живым наполнением - цветами, фруктами, ракушками. От брошки и ёлочной игрушки до стола в интерьер.</p>
-  <div class="acts"><a class="btn btn-ink" href="#works">Смотреть изделия <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="#corp">Подарки для компаний</a></div>
-  <div class="sign"><b>в единственном экземпляре</b><i></i><span>каждая вещь<br>делается вручную</span></div>
+  <div class="intro"><span class="kick">Мастерская эпоксидной смолы · Горный Алтай</span></div>
+  <h1><span><b>Застывшее</b></span><span><b><i>море,</i> лето</b></span><span><b>и праздник</b></span></h1>
+  <div class="intro">
+   <p class="lead">Изделия из смолы с живым наполнением - цветами, фруктами, ракушками. От брошки и ёлочной игрушки до стола в интерьер.</p>
+   <div class="acts"><a class="btn btn-main" href="#works">Смотреть изделия <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="#corp">Подарки для компаний</a></div>
+   <div class="sign"><b>в единственном экземпляре</b><i></i><span>каждая вещь<br>делается вручную</span></div>
+  </div>
  </div>
  <div class="arch">
   <div class="frame"><img src="../img/svetilnik.webp" alt="Светильник из смолы с ракушками и подсветкой"><div class="caustic"></div></div>
@@ -223,10 +259,7 @@ footer .c a{color:#eef3f1}
  </div>
 </div></section>
 
-<div class="marquee" aria-hidden="true"><div class="tr">
- <span>Сервировочные доски</span><span>Светильники</span><span>«Осколки»</span><span>Ёлочные игрушки</span><span>Броши</span><span>Столы и панно</span><span>Подарки для команды</span>
- <span>Сервировочные доски</span><span>Светильники</span><span>«Осколки»</span><span>Ёлочные игрушки</span><span>Броши</span><span>Столы и панно</span><span>Подарки для команды</span>
-</div></div>
+<div class="pour" id="pour" aria-hidden="true"><canvas></canvas><p>проведите по волне - так ложится смола</p></div>
 
 <section class="about" id="about"><div class="wrap">
  <figure class="ph reveal"><img src="../img/stol-muzej.webp" alt="Людмила рядом со столом из смолы для музея" loading="lazy"><figcaption>Стол для музея - одна из больших работ</figcaption></figure>
@@ -236,6 +269,29 @@ footer .c a{color:#eef3f1}
   <p class="lead">Делаю и маленькие вещи, и большие работы в интерьер. Можно повторить изделие из моих работ или придумать своё - подберём форму, цвет и наполнение.</p>
   <div class="facts"><div><b>от мелочи</b>броши, игрушки, подставки</div><div><b>до стола</b>столы, панно, картины</div><div><b>под заказ</b>наполнение и цвет на выбор</div></div>
  </div>
+</div></section>
+
+<section class="keep" id="keep"><div class="wrap">
+ <div class="reveal">
+  <span class="kick">Наполнение</span>
+  <h2>Что <i>сохраним</i> в смоле?</h2>
+  <p class="lead">Выберите - и посмотрите, как это выглядит в готовой работе.</p>
+  <div class="words" role="group" aria-label="Наполнение">
+   <button aria-pressed="true" data-k="0"><i>Море</i><small>ракушки и волна</small></button>
+   <button aria-pressed="false" data-k="1"><i>Цветы</i><small>сухоцветы и травы</small></button>
+   <button aria-pressed="false" data-k="2"><i>Лето</i><small>фрукты и ягоды</small></button>
+   <button aria-pressed="false" data-k="3"><i>Праздник</i><small>ёлка и блёстки</small></button>
+   <button aria-pressed="false" data-k="4"><i>Характер</i><small>броши и мелочи</small></button>
+  </div>
+ </div>
+ <figure class="stage reveal" id="stage">
+  <img class="on" src="../img/doski-kity.webp" alt="Деревянные доски-киты с морской заливкой" loading="lazy">
+  <img src="../img/oskolok-cvety.webp" alt="«Осколок» с цветами" loading="lazy">
+  <img src="../img/doski-frukty.webp" alt="Доски с фруктами и цветами" loading="lazy">
+  <img src="../img/elochnye-igrushki.webp" alt="Ёлочные игрушки" loading="lazy">
+  <img src="../img/broshi-loshadki.webp" alt="Броши-лошадки" loading="lazy">
+  <figcaption id="cap"><b>Доски-киты</b> - дерево и морская заливка с ракушками</figcaption>
+ </figure>
 </div></section>
 
 <section class="works" id="works"><div class="wrap">
@@ -277,7 +333,7 @@ footer .c a{color:#eef3f1}
   <span class="kick">Компаниям</span>
   <h2>Подарки, которые <i>оставляют</i> на столе</h2>
   <p class="lead">Серия подарков для сотрудников и партнёров, сувениры к празднику или изделие в интерьер офиса и ресторана - в ваших фирменных цветах.</p>
-  <div style="margin-top:36px"><a class="btn btn-ink" href="#order" data-item="Корпоративный заказ">Обсудить корпоративный заказ</a></div>
+  <div style="margin-top:36px"><a class="btn btn-main" href="#order" data-item="Корпоративный заказ">Обсудить корпоративный заказ</a></div>
  </div>
  <div class="rows reveal">
   <div class="row"><em>i</em><div><b>Новогодние подарки</b><span>Игрушки, доски, светильники наборами для команды и клиентов.</span></div></div>
@@ -310,12 +366,12 @@ footer .c a{color:#eef3f1}
  </div>
  <form id="f" class="reveal" novalidate>
   <h3>Заявка на изделие</h3>
-  <div class="two"><label>Ваше имя<input name="name" autocomplete="name" placeholder="Анна"></label><label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label></div>
+  <div class="two"><label>Ваше имя<input id="f-name" name="name" autocomplete="name" placeholder="Анна"></label><label>Телефон<input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label></div>
   <label>Что хотите заказать<select name="item" id="item">
    <option>Сервировочная доска</option><option>Светильник или подставка</option><option>«Осколок»</option><option>Новогодние игрушки</option><option>Броши и мелочи</option><option>Большое изделие в интерьер</option><option>Корпоративный заказ</option><option>Изделие по моей идее</option>
   </select></label>
-  <label>Пожелания<textarea name="msg" placeholder="Например: доска с апельсинами и корицей, к 20 декабря, 3 штуки"></textarea></label>
-  <button class="btn btn-ink" type="submit">Отправить в WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  <label>Пожелания<textarea id="f-msg" name="msg" placeholder="Например: доска с апельсинами и корицей, к 20 декабря, 3 штуки"></textarea></label>
+  <button class="btn btn-main" type="submit">Отправить в WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   <p class="hint">Откроется WhatsApp с готовым сообщением - останется нажать «отправить».</p>
  </form>
 </div></section>
@@ -329,28 +385,72 @@ footer .c a{color:#eef3f1}
 
 <script>
 (function(){
- // шапка становится плотной при прокрутке
+ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ // шапка
  var h=document.getElementById('hdr');
  function hs(){h.classList.toggle('solid',scrollY>40)}hs();addEventListener('scroll',hs,{passive:true});
- // плавное появление блоков
- var els=document.querySelectorAll('.reveal');
- if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})}else els.forEach(function(e){e.classList.add('in')});
- // просмотр фото: все работы по кругу
+ // появление блоков; если наблюдатель не сработал - через 3 с показываем всё
+ var els=[].slice.call(document.querySelectorAll('.reveal'));
+ function showAll(){els.forEach(function(e){e.classList.add('in')})}
+ if('IntersectionObserver' in window&&!reduce){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});els.forEach(function(e){io.observe(e)})}else showAll();
+
+ // живая смола: бирюзовая волна с кружевом пены, реагирует на курсор
+ (function(){
+  var box=document.getElementById('pour'),cv=box.querySelector('canvas'),cx=cv.getContext('2d'),W,Hh,dpr,t=0,mx=-1e3,amp=[];
+  function size(){dpr=Math.min(devicePixelRatio||1,2);W=box.clientWidth;Hh=box.clientHeight;cv.width=W*dpr;cv.height=Hh*dpr;cx.setTransform(dpr,0,0,dpr,0,0);amp=new Array(Math.ceil(W/6)+2).fill(0)}
+  size();addEventListener('resize',size);
+  box.addEventListener('pointermove',function(e){var r=box.getBoundingClientRect();mx=e.clientX-r.left;var i=Math.round(mx/6);for(var k=-14;k<=14;k++){var j=i+k;if(j>=0&&j<amp.length)amp[j]=Math.min(26,amp[j]+(14-Math.abs(k))*0.35)}});
+  box.addEventListener('pointerleave',function(){mx=-1e3});
+  // детерминированные «ячейки» пены
+  var cells=[];for(var i=0;i<260;i++)cells.push({x:Math.random(),d:Math.random(),r:2+Math.random()*7,s:.3+Math.random()*.7});
+  function edge(x,k){return Hh*0.34+Math.sin(x/W*Math.PI*2.2+t*.55+k)*14+Math.sin(x/W*Math.PI*5.3-t*.8+k*2)*7+Math.sin(x/W*Math.PI*11+t*1.1)*3}
+  function frame(){
+   cx.clearRect(0,0,W,Hh);
+   for(var j=0;j<amp.length;j++)amp[j]*=0.94;
+   var g=cx.createLinearGradient(0,Hh*0.2,0,Hh);g.addColorStop(0,'#9be8e3');g.addColorStop(.35,'#1bb8b8');g.addColorStop(.7,'#0b7a85');g.addColorStop(1,'#07505c');
+   // лента «реки» между двумя кромками, как на столах из смолы
+   function low(x){return Hh*0.86+Math.sin(x/W*Math.PI*1.7-t*.4)*8+Math.sin(x/W*Math.PI*4.1+t*.6)*4}
+   cx.beginPath();cx.moveTo(0,edge(0,0));
+   for(var x=0;x<=W+6;x+=6){var a=amp[Math.round(x/6)]||0;cx.lineTo(x,edge(x,0)-a*Math.sin(t*3+x*.05))}
+   for(var xb=W+6;xb>=0;xb-=6)cx.lineTo(xb,low(xb));
+   cx.closePath();cx.fillStyle=g;cx.fill();
+   cx.save();cx.clip();cx.beginPath();cx.moveTo(0,Hh);for(var x2=0;x2<=W+6;x2+=6)cx.lineTo(x2,edge(x2,2.1)+Hh*0.3);cx.lineTo(W,Hh);cx.closePath();cx.fillStyle='rgba(5,42,49,.3)';cx.fill();cx.restore();
+   // кружево пены вдоль кромки
+   cells.forEach(function(c){var x=(c.x*W+t*12*c.s)%W,a=amp[Math.round(x/6)]||0,y=edge(x,0)-a*Math.sin(t*3+x*.05)+c.d*Hh*0.16;
+    cx.beginPath();cx.ellipse(x,y,c.r*(1-c.d*.5),c.r*.6*(1-c.d*.5),0,0,Math.PI*2);cx.strokeStyle='rgba(255,255,255,'+(0.85-c.d*.75)+')';cx.lineWidth=1.4;cx.stroke()});
+   // блики
+   for(var b=0;b<3;b++){var bx=((t*30+b*W/3)%(W+200))-100,by=edge(bx,0)+Hh*0.25;var rg=cx.createRadialGradient(bx,by,0,bx,by,90);rg.addColorStop(0,'rgba(255,255,255,.18)');rg.addColorStop(1,'rgba(255,255,255,0)');cx.fillStyle=rg;cx.fillRect(bx-90,by-90,180,180)}
+   t+=0.016;if(!reduce)requestAnimationFrame(frame);
+  }
+  frame();
+ })();
+
+ // «что сохраним»: слова переключают фото, сами листаются, пока посетитель не выберет
+ (function(){
+  var bs=[].slice.call(document.querySelectorAll('.words button')),imgs=[].slice.call(document.querySelectorAll('#stage img')),cap=document.getElementById('cap'),cur=0,timer=null,
+  C=['<b>Доски-киты</b> - дерево и морская заливка с ракушками','<b>«Осколок»</b> - сухоцветы и травы в прозрачной смоле','<b>Сервировочные доски</b> - апельсины, ягоды, цветы','<b>Ёлочные игрушки</b> - шары, лошадки, «лёд»','<b>Броши-лошадки</b> - маленькие вещи с характером'];
+  function go(k){cur=k;bs.forEach(function(b,i){b.setAttribute('aria-pressed',i===k?'true':'false')});imgs.forEach(function(m,i){m.classList.toggle('on',i===k)});cap.innerHTML=C[k]}
+  function stop(){clearInterval(timer);timer=null}
+  bs.forEach(function(b,i){b.addEventListener('click',function(){stop();go(i)});b.addEventListener('mouseenter',function(){stop();go(i)})});
+  if(!reduce)timer=setInterval(function(){go((cur+1)%bs.length)},3200);
+ })();
+
+ // просмотр фото
  var G=[['doski-frukty','Сервировочные доски с фруктами и цветами'],['doski-zima','Доски зимней серии'],['doski-kity','Доски с морской заливкой'],['svetilnik','Светильник «Море»'],['shkatulka-rakushki','Подставка с ракушками'],['oskolok-cvety','«Осколок» с цветами'],['oskolki-more','«Осколки» морской серии'],['elochnye-igrushki','Ёлочные игрушки'],['loshadki-igrushki','Лошадки на ёлку'],['igrushka-led','Игрушка «Лёд»'],['broshi-loshadki','Броши-лошадки'],['kozlik','Козлик и капуста'],['melochi','Из мастерской'],['stol-muzej','Стол для музея']];
- var lb=document.getElementById('lb'),im=lb.querySelector('img'),cap=lb.querySelector('p'),cur=0;
- function show(i){cur=(i+G.length)%G.length;im.src='../img/'+G[cur][0]+'.webp';im.alt=G[cur][1];cap.textContent=G[cur][1];lb.classList.add('on');document.body.style.overflow='hidden'}
+ var lb=document.getElementById('lb'),im=lb.querySelector('img'),lcap=lb.querySelector('p'),li=0;
+ function show(i){li=(i+G.length)%G.length;im.src='../img/'+G[li][0]+'.webp';im.alt=G[li][1];lcap.textContent=G[li][1];lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.x').focus()}
  function close(){lb.classList.remove('on');document.body.style.overflow=''}
  document.querySelectorAll('[data-g]').forEach(function(b){b.addEventListener('click',function(){show(G.findIndex(function(x){return x[0]===b.dataset.g}))})});
- lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){show(cur-1)};lb.querySelector('.nx').onclick=function(){show(cur+1)};
+ lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){show(li-1)};lb.querySelector('.nx').onclick=function(){show(li+1)};
  lb.addEventListener('click',function(e){if(e.target===lb)close()});
- document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
- // кнопки «Заказать» подставляют изделие в форму
+ document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(li-1);if(e.key==='ArrowRight')show(li+1)});
+ // «Заказать» подставляет изделие в форму
  var sel=document.getElementById('item');
  document.querySelectorAll('[data-item]').forEach(function(a){a.addEventListener('click',function(e){
   var v=a.dataset.item;[].forEach.call(sel.options,function(o){if(o.text===v)sel.value=v});
-  if(a.tagName==='BUTTON'){e.preventDefault();document.getElementById('order').scrollIntoView({behavior:'smooth'})}
+  if(a.tagName==='BUTTON'){e.preventDefault();document.getElementById('order').scrollIntoView({behavior:reduce?'auto':'smooth'})}
  })});
- // заявка -> WhatsApp с готовым текстом
+ // заявка -> WhatsApp
  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
   var t='Здравствуйте, Людмила! Хочу заказать: '+f.item.value+(f.msg.value?'.\n'+f.msg.value:'')+(f.name.value?'\nИмя: '+f.name.value:'')+(f.phone.value?'\nТелефон: '+f.phone.value:'');
   window.open('https://wa.me/79081045144?text='+encodeURIComponent(t),'_blank','noopener')});
