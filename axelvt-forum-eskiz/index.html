@@ -52,6 +52,14 @@ main{padding:24px 0 60px}
 .ad{border:1.5px dashed #b9c6e6;background:repeating-linear-gradient(135deg,#f7f9fd 0 12px,#f1f5fc 12px 24px);border-radius:12px;color:var(--mut);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;gap:2px;font-size:13px}
 .ad b{font:600 11px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#8592b5}
 .ad-wide{height:96px}.ad-side{height:250px}
+/* рекламные поля слева и справа */
+.lay{max-width:1604px;display:grid;grid-template-columns:160px minmax(0,1200px) 160px;gap:22px;justify-content:center}
+.rail{position:sticky;top:16px;align-self:start;display:flex;flex-direction:column;gap:16px}
+.rail .ad{height:600px}.rail .ad.s{height:240px}
+.ad-m{display:none;height:90px;margin-bottom:18px}
+.paid{border-color:#e9b46c;background:linear-gradient(90deg,#fffaf2,#fff 40%);box-shadow:0 0 0 1px #f3d2a2 inset}
+.paid .badge{display:inline-block;font:600 11px "IBM Plex Mono",monospace;background:#d9822b;color:#fff;border-radius:5px;padding:2px 7px;margin-bottom:6px}
+.mod{display:flex;gap:10px;align-items:center;background:var(--sky-l);border:1px solid #cfe6f7;color:#1b4f75;border-radius:12px;padding:10px 14px;font-size:13.5px;margin-bottom:16px}
 /* главная */
 .hero{background:linear-gradient(120deg,var(--navy) 0%,#1b2c73 60%,var(--brand) 100%);color:#fff;border-radius:18px;padding:34px 34px 30px;position:relative;overflow:hidden}
 .hero svg.wave{position:absolute;right:-40px;top:-6px;width:520px;opacity:.18}
@@ -142,6 +150,7 @@ main{padding:24px 0 60px}
 .sec-h p{color:var(--mut);font-size:14px}
 footer{background:var(--navy);color:#aab5d8;font-size:13px;padding:26px 0}
 footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+@media(max-width:1279px){.lay{display:block;max-width:1200px}.rail{display:none}.ad-m{display:flex}}
 @media(max-width:980px){.grid{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}.arts,.ucs{grid-template-columns:1fr 1fr}.art.big{grid-column:span 2}.fnode{grid-template-columns:40px 1fr;}.fnode .num,.fnode .last{grid-column:2}.search{display:none}}
 @media(max-width:600px){.wrap{padding:0 14px}.hero{padding:24px 20px;border-radius:14px}.auth .btn-ghost{display:none}.arts,.ucs{grid-template-columns:1fr}.art.big{grid-column:auto;flex-direction:column}.art.big .th{min-height:170px}.job{grid-template-columns:1fr}.job .pay{text-align:left}.tbl th:nth-child(3),.tbl td:nth-child(3){display:none}.tbl td.code{white-space:normal;font-size:12px}.tbl td,.tbl th{padding:10px 12px}.lib-f{padding:12px}.row .r{display:none}.quick{grid-template-columns:1fr 1fr;gap:10px}.qk{padding:12px}}
 </style>
@@ -177,11 +186,13 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
   <a href="#articles" data-go="articles">Статьи</a>
   <a href="#library" data-go="library">Библиотека НТД</a>
   <a href="#centers" data-go="centers">Учебные центры</a>
-  <a href="#ads" data-go="ads">Реклама</a>
  </div></nav>
 </header>
 
-<main><div class="wrap">
+<main><div class="wrap lay">
+<aside class="rail" aria-label="Реклама слева"><div class="ad"><b>Реклама · 160×600</b>Левое поле: баннер партнёра</div></aside>
+<div class="mid">
+<div class="ad ad-m"><b>Реклама</b>На телефоне и узком экране боковые поля заменяет этот баннер</div>
 
 <!-- ================= ГЛАВНАЯ ================= -->
 <section class="page on" id="p-home">
@@ -202,8 +213,6 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
     <a class="qk" href="#centers" data-go="centers"><i><svg><use href="#i-cap"/></svg></i><b>Обучение</b><span>Курсы и аттестация</span></a>
    </div>
 
-   <div class="ad ad-wide"><b>Реклама · 1200×120</b>Баннер партнёра: производитель приборов, сервисная компания, учебный центр</div>
-
    <div class="card">
     <div class="card-h"><h2>Свежие вакансии и подработки</h2><a href="#birzha" data-go="birzha">Все на бирже →</a></div>
     <div class="row"><span class="av" style="background:#1f3cc0">НП</span><div class="t"><a href="#birzha" data-go="birzha">Инженер-вибродиагност, II уровень</a><small><span class="pill g">вакансия</span>НПЗ, Республика Башкортостан · вахта 30/30</small></div><div class="r mono">от 180 000 ₽</div></div>
@@ -220,7 +229,6 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
   </div>
 
   <aside class="stack">
-   <div class="ad ad-side"><b>Реклама · 300×250</b>Место для баннера</div>
    <div class="card">
     <div class="card-h"><h3>Новое в библиотеке</h3></div>
     <div class="row"><div class="t"><a href="#library" data-go="library">ГОСТ ISO 20816-1-2021</a><small>Измерения вибрации и оценка вибрационного состояния машин. Часть 1</small></div></div>
@@ -259,7 +267,6 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
    </div>
   </div>
   <aside class="stack">
-   <div class="ad ad-side"><b>Реклама · 300×250</b>Место для баннера</div>
    <div class="card"><div class="card-h"><h3>Статистика форума</h3></div><div class="row"><div class="t"><small>Темы: <b class="mono">1 581</b> · Сообщения: <b class="mono">20 350</b><br>Участники: <b class="mono">1 240</b> · Сейчас на сайте: <b class="mono">37</b></small></div></div></div>
   </aside>
  </div>
@@ -271,10 +278,12 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
  <div class="bx-top">
   <div class="seg" id="bx-seg"><button class="on" data-k="vac">Вакансии</button><button data-k="gig">Подработки</button><button data-k="res">Резюме</button><button data-k="ann">Объявления</button></div>
  </div>
+ <div class="mod"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Все объявления проходят проверку модератором - публикуются после одобрения, обычно в течение дня.</div>
  <div class="warn"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3 2 20h20z M12 10v4M12 17v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Осторожно, мошенники! Не переводите предоплату за «оформление» и «пропуска». Сомнительное объявление - нажмите «Пожаловаться».</div>
  <div class="grid">
   <div>
    <div class="bx-list" data-k="vac">
+    <div class="job paid"><div><span class="badge">★ Выделено · в топе 7 дней</span><h3><a href="#">Ведущий инженер по вибродиагностике турбоагрегатов</a></h3><div class="meta"><span>ГК «ЭнергоСервис» (пример)</span><span>Москва / командировки</span><span>Полный день</span></div></div><div class="pay">от 220 000 ₽</div><p>Платное размещение: объявление закреплено вверху списка, выделено цветом и показывается на главной. Обычные объявления - бесплатно.</p><div class="tg"><span class="pill">турбоагрегаты</span><span class="pill">III уровень</span></div></div>
     <div class="job"><div><h3><a href="#">Инженер-вибродиагност, II уровень</a></h3><div class="meta"><span>ООО «НефтеПереработка» (пример)</span><span>Башкортостан</span><span>Вахта 30/30</span></div></div><div class="pay">от 180 000 ₽</div><p>Периодический контроль насосно-компрессорного оборудования, работа со стационарной системой мониторинга, отчёты и рекомендации по ремонту.</p><div class="tg"><span class="pill">вибродиагностика</span><span class="pill">ISO 18436-2 II</span><span class="pill s">вахта</span></div></div>
     <div class="job"><div><h3><a href="#">Специалист по монтажу и пусконаладке систем мониторинга</a></h3><div class="meta"><span>ЭнергоМонтаж (пример)</span><span>ЯНАО</span><span>Командировки</span></div></div><div class="pay">по договорённости</div><p>Монтаж датчиков и стоек, наладка каналов, сдача заказчику. Опыт с системами защиты турбоагрегатов приветствуется.</p><div class="tg"><span class="pill">монтаж</span><span class="pill">системы защиты</span></div></div>
     <div class="job"><div><h3><a href="#">Вибродиагност в сервисную компанию</a></h3><div class="meta"><span>ТехСервис (пример)</span><span>Екатеринбург</span><span>Полный день</span></div></div><div class="pay">120 000 - 150 000 ₽</div><p>Маршрутная диагностика у заказчиков, балансировка, центровка. Обучение за счёт компании.</p><div class="tg"><span class="pill">балансировка</span><span class="pill">центровка</span></div></div>
@@ -292,7 +301,6 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
   </div>
   <aside class="stack">
    <div class="card"><div class="card-h"><h3>Теги</h3></div><div class="tags"><span class="on">Все</span><span>Вибродиагностика</span><span>Балансировка</span><span>Центровка</span><span>Системы мониторинга</span><span>Монтаж</span><span>Термография</span><span>Анализ масел</span><span>Вахта</span><span>Удалённо</span></div></div>
-   <div class="ad ad-side"><b>Реклама · 300×250</b>Место для баннера</div>
   </aside>
  </div>
 </section>
@@ -330,7 +338,6 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
   </div>
   <aside class="stack">
    <div class="card"><div class="card-h"><h3>Как устроено</h3></div><div class="row"><div class="t"><small>Документы с открытым доступом - файлом. Платные стандарты - карточкой с описанием и ссылкой на официальный источник. Участники могут предлагать материалы, модератор проверяет.</small></div></div></div>
-   <div class="ad ad-side"><b>Реклама · 300×250</b>Место для баннера</div>
   </aside>
  </div>
 </section>
@@ -345,16 +352,8 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
  </div>
 </section>
 
-<!-- ================= РЕКЛАМА ================= -->
-<section class="page" id="p-ads">
- <div class="sec-h"><div><h1>Реклама на портале</h1><p>Аудитория - практикующие специалисты и руководители служб диагностики</p></div></div>
- <div class="ucs">
-  <div class="uc"><h3>Баннер на главной</h3><small>1200×120, под быстрыми ссылками</small><ul><li>Показы <b>все посетители</b></li></ul></div>
-  <div class="uc"><h3>Баннер в боковой колонке</h3><small>300×250, на форуме, бирже, в библиотеке</small><ul><li>Показы <b>все разделы</b></li></ul></div>
-  <div class="uc"><h3>Статья партнёра и выделенная вакансия</h3><small>Материал с пометкой «Реклама», вакансия в топе биржи</small><ul><li>Срок <b>от 7 дней</b></li></ul></div>
- </div>
-</section>
-
+</div>
+<aside class="rail" aria-label="Реклама справа"><div class="ad"><b>Реклама · 160×600</b>Правое поле: баннер партнёра</div><div class="ad s"><b>Реклама · 160×240</b>Второе место</div></aside>
 </div></main>
 
 <footer><div class="wrap"><span>Вибросообщество · портал при axelvt.ru · эскиз</span><span>Правила · Реклама · Обратная связь</span></div></footer>
