@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Сканди · Квартира 64,5 м²</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--paper:#f6f5f2;--card:#ffffff;--ink:#1c2120;--ink2:#4b5351;--mut:#6a7270;--line:#dcdcd6;--acc:#2f5d50;
+--f-disp:"Cormorant Garamond",Georgia,serif;--f-body:"Golos Text",system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-disp);font-weight:500;margin:0;text-wrap:balance}
+h1{font-size:clamp(44px,6.4vw,84px);line-height:.95;letter-spacing:-1px}
+h2{font-size:clamp(30px,3.6vw,46px);line-height:1.05}
+h3{font-size:26px;line-height:1.1}
+.eyebrow{font:500 12px var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+nav.top{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--line)}
+nav.top .brand{font:500 22px var(--f-disp);margin-right:auto;text-decoration:none}
+nav.top a.v{text-decoration:none;font-size:14.5px;padding:6px 0;border-bottom:1px solid transparent}
+nav.top a.v[aria-current]{border-color:var(--ink);font-weight:600}
+.hero{padding:44px 0 30px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:44px;align-items:end}
+.hero p{color:var(--ink2);font-size:17.5px;max-width:52ch;margin:18px 0 0}
+.hero img{width:100%;border-radius:6px;display:block;box-shadow:0 40px 70px -40px rgba(0,0,0,.45)}
+section{padding:56px 0}
+.viewer{background:#111;border-radius:8px;overflow:hidden;position:relative}
+#view{width:100%;aspect-ratio:16/10;max-height:78vh}
+#view canvas{display:block;width:100%!important;height:100%!important;touch-action:none}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.ctrl button{font:500 14px var(--f-body);background:var(--card);border:1px solid var(--line);padding:9px 14px;border-radius:999px;cursor:pointer;color:var(--ink)}
+.ctrl button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ctrl label{margin-left:auto;font-size:14px;color:var(--ink2);display:flex;gap:8px;align-items:center;cursor:pointer}
+.hint{font-size:13.5px;color:var(--mut);margin-top:8px}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.gal figure{margin:0}.gal img{width:100%;display:block;border-radius:5px;aspect-ratio:16/10;object-fit:cover}
+.gal figcaption{font-size:14px;color:var(--ink2);margin-top:8px}
+.pal{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:26px}
+.pal div{display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--mut)}
+.pal i{height:86px;border-radius:4px;border:1px solid var(--line)}
+.pal b{color:var(--ink);font-size:14.5px;font-weight:600}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.spec div{background:var(--card);padding:24px}
+.spec ul{margin:12px 0 0;padding-left:18px;color:var(--ink2);font-size:14.5px;display:flex;flex-direction:column;gap:6px}
+.note{border-left:3px solid var(--acc);background:var(--card);padding:16px 20px;color:var(--ink2);font-size:15px;max-width:80ch}
+.note b{color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 30px 50px -30px rgba(0,0,0,.35)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.card .b{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px}
+.card p{margin:0;color:var(--ink2);font-size:14.5px}
+.card span{font-weight:600;font-size:14px;margin-top:6px}
+.plan{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr);gap:40px;align-items:start}
+.plan img{width:100%;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:15px}td{padding:8px 0;border-bottom:1px solid var(--line)}td.n{text-align:right;font-family:var(--f-mono)}
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--mut);font-size:14px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+@media(max-width:900px){.hero,.plan{grid-template-columns:1fr}.gal,.cards{grid-template-columns:1fr 1fr}.spec{grid-template-columns:1fr 1fr}.pal{grid-template-columns:repeat(3,minmax(0,1fr))}.ctrl label{margin-left:0}}
+@media(max-width:560px){.gal,.cards,.spec{grid-template-columns:1fr}.pal{grid-template-columns:1fr 1fr}}
+</style></head><body><nav class="top wrap"><a class="brand" href="../">Квартира 64,5 м²</a><a class="v" href="../skandi/" aria-current="page">Сканди</a><a class="v" href="../neoklassika/">Неоклассика</a><a class="v" href="../loft/">Лофт</a></nav>
+<main>
+<header class="hero wrap"><div><div class="eyebrow">Вариант 1 из 3</div><h1>Светлый скандинавский</h1><p>Светлый дуб, тёплые белые стены и один спокойный акцент - зелёный шалфей. Ничего лишнего, много воздуха и света от двух окон кухни-гостиной.</p></div>
+<img src="../renders/skandi-living.jpg" alt="Кухня-гостиная в стиле Сканди"></header>
+
+<section class="wrap" id="3d"><div class="eyebrow">3D-модель</div><h2>Пройдитесь по квартире</h2>
+<p class="hint">Модель построена по размерам из выписки. Крутите мышкой или пальцем, колёсико - приблизить. Кнопки переносят в нужную комнату.</p>
+<div class="viewer" style="margin-top:16px"><div id="view"></div></div>
+<div class="ctrl"><button data-view="top" aria-pressed="false">Вся квартира</button><button data-view="living" aria-pressed="false">Гостиная</button><button data-view="kitchen" aria-pressed="false">Кухня</button><button data-view="bedroom" aria-pressed="false">Спальня</button><button data-view="bath" aria-pressed="false">Ванная</button><button data-view="wc" aria-pressed="false">Туалет</button><button data-view="hall" aria-pressed="false">Прихожая</button><label><input type="checkbox" id="wallToggle"> вернуть стену между кухней и комнатой</label></div>
+</section>
+
+<section class="wrap"><div class="eyebrow">Интерьеры</div><h2>По комнатам</h2><div class="gal"><figure><img src="../renders/skandi-living.jpg" alt="Гостиная - стиль Сканди" loading="lazy"><figcaption>Гостиная</figcaption></figure><figure><img src="../renders/skandi-kitchen.jpg" alt="Кухня - стиль Сканди" loading="lazy"><figcaption>Кухня</figcaption></figure><figure><img src="../renders/skandi-bedroom.jpg" alt="Спальня - стиль Сканди" loading="lazy"><figcaption>Спальня</figcaption></figure><figure><img src="../renders/skandi-bath.jpg" alt="Ванная - стиль Сканди" loading="lazy"><figcaption>Ванная</figcaption></figure><figure><img src="../renders/skandi-wc.jpg" alt="Туалет - стиль Сканди" loading="lazy"><figcaption>Туалет</figcaption></figure><figure><img src="../renders/skandi-hall.jpg" alt="Прихожая - стиль Сканди" loading="lazy"><figcaption>Прихожая</figcaption></figure></div></section>
+
+<section class="wrap"><div class="eyebrow">Цвета и материалы</div><h2>Палитра</h2><div class="pal"><div><i style="background:#dcc39d"></i><b>Дуб натуральный</b>пол во всех комнатах</div><div><i style="background:#f1efea"></i><b>Тёплый белый</b>стены, матовая краска</div><div><i style="background:#a9bba9"></i><b>Шалфей</b>стена спальни, плитка в туалете</div><div><i style="background:#c9c7c1"></i><b>Светло-серый текстиль</b>диван, шторы</div><div><i style="background:#1d1d1d"></i><b>Чёрный матовый</b>смесители, светильники</div></div></section>
+
+<section class="wrap"><div class="eyebrow">Что покупаем</div><h2>Отделка, мебель, сантехника</h2><div class="spec"><div><h3>Отделка</h3><ul><li>Пол: инженерная доска, дуб натуральный, планка 19 см, масло или матовый лак</li><li>Стены: матовая моющаяся краска, тёплый белый</li><li>Спальня: стена изголовья в цвет шалфея</li><li>Потолок: белый матовый, натяжной или окрашенный</li><li>Прихожая: керамогранит 60×60, светлый серо-бежевый - не боится воды и песка</li></ul></div><div><h3>Кухня</h3><ul><li>Фасады белые матовые, без ручек (открывание нажатием или профиль)</li><li>Столешница под дуб, в тон полу</li><li>Фартук: плитка «кабанчик» 7,5×30, белая глянцевая, серый шов</li><li>Колонна у входа: холодильник и духовка</li><li>Мойка и варочная панель - на местах по плану, коммуникации не переносим</li></ul></div><div><h3>Мебель</h3><ul><li>Диван 240 см, светло-серая рогожка, деревянные ножки - стоит спинкой к кухне</li><li>Обеденный стол из дуба 170×90 и 4 деревянных стула</li><li>Круглый журнальный столик из дуба, кресло у окна</li><li>Кровать 160×200 с деревянным изголовьем, тумбы из дуба</li><li>Шкаф в спальне и в прихожей - белые, во всю высоту</li></ul></div><div><h3>Сантехника</h3><ul><li>Ванна акриловая 150×70 - точно по стене 1,54 м</li><li>Подвесная тумба из дуба с накладной раковиной</li><li>Смесители и полотенцесушитель - чёрные матовые</li><li>Туалет: подвесной унитаз на инсталляции и мини-раковина 40 см</li><li>Стиральная машина в ванной, над ней полка</li></ul></div><div><h3>Плитка</h3><ul><li>Ванная, стены: белая 10×30, вертикальная раскладка, на всю высоту</li><li>Ванная и туалет, пол: терраццо 60×60</li><li>Туалет, стены: шалфей 10×10 до высоты 1,2 м, выше краска</li><li>Фартук кухни: «кабанчик» 7,5×30</li></ul></div><div><h3>Свет</h3><ul><li>Над столом два подвеса-купола</li><li>Торшер у дивана, бра или настольные лампы у кровати</li><li>Тёплый свет 2700-3000 K во всех жилых комнатах</li><li>В санузлах - точечные влагозащищённые светильники</li></ul></div></div></section>
+
+<section class="wrap"><div class="note"><b>Это эскизная 3D-модель</b> - она показывает стиль, цвета, расстановку и размеры. Для фотореалистичных картинок следующий шаг - рендер этой же квартиры в профессиональной программе с настоящими материалами и светом.</div></section>
+</main>
+<footer class="wrap">Квартира 64,5 м² · 2 комнаты · кухня-гостиная 29,9 м² · спальня 16,4 м²</footer>
+<script>window.STYLE_ID='skandi';window.START_VIEW='top';</script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script src="../app.js"></script>
+</body></html>
