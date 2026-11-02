@@ -278,6 +278,85 @@ body{background:#DEDAE6}
 .lk.on{background:#fff}
 .lk.on svg{fill:#FF4D6D;stroke:#FF4D6D}
 .gt{position:absolute;left:8px;bottom:8px;font-size:11.5px;font-weight:600;color:#fff;background:rgba(22,21,26,.35);backdrop-filter:blur(6px);padding:3px 8px;border-radius:999px}
+/* избранное: masonry */
+.gcol{display:flex;flex-direction:column;gap:10px}
+.gi.tall{height:310px}.gi.short{height:150px}
+/* приглашение */
+.ref{margin:6px 16px 0;border-radius:26px;padding:22px 18px 16px;text-align:center;color:#fff;background:linear-gradient(150deg,#2A2160 0%,#4B3BE8 70%,#8C7CFF 130%);position:relative;overflow:hidden}
+.ref::after{content:"";position:absolute;right:-50px;top:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.25),transparent 70%)}
+.ref-orb{width:64px;height:64px;border-radius:50%;background:#fff;margin:0 auto 12px;display:grid;place-items:center;box-shadow:0 10px 26px -10px rgba(0,0,0,.4)}
+.ref b{font-size:19px;font-weight:600;display:block}
+.ref p{font-size:13.5px;opacity:.85;margin:6px 10px 0;line-height:1.4}
+.ref-link{margin-top:16px;background:rgba(255,255,255,.14);border-radius:14px;padding:8px 8px 8px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;position:relative;z-index:1}
+.ref-link em{font-style:normal;display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--ink);border-radius:10px;padding:7px 10px;font-weight:600;font-size:13px}
+.ref-link em svg{width:16px;height:16px}
+.ref-btn{margin:12px 16px 0;height:50px;border-radius:16px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;flex:none}
+.ref-btn svg{width:18px;height:18px}
+.stat2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 16px 0}
+.stat2 div{background:var(--surface);border-radius:18px;box-shadow:0 0 0 1px var(--line);padding:12px 14px}
+.stat2 b{display:flex;align-items:center;gap:6px;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
+.stat2 b .coin{width:20px;height:20px}
+.stat2 span{font-size:12.5px;color:var(--ink-3)}
+.av.s{width:32px;height:32px;font-size:13px}
+.badge{margin-left:auto;font-size:12px;font-weight:600;border-radius:999px;padding:4px 9px}
+.badge.ok{background:#E3F6EE;color:#14774F}
+.badge.wait{background:var(--bg);color:var(--ink-2)}
+/* тарифы */
+.plans{display:flex;flex-direction:column;gap:14px;padding:8px 16px 24px;overflow:hidden}
+.pl{background:var(--surface);border-radius:24px;box-shadow:0 0 0 1px var(--line);padding:16px;position:relative}
+.pl-h{display:flex;align-items:baseline;justify-content:space-between}
+.pl-h b{font-size:19px;font-weight:600}
+.pl-h span{font-size:13px;color:var(--ink-3)}
+.pl-h strong{font-size:19px;color:var(--ink);font-weight:600}
+.pl-c{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;font-weight:500}
+.pl-c .coin{width:18px;height:18px}
+.pl ul{list-style:none;margin:10px 0 0;display:grid;gap:4px}
+.pl li{font-size:13.5px;color:var(--ink-2);padding-left:18px;position:relative}
+.pl li::before{content:"";position:absolute;left:2px;top:6px;width:8px;height:5px;border-left:1.8px solid var(--accent);border-bottom:1.8px solid var(--accent);transform:rotate(-45deg)}
+.pl-b{margin-top:14px;height:44px;border-radius:14px;background:var(--accent-soft);color:#4536D6;display:grid;place-items:center;font-weight:600;font-size:14.5px}
+.pl.pop{background:linear-gradient(150deg,#2A2160 0%,#4B3BE8 75%,#8C7CFF 140%);color:#fff;box-shadow:0 18px 36px -18px rgba(75,59,232,.7)}
+.pl.pop .pl-h span,.pl.pop li{color:rgba(255,255,255,.85)}.pl.pop .pl-h strong{color:#fff}
+.pl.pop li::before{border-color:#fff}
+.pl.pop .pl-b{background:rgba(255,255,255,.16);color:#fff}
+.pl-tag{position:absolute;right:16px;top:-10px;background:#14774F;color:#fff;font-size:11.5px;font-weight:600;border-radius:999px;padding:4px 10px}
+/* платежи */
+.cursub{margin:6px 16px 0;border-radius:22px;padding:16px 18px;color:#fff;background:linear-gradient(150deg,#2A2160 0%,#4B3BE8 80%)}
+.cursub small{font-size:12px;opacity:.8}.cursub b{display:block;font-size:22px;font-weight:600;margin-top:2px}.cursub span{font-size:13px;opacity:.85}
+.pays .pt{display:flex;flex-direction:column;font-size:15px}
+.pays .pt small{font-size:12.5px;color:var(--ink-3)}
+.pays .amt{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums}
+.pays .amt.muted{color:var(--ink-3);text-decoration:line-through}
+.bx.err{color:#C42F2F;background:#FDECEC}
+/* выход */
+.ex-ic{width:56px;height:56px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin:4px auto 12px}
+.ex-ic svg{width:24px;height:24px}
+.bt-red{height:52px;border-radius:16px;background:#D63B40;color:#fff;display:grid;place-items:center;font-weight:600;font-size:16px;margin-top:6px}
+.bt-ghost{height:52px;border-radius:16px;box-shadow:inset 0 0 0 1px var(--line);display:grid;place-items:center;font-weight:600;font-size:16px;margin-top:10px}
+/* вдохновение */
+.insp{padding:0 16px;display:flex;flex-direction:column;gap:10px}
+.ic1,.ic2{position:relative;border-radius:24px;overflow:hidden}
+.ic1{height:250px}.ic2{height:190px}
+.ic1>svg,.ic2>svg{position:absolute;inset:0;width:100%;height:100%}
+.irow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ic-meta{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 14px;background:linear-gradient(180deg,transparent,rgba(16,12,40,.78));color:#fff}
+.ic-meta p{font-size:14px;line-height:1.35;margin-top:6px;padding-right:90px}
+.ic-meta.s p{font-size:12.5px;padding-right:0}
+.pill2{display:inline-block;font-size:11px;font-weight:600;background:rgba(16,12,40,.45);border-radius:999px;padding:3px 8px}
+.rep{position:absolute;right:14px;bottom:14px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;border-radius:12px;padding:8px 12px}
+/* ошибка ответа */
+.errbox{display:flex;gap:12px;padding:14px;border-radius:18px;background:#FFF5F5;box-shadow:0 0 0 1px #F6D4D4}
+.eico{width:34px;height:34px;border-radius:50%;background:#FDE3E3;color:#C42F2F;display:grid;place-items:center;flex:none}
+.eico svg{width:18px;height:18px}
+.errbox b{font-size:15px;font-weight:600}
+.errbox small{display:block;font-size:13px;color:var(--ink-2);margin-top:2px}
+.erow{display:flex;gap:8px;margin-top:10px}
+.eb1{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;font-size:13.5px;font-weight:600;border-radius:12px;padding:8px 12px}
+.eb1 svg{width:16px;height:16px}
+.eb2{font-size:13.5px;font-weight:600;border-radius:12px;padding:8px 12px;box-shadow:inset 0 0 0 1px var(--line);background:var(--surface)}
+/* пустое состояние */
+.emp-art{width:150px;height:120px;margin-bottom:10px}
+.emp-art svg{width:100%;height:100%}
+
 /* профиль: баланс в правом верхнем углу */
 .ptitle .credits{margin-left:auto}
 </style>
@@ -291,7 +370,7 @@ body{background:#DEDAE6}
   </defs>
 </svg>
 
-<div class="head"><h1>MirAI - демо редизайна, версия 2</h1><p>Правки по созвону 31.10: навигация чата, панель ввода как в Telegram, модель и Effort отдельно, история справа, баланс в формате K, фон с переходом. Добавлены Видео, Аудио, экран настроек генерации и история генераций с лайком</p></div>
+<div class="head"><h1>MirAI - демо редизайна, версия 2</h1><p>Правки по созвону 31.10: навигация чата, панель ввода как в Telegram, модель и Effort отдельно, история справа, баланс в формате K, фон с переходом. Добавлены Видео, Аудио, настройки генерации, история генераций, избранное, приглашение друга, тарифы, платежи, выход, вдохновение, ошибка ответа и пустое состояние</p></div>
 <div class="board">
 
 <!-- ===== 1. ГЛАВНАЯ ===== -->
@@ -523,6 +602,136 @@ body{background:#DEDAE6}
   <div class="ggrid">
     <div class="gi" style="background:linear-gradient(160deg,#E9F6FF,#9FD0F5 60%,#4F8FD9)"><svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMax slice"><path d="M0 120 40 60l20 26 14-14 26 48z" fill="#fff" fill-opacity=".6"/></svg><span class="lk"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="gt">Фото</span></div>
     <div class="gi" style="background:linear-gradient(160deg,#FFF1DC,#FFC27A 60%,#E57B3A)"><svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMax slice"><rect x="38" y="50" width="24" height="40" rx="8" fill="#fff" fill-opacity=".85"/><rect x="44" y="42" width="12" height="10" rx="3" fill="#fff"/></svg><span class="lk"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="gt">Фото</span></div>
+  </div>
+  <div class="tabbar"><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль<span class="dot"></span></div></div>
+</div>
+
+<!-- ===== 13. ИЗБРАННОЕ ===== -->
+<div class="phone" id="s13">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2 style="font-size:21px">Избранное</h2></div>
+  <div class="seg3 seg4"><span class="on">Все</span><span>Фото</span><span>Видео</span><span>Аудио</span></div>
+  <div class="ggrid" style="margin-top:6px">
+    <div class="gi tall" style="background:linear-gradient(160deg,#FFD9B8,#F59E7B 55%,#8E5BD6)"><svg viewBox="0 0 100 160" preserveAspectRatio="xMidYMax slice"><path d="M0 160 30 90l18 26 22-40 30 84z" fill="#5B3C9E" fill-opacity=".55"/><circle cx="70" cy="44" r="13" fill="#FFF2D6"/></svg><span class="lk on"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="gt">Фото</span></div>
+    <div class="gcol">
+      <div class="gi" style="background:linear-gradient(160deg,#F6EAFF,#C7A6FF 60%,#7D57E8)"><svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMax slice"><circle cx="50" cy="50" r="17" fill="#FFE1CF"/><path d="M18 120c4-28 18-40 32-40s28 12 32 40z" fill="#5B4BF5" fill-opacity=".8"/></svg><span class="lk on"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="gt">Фото</span></div>
+      <div class="gi short" style="background:linear-gradient(160deg,#D8F7EE,#5CCDB6)"><svg viewBox="0 0 100 80"><g fill="#fff"><rect x="24" y="32" width="5" height="16" rx="2.5"/><rect x="33" y="24" width="5" height="32" rx="2.5"/><rect x="42" y="18" width="5" height="44" rx="2.5"/><rect x="51" y="26" width="5" height="28" rx="2.5"/><rect x="60" y="20" width="5" height="40" rx="2.5"/><rect x="69" y="30" width="5" height="20" rx="2.5"/></g></svg><span class="lk on"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="gt">Аудио · 0:42</span></div>
+    </div>
+    <div class="gi" style="background:linear-gradient(160deg,#BFD7FF,#6C8DFF 60%,#3B3FA8)"><svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMax slice"><rect x="20" y="40" width="60" height="44" rx="8" fill="#fff" fill-opacity=".25"/><path d="M44 52v20l17-10z" fill="#fff"/></svg><span class="lk on"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="gt">Видео · 0:05</span></div>
+    <div class="gi" style="background:linear-gradient(160deg,#FFF1DC,#FFC27A 60%,#E57B3A)"><svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMax slice"><rect x="38" y="50" width="24" height="40" rx="8" fill="#fff" fill-opacity=".85"/><rect x="44" y="42" width="12" height="10" rx="3" fill="#fff"/></svg><span class="lk on"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="gt">Фото</span></div>
+  </div>
+  <div class="tabbar"><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль<span class="dot"></span></div></div>
+</div>
+
+<!-- ===== 14. ПРИГЛАСИТЬ ДРУГА ===== -->
+<div class="phone" id="s14">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2 style="font-size:21px">Пригласить друга</h2></div>
+  <div class="ref">
+    <div class="ref-orb"><svg width="40" height="40"><use href="#coin"/></svg></div>
+    <b>Приглашайте друзей</b>
+    <p>Получайте бонусные кредиты за приглашения и следите за наградами</p>
+    <div class="ref-link"><span>mirai.app/i/ANNA-7Q2</span><em><svg class="ic" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="3"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>Копировать</em></div>
+  </div>
+  <div class="ref-btn"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M5 13v5.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V13"/></svg>Поделиться ссылкой</div>
+  <div class="stat2"><div><b>7</b><span>друзей приглашено</span></div><div><b><svg class="coin"><use href="#coin"/></svg>350</b><span>бонусных кредитов</span></div></div>
+  <div class="gday" style="padding-top:14px">Приглашённые друзья</div>
+  <div class="list" style="margin-top:0">
+    <div class="li"><span class="av s">М</span>Мария К.<span class="badge ok">+50</span></div>
+    <div class="li"><span class="av s" style="background:linear-gradient(135deg,#5CCDB6,#22A897)">Д</span>Дмитрий Л.<span class="badge ok">+50</span></div>
+    <div class="li"><span class="av s" style="background:linear-gradient(135deg,#FFC27A,#E57B3A)">О</span>Ольга С.<span class="badge wait">в ожидании</span></div>
+  </div>
+</div>
+
+<!-- ===== 15. ТАРИФЫ ===== -->
+<div class="phone" id="s15">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2 style="font-size:21px">Тарифы</h2></div>
+  <div class="plans">
+    <div class="pl"><div class="pl-h"><b>Base</b><span><strong>490 ₽</strong> / мес</span></div><div class="pl-c"><svg class="coin"><use href="#coin"/></svg>300 кредитов в месяц</div><ul><li>Текст и изображения</li><li>Кредиты выдаются по неделям</li></ul><div class="pl-b">Выбрать</div></div>
+    <div class="pl pop"><span class="pl-tag">Популярный</span><div class="pl-h"><b>Standard</b><span><strong>990 ₽</strong> / мес</span></div><div class="pl-c"><svg class="coin"><use href="#coin"/></svg>600 кредитов в месяц</div><ul><li>Текст, фото, видео и аудио</li><li>Вдвое больше кредитов, чем в Base</li></ul><div class="pl-b">Ваш тариф · до 28 ноября</div></div>
+    <div class="pl"><div class="pl-h"><b>Pro</b><span><strong>2 490 ₽</strong> / мес</span></div><div class="pl-c"><svg class="coin"><use href="#coin"/></svg>1 500 кредитов в месяц</div><ul><li>Все форматы</li><li>Максимальный объём для активной работы</li></ul><div class="pl-b">Выбрать</div></div>
+  </div>
+</div>
+
+<!-- ===== 16. ИСТОРИЯ ПЛАТЕЖЕЙ ===== -->
+<div class="phone" id="s16">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2 style="font-size:21px">История платежей</h2></div>
+  <div class="cursub"><small>Текущая подписка</small><b>Standard</b><span>Следующее списание 28 ноября · 990 ₽</span></div>
+  <div class="gday" style="padding-top:16px">Октябрь</div>
+  <div class="list pays" style="margin-top:0">
+    <div class="li"><span class="bx"><svg class="ic" viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2.5"/><path d="M3.5 10h17"/></svg></span><div class="pt">Подписка Standard<small>28 октября · карта •• 4417</small></div><span class="amt">990 ₽</span></div>
+    
+  </div>
+  <div class="gday" style="padding-top:16px">Сентябрь</div>
+  <div class="list pays" style="margin-top:0">
+    <div class="li"><span class="bx"><svg class="ic" viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2.5"/><path d="M3.5 10h17"/></svg></span><div class="pt">Подписка Standard<small>28 сентября · карта •• 4417</small></div><span class="amt">990 ₽</span></div>
+    <div class="li"><span class="bx err"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v5M12 16v.5"/></svg></span><div class="pt">Подписка Standard<small>28 сентября · не прошёл, повторён</small></div><span class="amt muted">990 ₽</span></div>
+  </div>
+</div>
+
+<!-- ===== 17. ВЫХОД ИЗ АККАУНТА ===== -->
+<div class="phone" id="s17">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle" style="padding-left:20px"><h2>Профиль</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
+  <div class="pcard"><div class="row1"><span class="av">А</span><div><b>Анна Смирнова</b><span>a***@gmail.com</span></div></div></div>
+  <div class="dim"></div>
+  <div class="sheet">
+    <div class="grab"></div>
+    <div class="ex-ic"><svg class="ic" viewBox="0 0 24 24"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/></svg></div>
+    <h4 style="text-align:center;padding:0">Выйти из аккаунта?</h4>
+    <div class="sub" style="text-align:center">Вы сможете войти снова в любое время, история и кредиты сохранятся</div>
+    <div class="bt-red">Выйти</div>
+    <div class="bt-ghost">Отмена</div>
+  </div>
+</div>
+
+<!-- ===== 18. ВДОХНОВЕНИЕ ===== -->
+<div class="phone" id="s18">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle" style="padding-left:20px"><h2>Вдохновение</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
+  <div class="seg3 seg4"><span class="on">Все</span><span>Фото</span><span>Видео</span><span>Аудио</span></div>
+  <div class="insp">
+    <div class="ic1" style="background:linear-gradient(170deg,#FFE6CC,#F7A27A 50%,#7A4FD1)"><svg viewBox="0 0 358 200" preserveAspectRatio="xMidYMax slice"><circle cx="270" cy="62" r="26" fill="#FFF3DA"/><path d="M0 200 90 110l50 50 70-80 148 120z" fill="#4B2F8F" fill-opacity=".55"/><path d="M0 200 150 140l90 60z" fill="#2E1E63" fill-opacity=".5"/></svg><div class="ic-meta"><span class="pill2">Фото</span><p>«Горы на закате в стиле акварели, мягкий свет»</p><span class="rep">Повторить</span></div></div>
+    <div class="irow">
+      <div class="ic2" style="background:linear-gradient(170deg,#CFE3FF,#7EA3FF 60%,#3E46B5)"><svg viewBox="0 0 170 150" preserveAspectRatio="xMidYMax slice"><rect x="55" y="45" width="60" height="44" rx="10" fill="#fff" fill-opacity=".3"/><path d="M78 56v22l18-11z" fill="#fff"/></svg><div class="ic-meta s"><span class="pill2">Видео</span><p>Девушка в красном пальто в парке</p></div></div>
+      <div class="ic2" style="background:linear-gradient(170deg,#E3FBF4,#6FD6C1)"><svg viewBox="0 0 170 150"><g fill="#fff"><rect x="50" y="62" width="6" height="22" rx="3"/><rect x="62" y="52" width="6" height="42" rx="3"/><rect x="74" y="44" width="6" height="58" rx="3"/><rect x="86" y="56" width="6" height="34" rx="3"/><rect x="98" y="48" width="6" height="50" rx="3"/><rect x="110" y="60" width="6" height="26" rx="3"/></g></svg><div class="ic-meta s"><span class="pill2">Аудио</span><p>Лоу-фай для учёбы, 2 минуты</p></div></div>
+    </div>
+  </div>
+  <div class="tabbar"><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная</div><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
+</div>
+
+<!-- ===== 19. ЧАТ: ОШИБКА ОТВЕТА ===== -->
+<div class="phone" id="s19">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ct"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><div class="model">GPT-5<svg class="ic" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></div><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5M12 8v4.2l2.8 1.8"/></svg></div></div>
+  <div class="thread">
+    <div class="u">Сделай таблицу расходов на поездку: жильё, транспорт, еда</div>
+    <span class="time">14:20</span>
+    <div class="errbox">
+      <span class="eico"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v5M12 16v.5"/></svg></span>
+      <div><b>Не удалось получить ответ</b><small>Модель не ответила вовремя. Кредиты не списаны.</small>
+      <div class="erow"><span class="eb1"><svg class="ic" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></svg>Повторить</span><span class="eb2">Другая модель</span></div></div>
+    </div>
+  </div>
+  <div class="tg">
+    <div class="tgb"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+    <div class="tgf"><span class="ph">Сообщение</span><svg class="ic bolt" viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg></div>
+    <div class="tgb"><svg class="ic" viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5"/></svg></div>
+  </div>
+</div>
+
+<!-- ===== 20. ПУСТАЯ ИСТОРИЯ ГЕНЕРАЦИЙ ===== -->
+<div class="phone" id="s20">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2 style="font-size:21px">История генераций</h2></div>
+  <div class="seg3 seg4"><span class="on">Все</span><span>Фото</span><span>Видео</span><span>Аудио</span></div>
+  <div class="empty">
+    <div class="emp-art"><svg viewBox="0 0 120 100"><rect x="14" y="22" width="56" height="64" rx="12" fill="#E9E3FA" transform="rotate(-8 42 54)"/><rect x="44" y="16" width="60" height="68" rx="12" fill="#fff" stroke="#DCD3FF"/><path d="M52 72l14-18 10 12 8-8 12 14z" fill="#C9B8FF"/><circle cx="86" cy="34" r="6" fill="#FFDDA8"/><path d="M24 14l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#5B4BF5"/></svg></div>
+    <h1 style="font-size:21px">Здесь пока пусто</h1>
+    <p>Создайте первое фото, видео или аудио - результат сохранится здесь</p>
+    <div class="cta" style="margin:22px 0 0;padding:0 26px;height:48px;font-size:15px">Начать создавать</div>
   </div>
   <div class="tabbar"><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль<span class="dot"></span></div></div>
 </div>
