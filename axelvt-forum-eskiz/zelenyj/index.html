@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>AXVT - форум специалистов по вибродиагностике (эскиз)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#121c45;--brand:#1f3cc0;--brand-d:#162c93;--sky:#8cc9ec;--sky-d:#6db8e6;--sky-l:#e8f4fc;--soft:#f3f6fb;--soft2:#e9eef8;--line:#dfe4ee;--tx:#1e2535;--mut:#5c677d;--ok:#1d9a6c;--warn:#d9822b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:15px/1.55 "IBM Plex Sans",Arial,sans-serif;color:var(--tx);background:var(--soft);-webkit-font-smoothing:antialiased}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+.mono{font-family:"IBM Plex Mono",monospace}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.note{background:#fff6e6;border-bottom:1px solid #f0d9ad;color:#7a5410;font-size:13px;text-align:center;padding:7px 16px}
+/* шапка */
+.top{background:var(--navy);color:#fff}
+.top .wrap{display:flex;align-items:center;gap:22px;min-height:66px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:19px;letter-spacing:-.2px;white-space:nowrap}
+.logo:hover{text-decoration:none}
+.logo img{width:40px;height:40px;background:#fff;border-radius:50%;padding:2px}
+.logo span{font-size:22px;letter-spacing:.06em;font-weight:700}
+.logo small{display:block;font:500 11px "IBM Plex Mono",monospace;color:var(--sky);letter-spacing:.06em;text-transform:uppercase}
+.search{flex:1;max-width:420px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:0 12px;height:40px;color:#b8c3e6;font-size:14px}
+.search svg{width:16px;height:16px;flex:none}
+.auth{margin-left:auto;display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 16px;border-radius:10px;font-weight:600;font-size:14px;border:1px solid transparent;cursor:pointer;white-space:nowrap;font-family:inherit}
+.btn:hover{text-decoration:none}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.25);background:none}
+.btn-sky{background:var(--sky);color:var(--navy)}
+.btn-brand{background:var(--brand);color:#fff}
+.btn-out{background:#fff;color:var(--brand);border-color:var(--line)}
+nav.tabs{background:var(--brand-d)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.tabs .wrap::-webkit-scrollbar{display:none}
+nav.tabs a{color:#dfe6ff;padding:13px 15px;font-weight:600;font-size:14.5px;white-space:nowrap;border-bottom:3px solid transparent;display:flex;align-items:center;gap:7px}
+nav.tabs a:hover{text-decoration:none;color:#fff}
+nav.tabs a.on{color:#fff;border-bottom-color:var(--sky)}
+nav.tabs .new{font:600 10.5px "IBM Plex Mono",monospace;background:var(--sky);color:var(--navy);border-radius:5px;padding:1px 5px}
+/* раскладка */
+main{padding:24px 0 60px}
+.page{display:none}.page.on{display:block}
+.grid{display:grid;grid-template-columns:1fr 300px;gap:22px;align-items:start}
+.grid.one{grid-template-columns:1fr}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px}
+.card-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.card-h h2,.card-h h3{font-size:16.5px;font-weight:700}
+.card-h a{font-size:13.5px;font-weight:600}
+.stack>*+*{margin-top:22px}
+.ad{border:1.5px dashed #b9c6e6;background:repeating-linear-gradient(135deg,#f7f9fd 0 12px,#f1f5fc 12px 24px);border-radius:12px;color:var(--mut);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;gap:2px;font-size:13px}
+.ad b{font:600 11px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#8592b5}
+.ad-wide{height:96px}.ad-side{height:250px}
+/* рекламные поля слева и справа */
+.lay{max-width:1604px;display:grid;grid-template-columns:160px minmax(0,1200px) 160px;gap:22px;justify-content:center}
+.rail{position:sticky;top:16px;align-self:start;display:flex;flex-direction:column;gap:16px}
+.rail .ad{height:600px}.rail .ad.s{height:240px}
+.ad-m{display:none;height:90px;margin-bottom:18px}
+.paid{border-color:#e9b46c;background:linear-gradient(90deg,#fffaf2,#fff 40%);box-shadow:0 0 0 1px #f3d2a2 inset}
+.paid .badge{display:inline-block;font:600 11px "IBM Plex Mono",monospace;background:#d9822b;color:#fff;border-radius:5px;padding:2px 7px;margin-bottom:6px}
+.mod{display:flex;gap:10px;align-items:center;background:var(--sky-l);border:1px solid #cfe6f7;color:#1b4f75;border-radius:12px;padding:10px 14px;font-size:13.5px;margin-bottom:16px}
+/* главная */
+.intro{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:16px;padding:24px 28px}
+.intro h1{font-size:clamp(22px,2.6vw,28px);line-height:1.2;letter-spacing:-.3px;color:var(--tx)}
+.intro p{color:var(--tx);opacity:.85;margin-top:10px;font-size:15.5px;line-height:1.6;max-width:820px}
+.hero{background:linear-gradient(120deg,var(--navy) 0%,#1b2c73 60%,var(--brand) 100%);color:#fff;border-radius:18px;padding:34px 34px 30px;position:relative;overflow:hidden}
+.hero svg.wave{position:absolute;right:-40px;top:-6px;width:520px;opacity:.18}
+.hero h1{font-size:clamp(26px,3.4vw,38px);line-height:1.12;letter-spacing:-.5px;max-width:640px;position:relative}
+.hero p{color:#c9d4f5;max-width:600px;margin-top:10px;font-size:16px;position:relative}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;position:relative}
+.stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:24px;position:relative}
+.stats div{font-size:13px;color:#b8c3e6}.stats b{display:block;font:600 22px "IBM Plex Mono",monospace;color:#fff}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.qk{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;color:var(--tx)}
+.qk:hover{text-decoration:none;border-color:var(--sky-d);box-shadow:0 8px 20px -14px rgba(31,60,192,.5)}
+.qk i{width:38px;height:38px;border-radius:10px;background:var(--sky-l);display:grid;place-items:center;color:var(--brand)}
+.qk i svg{width:20px;height:20px}
+.qk b{font-size:15.5px}.qk span{font-size:13px;color:var(--mut)}
+/* списки */
+.row{display:flex;gap:14px;align-items:flex-start;padding:13px 18px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.av{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff}
+.row .t{flex:1;min-width:0}
+.row .t a{font-weight:600;color:var(--tx)}
+.row .t small{display:block;color:var(--mut);font-size:12.5px;margin-top:2px}
+.row .r{font-size:12.5px;color:var(--mut);text-align:right;white-space:nowrap}
+.pill{display:inline-block;font:600 11px "IBM Plex Mono",monospace;padding:2px 7px;border-radius:5px;background:var(--soft2);color:var(--brand-d);margin-right:4px;vertical-align:1px}
+.pill.g{background:#e3f5ee;color:#13704e}.pill.o{background:#fdeedd;color:#9a5410}.pill.s{background:var(--sky-l);color:#1b5f8c}
+/* форум */
+.fcat{margin-top:22px}.fcat:first-child{margin-top:0}
+.fcat-h{background:var(--navy);color:#fff;border-radius:14px 14px 0 0;padding:11px 18px;font-weight:700;font-size:15px}
+.fnode{display:grid;grid-template-columns:44px 1fr 120px 260px;gap:14px;align-items:center;padding:14px 18px;border-top:1px solid var(--line);background:#fff}
+.fcat .fnode:last-child{border-radius:0 0 14px 14px}
+.fnode .ic{width:40px;height:40px;border-radius:10px;background:var(--sky-l);display:grid;place-items:center;color:var(--brand)}
+.fnode .ic svg{width:20px;height:20px}
+.fnode h4{font-size:15.5px}.fnode h4 a{color:var(--tx)}
+.fnode p{font-size:13px;color:var(--mut)}
+.fnode .num{font-size:12.5px;color:var(--mut);line-height:1.5}.fnode .num b{font-family:"IBM Plex Mono",monospace;color:var(--tx)}
+.fnode .last{display:flex;gap:10px;align-items:center;font-size:12.5px;color:var(--mut);min-width:0}
+.fnode .last .av{width:30px;height:30px;font-size:12px}
+.fnode .last a{display:block;font-weight:600;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+/* биржа */
+.bx-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.seg{display:flex;background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:none;font:600 14px "IBM Plex Sans";color:var(--mut);padding:8px 14px;border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--brand);color:#fff}
+.warn{display:flex;gap:10px;align-items:center;background:#fff4f0;border:1px solid #f6d3c6;color:#8b3a1d;border-radius:12px;padding:10px 14px;font-size:13.5px;margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:14px}
+.tags span{font-size:13px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.tags span.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.job{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:6px 16px}
+.job+.job{margin-top:12px}
+.job h3{font-size:16.5px}.job h3 a{color:var(--tx)}
+.job .meta{font-size:13px;color:var(--mut);display:flex;gap:14px;flex-wrap:wrap}
+.job .pay{font:600 16px "IBM Plex Mono",monospace;color:var(--navy);text-align:right;white-space:nowrap}
+.job p{grid-column:1/-1;font-size:14px;color:#3a4357}
+.job .tg{grid-column:1/-1}
+.bx-list[hidden]{display:none}
+/* статьи */
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.art{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;color:var(--tx)}
+.art:hover{text-decoration:none;border-color:var(--sky-d)}
+.art .th{height:150px;background:var(--navy);position:relative;overflow:hidden}
+.art .th svg{position:absolute;inset:0;width:100%;height:100%}
+.art .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.art h3{font-size:16px;line-height:1.3}
+.art p{font-size:13.5px;color:var(--mut)}
+.art .by{margin-top:auto;font-size:12.5px;color:var(--mut)}
+.art.big{grid-column:span 2;flex-direction:row}
+.art.big .th{height:auto;flex:1.2;min-height:230px}
+.art.big .bd{flex:1;padding:20px}
+.art.big h3{font-size:21px}
+/* библиотека */
+.lib-f{display:flex;gap:8px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);font-weight:600;padding:10px 18px;background:var(--soft)}
+.tbl td{padding:12px 18px;border-top:1px solid var(--line);vertical-align:top}
+.tbl td.code{font:600 13px "IBM Plex Mono",monospace;color:var(--navy);white-space:nowrap}
+.tbl td .dl{font-weight:600;font-size:13px;white-space:nowrap}
+/* учебные центры */
+.ucs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.uc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.uc .hd{display:flex;gap:12px;align-items:center}
+.uc .lg{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:700}
+.uc h3{font-size:16px}.uc small{color:var(--mut);font-size:12.5px}
+.uc ul{list-style:none;font-size:13.5px;display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.uc li{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding-top:6px}
+.uc li b{font:600 13px "IBM Plex Mono",monospace;white-space:nowrap}
+.side-h{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);font-weight:700;margin-bottom:8px}
+.rstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.rstats div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13px;color:var(--mut)}
+.rstats b{display:block;font:600 24px "IBM Plex Mono",monospace;color:var(--brand)}
+.rules ol{margin:0;padding:18px 22px 18px 40px;display:grid;gap:12px;font-size:15px;line-height:1.55}
+@media(max-width:700px){.rstats{grid-template-columns:repeat(2,1fr)}}
+.sec-h{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}
+.sec-h h1{font-size:26px;letter-spacing:-.3px}
+.sec-h p{color:var(--mut);font-size:14px}
+footer{background:var(--navy);color:#aab5d8;font-size:13px;padding:26px 0}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+@media(max-width:1279px){.lay{display:block;max-width:1200px}.rail{display:none}.ad-m{display:flex}}
+@media(max-width:980px){.grid{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}.arts,.ucs{grid-template-columns:1fr 1fr}.art.big{grid-column:span 2}.fnode{grid-template-columns:40px 1fr;}.fnode .num,.fnode .last{grid-column:2}.search{display:none}}
+@media(max-width:600px){.wrap{padding:0 14px}.hero{padding:24px 20px;border-radius:14px}.auth .btn-ghost{display:none}.arts,.ucs{grid-template-columns:1fr}.art.big{grid-column:auto;flex-direction:column}.art.big .th{min-height:170px}.job{grid-template-columns:1fr}.job .pay{text-align:left}.tbl th:nth-child(3),.tbl td:nth-child(3){display:none}.tbl td.code{white-space:normal;font-size:12px}.tbl td,.tbl th{padding:10px 12px}.lib-f{padding:12px}.row .r{display:none}.quick{grid-template-columns:1fr 1fr;gap:10px}.qk{padding:12px}}
+
+/* ===== ВАРИАНТ: ЗЕЛЁНЫЙ ===== */
+:root{--navy:#143628;--brand:#1e7b4f;--brand-d:#1f5a40;--sky:#9fdcb5;--sky-d:#78c896;--sky-l:#e5f4ea;--soft:#edf6ef;--soft2:#dfeee3;--line:#d4e5d8}
+body{background:var(--soft)}
+.search{color:#b9d8c4}
+nav.tabs a{color:#d5ecdd}
+footer{color:#b7d3c1}
+.intro{border-left-color:var(--brand)}
+.ad{border-color:#a9cdb4;background:repeating-linear-gradient(135deg,#f6fbf7 0 12px,#eef7f1 12px 24px)}
+.ad b{color:#6f9a7e}
+</style>
+</head>
+<body>
+<div class="note">Эскиз для обсуждения - название, тексты, пользователи и объявления условные. Нормативные документы - реальные, для примера наполнения.<br>Вариант цвета: <a href="../" style="color:inherit;text-decoration:underline">исходный (тёмно-синий)</a> / <a href="../goluboj/" style="color:inherit;text-decoration:underline">светло-голубой</a> / <b>зелёный</b></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <symbol id="i-forum" viewBox="0 0 24 24"><path d="M4 5h12v9H8l-4 3z M8 17v1h8l4 3V9h-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-job" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 7V5h6v2M3 12h18" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z M8 20a3 3 0 0 1 0-6h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z M6 11v5c3 2 9 2 12 0v-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 12h3l2-6 3 12 3-9 2 6 2-3h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="15" cy="9" r="1.6" fill="currentColor"/><path d="M12 12l5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z M14 3v5h5M9 13h6M9 17h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M4 9h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z M16 11h2a2 2 0 0 1 0 4h-2 M8 3v3M12 3v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+ </defs>
+</svg>
+
+<header class="top">
+ <div class="wrap">
+  <a class="logo" href="#home" data-go="home"><img src="data:image/png;base64,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" alt="AxelVT" width="38" height="38"><span>AXVT</span></a>
+  <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Поиск по форуму, объявлениям и базе знаний</div>
+  <div class="auth"><a class="btn btn-ghost" href="#">Вход</a><a class="btn btn-sky" href="#">Регистрация</a></div>
+ </div>
+ <nav class="tabs"><div class="wrap">
+  <a href="#home" data-go="home" class="on">Главная</a>
+  <a href="#forum" data-go="forum">Форум</a>
+  <a href="#birzha" data-go="birzha">Работа и объявления</a>
+  <a href="#articles" data-go="articles">Статьи</a>
+  <a href="#library" data-go="library">База знаний</a>
+  <a href="#centers" data-go="centers">Компании-партнёры</a>
+  <a href="#rules" data-go="rules">Правила</a>
+ </div></nav>
+</header>
+
+<main><div class="wrap lay">
+<aside class="rail" aria-label="Реклама слева"><div class="ad"><b>Реклама · 160×600</b>Левое поле: баннер партнёра</div></aside>
+<div class="mid">
+<div class="ad ad-m"><b>Реклама</b>На телефоне и узком экране боковые поля заменяет этот баннер</div>
+
+<!-- ================= ГЛАВНАЯ ================= -->
+<section class="page on" id="p-home">
+ <div class="grid one">
+  <div class="stack">
+   <div class="intro">
+    <h1>Форум специалистов по вибродиагностике</h1>
+    <p>AXVT - профессиональная площадка для тех, кто работает с вибрацией оборудования: инженеров-вибродиагностов, механиков, наладчиков систем мониторинга и специалистов служб надёжности. Здесь можно задать вопрос коллегам, разобрать сложный спектр или случай из практики и поделиться опытом. В разделе «Работа и объявления» - вакансии, подработки, резюме и объявления об оборудовании и услугах, а в «Базе знаний» собраны стандарты, методики и полезная литература. Форум модерируется, чтобы общение оставалось по делу.</p>
+   </div>
+
+   <div class="quick">
+    <a class="qk" href="#birzha" data-go="birzha"><i><svg><use href="#i-job"/></svg></i><b>Работа и объявления</b><span>Вакансии, подработки, резюме</span></a>
+    <a class="qk" href="#forum" data-go="forum"><i><svg><use href="#i-forum"/></svg></i><b>Форум</b><span>Вопросы и опыт коллег</span></a>
+    <a class="qk" href="#library" data-go="library"><i><svg><use href="#i-book"/></svg></i><b>База знаний</b><span>ГОСТ, ISO, API, методики</span></a>
+    <a class="qk" href="#centers" data-go="centers"><i><svg><use href="#i-cap"/></svg></i><b>Компании-партнёры</b><span>Учебные центры и сервис</span></a>
+   </div>
+
+   <div class="card">
+    <div class="card-h"><h2>Свежие вакансии и подработки</h2><a href="#birzha" data-go="birzha">Все объявления →</a></div>
+    <div class="row"><span class="av" style="background:#1f3cc0">НП</span><div class="t"><a href="#birzha" data-go="birzha">Инженер-вибродиагност, II уровень</a><small><span class="pill g">вакансия</span>НПЗ, Республика Башкортостан · вахта 30/30</small></div><div class="r mono">от 180 000 ₽</div></div>
+    <div class="row"><span class="av" style="background:#d9822b">СК</span><div class="t"><a href="#birzha" data-go="birzha">Балансировка дымососов на ТЭЦ, 3 агрегата</a><small><span class="pill o">подработка</span>Пермь · 4-5 дней, со своим прибором</small></div><div class="r mono">90 000 ₽</div></div>
+    <div class="row"><span class="av" style="background:#1d9a6c">ЭМ</span><div class="t"><a href="#birzha" data-go="birzha">Монтаж и пусконаладка системы мониторинга на компрессорах</a><small><span class="pill g">вакансия</span>Новый Уренгой · командировки</small></div><div class="r mono">по договорённости</div></div>
+   </div>
+
+   <div class="card">
+    <div class="card-h"><h2>Активные темы форума</h2><a href="#forum" data-go="forum">Весь форум →</a></div>
+    <div class="row"><span class="av" style="background:#6db8e6">АК</span><div class="t"><a href="#forum" data-go="forum">Рост 1X на подшипнике насоса после ремонта - дисбаланс или расцентровка?</a><small>Диагностика насосов · 24 ответа</small></div><div class="r">12 мин назад</div></div>
+    <div class="row"><span class="av" style="background:#162c93">ВЛ</span><div class="t"><a href="#forum" data-go="forum">Как настроить пороги в стойке 3500 под ГОСТ ISO 20816</a><small>Системы мониторинга · 11 ответов</small></div><div class="r">40 мин назад</div></div>
+    <div class="row"><span class="av" style="background:#8a5cf0">ИР</span><div class="t"><a href="#forum" data-go="forum">Огибающая на редукторе: какие частоты смотреть в первую очередь</a><small>Методики и анализ спектров · 7 ответов</small></div><div class="r">2 ч назад</div></div>
+   </div>
+  </div>
+
+ </div>
+</section>
+
+<!-- ================= ПРАВИЛА ================= -->
+<section class="page" id="p-rules">
+ <div class="sec-h"><div><h1>Правила</h1><p>Как устроен форум и что важно знать участникам</p></div></div>
+ <div class="rstats"><div><b>1 240</b>участников</div><div><b>86</b>вакансий и подработок</div><div><b>3 900</b>сообщений</div><div><b>140</b>документов в базе знаний</div></div>
+ <div class="card rules">
+  <ol>
+   <li><b>Общение по делу.</b> Темы - о вибродиагностике, мониторинге, балансировке, оборудовании и работе в отрасли. Вопросы не по теме - в разделе «Курилка».</li>
+   <li><b>Уважение к коллегам.</b> Без оскорблений, переходов на личности и политики. Спорим о спектрах, а не о людях.</li>
+   <li><b>Реклама - только в отведённых местах.</b> Предложения услуг и оборудования размещаются в «Работе и объявлениях», а не в темах форума.</li>
+   <li><b>Объявления - честные.</b> Указывайте реальные условия, город и контакты. Повторные объявления и накрутка удаляются.</li>
+   <li><b>Нормативные документы</b> публикуются в «Базе знаний» со ссылкой на источник. Платные стандарты не выкладываются целиком.</li>
+   <li><b>Модерация.</b> Новые темы и объявления проверяются модератором. За нарушения - предупреждение, затем блокировка.</li>
+  </ol>
+ </div>
+</section>
+
+<!-- ================= ФОРУМ ================= -->
+<section class="page" id="p-forum">
+ <div class="sec-h"><div><h1>Форум</h1><p>Классический форум с разделами, поиском и уведомлениями об ответах</p></div><a class="btn btn-brand" href="#">+ Новая тема</a></div>
+ <div class="grid">
+  <div>
+   <div class="fcat">
+    <div class="fcat-h">Вибродиагностика</div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-wave"/></svg></span><div><h4><a href="#">Методики и анализ спектров</a></h4><p>Спектры, огибающая, фазовый анализ, тренды</p></div><div class="num">Темы: <b>412</b><br>Сообщения: <b>5.1K</b></div><div class="last"><span class="av" style="background:#8a5cf0">ИР</span><div><a href="#">Огибающая на редукторе: какие частоты…</a>2 ч назад · Ирина Р.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-gear"/></svg></span><div><h4><a href="#">Диагностика насосов, вентиляторов, компрессоров</a></h4><p>Разбор реальных случаев с оборудованием</p></div><div class="num">Темы: <b>298</b><br>Сообщения: <b>3.8K</b></div><div class="last"><span class="av" style="background:#6db8e6">АК</span><div><a href="#">Рост 1X на подшипнике насоса после ремонта</a>12 мин назад · Артём К.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-scale"/></svg></span><div><h4><a href="#">Балансировка и центровка</a></h4><p>Балансировка в собственных опорах, лазерная центровка</p></div><div class="num">Темы: <b>176</b><br>Сообщения: <b>2.2K</b></div><div class="last"><span class="av" style="background:#d9822b">СК</span><div><a href="#">Допуски центровки для муфт с высокой скоростью</a>вчера · Сергей К.</div></div></div>
+   </div>
+   <div class="fcat">
+    <div class="fcat-h">Оборудование и системы</div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-chip"/></svg></span><div><h4><a href="#">Системы мониторинга и защиты</a></h4><p>Стационарные системы, датчики, настройка уставок</p></div><div class="num">Темы: <b>233</b><br>Сообщения: <b>3.1K</b></div><div class="last"><span class="av" style="background:#162c93">ВЛ</span><div><a href="#">Пороги в стойке 3500 под ГОСТ ISO 20816</a>40 мин назад · Виктор Л.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-wave"/></svg></span><div><h4><a href="#">Приборы и программное обеспечение</a></h4><p>Сборщики данных, анализаторы, ПО - отзывы и сравнения</p></div><div class="num">Темы: <b>190</b><br>Сообщения: <b>2.6K</b></div><div class="last"><span class="av" style="background:#1d9a6c">ЕМ</span><div><a href="#">Какой датчик выбрать для низких оборотов</a>сегодня · Евгений М.</div></div></div>
+   </div>
+   <div class="fcat">
+    <div class="fcat-h">Профессия</div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-doc"/></svg></span><div><h4><a href="#">Нормативная документация</a></h4><p>Вопросы по ГОСТ, ISO, API и отраслевым стандартам</p></div><div class="num">Темы: <b>88</b><br>Сообщения: <b>940</b></div><div class="last"><span class="av" style="background:#1f3cc0">ДП</span><div><a href="#">Чем 20816 отличается от 10816 на практике</a>3 дня назад · Дмитрий П.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-cap"/></svg></span><div><h4><a href="#">Обучение и аттестация</a></h4><p>Уровни квалификации, экзамены, учебные центры</p></div><div class="num">Темы: <b>64</b><br>Сообщения: <b>710</b></div><div class="last"><span class="av" style="background:#8a5cf0">ОН</span><div><a href="#">Готовлюсь ко II уровню - что почитать</a>неделю назад · Олег Н.</div></div></div>
+    <div class="fnode"><span class="ic"><svg><use href="#i-coffee"/></svg></span><div><h4><a href="#">Курилка</a></h4><p>Общение на любые темы</p></div><div class="num">Темы: <b>120</b><br>Сообщения: <b>1.9K</b></div><div class="last"><span class="av" style="background:#d9822b">МА</span><div><a href="#">Командировки: что берёте с собой</a>вчера · Максим А.</div></div></div>
+   </div>
+  </div>
+  <aside class="stack">
+   <div class="card"><div class="card-h"><h3>Статистика форума</h3></div><div class="row"><div class="t"><small>Темы: <b class="mono">1 581</b> · Сообщения: <b class="mono">20 350</b><br>Участники: <b class="mono">1 240</b> · Сейчас на сайте: <b class="mono">37</b></small></div></div></div>
+  </aside>
+ </div>
+</section>
+
+<!-- ================= БИРЖА ================= -->
+<section class="page" id="p-birzha">
+ <div class="sec-h"><div><h1>Работа и объявления</h1><p>Вакансии, подработки, резюме и объявления специалистов по вибродиагностике и смежным методам</p></div><a class="btn btn-brand" href="#">+ Подать объявление</a></div>
+ <div class="bx-top">
+  <div class="seg" id="bx-seg"><button class="on" data-k="vac">Вакансии</button><button data-k="gig">Подработки</button><button data-k="res">Резюме</button><button data-k="ann">Объявления</button></div>
+ </div>
+ <div class="mod"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Все объявления проходят проверку модератором - публикуются после одобрения, обычно в течение дня.</div>
+ <div class="warn"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3 2 20h20z M12 10v4M12 17v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Осторожно, мошенники! Не переводите предоплату за «оформление» и «пропуска». Сомнительное объявление - нажмите «Пожаловаться».</div>
+ <div class="grid">
+  <div>
+   <div class="bx-list" data-k="vac">
+    <div class="job paid"><div><span class="badge">★ Выделено · в топе 7 дней</span><h3><a href="#">Ведущий инженер по вибродиагностике турбоагрегатов</a></h3><div class="meta"><span>ГК «ЭнергоСервис» (пример)</span><span>Москва / командировки</span><span>Полный день</span></div></div><div class="pay">от 220 000 ₽</div><p>Платное размещение: объявление закреплено вверху списка, выделено цветом и показывается на главной. Обычные объявления - бесплатно.</p><div class="tg"><span class="pill">турбоагрегаты</span><span class="pill">III уровень</span></div></div>
+    <div class="job"><div><h3><a href="#">Инженер-вибродиагност, II уровень</a></h3><div class="meta"><span>ООО «НефтеПереработка» (пример)</span><span>Башкортостан</span><span>Вахта 30/30</span></div></div><div class="pay">от 180 000 ₽</div><p>Периодический контроль насосно-компрессорного оборудования, работа со стационарной системой мониторинга, отчёты и рекомендации по ремонту.</p><div class="tg"><span class="pill">вибродиагностика</span><span class="pill">ISO 18436-2 II</span><span class="pill s">вахта</span></div></div>
+    <div class="job"><div><h3><a href="#">Специалист по монтажу и пусконаладке систем мониторинга</a></h3><div class="meta"><span>ЭнергоМонтаж (пример)</span><span>ЯНАО</span><span>Командировки</span></div></div><div class="pay">по договорённости</div><p>Монтаж датчиков и стоек, наладка каналов, сдача заказчику. Опыт с системами защиты турбоагрегатов приветствуется.</p><div class="tg"><span class="pill">монтаж</span><span class="pill">системы защиты</span></div></div>
+    <div class="job"><div><h3><a href="#">Вибродиагност в сервисную компанию</a></h3><div class="meta"><span>ТехСервис (пример)</span><span>Екатеринбург</span><span>Полный день</span></div></div><div class="pay">120 000 - 150 000 ₽</div><p>Маршрутная диагностика у заказчиков, балансировка, центровка. Обучение за счёт компании.</p><div class="tg"><span class="pill">балансировка</span><span class="pill">центровка</span></div></div>
+   </div>
+   <div class="bx-list" data-k="gig" hidden>
+    <div class="job"><div><h3><a href="#">Балансировка дымососов на ТЭЦ, 3 агрегата</a></h3><div class="meta"><span>Пермь</span><span>4-5 дней</span><span>Со своим прибором</span></div></div><div class="pay">90 000 ₽</div><p>Нужен специалист с прибором для балансировки в собственных опорах. Проживание и дорога - за счёт заказчика.</p><div class="tg"><span class="pill o">подработка</span><span class="pill">балансировка</span></div></div>
+    <div class="job"><div><h3><a href="#">Разовое обследование вентиляторов градирни</a></h3><div class="meta"><span>Самара</span><span>1 день</span></div></div><div class="pay">25 000 ₽</div><p>Замеры и заключение о состоянии 6 вентиляторов, отчёт по форме заказчика.</p><div class="tg"><span class="pill o">подработка</span><span class="pill">вентиляторы</span></div></div>
+   </div>
+   <div class="bx-list" data-k="res" hidden>
+    <div class="job"><div><h3><a href="#">Инженер-вибродиагност, 9 лет опыта</a></h3><div class="meta"><span>Казань</span><span>Готов к командировкам</span></div></div><div class="pay">от 150 000 ₽</div><p>II уровень по ISO 18436-2, опыт на НПЗ и ТЭЦ, балансировка, лазерная центровка, работа со стационарными системами.</p><div class="tg"><span class="pill">резюме</span><span class="pill">II уровень</span></div></div>
+   </div>
+   <div class="bx-list" data-k="ann" hidden>
+    <div class="job"><div><h3><a href="#">Продаётся прибор для балансировки, б/у, с поверкой</a></h3><div class="meta"><span>Москва</span><span>Отличное состояние</span></div></div><div class="pay">95 000 ₽</div><p>Полный комплект: датчики, тахометр, кейс, ПО. Поверка до 2027 года.</p><div class="tg"><span class="pill">продам</span><span class="pill">приборы</span></div></div>
+   </div>
+  </div>
+  <aside class="stack">
+   <div class="card"><div class="card-h"><h3>Теги</h3></div><div class="tags"><span class="on">Все</span><span>Вибродиагностика</span><span>Балансировка</span><span>Центровка</span><span>Системы мониторинга</span><span>Монтаж</span><span>Термография</span><span>Анализ масел</span><span>Вахта</span><span>Удалённо</span></div></div>
+  </aside>
+ </div>
+</section>
+
+<!-- ================= СТАТЬИ ================= -->
+<section class="page" id="p-articles">
+ <div class="sec-h"><div><h1>Статьи</h1><p>Публикации участников и партнёров, в том числе интерактивные разборы</p></div><a class="btn btn-brand" href="#">+ Предложить статью</a></div>
+ <div class="arts">
+  <a class="art big" href="#"><div class="th"><svg viewBox="0 0 400 230" preserveAspectRatio="none"><rect width="400" height="230" fill="#0d1534"/><g stroke="#1c2a63" stroke-width="1">
+   <path d="M0 46h400M0 92h400M0 138h400M0 184h400M80 0v230M160 0v230M240 0v230M320 0v230"/></g><path d="M0 115 C20 115 25 60 45 60 S70 170 90 170 110 70 130 70 155 160 175 160 195 80 215 80 240 150 260 150 280 90 300 90 325 140 345 140 370 110 400 110" fill="none" stroke="#8cc9ec" stroke-width="2.5"/><path d="M0 115 C30 115 35 95 60 95 S95 135 120 135 155 98 180 98 215 128 240 128 280 104 300 104 360 118 400 118" fill="none" stroke="#d9822b" stroke-width="1.6" opacity=".8"/><text x="16" y="24" fill="#8cc9ec" font-family="IBM Plex Mono" font-size="12">CH1  1X 12.4 мкм  ∠ 47°</text></svg></div><div class="bd"><span class="pill s">интерактивная статья</span><h3>Осциллограмма канала 3500: как читать форму сигнала и не перепутать дефекты</h3><p>Разбор с живым графиком: двигаете ползунки фазы и амплитуды - и видите, как меняется сигнал при дисбалансе, расцентровке и задевании.</p><span class="by">С. Серебренников · 12 мин чтения</span></div></a>
+  <a class="art" href="#"><div class="th"><svg viewBox="0 0 300 150" preserveAspectRatio="none"><rect width="300" height="150" fill="#162c93"/><g fill="#8cc9ec"><rect x="20" y="110" width="14" height="30"/><rect x="45" y="60" width="14" height="80"/><rect x="70" y="95" width="14" height="45"/><rect x="95" y="30" width="14" height="110"/><rect x="120" y="100" width="14" height="40"/><rect x="145" y="80" width="14" height="60"/><rect x="170" y="115" width="14" height="25"/><rect x="195" y="70" width="14" height="70"/><rect x="220" y="105" width="14" height="35"/><rect x="245" y="120" width="14" height="20"/></g></svg></div><div class="bd"><h3>Спектр без загадок: 5 типовых картин дефектов</h3><p>Дисбаланс, расцентровка, ослабление, подшипники, зацепление.</p><span class="by">И. Романова · 8 мин</span></div></a>
+  <a class="art" href="#"><div class="th"><svg viewBox="0 0 300 150" preserveAspectRatio="none"><rect width="300" height="150" fill="#121c45"/><circle cx="150" cy="75" r="46" fill="none" stroke="#8cc9ec" stroke-width="3"/><circle cx="178" cy="52" r="7" fill="#d9822b"/><path d="M150 75 l30 30" stroke="#8cc9ec" stroke-width="3"/></svg></div><div class="bd"><h3>Балансировка в собственных опорах: пошагово</h3><p>Пробный груз, коэффициенты влияния, проверка результата.</p><span class="by">С. Калинин · 10 мин</span></div></a>
+  <a class="art" href="#"><div class="th"><svg viewBox="0 0 300 150" preserveAspectRatio="none"><rect width="300" height="150" fill="#1b2c73"/><path d="M30 120 L90 60 L150 90 L210 40 L270 70" fill="none" stroke="#8cc9ec" stroke-width="3"/><path d="M30 120 H270" stroke="#3b4c94"/><circle cx="210" cy="40" r="6" fill="#d9822b"/></svg></div><div class="bd"><h3>Тренды и уставки: когда пора останавливать агрегат</h3><p>Как выбрать пороги и не получить ложные срабатывания.</p><span class="by">В. Лебедев · 7 мин</span></div></a>
+  <div class="ad" style="min-height:230px"><b>Реклама · статья партнёра</b>Спонсорский материал с пометкой «Реклама»</div>
+ </div>
+</section>
+
+<!-- ================= БИБЛИОТЕКА ================= -->
+<section class="page" id="p-library">
+ <div class="sec-h"><div><h1>База знаний</h1><p>Стандарты, методики и техническая литература - с поиском и фильтрами</p></div></div>
+ <div class="grid">
+  <div class="card">
+   <div class="lib-f"><div class="seg"><button class="on">Все</button><button>ГОСТ</button><button>ISO</button><button>API</button><button>Методики</button><button>Книги</button></div></div>
+   <table class="tbl">
+    <thead><tr><th>Обозначение</th><th>Название</th><th>Раздел</th><th></th></tr></thead>
+    <tbody>
+     <tr><td class="code">ГОСТ ISO 20816-1-2021</td><td>Вибрация. Измерения вибрации и оценка вибрационного состояния машин. Часть 1. Общее руководство</td><td>Нормы вибрации</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">ГОСТ ISO 10816-3-2002</td><td>Вибрация. Контроль состояния машин по результатам измерений вибрации на невращающихся частях. Часть 3</td><td>Нормы вибрации</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">ГОСТ ISO 1940-1-2007</td><td>Вибрация. Требования к качеству балансировки жёстких роторов. Часть 1</td><td>Балансировка</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">ГОСТ Р ИСО 18436-2-2005</td><td>Контроль состояния и диагностика машин. Требования к обучению и сертификации персонала. Часть 2</td><td>Квалификация</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">ГОСТ Р ИСО 13373-1-2009</td><td>Контроль состояния и диагностика машин. Вибрационный контроль состояния машин. Часть 1. Общие методы</td><td>Методики</td><td><a class="dl" href="#">Открыть</a></td></tr>
+     <tr><td class="code">API 670</td><td>Machinery Protection Systems</td><td>Системы защиты</td><td><a class="dl" href="#">Описание</a></td></tr>
+    </tbody>
+   </table>
+  </div>
+  <aside class="stack">
+   <div class="card"><div class="card-h"><h3>Как устроено</h3></div><div class="row"><div class="t"><small>Документы с открытым доступом - файлом. Платные стандарты - карточкой с описанием и ссылкой на официальный источник. Участники могут предлагать материалы, модератор проверяет.</small></div></div></div>
+  </aside>
+ </div>
+</section>
+
+<!-- ================= УЧЕБНЫЕ ЦЕНТРЫ ================= -->
+<section class="page" id="p-centers">
+ <div class="sec-h"><div><h1>Компании-партнёры</h1><p>Учебные центры, сервисные компании и поставщики - партнёры добавляют свои курсы, услуги и даты сами</p></div><a class="btn btn-brand" href="#">+ Добавить центр</a></div>
+ <div class="ucs">
+  <div class="uc"><div class="hd"><span class="lg" style="background:#1f3cc0">Р</span><div><h3>Учебный центр «Ротор»</h3><small>Москва · очно и онлайн (пример)</small></div></div><ul><li>Вибродиагностика, I уровень <b>10 ноя</b></li><li>Вибродиагностика, II уровень <b>1 дек</b></li><li>Анализ спектров для практиков <b>15 дек</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
+  <div class="uc"><div class="hd"><span class="lg" style="background:#1d9a6c">Т</span><div><h3>Центр «ТехДиагност»</h3><small>Уфа · очно (пример)</small></div></div><ul><li>Балансировка в собственных опорах <b>17 ноя</b></li><li>Лазерная центровка валов <b>24 ноя</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
+  <div class="uc"><div class="hd"><span class="lg" style="background:#d9822b">С</span><div><h3>Академия «Спектр»</h3><small>Онлайн (пример)</small></div></div><ul><li>Подготовка к аттестации по ISO 18436-2 <b>гибко</b></li><li>Стационарные системы мониторинга <b>8 дек</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
+ </div>
+</section>
+
+</div>
+<aside class="rail" aria-label="Реклама справа"><div class="ad"><b>Реклама · 160×600</b>Правое поле: баннер партнёра</div><div class="ad s"><b>Реклама · 160×240</b>Второе место</div></aside>
+</div></main>
+
+<footer><div class="wrap"><span>AXVT · форум при axelvt.ru · эскиз</span><span><a href="#rules" data-go="rules" style="color:inherit">Правила</a> · Реклама · Обратная связь</span></div></footer>
+
+<script>
+(function(){
+ var tabs=document.querySelectorAll('nav.tabs a');
+ function go(k){
+  if(!document.getElementById('p-'+k))k='home';
+  document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('on',p.id==='p-'+k)});
+  tabs.forEach(function(a){a.classList.toggle('on',a.dataset.go===k)});
+  window.scrollTo(0,0);
+ }
+ document.addEventListener('click',function(e){var a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();history.replaceState(null,'','#'+a.dataset.go);go(a.dataset.go)});
+ go(location.hash.slice(1)||'home');
+ var seg=document.getElementById('bx-seg');
+ seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
+  document.querySelectorAll('.bx-list').forEach(function(l){l.hidden=l.dataset.k!==b.dataset.k})});
+ document.querySelectorAll('.tags span,.lib-f .seg button').forEach(function(t){t.addEventListener('click',function(){t.parentNode.querySelectorAll('.on').forEach(function(x){x.classList.remove('on')});t.classList.add('on')})});
+})();
+</script>
+</body>
+</html>
