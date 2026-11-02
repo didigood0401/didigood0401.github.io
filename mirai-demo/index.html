@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>MirAI - демо редизайна v3</title>
+<title>MirAI - демо редизайна v4</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -391,37 +391,143 @@ body{background:#DEDAE6}
 
 /* профиль: баланс в правом верхнем углу */
 .ptitle .credits{margin-left:auto}
+
+/* ================= V4 · две гаммы, минималистичные иконки ================= */
+:root{--brand:#5B4BF5}
+/* --- токены разделов: вариант А «Лаванда» --- */
+.va .phone,.va .cat,.va .sw{--t:#EFEBFC;--k:#5B4BF5;--wash:#E6DAF7}
+.va .sec-chat{--t:#F1F0F5;--k:#3B3946}
+.va .sec-photo{--t:#EEEAFF;--k:#5B4BF5}
+.va .sec-video{--t:#E6EDFF;--k:#3F62CF}
+.va .sec-audio{--t:#FCE8F1;--k:#B4467E}
+/* --- вариант Б «Туман»: приглушённые оттенки --- */
+.vb .phone,.vb .cat,.vb .sw{--t:#EFEEF4;--k:#4A4855;--wash:#ECEAF3}
+.vb .sec-chat{--t:#F2F1F6;--k:#3E3C48;--wash:#F1F0F6}
+.vb .sec-photo{--t:#EAE4F8;--k:#6A55BE;--wash:#E2D8F6}
+.vb .sec-video{--t:#E2EAF6;--k:#4B6C9C;--wash:#D8E3F3}
+.vb .sec-audio{--t:#F7E5ED;--k:#A2517A;--wash:#F2DAE6}
+.vb{--accent:#5B4BF5}
+
+/* фон. А: общий белый -> лаванда. Б: белый -> оттенок раздела */
+.va .phone{background:linear-gradient(180deg,#FFFFFF 0%,#FAF8FD 38%,#F1EAFA 72%,#E6DAF7 100%)}
+.vb .phone{background:linear-gradient(180deg,#FFFFFF 0%,#FCFBFD 34%,var(--wash) 100%)}
+.va .phone.sec-chat{background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 45%,#F6F3FB 100%)}
+
+/* иконки инструментов */
+.tool .thw{width:auto;display:block}
+.ico{width:64px;height:64px;border-radius:18px;background:var(--t);display:grid;place-items:center;flex:none}
+.ico svg{width:30px;height:30px;fill:none;stroke:var(--k);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tool{padding:14px 16px 14px 14px;gap:16px;align-items:center}
+.vb .ico{border-radius:50%;background:var(--t)}
+.vb .tool{background:rgba(255,255,255,.78);box-shadow:0 0 0 1px rgba(255,255,255,.9),0 8px 24px -18px rgba(20,18,30,.25)}
+
+/* сегмент: А - чёрный активный (одобрен), Б - белый на тонированной дорожке */
+.vb .seg3{background:color-mix(in srgb,var(--t) 70%,#fff);box-shadow:none}
+.vb .seg3 span.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(20,18,30,.06),0 4px 12px -6px rgba(20,18,30,.2)}
+
+/* главная */
+.word{display:flex;align-items:center;gap:8px}
+.word .lg{width:30px;height:30px;color:var(--brand)}
+.cat{height:112px;padding:0;display:grid;grid-template-columns:1fr 112px;align-items:center}
+.cat .t{padding:0 0 0 20px}
+.hart{height:100%;display:grid;place-items:center}
+.hico{width:72px;height:72px;border-radius:22px;background:var(--t);display:grid;place-items:center}
+.hico svg{width:34px;height:34px;fill:none;stroke:var(--k);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.va .cat{background:linear-gradient(90deg,#fff 55%,color-mix(in srgb,var(--t) 55%,#fff))}
+.vb .cat{background:linear-gradient(115deg,#fff 38%,var(--wash));box-shadow:0 0 0 1px rgba(255,255,255,.9),0 8px 24px -16px rgba(20,18,30,.22)}
+.vb .hico{background:rgba(255,255,255,.75);border-radius:50%;box-shadow:0 6px 16px -10px color-mix(in srgb,var(--k) 60%,transparent)}
+
+/* иконка приложения */
+.appic{display:grid;place-items:center;color:var(--brand);border-radius:26%}
+.va .appic{background:radial-gradient(120% 120% at 20% 10%,#FFF7FB 0%,#EEE6FF 45%,#CDBDFB 100%)}
+.vb .appic{background:linear-gradient(160deg,#FFFFFF,#ECE8F6);box-shadow:inset 0 0 0 1px #E3DEEE}
+.appic.sm{width:64px;height:64px;margin-bottom:18px;box-shadow:0 14px 30px -16px rgba(91,75,245,.55)}
+.vb .appic.sm{box-shadow:inset 0 0 0 1px #E3DEEE,0 14px 30px -18px rgba(60,50,120,.35)}
+.appic.sm svg{width:42px;height:42px}
+.appic.big{width:120px;height:120px;box-shadow:0 20px 40px -20px rgba(91,75,245,.55)}
+.appic.big svg{width:80px;height:80px}
+
+/* подсказки в чате - одним спокойным цветом */
+.chips svg{color:var(--ink-2)}
+
+/* шапка демо */
+.vsw{display:inline-flex;gap:4px;padding:4px;margin-top:18px;background:#fff;border-radius:14px;box-shadow:0 0 0 1px #E3DEEE}
+.vsw button{font:inherit;font-size:15px;font-weight:600;border:0;background:none;padding:10px 16px;border-radius:10px;color:#55535C;cursor:pointer}
+.vsw button.on{background:#16151A;color:#fff}
+.vnote{max-width:640px;margin:10px auto 0;display:none}
+.va .vnote[data-for=a],.vb .vnote[data-for=b]{display:block}
+.apps{display:flex;gap:28px;justify-content:center;align-items:center;margin-top:22px;flex-wrap:wrap}
+.appwrap{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;color:#6b6873}
+.pal{display:flex;gap:14px}
+.sw{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:13px;color:#6b6873}
+.sw i{width:52px;height:52px;border-radius:16px;background:var(--t);box-shadow:inset 0 0 0 1px rgba(0,0,0,.04);position:relative}
+.sw i::after{content:"";position:absolute;inset:18px;border-radius:50%;background:var(--k)}
+.vb .sw i{background:linear-gradient(180deg,#fff,var(--wash))}
+
+/* вдохновение 2 в ряд */
+.grid2{flex:1;min-height:0;overflow:hidden;padding:0 16px;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start;grid-auto-rows:max-content}
+.grid2>.gc{min-height:max-content}
+.gc{background:var(--surface);border-radius:20px;overflow:hidden;box-shadow:0 0 0 1px var(--line),0 10px 24px -18px rgba(20,18,30,.35)}
+.gm{height:176px;position:relative;overflow:hidden}
+.gm>svg{position:absolute;inset:0;width:100%;height:100%}
+.gm .gt{left:10px;top:10px;bottom:auto}
+.gplay{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.gplay svg{width:18px;height:18px;fill:#3F62CF;margin-left:2px}
+.gx{padding:9px 12px 0}
+.gx b{display:block;font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gx small{display:block;font-size:12px;color:var(--ink-3);margin-top:1px}
+.ga{display:flex;align-items:center;padding:4px 6px 6px}
+.ga .ab{width:36px;height:36px}
+.ga .ab svg{width:19px;height:19px}
+.ga .ab.hrt{margin-right:auto}
+.ga .ab.hrt svg{width:23px;height:23px}
+/* сердечко: без красного - фирменный розовый */
+.ab.hrt.on{background:#FCE8F1;color:#C2477F}
+.ab.hrt.on svg{fill:#C2477F}
+
 </style>
 </head>
-<body>
+<body class="va">
 <svg width="0" height="0" style="position:absolute">
   <defs>
     <!-- фирменная иконка кредитов: планета с кольцом (форма сохранена, отрисовка чище) -->
+    <symbol id="logo" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><circle cx="24" cy="25" r="10.5"/><ellipse cx="24" cy="25" rx="19" ry="6.6" transform="rotate(-22 24 25)"/></g><g fill="currentColor"><path d="M11.5 7.5c.5 2.6 1.4 3.5 4 4-2.6.5-3.5 1.4-4 4-.5-2.6-1.4-3.5-4-4 2.6-.5 3.5-1.4 4-4z"/><path d="M37 4c.6 3 1.6 4 4.6 4.6-3 .6-4 1.6-4.6 4.6-.6-3-1.6-4-4.6-4.6 3-.6 4-1.6 4.6-4.6z"/><path d="M10.5 34.5c.45 2.2 1.2 2.95 3.4 3.4-2.2.45-2.95 1.2-3.4 3.4-.45-2.2-1.2-2.95-3.4-3.4 2.2-.45 2.95-1.2 3.4-3.4z"/></g></symbol>
     <symbol id="coin" viewBox="0 0 24 24"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8C7CFF"/><stop offset="1" stop-color="#4B3BE8"/></linearGradient></defs><circle cx="12" cy="12" r="6.2" fill="url(#cg)"/><ellipse cx="12" cy="12" rx="10.4" ry="3.6" transform="rotate(-24 12 12)" fill="none" stroke="#4B3BE8" stroke-width="1.6"/><path d="M6.6 9.3a6.2 6.2 0 0 1 10.8 0" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.2" stroke-linecap="round"/></symbol>
     <symbol id="sb" viewBox="0 0 70 12"><rect x="0" y="5" width="3" height="7" rx="1" fill="#16151A"/><rect x="5" y="3" width="3" height="9" rx="1" fill="#16151A"/><rect x="10" y="1" width="3" height="11" rx="1" fill="#16151A"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#16151A"/><path d="M28 4.5a8 8 0 0 1 11 0M30.5 7a4.5 4.5 0 0 1 6 0" stroke="#16151A" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="33.5" cy="10" r="1.3" fill="#16151A"/><rect x="45" y=".5" width="22" height="11" rx="3.2" fill="none" stroke="#16151A" stroke-opacity=".4"/><rect x="47" y="2.5" width="16" height="7" rx="1.8" fill="#16151A"/><rect x="68" y="4" width="1.6" height="4" rx=".8" fill="#16151A" fill-opacity=".4"/></symbol>
   </defs>
 </svg>
 
-<div class="head"><h1>MirAI - демо редизайна, версия 3</h1><p>Правки Глеба 02.11: окно Effort шириной как выбор модели; все вкладки Фото и Аудио; вдохновение, история генераций и избранное - по одной карточке в ряд, крупное сердечко, кнопки «скачать» и «поделиться»; во вдохновении только фото и видео, без «Повторить». Видео - ждём уточнение по вкладкам.</p></div>
+<div class="head">
+  <h1>MirAI - демо редизайна, версия 4</h1>
+  <p>Правки Глеба 02.11 (вечер): иконка приложения как логотип, минималистичные иконки, у каждого раздела свой цвет, без красного и жёлтого. Видео - 3 вкладки как в приложении. Вдохновение - добавлен вариант 2 в ряд для сравнения.</p>
+  <div class="vsw"><button data-v="a" class="on">Вариант А · Лаванда</button><button data-v="b">Вариант Б · Туман</button></div>
+  <p class="vnote" data-for="a">Цвет раздела живёт в иконках: пастельная плашка + линия того же оттенка. Общий фон один на всё приложение - белый сверху, лавандовый снизу.</p>
+  <p class="vnote" data-for="b">Цвет раздела живёт в фоне: внутри Фото, Видео и Аудио фон плавно уходит в оттенок раздела. Иконки круглые, оттенки приглушённые, без плашек-квадратов.</p>
+  <div class="apps">
+    <div class="appwrap"><div class="appic big"><svg><use href="#logo"/></svg></div><span>Иконка приложения</span></div>
+    <div class="pal">
+      <div class="sw sec-chat"><i></i><span>Чат</span></div>
+      <div class="sw sec-photo"><i></i><span>Фото</span></div>
+      <div class="sw sec-video"><i></i><span>Видео</span></div>
+      <div class="sw sec-audio"><i></i><span>Аудио</span></div>
+    </div>
+  </div>
+</div>
 <div class="board">
 
 <!-- ===== 1. ГЛАВНАЯ ===== -->
 <div class="phone" id="s1">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="top">
-    <div class="word">Mir<b>AI</b></div>
+    <div class="word"><svg class="lg"><use href="#logo"/></svg><span>Mir<b>AI</b></span></div>
     <div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div>
   </div>
   <div class="hello"><h1>Что создадим<br>сегодня?</h1><p>Выберите, с чем работать</p></div>
   <div class="cats">
-    <div class="cat"><div class="t"><h2>Текст</h2><p>Диалоги и ассистенты</p></div>
-      <svg class="art" viewBox="0 0 180 122" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="tb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0ECFF"/><stop offset="1" stop-color="#DCD3FF"/></linearGradient><linearGradient id="b1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#F4F1FF"/></linearGradient></defs><rect width="180" height="122" fill="url(#tb)"/><circle cx="150" cy="18" r="46" fill="#fff" fill-opacity=".35"/><g transform="translate(28 22) rotate(-6)"><rect width="100" height="58" rx="16" fill="url(#b1)" stroke="#D6CCFF"/><rect x="14" y="16" width="54" height="6" rx="3" fill="#BDB2FF"/><rect x="14" y="30" width="70" height="6" rx="3" fill="#DCD5FF"/><rect x="14" y="42" width="40" height="6" rx="3" fill="#DCD5FF"/></g><g transform="translate(84 66) rotate(4)"><rect width="72" height="40" rx="14" fill="#5B4BF5"/><circle cx="22" cy="20" r="3.4" fill="#fff"/><circle cx="36" cy="20" r="3.4" fill="#fff" fill-opacity=".7"/><circle cx="50" cy="20" r="3.4" fill="#fff" fill-opacity=".45"/></g></svg></div>
-    <div class="cat"><div class="t"><h2>Фото</h2><p>Генерация изображений</p></div>
-      <svg class="art" viewBox="0 0 180 122" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CFE3FF"/><stop offset="1" stop-color="#EEF5FF"/></linearGradient><linearGradient id="mt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FA9FF"/><stop offset="1" stop-color="#BFD6FF"/></linearGradient><linearGradient id="mt2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9C6FF"/><stop offset="1" stop-color="#DCE8FF"/></linearGradient></defs><rect width="180" height="122" fill="url(#sky)"/><circle cx="132" cy="34" r="15" fill="#FFDDA8"/><path d="M-10 122 40 58l22 24 22-30 70 70z" fill="url(#mt2)"/><path d="M30 122 92 46l26 30 22-26 50 72z" fill="url(#mt)"/><path d="M92 46l12 14-8 2-12-4z" fill="#fff" fill-opacity=".8"/><path d="M0 122c40-20 90-26 180-12v12z" fill="#E3EEFF"/></svg></div>
-    <div class="cat"><div class="t"><h2>Видео</h2><p>Ролики по запросу</p></div>
-      <svg class="art" viewBox="0 0 180 122" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="vbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F1ECFF"/><stop offset="1" stop-color="#DED2FF"/></linearGradient><linearGradient id="v" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B9A5FF"/><stop offset="1" stop-color="#6A4DFF"/></linearGradient></defs><rect width="180" height="122" fill="url(#vbg)"/><g transform="translate(22 30) skewY(-8)"><rect width="44" height="66" rx="10" fill="#E2D9FF"/><rect x="50" width="44" height="66" rx="10" fill="#B9A5FF"/><rect x="100" width="44" height="66" rx="10" fill="url(#v)"/><path d="M116 22v22l18-11z" fill="#fff"/></g></svg></div>
-    <div class="cat"><div class="t"><h2>Аудио</h2><p>Озвучка и музыка</p></div>
-      <svg class="art" viewBox="0 0 180 122" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="abg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6FAF5"/><stop offset="1" stop-color="#C6F0E6"/></linearGradient><linearGradient id="au" x1="0" x2="1"><stop offset="0" stop-color="#6FDCC7"/><stop offset="1" stop-color="#22A897"/></linearGradient></defs><rect width="180" height="122" fill="url(#abg)"/><g fill="url(#au)"><rect x="30" y="52" width="6" height="18" rx="3"/><rect x="42" y="40" width="6" height="42" rx="3"/><rect x="54" y="30" width="6" height="62" rx="3"/><rect x="66" y="44" width="6" height="34" rx="3"/><rect x="78" y="22" width="6" height="78" rx="3"/><rect x="90" y="36" width="6" height="50" rx="3"/><rect x="102" y="48" width="6" height="26" rx="3"/><rect x="114" y="34" width="6" height="54" rx="3"/><rect x="126" y="46" width="6" height="30" rx="3"/><rect x="138" y="54" width="6" height="14" rx="3"/></g></svg></div>
+    <div class="cat sec-chat"><div class="t"><h2>Текст</h2><p>Диалоги и ассистенты</p></div><div class="hart"><div class="hico"><svg viewBox="0 0 24 24"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5V7A1.5 1.5 0 0 1 5 5.5z"/><path d="M8 10h8M8 13h5"/></svg></div></div></div>
+    <div class="cat sec-photo"><div class="t"><h2>Фото</h2><p>Генерация изображений</p></div><div class="hart"><div class="hico"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="15.5" cy="9" r="1.6"/><path d="m3.8 16.5 5-5.2 4.2 4.2 2.4-2.3 4.8 4.6"/></svg></div></div></div>
+    <div class="cat sec-video"><div class="t"><h2>Видео</h2><p>Ролики по запросу</p></div><div class="hart"><div class="hico"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="3.5"/><path d="M10.2 9.3v5.4l4.6-2.7z"/></svg></div></div></div>
+    <div class="cat sec-audio"><div class="t"><h2>Аудио</h2><p>Озвучка и музыка</p></div><div class="hart"><div class="hico"><svg viewBox="0 0 24 24"><path d="M4 10.5v3M7.5 8v8M11 5v14M14.5 8.5v7M18 7v10M21 10.5v3"/></svg></div></div></div>
   </div>
   <div class="tabbar">
     <div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div>
@@ -431,18 +537,18 @@ body{background:#DEDAE6}
 </div>
 
 <!-- ===== 2. НОВЫЙ ЧАТ ===== -->
-<div class="phone" id="s2">
+<div class="phone sec-chat" id="s2">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ct"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><div class="model">GPT-5<svg class="ic" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></div><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5M12 8v4.2l2.8 1.8"/></svg></div></div>
   <div class="empty">
-    <div class="logo-orb"><svg width="34" height="34"><use href="#coin"/></svg></div>
+    <div class="appic sm"><svg><use href="#logo"/></svg></div>
     <h1>Чем могу помочь?</h1>
   </div>
   <div class="chips">
-    <span><svg class="ic" viewBox="0 0 24 24" style="color:#5B4BF5"><path d="M5 5h14v10H9l-4 4z"/></svg>Спросить что угодно</span>
-    <span><svg class="ic" viewBox="0 0 24 24" style="color:#2F80ED"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="m4 16 5-5 4 4 3-3 4 4"/></svg>Описать фото</span>
-    <span><svg class="ic" viewBox="0 0 24 24" style="color:#E07A2F"><path d="M8 7 3 12l5 5M16 7l5 5-5 5"/></svg>Написать код</span>
-    <span><svg class="ic" viewBox="0 0 24 24" style="color:#1F9D6B"><path d="M5 4h10l4 4v12H5zM9 12h6M9 16h4"/></svg>Разобрать документ</span>
+    <span><svg class="ic" viewBox="0 0 24 24"><path d="M5 5h14v10H9l-4 4z"/></svg>Спросить что угодно</span>
+    <span><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="m4 16 5-5 4 4 3-3 4 4"/></svg>Описать фото</span>
+    <span><svg class="ic" viewBox="0 0 24 24"><path d="M8 7 3 12l5 5M16 7l5 5-5 5"/></svg>Написать код</span>
+    <span><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5zM9 12h6M9 16h4"/></svg>Разобрать документ</span>
   </div>
   <div class="tg">
     <div class="tgb"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -452,7 +558,7 @@ body{background:#DEDAE6}
 </div>
 
 <!-- ===== 3. ДИАЛОГ: ответ, генерация, набор текста ===== -->
-<div class="phone" id="s3">
+<div class="phone sec-chat" id="s3">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ct"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><div class="model">GPT-5<svg class="ic" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></div><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5M12 8v4.2l2.8 1.8"/></svg></div></div>
   <div class="thread">
@@ -489,10 +595,10 @@ body{background:#DEDAE6}
 </div>
 
 <!-- ===== 4. ВЫБОР МОДЕЛИ (выпадает сверху) ===== -->
-<div class="phone" id="s4">
+<div class="phone sec-chat" id="s4">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ct raised"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><div class="model open">GPT-5<svg class="ic" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></div><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5M12 8v4.2l2.8 1.8"/></svg></div></div>
-  <div class="empty"><div class="logo-orb"><svg width="34" height="34"><use href="#coin"/></svg></div><h1>Чем могу помочь?</h1></div>
+  <div class="empty"><div class="appic sm"><svg><use href="#logo"/></svg></div><h1>Чем могу помочь?</h1></div>
   <div class="dim dim-top"></div>
   <div class="dd">
     <div class="dd-h">Модель для этого чата</div>
@@ -509,10 +615,10 @@ body{background:#DEDAE6}
 </div>
 
 <!-- ===== 5. EFFORT (по молнии, снизу) ===== -->
-<div class="phone" id="s5">
+<div class="phone sec-chat" id="s5">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ct"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><div class="model">GPT-5<svg class="ic" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></div><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5M12 8v4.2l2.8 1.8"/></svg></div></div>
-  <div class="empty"><div class="logo-orb"><svg width="34" height="34"><use href="#coin"/></svg></div><h1>Чем могу помочь?</h1></div>
+  <div class="empty"><div class="appic sm"><svg><use href="#logo"/></svg></div><h1>Чем могу помочь?</h1></div>
   <div class="dim"></div>
   <div class="ef">
     <div class="ef-h">Уровень мышления</div>
@@ -528,7 +634,7 @@ body{background:#DEDAE6}
 </div>
 
 <!-- ===== 6. ИСТОРИЯ (выезжает справа) ===== -->
-<div class="phone" id="s6">
+<div class="phone sec-chat" id="s6">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ct"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><div class="model">GPT-5<svg class="ic" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></div><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5M12 8v4.2l2.8 1.8"/></svg></div></div>
   <div class="dim"></div>
@@ -550,33 +656,29 @@ body{background:#DEDAE6}
 </div>
 
 <!-- ===== 7. ФОТО ===== -->
-<div class="phone" id="s7">
+<div class="phone sec-photo" id="s7">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2>Фото</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
   <div class="seg3"><span class="on">Создать</span><span>Изменить</span><span>Качество</span></div>
-  <div class="tools">
-    <div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="th1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DCEBFF"/><stop offset="1" stop-color="#AFCBFF"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#th1)"/><rect x="12" y="12" width="68" height="18" rx="9" fill="#fff"/><rect x="20" y="19" width="34" height="4" rx="2" fill="#B9CCF5"/><path d="M60 21h10" stroke="#5B4BF5" stroke-width="3" stroke-linecap="round"/><rect x="12" y="38" width="68" height="42" rx="12" fill="#fff" fill-opacity=".6"/><path d="M16 76 36 52l10 12 8-8 22 20z" fill="#fff"/><circle cx="64" cy="50" r="6" fill="#FFDDA8"/></svg></div><div><h3>Создать по описанию</h3><p>Новое изображение по текстовому описанию</p></div></div>
-    <div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="th2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3EEFF"/><stop offset="1" stop-color="#CDBEFF"/></linearGradient><linearGradient id="fc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE1CF"/><stop offset="1" stop-color="#F6C3A8"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#th2)"/><rect x="10" y="22" width="34" height="46" rx="8" fill="#fff"/><circle cx="27" cy="38" r="8" fill="url(#fc)"/><path d="M15 64c2-9 7-13 12-13s10 4 12 13z" fill="#8C7CFF"/><path d="M48 45h8m-3-4 4 4-4 4" stroke="#5B4BF5" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="16" width="26" height="58" rx="8" fill="#fff"/><circle cx="71" cy="34" r="7" fill="url(#fc)"/><path d="M61 70c1-11 5-17 10-17s9 6 10 17z" fill="#FFB86B"/><path d="M80 14l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#5B4BF5"/></svg></div><div><h3>Человек по образцу</h3><p>Новый портрет или сцена по фото, лицо сохраняется</p></div></div>
-    <div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="th3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6FAF5"/><stop offset="1" stop-color="#A6E8D8"/></linearGradient><linearGradient id="bt" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#E7F7F2"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#th3)"/><ellipse cx="46" cy="72" rx="28" ry="7" fill="#fff" fill-opacity=".8"/><rect x="33" y="30" width="26" height="40" rx="9" fill="url(#bt)" stroke="#8FD9C6"/><rect x="40" y="20" width="12" height="11" rx="3" fill="#2FB7A6"/><rect x="38" y="44" width="16" height="10" rx="3" fill="#2FB7A6" fill-opacity=".3"/><path d="M70 18l2 4 4 2-4 2-2 4-2-4-4-2 4-2zM20 30l1.5 3 3 1.5-3 1.5L20 39l-1.5-3-3-1.5 3-1.5z" fill="#fff"/></svg></div><div><h3>Предмет по образцу</h3><p>Товар в новой сцене: форма, цвет и бренд остаются</p></div></div>
-  </div>
+  <div class="tools"><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 17.5 9 12l4 4 2.5-2.5 4.5 4.5"/><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M16 6.8l.7 1.5 1.5.7-1.5.7-.7 1.5-.7-1.5-1.5-.7 1.5-.7z"/></svg></div></div><div><h3>Создать по описанию</h3><p>Новое изображение по текстовому описанию</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.8 4-5.6 7.5-5.6s6.3 1.8 7.5 5.6"/></svg></div></div><div><h3>Человек по образцу</h3><p>Новый портрет или сцена по фото, лицо сохраняется</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3.5 19.5 7.7v8.6L12 20.5l-7.5-4.2V7.7z"/><path d="M4.5 7.7 12 12l7.5-4.3M12 12v8.5"/></svg></div></div><div><h3>Предмет по образцу</h3><p>Товар в новой сцене: форма, цвет и бренд сохраняются</p></div></div></div>
   <div class="tabbar"><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
 </div>
 
 <!-- ===== Фото: Изменить ===== -->
-<div class="phone" id="s21">
+<div class="phone sec-photo" id="s21">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2>Фото</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
   <div class="seg3"><span>Создать</span><span class="on">Изменить</span><span>Качество</span></div>
-  <div class="tools"><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="pe1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3EEFF"/><stop offset="1" stop-color="#CDBEFF"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#pe1)"/><rect x="12" y="14" width="68" height="64" rx="12" fill="#fff"/><path d="M18 70 38 46l10 12 8-8 18 20z" fill="#B9A8FF"/><circle cx="62" cy="34" r="6" fill="#FFDDA8"/><circle cx="66" cy="66" r="13" fill="#5B4BF5"/><path d="M66 60v12M60 66h12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg></div><div><h3>Добавить или убрать объект</h3><p>Добавляет, заменяет или удаляет объект, остальное не меняется</p></div></div><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="pe2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DCEBFF"/><stop offset="1" stop-color="#AFCBFF"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#pe2)"/><rect x="10" y="16" width="30" height="38" rx="8" fill="#fff"/><circle cx="25" cy="31" r="7" fill="#FFE1CF"/><path d="M14 52c2-8 6-11 11-11s9 3 11 11z" fill="#8C7CFF"/><rect x="52" y="16" width="30" height="38" rx="8" fill="#fff"/><rect x="61" y="26" width="12" height="20" rx="4" fill="#2FB7A6"/><path d="M30 60l16 12 16-12" stroke="#5B4BF5" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="34" y="70" width="24" height="12" rx="4" fill="#5B4BF5"/></svg></div><div><h3>Объединить изображения</h3><p>Человек, товар и фон из разных фото - в одну сцену</p></div></div><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="pe3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6FAF5"/><stop offset="1" stop-color="#A6E8D8"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#pe3)"/><rect x="24" y="24" width="44" height="44" rx="8" fill="#fff"/><path d="M28 62 40 48l7 8 5-5 12 11z" fill="#8FD9C6"/><path d="M10 30V12h18M82 30V12H64M10 62v18h18M82 62v18H64" stroke="#22A897" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="5 5"/></svg></div><div><h3>Расширить изображение</h3><p>Дорисовывает кадр за краями, чтобы сменить формат</p></div></div></div>
+  <div class="tools"><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3.8 16.5 8.5 11.6l3.6 3.6"/><circle cx="14.5" cy="7.5" r="1.5"/><path d="M13 19.5H6.5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3V12"/><path d="M18 15v6M15 18h6"/></svg></div></div><div><h3>Добавить или убрать объект</h3><p>Добавляет, заменяет или удаляет объект, остальное не меняется</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="11" height="11" rx="2.5"/><rect x="9.5" y="9.5" width="11" height="11" rx="2.5"/></svg></div></div><div><h3>Объединить изображения</h3><p>Человек, товар и фон из разных фото - в одну сцену</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3"/></svg></div></div><div><h3>Расширить изображение</h3><p>Дорисовывает кадр за краями, чтобы сменить формат</p></div></div></div>
   <div class="tabbar"><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
 </div>
 
 <!-- ===== Фото: Качество ===== -->
-<div class="phone" id="s22">
+<div class="phone sec-photo" id="s22">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2>Фото</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
   <div class="seg3"><span>Создать</span><span>Изменить</span><span class="on">Качество</span></div>
-  <div class="tools"><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="pq1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3EEFF"/><stop offset="1" stop-color="#CDBEFF"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#pq1)"/><rect x="12" y="14" width="68" height="64" rx="12" fill="#fff"/><path d="M12 26a12 12 0 0 1 12-12h22v64H24a12 12 0 0 1-12-12z" fill="#E6E1EE"/><path d="M18 70 38 46l10 12 8-8 18 20z" fill="#B9A8FF"/><circle cx="62" cy="34" r="6" fill="#FFDDA8"/><path d="M46 14v64" stroke="#5B4BF5" stroke-width="2.6"/><circle cx="46" cy="46" r="7" fill="#5B4BF5"/><path d="M70 18l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#5B4BF5"/></svg></div><div><h3>Улучшить качество</h3><p>Убирает шум и артефакты, добавляет чёткости</p></div></div><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="pq2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DCEBFF"/><stop offset="1" stop-color="#AFCBFF"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#pq2)"/><rect x="12" y="44" width="26" height="34" rx="6" fill="#fff" fill-opacity=".7"/><rect x="30" y="14" width="50" height="50" rx="10" fill="#fff"/><path d="M36 58 50 42l8 9 6-6 12 13z" fill="#B9CCF5"/><path d="M40 38 58 20M58 20H46M58 20v12" stroke="#5B4BF5" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Увеличить разрешение</h3><p>Делает фото больше, детали сохраняются</p></div></div><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="pq3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1DC"/><stop offset="1" stop-color="#FFC98A"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#pq3)"/><rect x="16" y="14" width="60" height="64" rx="6" fill="#FFF8EC" stroke="#E8C68F"/><circle cx="46" cy="38" r="10" fill="#E3BF92"/><path d="M28 70c3-12 10-17 18-17s15 5 18 17z" fill="#B88A5A"/><path d="M22 22l10 10M66 60l6 6M60 20l-4 8" stroke="#C9A36E" stroke-width="1.6" stroke-linecap="round"/><path d="M74 12l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#5B4BF5"/></svg></div><div><h3>Восстановить старое фото</h3><p>Убирает пыль, царапины и пятна, сохраняя характер снимка</p></div></div><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="pq4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6D9"/><stop offset="1" stop-color="#FFD98A"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#pq4)"/><rect x="12" y="14" width="68" height="64" rx="12" fill="#fff"/><circle cx="46" cy="40" r="12" fill="#FFC24D"/><path d="M46 20v6M46 54v6M26 40h6M60 40h6M32 26l4 4M56 50l4 4M32 54l4-4M56 30l4-4" stroke="#FFB020" stroke-width="2.4" stroke-linecap="round"/><g><rect x="20" y="66" width="12" height="6" rx="3" fill="#FF7A59"/><rect x="34" y="66" width="12" height="6" rx="3" fill="#5BC9A0"/><rect x="48" y="66" width="12" height="6" rx="3" fill="#5B8CFF"/><rect x="62" y="66" width="10" height="6" rx="3" fill="#B98CFF"/></g></svg></div><div><h3>Исправить свет и цвет</h3><p>Выравнивает экспозицию, контраст и баланс белого</p></div></div></div>
+  <div class="tools"><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2"/><circle cx="9" cy="16" r="2"/></svg></div></div><div><h3>Улучшить качество</h3><p>Убирает шум и артефакты, добавляет чёткости</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M19 5h-6.5M19 5v6.5M5 19h6.5M5 19v-6.5"/></svg></div></div><div><h3>Увеличить разрешение</h3><p>Делает фото детальнее и больше, сохраняя качество</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4.2 12a7.8 7.8 0 1 0 2.3-5.5M4 4v4.5h4.5"/><path d="M12 8v4.5"/><circle cx="12" cy="15.6" r=".3"/></svg></div></div><div><h3>Восстановить старое фото</h3><p>Убирает пыль, царапины и пятна, сохраняя характер снимка</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6"/><path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2M6 6l1.4 1.4M16.6 16.6 18 18M6 18l1.4-1.4M16.6 7.4 18 6"/></svg></div></div><div><h3>Исправить свет и цвет</h3><p>Выравнивает экспозицию, контраст и баланс белого</p></div></div></div>
   <div class="tabbar"><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
 </div>
 
@@ -596,49 +698,61 @@ body{background:#DEDAE6}
 
 
 <!-- ===== 9. ВИДЕО ===== -->
-<div class="phone" id="s9">
+<div class="phone sec-video" id="s9">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2>Видео</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
-  <div class="seg3 seg4"><span>Создать</span><span>Изменить</span><span class="on">Персонажи</span><span>Ролики</span></div>
-  <div class="tools">
-    <div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="vt1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F1ECFF"/><stop offset="1" stop-color="#C9B8FF"/></linearGradient><linearGradient id="fc2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE1CF"/><stop offset="1" stop-color="#F3BE9F"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#vt1)"/><rect x="14" y="14" width="64" height="64" rx="14" fill="#fff" fill-opacity=".7"/><circle cx="46" cy="40" r="13" fill="url(#fc2)"/><path d="M24 78c3-14 12-20 22-20s19 6 22 20z" fill="#7A5CFF"/><path d="M40 46c2 3 10 3 12 0" stroke="#C0573A" stroke-width="2.2" fill="none" stroke-linecap="round"/><g fill="#5B4BF5"><rect x="66" y="22" width="3" height="10" rx="1.5"/><rect x="71" y="18" width="3" height="18" rx="1.5"/><rect x="76" y="24" width="3" height="6" rx="1.5"/></g></svg></div><div><h3>Говорящий персонаж</h3><p>Оживляет фото по аудио: губы, мимика и движения в такт речи</p></div></div>
-    <div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="vt2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E7F0FF"/><stop offset="1" stop-color="#B7CCFF"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#vt2)"/><rect x="12" y="20" width="44" height="34" rx="9" fill="#fff"/><path d="M29 30v14l11-7z" fill="#5B4BF5"/><rect x="36" y="44" width="44" height="30" rx="9" fill="#5B4BF5"/><text x="45" y="64" font-family="Onest,Arial" font-size="13" font-weight="700" fill="#fff">EN</text><text x="16" y="70" font-family="Onest,Arial" font-size="13" font-weight="700" fill="#4E6FD8">RU</text></svg></div><div><h3>Перевести видео</h3><p>Заменяет речь в ролике на другой язык и синхронизирует губы</p></div></div>
-  </div>
+  <div class="seg3"><span class="on">Создать</span><span>Изменить</span><span>Персонажи</span></div>
+  <div class="tools"><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><rect x="7.5" y="3.5" width="13" height="10" rx="2.5"/><path d="M5.5 6.5v8a2 2 0 0 0 2 2h9"/><path d="M3.5 9.5v8a2 2 0 0 0 2 2h9"/><path d="M12.6 6.6v3.8l3.2-1.9z"/></svg></div></div><div><h3>История из сцен</h3><p>Короткая история из нескольких сцен: персонажи, предметы и стиль сохраняются</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="3.5"/><path d="M10.2 9.3v5.4l4.6-2.7z"/></svg></div></div><div><h3>Реклама товара</h3><p>Готовый ролик по описанию товара: сценарий, сцены, голос и рендер</p></div></div></div>
+  <div class="tabbar"><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
+</div>
+
+<!-- ===== Видео: Изменить ===== -->
+<div class="phone sec-video" id="s25">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2>Видео</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
+  <div class="seg3"><span>Создать</span><span class="on">Изменить</span><span>Персонажи</span></div>
+  <div class="tools"><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M10 4.5l1.5 3.8 3.8 1.5-3.8 1.5L10 15.1l-1.5-3.8-3.8-1.5 3.8-1.5z"/><path d="M17 13.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg></div></div><div><h3>Улучшить видео</h3><p>Повышает разрешение, восстанавливает детали, убирает шум и артефакты</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 9V6.5A2.5 2.5 0 0 1 6.5 4H9M15 4h2.5A2.5 2.5 0 0 1 20 6.5V9M20 15v2.5a2.5 2.5 0 0 1-2.5 2.5H15M9 20H6.5A2.5 2.5 0 0 1 4 17.5V15"/><path d="M10.3 9.3v5.4l4.5-2.7z"/></svg></div></div><div><h3>Пересоздать видео</h3><p>Меняет стиль, настроение, сцену или персонажей по запросу</p></div></div></div>
+  <div class="tabbar"><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
+</div>
+
+<!-- ===== Видео: Персонажи ===== -->
+<div class="phone sec-video" id="s26">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2>Видео</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
+  <div class="seg3"><span>Создать</span><span>Изменить</span><span class="on">Персонажи</span></div>
+  <div class="tools"><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="10" cy="8.5" r="3.6"/><path d="M3.5 20c1.1-3.6 3.6-5.4 6.5-5.4s5.4 1.8 6.5 5.4"/><path d="M17.5 6.5a3.5 3.5 0 0 1 0 5M19.8 4.5a6.5 6.5 0 0 1 0 9"/></svg></div></div><div><h3>Говорящий персонаж</h3><p>Оживляет фото по тексту или аудио: губы, мимика и движения</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5"/></svg></div></div><div><h3>Перевести персонажа</h3><p>Переводит речь в видео и синхронизирует движение губ</p></div></div></div>
   <div class="tabbar"><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
 </div>
 
 <!-- ===== 10. АУДИО ===== -->
-<div class="phone" id="s10">
+<div class="phone sec-audio" id="s10">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2>Аудио</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
   <div class="seg3"><span class="on">Речь</span><span>Запись</span><span>Музыка</span></div>
-  <div class="tools">
-    <div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="at1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6FAF5"/><stop offset="1" stop-color="#A6E8D8"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#at1)"/><rect x="12" y="16" width="50" height="34" rx="10" fill="#fff"/><rect x="20" y="25" width="30" height="4" rx="2" fill="#9ADCCB"/><rect x="20" y="34" width="22" height="4" rx="2" fill="#C9EEE4"/><path d="M28 50l-6 8 12-8z" fill="#fff"/><g fill="#22A897"><rect x="44" y="62" width="4" height="12" rx="2"/><rect x="51" y="56" width="4" height="24" rx="2"/><rect x="58" y="60" width="4" height="16" rx="2"/><rect x="65" y="52" width="4" height="32" rx="2"/><rect x="72" y="61" width="4" height="14" rx="2"/></g></svg></div><div><h3>Озвучить текст</h3><p>Превращает текст в естественную речь выбранным голосом</p></div></div>
-    <div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="at2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F1ECFF"/><stop offset="1" stop-color="#CDBEFF"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#at2)"/><rect x="34" y="16" width="24" height="40" rx="12" fill="#fff"/><path d="M26 46a20 20 0 0 0 40 0M46 66v10" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M14 30c4-5 4-11 0-16M78 30c-4-5-4-11 0-16" stroke="#7A5CFF" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="66" cy="66" r="12" fill="#7A5CFF"/><path d="M60 66h12m-4-4 4 4-4 4" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Изменить голос</h3><p>Меняет голос в записи, сохраняя слова, интонации и эмоции</p></div></div>
-  </div>
+  <div class="tools"><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5V7A1.5 1.5 0 0 1 5 5.5z"/><path d="M8 10h8M8 13h5"/></svg></div></div><div><h3>Озвучить текст</h3><p>Превращает текст в естественную речь выбранным голосом</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5"/></svg></div></div><div><h3>Изменить голос</h3><p>Меняет голос в записи, сохраняя слова, интонации и эмоции</p></div></div></div>
   <div class="tabbar"><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
 </div>
 
 <!-- ===== Аудио: Запись ===== -->
-<div class="phone" id="s23">
+<div class="phone sec-audio" id="s23">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2>Аудио</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
   <div class="seg3"><span>Речь</span><span class="on">Запись</span><span>Музыка</span></div>
-  <div class="tools"><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="ar1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E7F0FF"/><stop offset="1" stop-color="#B7CCFF"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#ar1)"/><g fill="#4E6FD8"><rect x="14" y="30" width="4" height="12" rx="2"/><rect x="21" y="24" width="4" height="24" rx="2"/><rect x="28" y="28" width="4" height="16" rx="2"/><rect x="35" y="22" width="4" height="28" rx="2"/></g><text x="16" y="70" font-family="Onest,Arial" font-size="13" font-weight="700" fill="#4E6FD8">RU</text><path d="M44 46h8m-3-4 4 4-4 4" stroke="#5B4BF5" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="54" y="18" width="28" height="56" rx="10" fill="#5B4BF5"/><g fill="#fff"><rect x="60" y="32" width="3" height="10" rx="1.5"/><rect x="66" y="27" width="3" height="20" rx="1.5"/><rect x="72" y="31" width="3" height="12" rx="1.5"/></g><text x="59" y="64" font-family="Onest,Arial" font-size="12" font-weight="700" fill="#fff">EN</text></svg></div><div><h3>Перевести аудио</h3><p>Озвучивает запись на другом языке, сохраняя характер голоса</p></div></div><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="ar2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6FAF5"/><stop offset="1" stop-color="#A6E8D8"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#ar2)"/><g fill="#22A897"><rect x="12" y="22" width="4" height="12" rx="2"/><rect x="19" y="16" width="4" height="24" rx="2"/><rect x="26" y="20" width="4" height="16" rx="2"/><rect x="33" y="14" width="4" height="28" rx="2"/></g><rect x="44" y="12" width="38" height="68" rx="10" fill="#fff"/><rect x="50" y="22" width="8" height="8" rx="4" fill="#5B4BF5"/><rect x="61" y="24" width="15" height="4" rx="2" fill="#C9EEE4"/><rect x="50" y="34" width="26" height="4" rx="2" fill="#9ADCCB"/><rect x="50" y="42" width="20" height="4" rx="2" fill="#9ADCCB"/><rect x="50" y="54" width="8" height="8" rx="4" fill="#FF9A6B"/><rect x="61" y="56" width="15" height="4" rx="2" fill="#C9EEE4"/><rect x="50" y="66" width="24" height="4" rx="2" fill="#9ADCCB"/><path d="M14 56h22m-6-6 6 6-6 6" stroke="#22A897" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Расшифровать аудио</h3><p>Встреча, лекция или подкаст - в текст с говорящими и таймкодами</p></div></div></div>
+  <div class="tools"><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 9.5v5M8.5 6.5v11M12 4v16M15.5 7.5v9M19 9.5v5"/></svg></div></div><div><h3>Перевести аудио</h3><p>Озвучивает запись на другом языке, сохраняя характер голоса</p></div></div><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4.5" y="3.5" width="15" height="17" rx="3"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/></svg></div></div><div><h3>Расшифровать аудио</h3><p>Встреча, лекция или подкаст - в текст с говорящими и таймкодами</p></div></div></div>
   <div class="tabbar"><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
 </div>
 
 <!-- ===== Аудио: Музыка ===== -->
-<div class="phone" id="s24">
+<div class="phone sec-audio" id="s24">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2>Аудио</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
   <div class="seg3"><span>Речь</span><span>Запись</span><span class="on">Музыка</span></div>
-  <div class="tools"><div class="tool"><div class="thw"><svg class="th" viewBox="0 0 92 92"><defs><linearGradient id="ar3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE9F2"/><stop offset="1" stop-color="#FFB8D2"/></linearGradient></defs><rect width="92" height="92" rx="18" fill="url(#ar3)"/><circle cx="32" cy="64" r="11" fill="#fff"/><circle cx="66" cy="56" r="11" fill="#fff"/><path d="M42 64V22l34-8v42" stroke="#fff" stroke-width="5" fill="none" stroke-linejoin="round"/><path d="M42 30l34-8" stroke="#E0457B" stroke-width="5"/><circle cx="32" cy="64" r="4" fill="#E0457B"/><circle cx="66" cy="56" r="4" fill="#E0457B"/><path d="M16 16l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#5B4BF5"/></svg></div><div><h3>Создать музыку</h3><p>Готовый трек по описанию: жанр, настроение, длительность, вокал</p></div></div></div>
+  <div class="tools"><div class="tool"><div class="thw"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 17.5V5.5l10-2v12"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/></svg></div></div><div><h3>Создать музыку</h3><p>Готовый трек по описанию: жанр, настроение, длительность, вокал</p></div></div></div>
   <div class="tabbar"><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение</div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
 </div>
 
 <!-- ===== 11. НАСТРОЙКИ ГЕНЕРАЦИИ ===== -->
-<div class="phone" id="s11">
+<div class="phone sec-video" id="s11">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ptitle"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><h2 style="font-size:21px">История из сцен</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
   <div class="form">
@@ -689,8 +803,8 @@ body{background:#DEDAE6}
   <div class="gday" style="padding-top:14px">Приглашённые друзья</div>
   <div class="list" style="margin-top:0">
     <div class="li"><span class="av s">М</span>Мария К.<span class="badge ok">+50</span></div>
-    <div class="li"><span class="av s" style="background:linear-gradient(135deg,#5CCDB6,#22A897)">Д</span>Дмитрий Л.<span class="badge ok">+50</span></div>
-    <div class="li"><span class="av s" style="background:linear-gradient(135deg,#FFC27A,#E57B3A)">О</span>Ольга С.<span class="badge wait">в ожидании</span></div>
+    <div class="li"><span class="av s" style="background:linear-gradient(135deg,#A99BFF,#5B4BF5)">Д</span>Дмитрий Л.<span class="badge ok">+50</span></div>
+    <div class="li"><span class="av s" style="background:linear-gradient(135deg,#F4C6DA,#B8457E)">О</span>Ольга С.<span class="badge wait">в ожидании</span></div>
   </div>
 </div>
 
@@ -747,8 +861,17 @@ body{background:#DEDAE6}
   <div class="tabbar"><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная</div><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
 </div>
 
+<!-- ===== 18б. ВДОХНОВЕНИЕ - 2 в ряд (для сравнения) ===== -->
+<div class="phone" id="s27">
+  <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
+  <div class="ptitle" style="padding-left:20px"><h2>Вдохновение</h2><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div></div>
+  <div class="seg3"><span class="on">Все</span><span>Фото</span><span>Видео</span></div>
+  <div class="grid2"><div class="gc"><div class="gm" style="background:linear-gradient(170deg,#F4E9FF,#C9B3F2 55%,#6F57C9)"><svg viewBox="0 0 170 190" preserveAspectRatio="xMidYMax slice"><circle cx="122" cy="52" r="18" fill="#fff" fill-opacity=".8"/><path d="M0 190 52 104l30 36 34-52 54 102z" fill="#4E3A9E" fill-opacity=".55"/><path d="M0 190 70 150l60 40z" fill="#33276E" fill-opacity=".5"/></svg><span class="gt">Фото</span></div><div class="gx"><b>Горы на закате</b><small>Midjourney</small></div><div class="ga"><span class="ab hrt"><svg viewBox="0 0 24 24"><path d="M12 20.6s-8.4-5-8.4-11.2A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.4 2.7c0 6.2-8.4 11.2-8.4 11.2z"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M6 11.5H5.5A1.5 1.5 0 0 0 4 13v5.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V13a1.5 1.5 0 0 0-1.5-1.5H18"/></svg></span></div></div><div class="gc"><div class="gm" style="background:linear-gradient(170deg,#E6EEFF,#9DB4EC 55%,#4A5DB4)"><svg viewBox="0 0 170 190" preserveAspectRatio="xMidYMax slice"><path d="M0 190 40 120l30 30 40-60 60 100z" fill="#2E3C86" fill-opacity=".4"/><circle cx="85" cy="78" r="12" fill="#FBE3D6"/><path d="M66 150c2-30 9-48 19-48s17 18 19 48z" fill="#3B2F7A" fill-opacity=".8"/></svg><span class="gt">Видео</span><span class="gplay"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></div><div class="gx"><b>Осенний парк</b><small>Kling</small></div><div class="ga"><span class="ab hrt on"><svg viewBox="0 0 24 24"><path d="M12 20.6s-8.4-5-8.4-11.2A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.4 2.7c0 6.2-8.4 11.2-8.4 11.2z"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M6 11.5H5.5A1.5 1.5 0 0 0 4 13v5.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V13a1.5 1.5 0 0 0-1.5-1.5H18"/></svg></span></div></div><div class="gc"><div class="gm" style="background:linear-gradient(170deg,#FBEFF5,#E9BCD3 60%,#A1527C)"><svg viewBox="0 0 170 190" preserveAspectRatio="xMidYMax slice"><circle cx="85" cy="82" r="28" fill="#FBE3D6"/><path d="M28 190c6-46 30-68 57-68s51 22 57 68z" fill="#fff" fill-opacity=".75"/><path d="M140 30l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" fill="#fff"/></svg><span class="gt">Фото</span></div><div class="gx"><b>Мягкий портрет</b><small>Flux</small></div><div class="ga"><span class="ab hrt"><svg viewBox="0 0 24 24"><path d="M12 20.6s-8.4-5-8.4-11.2A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.4 2.7c0 6.2-8.4 11.2-8.4 11.2z"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M6 11.5H5.5A1.5 1.5 0 0 0 4 13v5.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V13a1.5 1.5 0 0 0-1.5-1.5H18"/></svg></span></div></div><div class="gc"><div class="gm" style="background:linear-gradient(170deg,#F2EEFB,#CFC4EE 60%,#7D6BC0)"><svg viewBox="0 0 170 190" preserveAspectRatio="xMidYMax slice"><ellipse cx="85" cy="166" rx="46" ry="9" fill="#fff" fill-opacity=".5"/><rect x="62" y="76" width="46" height="90" rx="14" fill="#fff" fill-opacity=".88"/><rect x="74" y="56" width="22" height="22" rx="5" fill="#fff"/><rect x="70" y="110" width="30" height="18" rx="5" fill="#7D6BC0" fill-opacity=".3"/></svg><span class="gt">Фото</span></div><div class="gx"><b>Флакон духов</b><small>Midjourney</small></div><div class="ga"><span class="ab hrt on"><svg viewBox="0 0 24 24"><path d="M12 20.6s-8.4-5-8.4-11.2A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.4 2.7c0 6.2-8.4 11.2-8.4 11.2z"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M6 11.5H5.5A1.5 1.5 0 0 0 4 13v5.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V13a1.5 1.5 0 0 0-1.5-1.5H18"/></svg></span></div></div><div class="gc"><div class="gm" style="background:linear-gradient(170deg,#EAF3FB,#A9C7E6 60%,#4E78A8)"><svg viewBox="0 0 170 190" preserveAspectRatio="xMidYMax slice"><path d="M0 130 50 80l30 26 26-20 64 44v60H0z" fill="#fff" fill-opacity=".55"/><rect y="150" width="170" height="40" fill="#3D6596" fill-opacity=".45"/></svg><span class="gt">Видео</span><span class="gplay"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></div><div class="gx"><b>Пролёт над озером</b><small>Veo</small></div><div class="ga"><span class="ab hrt"><svg viewBox="0 0 24 24"><path d="M12 20.6s-8.4-5-8.4-11.2A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.4 2.7c0 6.2-8.4 11.2-8.4 11.2z"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M6 11.5H5.5A1.5 1.5 0 0 0 4 13v5.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V13a1.5 1.5 0 0 0-1.5-1.5H18"/></svg></span></div></div><div class="gc"><div class="gm" style="background:linear-gradient(170deg,#E4E3F7,#8E8AD0 60%,#2F2A6E)"><svg viewBox="0 0 170 190" preserveAspectRatio="xMidYMax slice"><g fill="#1E1A4F" fill-opacity=".7"><rect x="10" y="90" width="30" height="100"/><rect x="46" y="60" width="26" height="130"/><rect x="78" y="100" width="34" height="90"/><rect x="118" y="70" width="40" height="120"/></g><g fill="#F3D9FF" fill-opacity=".8"><rect x="52" y="74" width="4" height="4"/><rect x="62" y="90" width="4" height="4"/><rect x="126" y="86" width="4" height="4"/><rect x="140" y="104" width="4" height="4"/><rect x="88" y="114" width="4" height="4"/></g></svg><span class="gt">Фото</span></div><div class="gx"><b>Ночной город</b><small>Flux</small></div><div class="ga"><span class="ab hrt"><svg viewBox="0 0 24 24"><path d="M12 20.6s-8.4-5-8.4-11.2A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.4 2.7c0 6.2-8.4 11.2-8.4 11.2z"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg></span><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M6 11.5H5.5A1.5 1.5 0 0 0 4 13v5.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V13a1.5 1.5 0 0 0-1.5-1.5H18"/></svg></span></div></div></div>
+  <div class="tabbar"><div class="tab"><svg class="ic" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>Главная</div><div class="tab on"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.2 5.3 5.3 2.2-5.3 2.2L12 18.5l-2.2-5.3L4.5 11l5.3-2.2z"/></svg>Вдохновение<span class="dot"></span></div><div class="tab"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2"/></svg>Профиль</div></div>
+</div>
+
 <!-- ===== 19. ЧАТ: ОШИБКА ОТВЕТА ===== -->
-<div class="phone" id="s19">
+<div class="phone sec-chat" id="s19">
   <div class="status"><span>9:41</span><svg viewBox="0 0 70 12" width="70"><use href="#sb"/></svg></div>
   <div class="ct"><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div><div class="model">GPT-5<svg class="ic" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></div><div class="credits"><svg class="coin"><use href="#coin"/></svg>1.2K</div><div class="icbtn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5M12 8v4.2l2.8 1.8"/></svg></div></div>
   <div class="thread">
@@ -783,5 +906,11 @@ body{background:#DEDAE6}
 
 </div>
 
+<script>
+(function(){var b=document.body,bs=document.querySelectorAll('.vsw button');
+function set(v){b.classList.remove('va','vb');b.classList.add('v'+v);bs.forEach(function(x){x.classList.toggle('on',x.dataset.v===v)});try{history.replaceState(null,'','#'+v)}catch(e){}}
+bs.forEach(function(x){x.onclick=function(){set(x.dataset.v)}});
+if(location.hash==='#b')set('b');})();
+</script>
 </body>
 </html>
