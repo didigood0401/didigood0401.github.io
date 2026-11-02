@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Премиум-стиль - психология и дизайн человека</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#10161c;--bg2:#17202a;--ink:#f1ebe2;--mut:#aeb4b8;--acc:#d8b07a;--acc2:#8fa58a;--card:#1d2833;--line:rgba(241,235,226,.13)}
+[data-t="dawn"]{--bg:#f2ece3;--bg2:#e8dfd2;--ink:#1e1c1a;--mut:#5c5650;--acc:#9a5537;--acc2:#56664f;--card:#fbf8f3;--line:rgba(30,28,26,.12)}
+[data-t="moon"]{--bg:#16131d;--bg2:#1f1a29;--ink:#efe9f4;--mut:#b2aabd;--acc:#c9b2e6;--acc2:#e3a9a0;--card:#272135;--line:rgba(239,233,244,.13)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:hidden;transition:background .6s,color .6s}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.cg{font-family:"Cormorant Garamond",serif}
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:16px;flex-wrap:wrap}
+.top small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.themes{display:flex;gap:6px;background:var(--bg2);padding:5px;border-radius:999px}
+.themes button{border:0;background:transparent;color:var(--mut);border-radius:999px;padding:9px 16px;font:500 13px Inter;cursor:pointer;display:flex;align-items:center;gap:8px}
+.themes button i{width:12px;height:12px;border-radius:50%}
+.themes button.on{background:var(--card);color:var(--ink)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:40px 0 90px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(44px,6.4vw,88px);line-height:.98;letter-spacing:-.01em}
+.hero h1 em{color:var(--acc)}
+.hero p{color:var(--mut);font-size:18px;max-width:500px;margin:24px 0 30px}
+.hero .meta{display:flex;gap:26px;flex-wrap:wrap;font-size:14px;color:var(--mut)}
+.hero .meta b{display:block;font-family:"Cormorant Garamond";font-size:36px;font-weight:500;color:var(--ink);line-height:1}
+/* animated bodygraph */
+.bgx{width:100%;max-width:440px;justify-self:center;color:var(--acc)}
+.bgx .c{fill:none;stroke:currentColor;stroke-width:1.2;transition:fill .5s}
+.bgx .c.def{fill:var(--acc);fill-opacity:.85}
+.bgx .ch{stroke:var(--acc2);stroke-width:1.2;stroke-dasharray:3 4;fill:none}
+.bgx .ch.on{stroke:var(--acc);stroke-width:2.4;stroke-dasharray:none}
+.bgx .draw{stroke-dasharray:600;stroke-dashoffset:600;animation:dr 2.4s ease forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.bgx text{fill:var(--mut);font:500 7px Inter;letter-spacing:.1em}
+/* sections */
+section{padding:80px 0;border-top:1px solid var(--line)}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:40px;flex-wrap:wrap}
+.sh h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1}
+.sh h2 em{color:var(--acc)}
+.sh p{color:var(--mut);max-width:420px;font-size:15px}
+.num{font-size:12px;letter-spacing:.16em;color:var(--acc);display:block;margin-bottom:12px}
+/* phones */
+.phones{display:flex;gap:34px;justify-content:center;flex-wrap:wrap}
+.ph{width:300px;aspect-ratio:9/19.5;border-radius:44px;background:#0b0f13;padding:11px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7),inset 0 0 0 1.5px #2b3138;position:relative}
+.scr{width:100%;height:100%;border-radius:34px;overflow:hidden;position:relative;background:#fff;color:#111;font-size:12px}
+.isl{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:20px;background:#0b0f13;z-index:5}
+.phcap{text-align:center;color:var(--mut);font-size:13px;margin-top:16px}
+/* insta profile */
+.ig{padding:44px 12px 0;height:100%;overflow-y:auto;scrollbar-width:none}
+.ig::-webkit-scrollbar{display:none}
+.ig .u{display:flex;align-items:center;gap:14px}
+.ava{width:66px;height:66px;border-radius:50%;padding:3px;background:conic-gradient(var(--acc),var(--acc2),var(--acc));flex:none}
+.ava div{width:100%;height:100%;border-radius:50%;background:#18222c;border:2px solid #fff;display:grid;place-items:center}
+.ig .st{display:flex;gap:16px;text-align:center;font-size:11px}
+.ig .st b{display:block;font-size:14px}
+.ig .bio{margin:10px 0;font-size:11.5px;line-height:1.4}
+.ig .bio b{font-size:12.5px}
+.hl{display:flex;gap:10px;margin:10px 0 12px}
+.hl span{display:grid;justify-items:center;gap:4px;font-size:9.5px}
+.hl i{width:44px;height:44px;border-radius:50%;border:1px solid #ddd;display:grid;place-items:center;font-style:normal;font-family:"Cormorant Garamond";font-size:18px;background:#f5f1ea;color:#333}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0 -12px}
+.grid div{aspect-ratio:4/5;display:flex;align-items:flex-end;padding:7px;font-family:"Cormorant Garamond";font-size:12.5px;line-height:1.05;color:#fff;position:relative;overflow:hidden}
+.t1{background:#18222c}.t2{background:#e6dccd;color:#222!important}.t3{background:#56664f}.t4{background:#9a5537}
+.grid svg{position:absolute;right:6px;top:6px;width:22px;opacity:.7}
+/* story player */
+.story{position:absolute;inset:0;padding:40px 18px 24px;display:flex;flex-direction:column;color:#fff;cursor:pointer;user-select:none}
+.story .bars{display:flex;gap:3px}
+.story .bars i{flex:1;height:2.5px;border-radius:2px;background:rgba(255,255,255,.35);overflow:hidden}
+.story .bars i b{display:block;height:100%;width:0;background:#fff}
+.story .who{display:flex;align-items:center;gap:8px;margin:10px 0;font-size:11.5px;font-weight:600}
+.story .who span{width:26px;height:26px;border-radius:50%;background:#fff;opacity:.9}
+.sl{position:absolute;inset:0;padding:96px 22px 30px;display:flex;flex-direction:column;opacity:0;transition:opacity .45s}
+.sl.on{opacity:1}
+.sl h3{font-family:"Cormorant Garamond";font-weight:500;font-size:32px;line-height:1.02;margin-top:auto}
+.sl p{font-size:12px;opacity:.9;margin-top:10px}
+.sl .pl{display:grid;gap:7px;margin-top:16px}
+.sl .pl span{background:rgba(255,255,255,.92);color:#222;border-radius:12px;padding:10px 12px;font-weight:600;font-size:12px;display:flex;justify-content:space-between}
+.sl .stk{background:#fff;color:#222;border-radius:14px;padding:12px;font-size:12px;margin-top:16px;align-self:flex-start;transform:rotate(-3deg);font-weight:600}
+.sl svg{position:absolute;left:50%;top:14%;width:44%;transform:translateX(-50%);opacity:.5;color:#fff}
+.tap{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-size:10px;opacity:.7;z-index:4;color:#fff}
+/* carousel in phone */
+.post{padding:40px 0 0;height:100%;display:flex;flex-direction:column}
+.post .hd{display:flex;align-items:center;gap:8px;padding:6px 12px 10px;font-weight:600;font-size:12px}
+.post .hd span{width:26px;height:26px;border-radius:50%;background:#18222c}
+.slides{flex:none;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.slides::-webkit-scrollbar{display:none}
+.slides div{flex:0 0 100%;min-width:0;aspect-ratio:4/5;scroll-snap-align:start;padding:22px;display:flex;flex-direction:column;color:#fff}
+.slides h4{font-family:"Cormorant Garamond";font-weight:500;font-size:27px;line-height:1.02;margin-top:auto}
+.slides p{font-size:11.5px;margin-top:8px;opacity:.92}
+.slides .n{font-family:"Cormorant Garamond";font-size:44px;line-height:1;opacity:.5}
+.dots{display:flex;justify-content:center;gap:4px;padding:10px}
+.dots i{width:6px;height:6px;border-radius:50%;background:#ccc}.dots i.on{background:#3897f0}
+.post .tx{padding:0 12px;font-size:11.5px;line-height:1.4}
+/* youtube */
+.yt{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.v .th{aspect-ratio:16/9;border-radius:14px;overflow:hidden;position:relative;padding:7%;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.v:hover .th{transform:translateY(-4px)}
+.v .th h4{font-family:"Cormorant Garamond";font-weight:500;font-size:clamp(20px,2.2vw,28px);line-height:1;max-width:66%;position:relative}
+.v .th h4 em{color:#e9c89a}
+.v .th .k{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:8px;position:relative}
+.v .th svg{position:absolute;right:6%;top:8%;height:84%;opacity:.8}
+.v .th .dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.8);font-size:11px;padding:2px 5px;border-radius:4px}
+.v .meta{display:flex;gap:10px;margin-top:12px}
+.v .meta span{width:34px;height:34px;border-radius:50%;background:var(--acc);flex:none}
+.v .meta b{font-size:14px;font-weight:600;display:block;line-height:1.3}
+.v .meta small{font-size:12.5px;color:var(--mut)}
+/* brandbook */
+.bb{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;min-height:250px;display:flex;flex-direction:column}
+.tile h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);font-weight:600;margin-bottom:auto}
+.tile .big{font-family:"Cormorant Garamond";font-size:84px;line-height:.9}
+.sw4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.sw4 div{aspect-ratio:1/1.4;border-radius:12px;display:flex;align-items:flex-end;padding:8px;font-size:10px;color:#fff}
+.logo-row{display:flex;align-items:center;gap:16px}
+.mono{width:86px;height:86px;border-radius:50%;border:1.5px solid var(--acc);display:grid;place-items:center;font-family:"Cormorant Garamond";font-size:34px;font-style:italic;color:var(--acc)}
+.tile.wide{grid-column:span 2}
+.vk{border-radius:16px;aspect-ratio:1590/530;background:radial-gradient(120% 140% at 85% 30%,#2c3a47,#121a22);display:flex;align-items:center;padding:0 6%;color:#f1ebe2;position:relative;overflow:hidden;margin-top:18px}
+.vk h4{font-family:"Cormorant Garamond";font-weight:500;font-size:clamp(20px,2.6vw,34px);line-height:1}
+.vk small{display:block;font-size:12px;opacity:.85;margin-top:6px}
+.vk svg{position:absolute;right:6%;height:86%;color:#d8b07a}
+.end{margin:20px 0 70px;border-radius:26px;padding:44px;background:var(--card);border:1px solid var(--line);display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}
+.end h2{font-family:"Cormorant Garamond";font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1}
+.end p{color:var(--mut);margin-top:12px}
+.end ul{list-style:none;display:grid;gap:8px;font-size:14px}
+.end li:before{content:"✓ ";color:var(--acc)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.bgx .draw{animation:none;stroke-dashoffset:0}}
+@media (max-width:900px){.hero,.end{grid-template-columns:1fr}.yt,.bb{grid-template-columns:1fr}.tile.wide{grid-column:auto}.bgx{max-width:300px}.ph{width:min(300px,86vw)}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+ <g id="bg" fill="none" stroke="currentColor" stroke-width="1.4">
+  <path d="M60 18 L60 44 M60 64 L60 86 M60 110 L60 134 M60 158 L60 186 M48 120 L22 160 M72 120 L98 160 M60 146 L86 128 M60 200 L60 222" stroke-dasharray="2 3" opacity=".7"/>
+  <polygon points="60,4 74,26 46,26"/><polygon points="46,36 74,36 60,58"/><rect x="47" y="70" width="26" height="26" rx="2"/><polygon points="60,104 76,120 60,136 44,120"/><polygon points="84,118 100,132 84,142"/><polygon points="20,150 34,172 6,172"/><polygon points="100,150 114,172 86,172"/><rect x="47" y="150" width="26" height="26" rx="2"/><rect x="47" y="196" width="26" height="26" rx="2"/><circle cx="60" cy="120" r="3" fill="currentColor"/>
+ </g></defs></svg>
+
+<div class="wrap">
+ <div class="top"><small>Премиум-демо для Василия · бесплатно</small>
+  <div class="themes" id="th"><button class="on" data-t="night"><i style="background:#d8b07a"></i>Ночь</button><button data-t="dawn"><i style="background:#9a5537"></i>Рассвет</button><button data-t="moon"><i style="background:#c9b2e6"></i>Луна</button></div>
+ </div>
+
+ <div class="hero">
+  <div>
+   <h1>Стиль, в котором <em>узнают</em> вас с первого кадра</h1>
+   <p>Премиум-оформление для блога о психологии и дизайне человека: живая карта-бодиграф как фирменный знак, единая система для Instagram, YouTube, Telegram и ВК, и сайт на Тильде в том же стиле.</p>
+   <div class="meta"><div><b>4</b>площадки</div><div><b>3</b>палитры на выбор</div><div><b>30+</b>шаблонов</div></div>
+  </div>
+  <svg class="bgx" viewBox="-20 -10 220 290" id="bgx" aria-label="Бодиграф - фирменный знак">
+   <g id="chs"></g><g id="cts"></g>
+   <text x="90" y="348" text-anchor="middle">НАВЕДИТЕ, ЧТОБЫ ПОДСВЕТИТЬ ЦЕНТРЫ</text>
+  </svg>
+ </div>
+
+ <section>
+  <div class="sh rv"><div><span class="num">01 · INSTAGRAM</span><h2>Профиль, сторис <em>и карусели</em></h2></div><p>Так блог будет выглядеть в телефоне подписчика. Сторис листаются - нажмите на экран. Карусель свайпается.</p></div>
+  <div class="phones">
+   <div class="rv"><div class="ph"><div class="isl"></div><div class="scr"><div class="ig">
+    <div class="u"><div class="ava"><div><svg viewBox="0 0 120 226" width="20" style="color:#d8b07a"><use href="#bg"/></svg></div></div>
+     <div class="st"><div><b>148</b>публ.</div><div><b>12,4K</b>подп.</div><div><b>210</b>подписки</div></div></div>
+    <div class="bio"><b>Психология и дизайн человека</b><br>Помогаю жить по своей стратегии<br>Разбор карты · консультации · эфиры<br><span style="color:#00376b">taplink.cc/your-name</span></div>
+    <div class="hl"><span><i>?</i>Типы</span><span><i>✦</i>Отзывы</span><span><i>☾</i>Эфиры</span><span><i>₽</i>Разбор</span></div>
+    <div class="grid">
+     <div class="t1"><svg viewBox="0 0 120 226" style="color:#d8b07a"><use href="#bg"/></svg>Ваш тип и стратегия</div><div class="t2">Почему мы боимся отказывать</div><div class="t3">5 признаков не-себя</div>
+     <div class="t4">«Стало легче говорить "нет"»</div><div class="t1">Эфир в четверг</div><div class="t2">Что такое авторитет</div>
+     <div class="t3">Проектор: как ждать приглашения</div><div class="t4">Разбор карты подписчика</div><div class="t1"><svg viewBox="0 0 120 226" style="color:#d8b07a"><use href="#bg"/></svg>Профили линий</div>
+    </div></div></div></div><p class="phcap">Профиль: сетка в единой системе</p></div>
+
+   <div class="rv"><div class="ph"><div class="isl"></div><div class="scr" style="background:#18222c"><div class="story" id="story">
+    <div class="bars" id="bars"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+    <div class="who"><span></span>your_name · 2 ч</div>
+    <div class="sl on" style="background:radial-gradient(120% 90% at 80% 10%,#2c3a47,#18222c)"><svg viewBox="0 0 120 226"><use href="#bg"/></svg><h3>Эфир в четверг, 19:00</h3><p>Разбираем внутренний авторитет</p><div class="stk">🔔 Напомнить</div></div>
+    <div class="sl" style="background:#56664f"><h3>Какой у вас тип?</h3><div class="pl"><span>Генератор <b>41%</b></span><span>Проектор <b>23%</b></span><span>Манифестор <b>9%</b></span><span>Пока не знаю <b>27%</b></span></div></div>
+    <div class="sl" style="background:#e6dccd;color:#1e1c1a"><div class="cg" style="font-size:54px;opacity:.4">01</div><h3>Замечайте, что даёт энергию, а что её забирает</h3><p>Сохраните, чтобы не потерять</p></div>
+    <div class="sl" style="background:#9a5537"><h3>«После консультации стало легче говорить "нет"»</h3><p>- Анна, отзыв</p><div class="stk">Записаться на разбор →</div></div>
+    <div class="tap">нажмите, чтобы листать</div>
+   </div></div></div><p class="phcap">Сторис: анонс, опрос, совет, отзыв</p></div>
+
+   <div class="rv"><div class="ph"><div class="isl"></div><div class="scr"><div class="post">
+    <div class="hd"><span></span>your_name</div>
+    <div class="slides" id="slides">
+     <div style="background:radial-gradient(120% 90% at 80% 10%,#2c3a47,#18222c)"><div class="n">1/5</div><h4>5 признаков, что вы живёте не своей стратегией</h4><p>листайте →</p></div>
+     <div style="background:#e6dccd;color:#1e1c1a"><div class="n">1</div><h4>Постоянная усталость</h4><p>Энергия уходит на то, что вам не откликается.</p></div>
+     <div style="background:#e6dccd;color:#1e1c1a"><div class="n">2</div><h4>Решения «из головы»</h4><p>Логика спорит с внутренним авторитетом.</p></div>
+     <div style="background:#56664f"><div class="n">3</div><h4>Чувство горечи</h4><p>Один из главных сигналов «не-себя».</p></div>
+     <div style="background:#9a5537"><div class="n">→</div><h4>Разберём вашу карту на консультации</h4><p>Ссылка в профиле</p></div>
+    </div>
+    <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+    <div class="tx"><b>your_name</b> Сохраняйте и делитесь с теми, кому откликнется 🤍</div>
+   </div></div></div><p class="phcap">Карусель: свайпайте</p></div>
+  </div>
+ </section>
+
+ <section>
+  <div class="sh rv"><div><span class="num">02 · YOUTUBE</span><h2>Обложки, которые <em>кликают</em></h2></div><p>Одна система для всех роликов: крупный заголовок, бодиграф, цвет рубрики. Канал выглядит цельным уже в ленте.</p></div>
+  <div class="yt">
+   <div class="v rv"><div class="th" style="background:radial-gradient(120% 90% at 85% 20%,#2c3a47,#121a22)"><svg viewBox="0 0 120 226" style="color:#d8b07a"><use href="#bg"/></svg><div class="k">Дизайн человека</div><h4>Ваш тип: <em>как</em> принимать решения</h4><span class="dur">18:42</span></div><div class="meta"><span></span><div><b>Ваш тип: как принимать решения без сомнений</b><small>12 тыс. просмотров · 3 дня назад</small></div></div></div>
+   <div class="v rv"><div class="th" style="background:#56664f"><svg viewBox="0 0 120 226" style="color:#e6dccd"><use href="#bg"/></svg><div class="k">Психология</div><h4>Почему мы <em>боимся</em> отказывать</h4><span class="dur">24:10</span></div><div class="meta"><span></span><div><b>Почему мы боимся отказывать и как это изменить</b><small>8,3 тыс. просмотров · 1 неделю назад</small></div></div></div>
+   <div class="v rv"><div class="th" style="background:#9a5537"><svg viewBox="0 0 120 226" style="color:#f1ebe2"><use href="#bg"/></svg><div class="k">Разбор карты</div><h4>Проектор: <em>сила</em> в ожидании</h4><span class="dur">31:05</span></div><div class="meta"><span></span><div><b>Разбор карты подписчика: Проектор 2/4</b><small>5,1 тыс. просмотров · 2 недели назад</small></div></div></div>
+  </div>
+ </section>
+
+ <section>
+  <div class="sh rv"><div><span class="num">03 · БРЕНДБУК</span><h2>Фирменный <em>стиль</em></h2></div><p>Короткий гид: шрифты, цвета, знак. Шаблоны собраны в Canva или Figma - менять тексты сможете сами.</p></div>
+  <div class="bb">
+   <div class="tile rv"><h3>Шрифты</h3><div class="big cg">Аа</div><p style="color:var(--mut);font-size:13px;margin-top:10px">Cormorant Garamond - заголовки<br>Inter - тексты и подписи</p></div>
+   <div class="tile rv"><h3>Цвета</h3><div class="sw4"><div style="background:#18222c">Ночь</div><div style="background:#e6dccd;color:#222">Песок</div><div style="background:#56664f">Шалфей</div><div style="background:#9a5537">Глина</div></div></div>
+   <div class="tile rv"><h3>Знак</h3><div class="logo-row"><div class="mono">Пд</div><svg viewBox="0 0 120 226" height="100" style="color:var(--acc)"><use href="#bg"/></svg></div></div>
+   <div class="tile wide rv"><h3>ВКонтакте · обложка сообщества</h3><div class="vk"><div><h4>Психология и дизайн человека</h4><small>Консультации · разбор карты · эфиры</small></div><svg viewBox="0 0 120 226"><use href="#bg"/></svg></div></div>
+   <div class="tile rv"><h3>Telegram · аватар</h3><div style="display:grid;place-items:center;flex:1;margin-top:16px"><div style="width:120px;height:120px;border-radius:50%;background:#18222c;display:grid;place-items:center"><svg viewBox="0 0 120 226" width="44" style="color:#d8b07a"><use href="#bg"/></svg></div></div></div>
+  </div>
+ </section>
+
+ <div class="end rv"><div><h2>Что войдёт в работу</h2><p>Всё в одном стиле. Потом сайт на Тильде в этом же стиле. Пришлите ссылки на аккаунты - подстрою палитру и тексты под вас.</p></div>
+  <ul><li>Фирменный стиль и знак</li><li>Шаблоны обложек YouTube</li><li>Сторис: 6 видов</li><li>Карусели: 3 шаблона</li><li>Оформление ВК и Telegram</li><li>Хайлайты для Instagram</li></ul></div>
+</div>
+<script>
+// themes
+document.querySelectorAll('#th button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#th button').forEach(x=>x.classList.toggle('on',x===b));document.documentElement.dataset.t=b.dataset.t});
+// bodygraph (scaled 1.5x)
+const C=[['tri',[90,6,111,39,69,39],'Темя'],['tri',[69,54,111,54,90,87],'Аджна'],['rect',[70,98,40,36],'Горло'],['dia',[90,164,24],'G-центр'],['tri',[126,177,150,198,126,213],'Эго'],['tri',[30,225,51,258,9,258],'Селезёнка'],['tri',[150,225,171,258,129,258],'Солнечное сплетение'],['rect',[70,225,40,40],'Сакрал'],['rect',[70,294,40,40],'Корень']];
+const CH=[[90,39,90,54],[90,87,90,98],[90,134,90,140],[90,188,90,225],[78,176,40,225],[102,176,140,225],[114,164,126,195],[90,265,90,294],[70,125,40,232],[110,125,140,232]];
+const ns='http://www.w3.org/2000/svg',cts=document.getElementById('cts'),chs=document.getElementById('chs');
+document.getElementById('bgx').setAttribute('viewBox','-10 -4 200 360');
+const on=new Set([0,1,2,3,7]);
+CH.forEach((c,i)=>{const l=document.createElementNS(ns,'line');[['x1',c[0]],['y1',c[1]],['x2',c[2]],['y2',c[3]]].forEach(([k,v])=>l.setAttribute(k,v));l.setAttribute('class','ch'+(on.has(i)?' on':''));chs.appendChild(l)});
+C.forEach(([t,p,n],i)=>{let el;if(t=='tri'){el=document.createElementNS(ns,'polygon');el.setAttribute('points',p.join(' '))}else if(t=='rect'){el=document.createElementNS(ns,'rect');el.setAttribute('x',p[0]);el.setAttribute('y',p[1]);el.setAttribute('width',p[2]);el.setAttribute('height',p[3]);el.setAttribute('rx',3)}else{el=document.createElementNS(ns,'polygon');const[x,y,r]=p;el.setAttribute('points',`${x},${y-r} ${x+r},${y} ${x},${y+r} ${x-r},${y}`)}
+ el.setAttribute('class','c draw'+([2,3,7].includes(i)?' def':''));el.style.animationDelay=(i*.15)+'s';
+ const ti=document.createElementNS(ns,'title');ti.textContent=n;el.appendChild(ti);
+ el.addEventListener('pointerenter',()=>el.classList.add('def'));el.addEventListener('pointerleave',()=>{if(![2,3,7].includes(i))el.classList.remove('def')});cts.appendChild(el)});
+// stories
+const sls=[...document.querySelectorAll('#story .sl')],bars=[...document.querySelectorAll('#bars b')];let si=0,t0=performance.now();const DUR=4200;
+function show(i){si=(i+sls.length)%sls.length;t0=performance.now();sls.forEach((s,k)=>s.classList.toggle('on',k===si));bars.forEach((b,k)=>b.style.width=k<si?'100%':'0')}
+(function loop(t){const k=Math.min(1,(t-t0)/DUR);bars[si].style.width=(k*100)+'%';if(k>=1)show(si+1);requestAnimationFrame(loop)})(t0);
+document.getElementById('story').addEventListener('click',e=>{const r=e.currentTarget.getBoundingClientRect();show(e.clientX-r.left<r.width/3?si-1:si+1)});
+// carousel dots
+const sl=document.getElementById('slides'),dots=[...document.querySelectorAll('#dots i')];
+sl.addEventListener('scroll',()=>{const i=Math.round(sl.scrollLeft/sl.clientWidth);dots.forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});
+// reveal
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3*90)+'ms';io.observe(el)});
+</script>
+</body>
+</html>

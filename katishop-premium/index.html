@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KATIShop - ателье-производство полного цикла, Санкт-Петербург</title>
+<meta name="description" content="Пошив под ваш бренд и оптовые партии: лекала, образец, серия, маркировка.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141117;--bg2:#1c181f;--ink:#f2ebe3;--mut:#b4aab0;--gold:#d9b38c;--rose:#e46a80;--line:rgba(242,235,227,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.serif{font-family:"Bodoni Moda",serif}
+.note{font-size:12px;text-align:center;padding:8px 16px;color:var(--mut);border-bottom:1px solid var(--line)}
+header{position:fixed;top:34px;left:0;right:0;z-index:30;transition:top .3s,background .3s}
+header.sc{top:0;background:rgba(20,17,23,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:"Bodoni Moda";font-size:26px;letter-spacing:.02em}
+.logo i{color:var(--gold)}
+nav{display:flex;gap:30px;font-size:14px;color:var(--mut)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:15px 28px;font:700 14px Manrope;letter-spacing:.02em;cursor:pointer;border:1px solid var(--gold);color:var(--bg);background:var(--gold);transition:background .3s,color .3s}
+.btn:hover{background:transparent;color:var(--gold)}
+.btn.o{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.o:hover{border-color:var(--gold);color:var(--gold)}
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:150px 0 80px;overflow:hidden}
+.hero h1{font-family:"Bodoni Moda";font-weight:400;font-size:clamp(46px,8.4vw,128px);line-height:.95;letter-spacing:-.02em;position:relative}
+.hero h1 em{color:var(--gold)}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:inline-block;transform:translateY(105%);animation:up 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .ln:nth-child(2) span{animation-delay:.12s}.hero h1 .ln:nth-child(3) span{animation-delay:.24s}
+@keyframes up{to{transform:none}}
+.stitch{position:absolute;left:-2%;top:-6%;width:104%;height:112%;pointer-events:none}
+.stitch path{fill:none;stroke:var(--rose);stroke-width:2;stroke-dasharray:8 9;opacity:.9}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:48px;flex-wrap:wrap}
+.hero p{max-width:470px;color:var(--mut);font-size:18px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.badge{position:absolute;right:6%;top:24%;width:170px;height:170px;animation:spin 22s linear infinite}
+.badge text{fill:var(--gold);font:600 11.5px Manrope;letter-spacing:3.2px;text-transform:uppercase}
+.badge-c{position:absolute;right:calc(6% + 61px);top:calc(24% + 61px);width:48px;height:48px;display:grid;place-items:center;font-size:26px;color:var(--rose)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow{position:absolute;width:60vw;height:60vw;right:-20vw;top:-10vw;background:radial-gradient(circle,rgba(228,106,128,.18),transparent 60%);pointer-events:none}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nums div{padding:34px 28px;border-right:1px solid var(--line)}
+.nums div:last-child{border:0}
+.nums b{font-family:"Bodoni Moda";font-weight:400;font-size:46px;display:block;line-height:1;color:var(--gold)}
+.nums span{font-size:14px;color:var(--mut)}
+section{padding:120px 0}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:18px;display:block}
+h2{font-family:"Bodoni Moda";font-weight:400;font-size:clamp(34px,5vw,68px);line-height:1;letter-spacing:-.01em;margin-bottom:22px}
+h2 em{color:var(--gold)}
+.lead{color:var(--mut);max-width:560px}
+/* fabric studio */
+.studio{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:50px}
+.stage{background:var(--bg2);border:1px solid var(--line);border-radius:28px;aspect-ratio:1;display:grid;place-items:center;position:relative;overflow:hidden}
+.stage svg{width:70%;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.stage:hover svg{transform:scale(1.03) rotate(-1.5deg)}
+.stage .tagx{position:absolute;left:24px;bottom:24px;font-size:13px;color:var(--mut)}
+.stage .tagx b{display:block;font-family:"Bodoni Moda";font-weight:400;font-size:22px;color:var(--ink)}
+.opt h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:26px 0 12px;font-weight:600}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:10px 18px;font:500 14px Manrope;cursor:pointer;transition:.2s}
+.chip.on,.chip:hover{border-color:var(--gold);color:var(--gold)}
+.sws{display:flex;gap:12px;flex-wrap:wrap}
+.swb{width:54px;height:54px;border-radius:14px;border:2px solid transparent;cursor:pointer;outline-offset:3px;transition:transform .2s}
+.swb:hover{transform:translateY(-3px)}
+.swb.on{border-color:var(--gold)}
+/* process horizontal */
+.hz{height:300vh;position:relative}
+.hz-in{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.track{display:flex;gap:24px;padding-left:max(28px,calc((100vw - 1240px)/2 + 28px));will-change:transform}
+.step{flex:0 0 min(420px,80vw);height:440px;border-radius:28px;background:var(--bg2);border:1px solid var(--line);padding:38px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.step .n{font-family:"Bodoni Moda";font-size:110px;line-height:.8;color:transparent;-webkit-text-stroke:1px var(--gold)}
+.step h3{font-family:"Bodoni Moda";font-weight:400;font-size:32px;margin-top:auto}
+.step p{color:var(--mut);margin-top:10px;font-size:15px}
+.step .d{position:absolute;right:30px;top:38px;font-size:13px;color:var(--rose)}
+.prog{height:1px;background:var(--line);margin:50px max(28px,calc((100vw - 1240px)/2 + 28px)) 0;position:relative}
+.prog i{position:absolute;left:0;top:-1px;height:3px;background:var(--gold);width:0}
+/* lookbook */
+.lb{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:50px}
+.lb figure{border-radius:24px;overflow:hidden;position:relative;min-height:340px;display:flex;align-items:flex-end;padding:26px}
+.lb figure:nth-child(1){grid-column:span 7;background:linear-gradient(150deg,#3a2430,#1c181f)}
+.lb figure:nth-child(2){grid-column:span 5;background:repeating-linear-gradient(135deg,#25343a 0 6px,#2a3b41 6px 12px)}
+.lb figure:nth-child(3){grid-column:span 4;background:linear-gradient(150deg,#4a3b2e,#241d18)}
+.lb figure:nth-child(4){grid-column:span 4;background:radial-gradient(circle at 30% 30%,rgba(228,106,128,.35) 0 2px,transparent 3px) 0 0/18px 18px,#2b1c22}
+.lb figure:nth-child(5){grid-column:span 4;background:linear-gradient(150deg,#2f2b36,#18151b)}
+.lb svg{position:absolute;inset:12% 25% auto;width:50%;opacity:.85;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.lb figure:hover svg{transform:translateY(-8px) scale(1.04)}
+.lb figcaption{position:relative;font-family:"Bodoni Moda";font-size:26px;line-height:1.1}
+.lb figcaption small{display:block;font:400 13px Manrope;color:var(--mut);margin-top:6px}
+.lb-note{font-size:13px;color:var(--mut);margin-top:14px}
+/* calculator */
+.calc{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-top:50px}
+.cpan{background:var(--bg2);border:1px solid var(--line);border-radius:28px;padding:40px}
+.cpan label{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin:0 0 12px;font-weight:600}
+.cpan .grp{margin-bottom:30px}
+input[type=range]{width:100%;accent-color:var(--gold)}
+.qty{display:flex;justify-content:space-between;font-size:14px;color:var(--mut);margin-top:6px}
+.qty b{color:var(--ink);font-family:"Bodoni Moda";font-weight:400;font-size:28px}
+.cpan label.ck{display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:15px;cursor:pointer;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:500}
+.ck input{accent-color:var(--gold);width:18px;height:18px}
+.res{background:var(--gold);color:var(--bg);border-radius:28px;padding:40px;display:flex;flex-direction:column}
+.res small{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.res .p{font-family:"Bodoni Moda";font-size:clamp(30px,3.4vw,44px);line-height:1.1;margin:16px 0 8px}.res .p span{white-space:nowrap}
+.res .t{font-size:15px}
+.res .btn{margin-top:auto;background:var(--bg);color:var(--ink);border-color:var(--bg);justify-content:center}
+.res .btn:hover{background:transparent;color:var(--bg)}
+.res em{font-size:12px;margin-top:14px;font-style:normal}
+/* faq */
+.faq{margin-top:40px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:26px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-family:"Bodoni Moda";font-size:24px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--gold);transition:transform .3s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq p{color:var(--mut);margin-top:12px;max-width:760px}
+/* final */
+.final{border-radius:36px;padding:80px 60px;background:radial-gradient(90% 120% at 100% 0,rgba(228,106,128,.25),transparent 60%),var(--bg2);border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:50px}
+form{display:grid;gap:12px}
+input[type=text],textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);padding:14px 2px;font:500 16px Manrope}
+input::placeholder,textarea::placeholder{color:var(--mut)}
+input:focus,textarea:focus{outline:0;border-color:var(--gold)}
+.ok{display:none;color:var(--gold);font-weight:700}
+footer{padding:50px 0;color:var(--mut);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.cursor{position:fixed;left:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--rose);pointer-events:none;z-index:99;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;mix-blend-mode:screen}
+.cursor.big{width:54px;height:54px;background:rgba(217,179,140,.35)}
+@media (hover:none){.cursor{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.hero h1 .ln span{transform:none}.rv{opacity:1;transform:none}}
+@media (max-width:900px){
+ nav{display:none}header .btn{padding:10px 16px;font-size:12px}
+ .badge,.badge-c{display:none}
+ .nums{grid-template-columns:1fr 1fr}.nums div:nth-child(2){border-right:0}.nums div{border-bottom:1px solid var(--line)}
+ .studio,.calc,.final{grid-template-columns:1fr}
+ .hz{height:auto}.hz-in{position:static;height:auto}.track{flex-direction:column;padding:0 28px;transform:none!important}.step{flex:auto;height:auto;min-height:260px}.prog{display:none}
+ .lb figure{grid-column:span 12!important;min-height:280px}
+ .final{padding:40px 24px}
+ section{padding:80px 0}
+}
+</style>
+</head>
+<body>
+<div class="note">Премиум-концепция для KATIShop · тексты и цены примерные, заменим на ваши</div>
+<header id="hd"><div class="wrap">
+ <a class="logo" href="#">KATI<i>Shop</i></a>
+ <nav><a href="#studio">Ткани</a><a href="#process">Процесс</a><a href="#look">Работы</a><a href="#calc">Расчёт</a><a href="#faq">Вопросы</a></nav>
+ <a class="btn" href="#final">Обсудить проект</a>
+</div></header>
+
+<section class="hero"><div class="glow"></div>
+ <svg class="badge" viewBox="0 0 170 170" aria-hidden="true"><defs><path id="cp" d="M85,85 m-66,0 a66,66 0 1,1 132,0 a66,66 0 1,1 -132,0"/></defs><text><textPath href="#cp">пошив под ваш бренд · санкт-петербург ·</textPath></text></svg>
+ <div class="badge-c" aria-hidden="true">✂</div>
+ <div class="wrap">
+  <h1><span class="ln"><span>Ваш бренд.</span></span><span class="ln"><span><em>Наше</em> производство.</span></span><span class="ln"><span>Один стежок.</span></span>
+   <svg class="stitch" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true"><path id="st" d="M20 380 C 200 420, 420 330, 640 370 S 960 360, 990 300"/></svg>
+  </h1>
+  <div class="hero-row">
+   <p>Швейное производство в Санкт-Петербурге: от лекала и образца до серии с маркировкой. Для брендов, дизайнеров, оптовиков и селлеров маркетплейсов.</p>
+   <div class="cta"><a class="btn" href="#calc">Рассчитать партию</a><a class="btn o" href="#look">Смотреть работы</a></div>
+  </div>
+ </div>
+</section>
+
+<div class="wrap"><div class="nums">
+ <div class="rv"><b data-c="50">0</b><span>изделий - минимальная партия</span></div>
+ <div class="rv"><b data-c="5">0</b><span>дней на образец</span></div>
+ <div class="rv"><b data-c="100">0</b><span>% изделий проходят ОТК</span></div>
+ <div class="rv"><b data-c="1">0</b><span>день на расчёт стоимости</span></div>
+</div></div>
+
+<section id="studio"><div class="wrap">
+ <span class="eyebrow rv">Примерочная</span>
+ <h2 class="rv">Соберите <em>модель</em> - мы её отшьём</h2>
+ <p class="lead rv">Выберите изделие и ткань, чтобы прикинуть будущую коллекцию. На реальном сайте здесь будут ваши ткани и фото.</p>
+ <div class="studio">
+  <div class="stage rv" id="stage"><svg viewBox="0 0 200 220" id="garment"></svg><div class="tagx"><b id="gname">Худи оверсайз</b><span id="fname">Футер 3-нитка · графит</span></div></div>
+  <div class="opt rv">
+   <h3>Изделие</h3>
+   <div class="chips" id="gChips"></div>
+   <h3>Ткань и цвет</h3>
+   <div class="sws" id="fSw"></div>
+   <h3>Брендирование</h3>
+   <div class="chips" id="bChips"><button class="chip on" data-b="0">Без нанесения</button><button class="chip" data-b="1">Вышивка</button><button class="chip" data-b="2">Бирка бренда</button></div>
+  </div>
+ </div>
+</div></section>
+
+<div class="hz" id="process"><div class="hz-in">
+ <div class="wrap"><span class="eyebrow">Процесс</span><h2>Пять шагов <em>до склада</em></h2></div>
+ <div class="track" id="track">
+  <div class="step"><span class="d">1 день</span><div class="n">01</div><h3>Заявка и расчёт</h3><p>Присылаете эскиз, фото или образец. Считаем цену за единицу и сроки.</p></div>
+  <div class="step"><span class="d">2-3 дня</span><div class="n">02</div><h3>Лекала</h3><p>Конструктор строит лекала и градацию по вашей размерной сетке.</p></div>
+  <div class="step"><span class="d">3-5 дней</span><div class="n">03</div><h3>Образец</h3><p>Отшиваем пробное изделие, вы проверяете посадку, вносим правки.</p></div>
+  <div class="step"><span class="d">от 10 дней</span><div class="n">04</div><h3>Серия</h3><p>Запускаем партию по утверждённому образцу, держим вас в курсе.</p></div>
+  <div class="step"><span class="d">1-2 дня</span><div class="n">05</div><h3>ОТК и отгрузка</h3><p>Проверка, маркировка «Честный знак», упаковка, доставка до склада.</p></div>
+ </div>
+ <div class="prog"><i id="pg"></i></div>
+</div></div>
+
+<section id="look"><div class="wrap">
+ <span class="eyebrow rv">Работы</span>
+ <h2 class="rv">Что уже <em>сшито</em></h2>
+ <div class="lb">
+  <figure class="rv"><svg viewBox="0 0 100 100" fill="none" stroke="#d9b38c" stroke-width="1.4"><path d="M35 10 L50 18 L65 10 L80 22 L72 34 L68 30 L74 92 L26 92 L32 30 L28 34 L20 22 Z"/><path d="M42 14 Q50 24 58 14" stroke-dasharray="3 3"/></svg><figcaption>Капсула платьев<small>женский бренд · 400 шт.</small></figcaption></figure>
+  <figure class="rv"><svg viewBox="0 0 100 100" fill="none" stroke="#d9b38c" stroke-width="1.4"><path d="M30 12 L42 8 Q50 18 58 8 L70 12 L90 40 L78 48 L70 38 L70 92 L30 92 L30 38 L22 48 L10 40 Z"/></svg><figcaption>Худи для WB<small>селлер · 1 200 шт.</small></figcaption></figure>
+  <figure class="rv"><svg viewBox="0 0 100 100" fill="none" stroke="#d9b38c" stroke-width="1.4"><path d="M32 10 h36 l4 30 l-6 52 h-12 l-4 -44 l-4 44 h-12 l-6 -52 z"/></svg><figcaption>Костюмы<small>шоурум · 150 шт.</small></figcaption></figure>
+  <figure class="rv"><svg viewBox="0 0 100 100" fill="none" stroke="#d9b38c" stroke-width="1.4"><path d="M34 14 L44 10 Q50 16 56 10 L66 14 L80 30 L72 36 L66 30 L66 88 L34 88 L34 30 L28 36 L20 30 Z"/><circle cx="50" cy="44" r="8" stroke-dasharray="3 3"/></svg><figcaption>Мерч<small>IT-компания · 300 шт.</small></figcaption></figure>
+  <figure class="rv"><svg viewBox="0 0 100 100" fill="none" stroke="#d9b38c" stroke-width="1.4"><path d="M30 20 h40 l8 70 h-56 z"/><path d="M38 20 q12 14 24 0" stroke-dasharray="3 3"/></svg><figcaption>Домашняя одежда<small>бренд · 600 шт.</small></figcaption></figure>
+ </div>
+ <p class="lb-note rv">Кейсы примерные - подставим ваши фото и реальные проекты.</p>
+</div></section>
+
+<section id="calc" style="padding-top:0"><div class="wrap">
+ <span class="eyebrow rv">Калькулятор</span>
+ <h2 class="rv">Сколько стоит <em>ваша партия</em></h2>
+ <p class="lead rv">Предварительная оценка за минуту. Точную цену назовём после ТЗ.</p>
+ <div class="calc">
+  <div class="cpan rv">
+   <div class="grp"><label>Изделие</label><div class="chips" id="cG"></div></div>
+   <div class="grp"><label>Тираж</label><input type="range" id="q" min="50" max="3000" step="50" value="300"><div class="qty"><span>50</span><b id="qv">300 шт.</b><span>3 000</span></div></div>
+   <div class="grp"><label>Дополнительно</label>
+    <label class="ck"><input type="checkbox" id="o1" checked> Лекала и образец</label>
+    <label class="ck"><input type="checkbox" id="o2"> Брендирование (вышивка / бирки)</label>
+    <label class="ck"><input type="checkbox" id="o3"> Маркировка и упаковка под WB / Ozon</label>
+   </div>
+  </div>
+  <div class="res rv"><small>Ориентир</small><div class="p" id="sum">-</div><div class="t" id="per">-</div><div class="t" id="days" style="margin-top:6px">-</div><a class="btn" href="#final">Получить точный расчёт</a><em>Цифры демонстрационные, подставим ваши расценки</em></div>
+ </div>
+</div></section>
+
+<section id="faq" style="padding-top:0"><div class="wrap">
+ <span class="eyebrow rv">Вопросы</span>
+ <h2 class="rv">Частые <em>вопросы</em></h2>
+ <div class="faq rv">
+  <details open><summary>Какая минимальная партия?</summary><p>От 50 изделий одной модели. Образец можно заказать отдельно.</p></details>
+  <details><summary>Работаете со своими тканями заказчика?</summary><p>Да, можем шить из ваших материалов или подобрать ткань у проверенных поставщиков.</p></details>
+  <details><summary>Можно ли приехать на производство?</summary><p>Да, приглашаем на экскурсию и согласование образца в Санкт-Петербурге.</p></details>
+  <details><summary>Как проходит оплата?</summary><p>Работаем по договору: предоплата на запуск, остаток - перед отгрузкой.</p></details>
+ </div>
+</div></section>
+
+<section id="final" style="padding-top:0"><div class="wrap">
+ <div class="final rv">
+  <div><span class="eyebrow">Старт</span><h2>Расскажите о <em>коллекции</em></h2><p class="lead">Ответим в течение рабочего дня с расчётом и сроками. Эскиз можно отправить в мессенджер.</p></div>
+  <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block'">
+   <input type="text" required placeholder="Имя и бренд">
+   <input type="text" required placeholder="Телефон или Telegram">
+   <input type="text" placeholder="Что шьём и какой тираж">
+   <textarea rows="3" placeholder="Комментарий"></textarea>
+   <button class="btn" style="justify-content:center;margin-top:10px">Отправить заявку</button>
+   <div class="ok">Спасибо! Это демо - на рабочем сайте заявка придёт вам в почту и Telegram.</div>
+  </form>
+ </div>
+</div></section>
+
+<footer><div class="wrap"><span>KATIShop · швейное производство · Санкт-Петербург</span><span>Премиум-концепция сайта</span></div></footer>
+<div class="cursor" id="cur"></div>
+<script>
+// garments + fabrics
+const G={
+ hoodie:{n:'Худи оверсайз',d:'M60 30 L82 20 Q100 46 118 20 L140 30 L182 90 L160 104 L146 84 L146 200 L54 200 L54 84 L40 104 L18 90 Z',x:'M82 20 Q100 70 118 20 M72 140 h56 v32 h-56z',p:520},
+ dress:{n:'Платье миди',d:'M74 18 L100 32 L126 18 L150 42 L136 64 L130 58 L160 204 L40 204 L70 58 L64 64 L50 42 Z',x:'M88 24 Q100 44 112 24 M68 96 Q100 108 132 96',p:780},
+ tee:{n:'Футболка',d:'M66 24 L86 18 Q100 32 114 18 L134 24 L170 56 L152 74 L138 62 L138 196 L62 196 L62 62 L48 74 L30 56 Z',x:'M86 18 Q100 40 114 18',p:310},
+ pants:{n:'Брюки прямые',d:'M60 16 h80 l10 60 l-14 128 h-28 l-8 -110 l-8 110 h-28 l-14 -128 z',x:'M60 34 h80 M100 34 v30',p:640}
+};
+const F=[{n:'Футер 3-нитка · графит',c:'#3a3640',s:'#57515f'},{n:'Футер · пудра',c:'#d9a3ad',s:'#c48894'},{n:'Вискоза · изумруд',c:'#2f5d55',s:'#3f7569'},{n:'Хлопок · молоко',c:'#ece3d6',s:'#d6cab9'},{n:'Костюмная · винный',c:'#6b2335',s:'#82304a'},{n:'Трикотаж · горчица',c:'#c6963c',s:'#ad7f2c'}];
+let g='hoodie',f=0,b=0;
+const svg=document.getElementById('garment');
+function draw(){const o=G[g],fb=F[f];
+ svg.innerHTML=`<defs><pattern id="tx" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="${fb.c}"/><line x1="0" y1="0" x2="0" y2="6" stroke="${fb.s}" stroke-width="2"/></pattern></defs>
+ <path d="${o.d}" fill="url(#tx)" stroke="#d9b38c" stroke-width="1"/><path d="${o.x}" fill="none" stroke="#f2ebe3" stroke-opacity=".6" stroke-dasharray="3 3"/>
+ ${b==1?'<text x="100" y="112" text-anchor="middle" font-family="Bodoni Moda" font-size="14" fill="#d9b38c">your brand</text>':''}
+ ${b==2?'<rect x="88" y="34" width="24" height="12" rx="2" fill="#d9b38c"/><text x="100" y="43" text-anchor="middle" font-size="6" font-weight="700" fill="#141117">KATI</text>':''}`;
+ document.getElementById('gname').textContent=o.n;document.getElementById('fname').textContent=fb.n}
+const gc=document.getElementById('gChips');
+Object.entries(G).forEach(([k,v],i)=>{const c=document.createElement('button');c.className='chip'+(i?'':' on');c.textContent=v.n;c.onclick=()=>{g=k;gc.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));draw()};gc.appendChild(c)});
+const fs=document.getElementById('fSw');
+F.forEach((v,i)=>{const s=document.createElement('button');s.className='swb'+(i?'':' on');s.title=v.n;s.setAttribute('aria-label',v.n);s.style.background=`repeating-linear-gradient(45deg,${v.c} 0 4px,${v.s} 4px 6px)`;s.onclick=()=>{f=i;fs.querySelectorAll('.swb').forEach(x=>x.classList.toggle('on',x===s));draw()};fs.appendChild(s)});
+document.querySelectorAll('#bChips .chip').forEach(c=>c.onclick=()=>{b=+c.dataset.b;document.querySelectorAll('#bChips .chip').forEach(x=>x.classList.toggle('on',x===c));draw()});
+draw();
+// calculator
+let cg='hoodie';const cG=document.getElementById('cG');
+Object.entries(G).forEach(([k,v],i)=>{const c=document.createElement('button');c.className='chip'+(i?'':' on');c.textContent=v.n;c.onclick=()=>{cg=k;cG.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));calc()};cG.appendChild(c)});
+const fmt=n=>Math.round(n).toLocaleString('ru-RU')+' ₽';
+function calc(){const q=+document.getElementById('q').value;document.getElementById('qv').textContent=q.toLocaleString('ru-RU')+' шт.';
+ let p=G[cg].p*(q>=1000?.82:q>=500?.9:1);if(o2.checked)p+=90;if(o3.checked)p+=25;
+ let t=p*q+(o1.checked?6000:0);
+ document.getElementById('sum').innerHTML='<span>'+fmt(t*.9).replace(' ₽','')+' -</span> <span>'+fmt(t*1.1)+'</span>';
+ document.getElementById('per').textContent='≈ '+fmt(p)+' за изделие';
+ document.getElementById('days').textContent='Срок: '+(Math.ceil(q/150)+(o1.checked?7:2))+'-'+(Math.ceil(q/100)+(o1.checked?10:4))+' дней'}
+['q','o1','o2','o3'].forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();
+// header, reveal, counters
+const hd=document.getElementById('hd');addEventListener('scroll',()=>hd.classList.toggle('sc',scrollY>30),{passive:true});
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(!x.isIntersecting)return;x.target.classList.add('in');const n=x.target.querySelector('[data-c]');if(n){const to=+n.dataset.c,t0=performance.now();(function tick(t){const k=Math.min(1,(t-t0)/1400);n.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(tick)})(t0)}io.unobserve(x.target)}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3*90)+'ms';io.observe(el)});
+// stitch draw
+const st=document.getElementById('st');const L=st.getTotalLength();st.style.strokeDasharray='8 9';
+st.animate([{strokeDashoffset:L},{strokeDashoffset:0}],{duration:2600,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'});
+// horizontal process
+const hz=document.getElementById('process'),tr=document.getElementById('track'),pg=document.getElementById('pg');
+function hscroll(){if(innerWidth<=900)return;const r=hz.getBoundingClientRect();const max=hz.offsetHeight-innerHeight;const k=Math.min(1,Math.max(0,-r.top/max));const dist=tr.scrollWidth-innerWidth+80;tr.style.transform=`translateX(${-k*dist}px)`;pg.style.width=(k*100)+'%'}
+addEventListener('scroll',hscroll,{passive:true});addEventListener('resize',hscroll);hscroll();
+// cursor
+const cur=document.getElementById('cur');addEventListener('pointermove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button,.stage,.lb figure').forEach(el=>{el.addEventListener('pointerenter',()=>cur.classList.add('big'));el.addEventListener('pointerleave',()=>cur.classList.remove('big'))});
+</script>
+</body>
+</html>
