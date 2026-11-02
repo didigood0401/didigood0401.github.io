@@ -128,6 +128,33 @@
         ],
         "createdAt": "2026-10-28T13:41:56.833Z",
         "reason": "Claude: wedding-agency Pinterest concept - ivory palette and italic serif are genre-appropriate; prof/plan cards have 26-48px padding"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "katishop-demo/index.html"
+        ],
+        "createdAt": "2026-11-02T14:14:34.255Z",
+        "reason": "Claude: intentional demo design for KATIShop client (paper/fabric palette, product-category ticker, location tag); already sent to client"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "katishop-demo/index.html"
+        ],
+        "createdAt": "2026-11-02T14:14:34.954Z",
+        "reason": "Claude: intentional demo design for KATIShop client (paper/fabric palette, product-category ticker, location tag); already sent to client"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "katishop-demo/index.html"
+        ],
+        "createdAt": "2026-11-02T14:14:35.720Z",
+        "reason": "Claude: intentional demo design for KATIShop client (paper/fabric palette, product-category ticker, location tag); already sent to client"
       }
     ]
   }
