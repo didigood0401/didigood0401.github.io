@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Вибросообщество - эскиз портала для axelVT</title>
+<title>AXVT - форум специалистов по вибродиагностике (эскиз)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -22,7 +22,8 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
 .top .wrap{display:flex;align-items:center;gap:22px;min-height:66px}
 .logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:19px;letter-spacing:-.2px;white-space:nowrap}
 .logo:hover{text-decoration:none}
-.logo svg{width:34px;height:34px}
+.logo img{width:40px;height:40px;background:#fff;border-radius:50%;padding:2px}
+.logo span{font-size:22px;letter-spacing:.06em;font-weight:700}
 .logo small{display:block;font:500 11px "IBM Plex Mono",monospace;color:var(--sky);letter-spacing:.06em;text-transform:uppercase}
 .search{flex:1;max-width:420px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:0 12px;height:40px;color:#b8c3e6;font-size:14px}
 .search svg{width:16px;height:16px;flex:none}
@@ -44,6 +45,7 @@ nav.tabs .new{font:600 10.5px "IBM Plex Mono",monospace;background:var(--sky);co
 main{padding:24px 0 60px}
 .page{display:none}.page.on{display:block}
 .grid{display:grid;grid-template-columns:1fr 300px;gap:22px;align-items:start}
+.grid.one{grid-template-columns:1fr}
 .card{background:#fff;border:1px solid var(--line);border-radius:14px}
 .card-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
 .card-h h2,.card-h h3{font-size:16.5px;font-weight:700}
@@ -61,6 +63,9 @@ main{padding:24px 0 60px}
 .paid .badge{display:inline-block;font:600 11px "IBM Plex Mono",monospace;background:#d9822b;color:#fff;border-radius:5px;padding:2px 7px;margin-bottom:6px}
 .mod{display:flex;gap:10px;align-items:center;background:var(--sky-l);border:1px solid #cfe6f7;color:#1b4f75;border-radius:12px;padding:10px 14px;font-size:13.5px;margin-bottom:16px}
 /* главная */
+.intro{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:16px;padding:24px 28px}
+.intro h1{font-size:clamp(22px,2.6vw,28px);line-height:1.2;letter-spacing:-.3px;color:var(--tx)}
+.intro p{color:var(--tx);opacity:.85;margin-top:10px;font-size:15.5px;line-height:1.6;max-width:820px}
 .hero{background:linear-gradient(120deg,var(--navy) 0%,#1b2c73 60%,var(--brand) 100%);color:#fff;border-radius:18px;padding:34px 34px 30px;position:relative;overflow:hidden}
 .hero svg.wave{position:absolute;right:-40px;top:-6px;width:520px;opacity:.18}
 .hero h1{font-size:clamp(26px,3.4vw,38px);line-height:1.12;letter-spacing:-.5px;max-width:640px;position:relative}
@@ -145,6 +150,11 @@ main{padding:24px 0 60px}
 .uc li{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding-top:6px}
 .uc li b{font:600 13px "IBM Plex Mono",monospace;white-space:nowrap}
 .side-h{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);font-weight:700;margin-bottom:8px}
+.rstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.rstats div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13px;color:var(--mut)}
+.rstats b{display:block;font:600 24px "IBM Plex Mono",monospace;color:var(--brand)}
+.rules ol{margin:0;padding:18px 22px 18px 40px;display:grid;gap:12px;font-size:15px;line-height:1.55}
+@media(max-width:700px){.rstats{grid-template-columns:repeat(2,1fr)}}
 .sec-h{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}
 .sec-h h1{font-size:26px;letter-spacing:-.3px}
 .sec-h p{color:var(--mut);font-size:14px}
@@ -175,17 +185,18 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
 
 <header class="top">
  <div class="wrap">
-  <a class="logo" href="#home" data-go="home"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f3cc0"/><path d="M5 18h4l3-8 4 15 4-11 3 7 2-3h4" fill="none" stroke="#8cc9ec" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Вибросообщество<small>форум · биржа · НТД</small></span></a>
-  <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Поиск по форуму, вакансиям и НТД</div>
+  <a class="logo" href="#home" data-go="home"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAxHElEQVR42u19eXxlZXn/9/u+59wluUnITTILUgEVtxEEREWYJZlhB6FFGdoqWrHUWmyLa1X8yeCG4oZLW3EpVmitGbVuBZElmRlR0BHLMhRRrAvbkNwbMknuds55n98f73tybzLJvTfbTGbq+XzyYZjJPfec933eZ/k+3+d5gD9c/6cvHtyvJ6y+51b35wsADM7y3kPifkcAuD9TDuYV8g6uzd6qgB63uYMGoIn/cXHuOyTALgGulIXd8w8CsMgb3hu5kxpN/Z0BD6t0ZyKIuozSXSJRpxK2gzolEqUg8EGGpClDUDKQMVKPMDL5wMMwOooj+BXLe9/X3Ru9AmwR4ErzBxOw71S6sqePUxa9deUdK8oV82woOZoiR4NylAgPI9EDoAPwPNBzH1fTXj0+0JH9kYoBMCbAMAWPCvEwDO4X6nt9Mb8ojWz4/dTnukIBvcpqnQNLGHjgnPQLpm766oFuHaiXKsO1oJwMYA3gZ8Gke614M0MABoBxu8zZ1DedgBFQBBRADSD+AYAAMOVxAL8A+WOQO4LI/BhTBGJSSM2B4D9weW/8oAb6wvhv0l0/ODSU5GkgXw7gZDC5EvABhIBUAIQCMNp7QwGAc3lXsTIyKSzxRipAKTAB+70RIIU9AO8S4X8pFd1YGe79Zc1t9Eza6g8CUPe6QgFrCGy2G3lYf1oXV5xKqFcRPBVMd9q1LQMIYkePgKg5bvJ8BVNqNpWA0mDKyoYZL4NqEIKvBhG+g9F1I+4zyi23+YMANLvx2YHDPHgXgbyITDwPUICUAESRO5D7aMObEQga+0xKg2kAhEjxUQL9FPliJb/+geUqCFxuqj7RPXiUiH4TgIvA1k6gDEjZODW8TDa9GWHwrTBIoSTCbwDhp8P8hp/Y3+vXwAXLwkfYz4vZr+MTn+rc8fRI4a0QXgzVkoEUAERhjdt+oIWpzh+hB7YCUjACbCXN1cHwhrurPgKj/4MCEDtnNOj6VpsnXX9P8s1gSxYyAcCEbnEOAqRSxEUE2gpCuQyRL3kIrirm+x6pmob9Yxb2wwJXpT6RHTzfwPsgVctzqyd+UTfeefNx+Dfp2TdYk0kBXeQ1ksj6CRlACkMCuTLMrf0n+0xVbXiQCkAcz2+OkL31aZ5KXU34fw4YQMrR4tj32AbbnbYBvFcTz6sGry0xZuDwgwiAqYk0wEUwRwKIATzrI5jSIHTpsmBo0z3WEQb2JZi0jwSgquIS2R0XGPBTVOnVkDH3olQLWMzY8dKATxuj6zhGB4BhgTxJ4W4hhikYATAOSplESYQJCFIAWgQ4hES3QFZSuAJED5i2QgQDoAJIAAs8LDT0dKaBrRpSKQjMe8Pcuo9P940OAgFwL3NYf9ovHPpRKP9SSASgErmjOZ/Fc6eSnkX+fAAlwAS7QbkHkJ0wvAfGeyiI9jyK8TNzc7axHd/rTOj21aB5lhEeA8gJII8l1OFgi9MScVgKzl+IY7PQCkHxu6EU/hq50x6zuYYqCHaACoB9iUT3Lc8WSX8FbH0pZHS+p97pZyGYUkACkDEDwc9A9QOD8NYoKN+LPWfk6+MMs6WDewXYCpftm1lYVt7c6oWZ5wNmI8WcAeAlUJkWi0SW3WbORyvE2qBNi5R+J6i8Nsr1DTp/yCxl5pFL7ezpzttPVyr1FdBfASmEmHMGcpoXjRAilfsV8XUJg28FT226Z+bETG8NjMu5poTpft3xCHoI9JrpWiTZseMZkcbLSVwImBeBLQkrCPN1ZiUCkxoigaD8d2Gu73MOPJKlwgy4lM6e3zn4V1DJfwTEm5/Kr6pHSCEUwfdE4fPRcPpW4IRgqqYZkqUHV+LoYFDVpKABAF528LukTgDRCWCHC2fDeTi3YgBFsIUwE1cH+Q3/UCW2LP67cak2P5Ed+H+iMu+DFMVm4uai8sV63cwQUqwIeAMZfjYY7v35tHy82b+w6oAHtDGRLRwl4F2Q6KSAqRFfVS6D8GKwpdPhGnMUfufYsl2L2XN9mDcXW3/gCrXYEYJakpOf3X61qI73QYqR9Z6b3XwRqwbTCkxQpPw1RHhJmFv7erv5oqxTCdoF2d+Y+pAAJwSG5h1QXsYofQTyJz4SDK9/mwrD4yHFTwOqDGa0FWpp8gTThpuyJ6Rqv8jLelvx/PsTdvOvUMtQA9Ru/uBHoTreBhkLATMXOxhV7Xzxp8bI5VF+3S012PkyS6va6MbrGVhLo26FyAjA9wT5268DehNAXwkA/J4dL4TBB8HU2S6MnKs2CMAOHxj7TjCcvQBYEyymOVCLl8zZHPnZwauh2t8G2TPHzZfIxtuqKKbw7mD4sbV280XZn83R8tr82Cbv9GH056wq4KgQnU5FO3UtOhhad0+QW3cOpPgaiDwOtmkXLTSrDXzIaAhkzvWz+X671ltYQ3jd3wJgM3ledvByqPa3Q8bn4AGL5WGxXUMqd4HhyWF+3VXA5oo9YTTLk0zxec8K/Nj7lepZIyKDgDlk6u9caSzkLQq4QgW59dd7ErwEUvymFQJF5+s0IwQeZE8I1Xael+WX7b23qsXQ4Gox4nw/O3gxVesHIBNzOPliAE0wrSGFTwW5PRusnR/w7IttjrAsr2t94A2B3znwZ1Ct/yBmeAJK3U2VWgFBaYbNczzBAa+Y73skyK19haDwZkAHYEJZbdC0EATUHa/yswMft+szoPejAPRroC/UXbdvApPXWjw/anbzIzCpAF2AKf5FkFt7GXBWOb7n8qVc7/SBNwQ6O3gqlP8vgC+C6PsQlKi6SMie2T8be/GiwuF11xhUThORR8AW7RIPaIrFbcZCqPa3eF23X2rvOeDtBwG4QgGbo2THtiMVEv8OigeEbH7zWzQkelRM6bQgv+FfrcmQZXzqhXahTwh05+2nK/r/CUgKKBGGnwDMJkgIEk9VUcWZriudSRvwolzfYOhV1sGUd4JtnssvNOG0Gw0pRET6U7pr20YrBP16HwqA0EKqNyaNx38HkysglajJUC8EW7VI5X+UCnrDkY132IVltHwZtP3aPltf6GcHXqdU8jtAlAZbIFL+chj5DxLqLDGjMIbD9jNbG9yzz/pJu/t+E0jpFEjpJjDTpBCQQERQtBJ9Qzo7cBiwed7hoZqf07c58ruSV4NtJ1q730xYIyHY6olU7k6oYGN5qO9X+yrhMX8t5xJZq7/T4nft+BRU678AkQd4AinmwlDe7OvwFVDtaUi5oKNwN6qlZY02MgL6NUZOHQ1yj/6xyMQ3mtcEVJBKBJVaHYJfthZzDefjFKr52P1E1+DLwczfWY+fXnNqv9UTKd0d6uJZhaG+J2rs/TLceNFWXW+OdNdgn1fp2gG2/p0FtmBArYnyxRjte0oYvRFiRIihcuvE43MrRdscOXNaCXNPXAgZd0LQjE9ADZkIodo3edmBd9l79aslBIKcilm1qcsL8HPSOxRSaQLitTG+mODBUI1txPCZj+8v9ktjzsLWST8k2TPwrMj47yRwMegTUgwBCtju0+TfW8lver/u3Ha6Ut5NoEeY4mCQ7+2zJnKu5uwKZUvMPu/5Xc/7Nth6pgXSGh0uEUAbQEdgdFIwvO5nc6WXzUFi1hC40nhB9DEy8zSHaKmGoR4TGhI+rnXw8uW3+bFz5/iJ2BwlugeP8jt3fMIYfyeZfj0Q0Z58AuzwIaOfqeQ3vR8QpZS8DdQElADYWTWRc72udIyjNwQB8hfCTPwUbPUah4ikBVC9BIz5nI1SplRFL1ZxqN003bntdDL5GshYhGq9VB3p9ACRspjyBeXcxmVi82PYOrbD1uZ6K374MkRyiRhcAN2agUzAvaflBrLdgxn9pyDf+3cAoDt3nAamToGUQrDFM+QPMaXEfM7K2AD9Grk/HguyA+f7Uv4RmPwjS4mvd9CoIcUQqu0Er2v0sjDHj7qoIFokEyAEthCHnZ70isHPyOTzHIevgQAwBNMezPjFQb7vuv28+bT28QLU0rBburetDqBeDoNXg1znePwxy8fV99liDyOlD0a5de+xi3us53U99hMydYw1g2Y00OFz8eQpu+dnAvbmUXidgy+jSgwAxgPCRillY7dDxnWkjik9ddLvLFzcOHPYhAnYqoArjTdRvpRsex6k1Mzpj8CMBzP2z/t380U5FS8unxChZyCju+84x8tuuz4QdS/Qci1Ucp3lEI5FQCQuqonAlAa8EjB+id38+xM21f3IO8n2Y2BKFbCFELXNbb5aeDjLCBjwwpHeHwtKb7HP0LB2QAGhgC3toQo+YJ9hDRdBAzjnZMVtK/wocT+guuwC1RWcCExpkdI9YXr3y/AIKvu2Ciauzq2t2xftdf/oZEp0vgDnkckjrHkqOtIGUSPUFr9nO0WKuyCVvwzzfXcCNyaBs8pe5y1rqVpvByJl7W9GQyZeHeQ2/NviCrq9l5cd+BpV+2YrnHXDbct+ogcx0Ulhfv1dzfhbXmPHj8YPt70FKtMN2dPgIUQATUhUJnExHtlcrAIp+yJ861UAYz43/M4da6j5CiPbX0H4x4AZECVAirWlZrqGhCIWpQwAKXw2NI+9ByObR+3Jf0EZPQOrYLwbQPoQEwIJD2b8sQCF7zoEcBGd20EDCMPK4KVesnASkXgaUKnnD7jkUlKT41cCOKMZPIINT3/2x4f6DHcBbLfrWs8WicvsjV4Z5Pq27BvVX1NvAABd32rzmT0Hol4DmI1gJmHz8KW4dHx6qZklajCpAR+Q0o8MwvdEud6B2pOIw/rTfnH198HUesiE/S62a8jEB4NJ32CxoxvrDySyt50vqu0bDodoFGUYwFfCYEM4vGF7o+eqowG22NOPwTeB7R1NnH4DprSYsV1hGz6MnKhmPdH5O3ai3KZGqc4dTw+UeT2hXw0knwHCqngZC93vqanv62r36HtAEmKKDxHhR4L8rV+2piPG1/tCYKfvFwpfhWpZb8EvaIsGjj8VSOWfnaO8BFqOESC6kuc3va6Bb5Jt50PGG2th+oApvxPA9kZaQM1+qmjQdlcXwIstr6+ZRA8hIm/Hb/tKFlRZKtU/yZSNWnoGVvnZHVdHCvcotr2XVM+AFCJIISZdeFPVpogN/XyCbZ6I+Z2YwptDHbwoyK/7F7v5cRn35gjPujHpd5W+BpU5z22+Z/2cFgUTfQr5Ux6167hU1TxbAQh14L8DpjQOeKxPJqGGFAyZOM3vvv1Fk+Hl3ARgUAMQzy+/CqpthW3EUM/xkwjMKDETN0YjvTctLdgTE0WEXteOS4PI/zlU69sBHAIZCyGBqenrwmlVRJHlILR5gHlCTOHyMJRjw/y6azDUN+46ejjW7+YIbbd0+SPt3wPTf2I1CTyr6ZKeyJ5fB8r/uENIl5C0sjkCoMp71j5sGH4GbGnm+6w2Fv038wwDeyO8aKcPmtcDFWkQLAigCCkHVHjv0tp6K1h+521r/Owdt5MtnwW5ym5O5E77jO9kAR22aQB7jIxf5avwuDC/9kO2i8eA56IHY0kWfaHfOfACL5EetGDP5MkXQBlAQYg3Ibd2zDnKS+3kGkAYleUTMGO7Ab+BEIiGFITAK9G9bXU159CUAIgGKPo3E+vI5DGQsjRwPCKwVQnK3w6GN/5siZwhxqfBzw5eDJX6EVSy14ZGQazmOTvlrEUDOhIpfFGFOC7KrX+3TUjFG98XWkfSpX07t10I5e8g/RdYmxv7DhKBbR5k4ppoeKk13RS1biOW8b5hgXwGTDcyAwQiA2baPSOb3aFuVgC2xh7Wq4EEmlA3GlIyEP3RpSk0ucJtzBb6Xduvgcp8CTDt1hNnHQaSRNbOt2hI5RYRWRvm1l1SHl3366kbH3v6cdr3h9dAp/7DmpSiqQkTQ7DNg9kzGBzR/o5ql499dtmwMNH+echYDvBUAyGwsg95lQuRoyaiACHACB0Dh1DkbKAUa4Q6p79Fw0zcHuZ7fxIzhRZ38680WP2dFr+SvR5sPd9GI6Jm94TjOruMhpR2w5QuD/LrvlT1H3ZJdeP7Y5Qt9DpvOwmV5GfBluNs1bLUFHzGXIbC/4R+6UL8bEOwOKjfXLWAaDxx/BA6B78C3fLmql8y28EsCugf73dvPDYY5t0zZQrVDM4fEhqnQLU4569u3G87KGj+czV0XOTNX3lzq1855Ft280cDa45mPfWurCqjxZS+paPyS+3mC6v08itNrT8B9Kd11w/fT5XaRvrHuUWtwd7jzS//UofhWdh9+pP7saOHACCpvgiZqNhDIPVrLdiiITjP7a9qoAFsJstQvZzQcSGGml0lJZWYid8Efvn7i9v9Krb5L036YfobYOZUy42nXz8SSbjCysI/hPn1nwwn1TtriKaTpz7SHTt6qfkJ2lMPG0HU5uAlBNs9kcJ9XlR+eWl0029rPr8/cloGEFXJ8wG/a2CbXZdCPXCIQAAIzgbkyplwGTV10TdHWHlzK8T0AuVG3TAMmAShvoHdp09Uky6LUq2kABov23Id2Ha6LTSpR46wRFMx8phB6YxweP0nYz5+Vd3XaIG2W7r8rh9+RnlqgMo/zpmVGnKLK+NihwcpfD9MBBtLT8Wbv7+5DIPKrpG+3i5VA5xHygD5wkTXHUdZMzI1GlBTs36AV0kcRyafbtOcdWN/DSmIiPnGwvLgeyVBbDo0e/sVVB1/1tzmZ7RI5T6txzZEuU23u1Nf07c3zkfQJLI7LvAS6Z+CLW8CAqk6epMq31HWEzQycVWQe+wcPN43XDUh+/vqjQBI4OP7kPERwNN1nEECJgJbPINK70zRQM3Cujbr5How5WrYZnMwxIApJab0YDiScUyYzWZxQJ6+UHcPnkmkttRUGc2mhCKwTUNKd4alifPCiTOe3Dv/4JpStd68wku2fkxU4iIiRA3lilNZyxlPpPw7McFfW1BL6CKRZVKhRAFE4QkOoWvbAJg6HzJhZjcDdDiO3gjg2ukHVU3NPgEkT3amgvVtUQIkXJ3+Yqh/IbBLsGp7jxL9BYgRm3KtE+Yxo2GKO4PwqbMwcfqT04imjO21zg6c4qUyd1K1XAQpGNcN3NsbL2jzIMUf+Jh4mdt8J3zLrQO4MwOCG5syA6gAghfhWTcmrRarUsZUdfGvNFj5362AvNA1QmJ9LD4EoX9QvxBiTpi3JZ5Uwk+ArQ1Sn8YlnkoP+8qci9FzRqbZZ8cA2hx53dsuU0zeTKoj3alXe+cGlA0bzdg/BblPn1XMnfZYTTu7ZVivMGgACBV3QMYrgNJ1npOQCkge7ufanjU9C6xq/8Iv73kmoFYDQb1EkQCegpkYq9A49b/QTJjjHHZt30TV8mpHfqjz/T4g0R6ayisKwxsen23zdXbbh4nMJ4GQrt2sN0MjBgFTmmbsPUF+w6VAv6nJMi7Ty2qkyvATDwvkQdsoq54fgAhMe0B4zPRwUE35C5oXgOkGaVwaMAGQuzC84YlJ7bEgr3+XAAOekuiqGrljne9XQPFS2x/IoXhTnMjNkc4OXqVU+z+4gtUZmlTEJz+lxIxfVsn3frBaZ8cDYOhDLPTcaeW67jOLhU/UC+tDwUq9wPkSUv9mHiC82/55UC88tXulSWS9P4HKvLh+XOs8flO4PsidcsPeDl+/K1W/7W+Van9n/SYVNGCLFim8I8xv/FT1XgfKkKh4NhJ+2px/ZSDA85zJNtOigCHXT1WOoqWWsT6sLxDivkXEuJVg2ztcL6G6TBeYwhNhRb3VeuaDZlozysjr2X4yjf8JmyuYtVQ9tKTV8Y+H+b6PLu8SNaDuhDMT3QfVELInEALEM2qALNb0r7chHCFPdzR51qcplSFQDy48/rfxue7a0QeVPMHStjA7xs8UhfI+jK8fsvHsJOnTPm/P/RlE8iWQnlP7nLVMzUz8V5Df8Db7DL0RDrjLJqJ8lfhfSDDWgChCSAgCq7FqVba2ek25xROs/k4LwJVx6rwu6dNUSl5ofmv/bpcsPLKVi+tnHsUAKSVm7BdhJrrOIXzR1AiCRpuhd1G1PwdSCmcRJOs/SOHR0NcXT4aeB/BswGIuNSTgEw4rk9n9QAOAhyQqlZ5aH0tNJnDKLZ2AdDpyLGcHFTSEGC4nzNDCIoAYer5jBSlnWoq26FltDn2CvMbSzbbUBL+igM0muXLbkUr0ZZDxBqCIJmHeiN0nP2n9lwN15BvFruEJAYFH3SS0eoiggL42yu92h2ZSAAAAviQPAZBxkjK7/2cTUMMY6ptYWKMx6zz6UbQJzHTaapzZSB2+hhkbCtN+f9UfmDz9BCAmxGW2bWskdVS/Fpn4eiXX+90D0+7PzOcQyOOuMqhBIklDjHRXJ6gCKpYEgemwJAMjdUIwARQI5O23XaHmD5Q4x1PkjDqj3CwzlikI8G08clJ+ap2B0yKZnd0QvApSmCV/IQIoBSkWFNW77ed6DQ74y/Y8JrHbdbOX+plkBQV21n5WxZIgXtTmoPEGNyGEfKpaOLIA9Y8bkxCcBFTqZB4t6qiov2M/18O9tEhi4jyo1i4gnIW/wAhspSD8qh3rtlUdGLF+06s50pzJUBCY9mkqxHXONjo1qVEa3AQiE7VqZL4NKhNd6SNJHDE79GxRR5FivlKWO+3313rsk6f43DoNlcXR1iLS/8fF6q+3rC6jxppVxAo6PSMQpIV+0/acqCxGh9JI+HwLUZpZHA+LOlJwvw39aitvXe1Cx45OQE6ElDmLE2nANCHBncHwyT+voVofPBel0ry2kMSMAiCU5BzCtnKtHZm37QKe1wDGFPfvu/ZuvuD4C8o8D/RXWHbwjKCPAB5Ifm/+DRyW+f7TVDAJ4DUklaVmFAAKy3OwOamFZQHd54gjG6sugSj+cjYolDTPscmQWdnLCigjAn6yuMSV5TSXzEs0dgInl7M0owBElKBph16UjwWXOwEQrGwguQQMCHlsVoGjOmL2GNh5/6Zc9ELz68UCrpahBCSa1xZTzYWaXFQTldwhYoNGhQCRmVs3rJlhTALtDXAHAhFMFDdg3Lq3FhFZUScVLqADrlKVocVJXS9HNMC0Neu/GbAwTQDiQhA95rqTsZEOoUiHW8yFGq9kU9XraiYnZ2ssgZn6YasGhCPYfVph2Q9Mn7cPyGyTXUZBYAxTOYEXuOE44ehkz36blePsaUVmJ73wJjhJs5Q6ASLaYUBskH/y6nlA9b+HIDFRhU55EGmAySzuSjZVnyowkHztZyeh4EAl7Ty9+m2DXFsydKNnsHX+VsDZfKLcwHkRQEEj1ji1uMMF8QONNrRak47PloPs+DtTKljd2HyLAgLQRLlpJsDZxLQaATBiiTN1TolEoKA7WfFWzH9RJz8z0bjyWMNAVu0ddrpQUmT3gTElfSmqpSlAf0LApzUg8roK7iBSSg/VtrNVk6rxkZOKgOx2HBGpU3UqUIlU6JkjMG842H5GhMNNoI+gyDNnl2t5uL70C0CkDz4H0B6idDbbQ2CV7SkprOsLQZ6qJGWo1oFXtaCKgL9rTAljBCRA8DnTqEmYK52JwO8bHE5rcpR6fi11fQoMHHr/45o+zZAOm6RCZWqKOQ8SbWAPUaC8Z0B5GSCs18XFRkPgY3h8aKRWKaqpG2J+2dz6EBQ5ehHU2EMNTq+CVCAix6Dzlo5qYWdVgoOO8BeQ6H/tzOC9GDF0JqsLnT9rW1DkimXKCRQeA6TQgMUcd239tasLUNM0QAwG6fsaF4XY7ByI411adR64uj29ArXLlqDP5nmSQGCokqs0EidOa/NqR67/tq8kxACQnGWqWAQQXQk1tvrgcgRjRFNOaHxoXRqfeGAWWrjdEB2ZXU20IiOkDAjWpLO3HVoNr+Zc5owwin4BEwzV57PZKiRF+ZPZnFMx/LpNKYvaW4CMAdM+oJ97EAmAS6cPeBCeAFSw97vPFL1598xGC7fqNFH+NWAes9O4ZwssXfsRlc5UqF88v7kDrkp1tO8pkD+36nu2eF40pAgBzkPnzo6ppU2bbe+cka4BkdIDYIp71zTQAB5E5MSFJbCW03WFTadneRTJ58DiZPVpXFIMafS902nhakrB4e7TJyC8x25IXUfQAB6U4NT5v4StUhXDW+o7niQQRlSZVT7Hzp+W0XN1CS+o0KhrAJ9738bGv4CcsjeZ9EC93NoprANbfTtgop4D6EPE/KaS//3D0yF8b1rBoRHiDkKd08BbUpYazlOA/gTAytwRwV7n/YU3QcY/VO3CBc6WExDgb4H+r7howH1fbwQIg5HB672usb8n02tcyXcs3ApSEtA71u859ZhgaMs9wNYZ6vz79fwimv1i/y2b22w7y44qqOuziWVcl3fWzGOMZhCAuNAA26GLjQoNFKQspH+U17P6JeEQ7ojr8ebY7YLBCB/wuwZ2gq0n1oRzM8zIKRqqzHF+p3plMLL5a9XiTecMYnNJsP3vKXKrHeAg01uleIhGLwF4KdCPWfrxHThX9s52kL2OTa0aFfJQeNtMYbs3HVYMU63/7VXGf0Mkj7AVurN66BGY9mj2vALAD+dHDxvUAEIR9e+kftmsCqDasUWE8j6s3vldPI5SFQ3bHAH9Osqtv01lBz4BdchbXEsZr+pHTAjovybZse1j5dENv5nS5+fwgZQ3xreQiRagHAFaxS6QCIogDcRwScm9RACRSmN3SpRlAJWOBxMdbmxPPQRQQyYCam7fG0vZa7XdQOSuwevI9te6iRne7JlFX0HKvwsU1rhOm3NMttjfz2S295ST5heAd4itTKrXE6BdQ0Y+FOQ2XT6V2h2HiM9QfrbwA6jW3qlzd+J+AuPfCvK9f+I+GzuU4ncO/iW8rs/bSrUQjWnWS9H/aS5XBMuCrtvEy4BpBVP4aZDvPXEm3uQ0cXNccdHfsYMg64YWChJEYObpfsiz5ke3sq3PxsfXDwG4AWxhfUCDytb8pd/hdd5+8uT8vcl77RLghCDwKn8qpvgg2FIzho0aMhFBZf7Yy956mf3sta6VzBYGI31fYDT8SphiEVIUmNGybT27r37Gm/wZi+x/i1Hj/s00gA9Cf8/+ee/9UXsXYAIVKd0upuBakjYx5Zp440zqZS6tz5SST8OMFwGl6te6RwTpQflfweqB7uqAZmCy0fOTp+zWunwOpPJbSzqNx7CJghQjsuVjunvgHOANgZ0FbGf7VvIbv6GkfB6gh6Bak9VaSHjL54fx8zRz2DRkIhLNb08P/2YRAOdQjZw6CqrvgulGEKOzrYn1Xue2k6a2WZ/TsCRlB0lG14GtDfrgUkHKEZl+hl9RX622p4m7X9nu2OWhTQ+ThVNFgofsVM44VIoUYBQl+R929OobgqopucIr53tvUcGek2HK22xTac3mBzwvqyuyLWWjnwZDa++t4W80OTOIcj1QboQwVQsuGb29+amZ069dAgg9RB+CTIy4eF4aDk1k2yleVn+5ateuqLZ5R7+uDJ/2Sx8TfZDyD8EOrwoShUJIq4L/bd05cEZ1CPOVIdCvy3vO+FWQf2yTyMS7QDXqmky79rNygCQTXDmEyL/Z9ZnZPHN252xQe1n1E6rUsZCSaaByDOCLSHBSmN/wk/n103MOaHbgMqqOTzYeUBHX+bd5IuP/GubWv86+de13uz8fPpDyxr3PkOm/hJTcnCAQ9BREVYDw9UFu/Q3VJEl14laie/uzjejLCXmVG3UPwNQOoViWLFELr0dPBTqoO81MzR6e9YUgvuRw+sbixoQmzfvm/9CbDSAqzPd+BrLnR2CrbkL1epCxkMy81svu+Ca6vtU2iZHXjmb9bV8pzK27BGbidQCH3YkmJAyByAcT13vd2/6fVZG1E7f6dWV4/UNh7uTXCnCiSPErAMfBNg9MqerwCddYcvmkCiKwBSD67ebPPrepjgYg0LHjEF+bB0Bvpc031wtSbchhpHhulOv97vy0gI3NE9kfP09ofgJIi9PaqrEmyHgwpZ3k2EWV3BkPVhtDxynkrW7k/cARkfY+TOVfaMvcCpGtQMr4IoWvheHoG23XsUm/wNHmrP1M9vzwmVEkfw7ylSSPAdKw7VjLzkTEYIao5qasLJX+9yKoyouDob7/rrcXbNy5a+ADih2XN+hMHTePpJjyQ2G+9XjgRaU69XoNByX52YG/gGq7DlIIq5M8Gs0qbNGQIAfI3we5tf+G6tCnaLp50N07zlTC94CJk+zHCyHY4okEu2CCS8KR3h87jIBxj97a2cLAgOd182U06iwBTiOxBmxJWlkNYRM0UTysQmoIitOmfC+2kMR4x9h3g3zfuY0aW6tGjllE9Y+Q8acArRs4ZgpSMlRtz/G7xi6fLe5sdnBikO/7MmT8mjmMVNduTlAXmLjBy+64AdmBwxxQFG++cdPBVTS87qYgt3YtTeWVQDBoh0cBZHINlXeb17XjrXF7Wdd6VqqTN6x2CId7dwT59e8K8+tfRJqjIaVXw4x/DlK4C4hytjNXq7YmI+OBLdqajgRtdKE4pcW9NSU1P7YIY65ce0hFRPRHUNMIYp5kSXcau7Z9EGx7d2MtMDlSxYiU14X5jXfNs8FyPOrVeJ3bv07d7lrF02/OAYKAbQqmuFsgV4X5X10LvK5U1Qi90ZRRcwC87u0bILiIwrOg0qvJNogZugMm+OtgpO/+2cfV9XDGRhOrtvd4FTmSxFGkPMsIjqTwMCFWQdBJoB1EClBetQP+TK0NiqZ5Z3Py9N8Y5PvObqatfXOTQzM7uv0E7gO9nvpNJGv6CEt5V5hofQken7cpcM82mPS7vG+DmdOm4vtNLAZ8DSYhUrqXIh8P8mNfA84qV4V7q0uO9EaTz7dqe08iMr3G4GxCnQlRbVDRZ3yaTxaG+nY7Ey+zrBUt36CvTofRfo3s01vTDDMRTUYgGYmYFoUUKK7m0hBCBfFKZPBJMvV8195W1T98FMAzYHSiHSXf+PCx6WHGcwrPLGYvZs8Xw3zvJfNvx+IkuKc/45uVW8H2M6wQwGtONcbTQ1LaxsTlewH5fBjor2LPSXlMGdPaRmBMpvUdTHjZlceCqo8SDQX0tiJ38viU4paGAy3j7NuQVJ3S5i4/e/vrwZbPWzymkSPs1lz2fDnM9b6uWc3b5PRwEM+6yfdGWn9Kpo5uQi25oYwtnsievw5zG6+dvxC4ySG4MellM1+ianuVTVIZzkE12kVnSgE+xEw8Rsi3ROSGcGTDXVPV5ICHZxU1frXC2EbYMz3LggdeokpP2zLNTmc84Kyy7tq2UcG/BYjYxMRWAXwBzB5P/KOL+Zc+WnVeF6VgotrLVzFxK6QS1enoVdtSTgAdGpRPj3J9gwsXAkB3bX+/YvI91tMOmgGLpguCbTrFFCBFiJifk/ieGHNTOFK4u2oi4munj8PHNH77UAQ8FtnaAi4Rvdid2o6bjvD99jsAHmpVP5s7/Wb0zWG+75q5+F2cM1LXNfAlsuPiJk2BARNKRIaUBBsq+d7/qenCPY9KGIvQJbLbXynU/wQme9xYtznG3BLPEfZsb4EEIAWIRL8E8WMKBwncVcmPP7y3QNSap9oZPDFL9wKxp3rORSgqHtjleXqATB3rMArdXPhbuDPIyTr7HJtNswLKuZ1CAG1ndXqJ8t2k90eOjNCEdKa1SOVhX8LeYr7vkQWMXpmcF5xsv+2Zxk99GkydBZRgUT3Rc4+rxbg4X4NJWvqUADIRichvAN4H8OcK5n4x6leB8R6Z6j8s4nX4QMofU9+DymxqYlx8DPkaQAVQ5Zc1An0WoWbOmYLOwTOVTt0ICVwz5uZAGpHKfQmOnV4YPvPxhc3fqWoRv3vHX0HUFjC9GjJuBz3NSxAm0+GOb0hto07f+V8RIAVA8KQAjwH4PYFHCPO4iHqcCkOGkmcY7VGJxJg2plhIVCooIkSqGEB3730iC8qHP5pKlTPpiCYjNB+iaju3iXB7Wi5k9O1hru9j89Gu81gka8f97O0fhep8W/OhWTzbp3SfZ8bPLo2c8fuFNWt0ISoo6L5ptS+ZdwG8BEynIBMLFYTYxtf+0E0Nd6+rp7HqQyckFYGw7Bo3lUUYgJaWPFNnDxJpCBMgUmDSDuFsyrkVNy5n/KYgt/7s6bjGEgpADfWqa+I2sGVddYpnMw/dqkUqv1RS/ONK/pQHFt6xs6pJ/M4da0TxzYS8GmxNWsJkEFXb4i64LjAmm8rU5paT8C6twKnq/06ivTOQpiVWOvGtTLObb8CkgoSPBCp8MYZ6d9dmMJdYAGq88s5tf+TTuxNKHWoncjQruWkNCXcbFP8syp0y4CIKM//mDdVkTywIUPgrAS4k0ystylqEA+lVdaOWKhEjMzfEqAt4sdmwPI6uImHxlHB40/aFmNMFLIIDiLpvW09p+QEQ+ZZH2MzCTg55rIDRm4Lh9V+YfprnP3yiJmGT2d7jJXEBwQsBsw5sYzVzZ6Jpx3N/Ze7mmOdXjuI+9lfBSN8X5h9VLUrjBKu+VddtF2m2fQVSigDTZEgmBlDK0s5Knwv8kbfi8XMLVax+Ia1crlA2p18VJr9j8Djx9dkUnAOY48GMyytUXOZOoprycZe143ITihBs94yMXhXlet+9GA2vF+EF7UMkOgfeLrr9ajejp0nnS2y2jW1apPBziHljmF9/1+JogyqzabpAJbpue45QbxBRGyFyAolngq1Vbx+B45GauOJYpq5X3NOomaLYRRMiN8Z29Low13sxcIUHbIkW2vNoMR6OdlBTX+h3DXwA7LjcDnw0c/DAY78gqBhEH47Suz+MRzYXq3zExWjsHAM300/MQ0m/Z/dzEYXHgfqFEDlaKEcRWAUmE9UwcNJRq/5IbZCAaZVtjjEmwSKAhhKAHT5kz9eD3PoLpyZ/FqFn7+IIgS0N87ODV0G1v3MeQuBMQgYihXsUzXsqw+u/V9UGF8giDqd2wjAkM2qZlTe3Jk3rqtCET1ciR4DqcIEcRuFKEF0C6YBtP54GkYDAsxU79KwPSAPIHiELBP6oiSnfTZz8sW+GuZY/BV4UNpeM2rcCMFUIurZ9AMxcbqd3zMWW1mbvAEH0nzDRR6pmIbbtF5jFa/cWh3AxrDtoGodTorD6ZykUikkkEslUWEmIgSeeSmipjBejiQkv0boGxruM4HlApOe+1g6utpvfH+ZaXg28OADeqxZzygkXv3OVDce8rsF3kOmPWLg4krkxaMUyYdiqIKVIBFsB+VSYX3fnVN+j19QfNrGQ99hCK2xxOre3Rt/PLnypQ+44PFLmUhAXg8kuF37Ow9t3vpGZ+EKYX/cG+52Lu/lL2D4t5vVtey3of96qycocM3cxqYMabLWZO8hNSviFSov+vu1qVisMQ7K4mqFRjn9wynRyne3p00q/TkSdD7Y6NDI0c6eOiwG0AlMwMvH+KNf73hqsQJag1chSXTY60F2DfWTiBsI/1BI84c0DWLEj3tli+2Ka8kOEfFOovxnmTvrZVN8g9vyBqlDMdfEmvfvYPLgRM1N9kETXHc81MOdR5JWgdwKYhN14M48MpS1/BlMexJQg5b8J8n3XVWsVlkawlzjOtUKQXHnzkSZs+VewdR1kzMTlgJhPuROEYFIBdrEF5l4KbzaC26OEvttOA6tn67dy5kYQTaj4joFDPF8doww2COUMQJ0AtiYswFiMQ4T5bLyz9xlPpPQwTOk14cimHzlNapayTJn7bsZtf8LPrr4Kyn+LDaGC+WgDTMvaVfP5CAAp5iG4F+TdELlHwAdDhd9juCsHvKAyJ8FdVez0o/TTIHy2bcWG4yFyLJhYDaYcqlyKTzvnXyUkEaCtdpPCNwJf3ogn1g/tq6lm+wjpqrJTddfguUTi02TqcMgeM0kpnz/uLlXevqesQLjUghQBmFERGSb5JGiGRdQIRcZAlqsZGvEFzAA4hEC3CHpI9ADosmYnvl8ZbjJJtPDij9jRa9WQ8h6R8PIwv+GziweCLSsBmJawWXHrSi9KXkX6r7P/VJqnzZxlUaekb7XzPTX2ytLNmP2NQZ5wemHHIlX7xOre84AkREo3KzFvqeTXPzAlxY191m8O+2nsOaC7t51N8T5Epo6x6jRYJEHYa8Gnw3UN1mOyImgx18g5s0o7sOtRGmwJRtZ+cTrJBfu24SD2U6drpw0O6097xUPfRPCtYHql86IXSubA8srgwUUxGUAKRUCuDUrFqzBx+pNTy8+A/yMCsLc2SGdvfVqoEpdBeAnY0mHtd7hAB2u/Xs6WKM86eMVAgK/SlK8ORjbt2p+nfpn10RdOMmIBJDtuPtLo9BuF6iIyvcrl7+PMi1reWkGq+Qr6GkgBZmJCiK1U4acsaXOy7YxZDtNLuLwGINTw2lbcutIzqT+HyOtI/2jAR7W5w+SsAy6fTRfYcC5twSop/YbAv5Olf60Mn/pQNRparOzmQScAmFZjF6vGa32dfW4fgYtIdSqYWmnr+kuLGJLNN9KIQ8+Um8k0MQaoQSj8W2C8m5A/cc/SZDMPagGYDunWgCGrtvf4od4kJjyXxHow8TQgGbNx4yry2rBtOjNzLo7bTORPDXi0vZS9uDFEDoIfCeW/PKNuKo2s+93UnMgWWewEzv8RAZhuGoAp4EjnLR1apY8nzXoaWQdwDchVVgXHjcZC17QjBg4xDVbdqzOpExrFqfiBaxppgaA8gF9A8CMqDvrK/+nEky/bvTcv8QJzIEwo44E3KCmedTgNKesYOMTT6tkEjobIGiGPAuXpFKwE2QGo1N58fk6DByIHAIUBwFEBhgD5PYW/EuIBEPeF2ntw73xDTDBphkvwBwFY4tTstPfr2HFIMlHJRkZ1iuAQDbYJ2QIRDZEkqCogI4opRMIJkk8phZFKKcpjHE/NjMfH5mlfpKD/IADzZPbsnb6dv1Paq6amlw+e4ZMH4Ty9mWrxY3YPUH8mQG2Fb2wbKAfzAv1/g3RgEtAdgIQAAAAASUVORK5CYII=" alt="AxelVT" width="38" height="38"><span>AXVT</span></a>
+  <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Поиск по форуму, объявлениям и базе знаний</div>
   <div class="auth"><a class="btn btn-ghost" href="#">Вход</a><a class="btn btn-sky" href="#">Регистрация</a></div>
  </div>
  <nav class="tabs"><div class="wrap">
   <a href="#home" data-go="home" class="on">Главная</a>
   <a href="#forum" data-go="forum">Форум</a>
-  <a href="#birzha" data-go="birzha">Биржа <span class="new">вакансии</span></a>
+  <a href="#birzha" data-go="birzha">Работа и объявления</a>
   <a href="#articles" data-go="articles">Статьи</a>
-  <a href="#library" data-go="library">Библиотека НТД</a>
-  <a href="#centers" data-go="centers">Учебные центры</a>
+  <a href="#library" data-go="library">База знаний</a>
+  <a href="#centers" data-go="centers">Компании-партнёры</a>
+  <a href="#rules" data-go="rules">Правила</a>
  </div></nav>
 </header>
 
@@ -196,25 +207,22 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
 
 <!-- ================= ГЛАВНАЯ ================= -->
 <section class="page on" id="p-home">
- <div class="grid">
+ <div class="grid one">
   <div class="stack">
-   <div class="hero">
-    <svg class="wave" viewBox="0 0 560 160" aria-hidden="true"><path d="M0 80 C40 80 50 20 80 20 S120 140 150 140 190 50 220 50 260 110 290 110 330 70 360 70 400 95 430 95 470 80 560 80" fill="none" stroke="#8cc9ec" stroke-width="3"/><path d="M0 100 C50 100 60 60 95 60 S140 130 175 130 215 85 250 85 300 115 340 115 400 95 560 95" fill="none" stroke="#8cc9ec" stroke-width="1.5" opacity=".6"/></svg>
-    <h1>Сообщество специалистов по вибродиагностике</h1>
-    <p>Работа и подработки, обсуждение оборудования и методик, нормативная база и учебные центры - в одном месте.</p>
-    <div class="acts"><a class="btn btn-sky" href="#birzha" data-go="birzha">Найти работу</a><a class="btn btn-ghost" href="#birzha" data-go="birzha">Разместить вакансию</a><a class="btn btn-ghost" href="#forum" data-go="forum">Задать вопрос на форуме</a></div>
-    <div class="stats"><div><b>1 240</b>участников</div><div><b>86</b>вакансий и подработок</div><div><b>3 900</b>сообщений</div><div><b>140</b>документов НТД</div></div>
+   <div class="intro">
+    <h1>Форум специалистов по вибродиагностике</h1>
+    <p>AXVT - профессиональная площадка для тех, кто работает с вибрацией оборудования: инженеров-вибродиагностов, механиков, наладчиков систем мониторинга и специалистов служб надёжности. Здесь можно задать вопрос коллегам, разобрать сложный спектр или случай из практики и поделиться опытом. В разделе «Работа и объявления» - вакансии, подработки, резюме и объявления об оборудовании и услугах, а в «Базе знаний» собраны стандарты, методики и полезная литература. Форум модерируется, чтобы общение оставалось по делу.</p>
    </div>
 
    <div class="quick">
-    <a class="qk" href="#birzha" data-go="birzha"><i><svg><use href="#i-job"/></svg></i><b>Биржа</b><span>Вакансии, подработки, резюме</span></a>
+    <a class="qk" href="#birzha" data-go="birzha"><i><svg><use href="#i-job"/></svg></i><b>Работа и объявления</b><span>Вакансии, подработки, резюме</span></a>
     <a class="qk" href="#forum" data-go="forum"><i><svg><use href="#i-forum"/></svg></i><b>Форум</b><span>Вопросы и опыт коллег</span></a>
-    <a class="qk" href="#library" data-go="library"><i><svg><use href="#i-book"/></svg></i><b>Библиотека НТД</b><span>ГОСТ, ISO, API, методики</span></a>
-    <a class="qk" href="#centers" data-go="centers"><i><svg><use href="#i-cap"/></svg></i><b>Обучение</b><span>Курсы и аттестация</span></a>
+    <a class="qk" href="#library" data-go="library"><i><svg><use href="#i-book"/></svg></i><b>База знаний</b><span>ГОСТ, ISO, API, методики</span></a>
+    <a class="qk" href="#centers" data-go="centers"><i><svg><use href="#i-cap"/></svg></i><b>Компании-партнёры</b><span>Учебные центры и сервис</span></a>
    </div>
 
    <div class="card">
-    <div class="card-h"><h2>Свежие вакансии и подработки</h2><a href="#birzha" data-go="birzha">Все на бирже →</a></div>
+    <div class="card-h"><h2>Свежие вакансии и подработки</h2><a href="#birzha" data-go="birzha">Все объявления →</a></div>
     <div class="row"><span class="av" style="background:#1f3cc0">НП</span><div class="t"><a href="#birzha" data-go="birzha">Инженер-вибродиагност, II уровень</a><small><span class="pill g">вакансия</span>НПЗ, Республика Башкортостан · вахта 30/30</small></div><div class="r mono">от 180 000 ₽</div></div>
     <div class="row"><span class="av" style="background:#d9822b">СК</span><div class="t"><a href="#birzha" data-go="birzha">Балансировка дымососов на ТЭЦ, 3 агрегата</a><small><span class="pill o">подработка</span>Пермь · 4-5 дней, со своим прибором</small></div><div class="r mono">90 000 ₽</div></div>
     <div class="row"><span class="av" style="background:#1d9a6c">ЭМ</span><div class="t"><a href="#birzha" data-go="birzha">Монтаж и пусконаладка системы мониторинга на компрессорах</a><small><span class="pill g">вакансия</span>Новый Уренгой · командировки</small></div><div class="r mono">по договорённости</div></div>
@@ -228,18 +236,22 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
    </div>
   </div>
 
-  <aside class="stack">
-   <div class="card">
-    <div class="card-h"><h3>Новое в библиотеке</h3></div>
-    <div class="row"><div class="t"><a href="#library" data-go="library">ГОСТ ISO 20816-1-2021</a><small>Измерения вибрации и оценка вибрационного состояния машин. Часть 1</small></div></div>
-    <div class="row"><div class="t"><a href="#library" data-go="library">ГОСТ ISO 1940-1-2007</a><small>Требования к качеству балансировки жёстких роторов</small></div></div>
-   </div>
-   <div class="card">
-    <div class="card-h"><h3>Ближайшие курсы</h3></div>
-    <div class="row"><div class="t"><a href="#centers" data-go="centers">Вибродиагностика, I уровень (ISO 18436-2)</a><small>Учебный центр «Ротор» · 10 ноября · Москва и онлайн</small></div></div>
-    <div class="row"><div class="t"><a href="#centers" data-go="centers">Балансировка в собственных опорах</a><small>Центр «ТехДиагност» · 17 ноября · Уфа</small></div></div>
-   </div>
-  </aside>
+ </div>
+</section>
+
+<!-- ================= ПРАВИЛА ================= -->
+<section class="page" id="p-rules">
+ <div class="sec-h"><div><h1>Правила</h1><p>Как устроен форум и что важно знать участникам</p></div></div>
+ <div class="rstats"><div><b>1 240</b>участников</div><div><b>86</b>вакансий и подработок</div><div><b>3 900</b>сообщений</div><div><b>140</b>документов в базе знаний</div></div>
+ <div class="card rules">
+  <ol>
+   <li><b>Общение по делу.</b> Темы - о вибродиагностике, мониторинге, балансировке, оборудовании и работе в отрасли. Вопросы не по теме - в разделе «Курилка».</li>
+   <li><b>Уважение к коллегам.</b> Без оскорблений, переходов на личности и политики. Спорим о спектрах, а не о людях.</li>
+   <li><b>Реклама - только в отведённых местах.</b> Предложения услуг и оборудования размещаются в «Работе и объявлениях», а не в темах форума.</li>
+   <li><b>Объявления - честные.</b> Указывайте реальные условия, город и контакты. Повторные объявления и накрутка удаляются.</li>
+   <li><b>Нормативные документы</b> публикуются в «Базе знаний» со ссылкой на источник. Платные стандарты не выкладываются целиком.</li>
+   <li><b>Модерация.</b> Новые темы и объявления проверяются модератором. За нарушения - предупреждение, затем блокировка.</li>
+  </ol>
  </div>
 </section>
 
@@ -274,7 +286,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
 
 <!-- ================= БИРЖА ================= -->
 <section class="page" id="p-birzha">
- <div class="sec-h"><div><h1>Биржа</h1><p>Вакансии, подработки и резюме специалистов по вибродиагностике и смежным методам</p></div><a class="btn btn-brand" href="#">+ Подать объявление</a></div>
+ <div class="sec-h"><div><h1>Работа и объявления</h1><p>Вакансии, подработки, резюме и объявления специалистов по вибродиагностике и смежным методам</p></div><a class="btn btn-brand" href="#">+ Подать объявление</a></div>
  <div class="bx-top">
   <div class="seg" id="bx-seg"><button class="on" data-k="vac">Вакансии</button><button data-k="gig">Подработки</button><button data-k="res">Резюме</button><button data-k="ann">Объявления</button></div>
  </div>
@@ -320,7 +332,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
 
 <!-- ================= БИБЛИОТЕКА ================= -->
 <section class="page" id="p-library">
- <div class="sec-h"><div><h1>Библиотека НТД</h1><p>Стандарты, методики и техническая литература - с поиском и фильтрами</p></div></div>
+ <div class="sec-h"><div><h1>База знаний</h1><p>Стандарты, методики и техническая литература - с поиском и фильтрами</p></div></div>
  <div class="grid">
   <div class="card">
    <div class="lib-f"><div class="seg"><button class="on">Все</button><button>ГОСТ</button><button>ISO</button><button>API</button><button>Методики</button><button>Книги</button></div></div>
@@ -344,7 +356,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
 
 <!-- ================= УЧЕБНЫЕ ЦЕНТРЫ ================= -->
 <section class="page" id="p-centers">
- <div class="sec-h"><div><h1>Учебные центры</h1><p>Каталог центров и курсов - центры добавляют свои программы и даты сами</p></div><a class="btn btn-brand" href="#">+ Добавить центр</a></div>
+ <div class="sec-h"><div><h1>Компании-партнёры</h1><p>Учебные центры, сервисные компании и поставщики - партнёры добавляют свои курсы, услуги и даты сами</p></div><a class="btn btn-brand" href="#">+ Добавить центр</a></div>
  <div class="ucs">
   <div class="uc"><div class="hd"><span class="lg" style="background:#1f3cc0">Р</span><div><h3>Учебный центр «Ротор»</h3><small>Москва · очно и онлайн (пример)</small></div></div><ul><li>Вибродиагностика, I уровень <b>10 ноя</b></li><li>Вибродиагностика, II уровень <b>1 дек</b></li><li>Анализ спектров для практиков <b>15 дек</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
   <div class="uc"><div class="hd"><span class="lg" style="background:#1d9a6c">Т</span><div><h3>Центр «ТехДиагност»</h3><small>Уфа · очно (пример)</small></div></div><ul><li>Балансировка в собственных опорах <b>17 ноя</b></li><li>Лазерная центровка валов <b>24 ноя</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
@@ -356,7 +368,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
 <aside class="rail" aria-label="Реклама справа"><div class="ad"><b>Реклама · 160×600</b>Правое поле: баннер партнёра</div><div class="ad s"><b>Реклама · 160×240</b>Второе место</div></aside>
 </div></main>
 
-<footer><div class="wrap"><span>Вибросообщество · портал при axelvt.ru · эскиз</span><span>Правила · Реклама · Обратная связь</span></div></footer>
+<footer><div class="wrap"><span>AXVT · форум при axelvt.ru · эскиз</span><span><a href="#rules" data-go="rules" style="color:inherit">Правила</a> · Реклама · Обратная связь</span></div></footer>
 
 <script>
 (function(){
