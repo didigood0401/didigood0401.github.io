@@ -450,6 +450,43 @@ body{background:var(--bg)}
 .hero__art{background:#f2ece7}
 .hero__logo{mix-blend-mode:normal;will-change:auto}
 .mani__txt .w{transition:opacity .5s}
+
+/* ================= CASES (02.11) ================= */
+.cases{padding:clamp(110px,11vw,180px) 0;background:#fff}
+.cases__head{display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,5vw,80px);align-items:end}
+.cases__head .h2{margin-top:18px}
+.cases__grid{margin-top:clamp(44px,5vw,72px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(36px,4vw,56px) clamp(14px,1.6vw,24px)}
+.cs{display:flex;flex-direction:column;min-width:0}
+.cs__img{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--band)}
+.cs__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.cs:hover .cs__img img{transform:scale(1.04)}
+.cs__img--num{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,2vw,30px)}
+.cs__img--num b{font-family:var(--serif);font-weight:400;font-size:clamp(40px,3.6vw,58px);line-height:1;letter-spacing:-.01em}
+.cs__img--num span{margin-top:12px;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase}
+.cs__img--ink{background:var(--ink);color:#f6efe8}
+.cs__img--ink span{color:rgba(246,239,232,.6)}
+.cs__img--band{background:var(--band);color:var(--ink)}
+.cs__img--band b{color:var(--red)}
+.cs__img--band span{color:var(--sand-ink)}
+.cs__body{display:flex;flex-direction:column;flex:1;padding-top:20px}
+.cs__meta{display:flex;gap:12px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--sand-ink)}
+.cs__meta i{font-style:normal;color:var(--ink)}
+.cs h3{margin-top:12px;font-family:var(--serif);font-weight:400;font-size:clamp(24px,2vw,30px);line-height:1.1}
+.cs__res{margin-top:12px;font-size:15px;font-weight:500;line-height:1.5;color:var(--ink)}
+.cs ul{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:grid;gap:6px}
+.cs li{font-size:14px;line-height:1.45;color:var(--ink-2);padding-left:16px;position:relative}
+.cs li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:1px;background:var(--sand-ink)}
+.cs__ig{margin-top:auto;padding-top:16px;align-self:flex-start;font-size:12px;font-weight:500;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid var(--line);min-height:32px;display:inline-flex;align-items:flex-end}
+.cs__ig:hover{color:var(--red);border-color:var(--red)}
+.cases__cta{margin-top:clamp(48px,5vw,72px);display:flex;justify-content:center}
+@media(max-width:1100px){.cases__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+  .cases__head{grid-template-columns:1fr}
+  .cases__grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--m);gap:16px;margin-inline:calc(-1*var(--m));padding:0 var(--m) 8px;scrollbar-width:none}
+  .cases__grid::-webkit-scrollbar{display:none}
+  .cs{flex:0 0 78%;scroll-snap-align:start}
+  .cases__cta .btn{width:100%}
+}
 </style>
 </head>
 <body class="no-js">
@@ -460,6 +497,7 @@ body{background:var(--bg)}
   <div class="nav__in">
     <nav class="nav__links" aria-label="Разделы">
       <a href="#services">Услуги</a>
+      <a href="#cases">Кейсы</a>
       <a href="#tasks">Задачи</a>
       <a href="#process">Процесс</a>
       <a href="#team">Команда</a>
@@ -470,7 +508,7 @@ body{background:var(--bg)}
   </div>
 </header>
 <div class="mmenu" id="mmenu" aria-hidden="true">
-  <a href="#services">Услуги</a><a href="#tasks">Задачи</a><a href="#process">Процесс</a><a href="#team">Команда</a><a href="#contact">Контакты</a>
+  <a href="#services">Услуги</a><a href="#cases">Кейсы</a><a href="#tasks">Задачи</a><a href="#process">Процесс</a><a href="#team">Команда</a><a href="#contact">Контакты</a>
   <p>Креатив · SMM · PR · Продакшн · Сайты</p>
 </div>
 
@@ -571,6 +609,23 @@ body{background:var(--bg)}
       <a class="btn" href="#contact">Обсудить задачу <i>→</i></a>
       <p>Для сайтов делаем бесплатный эскиз первого экрана, чтобы вы увидели стиль до оплаты.</p>
     </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases" id="cases">
+  <div class="wrap">
+    <div class="cases__head">
+      <div>
+        <span class="kicker" data-rise>Кейсы</span>
+        <h2 class="h2" data-rise>Проекты, <em>которые говорят цифрами</em></h2>
+      </div>
+      <p class="lead" data-rise>Рестораны, кафе, фотостудии, детейлинг, парфюмерия и международная транспортная компания. В каждом проекте - стратегия, контент и продакшн одной командой.</p>
+    </div>
+    <div class="cases__grid">
+      <article class="cs" data-rise><figure class="cs__img"><img src="../img/cases/sendmyride.webp" width="720" height="900" loading="lazy" decoding="async" alt="Лента Send My Ride в Instagram"></figure><div class="cs__body"><span class="cs__meta"><i>01</i>США · авто-логистика</span><h3>Send My Ride</h3><p class="cs__res">Бренд целиком для рынка США: от первого касания до сервиса</p><ul><li>Сайт, соцсети, отдел заботы и визуал</li><li>Продакшн контента и позиционирование</li><li>Единый tone of voice для дилеров и автобизнеса</li></ul><a class="cs__ig" href="https://www.instagram.com/usasendmyride/" target="_blank" rel="noopener">@usasendmyride</a></div></article><article class="cs" data-rise><figure class="cs__img cs__img--num cs__img--ink"><b>≈27 млн ₽</b><span>месячная выручка ресторана</span></figure><div class="cs__body"><span class="cs__meta"><i>02</i>Ресторан · продюсирование</span><h3>Ресторан DOM</h3><p class="cs__res">Выросли посещаемость и выручка ресторана</p><ul><li>Концепции, съёмки и визуал</li><li>Атмосферный гастро-контент под аудиторию</li><li>Системное ведение и продвижение аккаунта</li></ul></div></article><article class="cs" data-rise><figure class="cs__img cs__img--num cs__img--band"><b>778 тыс.</b><span>просмотров на одном reels</span></figure><div class="cs__body"><span class="cs__meta"><i>03</i>Сеть ресторанов · HR-бренд</span><h3>Lulu Group</h3><p class="cs__res">Приток новых сотрудников: найм через Instagram</p><ul><li>Ведение HR-бренда сети ресторанов</li><li>Контент, который привлекает сотрудников</li><li>Образ сильного и живого работодателя</li></ul></div></article><article class="cs" data-rise><figure class="cs__img"><img src="../img/cases/unlim.webp" width="720" height="900" loading="lazy" decoding="async" alt="Лента UnlimPhotostudio в Instagram"></figure><div class="cs__body"><span class="cs__meta"><i>04</i>Фотостудия · 1,5 года</span><h3>UnlimPhotostudio</h3><p class="cs__res">100% загрузка студии: все клиенты приходили из Instagram</p><ul><li>Упаковка аккаунта с нуля</li><li>Фото, видео, обработка и тексты</li><li>Регулярный постинг и акции на запись</li></ul><a class="cs__ig" href="https://www.instagram.com/unlimphotostudio/" target="_blank" rel="noopener">@unlimphotostudio</a></div></article><article class="cs" data-rise><figure class="cs__img"><img src="../img/cases/artroyal.webp" width="720" height="900" loading="lazy" decoding="async" alt="Лента Art Royal Detailing в Instagram"></figure><div class="cs__body"><span class="cs__meta"><i>05</i>Авто-детейлинг · 6 месяцев</span><h3>Art Royal Detailing</h3><p class="cs__res">Вирусные ролики с миллионами просмотров и кратный рост клиентов</p><ul><li>Креативные концепции роликов</li><li>Съёмка, монтаж и продвижение</li><li>Контент, которым хочется делиться</li></ul><a class="cs__ig" href="https://www.instagram.com/artroyal_detailing/" target="_blank" rel="noopener">@artroyal_detailing</a></div></article><article class="cs" data-rise><figure class="cs__img"><img src="../img/cases/kumpan.webp" width="720" height="900" loading="lazy" decoding="async" alt="Лента Kumpan Cafe в Instagram"></figure><div class="cs__body"><span class="cs__meta"><i>06</i>Кафе · 1 год</span><h3>Kumpan Cafe</h3><p class="cs__res">Рост подписчиков и вовлечённости, выше узнаваемость и посещаемость</p><ul><li>SMM-стратегия под гастро-контент</li><li>Фото, видеорецепты, истории о команде</li><li>Посты, ответы, конкурсы</li></ul><a class="cs__ig" href="https://www.instagram.com/kumpancafe/" target="_blank" rel="noopener">@kumpancafe</a></div></article><article class="cs" data-rise><figure class="cs__img"><img src="../img/cases/pirogi.webp" width="720" height="900" loading="lazy" decoding="async" alt="Лента Фабрика Пирогов в Instagram"></figure><div class="cs__body"><span class="cs__meta"><i>07</i>Пекарня · 1 год</span><h3>Фабрика Пирогов</h3><p class="cs__res">Активная аудитория, стабильный рост охватов и продаж</p><ul><li>Стратегия контента с нуля</li><li>Еженедельные розыгрыши</li><li>Тёплое комьюнити и живое общение</li></ul><a class="cs__ig" href="https://www.instagram.com/fabrikapirogov/" target="_blank" rel="noopener">@fabrikapirogov</a></div></article><article class="cs" data-rise><figure class="cs__img"><img src="../img/cases/amd.webp" width="720" height="900" loading="lazy" decoding="async" alt="Лента Amd Parfum в Instagram"></figure><div class="cs__body"><span class="cs__meta"><i>08</i>Парфюмерия · 2 месяца</span><h3>Amd Parfum</h3><p class="cs__res">Рост продаж на точках всего за 2 месяца</p><ul><li>Контент-план и его реализация</li><li>Полная упаковка аккаунта</li><li>Акции под продажи: подарки, «2 по цене 1»</li></ul><a class="cs__ig" href="https://www.instagram.com/amd_parfum/" target="_blank" rel="noopener">@amd_parfum</a></div></article>
+    </div>
+    <div class="cases__cta" data-rise><a class="btn" href="#contact">Хочу так же <i>→</i></a></div>
   </div>
 </section>
 
