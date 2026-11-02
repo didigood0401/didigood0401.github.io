@@ -150,7 +150,7 @@ main{padding:24px 0 60px}
 .uc li{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding-top:6px}
 .uc li b{font:600 13px "IBM Plex Mono",monospace;white-space:nowrap}
 .side-h{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);font-weight:700;margin-bottom:8px}
-.rstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.rstats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
 .rstats div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13px;color:var(--mut)}
 .rstats b{display:block;font:600 24px "IBM Plex Mono",monospace;color:var(--brand)}
 .rules ol{margin:0;padding:18px 22px 18px 40px;display:grid;gap:12px;font-size:15px;line-height:1.55}
@@ -163,6 +163,22 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
 @media(max-width:1279px){.lay{display:block;max-width:1200px}.rail{display:none}.ad-m{display:flex}}
 @media(max-width:980px){.grid{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}.arts,.ucs{grid-template-columns:1fr 1fr}.art.big{grid-column:span 2}.fnode{grid-template-columns:40px 1fr;}.fnode .num,.fnode .last{grid-column:2}.search{display:none}}
 @media(max-width:600px){.wrap{padding:0 14px}.hero{padding:24px 20px;border-radius:14px}.auth .btn-ghost{display:none}.arts,.ucs{grid-template-columns:1fr}.art.big{grid-column:auto;flex-direction:column}.art.big .th{min-height:170px}.job{grid-template-columns:1fr}.job .pay{text-align:left}.tbl th:nth-child(3),.tbl td:nth-child(3){display:none}.tbl td.code{white-space:normal;font-size:12px}.tbl td,.tbl th{padding:10px 12px}.lib-f{padding:12px}.row .r{display:none}.quick{grid-template-columns:1fr 1fr;gap:10px}.qk{padding:12px}}
+
+/* ===== ОСНОВНОЙ: СВЕТЛО-ГОЛУБОЙ (утверждён 02.11) ===== */
+:root{--soft:#eaf5fc;--soft2:#dceffa;--line:#d3e6f3;--sky-l:#e3f2fc}
+body{background:var(--soft)}
+.top{background:#8cc9ec;color:var(--navy)}
+.logo{color:var(--navy)}
+.search{background:rgba(255,255,255,.7);border-color:rgba(18,28,69,.12);color:#4b5d7a}
+.top .btn-ghost{color:var(--navy);border-color:rgba(18,28,69,.32)}
+.top .btn-sky{background:var(--navy);color:#fff}
+nav.tabs{background:#fff;border-bottom:1px solid var(--line)}
+nav.tabs a{color:#2a4566}
+nav.tabs a:hover{color:var(--brand)}
+nav.tabs a.on{color:var(--brand);border-bottom-color:var(--brand)}
+.intro{border-left-color:#6db8e6}
+footer{background:#8cc9ec;color:#1b3352}
+footer a{color:#1b3352}
 
 /* ===== ВАРИАНТ: СВЕТЛО-ГОЛУБОЙ (как axelvt.ru) ===== */
 :root{--soft:#eaf5fc;--soft2:#dceffa;--line:#d3e6f3;--sky-l:#e3f2fc}
@@ -182,7 +198,7 @@ footer a{color:#1b3352}
 </style>
 </head>
 <body>
-<div class="note">Эскиз для обсуждения - название, тексты, пользователи и объявления условные. Нормативные документы - реальные, для примера наполнения.<br>Вариант цвета: <a href="../" style="color:inherit;text-decoration:underline">исходный (тёмно-синий)</a> / <b>светло-голубой</b> / <a href="../zelenyj/" style="color:inherit;text-decoration:underline">зелёный</a></div>
+<div class="note">Эскиз для обсуждения - название, тексты, пользователи и объявления условные. Нормативные документы - реальные, для примера наполнения.<br>Вариант цвета: <a href="../" style="color:inherit;text-decoration:underline">основной (светло-голубой, утверждён)</a> / <a href="../zelenyj/" style="color:inherit;text-decoration:underline">зелёный</a></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
  <defs>
@@ -208,7 +224,8 @@ footer a{color:#1b3352}
  <nav class="tabs"><div class="wrap">
   <a href="#home" data-go="home" class="on">Главная</a>
   <a href="#forum" data-go="forum">Форум</a>
-  <a href="#birzha" data-go="birzha">Работа и объявления</a>
+  <a href="#birzha" data-go="birzha">Работа</a>
+  <a href="#kupi" data-go="kupi">Купи/продай</a>
   <a href="#articles" data-go="articles">Статьи</a>
   <a href="#library" data-go="library">База знаний</a>
   <a href="#centers" data-go="centers">Компании-партнёры</a>
@@ -227,11 +244,11 @@ footer a{color:#1b3352}
   <div class="stack">
    <div class="intro">
     <h1>Форум специалистов по вибродиагностике</h1>
-    <p>AXVT - профессиональная площадка для тех, кто работает с вибрацией оборудования: инженеров-вибродиагностов, механиков, наладчиков систем мониторинга и специалистов служб надёжности. Здесь можно задать вопрос коллегам, разобрать сложный спектр или случай из практики и поделиться опытом. В разделе «Работа и объявления» - вакансии, подработки, резюме и объявления об оборудовании и услугах, а в «Базе знаний» собраны стандарты, методики и полезная литература. Форум модерируется, чтобы общение оставалось по делу.</p>
+    <p>AXVT - профессиональная площадка для тех, кто работает с вибрацией оборудования: инженеров-вибродиагностов, механиков, наладчиков систем мониторинга и специалистов служб надёжности. Здесь можно задать вопрос коллегам, разобрать сложный спектр или случай из практики и поделиться опытом. В разделе «Работа» - вакансии, подработки и резюме, в «Купи/продай» - объявления об оборудовании и услугах, а в «Базе знаний» собраны стандарты, методики и полезная литература. Форум модерируется, чтобы общение оставалось по делу.</p>
    </div>
 
    <div class="quick">
-    <a class="qk" href="#birzha" data-go="birzha"><i><svg><use href="#i-job"/></svg></i><b>Работа и объявления</b><span>Вакансии, подработки, резюме</span></a>
+    <a class="qk" href="#birzha" data-go="birzha"><i><svg><use href="#i-job"/></svg></i><b>Работа</b><span>Вакансии, подработки, резюме</span></a>
     <a class="qk" href="#forum" data-go="forum"><i><svg><use href="#i-forum"/></svg></i><b>Форум</b><span>Вопросы и опыт коллег</span></a>
     <a class="qk" href="#library" data-go="library"><i><svg><use href="#i-book"/></svg></i><b>База знаний</b><span>ГОСТ, ISO, API, методики</span></a>
     <a class="qk" href="#centers" data-go="centers"><i><svg><use href="#i-cap"/></svg></i><b>Компании-партнёры</b><span>Учебные центры и сервис</span></a>
@@ -258,12 +275,12 @@ footer a{color:#1b3352}
 <!-- ================= ПРАВИЛА ================= -->
 <section class="page" id="p-rules">
  <div class="sec-h"><div><h1>Правила</h1><p>Как устроен форум и что важно знать участникам</p></div></div>
- <div class="rstats"><div><b>1 240</b>участников</div><div><b>86</b>вакансий и подработок</div><div><b>3 900</b>сообщений</div><div><b>140</b>документов в базе знаний</div></div>
+ <div class="rstats"><div><b>1 240</b>участников</div><div><b>1 581</b>тем на форуме</div><div><b>20 350</b>сообщений</div><div><b>37</b>сейчас на сайте</div><div><b>86</b>вакансий и подработок</div><div><b>140</b>документов в базе знаний</div></div>
  <div class="card rules">
   <ol>
    <li><b>Общение по делу.</b> Темы - о вибродиагностике, мониторинге, балансировке, оборудовании и работе в отрасли. Вопросы не по теме - в разделе «Курилка».</li>
    <li><b>Уважение к коллегам.</b> Без оскорблений, переходов на личности и политики. Спорим о спектрах, а не о людях.</li>
-   <li><b>Реклама - только в отведённых местах.</b> Предложения услуг и оборудования размещаются в «Работе и объявлениях», а не в темах форума.</li>
+   <li><b>Реклама - только в отведённых местах.</b> Предложения услуг и оборудования размещаются в «Купи/продай», а не в темах форума.</li>
    <li><b>Объявления - честные.</b> Указывайте реальные условия, город и контакты. Повторные объявления и накрутка удаляются.</li>
    <li><b>Нормативные документы</b> публикуются в «Базе знаний» со ссылкой на источник. Платные стандарты не выкладываются целиком.</li>
    <li><b>Модерация.</b> Новые темы и объявления проверяются модератором. За нарушения - предупреждение, затем блокировка.</li>
@@ -274,7 +291,7 @@ footer a{color:#1b3352}
 <!-- ================= ФОРУМ ================= -->
 <section class="page" id="p-forum">
  <div class="sec-h"><div><h1>Форум</h1><p>Классический форум с разделами, поиском и уведомлениями об ответах</p></div><a class="btn btn-brand" href="#">+ Новая тема</a></div>
- <div class="grid">
+ <div class="grid one">
   <div>
    <div class="fcat">
     <div class="fcat-h">Вибродиагностика</div>
@@ -294,17 +311,14 @@ footer a{color:#1b3352}
     <div class="fnode"><span class="ic"><svg><use href="#i-coffee"/></svg></span><div><h4><a href="#">Курилка</a></h4><p>Общение на любые темы</p></div><div class="num">Темы: <b>120</b><br>Сообщения: <b>1.9K</b></div><div class="last"><span class="av" style="background:#d9822b">МА</span><div><a href="#">Командировки: что берёте с собой</a>вчера · Максим А.</div></div></div>
    </div>
   </div>
-  <aside class="stack">
-   <div class="card"><div class="card-h"><h3>Статистика форума</h3></div><div class="row"><div class="t"><small>Темы: <b class="mono">1 581</b> · Сообщения: <b class="mono">20 350</b><br>Участники: <b class="mono">1 240</b> · Сейчас на сайте: <b class="mono">37</b></small></div></div></div>
-  </aside>
  </div>
 </section>
 
 <!-- ================= БИРЖА ================= -->
 <section class="page" id="p-birzha">
- <div class="sec-h"><div><h1>Работа и объявления</h1><p>Вакансии, подработки, резюме и объявления специалистов по вибродиагностике и смежным методам</p></div><a class="btn btn-brand" href="#">+ Подать объявление</a></div>
+ <div class="sec-h"><div><h1>Работа</h1><p>Вакансии, подработки и резюме специалистов по вибродиагностике и смежным методам</p></div><a class="btn btn-brand" href="#">+ Разместить вакансию</a></div>
  <div class="bx-top">
-  <div class="seg" id="bx-seg"><button class="on" data-k="vac">Вакансии</button><button data-k="gig">Подработки</button><button data-k="res">Резюме</button><button data-k="ann">Объявления</button></div>
+  <div class="seg" id="bx-seg"><button class="on" data-k="vac">Вакансии</button><button data-k="gig">Подработки</button><button data-k="res">Резюме</button></div>
  </div>
  <div class="mod"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Все объявления проходят проверку модератором - публикуются после одобрения, обычно в течение дня.</div>
  <div class="warn"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3 2 20h20z M12 10v4M12 17v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Осторожно, мошенники! Не переводите предоплату за «оформление» и «пропуска». Сомнительное объявление - нажмите «Пожаловаться».</div>
@@ -323,13 +337,27 @@ footer a{color:#1b3352}
    <div class="bx-list" data-k="res" hidden>
     <div class="job"><div><h3><a href="#">Инженер-вибродиагност, 9 лет опыта</a></h3><div class="meta"><span>Казань</span><span>Готов к командировкам</span></div></div><div class="pay">от 150 000 ₽</div><p>II уровень по ISO 18436-2, опыт на НПЗ и ТЭЦ, балансировка, лазерная центровка, работа со стационарными системами.</p><div class="tg"><span class="pill">резюме</span><span class="pill">II уровень</span></div></div>
    </div>
-   <div class="bx-list" data-k="ann" hidden>
-    <div class="job"><div><h3><a href="#">Продаётся прибор для балансировки, б/у, с поверкой</a></h3><div class="meta"><span>Москва</span><span>Отличное состояние</span></div></div><div class="pay">95 000 ₽</div><p>Полный комплект: датчики, тахометр, кейс, ПО. Поверка до 2027 года.</p><div class="tg"><span class="pill">продам</span><span class="pill">приборы</span></div></div>
-   </div>
   </div>
   <aside class="stack">
    <div class="card"><div class="card-h"><h3>Теги</h3></div><div class="tags"><span class="on">Все</span><span>Вибродиагностика</span><span>Балансировка</span><span>Центровка</span><span>Системы мониторинга</span><span>Монтаж</span><span>Термография</span><span>Анализ масел</span><span>Вахта</span><span>Удалённо</span></div></div>
   </aside>
+ </div>
+</section>
+
+<!-- ================= КУПИ/ПРОДАЙ ================= -->
+<section class="page" id="p-kupi">
+ <div class="sec-h"><div><h1>Купи/продай</h1><p>Приборы, датчики, запчасти и услуги - объявления участников сообщества</p></div><a class="btn btn-brand" href="#">+ Подать объявление</a></div>
+ <div class="bx-top">
+  <div class="seg" id="kp-seg"><button class="on">Все</button><button>Продам</button><button>Куплю</button><button>Услуги</button></div>
+ </div>
+ <div class="mod"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Все объявления проходят проверку модератором - публикуются после одобрения, обычно в течение дня.</div>
+ <div class="grid one">
+  <div>
+   <div class="job paid"><div><span class="badge">★ Выделено · в топе 7 дней</span><h3><a href="#">Продаётся прибор для балансировки, б/у, с поверкой</a></h3><div class="meta"><span>Москва</span><span>Отличное состояние</span></div></div><div class="pay">95 000 ₽</div><p>Полный комплект: датчики, тахометр, кейс, ПО. Поверка до 2027 года.</p><div class="tg"><span class="pill">продам</span><span class="pill">приборы</span></div></div>
+   <div class="job"><div><h3><a href="#">Куплю вибродатчики (акселерометры) для стационарной системы, 12 шт.</a></h3><div class="meta"><span>Уфа</span><span>Новые или с хранения</span></div></div><div class="pay">договорная</div><p>Нужны датчики с выходом 4-20 мА или ICP, с паспортами. Рассмотрю аналоги.</p><div class="tg"><span class="pill o">куплю</span><span class="pill">датчики</span></div></div>
+   <div class="job"><div><h3><a href="#">Лазерная система центровки валов, комплект</a></h3><div class="meta"><span>Пермь</span><span>Б/у, 2 года</span></div></div><div class="pay">180 000 ₽</div><p>Два измерительных блока, дисплейный блок, крепления, кейс. Отдам с обучением.</p><div class="tg"><span class="pill">продам</span><span class="pill">центровка</span></div></div>
+   <div class="job"><div><h3><a href="#">Поверка и ремонт виброизмерительной аппаратуры</a></h3><div class="meta"><span>Екатеринбург</span><span>Работаем по всей России</span></div></div><div class="pay">от 4 500 ₽</div><p>Поверка виброметров и датчиков, ремонт кабелей и разъёмов, срок 5-7 рабочих дней.</p><div class="tg"><span class="pill s">услуги</span><span class="pill">поверка</span></div></div>
+  </div>
  </div>
 </section>
 
@@ -401,7 +429,7 @@ footer a{color:#1b3352}
  seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
   seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
   document.querySelectorAll('.bx-list').forEach(function(l){l.hidden=l.dataset.k!==b.dataset.k})});
- document.querySelectorAll('.tags span,.lib-f .seg button').forEach(function(t){t.addEventListener('click',function(){t.parentNode.querySelectorAll('.on').forEach(function(x){x.classList.remove('on')});t.classList.add('on')})});
+ document.querySelectorAll('.tags span,.lib-f .seg button,#kp-seg button').forEach(function(t){t.addEventListener('click',function(){t.parentNode.querySelectorAll('.on').forEach(function(x){x.classList.remove('on')});t.classList.add('on')})});
 })();
 </script>
 </body>
