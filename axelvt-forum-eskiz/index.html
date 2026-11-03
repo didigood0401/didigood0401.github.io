@@ -179,6 +179,58 @@ nav.tabs a.on{color:var(--brand);border-bottom-color:var(--brand)}
 .intro{border-left-color:#6db8e6}
 footer{background:#8cc9ec;color:#1b3352}
 footer a{color:#1b3352}
+
+/* ===== 03.11: формы подачи, таблица объявлений ===== */
+[hidden]{display:none!important}
+.tag-note{font-size:12.5px;color:var(--mut);padding:0 14px 14px;line-height:1.5}
+.tags span.on{background:var(--brand);border-color:var(--brand)}
+.add-btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn-out{background:#fff;color:var(--brand);border:1px solid #c9d6f2}
+.modal{position:fixed;inset:0;background:rgba(18,28,69,.45);display:none;align-items:flex-start;justify-content:center;z-index:50;overflow-y:auto;padding:40px 16px}
+.modal.on{display:flex}
+.mbox{background:#fff;border-radius:16px;max-width:640px;width:100%;box-shadow:0 20px 60px rgba(18,28,69,.25)}
+.mbox .mh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.mbox .mh h3{font-size:18px}
+.mbox .x{border:0;background:none;font-size:26px;line-height:1;cursor:pointer;color:var(--mut)}
+.mbox form{padding:16px 20px 20px;display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.fld{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;color:#2a3550}
+.fld.w{grid-column:1/-1}
+.fld input,.fld select,.fld textarea{font:400 14px "IBM Plex Sans";border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fbfdff;color:var(--tx)}
+.fld textarea{min-height:90px;resize:vertical}
+.fld small{font-weight:400;color:var(--mut)}
+.chk{display:flex;flex-wrap:wrap;gap:6px}
+.chk label{font:400 13px "IBM Plex Sans";border:1px solid var(--line);border-radius:8px;padding:5px 9px;cursor:pointer;display:flex;gap:5px;align-items:center}
+.mbox .seg{grid-column:1/-1;justify-self:start}
+.mfoot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px;font-size:12.5px;color:var(--mut)}
+.mfoot .ok{color:var(--ok);font-weight:600;display:none}
+.term{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px;margin-bottom:16px;line-height:1.5}
+.term b{color:var(--navy)}
+.ktw{background:#fff;border:1px solid var(--line);border-radius:14px;overflow-x:auto}
+.kt{width:100%;border-collapse:collapse;font-size:13.5px;min-width:920px}
+.kt th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600;padding:10px 12px;background:var(--soft);white-space:nowrap}
+.kt td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
+.kt td.n{font-weight:600;color:var(--tx);min-width:200px}
+.kt td.m{font:600 12.5px "IBM Plex Mono",monospace;color:var(--navy);white-space:nowrap}
+.kt td.c{white-space:nowrap}
+.kt td.c a{display:block;font-size:12.5px}
+.kt td.t{white-space:nowrap;font-size:12.5px}
+.kt tr.own td{background:#f5faff}
+.kt tr.hl td{background:#fff8ef}
+.days{font:600 12px "IBM Plex Mono",monospace;padding:2px 7px;border-radius:5px;background:#e3f5ee;color:#13704e}
+.days.lo{background:#fdeedd;color:#9a5410}
+.days.inf{background:var(--soft2);color:var(--brand-d)}
+.kt-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:12px 14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mut)}
+@media(max-width:700px){
+ .mbox form{grid-template-columns:1fr}
+ .kt{min-width:0}.kt thead{display:none}
+ .kt,.kt tbody,.kt tr,.kt td{display:block;width:100%}
+ .kt tr{border-top:1px solid var(--line);padding:10px 14px}
+ .kt td{border:0;padding:3px 0;display:flex;gap:10px;justify-content:space-between;text-align:right}
+ .kt td::before{content:attr(data-l);color:var(--mut);font-size:12px;text-align:left;flex:none}
+ .kt td.n{display:block;text-align:left;font-size:15px;padding-bottom:6px}.kt td.n::before{content:none}
+ .kt td.c a{display:inline;margin-left:8px}
+ .modal{padding:12px}
+}
 </style>
 </head>
 <body>
@@ -228,7 +280,7 @@ footer a{color:#1b3352}
   <div class="stack">
    <div class="intro">
     <h1>Форум специалистов по вибродиагностике</h1>
-    <p>AXVT - профессиональная площадка для тех, кто работает с вибрацией оборудования: инженеров-вибродиагностов, механиков, наладчиков систем мониторинга и специалистов служб надёжности. Здесь можно задать вопрос коллегам, разобрать сложный спектр или случай из практики и поделиться опытом. В разделе «Работа» - вакансии, подработки и резюме, в «Купи/продай» - объявления об оборудовании и услугах, а в «Базе знаний» собраны стандарты, методики и полезная литература. Форум модерируется, чтобы общение оставалось по делу.</p>
+    <p>AXVT - профессиональная площадка для тех, кто работает с вибрацией оборудования: инженеров-вибродиагностов, механиков, наладчиков систем мониторинга и специалистов служб надёжности. Здесь можно задать вопрос коллегам, разобрать сложный спектр или случай из практики и поделиться опытом. В разделе «Работа» - вакансии, подработки и резюме, в «Купи/продай» - объявления о покупке и продаже оборудования, а в «Базе знаний» собраны стандарты, методики и полезная литература. Форум модерируется, чтобы общение оставалось по делу.</p>
    </div>
 
    <div class="quick">
@@ -300,7 +352,7 @@ footer a{color:#1b3352}
 
 <!-- ================= БИРЖА ================= -->
 <section class="page" id="p-birzha">
- <div class="sec-h"><div><h1>Работа</h1><p>Вакансии, подработки и резюме специалистов по вибродиагностике и смежным методам</p></div><a class="btn btn-brand" href="#">+ Разместить вакансию</a></div>
+ <div class="sec-h"><div><h1>Работа</h1><p>Вакансии, подработки и резюме специалистов по вибродиагностике и смежным методам</p></div><div class="add-btns"><a class="btn btn-brand" href="#" data-form="job" data-type="vac">+ Вакансия</a><a class="btn btn-out" href="#" data-form="job" data-type="gig">+ Подработка</a><a class="btn btn-out" href="#" data-form="job" data-type="res">+ Резюме</a></div></div>
  <div class="bx-top">
   <div class="seg" id="bx-seg"><button class="on" data-k="vac">Вакансии</button><button data-k="gig">Подработки</button><button data-k="res">Резюме</button></div>
  </div>
@@ -323,25 +375,33 @@ footer a{color:#1b3352}
    </div>
   </div>
   <aside class="stack">
-   <div class="card"><div class="card-h"><h3>Теги</h3></div><div class="tags"><span class="on">Все</span><span>Вибродиагностика</span><span>Балансировка</span><span>Центровка</span><span>Системы мониторинга</span><span>Монтаж</span><span>Термография</span><span>Анализ масел</span><span>Вахта</span><span>Удалённо</span></div></div>
+   <div class="card"><div class="card-h"><h3>Теги</h3></div><div class="tags" id="bx-tags"><span class="on">Все</span><span>Вибродиагностика</span><span>Балансировка</span><span>Центровка</span><span>Системы мониторинга</span><span>Монтаж</span><span>Термография</span><span>Анализ масел</span><span>Вахта</span><span>Удалённо</span></div><p class="tag-note">Теги автор отмечает сам в форме подачи (2-4 шт.), выбирая из списка. Список задаёте вы в админке - можно добавлять и убирать. Модератор при проверке может поправить теги. Клик по тегу показывает только объявления с ним.</p></div>
   </aside>
  </div>
 </section>
 
 <!-- ================= КУПИ/ПРОДАЙ ================= -->
 <section class="page" id="p-kupi">
- <div class="sec-h"><div><h1>Купи/продай</h1><p>Приборы, датчики, запчасти и услуги - объявления участников сообщества</p></div><a class="btn btn-brand" href="#">+ Подать объявление</a></div>
+ <div class="sec-h"><div><h1>Купи/продай</h1><p>Приборы, датчики, запчасти и оборудование - объявления участников сообщества</p></div>
+  <div class="add-btns"><a class="btn btn-brand" href="#" data-form="kp" data-type="sell">+ Продам</a><a class="btn btn-out" href="#" data-form="kp" data-type="buy">+ Куплю</a></div></div>
  <div class="bx-top">
-  <div class="seg" id="kp-seg"><button class="on">Все</button><button>Продам</button><button>Куплю</button><button>Услуги</button></div>
+  <div class="seg" id="kp-seg"><button class="on" data-k="all">Все</button><button data-k="sell">Продам</button><button data-k="buy">Куплю</button></div>
  </div>
+ <div class="term"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><b>Срок объявления - 21 день.</b> За 3 дня до окончания автору приходит письмо с кнопкой «Продлить ещё на 21 день». Подтвердил - объявление остаётся, не подтвердил - уходит в архив, и в таблице остаются только актуальные предложения. Объявления AxelVT размещаются без срока.</div></div>
  <div class="mod"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Все объявления проходят проверку модератором - публикуются после одобрения, обычно в течение дня.</div>
- <div class="grid one">
-  <div>
-   <div class="job paid"><div><span class="badge">★ Выделено · в топе 7 дней</span><h3><a href="#">Продаётся прибор для балансировки, б/у, с поверкой</a></h3><div class="meta"><span>Москва</span><span>Отличное состояние</span></div></div><div class="pay">95 000 ₽</div><p>Полный комплект: датчики, тахометр, кейс, ПО. Поверка до 2027 года.</p><div class="tg"><span class="pill">продам</span><span class="pill">приборы</span></div></div>
-   <div class="job"><div><h3><a href="#">Куплю вибродатчики (акселерометры) для стационарной системы, 12 шт.</a></h3><div class="meta"><span>Уфа</span><span>Новые или с хранения</span></div></div><div class="pay">договорная</div><p>Нужны датчики с выходом 4-20 мА или ICP, с паспортами. Рассмотрю аналоги.</p><div class="tg"><span class="pill o">куплю</span><span class="pill">датчики</span></div></div>
-   <div class="job"><div><h3><a href="#">Лазерная система центровки валов, комплект</a></h3><div class="meta"><span>Пермь</span><span>Б/у, 2 года</span></div></div><div class="pay">180 000 ₽</div><p>Два измерительных блока, дисплейный блок, крепления, кейс. Отдам с обучением.</p><div class="tg"><span class="pill">продам</span><span class="pill">центровка</span></div></div>
-   <div class="job"><div><h3><a href="#">Поверка и ремонт виброизмерительной аппаратуры</a></h3><div class="meta"><span>Екатеринбург</span><span>Работаем по всей России</span></div></div><div class="pay">от 4 500 ₽</div><p>Поверка виброметров и датчиков, ремонт кабелей и разъёмов, срок 5-7 рабочих дней.</p><div class="tg"><span class="pill s">услуги</span><span class="pill">поверка</span></div></div>
-  </div>
+ <div class="ktw">
+  <table class="kt" id="kt">
+   <thead><tr><th>Наименование</th><th>Артикул</th><th>Производитель</th><th>Кол-во</th><th>Цена за ед.</th><th>Контакты</th><th>Примечание</th><th>Осталось</th></tr></thead>
+   <tbody>
+    <tr class="own" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Акселерометр высокотемпературный HS105</td><td class="m" data-l="Артикул">hs105</td><td data-l="Производитель">Hansford Sensors</td><td data-l="Кол-во">6 шт.</td><td class="m" data-l="Цена за ед.">по запросу</td><td class="c" data-l="Контакты">Уфа<br><a href="#">+7 (917) 000-00-00</a><a href="#">Написать</a></td><td data-l="Примечание">Новые, с паспортами. Объявление AxelVT</td><td class="t" data-l="Осталось"><span class="days inf">без срока</span></td></tr>
+    <tr class="hl" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Прибор для балансировки, б/у, с поверкой</td><td class="m" data-l="Артикул">-</td><td data-l="Производитель">Балтех (пример)</td><td data-l="Кол-во">1 шт.</td><td class="m" data-l="Цена за ед.">95 000 ₽</td><td class="c" data-l="Контакты">Москва<br><a href="#">+7 (900) 000-00-01</a><a href="#">Написать</a></td><td data-l="Примечание">Полный комплект, поверка до 2027 г. ★ Выделено</td><td class="t" data-l="Осталось"><span class="days">19 дн.</span></td></tr>
+    <tr class="" data-kind="buy"><td class="n" data-l=""><span class="pill o">куплю</span> Вибродатчик ICP для стационарной системы</td><td class="m" data-l="Артикул">AC102-1A</td><td data-l="Производитель">CTC (пример)</td><td data-l="Кол-во">12 шт.</td><td class="m" data-l="Цена за ед.">договорная</td><td class="c" data-l="Контакты">Уфа<br><a href="#">+7 (900) 000-00-02</a><a href="#">Написать</a></td><td data-l="Примечание">Новые или с хранения, рассмотрю аналоги</td><td class="t" data-l="Осталось"><span class="days">14 дн.</span></td></tr>
+    <tr class="" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Лазерная система центровки валов</td><td class="m" data-l="Артикул">TKSA 41</td><td data-l="Производитель">SKF (пример)</td><td data-l="Кол-во">1 компл.</td><td class="m" data-l="Цена за ед.">180 000 ₽</td><td class="c" data-l="Контакты">Пермь<br><a href="#">+7 (900) 000-00-03</a><a href="#">Написать</a></td><td data-l="Примечание">Б/у 2 года, кейс, крепления</td><td class="t" data-l="Осталось"><span class="days">8 дн.</span></td></tr>
+    <tr class="" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Кабель удлинительный для вихретокового датчика, 5 м</td><td class="m" data-l="Артикул">330130-040</td><td data-l="Производитель">Bently Nevada (пример)</td><td data-l="Кол-во">20 шт.</td><td class="m" data-l="Цена за ед.">6 800 ₽</td><td class="c" data-l="Контакты">Самара<br><a href="#">+7 (900) 000-00-04</a><a href="#">Написать</a></td><td data-l="Примечание">Остатки с объекта, в упаковке</td><td class="t" data-l="Осталось"><span class="days lo">2 дн.</span></td></tr>
+    <tr class="" data-kind="buy"><td class="n" data-l=""><span class="pill o">куплю</span> Модуль защиты для стойки 3500</td><td class="m" data-l="Артикул">3500/42M</td><td data-l="Производитель">Bently Nevada (пример)</td><td data-l="Кол-во">2 шт.</td><td class="m" data-l="Цена за ед.">договорная</td><td class="c" data-l="Контакты">Сургут<br><a href="#">+7 (900) 000-00-05</a><a href="#">Написать</a></td><td data-l="Примечание">Срочно, можно б/у с проверкой</td><td class="t" data-l="Осталось"><span class="days">11 дн.</span></td></tr>
+   </tbody>
+  </table>
+  <div class="kt-foot"><span>Каждое поданное объявление после одобрения автоматически добавляется строкой в эту таблицу. Сортировка по любому столбцу, поиск по артикулу.</span><span>Админу: выгрузка таблицы в Excel</span></div>
  </div>
 </section>
 
@@ -398,6 +458,45 @@ footer a{color:#1b3352}
 
 <footer><div class="wrap"><span>AXVT · форум при axelvt.ru · эскиз</span><span><a href="#rules" data-go="rules" style="color:inherit">Правила</a> · Реклама · Обратная связь</span></div></footer>
 
+
+<!-- ================= ФОРМЫ ПОДАЧИ ================= -->
+<div class="modal" id="m-job"><div class="mbox">
+ <div class="mh"><h3>Новое объявление - Работа</h3><button class="x" type="button" aria-label="Закрыть">×</button></div>
+ <form>
+  <div class="seg" id="job-seg"><button type="button" data-t="vac" class="on">Вакансия</button><button type="button" data-t="gig">Подработка</button><button type="button" data-t="res">Резюме</button></div>
+  <label class="fld w"><span data-v="vac">Должность</span><span data-v="gig" hidden>Что нужно сделать</span><span data-v="res" hidden>Специальность</span><input placeholder="Например: инженер-вибродиагност, II уровень"></label>
+  <label class="fld" data-v="vac gig">Компания<input placeholder="ООО «...»"></label>
+  <label class="fld" data-v="res" hidden>Имя<input placeholder="Как к вам обращаться"></label>
+  <label class="fld">Город / регион<input placeholder="Уфа, Башкортостан"></label>
+  <label class="fld" data-v="vac res">График<select><option>Полный день</option><option>Вахта</option><option>Командировки</option><option>Удалённо</option></select></label>
+  <label class="fld" data-v="gig" hidden>Сроки<input placeholder="Например: 4-5 дней, с 10 ноября"></label>
+  <label class="fld"><span data-v="vac gig">Оплата</span><span data-v="res" hidden>Желаемая зарплата</span><input placeholder="от 150 000 ₽ или «по договорённости»"></label>
+  <label class="fld" data-v="res" hidden>Опыт и квалификация<input placeholder="Лет опыта, уровень по ISO 18436-2"></label>
+  <label class="fld w">Описание<textarea placeholder="Обязанности, требования, условия - или о себе для резюме"></textarea></label>
+  <div class="fld w">Теги <small>отметьте 2-4, по ним объявление находят в фильтре</small><div class="chk"><label><input type="checkbox">Вибродиагностика</label><label><input type="checkbox">Балансировка</label><label><input type="checkbox">Центровка</label><label><input type="checkbox">Системы мониторинга</label><label><input type="checkbox">Монтаж</label><label><input type="checkbox">Термография</label><label><input type="checkbox">Анализ масел</label><label><input type="checkbox">Вахта</label><label><input type="checkbox">Удалённо</label></div></div>
+  <label class="fld">Телефон<input placeholder="+7"></label>
+  <label class="fld">E-mail<input placeholder="mail@example.ru"></label>
+  <label class="fld w">Telegram / MAX <small>необязательно</small><input placeholder="@username"></label>
+  <div class="mfoot"><span>После отправки объявление уходит на модерацию.<br>Мы пришлём письмо, когда оно опубликовано.</span><span class="ok">✓ Отправлено на модерацию (эскиз)</span><button class="btn btn-brand" type="submit">Отправить</button></div>
+ </form>
+</div></div>
+
+<div class="modal" id="m-kp"><div class="mbox">
+ <div class="mh"><h3>Новое объявление - Купи/продай</h3><button class="x" type="button" aria-label="Закрыть">×</button></div>
+ <form>
+  <div class="seg" id="kpf-seg"><button type="button" data-t="sell" class="on">Продам</button><button type="button" data-t="buy">Куплю</button></div>
+  <label class="fld w">Наименование<input placeholder="Например: акселерометр высокотемпературный"></label>
+  <label class="fld">Артикул<input placeholder="hs105"></label>
+  <label class="fld">Производитель<input placeholder="Hansford Sensors"></label>
+  <label class="fld">Количество<input placeholder="6 шт."></label>
+  <label class="fld">Цена за единицу<input placeholder="₽ или «договорная»"></label>
+  <label class="fld">Город<input placeholder="Уфа"></label>
+  <label class="fld">Телефон<input placeholder="+7"></label>
+  <label class="fld w">E-mail <small>на него придёт письмо о продлении через 21 день</small><input placeholder="mail@example.ru"></label>
+  <label class="fld w">Примечание<textarea placeholder="Состояние, комплектность, поверка, условия доставки"></textarea></label>
+  <div class="mfoot"><span>После отправки объявление уходит на модерацию.<br>Срок размещения - 21 день, продление по письму.</span><span class="ok">✓ Отправлено на модерацию (эскиз)</span><button class="btn btn-brand" type="submit">Отправить</button></div>
+ </form>
+</div></div>
 <script>
 (function(){
  var tabs=document.querySelectorAll('nav.tabs a');
@@ -413,6 +512,28 @@ footer a{color:#1b3352}
  seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
   seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
   document.querySelectorAll('.bx-list').forEach(function(l){l.hidden=l.dataset.k!==b.dataset.k})});
+
+ // 03.11: формы подачи
+ function openForm(id,t){var m=document.getElementById('m-'+id);m.classList.add('on');m.querySelector('.ok').style.display='none';
+  var b=m.querySelector('.seg button[data-t="'+t+'"]');if(b)b.click();}
+ document.addEventListener('click',function(e){var a=e.target.closest('[data-form]');if(!a)return;e.preventDefault();openForm(a.dataset.form,a.dataset.type)});
+ document.querySelectorAll('.modal').forEach(function(m){
+  m.addEventListener('click',function(e){if(e.target===m||e.target.closest('.x'))m.classList.remove('on')});
+  m.querySelector('form').addEventListener('submit',function(e){e.preventDefault();m.querySelector('.ok').style.display='inline'});
+  var sg=m.querySelector('.seg');
+  sg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+   sg.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
+   m.querySelectorAll('[data-v]').forEach(function(el){el.hidden=el.dataset.v.split(' ').indexOf(b.dataset.t)<0});});
+ });
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.modal.on').forEach(function(m){m.classList.remove('on')})});
+ // фильтр таблицы Купи/продай
+ var kps=document.getElementById('kp-seg');
+ kps.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#kt tbody tr').forEach(function(r){r.hidden=b.dataset.k!=='all'&&r.dataset.kind!==b.dataset.k})});
+ // фильтр по тегам в «Работе»
+ document.getElementById('bx-tags').addEventListener('click',function(e){var t=e.target.closest('span');if(!t)return;var w=t.textContent.toLowerCase();
+  document.querySelectorAll('#p-birzha .job').forEach(function(j){var p=[].map.call(j.querySelectorAll('.pill'),function(x){return x.textContent.toLowerCase()}).join(' ')+' '+j.textContent.toLowerCase();
+   j.style.display=(w==='все'||p.indexOf(w.slice(0,6))>=0)?'':'none'})});
  document.querySelectorAll('.tags span,.lib-f .seg button,#kp-seg button').forEach(function(t){t.addEventListener('click',function(){t.parentNode.querySelectorAll('.on').forEach(function(x){x.classList.remove('on')});t.classList.add('on')})});
 })();
 </script>
