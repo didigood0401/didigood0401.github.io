@@ -231,6 +231,33 @@ footer a{color:#1b3352}
  .kt td.c a{display:inline;margin-left:8px}
  .modal{padding:12px}
 }
+
+/* ===== 03.11 (2): оплата/состояние, партнёры ===== */
+@media(min-width:701px){
+.kt{min-width:1000px;font-size:12.5px}
+.kt th{white-space:normal;padding:9px 7px;font-size:10.5px;line-height:1.3;vertical-align:bottom}
+.kt td{padding:10px 7px}
+.kt td.n{min-width:150px;font-size:13px}
+.kt td.m{font-size:11.5px}
+.kt td.c a{font-size:12px}
+.kt td:last-child{min-width:130px}
+.kt th:first-child,.kt td:first-child{padding-left:12px}
+}
+.st{font:600 11.5px "IBM Plex Sans";padding:2px 7px;border-radius:5px;white-space:nowrap;background:#e3f5ee;color:#13704e}
+.st.bu{background:#eef1f6;color:#4a5670}
+.kt td.pay{white-space:nowrap;font-size:12.5px;color:#2a3550}
+.dirs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.dirs button{font:500 13px "IBM Plex Sans";border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;color:#2a3550}
+.dirs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.uc .lg{background:#fff!important;border:1px solid var(--line);width:58px;height:58px;padding:6px;flex:none}
+.uc .lg svg{width:100%;height:100%;display:block}
+.uc .dt{display:flex;flex-wrap:wrap;gap:5px}
+.uc .dt span{font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--soft2);color:var(--brand-d)}
+.uc p{font-size:13.5px;color:#3a4560;line-height:1.5}
+.uc .btn{margin-top:auto;align-self:flex-start}
+.logo-up{display:flex;gap:12px;align-items:center;border:1px dashed #c9d6f2;border-radius:10px;padding:10px 12px;font-weight:400;color:var(--mut);font-size:12.5px}
+.logo-up i{width:46px;height:46px;border-radius:10px;background:var(--soft);display:grid;place-items:center;font-style:normal;font-size:20px;color:var(--brand);flex:none}
+.admin-note{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--mut);margin-top:14px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -321,6 +348,7 @@ footer a{color:#1b3352}
    <li><b>Нормативные документы</b> публикуются в «Базе знаний» со ссылкой на источник. Платные стандарты не выкладываются целиком.</li>
    <li><b>Модерация.</b> Новые темы и объявления проверяются модератором. За нарушения - предупреждение, затем блокировка.</li>
   </ol>
+  <div class="admin-note"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none;margin-top:1px"><path d="M4 20h4L19 9l-4-4L4 16z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Текст правил - пример. На сайте его пишет и правит администратор в админке, как обычную страницу.</span></div>
  </div>
 </section>
 
@@ -387,21 +415,21 @@ footer a{color:#1b3352}
  <div class="bx-top">
   <div class="seg" id="kp-seg"><button class="on" data-k="all">Все</button><button data-k="sell">Продам</button><button data-k="buy">Куплю</button></div>
  </div>
- <div class="term"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><b>Срок объявления - 21 день.</b> За 3 дня до окончания автору приходит письмо с кнопкой «Продлить ещё на 21 день». Подтвердил - объявление остаётся, не подтвердил - уходит в архив, и в таблице остаются только актуальные предложения. Объявления AxelVT размещаются без срока.</div></div>
+ <div class="term"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><b>Срок объявления - 21 день.</b> За 3 дня до окончания автору приходит письмо с кнопкой «Продлить ещё на 21 день». Подтвердил - объявление остаётся, не подтвердил - уходит в архив, и в таблице остаются только актуальные предложения. Оставшийся срок посетителям не показывается - его видят автор (в письме) и администратор. Объявления AxelVT размещаются без срока.</div></div>
  <div class="mod"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Все объявления проходят проверку модератором - публикуются после одобрения, обычно в течение дня.</div>
  <div class="ktw">
   <table class="kt" id="kt">
-   <thead><tr><th>Наименование</th><th>Артикул</th><th>Производитель</th><th>Кол-во</th><th>Цена за ед.</th><th>Контакты</th><th>Примечание</th><th>Осталось</th></tr></thead>
+   <thead><tr><th>Наименование</th><th>Артикул</th><th>Состояние</th><th>Производитель</th><th>Кол-во</th><th>Год производства</th><th>Цена за ед.</th><th>Оплата</th><th>Контакты</th><th>Примечание</th></tr></thead>
    <tbody>
-    <tr class="own" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Акселерометр высокотемпературный HS105</td><td class="m" data-l="Артикул">hs105</td><td data-l="Производитель">Hansford Sensors</td><td data-l="Кол-во">6 шт.</td><td class="m" data-l="Цена за ед.">по запросу</td><td class="c" data-l="Контакты">Уфа<br><a href="#">+7 (917) 000-00-00</a><a href="#">Написать</a></td><td data-l="Примечание">Новые, с паспортами. Объявление AxelVT</td><td class="t" data-l="Осталось"><span class="days inf">без срока</span></td></tr>
-    <tr class="hl" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Прибор для балансировки, б/у, с поверкой</td><td class="m" data-l="Артикул">-</td><td data-l="Производитель">Балтех (пример)</td><td data-l="Кол-во">1 шт.</td><td class="m" data-l="Цена за ед.">95 000 ₽</td><td class="c" data-l="Контакты">Москва<br><a href="#">+7 (900) 000-00-01</a><a href="#">Написать</a></td><td data-l="Примечание">Полный комплект, поверка до 2027 г. ★ Выделено</td><td class="t" data-l="Осталось"><span class="days">19 дн.</span></td></tr>
-    <tr class="" data-kind="buy"><td class="n" data-l=""><span class="pill o">куплю</span> Вибродатчик ICP для стационарной системы</td><td class="m" data-l="Артикул">AC102-1A</td><td data-l="Производитель">CTC (пример)</td><td data-l="Кол-во">12 шт.</td><td class="m" data-l="Цена за ед.">договорная</td><td class="c" data-l="Контакты">Уфа<br><a href="#">+7 (900) 000-00-02</a><a href="#">Написать</a></td><td data-l="Примечание">Новые или с хранения, рассмотрю аналоги</td><td class="t" data-l="Осталось"><span class="days">14 дн.</span></td></tr>
-    <tr class="" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Лазерная система центровки валов</td><td class="m" data-l="Артикул">TKSA 41</td><td data-l="Производитель">SKF (пример)</td><td data-l="Кол-во">1 компл.</td><td class="m" data-l="Цена за ед.">180 000 ₽</td><td class="c" data-l="Контакты">Пермь<br><a href="#">+7 (900) 000-00-03</a><a href="#">Написать</a></td><td data-l="Примечание">Б/у 2 года, кейс, крепления</td><td class="t" data-l="Осталось"><span class="days">8 дн.</span></td></tr>
-    <tr class="" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Кабель удлинительный для вихретокового датчика, 5 м</td><td class="m" data-l="Артикул">330130-040</td><td data-l="Производитель">Bently Nevada (пример)</td><td data-l="Кол-во">20 шт.</td><td class="m" data-l="Цена за ед.">6 800 ₽</td><td class="c" data-l="Контакты">Самара<br><a href="#">+7 (900) 000-00-04</a><a href="#">Написать</a></td><td data-l="Примечание">Остатки с объекта, в упаковке</td><td class="t" data-l="Осталось"><span class="days lo">2 дн.</span></td></tr>
-    <tr class="" data-kind="buy"><td class="n" data-l=""><span class="pill o">куплю</span> Модуль защиты для стойки 3500</td><td class="m" data-l="Артикул">3500/42M</td><td data-l="Производитель">Bently Nevada (пример)</td><td data-l="Кол-во">2 шт.</td><td class="m" data-l="Цена за ед.">договорная</td><td class="c" data-l="Контакты">Сургут<br><a href="#">+7 (900) 000-00-05</a><a href="#">Написать</a></td><td data-l="Примечание">Срочно, можно б/у с проверкой</td><td class="t" data-l="Осталось"><span class="days">11 дн.</span></td></tr>
+    <tr class="own" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Акселерометр высокотемпературный HS105</td><td class="m" data-l="Артикул">hs105</td><td data-l="Состояние"><span class="st">Новый</span></td><td data-l="Производитель">Hansford Sensors</td><td data-l="Кол-во">6 шт.</td><td class="m" data-l="Год производства">2025</td><td class="m" data-l="Цена за ед.">48 500 ₽</td><td class="pay" data-l="Оплата">ООО с НДС</td><td class="c" data-l="Контакты">Уфа<br><a href="#">+7 (917) 000-00-00</a><a href="#">Написать</a></td><td data-l="Примечание">С паспортами. Объявление AxelVT</td></tr>
+    <tr class="hl" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Прибор для балансировки с поверкой</td><td class="m" data-l="Артикул">-</td><td data-l="Состояние"><span class="st bu">Б/у</span></td><td data-l="Производитель">Балтех (пример)</td><td data-l="Кол-во">1 шт.</td><td class="m" data-l="Год производства">2021</td><td class="m" data-l="Цена за ед.">95 000 ₽</td><td class="pay" data-l="Оплата">ИП</td><td class="c" data-l="Контакты">Москва<br><a href="#">+7 (900) 000-00-01</a><a href="#">Написать</a></td><td data-l="Примечание">Полный комплект, поверка до 2027 г. ★ Выделено</td></tr>
+    <tr class="" data-kind="buy"><td class="n" data-l=""><span class="pill o">куплю</span> Вибродатчик ICP для стационарной системы</td><td class="m" data-l="Артикул">AC102-1A</td><td data-l="Состояние"><span class="st">Новый</span></td><td data-l="Производитель">CTC (пример)</td><td data-l="Кол-во">12 шт.</td><td class="m" data-l="Год производства">н/д</td><td class="m" data-l="Цена за ед.">9 500 ₽</td><td class="pay" data-l="Оплата">ООО без НДС</td><td class="c" data-l="Контакты">Уфа<br><a href="#">+7 (900) 000-00-02</a><a href="#">Написать</a></td><td data-l="Примечание">Рассмотрю аналоги</td></tr>
+    <tr class="" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Лазерная система центровки валов</td><td class="m" data-l="Артикул">TKSA 41</td><td data-l="Состояние"><span class="st bu">Б/у</span></td><td data-l="Производитель">SKF (пример)</td><td data-l="Кол-во">1 компл.</td><td class="m" data-l="Год производства">2023</td><td class="m" data-l="Цена за ед.">180 000 ₽</td><td class="pay" data-l="Оплата">нал.</td><td class="c" data-l="Контакты">Пермь<br><a href="#">+7 (900) 000-00-03</a><a href="#">Написать</a></td><td data-l="Примечание">Кейс, крепления</td></tr>
+    <tr class="" data-kind="sell"><td class="n" data-l=""><span class="pill">продам</span> Кабель удлинительный для вихретокового датчика, 5 м</td><td class="m" data-l="Артикул">330130-040</td><td data-l="Состояние"><span class="st">Новый</span></td><td data-l="Производитель">Bently Nevada (пример)</td><td data-l="Кол-во">20 шт.</td><td class="m" data-l="Год производства">н/д</td><td class="m" data-l="Цена за ед.">6 800 ₽</td><td class="pay" data-l="Оплата">ООО с НДС</td><td class="c" data-l="Контакты">Самара<br><a href="#">+7 (900) 000-00-04</a><a href="#">Написать</a></td><td data-l="Примечание">Остатки с объекта, в упаковке</td></tr>
+    <tr class="" data-kind="buy"><td class="n" data-l=""><span class="pill o">куплю</span> Модуль защиты для стойки 3500</td><td class="m" data-l="Артикул">3500/42M</td><td data-l="Состояние"><span class="st bu">Б/у</span></td><td data-l="Производитель">Bently Nevada (пример)</td><td data-l="Кол-во">2 шт.</td><td class="m" data-l="Год производства">н/д</td><td class="m" data-l="Цена за ед.">120 000 ₽</td><td class="pay" data-l="Оплата">ООО с НДС</td><td class="c" data-l="Контакты">Сургут<br><a href="#">+7 (900) 000-00-05</a><a href="#">Написать</a></td><td data-l="Примечание">Срочно, б/у только с проверкой</td></tr>
    </tbody>
   </table>
-  <div class="kt-foot"><span>Каждое поданное объявление после одобрения автоматически добавляется строкой в эту таблицу. Сортировка по любому столбцу, поиск по артикулу.</span><span>Админу: выгрузка таблицы в Excel</span></div>
+  <div class="kt-foot"><span>Каждое поданное объявление после одобрения автоматически добавляется строкой в эту таблицу. Цена указывается обязательно, числом. Сортировка по любому столбцу, поиск по артикулу.</span><span>Админу: выгрузка таблицы в Excel</span></div>
  </div>
 </section>
 
@@ -444,11 +472,15 @@ footer a{color:#1b3352}
 
 <!-- ================= УЧЕБНЫЕ ЦЕНТРЫ ================= -->
 <section class="page" id="p-centers">
- <div class="sec-h"><div><h1>Компании-партнёры</h1><p>Учебные центры, сервисные компании и поставщики - партнёры добавляют свои курсы, услуги и даты сами</p></div><a class="btn btn-brand" href="#">+ Добавить центр</a></div>
+ <div class="sec-h"><div><h1>Компании-партнёры</h1><p>Учебные центры, производители, сервисные и инжиниринговые компании - партнёры добавляют свои курсы, услуги и даты сами</p></div><a class="btn btn-brand" href="#" data-form="co">+ Добавить компанию</a></div>
+ <div class="dirs" id="co-dirs"><button class="on" data-d="all">Все</button><button data-d="Метрология">Метрология</button><button data-d="Производитель">Производитель</button><button data-d="Сервисная компания">Сервисная компания</button><button data-d="СМР">СМР</button><button data-d="ПНР">ПНР</button><button data-d="Разработка приборов">Разработка приборов</button><button data-d="Разработка ПО">Разработка ПО</button><button data-d="Обучение">Обучение</button></div>
  <div class="ucs">
-  <div class="uc"><div class="hd"><span class="lg" style="background:#1f3cc0">Р</span><div><h3>Учебный центр «Ротор»</h3><small>Москва · очно и онлайн (пример)</small></div></div><ul><li>Вибродиагностика, I уровень <b>10 ноя</b></li><li>Вибродиагностика, II уровень <b>1 дек</b></li><li>Анализ спектров для практиков <b>15 дек</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
-  <div class="uc"><div class="hd"><span class="lg" style="background:#1d9a6c">Т</span><div><h3>Центр «ТехДиагност»</h3><small>Уфа · очно (пример)</small></div></div><ul><li>Балансировка в собственных опорах <b>17 ноя</b></li><li>Лазерная центровка валов <b>24 ноя</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
-  <div class="uc"><div class="hd"><span class="lg" style="background:#d9822b">С</span><div><h3>Академия «Спектр»</h3><small>Онлайн (пример)</small></div></div><ul><li>Подготовка к аттестации по ISO 18436-2 <b>гибко</b></li><li>Стационарные системы мониторинга <b>8 дек</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
+  <div class="uc" data-dirs="Обучение|Метрология"><div class="hd"><span class="lg"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" fill="none" stroke="#1f3cc0" stroke-width="4"/><path d="M24 8v32M8 24h32" stroke="#6db8e6" stroke-width="4"/><circle cx="24" cy="24" r="6" fill="#1f3cc0"/></svg></span><div><h3>Учебный центр «Ротор»</h3><small>Москва · очно и онлайн (пример)</small></div></div><div class="dt"><span>Обучение</span><span>Метрология</span></div><ul><li>Вибродиагностика, I уровень <b>10 ноя</b></li><li>Вибродиагностика, II уровень <b>1 дек</b></li><li>Анализ спектров для практиков <b>15 дек</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
+  <div class="uc" data-dirs="Сервисная компания|СМР|ПНР"><div class="hd"><span class="lg"><svg viewBox="0 0 48 48"><rect x="4" y="4" width="40" height="40" rx="9" fill="#1d9a6c"/><path d="M9 26h7l4-11 6 20 5-14 3 5h5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/></svg></span><div><h3>ТехДиагност</h3><small>Уфа · выезд по России (пример)</small></div></div><div class="dt"><span>Сервисная компания</span><span>СМР</span><span>ПНР</span></div><p>Монтаж и пусконаладка стационарных систем мониторинга, балансировка и центровка на объекте заказчика.</p><a class="btn btn-out" href="#">Услуги и контакты</a></div>
+  <div class="uc" data-dirs="Обучение"><div class="hd"><span class="lg"><svg viewBox="0 0 48 48"><rect x="7" y="26" width="6" height="15" rx="2" fill="#d9822b"/><rect x="16" y="16" width="6" height="25" rx="2" fill="#e9a35a"/><rect x="25" y="8" width="6" height="33" rx="2" fill="#d9822b"/><rect x="34" y="20" width="6" height="21" rx="2" fill="#e9a35a"/></svg></span><div><h3>Академия «Спектр»</h3><small>Онлайн (пример)</small></div></div><div class="dt"><span>Обучение</span></div><ul><li>Подготовка к аттестации по ISO 18436-2 <b>гибко</b></li><li>Стационарные системы мониторинга <b>8 дек</b></li></ul><a class="btn btn-out" href="#">Программы и запись</a></div>
+  <div class="uc" data-dirs="Производитель|Разработка приборов"><div class="hd"><span class="lg"><svg viewBox="0 0 48 48"><path d="M24 4l17 10v20L24 44 7 34V14z" fill="#162c93"/><circle cx="24" cy="24" r="8" fill="none" stroke="#8cc9ec" stroke-width="3.5"/><circle cx="24" cy="24" r="2.5" fill="#fff"/></svg></span><div><h3>ВиброПрибор</h3><small>Санкт-Петербург (пример)</small></div></div><div class="dt"><span>Производитель</span><span>Разработка приборов</span></div><p>Производство вибродатчиков и преобразователей, разработка приборов под задачу заказчика.</p><a class="btn btn-out" href="#">Каталог продукции</a></div>
+  <div class="uc" data-dirs="Разработка ПО"><div class="hd"><span class="lg"><svg viewBox="0 0 48 48"><rect x="4" y="8" width="40" height="32" rx="7" fill="#8a5cf0"/><path d="M17 18l-6 6 6 6M31 18l6 6-6 6M27 15l-6 18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>СигналСофт</h3><small>Казань · удалённо (пример)</small></div></div><div class="dt"><span>Разработка ПО</span></div><p>ПО для сбора и анализа вибрационных данных, интеграция с АСУ ТП и SCADA.</p><a class="btn btn-out" href="#">Подробнее</a></div>
+  <div class="uc" data-dirs="Метрология|Сервисная компания"><div class="hd"><span class="lg"><svg viewBox="0 0 48 48"><path d="M8 34a16 16 0 0 1 32 0" fill="none" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/><path d="M24 34l9-12" stroke="#2a3550" stroke-width="3.5" stroke-linecap="round"/><circle cx="24" cy="34" r="4" fill="#2a3550"/></svg></span><div><h3>МетроТест</h3><small>Екатеринбург (пример)</small></div></div><div class="dt"><span>Метрология</span><span>Сервисная компания</span></div><p>Поверка и калибровка виброизмерительной аппаратуры, ремонт датчиков.</p><a class="btn btn-out" href="#">Услуги и цены</a></div>
  </div>
 </section>
 
@@ -487,14 +519,33 @@ footer a{color:#1b3352}
   <div class="seg" id="kpf-seg"><button type="button" data-t="sell" class="on">Продам</button><button type="button" data-t="buy">Куплю</button></div>
   <label class="fld w">Наименование<input placeholder="Например: акселерометр высокотемпературный"></label>
   <label class="fld">Артикул<input placeholder="hs105"></label>
+  <label class="fld">Состояние<select required><option value="">Выберите</option><option>Новый</option><option>Б/у</option></select></label>
   <label class="fld">Производитель<input placeholder="Hansford Sensors"></label>
   <label class="fld">Количество<input placeholder="6 шт."></label>
-  <label class="fld">Цена за единицу<input placeholder="₽ или «договорная»"></label>
+  <label class="fld">Год производства <small>если неизвестен - «н/д»</small><input placeholder="2023 или н/д" pattern="(19|20)[0-9]{2}|н/д|Н/Д"></label>
+  <label class="fld">Цена за единицу, ₽ <small>обязательно, числом</small><input type="number" min="1" step="1" required placeholder="48500"></label>
+  <label class="fld">Оплата<select required><option value="">Выберите</option><option>нал.</option><option>ИП</option><option>ООО без НДС</option><option>ООО с НДС</option></select></label>
   <label class="fld">Город<input placeholder="Уфа"></label>
   <label class="fld">Телефон<input placeholder="+7"></label>
   <label class="fld w">E-mail <small>на него придёт письмо о продлении через 21 день</small><input placeholder="mail@example.ru"></label>
-  <label class="fld w">Примечание<textarea placeholder="Состояние, комплектность, поверка, условия доставки"></textarea></label>
+  <label class="fld w">Примечание<textarea placeholder="Комплектность, поверка, условия доставки"></textarea></label>
   <div class="mfoot"><span>После отправки объявление уходит на модерацию.<br>Срок размещения - 21 день, продление по письму.</span><span class="ok">✓ Отправлено на модерацию (эскиз)</span><button class="btn btn-brand" type="submit">Отправить</button></div>
+ </form>
+</div></div>
+<div class="modal" id="m-co"><div class="mbox">
+ <div class="mh"><h3>Новая компания-партнёр</h3><button class="x" type="button" aria-label="Закрыть">×</button></div>
+ <form>
+  <label class="fld w">Название компании<input required placeholder="ООО «...»"></label>
+  <label class="fld">Город<input placeholder="Уфа"></label>
+  <label class="fld">Формат работы<input placeholder="Очно, онлайн, выезд по России"></label>
+  <label class="fld w">Логотип <small>PNG или SVG, квадратный, от 200×200 px</small><span class="logo-up"><i>+</i><span>Перетащите файл сюда или нажмите, чтобы выбрать</span><input type="file" accept="image/png,image/svg+xml,image/jpeg" style="display:none"></span></label>
+  <div class="fld w">Направления <small>отметьте одно или несколько - список задаёт администратор</small><div class="chk"><label><input type="checkbox">Метрология</label><label><input type="checkbox">Производитель</label><label><input type="checkbox">Сервисная компания</label><label><input type="checkbox">СМР</label><label><input type="checkbox">ПНР</label><label><input type="checkbox">Разработка приборов</label><label><input type="checkbox">Разработка ПО</label><label><input type="checkbox">Обучение</label></div></div>
+  <label class="fld w">О компании<textarea placeholder="Чем занимаетесь, 2-3 предложения"></textarea></label>
+  <label class="fld w">Курсы / услуги и даты <small>необязательно</small><textarea placeholder="Вибродиагностика, I уровень - 10 ноября"></textarea></label>
+  <label class="fld">Сайт<input placeholder="https://"></label>
+  <label class="fld">Телефон<input placeholder="+7"></label>
+  <label class="fld w">E-mail<input placeholder="mail@example.ru"></label>
+  <div class="mfoot"><span>Карточка публикуется после проверки модератором.</span><span class="ok">✓ Отправлено на модерацию (эскиз)</span><button class="btn btn-brand" type="submit">Отправить</button></div>
  </form>
 </div></div>
 <script>
@@ -521,7 +572,7 @@ footer a{color:#1b3352}
   m.addEventListener('click',function(e){if(e.target===m||e.target.closest('.x'))m.classList.remove('on')});
   m.querySelector('form').addEventListener('submit',function(e){e.preventDefault();m.querySelector('.ok').style.display='inline'});
   var sg=m.querySelector('.seg');
-  sg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  if(sg)sg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
    sg.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
    m.querySelectorAll('[data-v]').forEach(function(el){el.hidden=el.dataset.v.split(' ').indexOf(b.dataset.t)<0});});
  });
@@ -530,6 +581,12 @@ footer a{color:#1b3352}
  var kps=document.getElementById('kp-seg');
  kps.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
   document.querySelectorAll('#kt tbody tr').forEach(function(r){r.hidden=b.dataset.k!=='all'&&r.dataset.kind!==b.dataset.k})});
+ // фильтр партнёров по направлениям
+ var cd=document.getElementById('co-dirs');
+ cd.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  cd.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
+  document.querySelectorAll('#p-centers .uc').forEach(function(c){c.style.display=(b.dataset.d==='all'||c.dataset.dirs.split('|').indexOf(b.dataset.d)>=0)?'':'none'})});
+ document.querySelectorAll('.logo-up').forEach(function(u){u.addEventListener('click',function(){u.querySelector('input').click()})});
  // фильтр по тегам в «Работе»
  document.getElementById('bx-tags').addEventListener('click',function(e){var t=e.target.closest('span');if(!t)return;var w=t.textContent.toLowerCase();
   document.querySelectorAll('#p-birzha .job').forEach(function(j){var p=[].map.call(j.querySelectorAll('.pill'),function(x){return x.textContent.toLowerCase()}).join(' ')+' '+j.textContent.toLowerCase();
