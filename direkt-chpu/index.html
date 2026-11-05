@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Директ и SEO для ЧПУ-фрезеровки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f4f2;--ink:#1b1f23;--mute:#5a6066;--line:#d8dbd6;--steel:#26323c;--acc:#b4521a;--ok:#2a7a4c;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.top{background:var(--steel);color:#eef1f3;padding:56px 0 46px;position:relative;overflow:hidden}
+.top::after{content:"";position:absolute;right:-60px;top:-40px;width:420px;height:420px;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px);border-radius:50%}
+.top h1{font-size:clamp(30px,4.4vw,50px);line-height:1.08;font-weight:700;letter-spacing:-.015em;max-width:780px;position:relative}
+.top h1 span{color:#f39a5f}
+.top p{margin-top:14px;max-width:660px;color:#c9d1d7;font-size:16.5px;position:relative}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px;position:relative}
+.nav a{color:#eef1f3;text-decoration:none;font-size:14px;border:1px solid #4a5864;border-radius:99px;padding:8px 14px}
+.nav a:hover{border-color:#f39a5f}
+section{padding:72px 0 8px}
+h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.sub{color:var(--mute);margin-bottom:24px;max-width:720px}
+.num{font-family:"IBM Plex Mono",monospace;color:var(--acc);font-size:14px;font-weight:500;display:block;margin-bottom:6px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{font-size:17px;font-weight:600;margin-bottom:8px}
+.card p,.card li{font-size:14.5px;color:#3c4248}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.card li{padding-left:16px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:2px;background:var(--acc)}
+.pill{display:inline-block;font-size:12.5px;font-weight:500;padding:4px 10px;border-radius:99px;background:#eef0ec;color:#3c4248;margin:0 6px 6px 0}
+.pill.m{background:#fbe9de;color:#9a4512}
+/* keys table */
+.tw{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:820px;font-size:14px}
+th{text-align:left;font-weight:600;font-size:13px;color:var(--mute);padding:12px 14px;border-bottom:1px solid var(--line);background:#fafbf9}
+td{padding:12px 14px;border-bottom:1px solid #eceee9;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td code{font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:#f1f3ef;padding:2px 6px;border-radius:4px;display:inline-block;margin:2px 4px 2px 0}
+.tag{font-size:12px;font-weight:600;padding:3px 9px;border-radius:6px;white-space:nowrap}
+.hot{background:#fde3d3;color:#9a4512}.warm{background:#fdf1cf;color:#7a5a0a}.cold{background:#e3ecf4;color:#2c4d6b}
+/* serp */
+.serp{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;display:flex;flex-direction:column;gap:22px}
+.ad .lbl{font-size:12.5px;color:#5e656b}
+.ad .lbl b{font-weight:600;color:#1b1f23;margin-right:6px}
+.ad .t{color:#2236a8;font-size:19px;line-height:1.3;margin:3px 0 4px;font-weight:500}
+.ad .d{font-size:14.5px;color:#262b30}
+.ad .ql{display:flex;gap:16px;flex-wrap:wrap;margin-top:6px;font-size:14px;color:#2236a8}
+.ad .ex{font-size:13.5px;color:#5e656b;margin-top:4px}
+.lim{font-family:"IBM Plex Mono",monospace;font-size:12px;color:#22663f;margin-top:6px}
+/* goals */
+.goal{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #eceee9}
+.goal:last-child{border-bottom:0}
+.goal i{flex:none;width:26px;height:26px;border-radius:50%;background:#e1f0e7;color:var(--ok);display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px}
+.goal b{display:block;font-weight:600;font-size:14.5px}
+.goal span{font-size:13.5px;color:var(--mute)}
+.case{background:var(--steel);color:#e8ecef;border-radius:12px;padding:22px}
+.case h3{font-size:17px;margin-bottom:8px;color:#fff}
+.case p{font-size:14.5px;color:#c9d1d7;margin-bottom:10px}
+.case a{color:#f39a5f}
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.plan .card{border-top:3px solid var(--acc)}
+.plan .d{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--acc);font-weight:500;margin-bottom:6px;display:block}
+.seo td:first-child{font-weight:600;white-space:nowrap}
+footer{padding:46px 0 40px;color:var(--mute);font-size:13px}
+@media (max-width:900px){.grid3,.plan{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap{padding:0 16px}.grid3,.plan{grid-template-columns:1fr}.top{padding:40px 0 34px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <h1>Яндекс Директ и SEO для <span>фрезерных работ на ЧПУ</span> - готовый план запуска</h1>
+  <p>Демо-разбор под вашу тематику: структура кампаний, семантика с минус-словами, объявления в лимитах Директа, цели Метрики и план поднятия сайта в выдаче. После доступа к кабинету и сайту - адаптирую под ваши цифры.</p>
+  <div class="nav"><a href="#struct">Структура</a><a href="#keys">Семантика</a><a href="#ads">Объявления</a><a href="#metrika">Метрика</a><a href="#seo">SEO</a><a href="#plan">План работ</a></div>
+</div></div>
+
+<section class="wrap" id="struct">
+  <span class="num">01</span><h2>Структура кампаний</h2>
+  <p class="sub">Разделяю горячий спрос, B2B-заказы и охват - у них разная цена клика и разная конверсия, в одной кампании они мешают друг другу.</p>
+  <div class="grid3">
+    <div class="card"><h3>Поиск - горячий спрос</h3><ul><li>«фрезеровка на заказ», «фрезерные работы ЧПУ + город»</li><li>Группы по материалам и видам работ</li><li>Стратегия: максимум конверсий с ограничением CPA</li></ul></div>
+    <div class="card"><h3>Поиск - B2B и серии</h3><ul><li>«изготовление деталей по чертежам», «серийная мехобработка»</li><li>Отдельная посадочная с формой «прикрепить чертёж»</li><li>Корректировки по времени: будни, рабочие часы</li></ul></div>
+    <div class="card"><h3>РСЯ + ретаргетинг</h3><ul><li>Посетители сайта без заявки за 30 дней</li><li>Аудитории по интересам: производство, машиностроение</li><li>Графические объявления с фото деталей</li></ul></div>
+  </div>
+</section>
+
+<section class="wrap" id="keys">
+  <span class="num">02</span><h2>Семантика: группы и минус-слова</h2>
+  <p class="sub">Фрагмент ядра. Частотность и ставки беру из Вордстата и прогноза бюджета под ваш регион - в демо не выдумываю цифры.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Группа</th><th>Ключевые фразы</th><th>Спрос</th><th>Посадочная</th></tr></thead>
+    <tbody>
+      <tr><td>Фрезеровка на заказ</td><td><code>фрезеровка металла на заказ</code><code>фрезерные работы чпу</code><code>фрезеровка деталей цена</code></td><td><span class="tag hot">горячий</span></td><td>Главная / Услуги</td></tr>
+      <tr><td>По чертежам</td><td><code>изготовление деталей по чертежам</code><code>деталь по чертежу на заказ</code><code>мехобработка по чертежу</code></td><td><span class="tag hot">горячий</span></td><td>«Отправить чертёж»</td></tr>
+      <tr><td>По материалам</td><td><code>фрезеровка алюминия</code><code>фрезеровка нержавейки</code><code>фрезеровка стали чпу</code></td><td><span class="tag warm">тёплый</span></td><td>Страницы материалов</td></tr>
+      <tr><td>Серийное производство</td><td><code>серийная металлообработка</code><code>партия деталей чпу</code><code>контрактное производство деталей</code></td><td><span class="tag warm">тёплый</span></td><td>«Серии и B2B»</td></tr>
+      <tr><td>Сложная обработка</td><td><code>5-осевая фрезеровка</code><code>фрезерная обработка сложных деталей</code></td><td><span class="tag cold">узкий</span></td><td>Оборудование</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card" style="margin-top:14px"><h3>Минус-слова на старте</h3>
+    <span class="pill m">-своими руками</span><span class="pill m">-обучение</span><span class="pill m">-курсы</span><span class="pill m">-вакансия</span><span class="pill m">-работа</span><span class="pill m">-станок купить</span><span class="pill m">-фреза</span><span class="pill m">-чпу для дерева</span><span class="pill m">-фанера</span><span class="pill m">-мдф</span><span class="pill m">-программа</span><span class="pill m">-скачать</span><span class="pill m">-видео</span><span class="pill m">-бу</span><span class="pill m">-авито</span>
+    <p style="margin-top:8px">Плюс чистка по отчёту «Поисковые запросы» каждую неделю - там обычно и уходит бюджет на нецелевые клики.</p></div>
+</section>
+
+<section class="wrap" id="ads">
+  <span class="num">03</span><h2>Объявления - как в выдаче</h2>
+  <p class="sub">Заголовки и тексты уложены в лимиты Директа: заголовок 1 - до 56 символов, заголовок 2 - до 30, текст - до 81. Цены и сроки подставлю ваши.</p>
+  <div class="serp">
+    <div class="ad"><div class="lbl"><b>Реклама</b>vash-sait.ru › chertezh</div>
+      <div class="t">Фрезеровка металла на ЧПУ по чертежу - Расчёт за 1 час</div>
+      <div class="d">Сталь, алюминий, нержавейка. Точность до 0,01 мм. От 1 детали. Отправьте чертёж!</div>
+      <div class="ql"><span>Цены</span><span>Оборудование</span><span>Примеры работ</span><span>Контакты</span></div>
+      <div class="ex">Работаем с юрлицами · Доставка по России · Пн-Пт 8:00-18:00</div>
+      <div class="lim">З1: 36/56 · З2: 15/30 · текст: 80/81</div></div>
+    <div class="ad"><div class="lbl"><b>Реклама</b>vash-sait.ru › serii</div>
+      <div class="t">Серийная мехобработка деталей - Партии от 10 шт.</div>
+      <div class="d">3- и 5-осевые станки ЧПУ. Договор, НДС, контроль ОТК. Сроки от 3 дней.</div>
+      <div class="ql"><span>Отправить чертёж</span><span>Материалы</span><span>Сроки</span><span>Реквизиты</span></div>
+      <div class="lim">З1: 29/56 · З2: 16/30 · текст: 70/81</div></div>
+  </div>
+</section>
+
+<section class="wrap" id="metrika">
+  <span class="num">04</span><h2>Метрика: цели, без которых Директ не учится</h2>
+  <p class="sub">Автостратегии оптимизируются по целям. Если цели не настроены или считают мусор - кампания «учится» не на тех людях.</p>
+  <div class="grid2">
+    <div class="card">
+      <div class="goal"><i>✓</i><div><b>Отправка заявки с чертежом</b><span>ключевая цель, по ней оптимизируется стратегия</span></div></div>
+      <div class="goal"><i>✓</i><div><b>Клик по телефону и звонок</b><span>tel-ссылки + коллтрекинг при необходимости</span></div></div>
+      <div class="goal"><i>✓</i><div><b>Клик по WhatsApp / Telegram / email</b><span>отдельные JS-события на каждый канал</span></div></div>
+      <div class="goal"><i>✓</i><div><b>Скачивание прайса и реквизитов</b><span>микроконверсия для B2B</span></div></div>
+      <div class="goal"><i>✓</i><div><b>Составная цель «Лид»</b><span>объединяет все обращения для отчётов</span></div></div>
+    </div>
+    <div class="case">
+      <h3>Опыт: Метрика с целями для платформы tr555.ru</h3>
+      <p>Для клиента Олега, у которого реклама в Директе не давала результата, сделала лендинг раздела и настроила Метрику: 6 целей на JS-событиях (регистрация, вход, переходы к темам и материалам и др.), передача utm и yclid до основного сайта.</p>
+      <p>Цели созданы прямо в его счётчике, каждую проверила кликами на живом сайте - все 6 засчитываются в отчётах. Ключевая цель «успешная регистрация» готова для оптимизации кампаний в Директе.</p>
+      <p>Лендинг: <a href="https://tr555.ru/landing/scenario/" target="_blank" rel="noopener">tr555.ru/landing/scenario</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="seo">
+  <span class="num">05</span><h2>SEO: поднять сайт в выдаче</h2>
+  <p class="sub">Для услуг под заказ решает структура: отдельная страница под каждую группу запросов, понятные мета-теги и коммерческие факторы - цены, реквизиты, фото работ.</p>
+  <div class="tw seo"><table>
+    <thead><tr><th>Страница</th><th>Title</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td>Главная</td><td>Фрезеровка металла на ЧПУ на заказ - изготовление деталей по чертежам</td><td>Фрезерные работы на станках ЧПУ: сталь, алюминий, нержавейка. Точность до 0,01 мм, от 1 детали, расчёт за 1 час.</td></tr>
+      <tr><td>Алюминий</td><td>Фрезеровка алюминия на ЧПУ - цена за деталь, сроки от 3 дней</td><td>Обработка алюминиевых сплавов Д16Т, АМг, В95. Корпуса, панели, кронштейны. Прикрепите чертёж - рассчитаем стоимость.</td></tr>
+      <tr><td>Серии и B2B</td><td>Серийная мехобработка деталей на ЧПУ - партии от 10 шт.</td><td>Контрактное производство деталей по чертежам: договор, НДС, ОТК. 3- и 5-осевые станки, стабильные сроки.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid3" style="margin-top:14px">
+    <div class="card"><h3>Технический аудит</h3><p>Индексация в Вебмастере, скорость, мобильная версия, дубли, robots и sitemap, микроразметка организации.</p></div>
+    <div class="card"><h3>Коммерческие факторы</h3><p>Цены «от», оборудование с фото, примеры работ, реквизиты, карта, форма с чертежом - то, что Яндекс учитывает для услуг.</p></div>
+    <div class="card"><h3>Локальная выдача</h3><p>Яндекс Бизнес и Карты, отзывы, единый NAP - для запросов «фрезеровка + город» это часто быстрее, чем SEO.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="plan">
+  <span class="num">06</span><h2>План работ</h2>
+  <p class="sub">Сначала чиним текущую кампанию - это даёт эффект в первые дни. SEO идёт параллельно.</p>
+  <div class="plan">
+    <div class="card"><span class="d">Дни 1-2</span><h3>Аудит</h3><p>Кабинет Директа, поисковые запросы, ставки, цели Метрики, сайт.</p></div>
+    <div class="card"><span class="d">Дни 2-4</span><h3>Перенастройка</h3><p>Чистка семантики и минус-слов, новые группы и объявления, стратегия по целям.</p></div>
+    <div class="card"><span class="d">Дни 3-5</span><h3>Метрика</h3><p>Цели на заявки, звонки и мессенджеры, проверка на живом сайте.</p></div>
+    <div class="card"><span class="d">Дни 4-7</span><h3>SEO-база</h3><p>Структура страниц, мета-теги, Вебмастер, Яндекс Бизнес, план контента.</p></div>
+  </div>
+</section>
+
+<footer class="wrap">Демо-разбор для обсуждения. Домен, цены и сроки в объявлениях - условные, подставляются ваши.</footer>
+</body>
+</html>
