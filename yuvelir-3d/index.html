@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>3D-модели украшений</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0e10;--panel:#16161a;--ink:#ece8e1;--mute:#9b978f;--line:#2a2a30;--gold:#cfae74}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+header{padding:60px 0 34px}
+h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(36px,5.4vw,64px);line-height:1.02;letter-spacing:-.01em}
+h1 em{color:var(--gold)}
+.lead{margin-top:16px;max-width:660px;color:#bdb8ae;font-size:16px}
+.piece{padding:30px 0 60px;border-top:1px solid var(--line)}
+.ph{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin:26px 0 18px}
+.ph h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(28px,3.4vw,40px)}
+.ph h2 span{color:var(--mute);font-size:.55em;margin-right:12px;font-style:italic}
+.ph p{color:var(--mute);font-size:14px;max-width:520px}
+.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:22px}
+.view{position:relative;border-radius:14px;overflow:hidden;background:radial-gradient(80% 70% at 50% 38%,#2b2a30 0%,#141417 62%,#0b0b0d 100%);aspect-ratio:4/3.1;border:1px solid var(--line)}
+.view canvas{display:block;width:100%!important;height:100%!important;cursor:grab;touch-action:none}
+.view canvas:active{cursor:grabbing}
+.tag{position:absolute;left:16px;top:14px;font-size:12px;color:#b9b4aa;letter-spacing:.06em;pointer-events:none}
+.load{position:absolute;inset:0;display:grid;place-items:center;color:var(--mute);font-size:13px;pointer-events:none}
+.bar{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.bar button{font:500 12.5px Manrope,sans-serif;color:#e8e3da;background:rgba(20,20,24,.72);backdrop-filter:blur(8px);border:1px solid #3a3a42;border-radius:99px;padding:8px 14px;cursor:pointer;transition:background .2s,border-color .2s}
+.bar button:hover{border-color:#6b675f}
+.bar button.on{background:#e9e2d4;color:#16161a;border-color:#e9e2d4}
+.side{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:18px}
+.side h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-bottom:10px}
+.metals{display:flex;gap:8px;flex-wrap:wrap}
+.metals button{display:flex;align-items:center;gap:8px;font:500 13px Manrope,sans-serif;color:var(--ink);background:transparent;border:1px solid #34343b;border-radius:10px;padding:8px 12px;cursor:pointer}
+.metals button i{width:16px;height:16px;border-radius:50%;display:block}
+.metals button.on{border-color:var(--gold);background:#1f1d1a}
+.toggles{display:flex;gap:8px;flex-wrap:wrap}
+.toggles button{font:500 13px Manrope,sans-serif;color:var(--ink);background:transparent;border:1px solid #34343b;border-radius:10px;padding:8px 12px;cursor:pointer}
+.toggles button.on{border-color:var(--gold);background:#1f1d1a}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+td{padding:7px 0;border-bottom:1px solid #24242a;vertical-align:top}
+td:first-child{color:var(--mute);padding-right:12px;width:48%}
+.foot{padding:40px 0 60px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.foot div{border-top:1px solid #4a463f;padding-top:14px}
+.foot b{display:block;font-family:"Cormorant Garamond",serif;font-weight:500;font-size:24px;margin-bottom:6px}
+.foot span{color:#aaa59c;font-size:14px}
+footer{color:#928d85;font-size:12px;padding:0 0 40px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.foot{grid-template-columns:1fr}}
+@media (max-width:480px){.wrap{padding:0 16px}.view{aspect-ratio:1/1.05}.bar button{padding:7px 11px;font-size:12px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>3D-модели украшений<br><em>с камнями</em> - два демо</h1>
+  <p class="lead">Модели построены в реальных миллиметрах под литьё и закрепку: кастá, крапана, посадочные места под камни, минимальные толщины стенок. Вращайте мышью или пальцем, переключайте ракурсы и металл, включайте сетку - видно топологию.</p>
+</header>
+
+<section class="piece wrap" id="p1">
+  <div class="ph"><h2><span>01</span>Кольцо-солитер «Аврора»</h2><p>Круглый бриллиант 1,0 ct на шести крапанах, «кафедральная» корона, дорожка паве по плечам шинки.</p></div>
+  <div class="grid">
+    <div class="view"><div class="tag">Размер 17 · масштаб 1:1 мм</div><div class="load">Загрузка 3D…</div><canvas></canvas>
+      <div class="bar"><button data-v="q" class="on">3/4</button><button data-v="f">Фронт</button><button data-v="s">Профиль</button><button data-v="t">Сверху</button><button data-v="r">Вращение</button></div></div>
+    <aside class="side">
+      <div><h3>Металл</h3><div class="metals"><button data-m="w" class="on"><i style="background:linear-gradient(135deg,#f2f2f2,#a9adb3)"></i>Белое 585</button><button data-m="y"><i style="background:linear-gradient(135deg,#f6dc9a,#c3963c)"></i>Жёлтое 585</button><button data-m="p"><i style="background:linear-gradient(135deg,#f3c3ad,#b97c63)"></i>Красное 585</button></div></div>
+      <div><h3>Вид</h3><div class="toggles"><button data-t="wire">Сетка модели</button><button data-t="gems" class="on">Камни</button></div></div>
+      <div><h3>Параметры модели</h3><table>
+        <tr><td>Центральный камень</td><td>Бриллиант Кр57, Ø 6,5 мм (1,0 ct)</td></tr>
+        <tr><td>Паве</td><td>18 × Ø 1,3 мм, крапанами</td></tr>
+        <tr><td>Шинка</td><td>2,0 × 1,8 мм, комфорт-профиль</td></tr>
+        <tr><td>Крапана</td><td>Ø 0,9 мм, 6 шт.</td></tr>
+        <tr><td>Мин. стенка</td><td>0,8 мм - под литьё</td></tr>
+        <tr><td>Вес металла (расчёт)</td><td>≈ 3,4 г (585)</td></tr>
+      </table></div>
+    </aside>
+  </div>
+</section>
+
+<section class="piece wrap" id="p2">
+  <div class="ph"><h2><span>02</span>Подвеска «Верде» с изумрудом</h2><p>Изумруд огранки «изумруд» 8 × 6 мм в обрамлении из бриллиантов, двойные крапана по углам, литое ушко.</p></div>
+  <div class="grid">
+    <div class="view"><div class="tag">Высота 17 мм с ушком · масштаб 1:1 мм</div><div class="load">Загрузка 3D…</div><canvas></canvas>
+      <div class="bar"><button data-v="q" class="on">3/4</button><button data-v="f">Фронт</button><button data-v="s">Профиль</button><button data-v="t">Сверху</button><button data-v="r">Вращение</button></div></div>
+    <aside class="side">
+      <div><h3>Металл</h3><div class="metals"><button data-m="y" class="on"><i style="background:linear-gradient(135deg,#f6dc9a,#c3963c)"></i>Жёлтое 750</button><button data-m="w"><i style="background:linear-gradient(135deg,#f2f2f2,#a9adb3)"></i>Белое 750</button><button data-m="p"><i style="background:linear-gradient(135deg,#f3c3ad,#b97c63)"></i>Красное 750</button></div></div>
+      <div><h3>Вид</h3><div class="toggles"><button data-t="wire">Сетка модели</button><button data-t="gems" class="on">Камни</button></div></div>
+      <div><h3>Параметры модели</h3><table>
+        <tr><td>Центральный камень</td><td>Изумруд 8 × 6 мм (≈ 1,5 ct)</td></tr>
+        <tr><td>Обрамление</td><td>22 × Ø 1,2 мм, бриллианты</td></tr>
+        <tr><td>Каст</td><td>двойные крапана Ø 0,8 мм</td></tr>
+        <tr><td>Ушко</td><td>внутр. Ø 2,4 мм под цепь до 2 мм</td></tr>
+        <tr><td>Мин. стенка</td><td>0,7 мм - под литьё</td></tr>
+        <tr><td>Вес металла (расчёт)</td><td>≈ 2,1 г (750)</td></tr>
+      </table></div>
+    </aside>
+  </div>
+</section>
+
+<section class="foot wrap">
+  <div><b>Под производство</b><span>Посадочные места под реальные размеры камней, допуски на закрепку и усадку, проверка толщин перед выдачей.</span></div>
+  <div><b>Форматы</b><span>STL для печати восковок и фотополимера, 3DM / OBJ для правок, рендеры для каталога и сайта.</span></div>
+  <div><b>Рендеры</b><span>Фото-реалистичные виды с 4-6 ракурсов на белом и тёмном фоне, 360° вращение для карточки товара.</span></div>
+</section>
+<footer class="wrap">Демо-модели для обсуждения. Параметры условные, под ваш эскиз и камни рассчитываются отдельно.</footer>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
+
+const METALS={w:0xe4e6ea,y:0xf2c97a,p:0xeeb399};
+const TAU=Math.PI*2;
+
+// ---------- geometry helpers ----------
+// rings: [{y, pts:[[x,z],...]}] same count; top cap at rings[0], bottom point/line optional
+function ringGeo(rings,capTop=true){
+  const pos=[],n=rings[0].pts.length;
+  const P=(r,i)=>{const p=rings[r].pts[i%n];return [p[0],rings[r].y,p[1]];};
+  const tri=(a,b,c)=>pos.push(...a,...b,...c);
+  if(capTop){let c=[0,0,0];rings[0].pts.forEach(p=>{c[0]+=p[0];c[2]+=p[1]});c=[c[0]/n,rings[0].y,c[2]/n];for(let i=0;i<n;i++)tri(c,P(0,i+1),P(0,i));}
+  for(let r=0;r<rings.length-1;r++)for(let i=0;i<n;i++){const a=P(r,i),b=P(r,i+1),c=P(r+1,i),d=P(r+1,i+1);tri(a,b,d);tri(a,d,c);}
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.computeVertexNormals();return g;
+}
+const circ=(r,n,off=0)=>Array.from({length:n},(_,i)=>{const a=TAU*i/n+off;return [Math.cos(a)*r,Math.sin(a)*r];});
+// round brilliant, diameter d, table up (+y), girdle at y=0
+function brilliant(d){
+  const r=d/2,n=16;
+  return ringGeo([
+    {y:r*0.32,pts:circ(r*0.56,n/2*2,TAU/32)},     // table
+    {y:r*0.17,pts:circ(r*0.82,n,0)},               // star/bezel
+    {y:0.012*d,pts:circ(r,n,TAU/32)},              // girdle top
+    {y:-0.012*d,pts:circ(r,n,TAU/32)},             // girdle bottom
+    {y:-r*0.55,pts:circ(r*0.42,n,0)},              // lower girdle
+    {y:-r*0.86,pts:circ(0.001,n,0)}                // culet
+  ]);
+}
+// octagon (emerald cut) outline w x l, corner cut c
+function octo(w,l,c){const x=w/2,z=l/2;return [[x-c,z],[x,z-c],[x,-z+c],[x-c,-z],[-x+c,-z],[-x,-z+c],[-x,z-c],[-x+c,z]];}
+function emeraldCut(w,l){
+  const s=(k)=>octo(w*k,l*k,Math.min(w,l)*0.2*k), h=w*0.7;
+  return ringGeo([
+    {y:h*0.30,pts:s(0.62)},{y:h*0.22,pts:s(0.76)},{y:h*0.12,pts:s(0.89)},{y:0.02,pts:s(1)},{y:-0.02,pts:s(1)},
+    {y:-h*0.25,pts:s(0.8)},{y:-h*0.5,pts:s(0.55)},{y:-h*0.72,pts:octo(w*0.08,l*0.4,0.02)}
+  ]);
+}
+function tube(points,r,closed=false,seg){const c=new THREE.CatmullRomCurve3(points,closed,'catmullrom',0.2);return new THREE.TubeGeometry(c,seg||points.length*12,r,12,closed);}
+
+// ---------- scene factory ----------
+function makeViewer(root,build,opt){
+  const view=root.querySelector('.view'),cv=view.querySelector('canvas');
+  const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true,preserveDrawingBuffer:true});
+  R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;R.outputColorSpace=THREE.SRGBColorSpace;
+  const S=new THREE.Scene();const pm=new THREE.PMREMGenerator(R);S.environment=pm.fromScene(new RoomEnvironment(),0.03).texture;
+  const C=new THREE.PerspectiveCamera(30,1,0.5,500);
+  const K=new OrbitControls(C,cv);K.enableDamping=true;K.dampingFactor=0.08;K.minDistance=opt.dist*0.55;K.maxDistance=opt.dist*1.8;K.enablePan=false;K.target.copy(opt.target);
+  const key=new THREE.DirectionalLight(0xffffff,2.2);key.position.set(20,40,30);S.add(key);
+  const rim=new THREE.DirectionalLight(0xfff1dc,1.4);rim.position.set(-30,10,-25);S.add(rim);
+  S.add(new THREE.HemisphereLight(0xffffff,0x222226,0.5));
+  // soft contact shadow
+  const sc=document.createElement('canvas');sc.width=sc.height=128;const sx=sc.getContext('2d');const gr=sx.createRadialGradient(64,64,4,64,64,64);gr.addColorStop(0,'rgba(0,0,0,.55)');gr.addColorStop(1,'rgba(0,0,0,0)');sx.fillStyle=gr;sx.fillRect(0,0,128,128);
+  const sh=new THREE.Mesh(new THREE.PlaneGeometry(opt.shadow[0],opt.shadow[1]),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(sc),transparent:true,depthWrite:false}));sh.rotation.x=-Math.PI/2;sh.position.y=opt.floor;S.add(sh);
+
+  const metal=new THREE.MeshPhysicalMaterial({color:METALS[opt.metal],metalness:1,roughness:0.13,clearcoat:0.3,clearcoatRoughness:0.1,envMapIntensity:1.25});
+  const diamond=new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:0,roughness:0,transmission:1,thickness:3,ior:2.42,dispersion:4,specularIntensity:1,envMapIntensity:2.6,flatShading:true});
+  const G=new THREE.Group();S.add(G);
+  const parts=build({G,metal,diamond});
+  const wireMat=new THREE.MeshBasicMaterial({color:0xd8c39a,wireframe:true,transparent:true,opacity:.55});
+  const store=[];G.traverse(o=>{if(o.isMesh)store.push([o,o.material]);});
+
+  const views={q:[1,0.55,1.25],f:[0,0.12,1],s:[1,0.12,0],t:[0.001,1,0.02]};
+  let anim=null,auto=false;
+  function go(v){const d=new THREE.Vector3(...views[v]).normalize().multiplyScalar(opt.dist).add(K.target);anim={from:C.position.clone(),to:d,t:0};}
+  C.position.copy(new THREE.Vector3(...views.q).normalize().multiplyScalar(opt.dist).add(K.target));
+  root.querySelectorAll('.bar button').forEach(b=>b.onclick=()=>{
+    if(b.dataset.v==='r'){auto=!auto;b.classList.toggle('on',auto);K.autoRotate=auto;K.autoRotateSpeed=2.2;return;}
+    root.querySelectorAll('.bar button:not([data-v=r])').forEach(x=>x.classList.toggle('on',x===b));go(b.dataset.v);});
+  root.querySelectorAll('.metals button').forEach(b=>b.onclick=()=>{root.querySelectorAll('.metals button').forEach(x=>x.classList.toggle('on',x===b));metal.color.setHex(METALS[b.dataset.m]);});
+  let wire=false,gems=true;
+  root.querySelectorAll('.toggles button').forEach(b=>b.onclick=()=>{
+    if(b.dataset.t==='wire'){wire=!wire;b.classList.toggle('on',wire);store.forEach(([o,m])=>o.material=wire?wireMat:m);}
+    else{gems=!gems;b.classList.toggle('on',gems);parts.gems.forEach(o=>o.visible=gems);}
+  });
+  K.addEventListener('start',()=>anim=null);
+  function size(){const w=view.clientWidth,h=view.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();}
+  new ResizeObserver(size).observe(view);size();
+  let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(view);
+  view.querySelector('.load').remove();
+  const clock=new THREE.Clock();
+  (function loop(){requestAnimationFrame(loop);const dt=clock.getDelta();if(!vis)return;
+    if(anim){anim.t=Math.min(1,anim.t+dt*1.6);const e=1-Math.pow(1-anim.t,3);
+      const a=anim.from.clone().sub(K.target),b=anim.to.clone().sub(K.target);const sp=new THREE.Spherical().setFromVector3(a),sq=new THREE.Spherical().setFromVector3(b);
+      let dth=sq.theta-sp.theta;if(dth>Math.PI)dth-=TAU;if(dth<-Math.PI)dth+=TAU;
+      C.position.setFromSpherical(new THREE.Spherical(opt.dist,sp.phi+(sq.phi-sp.phi)*e,sp.theta+dth*e)).add(K.target);if(anim.t>=1)anim=null;}
+    K.update();R.render(S,C);})();
+}
+
+// ---------- 01: solitaire ring ----------
+function buildRing({G,metal,diamond}){
+  const gems=[];
+  const rIn=8.65, tw=1.8, bw=2.0, rMid=rIn+tw/2;   // size 17
+  // comfort-fit band: lathe of rounded-rect cross section revolved around Z axis -> use torus scaled
+  const band=new THREE.Mesh(new THREE.TorusGeometry(rMid,tw/2,48,220),metal);band.scale.set(1,1,bw/tw);G.add(band);
+  // shoulders taper up to head: two thin rails (cathedral)
+  const topY=rMid+tw/2;
+  for(const s of[-1,1]){
+    const pts=[];for(let i=0;i<=10;i++){const a=Math.PI/2+s*(0.62-0.062*i);const rr=rMid+tw*0.35+i*0.05;pts.push(new THREE.Vector3(Math.cos(a)*rr,Math.sin(a)*rr+i*0.13,0));}
+    pts.push(new THREE.Vector3(s*1.4,topY+2.2,0));
+    for(const z of[-0.62,0.62]){const g=tube(pts.map(p=>p.clone().setZ(z)),0.42);G.add(new THREE.Mesh(g,metal));}
+  }
+  // head: two gallery rings + 6 prongs
+  const sd=6.5, gy=topY+3.6;   // girdle height of stone
+  const ring1=new THREE.Mesh(new THREE.TorusGeometry(1.5,0.32,16,64),metal);ring1.rotation.x=Math.PI/2;ring1.position.y=topY+1.1;G.add(ring1);
+  const ring2=new THREE.Mesh(new THREE.TorusGeometry(2.55,0.34,16,72),metal);ring2.rotation.x=Math.PI/2;ring2.position.y=gy-1.25;G.add(ring2);
+  for(let i=0;i<6;i++){const a=TAU*i/6+TAU/12;
+    const p=[new THREE.Vector3(Math.cos(a)*1.3,topY+0.7,Math.sin(a)*1.3),new THREE.Vector3(Math.cos(a)*2.6,gy-1.2,Math.sin(a)*2.6),new THREE.Vector3(Math.cos(a)*3.32,gy+0.2,Math.sin(a)*3.32),new THREE.Vector3(Math.cos(a)*3.05,gy+1.0,Math.sin(a)*3.05)];
+    G.add(new THREE.Mesh(tube(p,0.45,false,40),metal));
+    const tip=new THREE.Mesh(new THREE.SphereGeometry(0.5,20,14),metal);tip.position.copy(p[3]);tip.scale.y=0.8;G.add(tip);}
+  const st=new THREE.Mesh(brilliant(sd),diamond);st.position.y=gy;G.add(st);gems.push(st);
+  // pavé on shoulders: 9 each side on band top, set in a raised rail
+  const bg=brilliant(1.3);
+  for(const s of[-1,1])for(let i=0;i<9;i++){
+    const a=Math.PI/2+s*(0.24+i*0.105);const rr=rMid+tw/2+0.05;
+    const m=new THREE.Mesh(bg,diamond);m.position.set(Math.cos(a)*rr,Math.sin(a)*rr,0);m.rotation.z=a-Math.PI/2;G.add(m);gems.push(m);
+    for(const z of[-0.78,0.78]){const b=new THREE.Mesh(new THREE.SphereGeometry(0.26,10,8),metal);b.position.set(Math.cos(a+0.052)*(rr+0.15),Math.sin(a+0.052)*(rr+0.15),z);G.add(b);}
+  }
+  G.position.y=-3;G.rotation.y=0;
+  return {gems};
+}
+
+// ---------- 02: emerald pendant ----------
+function buildPendant({G,metal,diamond}){
+  const gems=[];
+  const emerald=new THREE.MeshPhysicalMaterial({color:0x27a866,metalness:0,roughness:0,transmission:1,thickness:2.5,ior:1.58,attenuationColor:new THREE.Color(0x0e7340),attenuationDistance:4.5,specularIntensity:1,envMapIntensity:3,emissive:0x04301a,emissiveIntensity:0.45,flatShading:true});
+  const P=new THREE.Group();P.rotation.x=Math.PI/2;G.add(P);   // build face-up then stand it facing +z
+  const w=6,l=8;
+  const em=new THREE.Mesh(emeraldCut(w,l),emerald);P.add(em);gems.push(em);
+  // bezel/gallery under stone
+  const oct=(k,c,y)=>octo(w*k,l*k,c).map(p=>new THREE.Vector3(p[0],y,p[1]));
+  P.add(new THREE.Mesh(tube(oct(1.04,1.25,-0.25),0.32,true,160),metal));
+  P.add(new THREE.Mesh(tube(oct(0.72,0.9,-2.6),0.3,true,140),metal));
+  // halo frame: outer octagon rail with stones
+  const hk=1.0+2.2/ Math.min(w,l);
+  const outer=octo(w*1.62,l*1.47,1.9);
+  P.add(new THREE.Mesh(tube(outer.map(p=>new THREE.Vector3(p[0],-0.55,p[1])),0.42,true,200),metal));
+  P.add(new THREE.Mesh(tube(octo(w*1.09,l*1.075,1.3).map(p=>new THREE.Vector3(p[0],-0.55,p[1])),0.36,true,180),metal));
+  // halo stones along path between rails
+  const mid=new THREE.CatmullRomCurve3(octo(w*1.355,l*1.27,1.6).map(p=>new THREE.Vector3(p[0],-0.2,p[1])),true,'catmullrom',0.2);
+  const sg=brilliant(1.2),N=22;
+  for(let i=0;i<N;i++){const t=i/N;const p=mid.getPointAt(t);const m=new THREE.Mesh(sg,diamond);m.position.copy(p);P.add(m);gems.push(m);
+    const b=new THREE.Mesh(new THREE.SphereGeometry(0.24,10,8),metal);const p2=mid.getPointAt((t+0.5/N)%1);b.position.set(p2.x,0.05,p2.z);P.add(b);}
+  // basket ribs
+  const o1=octo(w*1.04,l*1.04,1.25),o2=octo(w*0.72,l*0.72,0.9);
+  for(let i=0;i<8;i++)P.add(new THREE.Mesh(tube([new THREE.Vector3(o1[i][0],-0.3,o1[i][1]),new THREE.Vector3(o2[i][0]*1.05,-1.6,o2[i][1]*1.05),new THREE.Vector3(o2[i][0],-2.6,o2[i][1])],0.26,false,20),metal));
+  // double claws at 4 corners
+  const corners=[[1,1],[1,-1],[-1,1],[-1,-1]];
+  for(const[sx,sz]of corners)for(const d of[-1,1]){
+    const cx=sx*(w/2-0.55)+ (d>0?sx*0.45:0), cz=sz*(l/2-0.55)+(d<0?sz*0.45:0);
+    const base=new THREE.Vector3(cx*1.02,-0.6,cz*1.02),top=new THREE.Vector3(cx*0.94,0.75,cz*0.94);
+    P.add(new THREE.Mesh(tube([base,new THREE.Vector3(cx*1.07,0.1,cz*1.07),top],0.3,false,20),metal));
+    const tp=new THREE.Mesh(new THREE.SphereGeometry(0.34,14,10),metal);tp.position.copy(top);tp.scale.y=0.7;P.add(tp);}
+  // bail: connector + loop
+  const topZ=-l*1.47/2;
+  const con=new THREE.Mesh(new THREE.CylinderGeometry(0.55,0.75,1.6,24),metal);con.rotation.x=Math.PI/2;con.position.set(0,-0.55,topZ-0.6);P.add(con);
+  const bail=new THREE.Mesh(new THREE.TorusGeometry(1.8,0.55,24,80),metal);bail.position.set(0,-0.55,topZ-2.9);bail.rotation.y=Math.PI/2;P.add(bail);
+  G.position.y=-0.5;
+  return {gems};
+}
+
+makeViewer(document.getElementById('p1'),buildRing,{dist:46,target:new THREE.Vector3(0,2.5,0),metal:'w',floor:-13.2,shadow:[30,18]});
+makeViewer(document.getElementById('p2'),buildPendant,{dist:44,target:new THREE.Vector3(0,1.2,0),metal:'y',floor:-9.5,shadow:[20,10]});
+</script>
+</body>
