@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Игровой UI - демо 9-slice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@600;700&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#17111F; --bg2:#21182C; --ink:#F6EEDD; --mute:#BFB2C9; --gold:#E8C27A; --gold2:#B98A3E;
+  --plum:#3A2550; --plum2:#4E3268; --rose:#E77B8C; --mint:#7FD8B6; --sky:#8BB8F2;
+  --disp:'Cormorant SC',Georgia,serif; --ui:'Nunito',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1200px 700px at 20% -10%,#3a2550 0,transparent 60%),radial-gradient(900px 600px at 110% 20%,#2b1f45 0,transparent 55%),var(--bg);color:var(--ink);font:600 15px/1.45 var(--ui);min-height:100vh}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.wrap{max-width:1280px;margin:0 auto;padding:40px 24px 120px}
+header{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+header h1{font:700 44px/1 var(--disp);letter-spacing:.02em;color:var(--gold)}
+header p{color:var(--mute);max-width:560px;margin-top:10px}
+.tg{display:flex;gap:6px;background:#ffffff0d;border:1px solid #ffffff1a;border-radius:12px;padding:4px}
+.tg button{padding:9px 14px;border-radius:9px;font-weight:800;font-size:13.5px;color:var(--mute)}
+.tg button.on{background:var(--gold);color:#2a1a08}
+
+/* 9-slice frames: real CSS border-image from one small SVG */
+.f9{border-style:solid;border-width:22px;border-image-source:var(--fr);border-image-slice:44 fill;border-image-width:22px;border-image-repeat:stretch;position:relative}
+.f9-s{border-width:14px;border-image-width:14px}
+:root{
+ --fr:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='132' height='132'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23F3D79A'/%3E%3Cstop offset='1' stop-color='%23A97A33'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%234E3268'/%3E%3Cstop offset='1' stop-color='%232C1C3E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='3' y='3' width='126' height='126' rx='22' fill='url(%23b)' stroke='url(%23g)' stroke-width='5'/%3E%3Crect x='11' y='11' width='110' height='110' rx='15' fill='none' stroke='%23E8C27A' stroke-opacity='.35' stroke-width='1.5'/%3E%3Cpath d='M66 0l8 8-8 8-8-8z M66 116l8 8-8 8-8-8z' fill='url(%23g)'/%3E%3Ccircle cx='15' cy='15' r='4' fill='%23F3D79A'/%3E%3Ccircle cx='117' cy='15' r='4' fill='%23F3D79A'/%3E%3Ccircle cx='15' cy='117' r='4' fill='%23F3D79A'/%3E%3Ccircle cx='117' cy='117' r='4' fill='%23F3D79A'/%3E%3C/svg%3E");
+ --btn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FFE4A8'/%3E%3Cstop offset='.5' stop-color='%23E8C27A'/%3E%3Cstop offset='1' stop-color='%23B98A3E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='86' height='54' rx='16' fill='%237A5521'/%3E%3Crect x='2' y='0' width='86' height='52' rx='16' fill='url(%23g)'/%3E%3Crect x='8' y='5' width='74' height='14' rx='7' fill='%23fff' fill-opacity='.35'/%3E%3C/svg%3E");
+ --btn2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect x='2' y='2' width='86' height='54' rx='16' fill='%23241834'/%3E%3Crect x='2' y='0' width='86' height='52' rx='16' fill='%234E3268' stroke='%23E8C27A' stroke-opacity='.6' stroke-width='2'/%3E%3Crect x='8' y='5' width='74' height='12' rx='6' fill='%23fff' fill-opacity='.1'/%3E%3C/svg%3E");
+}
+.gb{border-style:solid;border-width:18px 26px 22px;border-image-source:var(--btn);border-image-slice:20 28 24 fill;height:58px;display:inline-flex;align-items:center;justify-content:center;font:900 16px/1 var(--ui);color:#3a2408;text-shadow:0 1px 0 #ffffff70;padding:0 4px;transition:transform .12s, filter .2s;letter-spacing:.02em;white-space:nowrap}
+.gb:hover{filter:brightness(1.07)}.gb:active{transform:translateY(2px) scale(.98)}
+.gb.alt{border-image-source:var(--btn2);color:var(--ink);text-shadow:none}
+.gb.sm{height:46px;border-width:14px 18px 18px;font-size:14px}
+
+/* phones */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.ph{background:#0c0812;border-radius:42px;padding:12px;box-shadow:0 30px 80px #0008,inset 0 0 0 1.5px #ffffff1a}
+.sc{border-radius:32px;overflow:hidden;aspect-ratio:9/19.5;position:relative;background:linear-gradient(180deg,#2a1d3c,#160f20);display:flex;flex-direction:column}
+.cap{text-align:center;margin-top:14px;color:var(--mute);font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 16px 6px;font-size:12px}
+.res{display:flex;gap:8px}
+.chip{display:flex;align-items:center;gap:5px;background:#0006;border:1px solid #E8C27A55;border-radius:20px;padding:4px 10px 4px 5px;font-weight:900;font-size:12.5px}
+.chip i{width:18px;height:18px;border-radius:50%;display:block}
+.chip .c1{background:radial-gradient(circle at 35% 30%,#FFF1C2,#E8B54E 55%,#A9781F)}
+.chip .c2{background:radial-gradient(circle at 35% 30%,#FFD1DA,#E77B8C 55%,#9E3A4C);border-radius:4px;transform:rotate(45deg) scale(.8)}
+.back{width:34px;height:34px;display:grid;place-items:center;background:#0006;border-radius:10px;border:1px solid #ffffff22}
+.ttl{font:700 26px/1 var(--disp);color:var(--gold);text-align:center;padding:6px 0 10px;letter-spacing:.03em}
+
+/* wardrobe */
+.stage{flex:1;position:relative;display:flex;align-items:end;justify-content:center;min-height:0}
+.hero{width:58%;height:92%;position:relative}
+.hero svg{width:100%;height:100%}
+.tabs{display:flex;gap:6px;padding:0 12px}
+.tabs button{flex:1;height:36px;border-radius:10px;background:#ffffff0d;font-size:11.5px;font-weight:800;color:var(--mute);border:1px solid #ffffff14}
+.tabs button.on{background:var(--plum2);color:var(--gold);border-color:#E8C27A88}
+.items{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:10px 12px}
+.it{aspect-ratio:1;border-radius:12px;background:#ffffff0a;border:1.5px solid #ffffff18;display:grid;place-items:center;position:relative;transition:.15s}
+.it.on{border-color:var(--gold);background:#E8C27A22;box-shadow:0 0 0 3px #E8C27A33}
+.it .sw{width:56%;height:56%;border-radius:8px}
+.it .lk{position:absolute;right:4px;bottom:3px;font-size:9.5px;font-weight:900;color:var(--gold)}
+.bot{padding:6px 12px 18px;display:flex;gap:8px}
+.bot .gb{flex:1}
+
+/* shop */
+.offer{margin:4px 12px 10px;padding:0;min-height:110px;display:flex;align-items:center;gap:10px}
+.offer .t{font:700 20px/1.05 var(--disp);color:var(--gold)}
+.offer small{display:block;font-size:11px;color:var(--mute);margin-top:4px}
+.offer .tm{font-size:10.5px;font-weight:900;background:var(--rose);color:#fff;border-radius:6px;padding:3px 7px;display:inline-block;margin-top:6px}
+.packs{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px;flex:1;align-content:start}
+.pk{padding:0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px}
+.pk .gem{width:44px;height:44px;margin:2px auto 0}
+.pk b{font-size:17px;font-weight:900}
+.pk small{font-size:10.5px;color:var(--mute)}
+.pk .gb{margin-top:6px;width:100%}
+.pk .hot{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--rose);color:#fff;font-size:9.5px;font-weight:900;padding:3px 8px;border-radius:6px;white-space:nowrap}
+
+/* stats */
+.prof{display:flex;gap:12px;align-items:center;padding:4px 16px 10px}
+.ava{width:62px;height:62px;border-radius:16px;background:linear-gradient(160deg,#7E5AA6,#3A2550);border:2px solid var(--gold);display:grid;place-items:center;font:700 26px var(--disp);color:var(--gold)}
+.prof b{font-size:17px}.prof small{display:block;color:var(--mute);font-size:12px}
+.lvl{height:8px;background:#0006;border-radius:6px;margin-top:6px;overflow:hidden;width:150px}.lvl i{display:block;height:100%;width:64%;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.stats{margin:0 12px;padding:0}
+.st{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:9px 2px;border-bottom:1px solid #ffffff12}
+.st:last-child{border:0}
+.st .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:14px}
+.st b{font-size:13.5px}
+.st .bar{grid-column:2/4;height:7px;background:#0006;border-radius:5px;overflow:hidden;margin-top:-4px}
+.st .bar i{display:block;height:100%;border-radius:5px;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.st .v{font-weight:900;font-size:13px;color:var(--gold)}
+.ach{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px}
+.ach div{aspect-ratio:1;border-radius:12px;background:#ffffff0a;border:1px solid #ffffff18;display:grid;place-items:center;font-size:20px}
+.ach div.off{opacity:.35;filter:grayscale(1)}
+
+/* dialogs / modals */
+.h2{font:700 30px/1 var(--disp);color:var(--gold);margin:56px 0 8px}
+.sub{color:var(--mute);margin-bottom:22px;max-width:640px}
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.mod{padding:4px 6px 6px;text-align:center}
+.mod h4{font:700 22px/1.1 var(--disp);color:var(--gold);margin-bottom:8px}
+.mod p{color:var(--mute);font-size:14px;margin-bottom:16px}
+.mod .row{display:flex;gap:10px}.mod .row .gb{flex:1}
+.mod input{width:100%;height:48px;border-radius:12px;border:1.5px solid #E8C27A66;background:#0007;color:var(--ink);padding:0 14px;font:800 16px var(--ui);outline:0;margin-bottom:14px;text-align:center}
+.mod input:focus{border-color:var(--gold)}
+.mod .x{position:absolute;top:-30px;right:-30px;width:38px;height:38px;border-radius:12px;background:var(--plum);border:2px solid var(--gold);display:grid;place-items:center;font-weight:900;color:var(--gold)}
+.mod .ico{width:58px;height:58px;margin:-46px auto 8px;border-radius:16px;display:grid;place-items:center;font-size:26px;border:2px solid var(--gold);background:var(--plum)}
+.danger .gb:first-child{filter:hue-rotate(-40deg) saturate(1.3)}
+
+/* story dialogue */
+.story{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+.scene{position:relative;aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#5a3e7a 0,#2b1d3d 60%,#1a1226 100%)}
+.scene .moon{position:absolute;right:12%;top:12%;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#FFF4D8,#E8C27A 60%,transparent 62%);filter:drop-shadow(0 0 30px #E8C27A88)}
+.scene .hills{position:absolute;inset:auto 0 0 0;height:45%;background:radial-gradient(120% 100% at 20% 100%,#1a1226 60%,transparent 61%),radial-gradient(120% 100% at 85% 100%,#231833 60%,transparent 61%)}
+.bubble{position:absolute;left:4%;right:4%;bottom:5%;padding:2px 6px}
+.bubble .nm{position:absolute;top:-38px;left:8px;padding:0 6px;height:auto;font:900 13px var(--ui);color:#3a2408}
+.bubble .nm span{display:inline-block;border-style:solid;border-width:8px 14px;border-image:var(--btn) 20 28 24 fill / 8px 14px;padding:0 2px}
+.bubble p{font-size:15px;line-height:1.5}
+.bubble p .cur{display:inline-block;width:8px;height:15px;background:var(--gold);vertical-align:-2px;margin-left:2px;animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+.choices{display:grid;gap:10px}
+.choices .gb{width:100%;justify-content:flex-start;padding-left:10px}
+.choices .gb em{font-style:normal;margin-left:auto;font-size:12px;display:flex;align-items:center;gap:4px;padding-right:4px}
+
+/* 9-slice explainer */
+.ex{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:center;margin-top:16px}
+.src{position:relative;width:264px;height:264px;margin:0 auto;background:var(--fr) center/100% 100% no-repeat}
+.src .gl{position:absolute;background:#7FD8B6}
+.src .v1{left:33.3%;top:-10px;bottom:-10px;width:1.5px}.src .v2{left:66.6%;top:-10px;bottom:-10px;width:1.5px}
+.src .h1{top:33.3%;left:-10px;right:-10px;height:1.5px}.src .h2{top:66.6%;left:-10px;right:-10px;height:1.5px}
+.src .lb{position:absolute;font-size:11px;font-weight:900;color:#7FD8B6;letter-spacing:.06em}
+.stretch{height:240px;display:flex;align-items:center;justify-content:center}
+.stretch .f9{width:220px;height:110px;animation:grow 4s ease-in-out infinite alternate;display:grid;place-items:center;font:700 22px var(--disp);color:var(--gold)}
+@keyframes grow{to{width:100%;height:220px}}
+body.grid9 .f9{outline:1.5px dashed #7FD8B6;outline-offset:-22px}
+body.grid9 .f9-s{outline-offset:-14px}
+body.grid9 .gb{outline:1.5px dashed #7FD8B6aa;outline-offset:-4px}
+.note{background:#ffffff08;border:1px solid #ffffff14;border-radius:16px;padding:20px 22px;color:var(--mute);font-size:14.5px}
+.note b{color:var(--ink)}
+.note li{margin:6px 0 6px 18px}
+
+#bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#0c0812ee;border:1px solid #E8C27A55;border-radius:14px;padding:6px 6px 6px 16px;display:flex;align-items:center;gap:12px;font-size:13px;z-index:20;white-space:nowrap;box-shadow:0 10px 40px #0008}
+#bar button{background:#ffffff12;border-radius:9px;padding:8px 12px;font-weight:800}
+#bar button.on{background:#7FD8B6;color:#0c2a1f}
+
+@media (max-width:1000px){.grid{grid-template-columns:1fr 1fr}.mods{grid-template-columns:1fr 1fr}.story,.ex{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:24px 16px 110px}header h1{font-size:32px}.grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}.mods{grid-template-columns:1fr;gap:44px}#bar .l{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><h1>Игровой UI · демо</h1><p>Гардероб, магазин, статы, диалоговые окна историй и системные окна. Все рамки и кнопки собраны по 9-slice: одна маленькая картинка тянется под любой размер без искажения углов.</p></div>
+  <div class="tg" id="pal"><button class="on" data-p="0">Ночь</button><button data-p="1">Роза</button><button data-p="2">Изумруд</button></div>
+</header>
+
+<div class="grid">
+  <!-- wardrobe -->
+  <div><div class="ph"><div class="sc">
+    <div class="top"><span class="back">‹</span><div class="res"><span class="chip"><i class="c1"></i>2 450</span><span class="chip"><i class="c2"></i>38</span></div></div>
+    <div class="ttl">Гардероб</div>
+    <div class="stage"><div class="hero"><svg viewBox="0 0 200 360" id="doll">
+      <ellipse cx="100" cy="350" rx="60" ry="8" fill="#0006"/>
+      <path d="M70 60c0-30 60-30 60 0v30c0 10-60 10-60 0z" fill="#3b2418"/>
+      <ellipse cx="100" cy="75" rx="26" ry="30" fill="#F2CFB3"/>
+      <path d="M72 70c4-28 52-32 56 0-10-12-44-14-56 0z" fill="#4a2c1d"/>
+      <rect x="92" y="100" width="16" height="14" fill="#E8BFA0"/>
+      <path id="dress" d="M70 114h60l22 150c-30 14-74 14-104 0z" fill="#8E5BC4"/>
+      <path id="trim" d="M62 250c34 12 76 12 86 0l4 14c-30 14-74 14-104 0z" fill="#E8C27A"/>
+      <rect x="84" y="276" width="10" height="64" rx="4" fill="#F2CFB3"/><rect x="106" y="276" width="10" height="64" rx="4" fill="#F2CFB3"/>
+      <rect id="shoe1" x="80" y="334" width="18" height="10" rx="4" fill="#2a1a3a"/><rect id="shoe2" x="102" y="334" width="18" height="10" rx="4" fill="#2a1a3a"/>
+      <path d="M70 120l-16 90 10 2 18-80z M130 120l16 90-10 2-18-80z" fill="#F2CFB3"/>
+    </svg></div></div>
+    <div class="tabs"><button class="on">Платья</button><button>Причёски</button><button>Обувь</button><button>Аксесс.</button></div>
+    <div class="items" id="items"></div>
+    <div class="bot"><button class="gb alt sm">Сбросить</button><button class="gb sm">Надеть</button></div>
+  </div></div><div class="cap">Гардероб</div></div>
+
+  <!-- shop -->
+  <div><div class="ph"><div class="sc">
+    <div class="top"><span class="back">‹</span><div class="res"><span class="chip"><i class="c1"></i>2 450</span><span class="chip"><i class="c2"></i>38</span></div></div>
+    <div class="ttl">Магазин</div>
+    <div class="offer f9"><svg class="gem" viewBox="0 0 40 40" width="56" height="56"><path d="M20 3l14 10-14 24L6 13z" fill="#E77B8C"/><path d="M20 3l14 10H6z" fill="#FFC1CC"/><path d="M20 13v24L6 13z" fill="#B04A5C"/></svg><div><div class="t">Набор новичка</div><small>60 кристаллов + платье «Лунный шёлк»</small><span class="tm">23:59:12</span></div></div>
+    <div class="packs" id="packs"></div>
+    <div class="bot"><button class="gb alt sm" style="flex:1">Восстановить покупки</button></div>
+  </div></div><div class="cap">Магазин</div></div>
+
+  <!-- stats -->
+  <div><div class="ph"><div class="sc">
+    <div class="top"><span class="back">‹</span><div class="res"><span class="chip"><i class="c1"></i>2 450</span></div></div>
+    <div class="ttl">Персонаж</div>
+    <div class="prof"><div class="ava">А</div><div><b>Алиса</b><small>Уровень 7 · 640 / 1000 опыта</small><div class="lvl"><i></i></div></div></div>
+    <div class="stats f9" id="stats"></div>
+    <div class="ach"><div>🌙</div><div>🗝️</div><div>💌</div><div class="off">👑</div><div>🎭</div><div class="off">🦋</div><div>📜</div><div class="off">🔥</div></div>
+  </div></div><div class="cap">Экран статов</div></div>
+</div>
+
+<div class="h2">Диалоги историй</div>
+<p class="sub">Окно реплики с плашкой имени и окно выбора. Подложка одна на все 5 историй - меняется только цвет или текстура рамки.</p>
+<div class="story">
+  <div class="scene"><div class="moon"></div><div class="hills"></div>
+    <div class="bubble f9"><div class="nm"><span>Кай</span></div><p id="line"></p></div>
+  </div>
+  <div class="choices">
+    <button class="gb alt">«Я пойду с тобой»</button>
+    <button class="gb">«Расскажи, что случилось» <em><i class="chip" style="padding:3px 8px 3px 4px"><i class="c2" style="width:14px;height:14px"></i>15</i></em></button>
+    <button class="gb alt">Промолчать</button>
+  </div>
+</div>
+
+<div class="h2">Системные окна</div>
+<p class="sub">Одна подложка и рамка на все: ошибка, ввод имени, очистка кэша, удаление аккаунта.</p>
+<div class="mods">
+  <div class="mod f9"><div class="ico">⚠️</div><h4>Возникла ошибка</h4><p>Не удалось загрузить главу. Проверьте интернет и попробуйте ещё раз.</p><button class="gb" style="width:100%">Попробовать ещё</button></div>
+  <div class="mod f9"><div class="ico">✒️</div><h4>Как вас зовут?</h4><p>Имя увидят персонажи историй</p><input value="Алиса" maxlength="14"><button class="gb" style="width:100%">Сохранить</button></div>
+  <div class="mod f9"><div class="ico">🧹</div><h4>Очистить кэш?</h4><p>Освободится 312 МБ. Прогресс и покупки сохранятся.</p><div class="row"><button class="gb alt">Отмена</button><button class="gb">Очистить</button></div></div>
+  <div class="mod f9 danger"><div class="ico">🗑️</div><h4>Удалить аккаунт?</h4><p>Весь прогресс, наряды и кристаллы будут удалены без возможности восстановления.</p><div class="row"><button class="gb">Удалить</button><button class="gb alt">Оставить</button></div></div>
+  <div class="mod f9"><div class="ico">✅</div><h4>Готово!</h4><p>Покупка прошла успешно. Платье уже в гардеробе.</p><button class="gb" style="width:100%">Отлично</button></div>
+  <div class="mod f9"><div class="ico">💎</div><h4>Не хватает кристаллов</h4><p>Для этого выбора нужно 15 кристаллов, у вас 8.</p><div class="row"><button class="gb alt">Позже</button><button class="gb">В магазин</button></div></div>
+</div>
+
+<div class="h2">Как устроен 9-slice</div>
+<p class="sub">Рамку режем на 9 частей: углы не тянутся, края тянутся в одну сторону, центр - во все. Отдаю каждую рамку и кнопку PNG с разметкой отступов (Unity Sprite Editor / Figma).</p>
+<div class="ex">
+  <div class="src"><i class="gl v1"></i><i class="gl v2"></i><i class="gl h1"></i><i class="gl h2"></i><span class="lb" style="left:4px;top:-22px">132×132 px · slice 44</span></div>
+  <div class="stretch"><div class="f9">Та же рамка</div></div>
+</div>
+<div class="note" style="margin-top:28px"><b>Что получите в работе:</b><ul><li>3 экрана: гардероб, магазин, статы - в Figma, с компонентами и состояниями;</li><li>окна диалогов для 5 историй + системные окна (ошибка, имя, кэш, удаление аккаунта);</li><li>нарезка PNG @1x/@2x/@3x с границами 9-slice, иконки валют и кнопки с состояниями нажатия;</li><li>стиль подстрою под уже готовые элементы игры.</li></ul></div>
+</div>
+
+<div id="bar"><span class="l">Демо игрового UI</span><button id="g9" type="button">Показать сетку 9-slice</button></div>
+
+<script>
+(function(){
+  var cols=['#8E5BC4','#E77B8C','#5FB8A0','#3E6FD8','#E8C27A','#2a1a3a','#C9475F','#F4F0E6'];
+  var items=document.getElementById('items'),dress=document.getElementById('dress');
+  items.innerHTML=cols.map(function(c,i){return '<button class="it'+(i?'':' on')+'" data-c="'+c+'"><span class="sw" style="background:'+c+'"></span>'+(i>4?'<span class="lk">💎 20</span>':'')+'</button>'}).join('');
+  items.addEventListener('click',function(e){var b=e.target.closest('.it');if(!b)return;items.querySelectorAll('.it').forEach(function(x){x.classList.toggle('on',x===b)});dress.setAttribute('fill',b.dataset.c)});
+  var packs=[[80,'99 ₽',''],[250,'299 ₽',''],[550,'599 ₽','Хит'],[1200,'1 190 ₽','+20%']];
+  document.getElementById('packs').innerHTML=packs.map(function(p){return '<div class="pk f9 f9-s">'+(p[2]?'<span class="hot">'+p[2]+'</span>':'')+'<svg class="gem" viewBox="0 0 40 40"><path d="M20 3l14 10-14 24L6 13z" fill="#E77B8C"/><path d="M20 3l14 10H6z" fill="#FFC1CC"/><path d="M20 13v24L6 13z" fill="#B04A5C"/></svg><b>'+p[0]+'</b><small>кристаллов</small><button class="gb sm">'+p[1]+'</button></div>'}).join('');
+  var st=[['💗','Обаяние',72,'#E77B8C'],['🧠','Ум',58,'#8BB8F2'],['🗡️','Смелость',41,'#E8C27A'],['🌿','Доброта',85,'#7FD8B6']];
+  document.getElementById('stats').innerHTML=st.map(function(s){return '<div class="st"><span class="ic" style="background:'+s[3]+'33">'+s[0]+'</span><b>'+s[1]+'</b><span class="v">'+s[2]+'</span><div class="bar"><i style="width:0;background:'+s[3]+'" data-w="'+s[2]+'"></i></div></div>'}).join('');
+  setTimeout(function(){document.querySelectorAll('.st .bar i').forEach(function(i){i.style.width=i.dataset.w+'%'})},300);
+  // typewriter
+  var txt='Ты всё-таки пришла. Я ждал до полуночи - ещё минута, и ворота закрылись бы навсегда.',L=document.getElementById('line'),k=0;
+  function type(){L.innerHTML=txt.slice(0,k)+'<span class="cur"></span>';k++;if(k<=txt.length)setTimeout(type,38);else setTimeout(function(){k=0;type()},3500)}type();
+  document.getElementById('g9').addEventListener('click',function(){this.classList.toggle('on');document.body.classList.toggle('grid9')});
+  // palettes
+  var P=[null,{'--bg':'#1F1218','--plum':'#5A2A3E','--plum2':'#7A3A55','--gold':'#F2C6A0'},{'--bg':'#0E1A18','--plum':'#1E4A42','--plum2':'#2A6155','--gold':'#E6D49A'}];
+  document.getElementById('pal').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});var r=document.documentElement.style;['--bg','--plum','--plum2','--gold'].forEach(function(v){r.removeProperty(v)});var p=P[+b.dataset.p];if(p)for(var v in p)r.setProperty(v,p[v]);document.body.style.filter=b.dataset.p==='1'?'hue-rotate(-28deg)':b.dataset.p==='2'?'hue-rotate(110deg) saturate(.8)':''});
+})();
+</script>
+</body>
+</html>
