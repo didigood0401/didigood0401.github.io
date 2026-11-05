@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Генератор заданий для детей - демо плагина WordPress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f1ea;--card:#fff;--ink:#23222b;--mut:#5d5a68;--line:#e4dfd4;--acc:#c9521a;--acc2:#2f7d6d;--soft:#fff3e8;--wp:#1d2327;--wp2:#2c3338}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+.bar{background:var(--wp);color:#c3c4c7;font:13px/32px system-ui,sans-serif;padding:0 14px;display:flex;gap:18px;align-items:center}
+.bar b{color:#fff}
+.demo{margin-left:auto;background:var(--acc);color:#fff;padding:0 10px;border-radius:3px;line-height:22px}
+.wrap{display:grid;grid-template-columns:200px 1fr;min-height:calc(100vh - 32px)}
+.side{background:var(--wp2);color:#c3c4c7;font:14px system-ui,sans-serif;padding-top:10px}
+.side div{padding:9px 14px}
+.side .on{background:#2271b1;color:#fff}
+main{padding:24px clamp(14px,3vw,36px);display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:start}
+h1{grid-column:1/-1;margin:0;font-size:26px;font-weight:900;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+h1 small{font-size:14px;font-weight:700;color:var(--acc2);background:#e2f1ec;padding:4px 10px;border-radius:20px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;position:sticky;top:16px}
+label{display:block;font-weight:800;font-size:13px;color:var(--mut);margin:14px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+label:first-child{margin-top:0}
+select,input[type=number]{width:100%;font:inherit;font-weight:700;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:inherit;font-weight:800;font-size:14px;border:1.5px solid var(--line);background:#fff;border-radius:20px;padding:6px 12px;cursor:pointer;color:var(--ink)}
+.chips button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.season{display:flex;gap:10px;align-items:center;background:var(--soft);border-radius:12px;padding:10px 12px;font-size:14px;font-weight:700;margin-top:14px}
+.season span{font-size:26px}
+.go{margin-top:18px;width:100%;font:inherit;font-weight:900;font-size:17px;border:0;border-radius:12px;padding:14px;background:var(--acc);color:#fff;cursor:pointer;box-shadow:0 4px 0 #8f3a10;transition:transform .1s}
+.go:active{transform:translateY(3px);box-shadow:0 1px 0 #8f3a10}
+.go:disabled{opacity:.7;cursor:wait}
+.note{font-size:12.5px;color:var(--mut);margin-top:12px;line-height:1.45}
+.right{min-width:0}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tools button{font:inherit;font-weight:800;font-size:14px;border:1.5px solid var(--ink);background:#fff;border-radius:10px;padding:8px 14px;cursor:pointer}
+.tools button.pub{background:var(--acc2);border-color:var(--acc2);color:#fff}
+.log{font:13px/1.5 ui-monospace,Consolas,monospace;background:#1e1e24;color:#9fe6c8;border-radius:12px;padding:12px 14px;margin-bottom:14px;min-height:44px;white-space:pre-wrap}
+.sheet{background:#fff;border-radius:6px;box-shadow:0 10px 30px rgba(60,40,10,.12);padding:clamp(18px,4vw,44px);max-width:800px;aspect-ratio:auto}
+.sheet header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px dashed var(--line);padding-bottom:12px;margin-bottom:18px;gap:10px}
+.sheet h2{margin:0;font-size:clamp(20px,3vw,28px);font-weight:900}
+.sheet .who{font-size:14px;color:var(--mut);font-weight:700;text-align:right;white-space:nowrap}
+.task{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid #f0ece4;opacity:0;transform:translateY(8px);transition:.35s}
+.task.in{opacity:1;transform:none}
+.task .n{width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;font-weight:900;display:grid;place-items:center}
+.task p{margin:4px 0 10px;font-size:17px;font-weight:800}
+.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.row svg{width:38px;height:38px}
+.box{display:inline-block;width:44px;height:40px;border:2px solid #c9c2b5;border-radius:8px;vertical-align:middle}
+.ex{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px 18px;font-size:22px;font-weight:800}
+.cmp{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.cmp .grp{display:flex;flex-wrap:wrap;gap:3px;max-width:150px;padding:8px;border:2px dashed var(--line);border-radius:12px}
+.cmp .grp svg{width:28px;height:28px}
+.color svg{width:100%;max-width:420px;height:auto;display:block;margin:6px auto}
+.empty{display:grid;place-items:center;min-height:380px;color:var(--mut);font-weight:800;text-align:center}
+.empty div{font-size:60px}
+.cal{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-top:18px;max-width:800px}
+.cal h3{margin:0 0 10px;font-size:17px}
+.cal ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.cal li{display:flex;gap:10px;font-size:14.5px;font-weight:700;align-items:center}
+.cal li em{font-style:normal;color:var(--mut);min-width:92px}
+.tag{font-size:12px;background:#e2f1ec;color:var(--acc2);padding:2px 8px;border-radius:10px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(120px);opacity:0;visibility:hidden;background:var(--ink);color:#fff;font-weight:800;padding:12px 18px;border-radius:12px;transition:.3s;z-index:9}
+.toast.on{transform:translateX(-50%);opacity:1;visibility:visible}
+.foot{grid-column:1/-1;font-size:12.5px;color:var(--mut)}
+@media(max-width:1000px){.wrap{grid-template-columns:1fr}.side{display:none}main{grid-template-columns:1fr}.panel{position:static}}
+@media print{.bar,.side,.panel,.tools,.log,.cal,h1,.foot,.toast{display:none!important}.wrap,main{display:block;padding:0}.sheet{box-shadow:none;max-width:none;padding:0}.task{opacity:1;transform:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="bar"><b>W</b> Мой детский сайт <span>+ Создать</span><span class="demo">ДЕМО ПЛАГИНА</span></div>
+<div class="wrap">
+<nav class="side"><div>Консоль</div><div>Записи</div><div>Медиафайлы</div><div class="on">ИИ-задания</div><div>Календарь тем</div><div>Оплата</div><div>Настройки</div></nav>
+<main>
+<h1>Генератор заданий <small>нейросеть подключена</small></h1>
+<section class="panel">
+<label>Раздел</label>
+<div class="chips" id="subj">
+<button class="on" data-v="math">Математика</button><button data-v="logic">Логика</button><button data-v="color">Раскраска</button><button data-v="mix">Микс</button>
+</div>
+<label>Возраст</label>
+<select id="age"><option value="4">4-5 лет</option><option value="5" selected>5-6 лет</option><option value="6">6-7 лет</option><option value="7">7-8 лет (1 класс)</option></select>
+<label>Тема / сезон</label>
+<select id="theme"><option value="auto">Авто по календарю</option><option value="autumn">Осень</option><option value="ny">Новый год</option><option value="winter">Зима</option><option value="spring">Весна</option><option value="summer">Лето</option></select>
+<div class="season" id="seasonBox"></div>
+<label>Сколько заданий</label>
+<input type="number" id="cnt" value="5" min="3" max="8">
+<button class="go" id="go">Сгенерировать лист</button>
+<p class="note">В рабочей версии текст и картинки создаёт нейросеть (YandexGPT / GigaChat) по шаблону-промпту для каждого раздела. Лист сохраняется как запись WordPress и PDF для печати.</p>
+</section>
+<section class="right">
+<div class="tools"><button id="print">Печать / PDF</button><button id="regen">Ещё вариант</button><button class="pub" id="pub">Опубликовать на сайте</button></div>
+<div class="log" id="log">Готов к генерации.</div>
+<article class="sheet" id="sheet"><div class="empty"><div>✏️</div>Выберите раздел и нажмите «Сгенерировать лист»</div></article>
+<div class="cal"><h3>Автопубликация по календарю</h3><ul id="cal"></ul></div>
+</section>
+<p class="foot">Демонстрационный макет: задания собираются в браузере по тем же правилам, что и промпты для нейросети. Сайт, названия и тексты вымышленные.</p>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const $=s=>document.querySelector(s);
+const ICON={
+leaf:'<path d="M20 34C8 30 6 14 30 6c2 16-2 26-10 28z" fill="#e8892c" stroke="#9a4a12" stroke-width="2"/><path d="M20 34L26 14" stroke="#9a4a12" stroke-width="2"/>',
+mush:'<path d="M5 20a15 13 0 0 1 30 0z" fill="#d64a3a" stroke="#7a2318" stroke-width="2"/><circle cx="13" cy="14" r="2.5" fill="#fff"/><circle cx="24" cy="12" r="2" fill="#fff"/><path d="M15 20h10v12a5 3 0 0 1-10 0z" fill="#f5e6c8" stroke="#8a6b3a" stroke-width="2"/>',
+apple:'<circle cx="20" cy="23" r="13" fill="#d9483b" stroke="#7a2318" stroke-width="2"/><path d="M20 10q1-5 5-7" stroke="#5a3a1a" stroke-width="2.5" fill="none"/><path d="M21 9q7-4 10 1q-6 3-10-1z" fill="#5aa04a"/>',
+acorn:'<path d="M10 18h20q0 18-10 18T10 18z" fill="#c98a3c" stroke="#7a4c18" stroke-width="2"/><path d="M8 18q12-14 24 0z" fill="#8a5a28" stroke="#5a3a12" stroke-width="2"/><path d="M20 6v5" stroke="#5a3a12" stroke-width="3"/>',
+snow:'<g stroke="#4a90c8" stroke-width="2.5" stroke-linecap="round"><path d="M20 4v32M6 12l28 16M6 28l28-16"/><path d="M16 7l4 4 4-4M16 33l4-4 4 4"/></g>',
+tree:'<path d="M20 3L8 18h6L6 29h28l-8-11h6z" fill="#3f8a4f" stroke="#1f5a2f" stroke-width="2" stroke-linejoin="round"/><rect x="17" y="29" width="6" height="7" fill="#7a4c18"/><circle cx="16" cy="20" r="2" fill="#e8c23c"/><circle cx="24" cy="24" r="2" fill="#d64a3a"/>',
+gift:'<rect x="6" y="15" width="28" height="21" rx="2" fill="#d64a3a" stroke="#7a2318" stroke-width="2"/><rect x="4" y="10" width="32" height="7" rx="2" fill="#e8634f" stroke="#7a2318" stroke-width="2"/><path d="M20 10v26" stroke="#e8c23c" stroke-width="4"/><path d="M20 10q-9-9-10-2t10 2q9-9 10-2t-10 2" fill="none" stroke="#e8c23c" stroke-width="2.5"/>',
+mitten:'<path d="M12 36V16q0-10 9-10t9 10v6l4-3q3 2 0 6l-5 6v5z" fill="#3c78c8" stroke="#1d4a8a" stroke-width="2"/><rect x="11" y="31" width="19" height="6" fill="#fff" stroke="#1d4a8a" stroke-width="2"/>',
+flower:'<g fill="#f08aa8" stroke="#a83a5a" stroke-width="1.5"><circle cx="20" cy="10" r="6"/><circle cx="29" cy="17" r="6"/><circle cx="26" cy="27" r="6"/><circle cx="14" cy="27" r="6"/><circle cx="11" cy="17" r="6"/></g><circle cx="20" cy="19" r="5" fill="#f2c94c" stroke="#a87a1a" stroke-width="1.5"/>',
+bird:'<path d="M6 22q2-12 16-10l8-4-2 7q6 3 6 9q-8 10-20 6z" fill="#5aa0d8" stroke="#1d5a8a" stroke-width="2"/><circle cx="25" cy="15" r="1.8" fill="#1d2327"/><path d="M14 22q6 4 12 0" fill="none" stroke="#1d5a8a" stroke-width="2"/>',
+sun:'<circle cx="20" cy="20" r="8" fill="#f2c94c" stroke="#b8860b" stroke-width="2"/><g stroke="#e8a21c" stroke-width="2.5" stroke-linecap="round"><path d="M20 3v6M20 31v6M3 20h6M31 20h6M8 8l4 4M28 28l4 4M8 32l4-4M28 12l4-4"/></g>',
+fish:'<path d="M4 20q12-14 24 0q-12 14-24 0z" fill="#f2994a" stroke="#a8541a" stroke-width="2"/><path d="M28 20l8-7v14z" fill="#f2994a" stroke="#a8541a" stroke-width="2"/><circle cx="12" cy="18" r="2" fill="#1d2327"/>',
+straw:'<path d="M20 36q-14-8-12-20q6-6 12-2q6-4 12 2q2 12-12 20z" fill="#e0453a" stroke="#8a2318" stroke-width="2"/><path d="M14 8q6 4 12 0q-2 6-6 6t-6-6z" fill="#4a9a3a"/><g fill="#f5e08a"><circle cx="15" cy="20" r="1.3"/><circle cx="24" cy="19" r="1.3"/><circle cx="19" cy="26" r="1.3"/><circle cx="25" cy="27" r="1.3"/></g>'
+};
+const TH={
+autumn:{name:'Осень',emo:'🍂',it:['leaf','mush','apple','acorn'],w:{leaf:'листочков',mush:'грибов',apple:'яблок',acorn:'жёлудей'},hero:'Ёжик',color:'hedgehog'},
+ny:{name:'Новый год',emo:'🎄',it:['tree','gift','snow','mitten'],w:{tree:'ёлочек',gift:'подарков',snow:'снежинок',mitten:'варежек'},hero:'Дед Мороз',color:'snowman'},
+winter:{name:'Зима',emo:'❄️',it:['snow','mitten','tree','bird'],w:{snow:'снежинок',mitten:'варежек',tree:'ёлочек',bird:'снегирей'},hero:'Снеговик',color:'snowman'},
+spring:{name:'Весна',emo:'🌷',it:['flower','bird','sun','leaf'],w:{flower:'цветочков',bird:'птичек',sun:'солнышек',leaf:'листочков'},hero:'Скворец',color:'flower'},
+summer:{name:'Лето',emo:'☀️',it:['sun','fish','straw','flower'],w:{sun:'солнышек',fish:'рыбок',straw:'ягод клубники',flower:'цветочков'},hero:'Котёнок',color:'boat'}
+};
+const COLORING={
+hedgehog:'<svg viewBox="0 0 400 260" fill="none" stroke="#222" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M80 200L70 175L58 160L72 150L62 128L80 122L76 100L96 98L98 76L118 80L126 58L144 68L156 48L170 62L188 44L198 62L216 46L224 66L244 54L248 76L268 68L268 90L286 88L282 108L298 110"/><path d="M80 200Q90 215 130 212H250Q285 210 300 196"/><path d="M298 110Q330 130 362 170Q366 180 354 184L300 196"/><circle cx="364" cy="174" r="7" fill="#222"/><circle cx="318" cy="146" r="4.5" fill="#222"/><path d="M300 120Q306 112 314 118"/><path d="M330 170Q340 176 348 172"/><path d="M130 212v18h16v-14M230 212v18h16v-16"/><circle cx="190" cy="40" r="20"/><path d="M190 20q2-10 8-12M196 16q12-6 16 2q-10 4-16-2"/><path d="M210 128q10 30 0 60"/><path d="M20 236h360"/><path d="M28 236v-26a14 7 0 0 1 28 0v26"/><path d="M12 210q30-46 60 0z"/><circle cx="32" cy="196" r="5"/><circle cx="50" cy="190" r="4"/><path d="M300 236q-4-14 6-22q4 12-6 22M320 236q2-16 14-20q-2 14-14 20"/></svg>',
+snowman:'<svg viewBox="0 0 400 300" fill="none" stroke="#222" stroke-width="3"><circle cx="200" cy="225" r="60"/><circle cx="200" cy="130" r="42"/><circle cx="200" cy="65" r="30"/><path d="M175 42h50l-8-30h-34z"/><circle cx="190" cy="60" r="3" fill="#222"/><circle cx="210" cy="60" r="3" fill="#222"/><path d="M200 68l25 6-25 3"/><path d="M160 110l-50-30M240 110l50-30M110 80l-10-15M110 80l-18 2M290 80l10-15M290 80l18 2"/><path d="M168 100q32 18 64 0l-4 16q-28 12-56 0z"/><circle cx="200" cy="130" r="4"/><circle cx="200" cy="150" r="4"/><path d="M40 70l5 10 10 2-8 6 2 10-9-5-9 5 2-10-8-6 10-2zM340 40l4 8 8 1-6 5 2 8-8-4-7 4 2-8-6-5 8-1z"/><path d="M20 285h360"/></svg>',
+flower:'<svg viewBox="0 0 400 300" fill="none" stroke="#222" stroke-width="3"><circle cx="200" cy="110" r="22"/><g><ellipse cx="200" cy="60" rx="20" ry="30"/><ellipse cx="200" cy="160" rx="20" ry="30"/><ellipse cx="150" cy="110" rx="30" ry="20"/><ellipse cx="250" cy="110" rx="30" ry="20"/><ellipse cx="166" cy="76" rx="18" ry="26" transform="rotate(-45 166 76)"/><ellipse cx="234" cy="76" rx="18" ry="26" transform="rotate(45 234 76)"/><ellipse cx="166" cy="144" rx="18" ry="26" transform="rotate(45 166 144)"/><ellipse cx="234" cy="144" rx="18" ry="26" transform="rotate(-45 234 144)"/></g><path d="M200 190v95M200 240q-50-10-60-45q45 0 60 45M200 255q50-10 60-45q-45 0-60 45"/><path d="M60 60q15-20 30 0q15-20 30 0M300 40q12-16 24 0q12-16 24 0"/><path d="M20 285h360"/></svg>',
+boat:'<svg viewBox="0 0 400 300" fill="none" stroke="#222" stroke-width="3"><circle cx="320" cy="60" r="28"/><path d="M320 15v12M320 93v12M275 60h12M353 60h12M290 30l8 8M342 82l8 8M290 90l8-8M342 38l8-8"/><path d="M110 200h180l-30 40h-120z"/><path d="M200 200V60l70 120h-70M195 75l-65 105h65"/><path d="M20 250q30-15 60 0t60 0t60 0t60 0t60 0t60 0M20 275q30-15 60 0t60 0t60 0t60 0t60 0t60 0"/><path d="M60 80q10-10 20 0q10-10 20 0"/></svg>'
+};
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const ic=(k,s='')=>`<svg viewBox="0 0 40 40" ${s}>${ICON[k]}</svg>`;
+function autoTheme(d=new Date()){const m=d.getMonth(),day=d.getDate();if(m===11&&day>=10||m===0&&day<=10)return'ny';if(m===11||m<=1)return'winter';if(m<=4)return'spring';if(m<=7)return'summer';return'autumn'}
+let subj='math';
+document.querySelectorAll('#subj button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#subj button').forEach(x=>x.classList.remove('on'));b.classList.add('on');subj=b.dataset.v});
+function curTheme(){const v=$('#theme').value;return v==='auto'?autoTheme():v}
+function showSeason(){const t=TH[curTheme()];$('#seasonBox').innerHTML=`<span>${t.emo}</span><div>Тема листа: ${t.name}${$('#theme').value==='auto'?' <br><small style="color:var(--mut)">выбрана автоматически по дате</small>':''}</div>`}
+$('#theme').onchange=showSeason;showSeason();
+function mathTask(t,age){
+  const max=age<=4?5:age<=5?10:age<=6?15:20;const k=pick(t.it);
+  const types=['count','add','examples','compare','missing'];
+  const pool=age<=4?['count','compare','add']:types;const ty=pool[(mathTask.i=(mathTask.i||rnd(0,9))+1)%pool.length];
+  if(ty==='count'){const n=rnd(3,Math.min(max,9));return{q:`Посчитай, сколько ${t.w[k]}. Запиши число в окошко.`,h:`<div class="row">${Array.from({length:n},()=>ic(k)).join('')}<span style="margin-left:10px">=</span> <span class="box"></span></div>`}}
+  if(ty==='add'){const a=rnd(1,Math.min(5,max-1)),b=rnd(1,Math.min(4,max-a));const k2=k;return{q:`${t.hero} собрал ${a} и ещё ${b}. Сколько ${t.w[k2]} всего?`,h:`<div class="row">${Array.from({length:a},()=>ic(k2)).join('')}<b style="font-size:24px;margin:0 8px">+</b>${Array.from({length:b},()=>ic(k2)).join('')}<b style="font-size:24px;margin:0 8px">=</b><span class="box"></span></div>`}}
+  if(ty==='examples'){let s='';for(let i=0;i<6;i++){const p=Math.random()<.5;let a=rnd(1,max-1),b=rnd(1,max-a);if(!p&&a<b)[a,b]=[b,a];s+=`<div>${a} ${p?'+':'−'} ${b} = <span class="box" style="width:38px;height:32px"></span></div>`}return{q:'Реши примеры.',h:`<div class="ex">${s}</div>`}}
+  if(ty==='compare'){const a=rnd(2,8),b=rnd(2,8),k2=pick(t.it.filter(x=>x!==k));return{q:'Где больше? Поставь знак &gt;, &lt; или =.',h:`<div class="cmp"><div class="grp">${Array.from({length:a},()=>ic(k)).join('')}</div><span class="box"></span><div class="grp">${Array.from({length:b},()=>ic(k2)).join('')}</div></div>`}}
+  const st=rnd(1,4),seq=[st,st+1,st+2,st+3,st+4,st+5],hole=rnd(1,4);return{q:'Какого числа не хватает в ряду?',h:`<div class="ex" style="grid-template-columns:repeat(6,minmax(40px,1fr))">${seq.map((x,i)=>i===hole?'<span class="box"></span>':`<div>${x}</div>`).join('')}</div>`}
+}
+function logicTask(t,age){
+  const ty=['pattern','odd','pattern2'][(logicTask.i=(logicTask.i||rnd(0,9))+1)%3];
+  if(ty!=='odd'){const a=t.it[0],b=t.it[1],c=t.it[2];const pat=ty==='pattern'?[a,b,a,b,a,b]:[a,b,c,a,b,c];return{q:'Продолжи ряд: нарисуй, что будет дальше.',h:`<div class="row">${pat.map(k=>ic(k)).join('')}<span class="box"></span><span class="box"></span></div>`}}
+  const other=Object.values(TH).filter(x=>x!==t).flatMap(x=>x.it).filter(k=>!t.it.includes(k));const odd=pick(other.length?other:['fish']);const arr=[t.it[0],t.it[1],t.it[2],odd].sort(()=>Math.random()-.5);
+  return{q:`Что лишнее в теме «${t.name}»? Зачеркни.`,h:`<div class="row" style="gap:18px">${arr.map(k=>ic(k,'style="width:54px;height:54px"')).join('')}</div>`}
+}
+function colorTask(t){return{q:`Раскрась картинку. ${t.hero} ждёт ярких красок!`,h:`<div class="color">${COLORING[t.color]}</div>`}}
+const LOGS=['→ промпт: роль «детский педагог», возраст, тема, формат JSON','→ нейросеть: генерация текста заданий…','→ проверка: числа в пределах возраста, без повторов','→ картинки: подбор иллюстраций по теме','→ вёрстка листа A4 готова'];
+async function gen(){
+  const t=TH[curTheme()],age=+$('#age').value,n=Math.max(3,Math.min(8,+$('#cnt').value||5));
+  $('#go').disabled=true;$('#log').textContent='';
+  for(const l of LOGS){$('#log').textContent+=l+'\n';await new Promise(r=>setTimeout(r,280))}
+  const tasks=[];
+  for(let i=0;i<n;i++){
+    const s=subj==='mix'?pick(['math','math','logic']):subj;
+    if(subj==='color'){tasks.push(colorTask(t));break}
+    tasks.push(s==='math'?mathTask(t,age):logicTask(t,age));
+  }
+  if(subj==='mix')tasks.push(colorTask(t));
+  const title={math:'Считаем',logic:'Думаем и сравниваем',color:'Раскраска',mix:'Занимательный лист'}[subj];
+  $('#sheet').innerHTML=`<header><div><h2>${title}: ${t.name.toLowerCase()} ${t.emo}</h2><div style="color:var(--mut);font-weight:700;font-size:14px;margin-top:4px">для детей ${$('#age').selectedOptions[0].text}</div></div><div class="who">Имя: ____________<br>Дата: ___________</div></header>`+tasks.map((x,i)=>`<div class="task"><div class="n">${i+1}</div><div><p>${x.q}</p>${x.h}</div></div>`).join('');
+  document.querySelectorAll('.task').forEach((e,i)=>setTimeout(()=>e.classList.add('in'),80*i+30));
+  $('#go').disabled=false;
+}
+$('#go').onclick=gen;$('#regen').onclick=gen;
+$('#print').onclick=()=>{if(!document.querySelector('.task'))return toast('Сначала сгенерируйте лист');window.print()};
+$('#pub').onclick=()=>toast(document.querySelector('.task')?'Демо: лист сохранён как запись «Задания» и PDF':'Сначала сгенерируйте лист');
+function toast(s){const e=$('#toast');e.textContent=s;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2400)}
+(function cal(){const now=new Date(),ev=[];const fmt=d=>d.toLocaleDateString('ru-RU',{day:'numeric',month:'long'});
+ const items=[[0,'Счёт до 10: «Осенний лес»','Математика'],[3,'Раскраска «Ёжик с грибом»','Раскраска'],[11,'День матери: открытка-раскраска','Праздник'],[26,'Зимний лист: снежинки и варежки','Сезон'],[40,'Новогодние примеры и лабиринт','Праздник']];
+ $('#cal').innerHTML=items.map(([d,n,tg])=>{const x=new Date(now);x.setDate(x.getDate()+d);return`<li><em>${fmt(x)}</em>${n} <span class="tag">${tg}</span></li>`}).join('')})();
+</script>
+</body>
+</html>
