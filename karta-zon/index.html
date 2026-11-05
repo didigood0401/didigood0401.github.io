@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Карта зон выезда - демо</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F6F8;--card:#fff;--ink:#16202A;--ink2:#4A5662;--mute:#66727E;--line:#DFE5EA;--acc:#0F8B8D;--acc2:#0B6E70;--f:'Golos Text',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--f)}
+button,input,select{font:inherit;color:inherit}
+.w{max-width:1240px;margin:0 auto;padding:0 24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 0 18px;flex-wrap:wrap}
+.top h1{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.top p{color:var(--mute);font-size:14px}
+.sw{display:flex;background:#E6EBEF;border-radius:12px;padding:4px}
+.sw button{border:0;background:none;padding:9px 16px;border-radius:9px;font-weight:600;cursor:pointer;color:var(--ink2)}
+.sw button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px #0002}
+.view{display:none}.view.on{display:block}
+/* block */
+.blk{background:var(--card);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:380px 1fr;min-height:560px;border:1px solid var(--line)}
+.pan{padding:26px;display:flex;flex-direction:column;gap:16px;border-right:1px solid var(--line)}
+.pan h2{font-size:22px;font-weight:700;letter-spacing:-.02em}
+.pan .sub{color:var(--mute);font-size:14px;margin-top:-10px}
+.fld label{display:block;font-size:13px;font-weight:600;color:var(--ink2);margin-bottom:6px}
+.ac{position:relative}
+.ac input,.fld select{width:100%;height:48px;border:1.5px solid var(--line);border-radius:12px;padding:0 14px;outline:0;background:#fff}
+.ac input:focus,.fld select:focus{border-color:var(--acc)}
+.sug{position:absolute;left:0;right:0;top:52px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px #0002;z-index:1000;overflow:hidden;display:none}
+.sug div{padding:10px 14px;cursor:pointer;font-size:14px;border-bottom:1px solid var(--line)}
+.sug div:last-child{border:0}
+.sug div:hover,.sug div.act{background:#EEF6F6}
+.sug small{display:block;color:var(--mute);font-size:12px}
+.res{border-radius:14px;background:#EEF6F6;padding:18px;display:none}
+.res.on{display:block;animation:up .3s}
+@keyframes up{from{opacity:0;transform:translateY(6px)}}
+.res .z{font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center}
+.res .z i{width:12px;height:12px;border-radius:3px}
+.res .pr{font-size:34px;font-weight:700;letter-spacing:-.03em;margin:6px 0 2px}
+.res small{color:var(--ink2);font-size:13px}
+.res.out{background:#FFF3EC}
+.cta{height:50px;border-radius:12px;border:0;background:var(--acc);color:#fff;font-weight:600;cursor:pointer;margin-top:auto}
+.cta:hover{background:var(--acc2)}
+.tel{font-size:13px;color:var(--mute);text-align:center}
+.tel b{color:var(--ink)}
+#map{min-height:560px;height:100%}
+.leg{position:absolute;right:12px;bottom:22px;z-index:500;background:#fff;border-radius:12px;padding:10px 12px;font-size:12.5px;box-shadow:0 6px 20px #0002;display:grid;gap:5px}
+.leg span{display:flex;align-items:center;gap:8px}.leg i{width:12px;height:12px;border-radius:3px}
+.mapw{position:relative}
+/* admin */
+.adm{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--card);border-radius:18px;border:1px solid var(--line);padding:22px}
+.card h3{font-size:16px;font-weight:700;margin-bottom:4px}
+.card p.h{color:var(--mute);font-size:13.5px;margin-bottom:14px}
+.drop{border:2px dashed var(--line);border-radius:14px;padding:22px;text-align:center;color:var(--mute);cursor:pointer}
+.drop:hover{border-color:var(--acc);color:var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;color:var(--mute);font-weight:600;padding:6px 6px;border-bottom:1px solid var(--line)}
+td{padding:6px;border-bottom:1px solid var(--line)}
+td input{width:100%;height:36px;border:1px solid var(--line);border-radius:8px;padding:0 8px;outline:0}
+td input:focus{border-color:var(--acc)}
+td input[type=color]{width:42px;padding:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.b{height:42px;padding:0 16px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font-weight:600;cursor:pointer}
+.b.p{background:var(--acc);border-color:var(--acc);color:#fff}
+.b:hover{border-color:var(--acc)}
+.inl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.inl input{width:100%;height:40px;border:1px solid var(--line);border-radius:10px;padding:0 10px}
+.ok{color:var(--acc);font-weight:600;font-size:13.5px;margin-top:10px;min-height:20px}
+.note{grid-column:1/-1;background:#16202A;color:#DDE5EC;border-radius:18px;padding:22px;font-size:14px}
+.note b{color:#fff}
+.note code{background:#ffffff1a;border-radius:5px;padding:1px 6px}
+#demo{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:2000;background:var(--ink);color:#fff;border-radius:12px;padding:9px 16px;font-size:13px;white-space:nowrap}
+@media (max-width:900px){.blk{grid-template-columns:1fr}.pan{border-right:0;border-bottom:1px solid var(--line)}#map{min-height:420px}.adm{grid-template-columns:1fr}}
+@media (max-width:520px){.w{padding:0 14px}#demo{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="top"><div><h1>Карта зон выезда специалиста</h1><p>Рабочее демо: блок для сайта + локальная панель управления</p></div>
+    <div class="sw" id="sw"><button class="on" data-v="blk">Блок на сайте</button><button data-v="adm">Панель управления</button></div></div>
+
+  <div class="view on" id="v-blk">
+    <div class="blk">
+      <div class="pan">
+        <h2>Стоимость выезда</h2><p class="sub">Введите адрес - покажем зону и цену вызова</p>
+        <div class="fld"><label>Адрес</label><div class="ac"><input id="addr" placeholder="Например: Тверская 10" autocomplete="off"><div class="sug" id="sug"></div></div></div>
+        <div class="fld"><label>Услуга</label><select id="svc"></select></div>
+        <div class="res" id="res"><div class="z" id="rz"></div><div class="pr" id="rp"></div><small id="rs"></small></div>
+        <button class="cta" id="call">Вызвать специалиста</button>
+        <div class="tel">или позвоните: <b id="tel"></b></div>
+      </div>
+      <div class="mapw"><div id="map"></div><div class="leg" id="leg"></div></div>
+    </div>
+  </div>
+
+  <div class="view" id="v-adm">
+    <div class="adm">
+      <div class="card"><h3>1. Карта зон</h3><p class="h">GeoJSON из Конструктора карт Яндекса (Экспорт → GeoJSON). Зоны - полигоны, название берётся из описания.</p>
+        <label class="drop" id="drop">Перетащите файл .geojson или нажмите, чтобы выбрать<input type="file" id="file" accept=".geojson,.json" hidden></label>
+        <div class="ok" id="fok">Загружена демо-карта: 3 зоны</div></div>
+      <div class="card"><h3>2. Оформление и контакты</h3><p class="h">Изменения сразу видны в блоке.</p>
+        <div class="inl"><div><label style="font-size:13px;color:var(--mute)">Телефон клиники</label><input id="aphone"></div><div><label style="font-size:13px;color:var(--mute)">Прозрачность зон</label><input id="aop" type="range" min="0.1" max="0.6" step="0.05"></div></div></div>
+      <div class="card" style="grid-column:1/-1"><h3>3. Услуги и цены по зонам</h3><p class="h">Цена вызова в рублях. Пустая ячейка - услуга в зоне недоступна.</p>
+        <div style="overflow-x:auto"><table id="pt"></table></div>
+        <div class="row"><button class="b" id="addsvc">+ Услуга</button><button class="b" id="prev">Посмотреть результат</button><button class="b p" id="exp">Скачать файлы для сайта</button></div><div class="ok" id="eok"></div></div>
+      <div class="note"><b>Как подключить:</b> панель формирует <code>zones-config.json</code> (зоны, цены, цвета, телефон). Специалисты сайта загружают его рядом с блоком <code>zones-block.js</code> и вставляют одну строку <code>&lt;div id="zones"&gt;&lt;/div&gt;</code>. В рабочей версии подсказки адреса - через Яндекс Геосаджест и карта Яндекса по вашему API-ключу; в демо - открытые OpenStreetMap и Photon.</div>
+    </div>
+  </div>
+</div>
+<div id="demo">Демо · зоны, цены и телефон условные</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+  // demo GeoJSON: 3 nested rings around central Moscow (stand-in for Yandex constructor export)
+  function ring(cx,cy,rx,ry,n,j){var p=[];for(var i=0;i<n;i++){var a=i/n*Math.PI*2,k=1+Math.sin(a*3+j)*0.08;p.push([cx+Math.cos(a)*rx*k,cy+Math.sin(a)*ry*k])}p.push(p[0]);return p}
+  var C=[37.6176,55.7558];
+  var cfg={phone:'+7 (495) 000-00-00',op:0.18,
+    zones:[{name:'Зона 1 · центр',color:'#0F8B8D',poly:ring(C[0],C[1],0.09,0.05,36,0)},{name:'Зона 2 · до МКАД',color:'#E3A008',poly:ring(C[0],C[1],0.27,0.155,36,1)},{name:'Зона 3 · до 15 км за МКАД',color:'#D9534F',poly:ring(C[0],C[1],0.5,0.29,36,2)}],
+    services:[{name:'Вызов врача на дом',p:[2500,3500,5000]},{name:'Анализы на дому',p:[900,1400,2200]},{name:'Капельница',p:[3000,4000,5500]},{name:'Детский врач',p:[2800,3800,'']}]};
+  var map=L.map('map',{scrollWheelZoom:false}).setView([C[1],C[0]],10);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap',maxZoom:18}).addTo(map);
+  var layers=[],marker=null,last=null;
+  function inside(pt,poly){var x=pt[0],y=pt[1],ins=false;for(var i=0,j=poly.length-1;i<poly.length;j=i++){var xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];if(((yi>y)!=(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi))ins=!ins}return ins}
+  function render(){
+    layers.forEach(function(l){map.removeLayer(l)});layers=[];
+    cfg.zones.slice().reverse().forEach(function(z){var l=L.polygon(z.poly.map(function(p){return [p[1],p[0]]}),{color:z.color,weight:2,fillOpacity:cfg.op}).addTo(map).bindTooltip(z.name);layers.push(l)});
+    document.getElementById('leg').innerHTML=cfg.zones.map(function(z){return '<span><i style="background:'+z.color+'"></i>'+z.name+'</span>'}).join('');
+    var s=document.getElementById('svc'),v=s.value;s.innerHTML=cfg.services.map(function(x,i){return '<option value="'+i+'">'+x.name+'</option>'}).join('');if(v&&v<cfg.services.length)s.value=v;
+    document.getElementById('tel').textContent=cfg.phone;
+    if(last)calc(last);
+    if(layers.length)map.fitBounds(layers[0].getBounds(),{padding:[10,10]});
+  }
+  function calc(pt){last=pt;var zi=-1;for(var i=0;i<cfg.zones.length;i++){if(inside([pt.lon,pt.lat],cfg.zones[i].poly)){zi=i;break}}
+    var r=document.getElementById('res'),s=cfg.services[+document.getElementById('svc').value];r.className='res on';
+    if(marker)map.removeLayer(marker);marker=L.marker([pt.lat,pt.lon]).addTo(map);map.setView([pt.lat,pt.lon],Math.max(map.getZoom(),11));
+    if(zi<0){r.classList.add('out');document.getElementById('rz').innerHTML='Адрес вне зон выезда';document.getElementById('rp').textContent='По запросу';document.getElementById('rs').textContent='Позвоните - уточним возможность выезда';return}
+    var z=cfg.zones[zi],p=s.p[zi];document.getElementById('rz').innerHTML='<i style="background:'+z.color+'"></i>'+z.name;
+    if(p===''||p==null){r.classList.add('out');document.getElementById('rp').textContent='Недоступно';document.getElementById('rs').textContent='Эта услуга в зоне не оказывается'}
+    else{document.getElementById('rp').textContent=(+p).toLocaleString('ru-RU')+' ₽';document.getElementById('rs').textContent=s.name+' · выезд в течение 2 часов'}}
+  // autocomplete (Photon, biased to Moscow)
+  var inp=document.getElementById('addr'),sug=document.getElementById('sug'),tm=null,items=[],act=-1;
+  inp.addEventListener('input',function(){clearTimeout(tm);var q=inp.value.trim();if(q.length<3){sug.style.display='none';return}
+    tm=setTimeout(function(){fetch('https://photon.komoot.io/api/?q='+encodeURIComponent('Москва '+q)+'&lat=55.75&lon=37.62&limit=5&lang=default').then(function(r){return r.json()}).then(function(d){
+      items=(d.features||[]).map(function(f){var p=f.properties;return {t:[p.street,p.housenumber].filter(Boolean).join(', ')||p.name,s:[p.district,p.city,p.state].filter(Boolean).join(', '),lat:f.geometry.coordinates[1],lon:f.geometry.coordinates[0]}});
+      act=-1;sug.innerHTML=items.map(function(x,i){return '<div data-i="'+i+'">'+x.t+'<small>'+x.s+'</small></div>'}).join('');sug.style.display=items.length?'block':'none'}).catch(function(){sug.style.display='none'})},300)});
+  function pick(i){var x=items[i];if(!x)return;inp.value=x.t+(x.s?', '+x.s:'');sug.style.display='none';calc(x)}
+  sug.addEventListener('mousedown',function(e){var d=e.target.closest('[data-i]');if(d){e.preventDefault();pick(+d.dataset.i)}});
+  inp.addEventListener('keydown',function(e){var n=sug.children.length;if(!n)return;if(e.key==='ArrowDown'){act=(act+1)%n}else if(e.key==='ArrowUp'){act=(act-1+n)%n}else if(e.key==='Enter'){e.preventDefault();pick(act<0?0:act);return}else return;[].forEach.call(sug.children,function(c,i){c.classList.toggle('act',i===act)})});
+  inp.addEventListener('blur',function(){setTimeout(function(){sug.style.display='none'},150)});
+  map.on('click',function(e){inp.value='Точка на карте';calc({lat:e.latlng.lat,lon:e.latlng.lng})});
+  document.getElementById('svc').addEventListener('change',function(){if(last)calc(last)});
+  document.getElementById('call').addEventListener('click',function(){this.textContent='Заявка принята ✓'});
+  // admin
+  function tbl(){var t=document.getElementById('pt');
+    t.innerHTML='<tr><th>Услуга</th>'+cfg.zones.map(function(z,i){return '<th><input type="color" value="'+z.color+'" data-zc="'+i+'"> '+z.name+'</th>'}).join('')+'</tr>'+cfg.services.map(function(s,si){return '<tr><td><input value="'+s.name+'" data-sn="'+si+'"></td>'+cfg.zones.map(function(z,zi){return '<td><input inputmode="numeric" value="'+(s.p[zi]==null?'':s.p[zi])+'" data-s="'+si+'" data-z="'+zi+'"></td>'}).join('')+'</tr>'}).join('')}
+  document.getElementById('pt').addEventListener('input',function(e){var x=e.target;if(x.dataset.zc!=null){cfg.zones[+x.dataset.zc].color=x.value}else if(x.dataset.sn!=null){cfg.services[+x.dataset.sn].name=x.value}else if(x.dataset.s!=null){var v=x.value.replace(/\D/g,'');cfg.services[+x.dataset.s].p[+x.dataset.z]=v===''?'':+v}});
+  document.getElementById('addsvc').addEventListener('click',function(){cfg.services.push({name:'Новая услуга',p:cfg.zones.map(function(){return ''})});tbl()});
+  var ph=document.getElementById('aphone'),op=document.getElementById('aop');ph.value=cfg.phone;op.value=cfg.op;
+  ph.addEventListener('input',function(){cfg.phone=ph.value});op.addEventListener('input',function(){cfg.op=+op.value});
+  function show(v){document.querySelectorAll('#sw button').forEach(function(b){b.classList.toggle('on',b.dataset.v===v)});document.querySelectorAll('.view').forEach(function(x){x.classList.toggle('on',x.id==='v-'+v)});if(v==='blk'){render();setTimeout(function(){map.invalidateSize()},50)}}
+  document.getElementById('sw').addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b.dataset.v)});
+  document.getElementById('prev').addEventListener('click',function(){show('blk')});
+  document.getElementById('exp').addEventListener('click',function(){var out={phone:cfg.phone,opacity:cfg.op,zones:cfg.zones.map(function(z){return {name:z.name,color:z.color,polygon:z.poly}}),services:cfg.services};
+    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,2)],{type:'application/json'}));a.download='zones-config.json';a.click();document.getElementById('eok').textContent='Готово: zones-config.json скачан'});
+  function loadGeo(txt){try{var g=JSON.parse(txt),zs=[];(g.features||[]).forEach(function(f,i){if(!f.geometry)return;var c=f.geometry.type==='Polygon'?f.geometry.coordinates[0]:f.geometry.type==='MultiPolygon'?f.geometry.coordinates[0][0]:null;if(!c)return;var pr=f.properties||{};zs.push({name:pr.description||pr.name||('Зона '+(zs.length+1)),color:pr.fill||['#0F8B8D','#E3A008','#D9534F','#5C6BC0','#8E44AD'][zs.length%5],poly:c})});
+      if(!zs.length)throw 0;cfg.zones=zs;cfg.services.forEach(function(s){s.p=zs.map(function(_,i){return s.p[i]==null?'':s.p[i]})});tbl();document.getElementById('fok').textContent='Загружено зон: '+zs.length}catch(e){document.getElementById('fok').textContent='Не удалось прочитать файл - нужен GeoJSON с полигонами'}}
+  var fi=document.getElementById('file'),dr=document.getElementById('drop');
+  fi.addEventListener('change',function(){var f=fi.files[0];if(f)f.text().then(loadGeo)});
+  dr.addEventListener('dragover',function(e){e.preventDefault()});dr.addEventListener('drop',function(e){e.preventDefault();var f=e.dataTransfer.files[0];if(f)f.text().then(loadGeo)});
+  tbl();render();
+})();
+</script>
+</body>
+</html>
