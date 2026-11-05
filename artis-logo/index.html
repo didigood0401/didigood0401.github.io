@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Артис - концепции логотипа</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Jost:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#243D32;--o:#858B68;--p:#BCC5A3;--c:#F3EBDD;--w:#A67850;--gr:#2E2F2D;--ink:#1F2A24;--mute:#5E6A61}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--c);color:var(--ink);font:400 16px/1.55 'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:1200px;margin:0 auto;padding:0 28px}
+header{padding:56px 0 30px;display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;border-bottom:1px solid #24 3D3220}
+header h1{font:500 40px/1.05 'Unbounded',sans-serif;letter-spacing:-.03em;color:var(--g)}
+header p{color:var(--mute);max-width:520px;margin-top:10px}
+.pal{display:flex;gap:6px}.pal i{width:34px;height:34px;border-radius:6px;display:block}
+.tabs{display:flex;gap:8px;margin:28px 0}
+.tabs button{font:500 14px 'Jost';height:42px;padding:0 18px;border-radius:21px;border:1.5px solid var(--g);background:none;color:var(--g);cursor:pointer}
+.tabs button.on{background:var(--g);color:var(--c)}
+.cn{display:none}.cn.on{display:block;animation:f .4s}
+@keyframes f{from{opacity:0;transform:translateY(8px)}}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.big{background:var(--g);border-radius:16px;min-height:440px;display:grid;place-items:center;color:var(--c)}
+.big.l{background:#fff}
+.lock{display:flex;align-items:center;gap:22px}
+.lock svg{width:130px;height:130px}
+.wm{font:600 46px/1 'Unbounded';letter-spacing:.06em}
+.wm small{display:block;font:400 15px 'Jost';letter-spacing:.32em;text-transform:uppercase;margin-top:12px;opacity:.85}
+.side{display:grid;gap:20px}
+.side .t{border-radius:16px;padding:26px;background:#fff}
+.side h3{font:500 22px 'Unbounded';letter-spacing:-.02em;color:var(--g)}
+.side p{color:var(--mute);margin-top:8px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px}
+.cell{border-radius:16px;aspect-ratio:1;display:grid;place-items:center;position:relative}
+.cell span{position:absolute;left:14px;bottom:12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.cell svg{width:46%;height:46%}
+.sizes{display:flex;align-items:end;gap:26px;background:#fff;border-radius:16px;padding:26px;margin-top:20px;flex-wrap:wrap}
+.sizes div{text-align:center;font-size:12px;color:var(--mute)}
+.sizes svg{display:block;margin:0 auto 8px}
+.mock{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:20px}
+.card{aspect-ratio:1.7;border-radius:10px;background:var(--c);box-shadow:0 20px 40px #243D3226;padding:22px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #243D3215}
+.card.dk{background:var(--g);color:var(--c)}
+.card .n{font:500 15px 'Jost'}.card .n small{display:block;font-size:12px;opacity:.7}
+.ig{aspect-ratio:1;border-radius:10px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg stroke='%23A67850' stroke-opacity='.35' fill='none'%3E%3Cpath d='M0 30 Q100 10 200 34M0 70 Q100 50 200 76M0 110 Q100 92 200 114M0 150 Q100 134 200 156M0 190 Q100 172 200 196'/%3E%3C/g%3E%3C/svg%3E") #C9A27C;display:grid;place-items:center;position:relative}
+.ig .av{width:56%;aspect-ratio:1;border-radius:50%;background:var(--g);display:grid;place-items:center;border:4px solid var(--c)}
+.ig .av svg{width:56%;height:56%}
+.why{margin-top:20px;background:#fff;border-radius:16px;padding:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;font-size:15px;color:var(--mute)}
+.why b{display:block;color:var(--g);font-weight:600;margin-bottom:4px}
+footer{padding:50px 0 90px;color:var(--mute);font-size:14px}
+#demo{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:var(--g);color:var(--c);border-radius:22px;padding:10px 18px;font-size:13px;white-space:nowrap;z-index:9}
+@media (max-width:900px){.hero,.mock,.why{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.lock{flex-direction:column;text-align:center}.wm{font-size:34px}}
+@media (max-width:520px){.w{padding:0 16px}header h1{font-size:28px}.big{min-height:340px}.lock svg{width:100px;height:100px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <!-- 1. Шип-паз: А и С, соединённые как столярный шип -->
+  <symbol id="m1" viewBox="0 0 100 100">
+    <path d="M6 86 L27 14 H37 L58 86" fill="none" stroke="currentColor" stroke-width="10"/>
+    <path d="M94 26 V14 H66 V86 H94 V74" fill="none" stroke="currentColor" stroke-width="10"/>
+    <rect x="16" y="54" width="58" height="10" fill="var(--acc,#A67850)"/>
+  </symbol>
+  <!-- 2. Спил: годичные кольца открываются в букву С, внутри А -->
+  <symbol id="m2" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-linecap="round">
+      <path d="M78 22 A40 40 0 1 0 78 78" stroke-width="6"/>
+      <path d="M70 32 A28 28 0 1 0 70 68" stroke-width="2.5" opacity=".7"/>
+    </g>
+    <path d="M36 70 L50 30 L64 70 M41 57 H59" fill="none" stroke="var(--acc,#A67850)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </symbol>
+  <!-- 3. Фасад: А из двух створок шкафа, С - торец с ручкой -->
+  <symbol id="m3" viewBox="0 0 100 100">
+    <path d="M92 32 V22 A14 14 0 0 0 78 8 H22 A14 14 0 0 0 8 22 V78 A14 14 0 0 0 22 92 H78 A14 14 0 0 0 92 78 V68" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+    <path d="M26 76 L44 24 H52 L70 76" fill="none" stroke="currentColor" stroke-width="8"/>
+    <path d="M34 57 H62" stroke="var(--acc,#A67850)" stroke-width="7"/>
+  </symbol>
+</svg>
+
+<div class="w">
+<header>
+  <div><h1>Артис · концепции знака</h1><p>3 направления по брифу: монограмма «АС», геометрия с мебельной деталью, древесная фактура. Палитра - ваша: тёмно-зелёный, оливковый, фисташковый, сливочный, древесный.</p></div>
+  <div class="pal"><i style="background:#243D32"></i><i style="background:#858B68"></i><i style="background:#BCC5A3"></i><i style="background:#F3EBDD;border:1px solid #0001"></i><i style="background:#A67850"></i><i style="background:#2E2F2D"></i></div>
+</header>
+<div class="tabs" id="tabs"><button class="on" data-i="1">1 · Шип-паз</button><button data-i="2">2 · Спил</button><button data-i="3">3 · Фасад</button></div>
+<div id="out"></div>
+</div>
+<footer><div class="w">Черновые концепции для обсуждения. После выбора - доработка, основная и компактная версии, вектор SVG/PDF/PNG, цветная и одноцветная.</div></footer>
+<div id="demo">Демо · 3 концепции логотипа «Артис»</div>
+
+<script>
+var D={
+ 1:['Шип-паз','Монограмма «АС»: древесная перекладина «А» входит в «С», как шип в паз - так соединяют детали корпусной мебели. Строго, геометрично, читается в 16 px.','Unbounded','столярное соединение шип-паз - главный приём мастерской','геометрия держит форму на вывеске, вышивке и фаске','монограмма «АС» видна сразу'],
+ 2:['Спил','Годичные кольца спила раскрываются в букву «С», внутри - «А» древесного цвета. Теплее и «живее», про натуральное дерево.','Forum','спил дерева - понятная метафора натурального материала','круглый знак идеально садится в аватар соцсетей','кольца = «С», древесная «А» - монограмма без переплетения'],
+ 3:['Фасад','Знак как фасад шкафа: рамка-створка приоткрыта и образует «С», внутри «А» с древесной перекладиной. Самый лаконичный и современный.','Unbounded','рамка-фасад - намёк на кухни и шкафы','квадратная плашка удобна для печати и фото работ','приоткрытая рамка = «С», внутри «А»']};
+function svg(id,c,acc,s){return '<svg style="color:'+c+';--acc:'+acc+(s?';width:'+s+'px;height:'+s+'px':'')+'"><use href="#m'+id+'"/></svg>'}
+function draw(i){var d=D[i],F=d[2]==='Forum'?"'Forum',serif":"'Unbounded',sans-serif",ls=d[2]==='Forum'?'.14em':'.06em';
+ document.getElementById('out').innerHTML='<div class="cn on"><div class="hero"><div class="big"><div class="lock">'+svg(i,'#F3EBDD','#A67850')+'<div class="wm" style="font-family:'+F+';letter-spacing:'+ls+';font-weight:'+(d[2]==='Forum'?400:600)+'">АРТИС<small>мебельная мастерская</small></div></div></div><div class="side"><div class="t"><h3>'+i+' · '+d[0]+'</h3><p>'+d[1]+'</p></div><div class="t" style="background:#BCC5A3"><div class="lock" style="gap:14px">'+svg(i,'#243D32','#A67850',64)+'<div class="wm" style="font-size:28px;color:#243D32;font-family:'+F+';letter-spacing:'+ls+'">АРТИС</div></div><p style="color:#243D32;margin-top:12px">Компактная версия - без подписи</p></div></div></div>'
+ +'<div class="grid"><div class="cell" style="background:#243D32">'+svg(i,'#F3EBDD','#A67850')+'<span style="color:#F3EBDD">Основной</span></div><div class="cell" style="background:#fff">'+svg(i,'#243D32','#A67850')+'<span>На светлом</span></div><div class="cell" style="background:#858B68">'+svg(i,'#F3EBDD','#F3EBDD')+'<span style="color:#F3EBDD">Одноцветный</span></div><div class="cell" style="background:#2E2F2D">'+svg(i,'#BCC5A3','#A67850')+'<span style="color:#BCC5A3">Графит</span></div></div>'
+ +'<div class="sizes">'+[16,24,32,48,72].map(function(s){return '<div>'+svg(i,'#243D32','#A67850',s)+s+' px</div>'}).join('')+'<div style="text-align:left;max-width:360px;margin-left:auto">Проверка читаемости: знак различим даже в 16 px - фавикон, водяной знак на фото, мелкая печать.</div></div>'
+ +'<div class="mock"><div class="card"><div>'+svg(i,'#243D32','#A67850',46)+'</div><div class="n">Кухни · шкафы · корпусная мебель<small>Самара · +7 (000) 000-00-00</small></div></div><div class="card dk"><div class="wm" style="font-size:24px;font-family:'+F+';letter-spacing:'+ls+'">АРТИС<small style="font-size:10.5px">мебельная мастерская</small></div><div class="n">'+svg(i,'#BCC5A3','#A67850',30)+'</div></div><div class="ig"><div class="av">'+svg(i,'#F3EBDD','#A67850')+'</div></div></div>'
+ +'<div class="why"><div><b>Идея</b>'+d[3]+'</div><div><b>Применение</b>'+d[4]+'</div><div><b>Монограмма</b>'+d[5]+'</div></div></div>'}
+draw(1);
+document.getElementById('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});draw(+b.dataset.i)});
+</script>
+</body>
+</html>
