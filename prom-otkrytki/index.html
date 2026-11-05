@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Праздничная серия - демо</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700;800&family=PT+Serif:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2238;--navy2:#17314F;--or:#F26A1B;--steel:#C9D3DD;--paper:#EEF1F4;--ink:#0F2238;--mute:#566575}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.55 'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:1260px;margin:0 auto;padding:0 28px}
+header{padding:54px 0 26px;display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+header h1{font:800 clamp(30px,4vw,50px)/1.05 'Onest';letter-spacing:-.03em}
+header p{color:var(--mute);max-width:640px;margin-top:10px}
+.ctl{display:flex;gap:8px;flex-wrap:wrap}
+.ctl button{height:42px;padding:0 16px;border-radius:10px;border:1.5px solid var(--navy);background:none;font:600 14px 'Onest';cursor:pointer;color:var(--navy)}
+.ctl button.on{background:var(--navy);color:#fff}
+h2{font:800 24px 'Onest';letter-spacing:-.02em;margin:40px 0 16px}
+.row{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.cap{font-size:13px;color:var(--mute);margin-top:8px;text-align:center}
+/* story 1080x1920 drawn at 270x480 */
+.st{aspect-ratio:9/16;border-radius:14px;overflow:hidden;position:relative;background:var(--navy);color:#fff;container-type:inline-size;box-shadow:0 16px 36px #0F223830}
+.st::before{content:"";position:absolute;inset:0;background:linear-gradient(#ffffff0c 1px,transparent 1px) 0 0/8.33cqw 8.33cqw,linear-gradient(90deg,#ffffff0c 1px,transparent 1px) 0 0/8.33cqw 8.33cqw}
+.st .lg{position:absolute;left:8cqw;top:15cqw;display:flex;gap:2.4cqw;align-items:center;font:800 5cqw 'Onest';letter-spacing:.08em}
+.st .lg i{width:6cqw;height:6cqw;border:1.2cqw solid var(--or);border-radius:50%;display:block}
+.st .dt{position:absolute;left:8cqw;top:34cqw;font:800 30cqw/0.85 'Onest';letter-spacing:-.05em;color:var(--or)}
+.st .mo{position:absolute;left:9cqw;top:62cqw;font:700 6cqw 'Onest';letter-spacing:.2em;text-transform:uppercase;color:var(--steel)}
+.st .art{position:absolute;right:-2cqw;top:70cqw;width:58cqw;height:58cqw;opacity:.9}
+.st .tx{position:absolute;left:8cqw;right:8cqw;bottom:20cqw;z-index:2}
+.st .tx b{display:block;font:800 9cqw/1.02 'Onest';letter-spacing:-.02em}
+.st .tx p{font-size:4.4cqw;color:var(--steel);margin-top:3cqw;line-height:1.35}
+.st .bar{position:absolute;left:0;right:0;bottom:0;height:3cqw;background:var(--or)}
+.st.solemn{background:#1A1A1C}
+.st.solemn .dt{color:#C9A15B}.st.solemn .bar{background:#C9A15B}
+.st.solemn .tx b{font-family:'PT Serif',serif;font-weight:700}
+.st.light{background:#F4F1EC;color:var(--navy)}
+.st.light::before{background:linear-gradient(#0F223810 1px,transparent 1px) 0 0/8.33cqw 8.33cqw,linear-gradient(90deg,#0F223810 1px,transparent 1px) 0 0/8.33cqw 8.33cqw}
+.st.light .mo,.st.light .tx p{color:var(--mute)}
+/* safe zones */
+.safe .st .sz{display:block}
+.st .sz{display:none;position:absolute;left:0;right:0;height:13cqw;background:repeating-linear-gradient(45deg,#ff3b3b55 0 2cqw,transparent 2cqw 4cqw);border-bottom:1px dashed #ff6b6b;z-index:3}
+.st .sz.b{bottom:0;border-top:1px dashed #ff6b6b;border-bottom:0}
+.st .sz::after{content:"безопасная зона 250 px";position:absolute;left:3cqw;top:3cqw;font-size:3.4cqw;color:#fff;background:#d33;padding:.5cqw 1.5cqw;border-radius:1cqw}
+/* posts 4:5 */
+.posts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.po{aspect-ratio:4/5;border-radius:14px;overflow:hidden;position:relative;background:var(--navy);color:#fff;container-type:inline-size;box-shadow:0 16px 36px #0F223830}
+.po::before{content:"";position:absolute;inset:0;background:linear-gradient(#ffffff0c 1px,transparent 1px) 0 0/8.33cqw 8.33cqw,linear-gradient(90deg,#ffffff0c 1px,transparent 1px) 0 0/8.33cqw 8.33cqw}
+.po .lg{position:absolute;left:7cqw;top:7cqw;font:800 4.4cqw 'Onest';letter-spacing:.08em;display:flex;gap:2cqw;align-items:center}.po .lg i{width:5cqw;height:5cqw;border:1cqw solid var(--or);border-radius:50%;display:block}
+.po .art{position:absolute;right:-4cqw;top:10cqw;width:66cqw;height:66cqw}
+.po .tx{position:absolute;left:7cqw;right:7cqw;bottom:9cqw}
+.po .tx small{font:700 4cqw 'Onest';letter-spacing:.18em;color:var(--or);text-transform:uppercase}
+.po .tx b{display:block;font:800 8.4cqw/1.02 'Onest';letter-spacing:-.02em;margin-top:2cqw}
+.po.solemn{background:#1A1A1C}.po.solemn .tx small{color:#C9A15B}.po.solemn .tx b{font-family:'PT Serif';font-weight:700}
+.note{background:#fff;border-radius:16px;padding:24px 26px;margin:40px 0 90px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;font-size:15px;color:var(--mute)}
+.note b{display:block;color:var(--ink);margin-bottom:4px}
+#demo{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9;background:var(--navy);color:#fff;border-radius:12px;padding:10px 18px;font-size:13px;white-space:nowrap}
+@media (max-width:1080px){.row{grid-template-columns:repeat(3,1fr)}.posts{grid-template-columns:1fr 1fr}.note{grid-template-columns:1fr}}
+@media (max-width:560px){.w{padding:0 16px}.row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <symbol id="gear" viewBox="0 0 100 100"><g fill="none" stroke="#F26A1B" stroke-width="3"><circle cx="50" cy="50" r="26"/><circle cx="50" cy="50" r="10"/></g><g stroke="#C9D3DD" stroke-width="1.2" fill="none" opacity=".6"><circle cx="50" cy="50" r="40"/><path d="M50 2v20M50 78v20M2 50h20M78 50h20M16 16l14 14M70 70l14 14M84 16L70 30M30 70L16 84"/></g><g fill="#F26A1B"><rect x="45" y="14" width="10" height="12"/><rect x="45" y="74" width="10" height="12"/><rect x="14" y="45" width="12" height="10"/><rect x="74" y="45" width="12" height="10"/></g></symbol>
+  <symbol id="weld" viewBox="0 0 100 100"><path d="M20 80 L60 40" stroke="#C9D3DD" stroke-width="6" stroke-linecap="round"/><circle cx="64" cy="36" r="5" fill="#fff"/><g stroke="#F26A1B" stroke-width="2.4" stroke-linecap="round"><path d="M70 30l14-10M72 38l18 2M64 26l4-16M76 46l12 12M58 30l-10-12"/></g><path d="M10 88h80" stroke="#F26A1B" stroke-width="3"/></symbol>
+  <symbol id="oil" viewBox="0 0 100 100"><g fill="none" stroke="#C9D3DD" stroke-width="2.6"><path d="M50 8 L30 90 M50 8 L70 90 M38 56h24 M34 74h32 M42 36h16 M36 60l26-22 M38 56l28 24"/></g><path d="M14 90h72" stroke="#F26A1B" stroke-width="4"/><circle cx="50" cy="8" r="4" fill="#F26A1B"/></symbol>
+  <symbol id="volt" viewBox="0 0 100 100"><path d="M56 6 L26 56 H48 L40 94 L74 40 H52 Z" fill="#F26A1B"/><g stroke="#C9D3DD" stroke-width="1.5" opacity=".6" fill="none"><path d="M8 30h20M8 40h12M80 70h14M86 60h8"/></g></symbol>
+  <symbol id="star" viewBox="0 0 100 100"><path d="M50 10l10.6 30h31.4L66.6 58l9.7 30L50 70 23.7 88l9.7-30L8 40h31.4z" fill="none" stroke="#C9A15B" stroke-width="2.5"/><path d="M30 96 L50 70 L70 96" stroke="#C9A15B" stroke-width="2" fill="none" opacity=".6"/></symbol>
+  <symbol id="flag" viewBox="0 0 100 100"><rect x="14" y="22" width="72" height="18" fill="#fff"/><rect x="14" y="40" width="72" height="18" fill="#2754C5"/><rect x="14" y="58" width="72" height="18" fill="#D52B1E"/><path d="M14 22v74" stroke="#C9D3DD" stroke-width="2.4"/></symbol>
+  <symbol id="tree" viewBox="0 0 100 100"><g fill="none" stroke="#F26A1B" stroke-width="2.6"><path d="M50 8 L78 50 H62 L84 84 H16 L38 50 H22 Z"/></g><g fill="#C9D3DD"><circle cx="50" cy="40" r="3"/><circle cx="40" cy="66" r="3"/><circle cx="62" cy="70" r="3"/></g><path d="M44 84h12v10H44z" fill="#C9D3DD"/></symbol>
+  <symbol id="tulip" viewBox="0 0 100 100"><path d="M50 94V44" stroke="#2F7A55" stroke-width="3"/><path d="M50 60c-14-2-22-12-24-22 12 2 20 8 24 22zM50 70c12-4 20-14 20-24-10 4-18 12-20 24z" fill="#2F7A55"/><path d="M34 14c4 10 4 20 16 30 12-10 12-20 16-30-6 4-10 8-16 10-6-2-10-6-16-10z" fill="#F26A1B"/></symbol>
+</defs></svg>
+
+<div class="w">
+<header>
+  <div><h1>Праздничная серия в фирменном стиле</h1><p>Демо концепции для машиностроительной компании: единая сетка «чертёж», крупная дата, отраслевая графика. Сдержанное оформление для государственных и памятных дат. Логотип и цвета - условные, заменю на ваш брендбук.</p></div>
+  <div class="ctl"><button id="sz">Показать безопасные зоны</button></div>
+</header>
+
+<h2>Сторис 1080×1920</h2>
+<div class="row" id="stories"></div>
+<h2>Посты 1080×1350</h2>
+<div class="posts" id="posts"></div>
+
+<div class="note">
+  <div><b>Редактируется без дизайнера</b>Шаблоны в Figma: текст и дата - отдельные слои с автолейаутом, меняются за минуту. Плюс PSD по запросу.</div>
+  <div><b>Узнаваемо в ленте</b>Одна сетка, один шрифт, одна позиция логотипа и даты - серия читается как бренд, даже если листать быстро.</div>
+  <div><b>Тон по поводу</b>Государственные и памятные даты - тёмный фон, золото, антиква. Профессиональные - фирменный оранжевый и отраслевая графика.</div>
+</div>
+</div>
+<div id="demo">Демо · 10 из 35 макетов · логотип условный</div>
+<script>
+var S=[['27','сентября','День машиностроителя','С профессиональным праздником! Спасибо каждому, кто создаёт машины, на которых держится промышленность.','gear',''],
+['9','мая','С Днём Победы','Помним. Гордимся.','star','solemn'],
+['12','июня','С Днём России','Работаем для страны и вместе с ней.','flag','solemn'],
+['29','мая','День сварщика','Крепкие швы - крепкие машины. С праздником, мастера!','weld',''],
+['6','сентября','День нефтяника','Спасибо партнёрам отрасли за энергию, которая движет производство.','oil',''],
+['22','декабря','День энергетика','Свет, тепло и ток в каждом цехе - благодаря вам.','volt',''],
+['8','марта','С 8 Марта!','Коллеги, с праздником! Пусть весна будет тёплой, а работа - в радость.','tulip','light'],
+['1','января','С Новым годом!','Пусть новый год будет точным, как чертёж, и надёжным, как наши станки.','tree',''],
+['4','ноября','День народного единства','Сила - в единстве. С праздником!','flag','solemn'],
+['19','июля','День металлурга','Металл, из которого рождаются машины. С праздником, коллеги и партнёры!','weld','light']];
+function lg(c){return '<div class="lg"><i></i>ПРОММАШ</div>'}
+document.getElementById('stories').innerHTML=S.map(function(s){return '<div><div class="st '+s[5]+'"><span class="sz"></span><span class="sz b"></span>'+lg()+'<div class="dt">'+s[0]+'</div><div class="mo">'+s[1]+'</div><svg class="art"><use href="#'+s[4]+'"/></svg><div class="tx"><b>'+s[2]+'</b><p>'+s[3]+'</p></div><div class="bar"></div></div><div class="cap">'+s[2]+'</div></div>'}).join('');
+var P=[['27 сентября','День машиностроителя','gear',''],['9 мая','День Победы','star','solemn'],['1 января','С Новым годом','tree',''],['День рождения','Нам 25 лет','gear','']];
+document.getElementById('posts').innerHTML=P.map(function(p){return '<div class="po '+p[3]+'">'+lg()+'<svg class="art"><use href="#'+p[2]+'"/></svg><div class="tx"><small>'+p[0]+'</small><b>'+p[1]+'</b></div></div>'}).join('');
+document.getElementById('sz').addEventListener('click',function(){this.classList.toggle('on');document.body.classList.toggle('safe');this.textContent=document.body.classList.contains('safe')?'Скрыть безопасные зоны':'Показать безопасные зоны'});
+</script>
+</body>
+</html>
