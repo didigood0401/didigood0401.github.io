@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Адаптив платформы - демо</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef0f4;--ink:#141821;--mute:#5b6270;--line:#dde1e8;--pri:#4f46e5;--pri2:#eef0ff;--ok:#1f8a5b;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+header{padding:52px 0 24px}
+h1{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.lead{margin-top:12px;color:#3d4350;max-width:720px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.tabs button{font:600 14px Inter,sans-serif;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 16px;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+section{padding:36px 0 0}
+section.wrap{padding-top:40px}
+h2{font-size:22px;font-weight:700;margin-bottom:6px}
+.sub{color:var(--mute);margin-bottom:18px;max-width:760px;font-size:15px}
+/* devices */
+.devs{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start;overflow-x:auto;padding:4px 2px 18px}
+.dev{flex:none;display:flex;flex-direction:column;gap:10px}
+.dev .cap{font-size:13px;color:var(--mute);display:flex;justify-content:space-between;gap:12px}
+.dev .cap b{color:var(--ink);font-weight:600}
+.frame{background:#111;border-radius:26px;padding:10px;box-shadow:0 20px 40px -24px rgba(20,24,33,.5)}
+.frame.d{border-radius:14px;padding:8px}
+.scr{background:#f7f8fb;border-radius:18px;overflow:hidden;position:relative}
+.frame.d .scr{border-radius:8px}
+.m .scr{width:250px;height:520px}
+.t .scr{width:420px;height:560px}
+.d .scr{width:1100px;height:688px}
+/* shared UI scaled */
+.ui{transform-origin:0 0;position:absolute;left:0;top:0}
+.m .ui{width:375px;height:780px;transform:scale(.6667)}
+.t .ui{width:768px;height:1024px;transform:scale(.547)}
+.d .ui{width:1440px;height:900px;transform:scale(.7639)}
+.ui{font-size:15px;color:var(--ink);background:#f7f8fb;display:grid}
+.top{display:flex;align-items:center;gap:14px;padding:0 20px;height:64px;background:#fff;border-bottom:1px solid var(--line)}
+.logo{font-weight:700;font-size:20px;display:flex;align-items:center;gap:8px}
+.logo i{width:26px;height:26px;border-radius:8px;background:var(--pri);display:block}
+.search{flex:1;height:40px;border-radius:10px;background:#f1f3f7;display:flex;align-items:center;padding:0 14px;color:#8a919e;font-size:14px}
+.ava{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#c7d2fe,#a5b4fc)}
+.burger{width:22px;height:14px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative}
+.burger::after{content:"";position:absolute;left:0;right:0;top:4px;border-top:2px solid var(--ink)}
+.side{background:#fff;border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:4px}
+.side a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;color:#3d4350;text-decoration:none;font-weight:500;font-size:15px;white-space:nowrap}
+.side a.on{background:var(--pri2);color:var(--pri)}
+.side a i{width:20px;height:20px;border-radius:6px;background:currentColor;opacity:.35;flex:none}
+.side a.on i{opacity:1}
+.main{padding:22px 20px;overflow:hidden}
+.hello{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.hello+p{color:var(--mute);font-size:14px;margin-top:2px}
+.cont{margin-top:18px;background:var(--ink);color:#fff;border-radius:16px;padding:18px;display:flex;gap:16px;align-items:center}
+.cont .th{width:120px;aspect-ratio:16/10;border-radius:10px;background:linear-gradient(135deg,#6366f1,#22d3ee);flex:none;position:relative}
+.cont .th::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-40%,-50%);border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.cont b{display:block;font-size:16px}
+.cont span{font-size:13px;opacity:.75}
+.bar{height:6px;border-radius:9px;background:rgba(255,255,255,.2);margin-top:10px;overflow:hidden}
+.bar i{display:block;height:100%;width:62%;background:#22d3ee}
+.chips{display:flex;gap:8px;margin-top:18px;overflow:hidden}
+.chips span{padding:8px 14px;border-radius:99px;background:#fff;border:1px solid var(--line);font-size:13.5px;font-weight:500;white-space:nowrap}
+.chips span.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cards{display:grid;gap:14px;margin-top:16px}
+.c{background:#fff;border-radius:14px;border:1px solid var(--line);overflow:hidden}
+.c .im{aspect-ratio:16/9;background:linear-gradient(135deg,var(--a),var(--b))}
+.c .in{padding:12px 14px}
+.c small{font-size:12px;color:var(--pri);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.c b{display:block;font-size:15px;margin:4px 0}
+.c span{font-size:13px;color:var(--mute)}
+.right{display:flex;flex-direction:column;gap:14px;padding:22px 20px 22px 0}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.panel h4{font-size:15px;margin-bottom:10px}
+.ev{display:flex;gap:12px;padding:8px 0;border-top:1px solid #eef0f4;font-size:13.5px}
+.ev:first-of-type{border-top:0}
+.ev i{font-style:normal;width:44px;text-align:center;background:var(--pri2);color:var(--pri);border-radius:8px;font-weight:700;padding:4px 0;line-height:1.1;font-size:13px}
+.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat div{background:#f6f7fb;border-radius:10px;padding:10px}
+.stat b{display:block;font-size:20px}
+.stat span{font-size:12.5px;color:var(--mute)}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:70px;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;align-items:center;font-size:11px;color:var(--mute)}
+.tabbar div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.tabbar i{width:22px;height:22px;border-radius:7px;background:#c3c8d2}
+.tabbar .on{color:var(--pri)}.tabbar .on i{background:var(--pri)}
+/* layouts */
+.m .ui{grid-template-rows:64px 1fr}
+.m .side,.m .right,.m .search{display:none}
+.m .cards{grid-template-columns:1fr}
+.m .cont .th{width:96px}
+.t .ui{grid-template-columns:88px 1fr;grid-template-rows:64px 1fr}
+.t .top{grid-column:1/-1}
+.t .side a span{display:none}.t .side a{justify-content:center}
+.t .right,.t .tabbar,.t .burger{display:none}
+.t .cards{grid-template-columns:1fr 1fr}
+.d .ui{grid-template-columns:248px 1fr 340px;grid-template-rows:64px 1fr}
+.d .top{grid-column:1/-1}
+.d .tabbar,.d .burger{display:none}
+.d .cards{grid-template-columns:repeat(3,1fr)}
+.d .main{padding:26px 28px}
+.d .cont .th{width:180px}
+.t .right-in{display:none}
+/* lesson screen */
+.ui.lesson .main{display:grid;gap:14px;align-content:start}
+.player{aspect-ratio:16/9;border-radius:14px;background:linear-gradient(135deg,#1e1b4b,#4338ca);position:relative}
+.player::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-40%,-50%);border-left:28px solid #fff;border-top:17px solid transparent;border-bottom:17px solid transparent}
+.lt{font-size:20px;font-weight:700}
+.lm{font-size:13.5px;color:var(--mute)}
+.btns{display:flex;gap:10px}
+.btns span{padding:11px 16px;border-radius:10px;background:var(--pri);color:#fff;font-weight:600;font-size:14px}
+.btns span+span{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.list .it{display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #eef0f4;font-size:14px}
+.list .it i{width:22px;height:22px;border-radius:50%;border:2px solid #c3c8d2;flex:none}
+.list .it.done i{background:var(--ok);border-color:var(--ok)}
+.list .it.cur{color:var(--pri);font-weight:600}.list .it.cur i{border-color:var(--pri)}
+.m .ui.lesson .list{display:block}
+/* rules */
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.rc h3{font-size:16px;margin-bottom:6px}
+.rc .bp{font-size:13px;color:var(--pri);font-weight:600;margin-bottom:8px}
+.rc ul{list-style:none;display:grid;gap:6px}
+.rc li{font-size:14px;color:#3d4350;padding-left:14px;position:relative}
+.rc li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:2px;background:var(--pri)}
+.tbl{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+th{text-align:left;font-size:12.5px;color:var(--mute);font-weight:600;padding:11px 14px;background:#f8f9fb;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid #eef0f4;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+.plan{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.plan div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.plan b{display:block;color:var(--pri);font-size:13px;margin-bottom:4px}
+.plan p{font-size:14px;color:#3d4350}
+footer{padding:44px 0 40px;color:var(--mute);font-size:13px}
+@media(max-width:900px){.rules,.plan{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{padding:0 16px}.rules,.plan{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>Адаптация мобильной версии под планшет и десктоп</h1>
+  <p class="lead">Демо подхода на примере образовательной платформы: один и тот же экран в трёх размерах - 375, 768 и 1440 px. Мобильная версия остаётся эталоном, для больших экранов добавляются боковая навигация, сетка карточек и правая панель с событиями.</p>
+  <div class="tabs" id="tabs"><button class="on" data-s="home">Личный кабинет</button><button data-s="lesson">Видеоурок</button></div>
+</header>
+
+<section class="wrap">
+  <div class="devs" id="devs"></div>
+</section>
+
+<section class="wrap">
+  <h2>Правила адаптации</h2>
+  <p class="sub">Фиксирую их в начале работы - дальше все экраны переводятся по одной логике, без «каждый раз по-новому».</p>
+  <div class="rules">
+    <div class="rc"><h3>Мобильная</h3><div class="bp">375 px · 4 колонки · поля 16</div><ul><li>Нижний таб-бар</li><li>Карточки в 1 колонку</li><li>Поиск и фильтры - в отдельном экране</li></ul></div>
+    <div class="rc"><h3>Планшет</h3><div class="bp">768 px · 8 колонок · поля 24</div><ul><li>Таб-бар → узкая боковая панель с иконками</li><li>Карточки в 2 колонки</li><li>Поиск в шапке</li></ul></div>
+    <div class="rc"><h3>Десктоп</h3><div class="bp">1440 px · 12 колонок · контейнер 1280</div><ul><li>Полная боковая навигация с подписями</li><li>Карточки в 3 колонки, правая панель: события и прогресс</li><li>Hover-состояния, горячие клавиши в плеере</li></ul></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Поведение компонентов</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Компонент</th><th>Мобильная</th><th>Планшет</th><th>Десктоп</th></tr></thead>
+    <tbody>
+      <tr><td>Навигация</td><td>таб-бар 5 пунктов</td><td>rail 88 px, иконки</td><td>сайдбар 248 px, иконки + подписи</td></tr>
+      <tr><td>Каталог материалов</td><td>1 колонка</td><td>2 колонки</td><td>3 колонки + фильтры слева от списка</td></tr>
+      <tr><td>Видеоурок</td><td>плеер на всю ширину, список уроков ниже</td><td>плеер + список под ним</td><td>плеер слева, список уроков справа, заметки</td></tr>
+      <tr><td>Модальные окна</td><td>bottom sheet</td><td>по центру, 560 px</td><td>по центру, 560-720 px</td></tr>
+      <tr><td>Регистрация и вход</td><td>одна колонка</td><td>карточка по центру</td><td>форма + иллюстрация / преимущества</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="wrap">
+  <h2>Как работаю</h2>
+  <div class="plan">
+    <div><b>Шаг 1</b><p>Разбираю ТЗ и мобильные макеты, фиксирую сетки и брейкпоинты.</p></div>
+    <div><b>Шаг 2</b><p>Адаптирую компоненты в Figma: Auto Layout, варианты под 3 размера.</p></div>
+    <div><b>Шаг 3</b><p>Перевожу экраны пакетами: кабинет, материалы, плеер, покупка, профиль.</p></div>
+    <div><b>Шаг 4</b><p>Передаю разработчикам: структура страниц, спецификация отступов, прототип.</p></div>
+  </div>
+</section>
+<footer class="wrap">Демо для обсуждения. Контент и стиль условные - адаптирую по вашим макетам и дизайн-системе.</footer>
+
+<script>
+const HOME=`<div class="top"><div class="burger"></div><div class="logo"><i></i>Школа</div><div class="search">Поиск курсов, книг, событий</div><div class="ava"></div></div>
+<div class="side"><a class="on"><i></i><span>Главная</span></a><a><i></i><span>Мои курсы</span></a><a><i></i><span>Видеоуроки</span></a><a><i></i><span>Книги</span></a><a><i></i><span>События</span></a><a><i></i><span>Профиль</span></a></div>
+<div class="main"><div class="hello">Привет, Анна!</div><p>Продолжим с того места, где остановились</p>
+<div class="cont"><div class="th"></div><div style="flex:1"><b>Модуль 3. Практика</b><span>Урок 4 из 7 · 18 мин</span><div class="bar"><i></i></div></div></div>
+<div class="chips"><span class="on">Все</span><span>Видеоуроки</span><span>Книги</span><span>События</span><span>Сохранённое</span></div>
+<div class="cards">${[['Курс','Основы за 30 дней','12 уроков · 4 ч','#a5b4fc','#6366f1'],['Книга','Практикум','PDF · 86 стр.','#fbcfe8','#f472b6'],['Вебинар','Разбор вопросов','14 нояб. · 19:00','#a7f3d0','#10b981'],['Курс','Продвинутый уровень','9 уроков · 3 ч','#fde68a','#f59e0b'],['Видео','Интервью с экспертом','42 мин','#bae6fd','#0ea5e9'],['Книга','Рабочая тетрадь','PDF · 40 стр.','#ddd6fe','#8b5cf6']].map(([s,b,sp,a,c])=>`<div class="c"><div class="im" style="--a:${a};--b:${c}"></div><div class="in"><small>${s}</small><b>${b}</b><span>${sp}</span></div></div>`).join('')}</div></div>
+<div class="right"><div class="panel"><h4>Ближайшие события</h4><div class="ev"><i>14<br>нояб</i><div>Вебинар: разбор вопросов<br><span style="color:#5b6270">19:00, онлайн</span></div></div><div class="ev"><i>21<br>нояб</i><div>Живая встреча группы<br><span style="color:#5b6270">18:30, онлайн</span></div></div></div><div class="panel"><h4>Прогресс</h4><div class="stat"><div><b>62%</b><span>курс пройден</span></div><div><b>14</b><span>дней подряд</span></div></div></div></div>
+<div class="tabbar"><div class="on"><i></i>Главная</div><div><i></i>Курсы</div><div><i></i>Книги</div><div><i></i>События</div><div><i></i>Профиль</div></div>`;
+const LESSON=`<div class="top"><div class="burger"></div><div class="logo"><i></i>Школа</div><div class="search">Поиск по курсу</div><div class="ava"></div></div>
+<div class="side"><a><i></i><span>Главная</span></a><a class="on"><i></i><span>Мои курсы</span></a><a><i></i><span>Видеоуроки</span></a><a><i></i><span>Книги</span></a><a><i></i><span>События</span></a><a><i></i><span>Профиль</span></a></div>
+<div class="main"><div class="player"></div><div><div class="lt">Урок 4. Практика: разбор кейсов</div><div class="lm">Модуль 3 · 18 мин · материалы к уроку: 2 PDF</div></div><div class="btns"><span>Следующий урок</span><span>Скачать материалы</span></div>
+<div class="list mob-list"><div class="it done"><i></i>Урок 1. Введение</div><div class="it done"><i></i>Урок 2. Инструменты</div><div class="it done"><i></i>Урок 3. Теория</div><div class="it cur"><i></i>Урок 4. Практика</div><div class="it"><i></i>Урок 5. Домашнее задание</div></div></div>
+<div class="right"><div class="panel list"><h4>Уроки модуля</h4><div class="it done"><i></i>Урок 1. Введение</div><div class="it done"><i></i>Урок 2. Инструменты</div><div class="it done"><i></i>Урок 3. Теория</div><div class="it cur"><i></i>Урок 4. Практика</div><div class="it"><i></i>Урок 5. Домашнее задание</div><div class="it"><i></i>Урок 6. Итоги</div></div><div class="panel"><h4>Заметки</h4><div style="font-size:13.5px;color:#5b6270">Добавляйте заметки с привязкой ко времени видео</div></div></div>
+<div class="tabbar"><div><i></i>Главная</div><div class="on"><i></i>Курсы</div><div><i></i>Книги</div><div><i></i>События</div><div><i></i>Профиль</div></div>`;
+const D=[['m','Мобильная','375 px - ваш эталон'],['t','Планшет','768 px'],['d','Десктоп','1440 px']];
+function render(s){
+  document.getElementById('devs').innerHTML=D.map(([k,n,w])=>`<div class="dev ${k}"><div class="cap"><b>${n}</b><span>${w}</span></div><div class="frame ${k==='d'?'d':''}"><div class="scr"><div class="ui ${s}">${s==='home'?HOME:LESSON}</div></div></div></div>`).join('');
+  document.querySelectorAll('.dev.d .mob-list').forEach(e=>e.style.display='none');
+  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.s===s));
+}
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>render(b.dataset.s));
+render('home');
+</script>
+</body>
+</html>
