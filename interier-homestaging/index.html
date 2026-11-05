@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Студия Плана - демо</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EFEBE4;--card:#F8F6F2;--ink:#1E1D1B;--ink2:#55524D;--mute:#625E57;--clay:#B5694A;--sage:#7D8C72;--sand:#D9CDB9;--line:#D3CCC1;--disp:'Unbounded',system-ui,sans-serif;--sans:'Onest',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button,input{font:inherit;color:inherit}
+.w{max-width:1300px;margin:0 auto;padding:0 32px}
+header{border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;gap:36px;height:76px}
+.logo{font:600 17px/1 var(--disp);letter-spacing:-.02em;display:flex;gap:10px;align-items:center}
+.logo i{width:26px;height:26px;border:2px solid var(--ink);display:block;position:relative}
+.logo i::after{content:"";position:absolute;left:-2px;top:9px;width:14px;height:2px;background:var(--bg);box-shadow:0 0 0 0 var(--ink)}
+.logo i::before{content:"";position:absolute;right:5px;top:-2px;bottom:10px;width:2px;background:var(--ink)}
+header nav{display:flex;gap:28px;font-weight:500;font-size:14.5px;color:var(--ink2)}
+header nav a:hover{color:var(--clay)}
+.sp{flex:1}
+.b{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 24px;border-radius:4px;font-weight:600;font-size:15px;transition:.2s;cursor:pointer;border:0}
+.b.d{background:var(--ink);color:var(--bg)}.b.d:hover{background:var(--clay)}
+.b.o{border:1.5px solid var(--ink);background:none}.b.o:hover{background:var(--ink);color:var(--bg)}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;padding:64px 0 90px;align-items:center}
+.hero .k{font:500 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--clay)}
+.hero h1{font:500 clamp(40px,5.2vw,76px)/1.02 var(--disp);letter-spacing:-.04em;margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--clay)}
+.hero p{font-size:18px;color:var(--ink2);max-width:480px}
+.hero .acts{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.nums{display:flex;gap:40px;margin-top:46px;border-top:1px solid var(--line);padding-top:22px}
+.nums b{display:block;font:500 34px/1 var(--disp);letter-spacing:-.03em}
+.nums span{font-size:13.5px;color:var(--mute)}
+/* before/after plan */
+.ba{position:relative;aspect-ratio:1.18/1;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;user-select:none;touch-action:none;cursor:ew-resize}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .hd{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:var(--ink);transform:translateX(-1px)}
+.ba .hd::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:4px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:18px}
+.ba .lb{position:absolute;top:16px;font:600 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;background:var(--bg);padding:6px 10px;border-radius:3px}
+.ba .lb.l{left:16px}.ba .lb.r{right:16px;background:var(--ink);color:var(--bg)}
+.ba-cap{display:flex;justify-content:space-between;margin-top:12px;font-size:13.5px;color:var(--mute)}
+/* services */
+.sec{padding:90px 0;border-top:1px solid var(--line)}
+.sh{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;margin-bottom:44px}
+.sh h2{font:500 clamp(32px,3.6vw,50px)/1.05 var(--disp);letter-spacing:-.035em}
+.sh p{color:var(--ink2);font-size:17px;align-self:end}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.s{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:30px;display:flex;flex-direction:column;min-height:420px;transition:.3s;position:relative;overflow:hidden}
+.s:hover{border-color:var(--ink)}
+.s .n{font:500 13px var(--disp);color:var(--mute)}
+.s .sw{display:flex;gap:6px;margin:26px 0 30px}
+.s .sw i{width:44px;height:58px;border-radius:2px}
+.s h3{font:500 26px/1.1 var(--disp);letter-spacing:-.03em}
+.s p{color:var(--ink2);margin-top:12px;font-size:15px}
+.s ul{list-style:none;margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:14px;display:grid;gap:6px}
+.s ul li::before{content:"— ";color:var(--clay)}
+.s .pr{position:absolute;right:30px;top:30px;font:500 13px var(--sans);color:var(--clay)}
+/* calculator */
+.calc{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
+.cin{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:34px;display:grid;gap:28px}
+.rg label{display:flex;justify-content:space-between;font-weight:600;font-size:15px;margin-bottom:10px}
+.rg label b{font:500 16px var(--disp);letter-spacing:-.02em}
+input[type=range]{width:100%;accent-color:var(--clay);height:28px}
+.cout{background:var(--ink);color:var(--bg);border-radius:6px;padding:34px;display:flex;flex-direction:column}
+.cout .k{font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--sand)}
+.cout .big{font:500 clamp(46px,5vw,72px)/1 var(--disp);letter-spacing:-.04em;margin:16px 0 6px}
+.cout .big.neg{color:#E59A7C}
+.cout .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #ffffff22;font-size:15px}
+.cout .row span:first-child{color:#C9C3BA}
+.cout .bar{display:flex;height:10px;margin-top:auto;border-radius:2px;overflow:hidden}
+.cout .bar i{display:block;height:100%;transition:width .4s}
+.cout .leg{display:flex;gap:16px;font-size:12.5px;color:#C9C3BA;margin-top:10px;flex-wrap:wrap}
+.cout .leg span::before{content:"";display:inline-block;width:9px;height:9px;margin-right:6px;border-radius:1px;background:var(--c)}
+/* cases */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cs{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;transition:.3s}
+.cs:hover{transform:translateY(-4px)}
+.cs .pl{aspect-ratio:4/3;background:var(--sand);position:relative}
+.cs .pl svg{position:absolute;inset:0;width:100%;height:100%}
+.cs .bd{padding:22px}
+.cs h4{font:500 19px/1.2 var(--disp);letter-spacing:-.02em}
+.cs .m{display:flex;gap:16px;margin-top:12px;font-size:13.5px;color:var(--mute)}
+.cs .m b{color:var(--clay);font-weight:700}
+/* seo */
+.seo{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink)}
+.seo div{padding:24px 22px 24px 0;border-right:1px solid var(--line);margin-right:22px}
+.seo div:last-child{border:0}
+.seo b{font:500 15px var(--disp);display:block;margin-bottom:10px}
+.seo code{display:block;font:500 13px ui-monospace,monospace;color:var(--clay);margin:4px 0}
+.cta{background:var(--clay);color:#fff;border-radius:6px;padding:60px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;margin:20px 0 90px}
+.cta h2{font:500 clamp(30px,3.4vw,46px)/1.05 var(--disp);letter-spacing:-.035em;max-width:16ch}
+.cta .b{background:#fff;color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:30px 0 100px;font-size:13.5px;color:var(--mute)}
+#demo{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;background:var(--ink);color:var(--bg);border-radius:4px;padding:10px 18px;font-size:13px;white-space:nowrap}
+@media (max-width:1000px){header nav{display:none}.hero,.sh,.calc{grid-template-columns:1fr}.svc,.cases{grid-template-columns:1fr 1fr}.seo{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.w{padding:0 16px}.svc,.cases,.seo{grid-template-columns:1fr}.seo div{border-right:0;border-bottom:1px solid var(--line);margin:0}.hero{padding:36px 0 60px}.nums{gap:22px}.nums b{font-size:26px}.cta{padding:32px}.cin,.cout{padding:24px}header .b{display:none}.s{min-height:0}}
+</style>
+</head>
+<body>
+<header><div class="w">
+  <a class="logo" href="#"><i></i>Студия Плана</a>
+  <nav><a href="#svc">Дизайн-проект</a><a href="#svc">Хоумстейджинг</a><a href="#calc">Флиппинг</a><a href="#cases">Проекты</a></nav>
+  <span class="sp"></span><a class="b d" href="#cta">Обсудить объект</a>
+</div></header>
+
+<main class="w">
+  <section class="hero">
+    <div>
+      <span class="k">Интерьеры · хоумстейджинг · флиппинг</span>
+      <h1>Квартира, которую <em>хочется</em> купить</h1>
+      <p>Проектируем интерьеры для жизни и готовим квартиры к продаже: перепланировка, ремонт, стейджинг. Продаём быстрее и дороже рынка.</p>
+      <div class="acts"><a class="b d" href="#calc">Посчитать доходность</a><a class="b o" href="#cases">Смотреть проекты</a></div>
+      <div class="nums"><div><b>+18%</b><span>к цене после стейджинга</span></div><div><b>×2</b><span>быстрее продажа</span></div><div><b>64</b><span>объекта сдано</span></div></div>
+    </div>
+    <div>
+      <div class="ba" id="ba">
+        <svg viewBox="0 0 590 500" aria-label="Планировка до">
+          <rect width="590" height="500" fill="#F8F6F2"/>
+          <g fill="none" stroke="#1E1D1B" stroke-width="7"><path d="M40 40h510v420H40z"/><path d="M40 230h190M230 40v130M230 210v20M330 230v230M330 230h60M430 230h120M230 300h100"/></g>
+          <g fill="#55524D" font-family="Onest" font-size="15"><text x="80" y="140">Комната 14 м²</text><text x="330" y="140">Комната 17 м²</text><text x="80" y="350">Кухня 6 м²</text><text x="380" y="350">Комната 12 м²</text><text x="245" y="270" font-size="12">Кор.</text></g>
+          <g fill="#D3CCC1"><rect x="60" y="250" width="150" height="24"/><rect x="360" y="60" width="90" height="120" rx="4"/></g>
+        </svg>
+        <svg class="after" viewBox="0 0 590 500" aria-label="Планировка после">
+          <rect width="590" height="500" fill="#EFE7DA"/>
+          <rect x="44" y="44" width="282" height="412" fill="#E5D6C2"/>
+          <g fill="none" stroke="#1E1D1B" stroke-width="7"><path d="M40 40h510v420H40z"/><path d="M330 40v150M330 230v230M330 300h220"/></g>
+          <g fill="#B5694A"><rect x="70" y="70" width="170" height="60" rx="8"/><rect x="70" y="160" width="60" height="60" rx="30" opacity=".55"/></g>
+          <g fill="#7D8C72"><rect x="60" y="380" width="240" height="40" rx="3"/><rect x="150" y="270" width="120" height="70" rx="6" opacity=".7"/></g>
+          <g fill="#D9CDB9"><rect x="370" y="70" width="140" height="150" rx="6"/><rect x="370" y="340" width="120" height="90" rx="6"/></g>
+          <g fill="#1E1D1B" font-family="Onest" font-size="15" font-weight="600"><text x="80" y="250">Кухня-гостиная 37 м²</text><text x="370" y="260">Спальня 17 м²</text><text x="370" y="325">Гардероб · с/у</text><text x="440" y="450" font-size="12">Детская 12 м²</text></g>
+        </svg>
+        <div class="hd"></div><span class="lb l">До</span><span class="lb r">После</span>
+      </div>
+      <div class="ba-cap"><span>Двушка-«трёшка» 62 м², Москва</span><span>Тяните ползунок →</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="svc">
+    <div class="sh"><h2>Три направления - одна команда</h2><p>От планировки до продажи: дизайнер, прораб и риелтор работают в одной связке, поэтому сроки и бюджет не расползаются.</p></div>
+    <div class="svc">
+      <a class="s" href="#"><span class="n">01</span><span class="pr">от 2 500 ₽/м²</span><div class="sw"><i style="background:#B5694A"></i><i style="background:#D9CDB9"></i><i style="background:#7D8C72"></i><i style="background:#1E1D1B"></i></div><h3>Дизайн-проект</h3><p>Планировка, визуализации, рабочие чертежи и комплектация.</p><ul><li>обмерный план и 3 варианта планировки</li><li>3D-визуализации всех помещений</li><li>авторский надзор</li></ul></a>
+      <a class="s" href="#"><span class="n">02</span><span class="pr">от 45 000 ₽</span><div class="sw"><i style="background:#E5D6C2"></i><i style="background:#F8F6F2;border:1px solid #D3CCC1"></i><i style="background:#9AA58F"></i><i style="background:#C98A6E"></i></div><h3>Хоумстейджинг</h3><p>Готовим квартиру к показам и съёмке за 3-5 дней - без ремонта.</p><ul><li>мебель и декор в аренду</li><li>профессиональная фотосъёмка</li><li>продажа в среднем за 21 день</li></ul></a>
+      <a class="s" href="#calc"><span class="n">03</span><span class="pr">доход от 15%</span><div class="sw"><i style="background:#1E1D1B"></i><i style="background:#55524D"></i><i style="background:#B5694A"></i><i style="background:#EFEBE4;border:1px solid #D3CCC1"></i></div><h3>Флиппинг</h3><p>Покупаем, перепланируем, продаём. Можно войти инвестором.</p><ul><li>подбор и проверка объекта</li><li>ремонт под ключ за 2-3 месяца</li><li>отчёт инвестору каждую неделю</li></ul></a>
+    </div>
+  </section>
+
+  <section class="sec" id="calc">
+    <div class="sh"><h2>Калькулятор флиппинга</h2><p>Двигайте ползунки - сразу видно, сколько остаётся после ремонта, стейджинга и налога.</p></div>
+    <div class="calc">
+      <div class="cin">
+        <div class="rg"><label>Цена покупки <b id="v1"></b></label><input type="range" id="r1" min="5" max="40" step="0.5" value="14"></div>
+        <div class="rg"><label>Ремонт и перепланировка <b id="v2"></b></label><input type="range" id="r2" min="0.5" max="8" step="0.1" value="2.4"></div>
+        <div class="rg"><label>Стейджинг <b id="v3"></b></label><input type="range" id="r3" min="0" max="0.5" step="0.01" value="0.12"></div>
+        <div class="rg"><label>Цена продажи <b id="v4"></b></label><input type="range" id="r4" min="5" max="55" step="0.5" value="19.5"></div>
+      </div>
+      <div class="cout">
+        <span class="k">Чистая прибыль</span>
+        <div class="big" id="pf"></div>
+        <div class="row"><span>Доходность</span><b id="roi"></b></div>
+        <div class="row"><span>Налог и сделка (≈ 8%)</span><b id="tx"></b></div>
+        <div class="row" style="margin-bottom:26px"><span>Срок проекта</span><b>3-4 месяца</b></div>
+        <div class="bar" id="bar"></div>
+        <div class="leg"><span style="--c:#D9CDB9">покупка</span><span style="--c:#7D8C72">ремонт</span><span style="--c:#B5694A">стейджинг и налог</span><span style="--c:#F2EEE7">прибыль</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cases">
+    <div class="sh"><h2>Проекты</h2><p>Каждый кейс - планировка до/после, сроки и результат продажи.</p></div>
+    <div class="cases" id="cs"></div>
+  </section>
+
+  <section class="sec">
+    <div class="sh"><h2>Структура под продвижение в топ-10</h2><p>Отдельная страница под каждый запрос - так сайт растёт в Яндексе и Google по десяткам фраз, а не по одной.</p></div>
+    <div class="seo">
+      <div><b>Дизайн интерьера</b><code>/dizajn-kvartiry/</code><code>/dizajn-studii/</code><code>/dizajn-doma/</code></div>
+      <div><b>Хоумстейджинг</b><code>/homestaging/</code><code>/podgotovka-k-prodazhe/</code><code>/foto-dlya-avito/</code></div>
+      <div><b>Флиппинг</b><code>/flipping/</code><code>/investicii-v-kvartiry/</code><code>/kalkulyator/</code></div>
+      <div><b>Проекты</b><code>/proekty/odnushka-38m/</code><code>/proekty/dvushka-62m/</code><code>/blog/</code></div>
+    </div>
+  </section>
+
+  <section class="cta" id="cta"><h2>Пришлите планировку - предложим 3 варианта</h2><a class="b" href="#">Отправить в Telegram</a></section>
+</main>
+<footer><div class="w">Студия Плана - название для примера. Цифры и кейсы условные - заменим на ваши.</div></footer>
+<div id="demo">Демо дизайна · без фото, на ваших фото будет ещё живее</div>
+
+<script>
+(function(){
+  var ba=document.getElementById('ba');
+  function set(e){var r=ba.getBoundingClientRect();var x=((e.touches?e.touches[0].clientX:e.clientX)-r.left)/r.width*100;ba.style.setProperty('--x',Math.max(0,Math.min(100,x))+'%')}
+  var drag=false;ba.addEventListener('pointerdown',function(e){drag=true;set(e)});addEventListener('pointerup',function(){drag=false});ba.addEventListener('pointermove',function(e){if(drag)set(e)});
+  // intro sweep
+  var t0=null;function sw(ts){if(!t0)t0=ts;var p=(ts-t0)/1600;if(p<1){ba.style.setProperty('--x',(85-35*Math.sin(p*Math.PI/2))+'%');requestAnimationFrame(sw)}}requestAnimationFrame(sw);
+  var R=['r1','r2','r3','r4'].map(function(i){return document.getElementById(i)});
+  function m(v){return (Math.round(v*10)/10).toLocaleString('ru-RU')+' млн ₽'}
+  function calc(){var a=+R[0].value,b=+R[1].value,c=+R[2].value,d=+R[3].value,tx=d*0.08,pf=d-a-b-c-tx,inv=a+b+c;
+    ['v1','v2','v3','v4'].forEach(function(id,i){document.getElementById(id).textContent=i==2?Math.round(+R[i].value*1000).toLocaleString('ru-RU')+' тыс. ₽':m(+R[i].value)});
+    var el=document.getElementById('pf');el.textContent=(pf<0?'−':'')+m(Math.abs(pf));el.classList.toggle('neg',pf<0);
+    document.getElementById('roi').textContent=Math.round(pf/inv*100)+'%';document.getElementById('tx').textContent=m(tx);
+    var tot=Math.max(d,inv+tx);document.getElementById('bar').innerHTML=[[a,'#D9CDB9'],[b,'#7D8C72'],[c+tx,'#B5694A'],[Math.max(0,pf),'#F2EEE7']].map(function(x){return '<i style="width:'+(x[0]/tot*100)+'%;background:'+x[1]+'"></i>'}).join('')}
+  R.forEach(function(r){r.addEventListener('input',calc)});calc();
+  var C=[['Однушка в евродвушку, 38 м²','18 дней продажа','+2,1 млн'],['Сталинка, хоумстейджинг','11 дней продажа','+14% к цене'],['Студия под аренду, 27 м²','ремонт 46 дней','9,8% годовых']];
+  var cols=['#E5D6C2','#D9CDB9','#E2DBCF'];
+  document.getElementById('cs').innerHTML=C.map(function(c,i){var w=[[40,30,180,150],[40,30,120,200],[40,30,220,110]][i];return '<a class="cs" href="#"><div class="pl" style="background:'+cols[i]+'"><svg viewBox="0 0 300 225"><g fill="none" stroke="#1E1D1B" stroke-width="5"><rect x="20" y="20" width="260" height="185"/><path d="M'+(20+w[2])+' 20v'+(i==1?185:120)+'M20 '+(20+w[3])+'h'+(i==2?260:w[2])+'"/></g><rect x="34" y="34" width="'+(w[2]-28)+'" height="40" rx="5" fill="#B5694A" opacity=".8"/><rect x="'+(40+w[2])+'" y="40" width="70" height="70" rx="5" fill="#7D8C72" opacity=".6"/></svg></div><div class="bd"><h4>'+c[0]+'</h4><div class="m"><span>'+c[1]+'</span><b>'+c[2]+'</b></div></div></a>'}).join('');
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href="#"]');if(a)e.preventDefault()});
+})();
+</script>
+</body>
+</html>
