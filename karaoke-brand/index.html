@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Караоке - нейминг и логотип</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120E1F;--card:#1C1730;--ink:#F4F0FF;--mute:#B4ABCB;--pink:#FF4F9A;--cy:#3EE3D2;--yel:#FFD23F;--vi:#7B5CFF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 'Rubik',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:1200px;margin:0 auto;padding:0 28px}
+header{padding:60px 0 36px}
+header .k{font:500 13px 'Rubik';letter-spacing:.14em;text-transform:uppercase;color:var(--cy)}
+header h1{font:800 clamp(34px,4.6vw,60px)/1.05 'Unbounded';letter-spacing:-.03em;margin:12px 0 14px}
+header p{color:var(--mute);max-width:640px}
+h2{font:800 28px 'Unbounded';letter-spacing:-.02em;margin:50px 0 18px}
+.names{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.nm{background:var(--card);border:1px solid #ffffff14;border-radius:18px;padding:48px 24px 24px;position:relative;cursor:pointer;transition:.25s}
+.nm:hover,.nm.on{border-color:var(--pink);transform:translateY(-3px)}
+.nm b{font:800 26px 'Unbounded';letter-spacing:-.02em;display:block}
+.nm small{display:block;color:var(--cy);font-size:13px;margin:4px 0 10px;letter-spacing:.04em}
+.nm p{color:var(--mute);font-size:14.5px}
+.nm .tg{position:absolute;right:18px;top:18px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--pink);color:#fff;border-radius:6px;padding:4px 8px}
+.logos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lg{border-radius:18px;overflow:hidden;border:1px solid #ffffff14}
+.lg .a{aspect-ratio:1.25;display:grid;place-items:center;background:var(--card)}
+.lg .b{display:grid;grid-template-columns:1fr 1fr}
+.lg .b div{aspect-ratio:1.25;display:grid;place-items:center}
+.lg .cap{padding:16px 20px;background:#16122A;font-size:14px;color:var(--mute)}
+.lg .cap b{color:var(--ink);font-weight:700}
+.lg svg{max-width:78%;height:auto}
+.app{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px}
+.mk{border-radius:18px;overflow:hidden;aspect-ratio:1.3;position:relative;display:grid;place-items:center}
+.mk.van{background:linear-gradient(180deg,#2a2342,#151026)}
+.van .body{width:82%;height:50%;background:#fff;border-radius:18px 40px 12px 12px;position:relative;display:grid;place-items:center}
+.van .body::before,.van .body::after{content:"";position:absolute;bottom:-18px;width:44px;height:44px;border-radius:50%;background:#1a1626;border:7px solid #555}
+.van .body::before{left:14%}.van .body::after{right:14%}
+.mk.tee{background:#2B2147}
+.tee .t{width:62%;aspect-ratio:1;background:var(--pink);clip-path:polygon(25% 0,40% 6%,60% 6%,75% 0,100% 18%,88% 36%,78% 30%,78% 100%,22% 100%,22% 30%,12% 36%,0 18%);display:grid;place-items:center}
+.mk.ic{background:#16122A}
+.ico{width:120px;height:120px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(140deg,var(--pink),var(--vi));box-shadow:0 18px 40px #00000066}
+.plan{background:var(--card);border-radius:18px;padding:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:90px}
+.plan b{display:block;font:800 17px 'Unbounded';margin-bottom:6px}
+.plan span{color:var(--cy);font-weight:700;font-size:13px}
+.plan p{color:var(--mute);font-size:14.5px;margin-top:6px}
+#demo{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:var(--pink);color:#fff;border-radius:22px;padding:10px 18px;font-size:13px;font-weight:500;white-space:nowrap;z-index:9}
+.eq rect{animation:eq 1s ease-in-out infinite alternate;transform-origin:bottom;transform-box:fill-box}
+.eq rect:nth-child(2){animation-delay:.2s}.eq rect:nth-child(3){animation-delay:.4s}.eq rect:nth-child(4){animation-delay:.1s}
+@keyframes eq{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.eq rect{animation:none}}
+@media (max-width:900px){.names,.logos,.app{grid-template-columns:1fr 1fr}.plan{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.w{padding:0 16px}.names,.logos,.app,.plan{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="l1" viewBox="0 0 360 120"><!-- СИНГО: О = микрофон -->
+    <text x="0" y="86" font-family="Unbounded" font-weight="800" font-size="78" letter-spacing="-3" fill="currentColor">СИНГ</text>
+    <circle cx="300" cy="58" r="30" fill="var(--a1,#FF4F9A)"/><path d="M284 50h32M284 60h32M284 70h32" stroke="var(--bgc,#120E1F)" stroke-width="3.5" opacity=".55"/>
+    <rect x="294" y="86" width="12" height="28" rx="5" fill="currentColor"/>
+  </symbol>
+  <symbol id="l2" viewBox="0 0 440 120"><!-- Микрофония: волна-эквалайзер -->
+    <g class="eq" fill="var(--a1,#3EE3D2)"><rect x="4" y="20" width="14" height="80" rx="7"/><rect x="26" y="40" width="14" height="60" rx="7"/><rect x="48" y="8" width="14" height="92" rx="7"/><rect x="70" y="50" width="14" height="50" rx="7"/></g>
+    <text x="100" y="80" font-family="Rubik" font-weight="900" font-size="46" letter-spacing="-1" fill="currentColor">микрофония</text>
+  </symbol>
+  <symbol id="l3" viewBox="0 0 380 130"><!-- Подпевай: облако-реплика с нотой -->
+    <path d="M10 20a16 16 0 0 1 16-16h76a16 16 0 0 1 16 16v52a16 16 0 0 1-16 16H52l-24 22v-22h-2a16 16 0 0 1-16-16z" fill="var(--a1,#FFD23F)"/>
+    <path d="M58 70V30l30-8v38" fill="none" stroke="var(--bgc,#120E1F)" stroke-width="7" stroke-linejoin="round"/><circle cx="50" cy="70" r="10" fill="var(--bgc,#120E1F)"/><circle cx="80" cy="62" r="10" fill="var(--bgc,#120E1F)"/>
+    <text x="136" y="72" font-family="Rubik" font-weight="800" font-size="46" fill="currentColor">подпевай</text>
+    <text x="138" y="104" font-family="Rubik" font-weight="500" font-size="17" letter-spacing="3" fill="currentColor" opacity=".7">ПРОКАТ КАРАОКЕ</text>
+  </symbol>
+</svg>
+<div class="w">
+<header>
+  <span class="k">Нейминг + логотип · KaraokeSakh → федеральный бренд</span>
+  <h1>Название, с которым можно выйти за пределы Сахалина</h1>
+  <p>Короткие, звучные, без географии - подходят и для продажи, и для проката караоке-систем. Ниже 6 вариантов названия и 3 логотипа для финалистов. Нажмите на название - логотип ниже подсветится.</p>
+</header>
+
+<h2>Варианты названия</h2>
+<div class="names" id="names">
+  <div class="nm on" data-l="1"><span class="tg">Финалист</span><b>Синго</b><small>sing + go · singo</small><p>Коротко, легко произносится на русском и английском, звучит как бренд техники. Хорошо для домена и регистрации.</p></div>
+  <div class="nm" data-l="2"><span class="tg">Финалист</span><b>Микрофония</b><small>микрофон + симфония</small><p>Весёлое и понятное с первого раза. Сразу про караоке, запоминается после одного раза.</p></div>
+  <div class="nm" data-l="3"><span class="tg">Финалист</span><b>Подпевай</b><small>призыв к действию</small><p>Тёплое, «семейное» название для проката на праздники. Работает как слоган сам по себе.</p></div>
+  <div class="nm"><b>Тональ</b><small>тон + тональность</small><p>Более «взрослое» и премиальное - если делать упор на продажу профессиональных систем.</p></div>
+  <div class="nm"><b>Хорус</b><small>хор + chorus</small><p>Звучное, короткое, хорошо смотрится крупно на вывеске и технике.</p></div>
+  <div class="nm"><b>ПоюДома</b><small>описательное</small><p>Максимально понятно для прокатов, но слабее для регистрации - запасной вариант.</p></div>
+</div>
+
+<h2>Логотипы финалистов</h2>
+<div class="logos">
+  <div class="lg" id="lg1"><div class="a"><svg viewBox="0 0 360 120" style="color:#F4F0FF;width:300px"><use href="#l1"/></svg></div><div class="b"><div style="background:#fff"><svg viewBox="0 0 360 120" style="color:#120E1F;--bgc:#fff;width:150px"><use href="#l1"/></svg></div><div style="background:#FF4F9A"><svg viewBox="0 0 360 120" style="color:#fff;--a1:#120E1F;--bgc:#FF4F9A;width:150px"><use href="#l1"/></svg></div></div><div class="cap"><b>Синго</b> - буква «О» превращается в микрофон</div></div>
+  <div class="lg" id="lg2"><div class="a"><svg viewBox="0 0 440 120" style="color:#F4F0FF;width:300px"><use href="#l2"/></svg></div><div class="b"><div style="background:#fff"><svg viewBox="0 0 440 120" style="color:#120E1F;--a1:#7B5CFF;width:150px"><use href="#l2"/></svg></div><div style="background:#3EE3D2"><svg viewBox="0 0 440 120" style="color:#120E1F;--a1:#120E1F;width:150px"><use href="#l2"/></svg></div></div><div class="cap"><b>Микрофония</b> - живой эквалайзер (анимируется на сайте)</div></div>
+  <div class="lg" id="lg3"><div class="a"><svg viewBox="0 0 380 130" style="color:#F4F0FF;width:300px"><use href="#l3"/></svg></div><div class="b"><div style="background:#fff"><svg viewBox="0 0 380 130" style="color:#120E1F;--bgc:#fff;width:150px"><use href="#l3"/></svg></div><div style="background:#FFD23F"><svg viewBox="0 0 380 130" style="color:#120E1F;--a1:#120E1F;--bgc:#FFD23F;width:150px"><use href="#l3"/></svg></div></div><div class="cap"><b>Подпевай</b> - реплика с нотой, подходит для соцсетей и стикеров</div></div>
+</div>
+
+<h2>Как это будет выглядеть</h2>
+<div class="app">
+  <div class="mk van"><div class="body"><svg viewBox="0 0 360 120" style="color:#120E1F;--bgc:#fff;width:62%"><use href="#l1"/></svg></div></div>
+  <div class="mk tee"><div class="t"><svg viewBox="0 0 360 120" style="color:#fff;--a1:#120E1F;--bgc:#FF4F9A;width:54%"><use href="#l1"/></svg></div></div>
+  <div class="mk ic"><div class="ico"><svg viewBox="270 22 60 96" width="54" height="80"><circle cx="300" cy="58" r="30" fill="#fff"/><path d="M284 50h32M284 60h32M284 70h32" stroke="#FF4F9A" stroke-width="3.5"/><rect x="294" y="86" width="12" height="28" rx="5" fill="#fff"/></svg></div></div>
+</div>
+
+<h2>Что входит в работу</h2>
+<div class="plan">
+  <div><span>Шаг 1 · 2 дня</span><b>15-20 названий</b><p>С обоснованием, проверкой созвучий и доменов .ru/.рф/.com.</p></div>
+  <div><span>Шаг 2 · 1 день</span><b>Проверка 3 финалистов</b><p>Предварительный поиск по базе ФИПС в 9, 35, 41 классах МКТУ.</p></div>
+  <div><span>Шаг 3 · 2-3 дня</span><b>Логотип</b><p>3 концепции для выбранного названия, доработка, цветная и одноцветная версии.</p></div>
+  <div><span>Итог</span><b>Исходники</b><p>SVG, PDF, PNG, иконка для соцсетей, коды цветов и шрифты.</p></div>
+</div>
+</div>
+<div id="demo">Демо · названия и логотипы для примера</div>
+<script>
+document.getElementById('names').addEventListener('click',function(e){var n=e.target.closest('.nm');if(!n)return;this.querySelectorAll('.nm').forEach(function(x){x.classList.toggle('on',x===n)});var l=n.dataset.l;if(l){var el=document.getElementById('lg'+l);el.scrollIntoView({behavior:'smooth',block:'center'});el.animate([{boxShadow:'0 0 0 0 #FF4F9A'},{boxShadow:'0 0 0 6px #FF4F9A'},{boxShadow:'0 0 0 0 #FF4F9A'}],{duration:1200})}});
+</script>
+</body>
+</html>
