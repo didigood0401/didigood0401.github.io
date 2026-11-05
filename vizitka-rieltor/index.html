@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Визитка риелтора - 2 варианта</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ecebe7; --ink:#1d1f22; --mute:#6c6d6f; --line:#d3d1cb;
+  --gA:#212428; --gA2:#2b2f34; --brass:#b89a67; --brass2:#d8c39a;
+  --sB:#f3efe8; --pine:#2e403b; --pine2:#516a62; --clay:#a8835c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(34px,5vw,58px);line-height:1.05;margin:12px 0 14px;letter-spacing:-.01em}
+.lead{max-width:640px;color:#45474a;font-size:16px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:13px;color:var(--mute)}
+.meta b{color:var(--ink);font-weight:600}
+
+section.v{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.vhead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.vnum{font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--mute)}
+.vhead h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(28px,3.6vw,42px);line-height:1.1}
+.vhead p{max-width:470px;color:#4b4d50;font-size:15px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:#4b4d50;border:1px solid var(--line);border-radius:99px;padding:4px 10px 4px 6px;background:#f6f5f2}
+.chip i{width:14px;height:14px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.12)}
+
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.side{display:flex;flex-direction:column;gap:12px}
+.side .cap{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between}
+/* card base: 90x50mm => 9:5 */
+.card{position:relative;width:100%;aspect-ratio:90/50;border-radius:6px;overflow:hidden;container-type:inline-size;
+  box-shadow:0 1px 1px rgba(0,0,0,.08),0 10px 24px -8px rgba(0,0,0,.28),0 30px 60px -30px rgba(0,0,0,.35)}
+.card *{position:absolute}
+/* units: 1cqw = 0.9mm */
+
+/* ===== A: graphite ===== */
+.A{background:radial-gradient(120% 140% at 0% 0%,#2e3237 0%,var(--gA) 55%,#1a1c1f 100%);color:#e9e4da}
+.A::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none}
+.A .mono{left:7.8cqw;top:9cqw;width:12cqw;height:12cqw}
+.A .name{left:7.8cqw;bottom:15.5cqw;font-family:"Cormorant Garamond",serif;font-weight:500;font-size:7.6cqw;line-height:1;letter-spacing:.01em;color:#f1ece2;white-space:nowrap}
+.A .role{left:7.9cqw;bottom:9.6cqw;font-size:2.15cqw;letter-spacing:.32em;text-transform:uppercase;color:var(--brass2)}
+.A .rule{left:7.8cqw;bottom:13.4cqw;width:9cqw;height:.22cqw;background:var(--brass)}
+.A .roof{right:0;top:0;height:100%;width:44cqw;opacity:.9}
+.A.back{background:linear-gradient(180deg,#f1ede5,#e9e4da);color:var(--gA)}
+.A.back::after{opacity:.6}
+.A.back .bname{left:7.8cqw;top:8.5cqw;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:4.6cqw;line-height:1;color:var(--gA)}
+.A.back .brole{left:7.9cqw;top:14.6cqw;font-size:1.7cqw;letter-spacing:.3em;text-transform:uppercase;color:#76603d}
+.A.back .contacts{left:7.8cqw;bottom:7.8cqw;display:flex;flex-direction:column;gap:1.5cqw;position:absolute}
+.A.back .contacts div{position:relative;display:flex;align-items:center;gap:2cqw;font-size:2.55cqw;font-weight:500;color:#26292d;white-space:nowrap}
+.A.back .contacts svg{position:relative;width:2.6cqw;height:2.6cqw;flex:none}
+.A.back .vl{left:52cqw;top:8.5cqw;bottom:7.8cqw;width:.15cqw;background:#c9bda7}
+.A.back .serv{left:56.5cqw;top:8.3cqw;right:6cqw;display:flex;flex-direction:column;gap:1.25cqw}
+.A.back .serv .t{position:relative;font-size:1.65cqw;letter-spacing:.3em;text-transform:uppercase;color:#76603d;margin-bottom:.8cqw}
+.A.back .serv div{position:relative;font-size:2.45cqw;line-height:1.25;color:#2b2e32;padding-left:3cqw}
+.A.back .serv div::before{content:"";position:absolute;left:0;top:1.05cqw;width:1.5cqw;height:.18cqw;background:var(--brass)}
+.A.back .qr{right:6cqw;bottom:7.8cqw;width:10cqw;height:10cqw}
+
+/* ===== B: stone & pine ===== */
+.B{background:var(--sB);color:var(--pine)}
+.B .grid{inset:0;width:100%;height:100%}
+.B .arch{left:7.5cqw;top:8.5cqw;width:7.4cqw;height:9.6cqw}
+.B .name{left:7.5cqw;top:24cqw;font-family:Manrope,sans-serif;font-weight:300;font-size:6.1cqw;line-height:1.06;letter-spacing:-.01em;color:var(--pine)}
+.B .name b{font-weight:600;display:block}
+.B .role{left:7.6cqw;bottom:7.6cqw;font-size:1.95cqw;letter-spacing:.26em;text-transform:uppercase;color:#85633f;font-weight:600}
+.B .block{right:0;top:0;bottom:0;width:31cqw;background:var(--pine)}
+.B .block .lines{inset:0;width:100%;height:100%}
+.B .block .yr{left:5.2cqw;bottom:7.4cqw;font-size:1.7cqw;letter-spacing:.24em;text-transform:uppercase;color:#d9b48c}
+.B .block .big{left:4.8cqw;top:6.8cqw;font-family:"Cormorant Garamond",serif;font-size:17cqw;line-height:.8;color:#e9e2d3;font-weight:500}
+.B.back{background:var(--pine);color:#eef0ea}
+.B.back .grid2{inset:0;width:100%;height:100%;opacity:.5}
+.B.back .head{left:7.5cqw;top:8cqw;display:flex;align-items:center;gap:2.2cqw;position:absolute}
+.B.back .head svg{position:relative;width:4.3cqw;height:5.6cqw}
+.B.back .head span{position:relative;font-size:2.6cqw;font-weight:600;letter-spacing:.02em;color:#f2efe8}
+.B.back .head em{position:relative;font-style:normal;font-size:1.7cqw;letter-spacing:.24em;text-transform:uppercase;color:#d9b48c;display:block;margin-top:.4cqw}
+.B.back .serv{left:7.5cqw;top:20.5cqw;display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;grid-auto-flow:column;gap:1.4cqw 5cqw}
+.B.back .serv div{position:relative;font-size:2.35cqw;color:#e7ebe5;display:flex;gap:1.6cqw;align-items:baseline;white-space:nowrap}
+.B.back .serv div b{position:relative;font-weight:500;font-size:1.6cqw;color:#d9b48c;letter-spacing:.08em}
+.B.back .bar{left:7.5cqw;right:7.5cqw;bottom:15.6cqw;height:.14cqw;background:rgba(255,255,255,.22)}
+.B.back .contacts{left:7.5cqw;right:7.5cqw;bottom:7.2cqw;display:flex;justify-content:space-between;align-items:flex-end}
+.B.back .contacts div{position:relative;font-size:2.5cqw;font-weight:500;color:#fff;white-space:nowrap}
+.B.back .contacts div small{display:block;font-size:1.55cqw;letter-spacing:.22em;text-transform:uppercase;color:#a9bab3;font-weight:500;margin-bottom:.5cqw;position:static}
+
+/* flip mockup */
+.scene{margin-top:34px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+.desk{position:relative;border-radius:14px;aspect-ratio:16/10;overflow:hidden;display:grid;place-items:center;perspective:1600px;cursor:pointer;user-select:none}
+.desk.dA{background:radial-gradient(90% 90% at 30% 20%,#d9d3c8,#b9b1a4 70%,#a89f91)}
+.desk.dB{background:radial-gradient(90% 90% at 70% 20%,#5b6a64,#3b4844 65%,#2c3633)}
+.desk::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(100deg,rgba(255,255,255,.03) 0 2px,transparent 2px 7px);pointer-events:none}
+.flip{position:relative;width:min(62%,420px);aspect-ratio:90/50;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.75,.2,1);transform:rotateX(18deg) rotateZ(-7deg)}
+.desk.on .flip{transform:rotateX(18deg) rotateZ(-7deg) rotateY(180deg)}
+.flip .card{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 2px 2px rgba(0,0,0,.18),18px 28px 30px -10px rgba(0,0,0,.4)}
+.flip .card.back{transform:rotateY(180deg)}
+.under{position:absolute;width:min(62%,420px);aspect-ratio:90/50;transform:translate(-9%,14%) rotateX(18deg) rotateZ(4deg);opacity:.95}
+.under .card{box-shadow:0 2px 2px rgba(0,0,0,.18),14px 22px 26px -10px rgba(0,0,0,.4)}
+.hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.dA .hint{color:#4a4339;text-shadow:none}
+.notes h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:26px;margin-bottom:10px}
+.notes ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.notes li{font-size:14.5px;color:#3f4144;padding-left:18px;position:relative}
+.notes li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:1px;background:#8a8b8d}
+
+.spec{padding:56px 0 70px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.spec div{border-top:1px solid var(--ink);padding-top:12px}
+.spec b{display:block;font-family:"Cormorant Garamond",serif;font-weight:500;font-size:24px;margin-bottom:4px}
+.spec span{font-size:13.5px;color:#55575a}
+footer{padding:22px 0 40px;font-size:12px;color:var(--mute);border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .stage,.scene{grid-template-columns:1fr}
+  .spec{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  header{padding-top:36px}
+  section.v{padding:44px 0 30px}
+  .spec{grid-template-columns:1fr}
+  .flip,.under{width:74%}
+  .desk{aspect-ratio:4/3}
+  .hint{font-size:10px;bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){.flip{transition:none}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="kicker">Демо · визитка 90 × 50 мм · 2 варианта</div>
+  <h1>Визитка частного риелтора</h1>
+  <p class="lead">Два направления в сдержанной гамме: тёмный «Графит» с латунью и светлый «Камень» с глубоким зелёным. Лаконичная типографика, знак из архитектурных линий - кровля и арка окна. Нажмите на визитку в макете, чтобы перевернуть её.</p>
+  <div class="meta"><span><b>Формат</b> 90 × 50 мм, двусторонняя</span><span><b>Имя и контакты</b> - для примера</span><span><b>Печать</b> CMYK, вылеты 2 мм</span></div>
+</header>
+
+<!-- ============ VARIANT A ============ -->
+<section class="v wrap">
+  <div class="vhead">
+    <div>
+      <div class="vnum">Вариант 01</div>
+      <h2>Графит и латунь</h2>
+      <div class="chips"><span class="chip"><i style="background:#212428"></i>Графит</span><span class="chip"><i style="background:#b89a67"></i>Латунь</span><span class="chip"><i style="background:#efeae1"></i>Слоновая кость</span></div>
+    </div>
+    <p>Солидно и спокойно - как у частного банкира. Лицевая сторона тёмная, с тонким силуэтом кровли; оборот светлый, чтобы контакты читались с одного взгляда. Хорошо смотрится с тиснением латунной фольгой на дизайнерском картоне.</p>
+  </div>
+
+  <div class="stage">
+    <div class="side"><div class="cap"><span>Лицевая сторона</span><span>90 × 50</span></div>
+      <div class="card A front">
+        <svg class="mono" viewBox="0 0 48 48" fill="none" stroke="#c9ae7d" stroke-width="1.1"><path d="M4 22 24 6l20 16"/><path d="M10 18v24h28V18"/><path d="M19 42V28h10v14"/><path d="M26.5 35.5h.01" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg class="roof" viewBox="0 0 200 227" fill="none" preserveAspectRatio="xMaxYMid slice">
+          <g stroke="#b89a67" stroke-width=".7" opacity=".55"><path d="M40 120 140 40l100 80"/><path d="M60 120v120M220 120v120"/></g>
+          <g stroke="#e9e4da" stroke-width=".5" opacity=".14"><path d="M20 150 140 56l120 94"/><path d="M0 180 140 72l140 108"/><path d="M110 140h60v100h-60z"/><path d="M140 140v100M110 190h60"/></g>
+        </svg>
+        <div class="rule"></div>
+        <div class="name">Валерия Миланова</div>
+        <div class="role">Недвижимость · продажа и аренда</div>
+      </div>
+    </div>
+    <div class="side"><div class="cap"><span>Оборот</span><span>90 × 50</span></div>
+      <div class="card A back">
+        <div class="bname">Валерия Миланова</div>
+        <div class="brole">Частный риелтор</div>
+        <div class="contacts">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="#76603d" stroke-width="1.6"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>+7 (900) 000-00-00</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="#76603d" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>milanova@estate-mail.ru</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="#76603d" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Москва и область</div>
+        </div>
+        <div class="vl"></div>
+        <div class="serv">
+          <span class="t">Услуги</span>
+          <div>Продажа квартир и домов</div>
+          <div>Аренда жилья</div>
+          <div>Подбор новостроек</div>
+          <div>Сопровождение сделки</div>
+        </div>
+        <svg class="qr" viewBox="0 0 21 21" shape-rendering="crispEdges"><rect width="21" height="21" fill="#e9e4da"/><g fill="#2b2f34"><path d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"/></g><g fill="#e9e4da"><path d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/></g><g fill="#2b2f34"><path d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h1v2H8zM10 1h2v1h-2zM9 3h2v2H9zM12 4h1v3h-1zM8 6h2v1H8zM0 8h2v1H0zM3 8h3v1H3zM8 8h4v1H8zM14 8h1v2h-1zM17 8h3v1h-3zM1 10h2v2H1zM5 10h3v1H5zM10 10h2v2h-2zM13 11h3v1h-3zM18 10h3v2h-3zM6 12h2v2H6zM9 13h3v1H9zM15 13h2v2h-2zM19 13h2v1h-2zM8 15h1v3H8zM10 15h3v1h-3zM14 16h2v1h-2zM18 15h1v3h-1zM11 17h2v2h-2zM15 18h2v3h-2zM9 19h1v2H9zM19 19h2v2h-2z"/></g></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="desk dA" data-flip>
+      <div class="under"><div class="card A back" aria-hidden="true"></div></div>
+      <div class="flip"><div class="card A front"></div><div class="card A back"></div></div>
+      <div class="hint">Нажмите, чтобы перевернуть</div>
+    </div>
+    <div class="notes">
+      <h3>Почему так</h3>
+      <ul>
+        <li>Тёмная лицевая сторона выделяет визитку в стопке чужих - её берут в руки первой.</li>
+        <li>Знак - кровля с окном: сразу читается «недвижимость», без шаблонных ключиков и домиков из клипарта.</li>
+        <li>Антиква в имени даёт ощущение статуса и надёжности, гротеск в контактах - читаемость.</li>
+        <li>QR ведёт на WhatsApp, Telegram или сайт - клиент сохраняет контакт за секунду.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VARIANT B ============ -->
+<section class="v wrap">
+  <div class="vhead">
+    <div>
+      <div class="vnum">Вариант 02</div>
+      <h2>Камень и хвоя</h2>
+      <div class="chips"><span class="chip"><i style="background:#f3efe8"></i>Светлый камень</span><span class="chip"><i style="background:#2e403b"></i>Хвойный</span><span class="chip"><i style="background:#a8835c"></i>Терракота</span></div>
+    </div>
+    <p>Светлый, архитектурный, «как у бюро». Сетка-чертёж и арка окна дают отсылку к планировкам. Зелёный блок с монограммой работает как фирменный знак - его можно повторить в соцсетях и на табличке «Продаётся».</p>
+  </div>
+
+  <div class="stage">
+    <div class="side"><div class="cap"><span>Лицевая сторона</span><span>90 × 50</span></div>
+      <div class="card B front">
+        <svg class="grid" viewBox="0 0 90 50" preserveAspectRatio="none"><g stroke="#2e403b" stroke-width=".06" opacity=".22"><path d="M7 0v50M23 0v50M38 0v50M0 7h90M0 25h90M0 43h90"/></g></svg>
+        <svg class="arch" viewBox="0 0 37 48" fill="none" stroke="#2e403b" stroke-width="1.4"><path d="M2 47V18.5a16.5 16.5 0 0 1 33 0V47z"/><path d="M18.5 3v44M2 26h33" stroke-width=".9"/></svg>
+        <div class="name">Валерия<b>Миланова</b></div>
+        <div class="role">Риелтор · продажа и аренда</div>
+        <div class="block">
+          <svg class="lines" viewBox="0 0 31 50" preserveAspectRatio="none"><g stroke="#e9e2d3" stroke-width=".08" opacity=".35"><path d="M0 7h31M0 25h31M0 43h31M8 0v50"/></g></svg>
+          <div class="big">ВМ</div>
+          <div class="yr">Недвижимость</div>
+        </div>
+      </div>
+    </div>
+    <div class="side"><div class="cap"><span>Оборот</span><span>90 × 50</span></div>
+      <div class="card B back">
+        <svg class="grid2" viewBox="0 0 90 50" preserveAspectRatio="none"><g stroke="#ffffff" stroke-width=".05" opacity=".25"><path d="M7 0v50M83 0v50M0 7h90M0 43h90"/></g></svg>
+        <div class="head"><svg viewBox="0 0 37 48" fill="none" stroke="#d9b48c" stroke-width="2"><path d="M2 47V18.5a16.5 16.5 0 0 1 33 0V47z"/><path d="M18.5 3v44M2 26h33" stroke-width="1.2"/></svg><div style="position:relative"><span>Валерия Миланова</span><em>Частный риелтор</em></div></div>
+        <div class="serv">
+          <div><b>01</b>Продажа квартир и домов</div>
+          <div><b>02</b>Аренда жилья</div>
+          <div><b>03</b>Подбор новостроек</div>
+          <div><b>04</b>Сопровождение сделки</div>
+        </div>
+        <div class="bar"></div>
+        <div class="contacts">
+          <div><small>Телефон</small>+7 (900) 000-00-00</div>
+          <div><small>Почта</small>milanova@estate-mail.ru</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="desk dB" data-flip>
+      <div class="under"><div class="card B back" aria-hidden="true"></div></div>
+      <div class="flip"><div class="card B front"></div><div class="card B back"></div></div>
+      <div class="hint">Нажмите, чтобы перевернуть</div>
+    </div>
+    <div class="notes">
+      <h3>Почему так</h3>
+      <ul>
+        <li>Светлая основа и много воздуха - визитка выглядит дорого даже на обычной мелованной бумаге.</li>
+        <li>Арка окна - простой знак, который легко запомнить и повторить в аватарке и объявлениях.</li>
+        <li>Услуги пронумерованы, как в портфолио архитектора: аккуратно и без перегруза.</li>
+        <li>Оборот в фирменном зелёном - визитка узнаётся с обеих сторон.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="spec wrap">
+  <div><b>90 × 50 мм</b><span>стандарт РФ, вылеты по 2 мм, безопасное поле 4 мм</span></div>
+  <div><b>CMYK · PDF</b><span>макет к печати + исходник для правок (текст и цвета меняются без дизайнера)</span></div>
+  <div><b>Бумага</b><span>дизайнерский картон 300-350 г/м², для «Графита» - тиснение фольгой</span></div>
+  <div><b>Ваши данные</b><span>имя, телефон, почта, услуги и QR подставлю ваши</span></div>
+</section>
+
+<footer class="wrap">Демо-эскиз для обсуждения. Имя, контакты и QR - условные.</footer>
+
+<script>
+// clone faces into mockups
+document.querySelectorAll('section.v').forEach(s=>{
+  const f=s.querySelector('.stage .card.front'), b=s.querySelector('.stage .card.back');
+  const fl=s.querySelector('.flip'); fl.children[0].innerHTML=f.innerHTML; fl.children[1].innerHTML=b.innerHTML;
+  s.querySelector('.under .card').innerHTML=b.innerHTML;
+});
+document.querySelectorAll('[data-flip]').forEach(d=>d.addEventListener('click',()=>d.classList.toggle('on')));
+</script>
+</body>
+</html>
