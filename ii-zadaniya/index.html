@@ -57,7 +57,7 @@ select,input[type=number]{width:100%;font:inherit;font-weight:700;padding:10px 1
 .empty{display:grid;place-items:center;min-height:380px;color:var(--mut);font-weight:800;text-align:center}
 .empty div{font-size:60px}
 .cal{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-top:18px;max-width:800px}
-.cal h3{margin:0 0 10px;font-size:17px}
+.cal h3,.cal .calh{margin:0 0 10px;font-size:17px}
 .cal ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .cal li{display:flex;gap:10px;font-size:14.5px;font-weight:700;align-items:center}
 .cal li em{font-style:normal;color:var(--mut);min-width:92px}
@@ -94,7 +94,7 @@ select,input[type=number]{width:100%;font:inherit;font-weight:700;padding:10px 1
 <div class="tools"><button id="print">Печать / PDF</button><button id="regen">Ещё вариант</button><button class="pub" id="pub">Опубликовать на сайте</button></div>
 <div class="log" id="log">Готов к генерации.</div>
 <article class="sheet" id="sheet"><div class="empty"><div>✏️</div>Выберите раздел и нажмите «Сгенерировать лист»</div></article>
-<div class="cal"><h3>Автопубликация по календарю</h3><ul id="cal"></ul></div>
+<div class="cal"><h2 class="calh">Автопубликация по календарю</h2><ul id="cal"></ul></div>
 </section>
 <p class="foot">Демонстрационный макет: задания собираются в браузере по тем же правилам, что и промпты для нейросети. Сайт, названия и тексты вымышленные.</p>
 </main>
