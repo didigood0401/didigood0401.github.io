@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Каталог станков - демо</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f3f4;--ink:#15191d;--mute:#59616a;--line:#d9dde1;--card:#fff;--dark:#1b232b;--acc:#f2b705;--acc2:#c99400;--blue:#2457c5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Golos Text",system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px}
+button{font:inherit;cursor:pointer}
+/* header */
+.hd{background:var(--dark);color:#e9edf0;position:sticky;top:0;z-index:20}
+.hd .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.02em;text-decoration:none}
+.logo i{width:30px;height:30px;background:var(--acc);clip-path:polygon(0 0,100% 0,100% 62%,62% 100%,0 100%);display:block}
+.hd nav{display:flex;gap:20px;font-size:14.5px;margin-left:12px}
+.hd nav a{text-decoration:none;color:#c3cbd2}.hd nav a:hover{color:#fff}
+.hd .r{margin-left:auto;display:flex;align-items:center;gap:16px}
+.tel{font-family:"JetBrains Mono",monospace;font-size:14px;color:#fff;text-decoration:none}
+.bag{display:flex;align-items:center;gap:8px;background:var(--acc);color:#15191d;border:0;border-radius:8px;padding:9px 14px;font-weight:600;font-size:14px}
+.bag b{background:#15191d;color:var(--acc);border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;padding:0 6px}
+/* hero */
+.hero{background:linear-gradient(180deg,var(--dark),#222c35);color:#eef1f3;padding:56px 0 64px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(32px,4.6vw,54px);line-height:1.05;font-weight:700;letter-spacing:-.02em}
+.hero h1 span{color:var(--acc)}
+.hero p{margin-top:16px;color:#c1c9d0;font-size:17px;max-width:560px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{border:0;border-radius:8px;padding:13px 20px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.y{background:var(--acc);color:#15191d}.btn.y:hover{background:#ffc928}
+.btn.o{background:transparent;color:#fff;border:1px solid #56626e}.btn.o:hover{border-color:#fff}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#3a4652;border-radius:12px;overflow:hidden;margin-top:34px;max-width:560px}
+.stats div{background:#232d36;padding:14px 16px}
+.stats b{display:block;font-size:24px;font-weight:700;color:#fff}
+.stats span{font-size:13px;color:#c0c8cf}
+.hero svg.big{width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.4))}
+/* promo */
+.promo{margin-top:-28px;position:relative;z-index:2}
+.promo .in{background:var(--acc);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:0 14px 30px -14px rgba(0,0,0,.35)}
+.promo .t{font-weight:700;font-size:18px}
+.promo .s{font-size:14.5px;color:#3b3208;flex:1;min-width:240px}
+.promo .tm{font-family:"JetBrains Mono",monospace;font-weight:500;background:#15191d;color:var(--acc);padding:8px 12px;border-radius:8px;font-size:14px}
+/* catalog */
+section.wrap{padding-top:72px}
+[id]{scroll-margin-top:80px}
+h2{font-size:clamp(26px,3.2vw,36px);font-weight:700;letter-spacing:-.015em}
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.shead p{color:var(--mute);max-width:520px}
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.cats button{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 16px;font-size:14px;font-weight:500;color:var(--ink)}
+.cats button.on{background:var(--dark);border-color:var(--dark);color:#fff}
+.cats button em{font-style:normal;color:var(--mute);margin-left:4px;font-size:13px}
+.cats button.on em{color:#c9d1d8}
+.filters{display:flex;gap:14px;flex-wrap:wrap;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:20px;font-size:14px}
+.filters label{display:flex;align-items:center;gap:8px;color:#353c43}
+.filters select,.filters input[type=search]{font:inherit;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#fff;color:var(--ink)}
+.filters input[type=search]{min-width:220px;flex:1}
+.filters .cnt{margin-left:auto;color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.p{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.p:hover{box-shadow:0 16px 30px -18px rgba(20,30,40,.45);transform:translateY(-2px)}
+.p .ph{background:linear-gradient(160deg,#eef1f3,#dfe4e8);aspect-ratio:4/3;display:grid;place-items:center;position:relative}
+.p .ph svg{width:82%;height:auto}
+.badge{position:absolute;left:12px;top:12px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;background:var(--dark);color:#fff}
+.badge.s{background:var(--acc);color:#15191d}
+.p .b{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.p .c{font-size:12.5px;color:var(--mute);font-weight:500}
+.p h3{font-size:17px;line-height:1.3;font-weight:600}
+.p ul{list-style:none;font-size:13.5px;color:#3c434a;display:grid;gap:4px}
+.p ul li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #e3e6e9;padding-bottom:4px}
+.p ul li span:last-child{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink)}
+.p .pr{margin-top:auto;display:flex;align-items:baseline;gap:8px;padding-top:6px}
+.p .pr b{font-size:20px;font-weight:700}
+.p .pr s{color:#5f676e;font-size:14px}
+.p .act{display:flex;gap:8px}
+.p .act button{flex:1;border-radius:8px;padding:10px;font-weight:600;font-size:14px}
+.more{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.more:hover{border-color:#9aa3ab}
+.add{background:var(--dark);color:#fff;border:0}
+.add.in{background:#2a7a4c}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:40px}
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.about .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+.about h3{font-size:19px;margin-bottom:10px}
+.about p{color:#3c434a;font-size:15px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.feat div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.feat b{display:block;font-size:15px;margin-bottom:4px}
+.feat span{font-size:14px;color:var(--mute)}
+/* form */
+.lead{background:var(--dark);color:#eef1f3;border-radius:16px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:64px 0 0}
+.lead h2{color:#fff}
+.lead p{color:#c1c9d0;margin-top:10px}
+form{display:grid;gap:10px}
+form input,form textarea{font:inherit;border:1px solid #3e4a56;background:#27313a;color:#fff;border-radius:8px;padding:12px 14px}
+form input::placeholder,form textarea::placeholder{color:#9aa5af}
+.ok{display:none;background:#2a7a4c;color:#fff;border-radius:8px;padding:12px 14px;font-weight:500}
+footer{padding:40px 0;color:var(--mute);font-size:13px}
+/* modal */
+.mod{position:fixed;inset:0;background:rgba(10,14,18,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+.mod.on{display:flex}
+.box{background:#fff;border-radius:16px;max-width:920px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.box .ph{background:linear-gradient(160deg,#eef1f3,#dfe4e8);display:grid;place-items:center;padding:24px;min-height:320px}
+.box .ph svg{width:100%;height:auto}
+.box .in{padding:26px}
+.box h3{font-size:22px;line-height:1.25;margin:4px 0 10px}
+.box p{color:#3c434a;font-size:14.5px;margin-bottom:14px}
+.box table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px}
+.box td{padding:8px 0;border-bottom:1px solid #eceff1}
+.box td:last-child{text-align:right;font-family:"JetBrains Mono",monospace;font-size:13px}
+.x{position:absolute;right:12px;top:12px;width:36px;height:36px;border-radius:50%;border:0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);font-size:20px;line-height:1}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:min(420px,100%);background:#fff;z-index:60;transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 40px -20px rgba(0,0,0,.3)}
+.drawer.on{transform:none}
+.drawer .h{padding:20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.drawer .l{flex:1;overflow:auto;padding:12px 20px}
+.drawer .it{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #eceff1;font-size:14.5px}
+.drawer .it button{border:0;background:none;color:#b3261e;font-size:13px}
+.drawer .f{padding:20px;border-top:1px solid var(--line)}
+.drawer form input{background:#f5f6f7;border-color:var(--line);color:var(--ink)}
+.drawer form input::placeholder{color:#7a828a}
+@media (max-width:900px){.hero .wrap,.about,.lead,.box{grid-template-columns:1fr}.hd nav{display:none}.hero svg.big{max-width:420px;margin:0 auto}}
+@media (max-width:560px){.wrap{padding:0 16px}.tel{display:none}.stats b{font-size:20px}.filters input[type=search]{min-width:0;width:100%}.lead{padding:22px}.feat{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="#"><i></i>ОРТЕКС</a>
+  <nav><a href="#catalog">Каталог</a><a href="#promo">Акции</a><a href="#about">О заводе</a><a href="#lead">Контакты</a></nav>
+  <div class="r"><a class="tel" href="tel:+70000000000">8 800 000-00-00</a><button class="bag" id="bagBtn">Заявка <b id="bagN">0</b></button></div>
+</div></header>
+
+<section class="hero" style="padding-top:56px"><div class="wrap">
+  <div>
+    <h1>Металлообрабатывающие станки <span>от производителя</span></h1>
+    <p>Токарные, фрезерные, сверлильные и ленточнопильные станки собственного производства. Пусконаладка, обучение операторов и сервис по всей России.</p>
+    <div class="cta"><a class="btn y" href="#catalog">Перейти в каталог</a><a class="btn o" href="#lead">Получить КП</a></div>
+    <div class="stats"><div><b>24 года</b><span>на рынке</span></div><div><b>50+</b><span>моделей в каталоге</span></div><div><b>2 года</b><span>гарантия</span></div></div>
+  </div>
+  <svg class="big" viewBox="0 0 520 330" aria-hidden="true" id="heroArt"></svg>
+</div></section>
+
+<div class="wrap promo" id="promo"><div class="in">
+  <div class="t">Акция ноября: −12% на фрезерные с ЧПУ</div>
+  <div class="s">Пусконаладка и обучение оператора в подарок при заказе до конца месяца.</div>
+  <div class="tm" id="timer">до 30.11</div>
+</div></div>
+
+<section class="wrap" id="catalog">
+  <div class="shead"><h2>Каталог станков</h2><p>Карточка товара: фото, подробное описание, технические характеристики и кнопка заявки. Добавляйте модели в заявку - менеджер пришлёт КП.</p></div>
+  <div class="cats" id="cats"></div>
+  <div class="filters">
+    <input type="search" id="q" placeholder="Поиск по названию или модели" aria-label="Поиск">
+    <label>ЧПУ <select id="cnc"><option value="">Все</option><option value="1">С ЧПУ</option><option value="0">Без ЧПУ</option></select></label>
+    <label>Сортировка <select id="sort"><option value="">По популярности</option><option value="a">Сначала дешевле</option><option value="d">Сначала дороже</option></select></label>
+    <span class="cnt" id="cnt"></span>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="wrap" id="about">
+  <div class="shead"><h2>О заводе</h2></div>
+  <div class="about">
+    <div class="card"><h3>Собственное производство</h3><p>Литьё станин, механообработка и сборка - на одной площадке. Контроль геометрии каждого станка перед отгрузкой, протокол испытаний в комплекте.</p></div>
+    <div class="feat">
+      <div><b>Доставка</b><span>по России и СНГ, страхование груза</span></div>
+      <div><b>Пусконаладка</b><span>выезд инженера, обучение операторов</span></div>
+      <div><b>Сервис</b><span>запчасти со склада, ответ за 24 часа</span></div>
+      <div><b>Лизинг</b><span>от 0% аванса через партнёров</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="lead" id="lead">
+  <div><h2>Подберём станок под вашу задачу</h2><p>Опишите деталь, материал и объём - инженер предложит 2-3 модели и пришлёт коммерческое предложение.</p></div>
+  <form id="f1"><input required placeholder="Имя" aria-label="Имя"><input required type="tel" placeholder="Телефон" aria-label="Телефон"><textarea rows="3" placeholder="Задача: деталь, материал, объём" aria-label="Задача"></textarea><button class="btn y" type="submit">Отправить заявку</button><div class="ok">Спасибо! Заявка отправлена - перезвоним в рабочее время.</div></form>
+</div></div>
+
+<footer class="wrap">Демо-сайт для обсуждения. Название, модели, цены и характеристики условные.</footer>
+
+<div class="mod" id="mod"><div class="box" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Закрыть">×</button><div class="ph" id="mph"></div><div class="in" id="min"></div></div></div>
+<aside class="drawer" id="dr" aria-label="Заявка"><div class="h"><b style="font-size:18px">Заявка на КП</b><button class="x" style="position:static;box-shadow:none" id="dx" aria-label="Закрыть">×</button></div><div class="l" id="dl"></div><div class="f"><form id="f2"><input required placeholder="Имя или компания"><input required type="tel" placeholder="Телефон"><button class="btn y" type="submit" style="justify-content:center">Запросить КП</button><div class="ok">Заявка отправлена. КП придёт на почту в течение дня.</div></form></div></aside>
+
+<script>
+const ART={
+ lathe:(c='#2b3641',a='#f2b705')=>`<g><rect x="40" y="200" width="440" height="26" rx="4" fill="${c}"/><rect x="60" y="226" width="40" height="60" fill="${c}"/><rect x="420" y="226" width="40" height="60" fill="${c}"/><rect x="50" y="110" width="110" height="92" rx="8" fill="${a}"/><rect x="66" y="126" width="40" height="26" rx="3" fill="#1b232b" opacity=".85"/><circle cx="176" cy="150" r="30" fill="#4a5966"/><circle cx="176" cy="150" r="12" fill="#c7ced4"/><rect x="200" y="143" width="160" height="14" rx="3" fill="#aeb8c0"/><rect x="250" y="160" width="70" height="40" rx="5" fill="${c}"/><rect x="380" y="128" width="70" height="72" rx="6" fill="${a}"/><rect x="360" y="145" width="22" height="10" fill="#aeb8c0"/></g>`,
+ mill:(c='#2b3641',a='#f2b705')=>`<g><rect x="150" y="250" width="240" height="40" rx="4" fill="${c}"/><rect x="190" y="60" width="90" height="192" rx="6" fill="${a}"/><rect x="270" y="72" width="130" height="62" rx="8" fill="${a}"/><rect x="345" y="134" width="30" height="40" fill="#4a5966"/><rect x="354" y="174" width="12" height="26" fill="#c7ced4"/><rect x="120" y="208" width="300" height="22" rx="3" fill="#aeb8c0"/><rect x="110" y="230" width="320" height="14" rx="3" fill="${c}"/><rect x="210" y="84" width="48" height="34" rx="3" fill="#1b232b" opacity=".85"/></g>`,
+ cnc:(c='#2b3641',a='#f2b705')=>`<g><rect x="60" y="60" width="400" height="230" rx="14" fill="#e9edf0" stroke="${c}" stroke-width="8"/><rect x="90" y="88" width="250" height="150" rx="8" fill="#1b232b" opacity=".9"/><rect x="110" y="104" width="210" height="118" rx="4" fill="#3f6a8f" opacity=".45"/><rect x="200" y="112" width="26" height="44" fill="#c7ced4"/><rect x="150" y="186" width="130" height="18" rx="3" fill="#aeb8c0"/><rect x="360" y="88" width="80" height="120" rx="6" fill="${c}"/><rect x="370" y="98" width="60" height="40" rx="3" fill="#4fa3d8" opacity=".8"/><g fill="${a}"><circle cx="384" cy="160" r="6"/><circle cx="402" cy="160" r="6"/><circle cx="420" cy="160" r="6"/></g><rect x="60" y="250" width="400" height="16" fill="${a}"/></g>`,
+ drill:(c='#2b3641',a='#f2b705')=>`<g><rect x="160" y="262" width="200" height="28" rx="4" fill="${c}"/><rect x="236" y="50" width="34" height="214" rx="4" fill="#aeb8c0"/><rect x="190" y="60" width="150" height="78" rx="10" fill="${a}"/><rect x="290" y="138" width="22" height="46" fill="#4a5966"/><rect x="297" y="184" width="8" height="30" fill="#c7ced4"/><rect x="250" y="216" width="110" height="16" rx="3" fill="${c}"/><line x1="200" y1="150" x2="170" y2="190" stroke="${c}" stroke-width="8" stroke-linecap="round"/></g>`,
+ saw:(c='#2b3641',a='#f2b705')=>`<g><rect x="80" y="230" width="360" height="22" rx="4" fill="${c}"/><rect x="100" y="252" width="30" height="40" fill="${c}"/><rect x="390" y="252" width="30" height="40" fill="${c}"/><g transform="rotate(-8 260 160)"><rect x="110" y="110" width="300" height="80" rx="40" fill="${a}"/><rect x="140" y="136" width="240" height="28" rx="14" fill="#1b232b" opacity=".8"/></g><rect x="40" y="206" width="440" height="20" rx="3" fill="#aeb8c0"/></g>`
+};
+const svg=(t)=>`<svg viewBox="0 0 520 330" aria-hidden="true">${ART[t]()}</svg>`;
+document.getElementById('heroArt').innerHTML=ART.cnc('#c9d1d8','#f2b705');
+const CATS={lathe:'Токарные',mill:'Фрезерные',cnc:'Обрабатывающие центры',drill:'Сверлильные',saw:'Ленточнопильные'};
+const P=[
+ {id:1,t:'lathe',n:'Токарно-винторезный ОТ-250',cnc:0,pr:890000,old:0,b:'Хит',s:{'Диаметр над станиной':'500 мм','РМЦ':'1000 мм','Мощность':'7,5 кВт','Шпиндель':'25-2000 об/мин'}},
+ {id:2,t:'lathe',n:'Токарный с ЧПУ ОТ-320 CNC',cnc:1,pr:2450000,old:0,b:'',s:{'Диаметр над станиной':'420 мм','РМЦ':'750 мм','Мощность':'11 кВт','ЧПУ':'Fanuc / Siemens'}},
+ {id:3,t:'lathe',n:'Токарный настольный ОТ-180',cnc:0,pr:245000,old:0,b:'',s:{'Диаметр над станиной':'360 мм','РМЦ':'500 мм','Мощность':'1,5 кВт','Шпиндель':'50-2500 об/мин'}},
+ {id:4,t:'mill',n:'Вертикально-фрезерный ОФ-400',cnc:0,pr:1150000,old:0,b:'',s:{'Стол':'1370×300 мм','Ход X/Y/Z':'800/400/400 мм','Мощность':'5,5 кВт','Конус':'ISO 40'}},
+ {id:5,t:'mill',n:'Фрезерный с ЧПУ ОФ-560 CNC',cnc:1,pr:3290000,old:3740000,b:'−12%',s:{'Стол':'1000×500 мм','Ход X/Y/Z':'560/420/460 мм','Мощность':'11 кВт','ЧПУ':'Siemens 828D'}},
+ {id:6,t:'mill',n:'Широкоуниверсальный ОФ-320',cnc:0,pr:780000,old:0,b:'',s:{'Стол':'1120×280 мм','Ход X/Y/Z':'600/300/380 мм','Мощность':'3 кВт','Поворот головы':'±90°'}},
+ {id:7,t:'cnc',n:'Обрабатывающий центр ОЦ-850',cnc:1,pr:5890000,old:6690000,b:'−12%',s:{'Стол':'1000×500 мм','Ход X/Y/Z':'850/500/550 мм','Магазин':'24 инструмента','Шпиндель':'до 12 000 об/мин'}},
+ {id:8,t:'cnc',n:'Обрабатывающий центр ОЦ-1270 5X',cnc:1,pr:12400000,old:0,b:'5 осей',s:{'Стол':'Ø 650 мм','Ход X/Y/Z':'1270/650/600 мм','Магазин':'40 инструментов','Шпиндель':'до 15 000 об/мин'}},
+ {id:9,t:'drill',n:'Вертикально-сверлильный ОС-35',cnc:0,pr:310000,old:0,b:'Хит',s:{'Диаметр сверления':'35 мм','Вылет':'280 мм','Мощность':'2,2 кВт','Конус':'КМ 4'}},
+ {id:10,t:'drill',n:'Радиально-сверлильный ОС-50Р',cnc:0,pr:960000,old:0,b:'',s:{'Диаметр сверления':'50 мм','Вылет':'1600 мм','Мощность':'4 кВт','Конус':'КМ 5'}},
+ {id:11,t:'saw',n:'Ленточнопильный ОЛ-280',cnc:0,pr:420000,old:0,b:'',s:{'Круг 90°':'280 мм','Поворот':'0-60°','Лента':'3505×27 мм','Мощность':'1,5 кВт'}},
+ {id:12,t:'saw',n:'Ленточнопильный полуавтомат ОЛ-400А',cnc:1,pr:1380000,old:0,b:'',s:{'Круг 90°':'400 мм','Поворот':'0-60°','Подача':'автомат, гидравлика','Мощность':'4 кВт'}}
+];
+const rub=n=>n.toLocaleString('ru-RU')+' ₽';
+let cat='',bag=JSON.parse((()=>{try{return localStorage.getItem('ortex-bag')}catch(e){return null}})()||'[]');
+const $=id=>document.getElementById(id);
+function cats(){ $('cats').innerHTML=[['','Все',P.length],...Object.entries(CATS).map(([k,v])=>[k,v,P.filter(p=>p.t===k).length])].map(([k,v,n])=>`<button data-c="${k}" class="${k===cat?'on':''}">${v}<em>${n}</em></button>`).join('');
+  $('cats').querySelectorAll('button').forEach(b=>b.onclick=()=>{cat=b.dataset.c;cats();render();});}
+function render(){
+  const q=$('q').value.trim().toLowerCase(),c=$('cnc').value,s=$('sort').value;
+  let L=P.filter(p=>(!cat||p.t===cat)&&(!c||String(p.cnc)===c)&&(!q||p.n.toLowerCase().includes(q)));
+  if(s==='a')L.sort((a,b)=>a.pr-b.pr);if(s==='d')L.sort((a,b)=>b.pr-a.pr);
+  $('cnt').textContent='Найдено: '+L.length;
+  $('grid').innerHTML=L.length?L.map(p=>`<article class="p"><div class="ph">${p.b?`<span class="badge ${p.old?'s':''}">${p.b}</span>`:''}${svg(p.t)}</div><div class="b"><div class="c">${CATS[p.t]}${p.cnc?' · ЧПУ':''}</div><h3>${p.n}</h3><ul>${Object.entries(p.s).slice(0,3).map(([k,v])=>`<li><span>${k}</span><span>${v}</span></li>`).join('')}</ul><div class="pr"><b>${rub(p.pr)}</b>${p.old?`<s>${rub(p.old)}</s>`:''}</div><div class="act"><button class="more" data-o="${p.id}">Подробнее</button><button class="add ${bag.includes(p.id)?'in':''}" data-a="${p.id}">${bag.includes(p.id)?'В заявке ✓':'В заявку'}</button></div></div></article>`).join(''):'<div class="empty">Ничего не найдено - сбросьте фильтры</div>';
+  $('grid').querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>open(+b.dataset.o));
+  $('grid').querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>toggle(+b.dataset.a));
+}
+function save(){try{localStorage.setItem('ortex-bag',JSON.stringify(bag))}catch(e){} $('bagN').textContent=bag.length; dl();}
+function toggle(id){bag=bag.includes(id)?bag.filter(x=>x!==id):[...bag,id];save();render();}
+function open(id){const p=P.find(x=>x.id===id);$('mph').innerHTML=svg(p.t);
+  $('min').innerHTML=`<div class="c" style="color:var(--mute);font-size:13px">${CATS[p.t]}${p.cnc?' · ЧПУ':''}</div><h3>${p.n}</h3><p>Надёжная станина из чугуна СЧ30, закалённые направляющие, централизованная смазка. Поставляется с паспортом, протоколом испытаний и комплектом оснастки. Пусконаладка и обучение - на вашем предприятии.</p><table>${Object.entries(p.s).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('')}<tr><td>Гарантия</td><td>24 мес.</td></tr></table><div class="pr" style="display:flex;gap:8px;align-items:baseline;margin-bottom:14px"><b style="font-size:24px">${rub(p.pr)}</b>${p.old?`<s style="color:#5f676e">${rub(p.old)}</s>`:''}</div><button class="btn y" id="madd" style="width:100%;justify-content:center">${bag.includes(p.id)?'Уже в заявке ✓':'Добавить в заявку'}</button>`;
+  $('madd').onclick=()=>{if(!bag.includes(p.id))toggle(p.id);$('mod').classList.remove('on');$('dr').classList.add('on');};
+  $('mod').classList.add('on');}
+function dl(){ $('dl').innerHTML=bag.length?bag.map(id=>{const p=P.find(x=>x.id===id);return `<div class="it"><span>${p.n}<br><small style="color:var(--mute)">${rub(p.pr)}</small></span><button data-r="${id}">Убрать</button></div>`}).join(''):'<p style="color:var(--mute);padding:20px 0">Добавьте станки из каталога - пришлём КП с ценами, сроками и условиями поставки.</p>';
+  $('dl').querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>toggle(+b.dataset.r));}
+$('mx').onclick=()=>$('mod').classList.remove('on');$('mod').onclick=e=>{if(e.target.id==='mod')$('mod').classList.remove('on')};
+$('bagBtn').onclick=()=>$('dr').classList.add('on');$('dx').onclick=()=>$('dr').classList.remove('on');
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('mod').classList.remove('on');$('dr').classList.remove('on')}});
+['q','cnc','sort'].forEach(i=>$(i).addEventListener('input',render));
+document.querySelectorAll('form').forEach(f=>f.onsubmit=e=>{e.preventDefault();f.querySelector('.ok').style.display='block';f.querySelectorAll('input,textarea').forEach(i=>i.value='');});
+cats();render();save();
+</script>
+</body>
+</html>
