@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>DOLGI.RU - редизайн</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F2EC; --card:#FFFFFF; --ink:#0D2620; --ink2:#3C4F49; --mute:#5B6963;
+  --line:#DCD7CB; --line2:#E9E5DB; --green:#13935A; --green2:#0B6E42; --lime:#C9F27A;
+  --amber:#F2B233; --red:#C8453A; --deep:#0D2620; --deep2:#143A30; --onDeep:#EAF1EC;
+  --serif:'Literata',Georgia,serif; --sans:'Manrope',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+:root[data-theme="dark"]{
+  --paper:#0B1613; --card:#11201C; --ink:#E7EFEA; --ink2:#B4C2BC; --mute:#93A39D;
+  --line:#22352F; --line2:#1A2B26; --green:#2DBA78; --green2:#5FD69C; --deep:#07110E; --deep2:#0F201B; --onDeep:#E7EFEA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:500 15px/1.5 var(--sans);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button,input{font:inherit;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+
+/* utility bar */
+.util{background:var(--deep);color:var(--onDeep);font-size:13px}
+.util .wrap{display:flex;align-items:center;gap:22px;height:40px}
+.util .sp{flex:1}
+.util a:hover{color:var(--lime)}
+.util .hot b{font-weight:700;letter-spacing:.02em}
+.util .dt{opacity:.7}
+.btn-th{background:none;border:1px solid #ffffff33;border-radius:6px;height:26px;padding:0 10px;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:12px}
+.btn-th:hover{border-color:var(--lime);color:var(--lime)}
+
+/* masthead */
+.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px;padding-top:22px;padding-bottom:22px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo svg{width:52px;height:52px;flex:none}
+.logo .wm{font:800 34px/1 var(--sans);letter-spacing:-.03em}
+.logo .wm i{font-style:normal;color:var(--green)}
+.logo small{display:block;font:500 13px/1.2 var(--serif);font-style:italic;color:var(--ink2);margin-top:5px;letter-spacing:0}
+.mast-claim{font:600 15px/1.35 var(--serif);color:var(--ink2);max-width:340px;justify-self:center;border-left:2px solid var(--green);padding-left:14px}
+.mast-actions{display:flex;gap:10px}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;border:1.5px solid transparent;transition:.2s}
+.b-line{border-color:var(--ink);background:transparent}
+.b-line:hover{background:var(--ink);color:var(--paper)}
+.b-fill{background:var(--green);color:#fff}
+.b-fill:hover{background:var(--green2)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:stretch;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{display:flex;align-items:center;gap:8px;padding:0 14px;height:54px;font-weight:700;font-size:14.5px;white-space:nowrap;position:relative;color:var(--ink2)}
+.nav a svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav a:hover{color:var(--ink)}
+.nav a.on{color:var(--ink)}
+.nav a.on::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--green)}
+.nav a.on svg{color:var(--green)}
+.sub{border-bottom:1px solid var(--line)}
+.sub .wrap{display:flex;gap:26px;height:42px;align-items:center;font-size:13.5px;color:var(--mute);overflow-x:auto;scrollbar-width:none}
+.sub a{white-space:nowrap}
+.sub a:hover{color:var(--ink)}
+
+/* ticker */
+.tick{background:var(--deep2);color:var(--onDeep);overflow:hidden;display:flex;align-items:center;height:44px;font-size:13px}
+.tick .lab{flex:none;background:var(--amber);color:#1a1405;font-weight:800;height:100%;display:flex;align-items:center;padding:0 16px 0 24px;letter-spacing:.06em;font-size:11.5px;text-transform:uppercase;gap:8px;position:relative;z-index:2}
+.tick .lab::before{content:"";width:7px;height:7px;background:#1a1405;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.15}}
+.tick .run{display:flex;gap:44px;white-space:nowrap;animation:run 60s linear infinite;padding-left:30px}
+.tick:hover .run{animation-play-state:paused}
+.tick .run span b{font-weight:700;margin-right:10px}
+.tick .run span .mono{color:var(--lime);opacity:.9}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.55fr 1fr;gap:28px;padding:32px 0 8px}
+.lead{position:relative;display:block;border-radius:14px;overflow:hidden;min-height:470px;background:#000;color:#fff}
+.lead img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;transition:transform .8s ease,opacity .4s}
+.lead:hover img{transform:scale(1.03);opacity:.7}
+.lead .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(4,14,11,.92) 100%)}
+.lead .txt{position:absolute;left:0;right:0;bottom:0;padding:34px}
+.rub{display:inline-block;font:800 11px/1 var(--sans);text-transform:uppercase;letter-spacing:.09em;color:var(--green)}
+.lead .rub{background:var(--lime);color:#0D2620;padding:7px 10px;border-radius:4px}
+.lead h1{font:700 44px/1.06 var(--serif);letter-spacing:-.015em;margin:16px 0 12px;max-width:640px}
+.lead p{font-size:17px;opacity:.85;max-width:560px}
+.meta{display:flex;gap:16px;align-items:center;font-size:12.5px;color:var(--mute);margin-top:14px}
+.lead .meta{color:#ffffffb0}
+.meta svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;margin-right:4px;vertical-align:-3px}
+
+/* check card */
+.check{background:var(--deep);color:var(--onDeep);border-radius:14px;padding:30px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.check::after{content:"ИНН";position:absolute;right:-10px;top:-30px;font:700 130px/1 var(--serif);color:#ffffff07;pointer-events:none}
+.check .k{font:800 11px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
+.check h2{font:700 30px/1.12 var(--serif);margin:12px 0 10px}
+.check p{font-size:14px;opacity:.7}
+.field{display:flex;margin-top:22px;background:#fff;border-radius:10px;overflow:hidden;border:2px solid transparent;transition:border .2s}
+.field:focus-within{border-color:var(--lime)}
+.field input{flex:1;border:0;outline:0;padding:0 16px;height:54px;color:#0D2620;font-weight:600;min-width:0;background:#fff}
+.field button{border:0;background:var(--green);color:#fff;font-weight:800;padding:0 20px;cursor:pointer}
+.field button:hover{background:var(--green2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips button{background:#ffffff12;border:1px solid #ffffff22;border-radius:6px;padding:6px 10px;font-size:12.5px;cursor:pointer;color:var(--onDeep)}
+.chips button:hover{border-color:var(--lime);color:var(--lime)}
+.res{margin-top:20px;border-top:1px dashed #ffffff30;padding-top:18px;display:none}
+.res.show{display:block;animation:up .4s ease}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+.res .nm{font-weight:800;font-size:17px}
+.res .row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid #ffffff14}
+.res .row span:first-child{opacity:.6}
+.risk{margin-top:14px}
+.risk .bar{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;margin-top:8px}
+.risk .bar i{height:8px;background:#ffffff1c;border-radius:1px}
+.risk .bar i.f{background:var(--amber)}
+.risk .bar i.f.hi{background:#FF7A5C}
+.risk .l{display:flex;justify-content:space-between;font-size:12px;opacity:.75}
+.check .foot{margin-top:auto;padding-top:22px;display:flex;gap:22px;font-size:12.5px;opacity:.75}
+.check .foot b{display:block;font:700 22px/1 var(--serif);color:#fff;opacity:1;margin-bottom:4px}
+
+/* layout */
+.cols{display:grid;grid-template-columns:1fr 340px;gap:36px;padding:44px 0}
+.sh{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:6px}
+.sh h3{font:700 26px/1 var(--serif);letter-spacing:-.01em}
+.sh a{font-size:13px;font-weight:700;color:var(--green)}
+.sh a:hover{text-decoration:underline}
+
+/* news list */
+.news{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.n{display:block;padding:24px 0;border-bottom:1px solid var(--line)}
+.n .ph{aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--line2);margin-bottom:16px}
+.n .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.n:hover .ph img{transform:scale(1.04)}
+.n h4{font:700 22px/1.2 var(--serif);margin:9px 0 8px;letter-spacing:-.005em}
+.n:hover h4{color:var(--green)}
+.n p{color:var(--ink2);font-size:14.5px}
+.feed{margin-top:8px}
+.feed a{display:grid;grid-template-columns:58px 1fr auto;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.feed .t{font:500 13px var(--mono);color:var(--mute)}
+.feed b{font-weight:700;font-size:15px}
+.feed a:hover b{color:var(--green)}
+.feed .r{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--mute)}
+
+/* aside */
+aside > section{margin-bottom:30px}
+.svc{counter-reset:s}
+.svc a{display:grid;grid-template-columns:40px 1fr 20px;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid var(--line);font-weight:700;font-size:15px}
+.svc a::before{counter-increment:s;content:counter(s,decimal-leading-zero);font:500 12px var(--mono);color:var(--mute)}
+.svc a svg{width:18px;height:18px;stroke:var(--mute);fill:none;stroke-width:2;transition:.2s}
+.svc a:hover{color:var(--green)}
+.svc a:hover svg{stroke:var(--green);transform:translateX(4px)}
+.qa{display:block;background:var(--lime);color:#0D2620;border-radius:14px;padding:26px;position:relative;overflow:hidden}
+.qa .k{font:800 11px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.qa h5{font:700 24px/1.15 var(--serif);margin:12px 0 18px}
+.qa .q{background:#ffffff8c;border-radius:10px;padding:12px 14px;font-size:14px;font-weight:600}
+.qa .go{display:inline-flex;margin-top:16px;font-weight:800;font-size:14px;gap:6px}
+.reg{display:block;border:1.5px solid var(--ink);border-radius:14px;padding:22px;transition:.2s}
+.reg:hover{background:var(--ink);color:var(--paper)}
+.reg .num{font:700 46px/1 var(--serif);letter-spacing:-.02em}
+.reg p{font-size:14px;margin-top:8px;font-weight:600}
+.soc{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.soc a{height:46px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;font:800 12px var(--sans);color:var(--ink2);transition:.2s}
+.soc a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ad{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:8px;font-weight:700}
+.adimg{border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+
+/* auction band */
+.band{background:var(--deep);color:var(--onDeep);border-radius:18px;padding:44px;display:grid;grid-template-columns:1.1fr 1.4fr;gap:44px;align-items:center;margin-bottom:56px}
+.band .k{font:800 11px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.band h3{font:700 40px/1.05 var(--serif);margin:14px 0 14px}
+.band p{opacity:.72;font-size:15px;max-width:420px}
+.band .b-fill{margin-top:24px;background:var(--amber);color:#1a1405}
+.band .b-fill:hover{background:#ffc552}
+.lots{display:grid;gap:10px}
+.lot{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:#ffffff0a;border:1px solid #ffffff14;border-radius:12px;padding:16px 18px;transition:.2s}
+.lot:hover{border-color:var(--amber);background:#ffffff12}
+.lot .no{font:500 12px var(--mono);opacity:.55}
+.lot b{display:block;font-size:15px}
+.lot small{opacity:.6;font-size:12.5px}
+.lot .pr{text-align:right;font:700 18px var(--serif)}
+.lot .pr small{display:block;font:500 11px var(--sans);color:var(--amber);opacity:1}
+
+/* catalog */
+.cat-head{display:flex;gap:20px;align-items:end;justify-content:space-between;flex-wrap:wrap;margin-bottom:22px}
+.cat-head h3{font:700 34px/1.05 var(--serif);letter-spacing:-.015em}
+.cat-head p{color:var(--ink2);font-size:14.5px;max-width:470px;margin-top:8px}
+.tabs{display:flex;background:var(--line2);border-radius:10px;padding:4px}
+.tabs button{border:0;background:none;padding:9px 16px;border-radius:7px;font-weight:700;font-size:13.5px;cursor:pointer;color:var(--ink2)}
+.tabs button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px #0000001a}
+.abc{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:22px}
+.abc button{width:34px;height:34px;border:1px solid var(--line);background:var(--card);border-radius:6px;font-weight:700;font-size:13px;cursor:pointer;color:var(--ink2)}
+.abc button:hover,.abc button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.okved{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-bottom:56px}
+.ok{display:grid;grid-template-columns:64px 1fr;gap:6px 16px;padding:24px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card);transition:background .25s;position:relative}
+.ok .L{grid-row:span 2;font:700 54px/0.9 var(--serif);color:var(--green);transition:transform .3s}
+.ok b{font-size:16px;font-weight:800;line-height:1.25;align-self:end}
+.ok small{font-size:12.5px;color:var(--mute);font-family:var(--mono)}
+.ok:hover{background:var(--deep);color:var(--onDeep)}
+.ok:hover .L{color:var(--lime);transform:translateY(-3px)}
+.ok:hover small{color:#ffffff90}
+
+/* docket */
+.dock{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:56px}
+.dock-h{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 28px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.dock-h h3{font:700 26px/1.1 var(--serif)}
+.dock-h p{font-size:13.5px;color:var(--mute);margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:800;padding:12px 28px;background:var(--line2)}
+td{padding:15px 28px;border-top:1px solid var(--line2);vertical-align:middle}
+tr:hover td{background:color-mix(in srgb,var(--green) 6%,transparent)}
+td.i{font:500 12px var(--mono);color:var(--mute);width:60px}
+td.c{font-weight:800}
+td.d{font:500 13.5px var(--mono);white-space:nowrap}
+td.s{color:var(--ink2);font-size:13.5px}
+.st{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;padding:5px 9px;border-radius:5px;background:color-mix(in srgb,var(--red) 14%,transparent);color:var(--red);white-space:nowrap}
+
+/* subscribe + footer */
+.subs{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;border-top:2px solid var(--ink);padding:40px 0 56px}
+.subs h3{font:700 30px/1.1 var(--serif)}
+.subs p{color:var(--ink2);margin-top:8px}
+.subs form{display:flex;gap:10px}
+.subs input{flex:1;height:50px;border:1.5px solid var(--line);background:var(--card);border-radius:10px;padding:0 16px;outline:0;min-width:0}
+.subs input:focus{border-color:var(--green)}
+footer{background:var(--deep);color:var(--onDeep);padding:52px 0 110px;font-size:13.5px}
+footer .g{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px}
+footer h6{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin-bottom:14px;font-weight:800}
+footer li{list-style:none;margin-bottom:8px}
+footer a:hover{color:var(--lime)}
+footer .fine{opacity:.6;font-size:12.5px;line-height:1.55}
+footer .bottom{border-top:1px solid #ffffff1c;margin-top:40px;padding-top:22px;display:flex;justify-content:space-between;gap:20px;font-size:12px;opacity:.6;flex-wrap:wrap}
+
+/* demo bar */
+#demobar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;background:#0D2620;color:#EAF1EC;border:1px solid #ffffff22;border-radius:12px;padding:6px 6px 6px 16px;display:flex;align-items:center;gap:12px;font-size:13px;box-shadow:0 10px 40px #0005;white-space:nowrap}
+#demobar a{background:#ffffff14;border-radius:8px;padding:8px 12px;font-weight:700}
+#demobar a:hover{background:var(--lime);color:#0D2620}
+#demobar b{color:var(--lime)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.tick .run{animation:none}.reveal{opacity:1;transform:none}*{transition:none!important}}
+
+@media (max-width:1080px){
+  .hero{grid-template-columns:1fr}
+  .cols{grid-template-columns:1fr}
+  .band{grid-template-columns:1fr;padding:32px}
+  .okved{grid-template-columns:repeat(2,1fr)}
+  footer .g{grid-template-columns:1fr 1fr}
+  .mast-claim{display:none}
+  .mast .wrap{grid-template-columns:1fr auto}
+}
+@media (max-width:680px){
+  .wrap{padding:0 16px}
+  .util .dt,.util .req,.util .hl{display:none}
+  .util .wrap{gap:14px}
+  .logo .wm{font-size:26px}.logo svg{width:42px;height:42px}
+  .mast-actions .b-line{display:none}
+  .mast-actions .b{height:38px;padding:0 14px}
+  .lead{min-height:400px}.lead h1{font-size:30px}.lead .txt{padding:22px}.lead p{font-size:15px}
+  .check{padding:22px}.check h2{font-size:25px}
+  .news{grid-template-columns:1fr}
+  .feed a{grid-template-columns:50px 1fr}.feed .r{display:none}
+  .band h3{font-size:30px}.band{padding:24px}
+  .lot{grid-template-columns:1fr auto}.lot .no{display:none}
+  .okved{grid-template-columns:1fr}
+  .ok{grid-template-columns:52px 1fr;padding:18px}.ok .L{font-size:44px}
+  .cat-head h3{font-size:28px}
+  th:nth-child(4),td.s{display:none}
+  th,td{padding:13px 14px}
+  .dock-h{padding:20px 16px}
+  .subs{grid-template-columns:1fr;gap:20px}
+  .subs form{flex-direction:column}
+  footer .g{grid-template-columns:1fr}
+  #demobar{font-size:12px;gap:8px;padding-left:12px}#demobar .lbl{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="util"><div class="wrap">
+  <span class="dt" id="today">5 ноября 2026</span>
+  <a class="hot" href="#"><span class="hl">Горячая линия </span><b>8 800 775-45-45</b></a>
+  <a class="req" href="#">Оставить заявку</a>
+  <span class="sp"></span>
+  <a href="#">Регистрация</a>
+  <button class="btn-th" id="th" type="button" aria-label="Сменить тему"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span>Ночь</span></button>
+</div></div>
+
+<header class="mast"><div class="wrap">
+  <a class="logo" href="#" aria-label="DOLGI.RU">
+    <svg viewBox="0 0 52 52" aria-hidden="true">
+      <rect width="52" height="52" rx="12" fill="var(--ink)"/>
+      <path d="M16 12h20M16 40h20" stroke="var(--lime)" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M18.5 13.5c0 7 15 9.5 15 12.5s-15 5.5-15 12.5" stroke="var(--paper)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      <path d="M33.5 13.5c0 3.6-4 5.8-7.5 7.6" stroke="var(--paper)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".45"/>
+      <path d="M21 37.5c1.8-2.6 3.4-3.6 5-4.4 1.6.8 3.2 1.8 5 4.4z" fill="var(--lime)"/>
+    </svg>
+    <span><span class="wm">DOLGI<i>.</i>RU</span><small>Всё, что нужно знать о долгах</small></span>
+  </a>
+  <p class="mast-claim">Новости, проверка компаний, судебные дела и помощь с долгами - в одном месте</p>
+  <div class="mast-actions"><a class="b b-line" href="#">Регистрация</a><a class="b b-fill" href="#">Войти</a></div>
+</div></header>
+
+<nav class="nav"><div class="wrap">
+  <a class="on" href="#"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/></svg>Новости</a>
+  <a href="#"><svg viewBox="0 0 24 24"><path d="M4 21V5l8-2v18M12 8h8v13M4 21h18M8 8v.01M8 12v.01M8 16v.01M16 12v.01M16 16v.01"/></svg>Компании</a>
+  <a href="#"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>Долги</a>
+  <a href="#"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 0 1 0 8M22 21c0-3-1.5-5-4-5.7"/></svg>Услуги</a>
+  <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>Сервисы</a>
+  <a href="#"><svg viewBox="0 0 24 24"><path d="M14 4l6 6M11 7l6 6M9 9l6-6 6 6-6 6zM12 12L3 21M3 21h8"/></svg>Аукционы</a>
+  <a href="#"><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>Народные рейтинги</a>
+  <a href="#"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>О проекте</a>
+</div></nav>
+<div class="sub"><div class="wrap">
+  <a href="#">Лента новостей</a><a href="#">Тема дня</a><a href="#">Вопрос/ответ</a><a href="#">Мнения</a><a href="#">Анонсы</a><a href="#">Инфографика</a><a href="#">Словарь</a><a href="#">Контакты</a><a href="#">О нас говорят</a>
+</div></div>
+
+<div class="tick" aria-label="Новые дела о банкротстве">
+  <div class="lab">Новые дела</div>
+  <div class="run" id="run"></div>
+</div>
+
+<main class="wrap">
+
+  <section class="hero">
+    <a class="lead reveal" href="#">
+      <img src="img/n9067.jpg" alt="">
+      <div class="shade"></div>
+      <div class="txt">
+        <span class="rub">Наши новости</span>
+        <h1>ФНС взялась за самозанятых</h1>
+        <p>ФНС тестирует скоринг для выявления скрывающих доходы самозанятых</p>
+        <div class="meta"><span>31 октября 2026 · 12:25</span><span><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>6 639</span><span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>0</span></div>
+      </div>
+    </a>
+
+    <div class="check reveal">
+      <span class="k">Проверка контрагента</span>
+      <h2>Проверьте компанию, прежде чем подписывать договор</h2>
+      <p>Судебные дела, банкротство, долги - по названию или ИНН</p>
+      <form class="field" id="f"><input id="q" placeholder="Название компании или ИНН" autocomplete="off"><button type="submit">Найти</button></form>
+      <div class="chips"><button type="button" data-q="РУЗСКОЕ МОЛОКО">Рузское молоко</button><button type="button" data-q="ТЕПЛОВОДОКАНАЛ">Тепловодоканал</button><button type="button" data-q="АРТЕЛЬ">Артель</button></div>
+      <div class="res" id="res">
+        <div class="nm" id="rn">—</div>
+        <div class="row"><span>Дело о банкротстве</span><span class="mono" id="rd">—</span></div>
+        <div class="row"><span>Суд</span><span id="rs">—</span></div>
+        <div class="risk"><div class="l"><span>Риск для кредитора</span><span id="rl">высокий</span></div><div class="bar" id="bar"></div></div>
+      </div>
+      <div class="foot"><span><b>2,4 млн</b>компаний в базе</span><span><b>1 863</b>дела о банкротстве</span></div>
+    </div>
+  </section>
+
+  <div class="cols">
+    <div>
+      <div class="sh"><h3>Главное за неделю</h3><a href="#">Вся лента →</a></div>
+      <div class="news">
+        <a class="n reveal" href="#"><div class="ph"><img src="img/n9066.jpg" alt="" loading="lazy"></div><span class="rub">Тема дня</span><h4>Россияне сократили банковские вклады на 51 млрд рублей</h4><p>Россияне продолжают выводить деньги из банков</p><div class="meta"><span>30 октября · 12:30</span><span>7 598 просмотров</span></div></a>
+        <a class="n reveal" href="#"><div class="ph"><img src="img/n9070.jpg" alt="" loading="lazy"></div><span class="rub">В России</span><h4>В России отмечен бум создания МФО</h4><p>На рынке микрофинансирования появилось сразу несколько новых игроков</p><div class="meta"><span>3 ноября · 14:05</span><span>677 просмотров</span></div></a>
+        <a class="n reveal" href="#"><div class="ph"><img src="img/n9065.jpg" alt="" loading="lazy"></div><span class="rub">В мире</span><h4>В Германии корпоративные банкротства достигли максимума за 13 лет</h4><p>Германия остается в зоне повышенного корпоративного долгового давления</p><div class="meta"><span>29 октября · 23:30</span><span>7 170 просмотров</span></div></a>
+        <a class="n reveal" href="#"><div class="ph"><img src="img/n9068.jpg" alt="" loading="lazy"></div><span class="rub">Мнения</span><h4>Россияне назвали желаемый уровень зарплаты</h4><p>Большинство россиян готовы сменить работу или сферу ради роста доходов</p><div class="meta"><span>2 ноября · 14:28</span><span>2 705 просмотров</span></div></a>
+      </div>
+      <div class="feed reveal">
+        <a href="#"><span class="t">14:05</span><b>В России отмечен бум создания МФО</b><span class="r">В России</span></a>
+        <a href="#"><span class="t">14:28</span><b>Россияне назвали желаемый уровень зарплаты</b><span class="r">Мнения</span></a>
+        <a href="#"><span class="t">12:25</span><b>ФНС взялась за самозанятых</b><span class="r">Наши новости</span></a>
+        <a href="#"><span class="t">12:30</span><b>Россияне сократили банковские вклады на 51 млрд рублей</b><span class="r">Тема дня</span></a>
+      </div>
+    </div>
+
+    <aside>
+      <section class="reveal">
+        <div class="sh"><h3>Услуги</h3><a href="#">Все</a></div>
+        <div class="svc">
+          <a href="#">Кредитная история<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#">Справка из ЦККИ<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#">Кредитный скоринг<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#">Скоринг заемщика<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#">Улучшение кредитной истории<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#">Реструктуризация долга<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#">Проверка автомобиля<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </section>
+      <section class="reveal">
+        <a class="qa" href="#"><span class="k">Вопрос - ответ</span><h5>Юристы отвечают бесплатно</h5><div class="q">Как заемщику проверить, законна ли деятельность МФО?</div><span class="go">Задать свой вопрос →</span></a>
+      </section>
+      <section class="reveal">
+        <a class="reg" href="#"><div class="num">Реестр</div><p>Список организаций, которые вошли в государственный реестр коллекторских служб →</p></a>
+      </section>
+      <section class="reveal">
+        <div class="ad">Реклама</div>
+        <div class="adimg"><img src="img/ad1.jpg" alt="Проверить историю автомобиля" loading="lazy"></div>
+        <div class="adimg" style="margin-top:10px"><img src="img/ad2.jpg" alt="Найти профиль по фото" loading="lazy"></div>
+      </section>
+      <section class="reveal">
+        <div class="ad">Мы в соцсетях</div>
+        <div class="soc"><a href="#">VK</a><a href="#">OK</a><a href="#">TG</a><a href="#">YT</a><a href="#">Дзен</a></div>
+      </section>
+    </aside>
+  </div>
+
+  <section class="band reveal">
+    <div>
+      <span class="k">Аукционный зал</span>
+      <h3>Имущество должников - с торгов</h3>
+      <p>Недвижимость, транспорт и оборудование компаний-банкротов. Цены снижаются на каждом этапе торгов.</p>
+      <a class="b b-fill" href="#">Смотреть все лоты</a>
+    </div>
+    <div class="lots">
+      <a class="lot" href="#"><span class="no">ЛОТ 01</span><span><b>Нежилое помещение, 214 м²</b><small>Московская обл. · этап 3 из 5</small></span><span class="pr">8,4 млн ₽<small>−22% от старта</small></span></a>
+      <a class="lot" href="#"><span class="no">ЛОТ 02</span><span><b>Грузовой тягач, 2019 г.</b><small>Ярославская обл. · этап 2 из 5</small></span><span class="pr">3,1 млн ₽<small>−10% от старта</small></span></a>
+      <a class="lot" href="#"><span class="no">ЛОТ 03</span><span><b>Линия розлива молока</b><small>Московская обл. · этап 4 из 5</small></span><span class="pr">1,7 млн ₽<small>−35% от старта</small></span></a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="cat-head">
+      <div><h3>Каталог компаний</h3><p>Отрасли по классификатору ОКВЭД. Выберите раздел или найдите компанию по первой букве.</p></div>
+      <div class="tabs" id="tabs"><button class="on" type="button">Каталог компаний</button><button type="button">Организации-банкроты</button></div>
+    </div>
+    <div class="abc" id="abc"></div>
+    <div class="okved">
+      <a class="ok" href="#"><span class="L">A</span><b>Сельское хозяйство и охота</b><small>Раздел A · ОКВЭД 01-02</small></a>
+      <a class="ok" href="#"><span class="L">B</span><b>Рыболовство, рыбоводство</b><small>Раздел B · ОКВЭД 05</small></a>
+      <a class="ok" href="#"><span class="L">C</span><b>Добыча полезных ископаемых</b><small>Раздел C · ОКВЭД 10-14</small></a>
+      <a class="ok" href="#"><span class="L">D</span><b>Обрабатывающие производства</b><small>Раздел D · ОКВЭД 15-37</small></a>
+      <a class="ok" href="#"><span class="L">E</span><b>Электроэнергия, газ и вода</b><small>Раздел E · ОКВЭД 40-41</small></a>
+      <a class="ok" href="#"><span class="L">F</span><b>Строительство</b><small>Раздел F · ОКВЭД 45</small></a>
+      <a class="ok" href="#"><span class="L">G</span><b>Оптовая и розничная торговля</b><small>Раздел G · ОКВЭД 50-52</small></a>
+      <a class="ok" href="#"><span class="L">H</span><b>Гостиницы и рестораны</b><small>Раздел H · ОКВЭД 55</small></a>
+      <a class="ok" href="#"><span class="L">…</span><b>Другие разделы</b><small>I - Q · все остальные отрасли</small></a>
+    </div>
+  </section>
+
+  <section class="dock reveal">
+    <div class="dock-h"><div><h3>Компании с судебными делами по банкротству</h3><p>Обновляется по данным арбитражных судов</p></div><a class="b b-line" href="#">Показать все</a></div>
+    <div style="overflow-x:auto"><table>
+      <thead><tr><th>№</th><th>Организация</th><th>Номер дела</th><th>Арбитражный суд</th><th>Статус</th></tr></thead>
+      <tbody id="tb"></tbody>
+    </table></div>
+  </section>
+
+  <section class="subs reveal">
+    <div><h3>Главное о долгах - раз в неделю</h3><p>Короткая рассылка: новости, изменения в законах, полезные сервисы.</p></div>
+    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Готово ✓'"><input type="email" placeholder="Ваш e-mail" required><button class="b b-fill" style="height:50px">Подписаться</button></form>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div class="g">
+    <div>
+      <div style="font:800 26px var(--sans);letter-spacing:-.03em">DOLGI<span style="color:var(--lime)">.</span>RU</div>
+      <p class="fine" style="margin-top:12px">Использование материалов dolgi.ru допускается только с письменного разрешения правообладателя и с обязательной прямой гиперссылкой на страницу, с которой материал заимствован.</p>
+    </div>
+    <div><h6>Проект</h6><ul><li><a href="#">О проекте</a></li><li><a href="#">Реклама</a></li><li><a href="#">Вакансии</a></li><li><a href="#">Обратная связь</a></li></ul></div>
+    <div><h6>Документы</h6><ul><li><a href="#">Пользовательское соглашение</a></li><li><a href="#">Правовая информация</a></li><li><a href="#">Политика конфиденциальности</a></li></ul></div>
+    <div><h6>Редакция</h6><p class="fine">ООО «Новое время»<br>Москва, Раушская наб., 4/5, стр. 1<br>+7 (499) 372-80-08<br>Бесплатно по России: 8 800 775-45-45<br>info@dolgi.ru</p></div>
+  </div>
+  <div class="bottom"><span>Свидетельство о регистрации СМИ ЭЛ № ФС 77-62633 от 10.08.2015 · Роскомнадзор</span><span>© 2015-2026 «Долги.ру» · 18+</span></div>
+</div></footer>
+
+<div id="demobar"><span class="lbl">Демо DOLGI.RU · <b>вариант 2 - новый дизайн</b></span><a href="https://didigood0401.github.io/dolgi-shkurka/">Вариант 1: по макету</a></div>
+
+<script>
+(function(){
+  var cases=[["ООО «ЛЕГЕАРТИС-М»","А41-39136/2016"],["АРТЕЛЬ","А41-39103/2016"],["ООО «РОСЯРПАК»","А82-9071/2016"],["ОПЫТНОЕ ХОЗЯЙСТВО ПОДОЛЬСКОЙ МИС","А41-39248/2016"],["ПРЕСТИЖ","А41-39121/2016"],["ТЕПЛОВОДОКАНАЛ","А41-39255/2016"],["ЛЕГЕАРТИС-САНЙОНГ","А41-39131/2016"],["РУЗСКОЕ МОЛОКО","А41-39097/2016"],["ООО «МЕТЧЕЛ»","А57-16129/2016"],["АЛЬТИМУС","А41-39256/2016"]];
+  var court={"А41":"Московской области","А82":"Ярославской области","А57":"Саратовской области"};
+  var risk={"РУЗСКОЕ МОЛОКО":8,"ТЕПЛОВОДОКАНАЛ":7,"АРТЕЛЬ":9};
+  // ticker
+  var h=cases.map(function(c){return '<span><b>'+c[0]+'</b><span class="mono">'+c[1]+'</span></span>'}).join('');
+  document.getElementById('run').innerHTML=h+h;
+  // table
+  document.getElementById('tb').innerHTML=cases.map(function(c,i){return '<tr><td class="i">'+String(i+1).padStart(2,'0')+'</td><td class="c">'+c[0]+'</td><td class="d">'+c[1]+'</td><td class="s">АС '+court[c[1].slice(0,3)]+'</td><td><span class="st">Банкротство</span></td></tr>'}).join('');
+  // abc
+  var abc='АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯ'.split('');
+  document.getElementById('abc').innerHTML=abc.map(function(l){return '<button type="button">'+l+'</button>'}).join('');
+  document.getElementById('abc').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)})});
+  document.getElementById('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)})});
+  // check
+  var f=document.getElementById('f'),q=document.getElementById('q'),res=document.getElementById('res');
+  function show(v){
+    v=(v||'').trim().toUpperCase(); if(!v)return;
+    var c=cases.find(function(x){return x[0].toUpperCase().indexOf(v)>-1})||cases[7];
+    var r=risk[c[0]]||8;
+    document.getElementById('rn').textContent=c[0];
+    document.getElementById('rd').textContent=c[1];
+    document.getElementById('rs').textContent='АС '+court[c[1].slice(0,3)];
+    document.getElementById('rl').textContent=r>=8?'высокий':'повышенный';
+    document.getElementById('bar').innerHTML=Array.from({length:10},function(_,i){return '<i class="'+(i<r?'f'+(i>=7?' hi':''):'')+'"></i>'}).join('');
+    res.classList.remove('show'); void res.offsetWidth; res.classList.add('show');
+  }
+  f.addEventListener('submit',function(e){e.preventDefault();show(q.value)});
+  document.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){q.value=b.dataset.q;show(b.dataset.q)})});
+  // date
+  try{var d=new Date();document.getElementById('today').textContent=d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'})}catch(e){}
+  // theme
+  var th=document.getElementById('th'),root=document.documentElement;
+  function setT(t){root.dataset.theme=t;th.querySelector('span').textContent=t==='dark'?'День':'Ночь';try{localStorage.setItem('dolgi-th',t)}catch(e){}}
+  try{var s=localStorage.getItem('dolgi-th');if(s)setT(s)}catch(e){}
+  th.addEventListener('click',function(){setT(root.dataset.theme==='dark'?'light':'dark')});
+  // block links
+  document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&a.getAttribute('href')==='#')e.preventDefault()});
+  // reveal
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'}):null;
+  document.querySelectorAll('.reveal').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+})();
+</script>
+</body>
+</html>
