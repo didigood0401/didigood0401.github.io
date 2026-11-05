@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Визитка преподавателя английского - 3 варианта</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ecebe6;--ink:#1c1e21;--mute:#5d5f62;--line:#d4d2cb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{padding:60px 0 30px;border-bottom:1px solid var(--line)}
+h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(36px,5vw,60px);line-height:1.04}
+.lead{max-width:660px;color:#45474a;margin-top:14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px;font-size:13.5px;color:var(--mute)}
+.meta b{color:var(--ink);font-weight:600}
+.v{padding:64px 0 46px;border-bottom:1px solid var(--line)}
+.vh{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.vh .n{font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--mute)}
+.vh h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(28px,3.6vw,42px);line-height:1.1}
+.vh p{max-width:480px;color:#4b4d50;font-size:15px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:#4b4d50;border:1px solid var(--line);border-radius:99px;padding:7px 14px 7px 9px;background:#f6f5f2}
+.chip i{width:14px;height:14px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.12)}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cap{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between;margin-bottom:12px}
+.card{position:relative;width:100%;aspect-ratio:90/50;border-radius:6px;overflow:hidden;container-type:inline-size;box-shadow:0 1px 1px rgba(0,0,0,.08),0 10px 24px -8px rgba(0,0,0,.28),0 30px 60px -30px rgba(0,0,0,.35)}
+.card *{position:absolute}
+.card .rel{position:relative}
+.card small{position:static}
+/* A - Oxford navy */
+.A{background:radial-gradient(130% 140% at 0 0,#24365a,#18233b 60%,#121a2c);color:#efe7d6}
+.A .crest{left:7.5cqw;top:8cqw;width:11cqw;height:13cqw}
+.A .nm{left:7.5cqw;bottom:16cqw;font-family:"Cormorant Garamond",serif;font-weight:500;font-size:7.4cqw;line-height:1;white-space:nowrap}
+.A .rl{left:7.6cqw;bottom:10cqw;font-size:2.1cqw;letter-spacing:.3em;text-transform:uppercase;color:#d8bf8a}
+.A .q{right:6cqw;top:3cqw;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:44cqw;line-height:1;color:rgba(216,191,138,.12)}
+.A .ln{left:7.5cqw;bottom:14cqw;width:9cqw;height:.22cqw;background:#c9a96a}
+.A .tag{right:7cqw;bottom:10cqw;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:3.2cqw;color:#d8bf8a}
+.A.b{background:linear-gradient(180deg,#f4efe4,#ebe4d4);color:#18233b}
+.A.b .bn{left:7.5cqw;top:8cqw;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:4.6cqw}
+.A.b .br{left:7.6cqw;top:14.2cqw;font-size:1.7cqw;letter-spacing:.28em;text-transform:uppercase;color:#8a6d3b}
+.A.b .sv{left:7.5cqw;top:21cqw;display:grid;gap:1.3cqw}
+.A.b .sv div{position:relative;font-size:2.4cqw;color:#2a3346;padding-left:3cqw}
+.A.b .sv div::before{content:"";position:absolute;left:0;top:1.05cqw;width:1.5cqw;height:.18cqw;background:#c9a96a}
+.A.b .vl{left:55cqw;top:8cqw;bottom:8cqw;width:.15cqw;background:#cdbd99}
+.A.b .ct{left:59cqw;top:8cqw;display:grid;gap:2cqw}
+.A.b .ct div{position:relative;font-size:2.4cqw;font-weight:500}
+.A.b .ct small{display:block;font-size:1.5cqw;letter-spacing:.22em;text-transform:uppercase;color:#8a6d3b;font-weight:600;margin-bottom:.3cqw}
+.A.b .qr{right:7cqw;bottom:8cqw;width:10cqw;height:10cqw}
+/* B - Sage */
+.B{background:#e9eee6;color:#2f4a3c}
+.B .bub{left:7cqw;top:8cqw;width:16cqw;height:12cqw}
+.B .nm{left:7cqw;top:25cqw;font-weight:300;font-size:6.2cqw;line-height:1.05;letter-spacing:-.01em}
+.B .nm b{display:block;font-weight:700}
+.B .rl{left:7.2cqw;bottom:8cqw;font-size:2cqw;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:#5e7a63}
+.B .words{right:7cqw;top:8cqw;bottom:8cqw;display:flex;flex-direction:column;justify-content:space-between;text-align:right}
+.B .words span{position:relative;font-family:Fraunces,serif;font-size:3.4cqw;color:#7d9682}
+.B .words span:nth-child(2){color:#2f4a3c;font-size:5cqw}
+.B.b{background:#2f4a3c;color:#eef2ec}
+.B.b .hd{left:7cqw;top:8cqw;display:flex;gap:2cqw;align-items:center}
+.B.b .hd svg{position:relative;width:7cqw;height:5.6cqw}
+.B.b .hd span{position:relative;font-size:2.7cqw;font-weight:600}
+.B.b .hd em{position:relative;display:block;font-style:normal;font-size:1.6cqw;letter-spacing:.22em;text-transform:uppercase;color:#bcd0bf;margin-top:.4cqw}
+.B.b .sv{left:7cqw;top:21cqw;display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;grid-auto-flow:column;gap:1.4cqw 5cqw}
+.B.b .sv div{position:relative;font-size:2.35cqw;display:flex;gap:1.6cqw;white-space:nowrap}
+.B.b .sv b{position:relative;font-weight:600;font-size:1.6cqw;color:#bcd0bf;letter-spacing:.08em}
+.B.b .bar{left:7cqw;right:7cqw;bottom:15.5cqw;height:.14cqw;background:rgba(255,255,255,.25)}
+.B.b .ct{left:7cqw;right:7cqw;bottom:7cqw;display:flex;justify-content:space-between}
+.B.b .ct div{position:relative;font-size:2.5cqw;font-weight:500;white-space:nowrap}
+.B.b .ct small{display:block;font-size:1.5cqw;letter-spacing:.22em;text-transform:uppercase;color:#bcd0bf;margin-bottom:.4cqw}
+/* C - Terracotta Aa */
+.C{background:#f3ece2;color:#3a2a22}
+.C .aa{left:5cqw;top:-6cqw;font-family:Fraunces,serif;font-size:46cqw;line-height:1;color:#c7623e;letter-spacing:-.04em}
+.C .aa i{font-style:normal;color:#e5c3ad}
+.C .nm{right:7cqw;top:12cqw;text-align:right;font-family:Fraunces,serif;font-size:5.4cqw;line-height:1.1}
+.C .rl{right:7cqw;top:25cqw;text-align:right;font-size:2cqw;letter-spacing:.22em;text-transform:uppercase;color:#a24f32;font-weight:600}
+.C .tg{right:7cqw;bottom:8cqw;text-align:right;font-size:2.4cqw;color:#6c5547;line-height:1.5}
+.C.b{background:#c7623e;color:#fff6ef}
+.C.b .bn{left:7cqw;top:8cqw;font-family:Fraunces,serif;font-size:4.6cqw}
+.C.b .br{left:7.2cqw;top:14.5cqw;font-size:1.7cqw;letter-spacing:.24em;text-transform:uppercase;color:#ffd9c4}
+.C.b .sv{left:7cqw;top:21cqw;display:flex;flex-wrap:wrap;gap:1.4cqw;right:40cqw}
+.C.b .sv span{position:relative;font-size:2.1cqw;border:.15cqw solid rgba(255,255,255,.55);border-radius:99px;padding:.8cqw 2.2cqw}
+.C.b .ct{left:7cqw;bottom:7cqw;display:grid;gap:1cqw}
+.C.b .ct div{position:relative;font-size:2.5cqw;font-weight:500}
+.C.b .qr{right:7cqw;bottom:7cqw;width:13cqw;height:13cqw;background:#fff6ef;border-radius:1cqw;padding:1cqw}
+.C.b .qr svg{position:relative;width:100%;height:100%}
+.C.b .ql{right:7cqw;bottom:21.5cqw;font-size:1.7cqw;letter-spacing:.16em;text-transform:uppercase;color:#ffd9c4;text-align:right;width:20cqw}
+/* desk */
+.scene{margin-top:32px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+.desk{position:relative;border-radius:14px;aspect-ratio:16/10;overflow:hidden;display:grid;place-items:center;perspective:1600px;cursor:pointer;user-select:none}
+.desk::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(100deg,rgba(255,255,255,.035) 0 2px,transparent 2px 7px);pointer-events:none}
+.dA{background:radial-gradient(90% 90% at 30% 20%,#d9d3c8,#b9b1a4 70%,#a89f91)}
+.dB{background:radial-gradient(90% 90% at 70% 20%,#f1efe9,#d9d6cc 70%,#c6c2b6)}
+.dC{background:radial-gradient(90% 90% at 40% 20%,#6b4f3f,#4d382d 70%,#3a2a22)}
+.flip{position:relative;width:min(62%,420px);aspect-ratio:90/50;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.75,.2,1);transform:rotateX(18deg) rotateZ(-7deg)}
+.desk.on .flip{transform:rotateX(18deg) rotateZ(-7deg) rotateY(180deg)}
+.flip .card{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 2px 2px rgba(0,0,0,.18),18px 28px 30px -10px rgba(0,0,0,.4)}
+.flip .card.b{transform:rotateY(180deg)}
+.under{position:absolute;width:min(62%,420px);aspect-ratio:90/50;transform:translate(-9%,14%) rotateX(18deg) rotateZ(4deg)}
+.hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4a4339}
+.dC .hint{color:#f3e5d8}
+.notes h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:26px;margin-bottom:10px}
+.notes ul{list-style:none;display:grid;gap:10px}
+.notes li{font-size:14.5px;color:#3f4144;padding-left:18px;position:relative}
+.notes li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:1px;background:#8a8b8d}
+.spec{padding:56px 0 70px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.spec div{border-top:1px solid var(--ink);padding-top:12px}
+.spec b{display:block;font-family:"Cormorant Garamond",serif;font-weight:500;font-size:24px;margin-bottom:4px}
+.spec span{font-size:13.5px;color:#55575a}
+footer{padding:22px 0 40px;font-size:12px;color:var(--mute);border-top:1px solid var(--line)}
+@media(max-width:860px){.stage,.scene{grid-template-columns:1fr}.spec{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.wrap{padding:0 16px}.v{padding:44px 0 30px}.spec{grid-template-columns:1fr}.flip,.under{width:74%}.desk{aspect-ratio:4/3}.hint{font-size:10px;bottom:8px}}
+@media(prefers-reduced-motion:reduce){.flip{transition:none}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>Визитка преподавателя английского языка - три направления</h1>
+  <p class="lead">Спокойные цвета, лаконичная типографика и лёгкий образовательный акцент без клипарта. У каждого варианта - лицевая сторона и оборот с услугами и контактами для записи. Нажмите на визитку в макете, чтобы перевернуть её.</p>
+  <div class="meta"><span><b>Формат</b> 90 × 50 мм, двусторонняя</span><span><b>Имя и контакты</b> - для примера</span><span><b>Печать</b> CMYK, вылеты 2 мм</span></div>
+</header>
+
+<section class="v wrap" data-v="A">
+  <div class="vh"><div><div class="n">Вариант 01</div><h2>«Оксфорд»</h2><div class="chips"><span class="chip"><i style="background:#18233b"></i>Тёмно-синий</span><span class="chip"><i style="background:#c9a96a"></i>Золото</span><span class="chip"><i style="background:#f4efe4"></i>Сливочный</span></div></div>
+  <p>Классика и статус: глубокий синий, антиква и золотая линия. Монограмма-герб и крупная кавычка - намёк на язык и литературу. Отлично смотрится с тиснением фольгой.</p></div>
+  <div class="stage">
+    <div><div class="cap"><span>Лицевая сторона</span><span>90 × 50</span></div>
+      <div class="card A f"><svg class="crest" viewBox="0 0 44 52" fill="none" stroke="#d8bf8a" stroke-width="1.2"><path d="M3 4h38v24c0 12-9 19-19 22C12 47 3 40 3 28z"/><text x="22" y="32" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="20" fill="#d8bf8a" stroke="none">АС</text><path d="M10 12h24" stroke-width=".8"/></svg><div class="q">“</div><div class="ln"></div><div class="nm">Анна Соколова</div><div class="rl">Преподаватель английского</div><div class="tag">online · offline</div></div></div>
+    <div><div class="cap"><span>Оборот</span><span>90 × 50</span></div>
+      <div class="card A b"><div class="bn">Анна Соколова</div><div class="br">English teacher</div><div class="sv"><div>Индивидуальные занятия</div><div>Разговорный английский</div><div>ОГЭ, ЕГЭ, IELTS</div><div>Онлайн и очно</div></div><div class="vl"></div><div class="ct"><div><small>Запись</small>+7 (900) 000-00-00</div><div><small>Telegram</small>@english_anna</div><div><small>Почта</small>anna@example.ru</div></div>
+      <svg class="qr" viewBox="0 0 21 21" shape-rendering="crispEdges"><rect width="21" height="21" fill="#f4efe4"/><g fill="#18233b"><path d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"/></g><g fill="#f4efe4"><path d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/></g><g fill="#18233b"><path d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h1v2H8zM10 1h2v1h-2zM9 3h2v2H9zM12 4h1v3h-1zM8 8h4v1H8zM14 8h1v2h-1zM17 8h3v1h-3zM10 10h2v2h-2zM13 11h3v1h-3zM9 13h3v1H9zM15 13h2v2h-2zM8 15h1v3H8zM10 15h3v1h-3zM18 15h1v3h-1zM11 17h2v2h-2zM15 18h2v3h-2zM19 19h2v2h-2z"/></g></svg></div></div>
+  </div>
+  <div class="scene"><div class="desk dA" data-flip><div class="under"></div><div class="flip"></div><div class="hint">Нажмите, чтобы перевернуть</div></div>
+    <div class="notes"><h3>Почему так</h3><ul><li>Тёмная лицевая сторона выглядит дорого и выделяется среди светлых визиток.</li><li>Монограмма и кавычка дают «образовательный» акцент без глобусов и шапочек.</li><li>На обороте - услуги и три канала записи, QR ведёт в Telegram или на запись.</li></ul></div></div>
+</section>
+
+<section class="v wrap" data-v="B">
+  <div class="vh"><div><div class="n">Вариант 02</div><h2>«Шалфей»</h2><div class="chips"><span class="chip"><i style="background:#e9eee6"></i>Светлый шалфей</span><span class="chip"><i style="background:#2f4a3c"></i>Хвойный</span><span class="chip"><i style="background:#7d9682"></i>Мох</span></div></div>
+  <p>Спокойно и дружелюбно: светлый шалфей, гротеск и знак-облачко диалога. Слова Hello · Speak · Grow справа - лёгкий акцент на разговорную практику.</p></div>
+  <div class="stage">
+    <div><div class="cap"><span>Лицевая сторона</span><span>90 × 50</span></div>
+      <div class="card B f"><svg class="bub" viewBox="0 0 64 48" fill="none" stroke="#2f4a3c" stroke-width="1.8"><path d="M8 4h48a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H26l-12 9v-9H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"/><text x="32" y="25" text-anchor="middle" font-family="Fraunces,serif" font-size="15" fill="#2f4a3c" stroke="none">Hi!</text></svg><div class="nm">Анна<b>Соколова</b></div><div class="rl">Английский язык</div><div class="words"><span>Hello</span><span>Speak</span><span>Grow</span></div></div></div>
+    <div><div class="cap"><span>Оборот</span><span>90 × 50</span></div>
+      <div class="card B b"><div class="hd"><svg viewBox="0 0 64 48" fill="none" stroke="#bcd0bf" stroke-width="2.4"><path d="M8 4h48a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H26l-12 9v-9H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"/></svg><div class="rel"><span>Анна Соколова</span><em>Преподаватель английского</em></div></div>
+      <div class="sv"><div><b>01</b>Индивидуально</div><div><b>02</b>Разговорный курс</div><div><b>03</b>ОГЭ, ЕГЭ, IELTS</div><div><b>04</b>Онлайн и очно</div></div><div class="bar"></div><div class="ct"><div><small>Запись</small>+7 (900) 000-00-00</div><div><small>Telegram</small>@english_anna</div></div></div></div>
+  </div>
+  <div class="scene"><div class="desk dB" data-flip><div class="under"></div><div class="flip"></div><div class="hint">Нажмите, чтобы перевернуть</div></div>
+    <div class="notes"><h3>Почему так</h3><ul><li>Светлая основа и много воздуха - визитка выглядит аккуратно даже на обычной бумаге.</li><li>Облачко диалога - простой знак «говорим на английском», его легко повторить в аватарке.</li><li>Оборот в фирменном зелёном - визитку узнают с обеих сторон.</li></ul></div></div>
+</section>
+
+<section class="v wrap" data-v="C">
+  <div class="vh"><div><div class="n">Вариант 03</div><h2>«Aa»</h2><div class="chips"><span class="chip"><i style="background:#f3ece2"></i>Бумага</span><span class="chip"><i style="background:#c7623e"></i>Терракота</span><span class="chip"><i style="background:#3a2a22"></i>Какао</span></div></div>
+  <p>Тёплая типографика: крупные буквы «Aa» - первые буквы алфавита и знак обучения. Терракотовый оборот с QR для записи - яркий, но не кричащий.</p></div>
+  <div class="stage">
+    <div><div class="cap"><span>Лицевая сторона</span><span>90 × 50</span></div>
+      <div class="card C f"><div class="aa">A<i>a</i></div><div class="nm">Анна<br>Соколова</div><div class="rl">English teacher</div><div class="tg">индивидуально<br>онлайн и очно</div></div></div>
+    <div><div class="cap"><span>Оборот</span><span>90 × 50</span></div>
+      <div class="card C b"><div class="bn">Запишитесь на пробный урок</div><div class="br">Английский для детей и взрослых</div><div class="sv"><span>Разговорный</span><span>ОГЭ / ЕГЭ</span><span>IELTS</span><span>Для работы</span></div><div class="ct"><div>+7 (900) 000-00-00</div><div>Telegram @english_anna</div></div><div class="ql">Запись по QR</div>
+      <div class="qr"><svg viewBox="0 0 21 21" shape-rendering="crispEdges"><g fill="#3a2a22"><path d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"/></g><g fill="#fff6ef"><path d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/></g><g fill="#3a2a22"><path d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h1v2H8zM10 1h2v1h-2zM9 3h2v2H9zM12 4h1v3h-1zM8 8h4v1H8zM14 8h1v2h-1zM17 8h3v1h-3zM10 10h2v2h-2zM13 11h3v1h-3zM9 13h3v1H9zM15 13h2v2h-2zM8 15h1v3H8zM10 15h3v1h-3zM18 15h1v3h-1zM11 17h2v2h-2zM15 18h2v3h-2zM19 19h2v2h-2z"/></g></svg></div></div></div>
+  </div>
+  <div class="scene"><div class="desk dC" data-flip><div class="under"></div><div class="flip"></div><div class="hint">Нажмите, чтобы перевернуть</div></div>
+    <div class="notes"><h3>Почему так</h3><ul><li>Крупная типографика сразу считывается как «язык и обучение».</li><li>Оборот работает как мини-флаер: призыв на пробный урок и QR.</li><li>Тёплая гамма располагает к знакомству - важно для частного преподавателя.</li></ul></div></div>
+</section>
+
+<section class="spec wrap">
+  <div><b>90 × 50 мм</b><span>стандарт РФ, вылеты 2 мм, безопасное поле 4 мм</span></div>
+  <div><b>CMYK · PDF</b><span>макет к печати + исходник, текст меняется без дизайнера</span></div>
+  <div><b>Бумага</b><span>дизайнерский картон 300-350 г/м², для «Оксфорда» - тиснение</span></div>
+  <div><b>Ваши данные</b><span>имя, телефон, услуги и QR подставлю ваши</span></div>
+</section>
+<footer class="wrap">Демо-эскиз для обсуждения. Имя, контакты и QR - условные.</footer>
+<script>
+document.querySelectorAll('section.v').forEach(s=>{const v=s.dataset.v,[f,b]=s.querySelectorAll('.stage .card');
+  s.querySelector('.flip').innerHTML=`<div class="card ${v} f">${f.innerHTML}</div><div class="card ${v} b">${b.innerHTML}</div>`;
+  s.querySelector('.under').innerHTML=`<div class="card ${v} b" aria-hidden="true">${b.innerHTML}</div>`;});
+document.querySelectorAll('[data-flip]').forEach(d=>d.addEventListener('click',()=>d.classList.toggle('on')));
+</script>
+</body>
+</html>
