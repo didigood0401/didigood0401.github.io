@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Раздел ТХ и ХАССП - концепт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f5f3;--ink:#1a1e22;--mute:#575e65;--line:#d6d9d4;--card:#fff;--dirty:#c8743a;--tech:#6a7f94;--clean:#2b8a6e;--store:#8b6fb0;--staff:#3a6fc4;--waste:#b3403a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+header{padding:52px 0 26px;border-bottom:1px solid var(--line)}
+.code{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--mute)}
+h1{font-size:clamp(28px,4vw,44px);line-height:1.1;font-weight:700;letter-spacing:-.015em;margin:8px 0 12px;max-width:900px}
+.lead{max-width:760px;color:#3b4147}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.meta span{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px 10px}
+section{padding:52px 0 0}
+h2{font-size:clamp(22px,2.8vw,30px);font-weight:700;margin-bottom:6px}
+.sub{color:var(--mute);max-width:760px;margin-bottom:20px}
+.n{font-family:"IBM Plex Mono",monospace;color:var(--clean);font-weight:500;font-size:13px;display:block;margin-bottom:4px}
+.plan{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:18px}
+.sheet{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;position:relative}
+.sheet svg{width:100%;height:auto;display:block}
+.tools{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.tools button{font:500 13px "IBM Plex Sans",sans-serif;border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 12px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.tools button i{width:14px;height:3px;border-radius:2px;display:block}
+.tools button.off{opacity:.4}
+.stamp{position:absolute;right:14px;bottom:14px;border:1px solid #9aa1a8;font-family:"IBM Plex Mono",monospace;font-size:11px;background:#fff;display:grid;grid-template-columns:auto auto}
+.stamp div{padding:3px 7px;border-right:1px solid #c5cacf;border-bottom:1px solid #c5cacf}
+.legend{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.legend h3{font-size:15px;margin-bottom:10px}
+.zone{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #eceee9;font-size:14px}
+.zone:last-child{border-bottom:0}
+.zone i{flex:none;width:16px;height:16px;border-radius:4px;margin-top:3px}
+.zone b{display:block}
+.zone span{color:var(--mute);font-size:13px}
+.tw{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
+th{text-align:left;font-size:12.5px;color:var(--mute);font-weight:600;padding:11px 14px;background:#fafbf9;border-bottom:1px solid var(--line)}
+td{padding:10px 14px;border-bottom:1px solid #eceee9;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.m{font-family:"IBM Plex Mono",monospace;font-size:13px;white-space:nowrap}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{font-size:16px;margin-bottom:8px}
+.card ul{list-style:none;display:grid;gap:6px}
+.card li{font-size:14px;color:#3b4147;padding-left:14px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:2px;background:var(--clean)}
+.note{font-size:13px;color:var(--mute);margin-top:10px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.steps .card b{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--clean);display:block;margin-bottom:4px}
+.out{display:flex;gap:10px;flex-wrap:wrap}
+.out span{background:#e3f1ec;color:#1d6450;border-radius:8px;padding:8px 12px;font-size:14px;font-weight:500}
+footer{padding:44px 0 40px;color:var(--mute);font-size:13px}
+@media(max-width:960px){.plan{grid-template-columns:1fr}.grid3,.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{padding:0 16px}.grid3,.steps{grid-template-columns:1fr}.stamp{position:static;margin-top:10px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="code">Демо-концепт · ТХ · ТР ТС 021/2011 · ХАССП</div>
+  <h1>Мини-цех очистки и розлива питьевой воды: принципиальная планировка и зонирование</h1>
+  <p class="lead">Пример того, как будет выглядеть результат: зонирование по ХАССП, потоки без пересечений, расстановка оборудования, экспликация и исходные данные для смежных разделов. Помещение условное (≈ 18 × 12 м) - на вашем плане здания всё будет посчитано по факту.</p>
+  <div class="meta"><span>1 000 л/сутки · 2 000 бут. 0,5 л</span><span>Собственный выдув ПЭТ</span><span>Моноблок розлива ~1 000 бут/ч</span><span>Иваново</span></div>
+</header>
+
+<section class="wrap">
+  <span class="n">01</span><h2>План ТХ: зоны, оборудование, потоки</h2>
+  <p class="sub">Переключайте слои потоков. Принцип: продукт и тара движутся только от «грязной» зоны к «чистой», персонал попадает в чистую зону только через санпропускник, отходы выводятся отдельным путём.</p>
+  <div class="plan">
+    <div class="sheet">
+      <div class="tools" id="tools">
+        <button data-l="f-raw"><i style="background:var(--dirty)"></i>Тара / преформы</button>
+        <button data-l="f-prod"><i style="background:var(--clean)"></i>Продукт</button>
+        <button data-l="f-staff"><i style="background:var(--staff)"></i>Персонал</button>
+        <button data-l="f-waste"><i style="background:var(--waste)"></i>Отходы</button>
+      </div>
+      <svg viewBox="0 0 900 600" font-family="IBM Plex Sans, sans-serif">
+        <defs>
+          <pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#1a1e22" stroke-width="2"/></pattern>
+          <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c8743a"/></marker>
+          <marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2b8a6e"/></marker>
+          <marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3a6fc4"/></marker>
+          <marker id="a4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b3403a"/></marker>
+        </defs>
+        <!-- zones fill -->
+        <rect x="40" y="40" width="250" height="250" fill="#c8743a" opacity=".13"/>
+        <rect x="290" y="40" width="250" height="250" fill="#6a7f94" opacity=".14"/>
+        <rect x="540" y="40" width="320" height="330" fill="#2b8a6e" opacity=".13"/>
+        <rect x="540" y="370" width="320" height="190" fill="#8b6fb0" opacity=".13"/>
+        <rect x="290" y="290" width="250" height="270" fill="#3a6fc4" opacity=".10"/>
+        <rect x="40" y="290" width="250" height="270" fill="#6a7f94" opacity=".08"/>
+        <!-- walls -->
+        <g fill="none" stroke="#1a1e22">
+          <rect x="40" y="40" width="820" height="520" stroke-width="10"/>
+          <path d="M290 40V250M290 280V560" stroke-width="5"/>
+          <path d="M540 40V180M540 215V255M540 285V330M540 360V560" stroke-width="5"/>
+          <path d="M40 290H145M175 290H540" stroke-width="5"/>
+          <path d="M540 370H660M700 370H860" stroke-width="5"/>
+          <path d="M415 290V470M415 500V560" stroke-width="4"/>
+          <path d="M290 425H415" stroke-width="4"/>
+        </g>
+        <!-- outer doors -->
+        <g fill="#fff" stroke="#1a1e22" stroke-width="2"><rect x="80" y="30" width="60" height="20"/><rect x="760" y="550" width="70" height="20"/><rect x="330" y="550" width="60" height="20"/><rect x="30" y="480" width="20" height="50"/><rect x="850" y="250" width="20" height="45"/></g>
+        <g font-size="11" fill="#575e65"><text x="84" y="25">Приём преформ</text><text x="752" y="590">Отгрузка ГП</text><text x="318" y="590">Вход персонала</text><text x="56" y="548">← вывоз отходов</text><text x="844" y="314" text-anchor="end">брак, отходы →</text></g>
+        <!-- equipment -->
+        <g stroke="#1a1e22" stroke-width="1.5" font-size="11.5" text-anchor="middle">
+          <g fill="#fff"><rect x="70" y="80" width="120" height="70" rx="3"/><text x="130" y="112" stroke="none" fill="#1a1e22">Стеллажи</text><text x="130" y="127" stroke="none" fill="#575e65" font-size="10.5">преформы, крышки</text></g>
+          <g fill="#fff"><rect x="70" y="180" width="150" height="55" rx="3"/><text x="145" y="205" stroke="none" fill="#1a1e22">Автомат выдува ПЭТ</text><text x="145" y="220" stroke="none" fill="#575e65" font-size="10.5">+ компрессор ВД</text></g>
+          <g fill="#fff"><rect x="315" y="70" width="90" height="90" rx="45"/><text x="360" y="118" stroke="none" fill="#1a1e22">Бак сырой</text></g>
+          <g fill="#fff"><rect x="425" y="70" width="95" height="110" rx="3"/><text x="472" y="115" stroke="none" fill="#1a1e22">Узел</text><text x="472" y="130" stroke="none" fill="#1a1e22">вымораживания</text><text x="472" y="145" stroke="none" fill="#575e65" font-size="10.5">модули ×N</text></g>
+          <g fill="#fff"><rect x="320" y="185" width="66" height="66" rx="33"/><text x="353" y="222" stroke="none" fill="#1a1e22">Бак ЧВ</text></g>
+          <g fill="#fff"><rect x="405" y="200" width="100" height="42" rx="3"/><text x="455" y="225" stroke="none" fill="#1a1e22">УФ / фильтр</text></g>
+          <g fill="#fff"><rect x="580" y="90" width="120" height="70" rx="3"/><text x="640" y="121" stroke="none" fill="#1a1e22">Моноблок</text><text x="640" y="136" stroke="none" fill="#575e65" font-size="10.5">ополаск.-розлив-укуп.</text></g>
+          <g fill="#fff"><rect x="730" y="80" width="100" height="60" rx="3"/><text x="780" y="114" stroke="none" fill="#1a1e22">Этикетировка</text></g>
+          <rect x="740" y="180" width="80" height="40" fill="#e7ece9"/><text x="780" y="204" stroke="none" fill="#575e65" font-size="10.5">конвейер</text>
+          <g fill="#fff"><rect x="700" y="245" width="130" height="55" rx="3"/><text x="765" y="270" stroke="none" fill="#1a1e22">Термоупаковщик</text><text x="765" y="285" stroke="none" fill="#575e65" font-size="10.5">групповая упаковка</text></g>
+          <g fill="#fff"><rect x="580" y="410" width="250" height="40" rx="2"/><text x="705" y="435" stroke="none" fill="#1a1e22">Паллеты готовой продукции</text></g>
+          <g fill="#fff"><rect x="580" y="475" width="120" height="50" rx="2"/><text x="640" y="504" stroke="none" fill="#1a1e22">Карантин / ОТК</text></g>
+          <g fill="#fff"><rect x="60" y="320" width="90" height="60" rx="3"/><text x="105" y="346" stroke="none" fill="#1a1e22">Электрощит</text><text x="105" y="361" stroke="none" fill="#575e65" font-size="10.5">ВРУ</text></g>
+          <g fill="#fff"><rect x="170" y="320" width="100" height="60" rx="3"/><text x="220" y="346" stroke="none" fill="#1a1e22">Приточная</text><text x="220" y="361" stroke="none" fill="#575e65" font-size="10.5">установка</text></g>
+          <g fill="url(#h)" opacity=".25"><rect x="70" y="440" width="190" height="80"/></g><text x="165" y="484" stroke="none" fill="#1a1e22">Отходы грязной зоны</text>
+          <g fill="#fff"><rect x="305" y="315" width="95" height="95" rx="3"/><text x="352" y="356" stroke="none" fill="#1a1e22">С/у, душ,</text><text x="352" y="371" stroke="none" fill="#1a1e22">комната</text><text x="352" y="386" stroke="none" fill="#1a1e22">персонала</text></g>
+          <g fill="#fff"><rect x="305" y="440" width="95" height="90" rx="3"/><text x="352" y="482" stroke="none" fill="#1a1e22">Гардероб</text><text x="352" y="497" stroke="none" fill="#575e65" font-size="10.5">уличная одежда</text></g>
+          <g fill="#fff"><rect x="430" y="380" width="95" height="150" rx="3"/><text x="477" y="440" stroke="none" fill="#1a1e22">Санпро-</text><text x="477" y="455" stroke="none" fill="#1a1e22">пускник</text><text x="477" y="472" stroke="none" fill="#575e65" font-size="10.5">спецодежда,</text><text x="477" y="485" stroke="none" fill="#575e65" font-size="10.5">мойка рук</text></g>
+        </g>
+        <!-- trap drains -->
+        <g fill="#fff" stroke="#2b8a6e" stroke-width="2"><circle cx="520" cy="190" r="6"/><circle cx="715" cy="170" r="6"/><circle cx="395" cy="270" r="6"/></g>
+        <!-- zone labels -->
+        <g font-size="13" font-weight="600"><text x="54" y="62" fill="#9a5520">1 · Грязная зона</text><text x="304" y="62" fill="#4a5d70">2 · Техническая</text><text x="554" y="62" fill="#1d6450">3 · Чистая зона (+Δp)</text><text x="554" y="392" fill="#6a4f91">4 · Склад ГП</text><text x="304" y="308" fill="#2a56a3">5 · Бытовые</text><text x="54" y="308" fill="#4a5d70">6 · Инженерные / отходы</text></g>
+        <!-- flows -->
+        <g fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <path class="f-raw" d="M110 50V78M130 150V178M220 225H250V268H566V166" stroke="#c8743a" stroke-dasharray="9 6" marker-end="url(#a1)"/>
+          <path class="f-prod" d="M405 115H423M472 180V190H388M386 220H403M505 215H520Q532 200 548 197V118H578M700 112H728M780 140V178M780 220V243M765 300V330H680V408M800 450V548" stroke="#2b8a6e" marker-end="url(#a2)"/>
+          <path class="f-staff" d="M360 548V532M400 485H428M477 380V346H600" stroke="#3a6fc4" stroke-dasharray="3 7" marker-end="url(#a3)"/>
+          <path class="f-waste" d="M830 272H848M160 235V438M70 505H52" stroke="#b3403a" stroke-dasharray="14 6" marker-end="url(#a4)"/>
+        </g>
+        <!-- dims -->
+        <g stroke="#9aa1a8" stroke-width="1" font-size="11" fill="#575e65" text-anchor="middle"><path d="M40 20H860"/><text x="450" y="16">18 000</text><path d="M880 40V560"/><text x="890" y="300" transform="rotate(90 890 300)">12 000</text></g>
+      </svg>
+      <div class="stamp"><div>Лист</div><div>ТХ-1</div><div>Стадия</div><div>Концепт</div><div>Масштаб</div><div>1:100</div></div>
+    </div>
+    <aside class="legend">
+      <h3>Зонирование по ХАССП</h3>
+      <div class="zone"><i style="background:var(--dirty)"></i><div><b>1. Грязная зона</b><span>приёмка и хранение преформ и крышек, выдув тары</span></div></div>
+      <div class="zone"><i style="background:var(--tech)"></i><div><b>2. Техническая зона</b><span>сырая вода, узел вымораживания, баки чистой воды, доочистка</span></div></div>
+      <div class="zone"><i style="background:var(--clean)"></i><div><b>3. Чистая зона</b><span>розлив, укупорка, этикетировка, упаковка; подпор воздуха, вход только через санпропускник, брак выводится через отдельную дверь</span></div></div>
+      <div class="zone"><i style="background:var(--store)"></i><div><b>4. Склад готовой продукции</b><span>карантин до результатов ОТК, отгрузка через отдельные ворота</span></div></div>
+      <div class="zone"><i style="background:var(--staff)"></i><div><b>5. Бытовые помещения</b><span>гардероб уличной одежды → санпропускник → спецодежда</span></div></div>
+      <div class="zone"><i style="background:var(--waste)"></i><div><b>6. Отходы и инженерия</b><span>ВРУ, приточная установка, накопление отходов выдува с отдельным выходом</span></div></div>
+      <p class="note">Точки трапов с гидрозатвором отмечены кружками. Потоки сырья, тары, продукта, персонала и отходов не пересекаются.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="wrap">
+  <span class="n">02</span><h2>Экспликация помещений (фрагмент)</h2>
+  <p class="sub">В выдаче - по вашему плану здания, с фактическими площадями и классами отделки.</p>
+  <div class="tw"><table>
+    <thead><tr><th>№</th><th>Помещение</th><th>Зона</th><th>Площадь, м²</th><th>Отделка (пол / стены / потолок)</th></tr></thead>
+    <tbody>
+      <tr><td class="m">1.1</td><td>Склад преформ и укупорки</td><td><span class="dot" style="background:var(--dirty)"></span>грязная</td><td class="m">≈ 14</td><td>промышленный бетон с упрочнением / окраска моющаяся / окраска</td></tr>
+      <tr><td class="m">1.2</td><td>Участок выдува ПЭТ</td><td><span class="dot" style="background:var(--dirty)"></span>грязная</td><td class="m">≈ 18</td><td>полимерный пол / моющиеся панели / окраска</td></tr>
+      <tr><td class="m">2.1</td><td>Водоподготовка и вымораживание</td><td><span class="dot" style="background:var(--tech)"></span>техническая</td><td class="m">≈ 32</td><td>полимерный пол с уклоном к трапу / сэндвич-панели пищевые / панели</td></tr>
+      <tr><td class="m">3.1</td><td>Цех розлива и укупорки</td><td><span class="dot" style="background:var(--clean)"></span>чистая</td><td class="m">≈ 42</td><td>полиуретан-цемент, галтели / сэндвич-панели пищевые / панели, герметичные светильники</td></tr>
+      <tr><td class="m">4.1</td><td>Склад ГП и карантин</td><td><span class="dot" style="background:var(--store)"></span>склад</td><td class="m">≈ 36</td><td>промышленный бетон / окраска / окраска</td></tr>
+      <tr><td class="m">5.1</td><td>Санпропускник</td><td><span class="dot" style="background:var(--staff)"></span>бытовые</td><td class="m">≈ 6</td><td>керамогранит / плитка / влагостойкий потолок</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="wrap">
+  <span class="n">03</span><h2>Исходные данные для смежных разделов</h2>
+  <p class="sub">То, что нужно сметчику и монтажникам. Значения ниже - формат и порядок величин для демо; в работе считаются по паспортам вашего оборудования и фактическому помещению.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Потребитель</th><th>Электро, кВт</th><th>Вода / канализация</th><th>Воздух</th><th>Примечание</th></tr></thead>
+    <tbody>
+      <tr><td>Автомат выдува ПЭТ + компрессор ВД</td><td class="m">по паспорту</td><td>охлаждение форм (чиллер)</td><td>сжатый воздух ВД</td><td>основной потребитель, отвод тепла</td></tr>
+      <tr><td>Узел вымораживания (модули)</td><td class="m">по паспорту × N</td><td>ввод сырой воды, дренаж талой фракции</td><td>отвод тепла конденсаторов</td><td>трап с гидрозатвором у каждого модуля</td></tr>
+      <tr><td>Моноблок розлива-укупорки</td><td class="m">по паспорту</td><td>подача ЧВ, слив ополаскивания</td><td>сжатый воздух НД</td><td>в чистой зоне, подпор воздуха</td></tr>
+      <tr><td>Этикетировка, конвейер</td><td class="m">по паспорту</td><td>-</td><td>-</td><td></td></tr>
+      <tr><td>Термоупаковщик</td><td class="m">по паспорту</td><td>-</td><td>местная вытяжка</td><td>тепловыделения учитываются в вентиляции</td></tr>
+      <tr><td><b>Итого + запас и коэффициент спроса</b></td><td class="m"><b>расчёт</b></td><td>схема вводов и трапов</td><td>кратность, подпор в чистой зоне</td><td>сводная таблица в записке</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="wrap">
+  <span class="n">04</span><h2>Что проверяю на аудите помещения</h2>
+  <div class="grid3">
+    <div class="card"><h3>Конструкции</h3><ul><li>Высота до низа конструкций под выдув и баки</li><li>Несущая способность пола под накопительные ёмкости</li><li>Возможность уклонов пола и трапов</li></ul></div>
+    <div class="card"><h3>Коммуникации</h3><ul><li>Точки ввода воды, канализации, электричества</li><li>Доступная мощность и место под ВРУ</li><li>Трассы вентиляции, место под приточную установку</li></ul></div>
+    <div class="card"><h3>Санитарные требования</h3><ul><li>Разделение потоков и зон, тамбуры</li><li>Окружение здания и подъезды</li><li>Отделка, освещение, защита от вредителей</li></ul></div>
+  </div>
+  <p class="note">Аудит - по планам БТИ, фото и замерам, которые вы передаёте; список нужных замеров и фото пришлю в первый день.</p>
+</section>
+
+<section class="wrap">
+  <span class="n">05</span><h2>Этапы и результат</h2>
+  <div class="steps">
+    <div class="card"><b>Дни 1-2</b><h3>Аудит помещения</h3><p>Оценка пригодности, перечень доработок, риски.</p></div>
+    <div class="card"><b>Дни 2-4</b><h3>Планировка по ХАССП</h3><p>Зонирование, потоки, бытовой блок, 2 варианта на выбор.</p></div>
+    <div class="card"><b>Дни 4-6</b><h3>План ТХ</h3><p>Расстановка оборудования, экспликация, трапы, точки подключения.</p></div>
+    <div class="card"><b>Дни 6-7</b><h3>Требования смежникам</h3><p>Вода, канализация, отделка, электро, вентиляция - записка с расчётами.</p></div>
+  </div>
+  <div class="out" style="margin-top:16px"><span>Планы в PDF и DWG</span><span>Экспликация помещений</span><span>Пояснительная записка с расчётами</span><span>ТЗ на смежные разделы</span></div>
+</section>
+
+<footer class="wrap">Демо-концепт для обсуждения. Помещение, площади и состав - условные.</footer>
+<script>
+document.querySelectorAll('#tools button').forEach(b=>b.onclick=()=>{b.classList.toggle('off');document.querySelectorAll('.'+b.dataset.l).forEach(p=>p.style.display=b.classList.contains('off')?'none':'');});
+</script>
+</body>
+</html>
