@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Мак и мята - демо</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F3EE;--card:#fff;--ink:#221B18;--ink2:#5A504B;--mute:#7A6F69;--poppy:#D9411E;--poppy2:#B5300F;--mint:#2F6B5A;--mintbg:#E3EEE8;--line:#E6DED5;--serif:'Playfair Display',Georgia,serif;--sans:'Golos Text',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 15.5px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.w{max-width:1280px;margin:0 auto;padding:0 28px}
+.strip{background:var(--mint);color:#fff;font-size:13.5px;text-align:center;padding:9px 16px}
+.strip b{font-weight:700}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;gap:30px;height:72px}
+.logo{font:600 26px/1 var(--serif);letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.logo i{font-style:italic;color:var(--poppy)}
+.logo svg{width:30px;height:30px}
+header nav{display:flex;gap:26px;font-weight:500;font-size:14.5px;color:var(--ink2)}
+header nav a:hover{color:var(--poppy)}
+.sp{flex:1}
+.tel{font-weight:700;font-size:15px}
+.cart{position:relative;height:44px;padding:0 18px;border-radius:22px;background:var(--ink);color:#fff;font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.cart b{background:var(--poppy);border-radius:10px;min-width:20px;height:20px;font-size:12px;display:grid;place-items:center;padding:0 6px;transition:transform .2s}
+.cart b.bump{transform:scale(1.35)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:46px 0 70px}
+.hero h1{font:500 clamp(44px,6vw,88px)/.98 var(--serif);letter-spacing:-.02em}
+.hero h1 i{color:var(--poppy)}
+.hero p{font-size:18px;color:var(--ink2);margin:22px 0 30px;max-width:470px}
+.b{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 28px;border-radius:28px;font-weight:600;font-size:15px;transition:.2s}
+.b.p{background:var(--poppy);color:#fff}.b.p:hover{background:var(--poppy2)}
+.b.o{border:1.5px solid var(--ink)}.b.o:hover{background:var(--ink);color:#fff}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap}
+.slot{margin-top:34px;display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 18px;max-width:470px}
+.slot .ic{width:42px;height:42px;border-radius:12px;background:var(--mintbg);color:var(--mint);display:grid;place-items:center;flex:none}
+.slot b{display:block;font-size:15px}.slot small{color:var(--mute);font-size:13px}
+.slot .tm{margin-left:auto;font:600 20px var(--serif);color:var(--mint);font-variant-numeric:tabular-nums}
+.hpic{position:relative;border-radius:200px 200px 24px 24px;overflow:hidden;aspect-ratio:4/5;background:#eee}
+.hpic img{width:100%;height:100%;object-fit:cover}
+.hpic .tag{position:absolute;left:18px;bottom:18px;background:#fffffff0;border-radius:14px;padding:12px 16px;font-size:13.5px}
+.hpic .tag b{font:600 18px var(--serif);display:block}
+/* catalog */
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.sh h2{font:500 46px/1 var(--serif);letter-spacing:-.01em}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{height:40px;padding:0 16px;border-radius:20px;border:1px solid var(--line);background:var(--card);font-weight:500;font-size:14px}
+.chips button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.p{background:var(--card);border-radius:22px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.p:hover{transform:translateY(-4px);box-shadow:0 18px 40px #3a20100f}
+.p .ph{aspect-ratio:4/5;overflow:hidden;position:relative;background:#eee}
+.p .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.p:hover .ph img{transform:scale(1.05)}
+.p .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
+.p h3{font:500 20px/1.2 var(--serif)}
+.p small{color:var(--mute);font-size:13px}
+.p .row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px}
+.p .pr{font-weight:700;font-size:18px}
+.add{height:40px;padding:0 16px;border-radius:20px;background:var(--mintbg);color:var(--mint);font-weight:600;font-size:14px;transition:.2s}
+.add:hover{background:var(--mint);color:#fff}
+.add.ok{background:var(--mint);color:#fff}
+.lbl{position:absolute;top:12px;left:12px;background:#fff;border-radius:10px;padding:5px 10px;font-size:12px;font-weight:600}
+.sizes{display:flex;gap:6px;margin-top:8px}
+.sizes button{height:28px;min-width:34px;padding:0 8px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink2)}
+.sizes button.on{border-color:var(--ink);color:var(--ink)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:90px 0}
+.st{border-top:1.5px solid var(--ink);padding-top:18px}
+.st span{font:500 italic 40px/1 var(--serif);color:var(--poppy)}
+.st b{display:block;font-size:17px;margin:14px 0 6px}
+.st p{color:var(--ink2);font-size:14.5px}
+/* admin preview */
+.adm{background:var(--ink);color:#F1EBE4;border-radius:32px;padding:56px;display:grid;grid-template-columns:1fr 1.25fr;gap:50px;align-items:center}
+.adm h2{font:500 42px/1.05 var(--serif)}
+.adm h2 i{color:#FF9A7A}
+.adm p{color:#CFC4BB;margin-top:16px}
+.adm ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+.adm li{display:flex;gap:12px;font-size:15px}
+.adm li::before{content:"";flex:none;width:20px;height:20px;border-radius:6px;background:#2F6B5A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E");margin-top:2px}
+.win{background:#fff;color:#1d2327;border-radius:16px;overflow:hidden;font-size:13px;box-shadow:0 30px 70px #0007}
+.win .tb{background:#1d2327;color:#c3c4c7;display:flex;gap:6px;align-items:center;padding:10px 14px;font-size:12px}
+.win .tb i{width:10px;height:10px;border-radius:50%;background:#ffffff30}
+.win .in{display:grid;grid-template-columns:150px 1fr}
+.win .sd{background:#2c3338;color:#c3c4c7;padding:12px 0}
+.win .sd div{padding:8px 14px}
+.win .sd .on{background:#2F6B5A;color:#fff}
+.win .mn{padding:18px}
+.win h4{font-size:17px;font-weight:700;margin-bottom:12px}
+.fr{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center;margin-bottom:10px}
+.fr label{color:#50575e}
+.fr .v{border:1px solid #c3c4c7;border-radius:6px;padding:7px 10px;background:#fff}
+.fr .ph2{display:flex;gap:6px}.fr .ph2 img{width:44px;height:44px;border-radius:6px;object-fit:cover}
+.tgl{width:38px;height:22px;border-radius:11px;background:#2F6B5A;position:relative}.tgl::after{content:"";position:absolute;right:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+.save{background:#2F6B5A;color:#fff;border-radius:6px;padding:8px 14px;display:inline-block;margin-top:6px;font-weight:600}
+/* cms */
+.cms{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:90px 0}
+.cm{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px}
+.cm.best{border:2px solid var(--mint)}
+.cm .t{display:flex;justify-content:space-between;align-items:center}
+.cm h3{font:500 30px var(--serif)}
+.cm .badge{background:var(--mint);color:#fff;font-size:12px;font-weight:700;border-radius:8px;padding:5px 10px}
+.cm p{color:var(--ink2);margin-top:12px;font-size:15px}
+footer{border-top:1px solid var(--line);padding:40px 0 100px;color:var(--mute);font-size:13.5px}
+footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#demo{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:40;background:var(--ink);color:#fff;border-radius:20px;padding:10px 18px;font-size:13px;white-space:nowrap;box-shadow:0 10px 30px #0003}
+.toast{position:fixed;right:20px;top:90px;z-index:50;background:var(--mint);color:#fff;border-radius:14px;padding:12px 18px;font-weight:600;transform:translateY(-20px);opacity:0;transition:.3s;pointer-events:none}
+.toast.on{transform:none;opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:1020px){header nav{display:none}.hero,.adm,.cms{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.adm{padding:34px}}
+@media (max-width:600px){.w{padding:0 16px}.tel{display:none}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.sh h2{font-size:36px}.hero{padding-top:28px}.adm h2{font-size:32px}.win .in{grid-template-columns:1fr}.win .sd{display:none}.adm{padding:24px;border-radius:24px}.slot .tm{font-size:17px}}
+</style>
+</head>
+<body>
+<div class="strip">Доставка по Москве от 90 минут · <b>фото букета перед отправкой</b></div>
+<header><div class="w">
+  <a class="logo" href="#"><svg viewBox="0 0 30 30"><circle cx="11" cy="11" r="7" fill="#D9411E"/><circle cx="19" cy="11" r="7" fill="#E8603C"/><circle cx="15" cy="17" r="7" fill="#C23615"/><circle cx="15" cy="13" r="2.4" fill="#221B18"/><path d="M15 20v9" stroke="#2F6B5A" stroke-width="2"/></svg>Мак <i>и</i> мята</a>
+  <nav><a href="#cat">Букеты</a><a href="#cat">Моно</a><a href="#cat">Свадебные</a><a href="#steps">Доставка</a><a href="#adm">Корпоративным</a></nav>
+  <span class="sp"></span><a class="tel" href="#">+7 (495) 000-00-00</a>
+  <button class="cart" id="cart">Корзина <b id="cn">0</b></button>
+</div></header>
+
+<main class="w">
+  <section class="hero">
+    <div>
+      <h1>Цветы, которые говорят <i>за вас</i></h1>
+      <p>Авторские букеты из свежих сезонных цветов. Соберём за час, пришлём фото перед отправкой и привезём к нужному времени.</p>
+      <div class="acts"><a class="b p" href="#cat">Выбрать букет</a><a class="b o" href="#">Собрать свой</a></div>
+      <div class="slot"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b>Успеем сегодня к 18:00</b><small>если оформить заказ в течение</small></span><span class="tm" id="tm">01:47:12</span></div>
+    </div>
+    <div class="hpic"><img src="img/f1.jpg" alt="Букет маков в вазе"><div class="tag"><b>Маковое поле</b>моно-букет · от 4 900 ₽</div></div>
+  </section>
+
+  <section id="cat">
+    <div class="sh"><h2>Букеты</h2><div class="chips" id="chips"><button class="on">Все</button><button>Розы</button><button>Сезонные</button><button>Моно</button><button>До 5 000 ₽</button></div></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="steps" id="steps">
+    <div class="st"><span>01</span><b>Выбираете букет</b><p>Или присылаете фото-референс - соберём похожий.</p></div>
+    <div class="st"><span>02</span><b>Оплачиваете онлайн</b><p>Картой или СБП. Заявка сразу приходит флористу в Telegram и на почту.</p></div>
+    <div class="st"><span>03</span><b>Фото перед отправкой</b><p>Присылаем фото готового букета - можно попросить поправить.</p></div>
+    <div class="st"><span>04</span><b>Доставка ко времени</b><p>Интервал 1 час, курьер звонит заранее. Можно анонимно.</p></div>
+  </section>
+
+  <section class="adm" id="adm">
+    <div>
+      <h2>Админка - <i>без лишнего</i></h2>
+      <p>Так будет выглядеть добавление букета. Только нужные поля, всё на русском.</p>
+      <ul><li>Добавить букет за 2 минуты: фото, цена, размеры, наличие</li><li>Заявки дублируются в Telegram и на почту</li><li>Защита от ботов: невидимая капча + фильтр спама</li><li>Видео-инструкция и PDF-шпаргалка по всем действиям</li></ul>
+    </div>
+    <div class="win"><div class="tb"><i></i><i></i><i></i><span style="margin-left:8px">Админ-панель · Букеты</span></div>
+      <div class="in"><div class="sd"><div>Заявки <b style="background:#D9411E;color:#fff;border-radius:8px;padding:0 6px;margin-left:4px">3</b></div><div class="on">Букеты</div><div>Категории</div><div>Доставка</div><div>Баннеры</div><div>Отзывы</div></div>
+      <div class="mn"><h4>Редактировать букет</h4>
+        <div class="fr"><label>Название</label><div class="v">Маковое поле</div></div>
+        <div class="fr"><label>Цена, ₽</label><div class="v">S 4 900 · M 6 900 · L 9 500</div></div>
+        <div class="fr"><label>Фото</label><div class="ph2"><img src="img/f1.jpg" alt=""><img src="img/f3.jpg" alt=""><span class="v" style="display:grid;place-items:center;width:44px;height:44px;padding:0">+</span></div></div>
+        <div class="fr"><label>Категория</label><div class="v">Моно, Сезонные</div></div>
+        <div class="fr"><label>В наличии</label><div class="tgl"></div></div>
+        <span class="save">Сохранить</span>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="cms">
+    <div class="cm best"><div class="t"><h3>WordPress + WooCommerce</h3><span class="badge">Рекомендую</span></div><p>Для цветочного магазина - оптимально: простая админка, которую освоит любой сотрудник, дешёвый хостинг, тысячи готовых решений для доставки, оплаты и CRM (amoCRM, Битрикс24, RetailCRM подключаются плагином). Легко найти специалиста на поддержку.</p></div>
+    <div class="cm"><div class="t"><h3>1С-Битрикс</h3></div><p>Мощнее для крупных сетей с 1С и складами, но лицензия от 6-40 тыс. ₽ в год, хостинг дороже, разработка и поддержка - в 2-3 раза дороже. Для одного-двух салонов избыточно.</p></div>
+  </section>
+</main>
+
+<footer><div class="w"><span>Мак и мята - название и логотип для примера</span><span>Фото: Wikimedia Commons (CC BY-SA), натюрморт Я. Брейгеля - общественное достояние</span></div></footer>
+<div class="toast" id="toast">Добавлено в корзину</div>
+<div id="demo">Демо дизайна · тексты и фото заменим на ваши</div>
+
+<script>
+(function(){
+  var P=[['f1.jpg','Маковое поле','15 маков, сезонный',4900,'Хит','Моно Сезонные До 5 000 ₽'],['f2.jpg','Нежность','розы, гвоздики, гипсофила',5600,'','Розы'],['f3.jpg','Дача в июле','ромашки, полевые травы',3200,'Новинка','Сезонные До 5 000 ₽'],['f4.jpg','Голландский натюрморт','авторский, 40+ цветов',18500,'Авторский','Розы Сезонные']];
+  var g=document.getElementById('grid');
+  function draw(f){g.innerHTML=P.filter(function(p){return f==='Все'||p[5].indexOf(f)>-1}).map(function(p){return '<article class="p"><div class="ph"><img src="img/'+p[0]+'" alt="" loading="lazy">'+(p[4]?'<span class="lbl">'+p[4]+'</span>':'')+'</div><div class="bd"><h3>'+p[1]+'</h3><small>'+p[2]+'</small><div class="sizes"><button class="on" data-k="1">S</button><button data-k="1.4">M</button><button data-k="1.9">L</button></div><div class="row"><span class="pr" data-b="'+p[3]+'">'+p[3].toLocaleString('ru-RU')+' ₽</span><button class="add">В корзину</button></div></div></article>'}).join('')}
+  draw('Все');
+  document.getElementById('chips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});draw(b.textContent)});
+  var n=0,cn=document.getElementById('cn'),t=document.getElementById('toast');
+  g.addEventListener('click',function(e){
+    var s=e.target.closest('.sizes button');
+    if(s){var c=s.closest('.p');c.querySelectorAll('.sizes button').forEach(function(x){x.classList.toggle('on',x===s)});var pr=c.querySelector('.pr');pr.textContent=(Math.round(+pr.dataset.b*+s.dataset.k/100)*100).toLocaleString('ru-RU')+' ₽';return}
+    var a=e.target.closest('.add');if(!a)return;n++;cn.textContent=n;cn.classList.add('bump');setTimeout(function(){cn.classList.remove('bump')},200);a.textContent='Добавлено ✓';a.classList.add('ok');t.classList.add('on');setTimeout(function(){t.classList.remove('on');a.textContent='В корзину';a.classList.remove('ok')},1600)});
+  var end=Date.now()+(1*3600+47*60+12)*1000,tm=document.getElementById('tm');
+  setInterval(function(){var s=Math.max(0,Math.round((end-Date.now())/1000));tm.textContent=[s/3600|0,(s%3600)/60|0,s%60].map(function(x){return String(x).padStart(2,'0')}).join(':')},1000);
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href="#"]');if(a)e.preventDefault()});
+})();
+</script>
+</body>
+</html>
