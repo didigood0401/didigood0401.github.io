@@ -1,0 +1,65 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>База заводов ЖБИ - образец</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f3f0;--ink:#1e2226;--mute:#5d6166;--line:#d9d6cf;--acc:#2f3b45;--ok:#2d7a4f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{padding:56px 0 28px}
+h1{font-weight:600;font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.01em}
+.lead{margin-top:12px;max-width:700px;color:#3e4246}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--acc);color:#fff;text-decoration:none;font-weight:500;padding:12px 18px;border-radius:8px}
+.btn:hover{background:#1f2830}
+.stat{display:flex;gap:28px;flex-wrap:wrap;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+.stat b{display:block;font-size:26px;font-weight:600}
+.stat span{font-size:13px;color:var(--mute)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff;margin:8px 0 10px}
+table{border-collapse:collapse;width:100%;min-width:980px;font-size:13.5px}
+th{background:var(--acc);color:#fff;text-align:left;font-weight:500;padding:11px 12px;white-space:nowrap}
+th small{display:block;font-size:11px;opacity:.7;font-weight:400}
+td{padding:10px 12px;border-top:1px solid #ebe8e2;vertical-align:top}
+td.m{font-family:"IBM Plex Mono",monospace;font-size:12.5px;white-space:nowrap}
+tr:nth-child(even) td{background:#faf9f7}
+.note{font-size:13px;color:var(--mute);margin-bottom:46px}
+h2{font-size:22px;font-weight:600;margin:0 0 16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px}
+.steps div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+.steps b{display:block;margin-bottom:6px}
+.steps p{font-size:14px;color:#44484d}
+.steps i{font-style:normal;color:var(--ok);font-weight:600;margin-right:6px}
+footer{font-size:12px;color:var(--mute);padding:0 0 40px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+@media(max-width:480px){.wrap{padding:0 16px}header{padding-top:36px}}
+</style></head><body>
+<header class="wrap">
+<h1>База заводов ЖБИ по России - образец</h1>
+<p class="lead">Живой фрагмент базы: действующие производители железобетонных изделий из разных регионов. Колонки строго по вашему ТЗ, один email в ячейке с приоритетом snab@ / zakupki@ / info@ / office@, телефоны в формате +7XXXXXXXXXX.</p>
+<div class="row"><a class="btn" href="obrazec_baza_zhbi.xlsx" download>Скачать образец .xlsx</a></div>
+<div class="stat"><div><b>10</b><span>строк в образце</span></div><div><b>20 000+</b><span>организаций с ОКВЭД 23.6 в реестре</span></div><div><b>100%</b><span>почт с рабочим почтовым сервером (MX)</span></div><div><b>0</b><span>ликвидированных и банкротов</span></div></div>
+</header>
+<section class="wrap">
+<div class="tw"><table><thead><tr><th>A<small>Название компании</small></th><th>Б<small>Регион</small></th><th>В<small>Город</small></th><th>Г<small>Электронная почта</small></th><th>Д<small>Телефон</small></th><th>Е<small>Сайт</small></th></tr></thead><tbody>
+<tr><td>ООО КОМБИНАТ ИННОВАЦИОННЫХ ТЕХНОЛОГИЙ - МОНАРХ</td><td>Москва</td><td>Москва</td><td class=m>kit@mon-arch.ru</td><td class=m>+74952211002</td><td class=m>kit-monarch.ru</td></tr>
+<tr><td>ООО ГЛАВСТРОЙ-УСТЬ-ЛАБИНСК</td><td>Краснодарский край</td><td>Усть-Лабинск</td><td class=m>info@gsblock.ru</td><td class=m>+74957729720</td><td class=m>gsblock.ru</td></tr>
+<tr><td>АО ПО БАРРИКАДА</td><td>Ленинградская область</td><td>Гатчина</td><td class=m>zakupki@barrikada.ru</td><td class=m>+78137148501</td><td class=m>barrikada.ru</td></tr>
+<tr><td>ООО ЭЛГАД-ЗСИ</td><td>Московская область</td><td>Коломна</td><td class=m>info.zsi@poritep.ru</td><td class=m>+74966192733</td><td class=m>el-block.ru</td></tr>
+<tr><td>ООО ПК СТАНДАРТПАРК</td><td>Тульская область</td><td>Тула</td><td class=m>info@lakrost.ru</td><td class=m>+74993224981</td><td class=m>standartpark.ru</td></tr>
+<tr><td>ООО БОРСКИЙ СИЛИКАТНЫЙ ЗАВОД</td><td>Нижегородская область</td><td>Бор</td><td class=m>silikat@sinn.ru</td><td class=m>+78312601260</td><td class=m>bor-silikat.ru</td></tr>
+<tr><td>ЗАО БЕЛШПАЛА</td><td>Белгородская область</td><td>Белгород</td><td class=m>sale@belshpala.ru</td><td class=m>+79209121555</td><td class=m>belshpala.ru</td></tr>
+<tr><td>ООО ДСК ГРАС - САРАТОВ</td><td>Саратовская область</td><td>Саратов</td><td class=m>sales@dskgras.ru</td><td class=m>+78005050654</td><td class=m>dskgras.ru</td></tr>
+<tr><td>АО СЗ АПСК ГУЛЬКЕВИЧСКИЙ</td><td>Краснодарский край</td><td>Гулькевичи</td><td class=m>apskg@apskg.ru</td><td class=m>+78616055106</td><td class=m>apskg.ru</td></tr>
+<tr><td>ООО ПОКРОВСКИЙ ЗЖБИ</td><td>Москва</td><td>Москва</td><td class=m>snab@gbipokrov.ru</td><td class=m>+74924364271</td><td class=m>gbipokrov.ru</td></tr>
+</tbody></table></div>
+<p class="note">Данные из открытых источников: ЕГРЮЛ (статус компании), сайты компаний, справочники. Собрано 05.11.2026.</p>
+<h2>Как чищу и проверяю базу</h2>
+<div class="steps">
+<div><b><i>01</i>Статус компании</b><p>Каждая организация сверяется по ЕГРЮЛ: в базу попадают только действующие, без ликвидации, реорганизации и банкротства.</p></div>
+<div><b><i>02</i>Проверка email</b><p>Синтаксис, наличие почтового сервера у домена (MX), проверка ящика на существование. Отсеиваю личные и кадровые адреса, оставляю закупки и офис.</p></div>
+<div><b><i>03</i>Дубли и формат</b><p>Один email - одна строка, без дублей между филиалами. Названия без кавычек, телефоны приведены к +7XXXXXXXXXX.</p></div>
+</div>
+</section>
+<footer class="wrap">Образец для обсуждения. В полной базе - все регионы России, ЖБИ и монолитное строительство.</footer>
+</body></html>
