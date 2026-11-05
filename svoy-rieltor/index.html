@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Свой риелтор - логотип</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700;800&family=Manrope:wght@400;600;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1F3A5F;--terra:#C8643B;--paper:#F4F1EC;--graph:#23262B;--bg:#ecebe8;--ink:#1b1d20;--mute:#55595e;--line:#d7d5d0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Onest,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{padding:56px 0 30px}
+h1{font-size:clamp(30px,4.4vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
+.lead{margin-top:12px;max-width:680px;color:#3d4146}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.tabs button{font:600 14px Onest,sans-serif;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:99px;padding:10px 18px;cursor:pointer}
+.tabs button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+section.wrap{padding-top:56px}
+h2{font-size:24px;font-weight:700;margin-bottom:14px;letter-spacing:-.01em}
+.sub{color:var(--mute);margin:-6px 0 18px;max-width:700px}
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.big .v2{font-size:.74em}
+.pane{border-radius:16px;min-height:300px;display:grid;place-items:center;padding:40px 24px;position:relative}
+.pane.l{background:var(--paper);border:1px solid var(--line)}
+.pane.d{background:var(--navy)}
+.pane small{position:absolute;left:16px;top:12px;font-size:12px;color:var(--mute)}
+.pane.d small{color:#c3cede}
+/* logo variants */
+.logo{display:inline-flex;line-height:1;color:var(--navy);white-space:nowrap}
+.d .logo,.inv .logo{color:#fff}
+.v1{flex-direction:column;align-items:flex-start;gap:.12em;font-family:Onest,sans-serif}
+.v1 .a{font-weight:800;font-size:1em;letter-spacing:.02em}
+.v1 .b{font-weight:500;font-size:.42em;letter-spacing:.38em;padding-left:.06em;display:flex;align-items:center;gap:.5em}
+.v1 .b::before{content:"";width:1.4em;height:.12em;background:var(--terra);display:block}
+.v2{font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.02em;gap:.28em;align-items:baseline}
+.v2 .a{color:inherit}
+.v2 .a em{font-style:normal;color:var(--terra)}
+.v2 .b{font-weight:400;opacity:.92}
+.v3{font-family:Unbounded,sans-serif;font-weight:700;flex-direction:column;align-items:center;gap:.22em;text-transform:uppercase}
+.v3 .a{font-size:1em;letter-spacing:.06em}
+.v3 .b{font-size:.36em;font-weight:500;letter-spacing:.42em;color:var(--terra);padding-left:.42em}
+.d .v3 .b{color:#e39a78}
+.big{font-size:clamp(46px,7vw,84px)}
+/* avatars */
+.av{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-end}
+.avb{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12.5px;color:var(--mute)}
+.sq{width:100px;height:100px;display:grid;place-items:center;overflow:hidden}
+.sq.c{border-radius:50%}
+.sq.n{background:var(--navy)}.sq.p{background:var(--paper);border:1px solid var(--line)}.sq.t{background:var(--terra)}
+.mono{font-weight:800;line-height:.95;text-align:center;color:#fff}
+.sq.p .mono{color:var(--navy)}
+/* mockups */
+.mocks{display:grid;grid-template-columns:1.2fr 1fr .55fr;gap:16px;align-items:stretch}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h3{font-size:14px;color:var(--mute);font-weight:500;margin-bottom:12px}
+.bc{display:grid;gap:12px}
+.biz{aspect-ratio:90/50;border-radius:6px;box-shadow:0 10px 24px -12px rgba(0,0,0,.35);position:relative;overflow:hidden;container-type:inline-size}
+.biz.f{background:var(--navy);display:grid;place-items:center}
+.biz.f .logo{font-size:9cqw}
+.biz.b{background:var(--paper);padding:7cqw}
+.biz.b .nm{font-weight:700;font-size:5cqw;color:var(--navy)}
+.biz.b .rl{font-size:2.8cqw;color:var(--terra);letter-spacing:.2em;text-transform:uppercase;margin-top:1cqw}
+.biz.b .ct{position:absolute;left:7cqw;bottom:7cqw;font-size:3.2cqw;color:#2a2d31;line-height:1.5}
+.biz.b .lg{position:absolute;right:7cqw;bottom:7cqw;font-size:4.2cqw}
+.avito{border:1px solid #e3e3e3;border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;background:#fafafa}
+.avito .sq{width:56px;height:56px;flex:none}
+.avito .sq .mono{font-size:20px}
+.avito b{display:block;font-size:15px}
+.avito span{font-size:13px;color:#4e5257}
+.roll{background:#f5f3ef;border-radius:10px;display:flex;justify-content:center;padding:14px}
+.rollup{width:100%;max-width:120px;aspect-ratio:80/200;background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:16px 8px;container-type:inline-size}
+.rollup .logo{font-size:19cqw}
+.rollup .bt{width:100%;background:var(--navy);color:#fff;text-align:center;font-size:7cqw;padding:6cqw 2cqw;line-height:1.3}
+/* guide */
+.guide{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.zone{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;place-items:center;min-height:240px}
+.cs{position:relative;padding:44px;outline:1px dashed #8d98a6;outline-offset:-1px}
+.cs::before{content:"X";position:absolute;left:10px;top:10px;font-size:12px;color:#6b7684}
+.cs .inner{outline:1px solid rgba(200,100,59,.6)}
+.cs .logo{font-size:52px}
+.ruls{font-size:14px;color:#3d4146;display:grid;gap:8px}
+.ruls li{list-style:none;padding-left:16px;position:relative}
+.ruls li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:2px;background:var(--terra)}
+.pal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sw{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.sw i{display:block;height:92px}
+.sw div{padding:12px 14px;font-size:13px;line-height:1.6}
+.sw b{display:block;font-size:14px}
+.sw code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:#3d4146}
+.fonts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fonts .card p{font-size:28px;line-height:1.2;margin-bottom:8px}
+.fonts .card span{font-size:13.5px;color:var(--mute)}
+.ok{display:inline-block;background:#e2f1e8;color:#1f6a43;font-size:12.5px;font-weight:600;border-radius:6px;padding:3px 9px;margin-top:8px}
+.files{display:flex;gap:8px;flex-wrap:wrap}
+.files span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 13px;font-size:14px;font-weight:500}
+footer{padding:44px 0 40px;color:var(--mute);font-size:13px}
+@media(max-width:900px){.duo,.guide,.fonts{grid-template-columns:1fr}.mocks{grid-template-columns:1fr 1fr}.pal{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.wrap{padding:0 16px}.mocks{grid-template-columns:1fr}.cs{padding:28px}.cs .logo{font-size:38px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>«Свой риелтор» - шрифтовой логотип и мини-гайд</h1>
+  <p class="lead">Три варианта чисто буквенного логотипа без иконок: строго, современно, читается на аватарке 100×100. Ниже - проверка на Авито, визитке и ролл-апе, охранное поле, палитра для экрана и печати, бесплатные шрифты.</p>
+  <div class="tabs" id="tabs"><button data-v="v1" class="on">Вариант 1 · Опора</button><button data-v="v2">Вариант 2 · Строка</button><button data-v="v3">Вариант 3 · Штамп</button></div>
+</header>
+
+<section class="wrap">
+  <h2>Логотип на светлом и тёмном фоне</h2>
+  <div class="duo"><div class="pane l"><small>Основная версия</small><div class="big" data-logo></div></div><div class="pane d"><small>Инверсия</small><div class="big" data-logo></div></div></div>
+</section>
+
+<section class="wrap">
+  <h2>Аватарка 100×100 - реальный размер</h2>
+  <p class="sub">Для Авито, ЦИАН и Домклик: на маленьком размере работает сокращённая версия, полное название - в имени профиля.</p>
+  <div class="av" id="av"></div>
+</section>
+
+<section class="wrap">
+  <h2>В деле</h2>
+  <div class="mocks">
+    <div class="card"><h3>Визитка 90×50 (лицо и оборот)</h3><div class="bc"><div class="biz f d"><span data-logo></span></div><div class="biz b"><div class="nm">Имя Фамилия</div><div class="rl">частный риелтор</div><div class="ct">+7 (900) 000-00-00<br>mail@example.ru</div><div class="lg" data-logo></div></div></div></div>
+    <div class="card"><h3>Профиль на Авито</h3><div class="avito"><div class="sq c n" data-av></div><div><b>Свой риелтор</b><span>Продажа и покупка жилья · на сайте с 2026</span></div></div>
+      <h3 style="margin-top:18px">Листовка / раздатка</h3><div class="pane l" style="min-height:150px;padding:24px"><div style="font-size:38px" data-logo></div></div></div>
+    <div class="card"><h3>Ролл-ап 80×200</h3><div class="roll"><div class="rollup"><span data-logo></span><div class="bt">Продать и купить жильё - спокойно</div></div></div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Мини-гайд</h2>
+  <div class="guide">
+    <div class="zone"><div class="cs"><div class="inner" data-logo></div></div></div>
+    <div class="card"><h3>Правила использования</h3><ul class="ruls">
+      <li>Охранное поле X = высота буквы «С» со всех сторон - внутрь не заходят текст и другие элементы.</li>
+      <li>Минимальный размер: 24 мм по ширине в печати, 120 px на экране; меньше - сокращённая версия для аватарки.</li>
+      <li>На светлом фоне - тёмно-синий, на тёмном и на фото - белый.</li>
+      <li>Нельзя: растягивать, менять шрифт, добавлять тени и обводку, ставить на пёстрый фон без подложки.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Палитра</h2>
+  <p class="sub">HEX/RGB - для экранов. CMYK - для типографии, финально сверяю по пробной печати.</p>
+  <div class="pal">
+    <div class="sw"><i style="background:#1F3A5F"></i><div><b>Глубокий синий</b><code>HEX #1F3A5F<br>RGB 31 58 95<br>CMYK 88 65 28 18</code></div></div>
+    <div class="sw"><i style="background:#C8643B"></i><div><b>Терракота</b><code>HEX #C8643B<br>RGB 200 100 59<br>CMYK 10 68 80 4</code></div></div>
+    <div class="sw"><i style="background:#F4F1EC"></i><div><b>Светлый камень</b><code>HEX #F4F1EC<br>RGB 244 241 236<br>CMYK 3 4 7 0</code></div></div>
+    <div class="sw"><i style="background:#23262B"></i><div><b>Графит</b><code>HEX #23262B<br>RGB 35 38 43<br>CMYK 72 62 55 60</code></div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Шрифты</h2>
+  <div class="fonts">
+    <div class="card"><p style="font-family:Onest;font-weight:800" id="fname">Onest</p><span>Для логотипа и заголовков. Кириллица, хорошая читаемость в мелком размере.</span><br><span class="ok">Бесплатно для коммерции · SIL OFL</span></div>
+    <div class="card"><p style="font-family:Manrope;font-weight:600">Manrope</p><span>Для текстов на визитках, листовках и в объявлениях.</span><br><span class="ok">Бесплатно для коммерции · SIL OFL</span></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Что вы получите</h2>
+  <div class="files"><span>AI</span><span>EPS</span><span>SVG</span><span>PDF</span><span>PNG прозрачный</span><span>JPG</span><span>Аватарка 100×100 и 500×500</span><span>Гайд PDF</span></div>
+</section>
+
+<footer class="wrap">Демо-эскиз для обсуждения. Контакты на визитке - условные.</footer>
+
+<script>
+const V={
+ v1:'<span class="logo v1"><span class="a">СВОЙ</span><span class="b">РИЕЛТОР</span></span>',
+ v2:'<span class="logo v2"><span class="a">Сво<em>й</em></span><span class="b">риелтор</span></span>',
+ v3:'<span class="logo v3"><span class="a">Свой</span><span class="b">риелтор</span></span>'
+};
+const MONO={v1:["СВОЙ",25,"Onest"],v2:["Свой",26,"Manrope"],v3:["СВОЙ",19,"Unbounded"]};
+const FN={v1:'Onest',v2:'Manrope',v3:'Unbounded'};
+function set(v){
+  document.querySelectorAll('[data-logo]').forEach(e=>e.innerHTML=V[v]);
+  const [t,s,f]=MONO[v];
+  const m=(sz)=>`<div class="mono" style="font-family:${f};font-size:${sz}px;letter-spacing:.02em">${t}<div style="font-size:${Math.round(sz*.36)}px;font-weight:500;letter-spacing:.2em;margin-top:3px;opacity:.9">РИЕЛТОР</div></div>`;
+  document.getElementById('av').innerHTML=[['n c','круг, синий'],['n','квадрат, синий'],['p c','круг, светлый'],['t c','круг, терракота']].map(([c,l])=>`<div class="avb"><div class="sq ${c}">${m(s)}</div>${l}</div>`).join('');
+  document.querySelectorAll('[data-av]').forEach(e=>e.innerHTML=m(Math.round(s*.55)).replace('margin-top:3px','margin-top:1px'));
+  const fn=document.getElementById('fname');fn.textContent=FN[v];fn.style.fontFamily=FN[v];
+  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+}
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>set(b.dataset.v));
+set('v1');
+</script>
+</body>
+</html>
