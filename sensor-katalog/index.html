@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Тачпоинт - каталог демо</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F5F7;--card:#fff;--ink:#0F1720;--ink2:#46525E;--mute:#64707C;--line:#DDE3E8;--acc:#1F6BFF;--acc2:#0E4FD1;--deep:#0B1219;--glow:#5BE0C8;--sans:'Manrope',system-ui,sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:500 15px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inherit}
+.w{max-width:1280px;margin:0 auto;padding:0 28px}
+header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+header .w{display:flex;align-items:center;gap:30px;height:70px}
+.logo{display:flex;gap:10px;align-items:center;font-weight:800;font-size:19px;letter-spacing:-.02em}
+.logo i{width:30px;height:30px;border-radius:8px;background:var(--ink);position:relative;display:block}
+.logo i::after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--glow);left:10px;top:10px;box-shadow:0 0 0 5px #5BE0C833}
+header nav{display:flex;gap:24px;font-weight:600;font-size:14.5px;color:var(--ink2)}
+header nav a:hover{color:var(--acc)}
+.sp{flex:1}
+.tel{font-weight:800}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:10px;font-weight:700;font-size:14.5px;cursor:pointer;border:0;transition:.2s}
+.b.a{background:var(--acc);color:#fff}.b.a:hover{background:var(--acc2)}
+.b.o{background:#fff;border:1.5px solid var(--line)}.b.o:hover{border-color:var(--ink)}
+/* hero */
+.hero{background:var(--deep);color:#E9EEF3;overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 78% 40%,#1F6BFF40,transparent 70%),linear-gradient(#ffffff08 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,#ffffff08 1px,transparent 1px) 0 0/40px 40px}
+.hero .w{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-top:70px;padding-bottom:70px}
+.hero .k{font:500 12px var(--mono);color:var(--glow);letter-spacing:.08em}
+.hero h1{font-weight:800;font-size:clamp(38px,4.8vw,64px);line-height:1.04;letter-spacing:-.035em;margin:16px 0 18px}
+.hero p{font-size:17px;color:#AEB9C4;max-width:500px}
+.hero .acts{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.hero .b.o{background:transparent;border-color:#ffffff30;color:#fff}
+.kiosk{justify-self:center;width:min(300px,70vw);filter:drop-shadow(0 40px 60px #0008)}
+.kiosk .scr{animation:scr 6s ease-in-out infinite}
+@keyframes scr{0%,45%{opacity:1}50%,95%{opacity:.0}100%{opacity:1}}
+.tap{transform-origin:center;animation:tap 3s ease-out infinite}
+@keyframes tap{0%{r:4;opacity:.9}70%{r:26;opacity:0}100%{opacity:0}}
+/* catalog */
+.cat{display:grid;grid-template-columns:250px 1fr;gap:28px;padding:50px 0 80px}
+.side{position:sticky;top:94px;align-self:start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.side h3{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:6px 6px 10px}
+.side button{display:flex;justify-content:space-between;width:100%;padding:10px 12px;border-radius:8px;border:0;background:none;cursor:pointer;font-weight:600;font-size:14.5px;text-align:left}
+.side button span{color:var(--mute);font-family:var(--mono);font-size:12.5px}
+.side button.on{background:var(--ink);color:#fff}.side button.on span{color:#ffffffa0}
+.side button:hover:not(.on){background:var(--bg)}
+.side .f{border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+.side label{display:flex;gap:10px;align-items:center;padding:6px 6px;font-size:14px;cursor:pointer}
+.side input{accent-color:var(--acc);width:16px;height:16px}
+.top{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px;gap:16px;flex-wrap:wrap}
+.top h2{font-size:32px;font-weight:800;letter-spacing:-.03em}
+.top .crumbs{font-size:13px;color:var(--mute);margin-bottom:4px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.p{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:.25s}
+.p:hover{border-color:var(--acc);box-shadow:0 14px 34px #1F6BFF1a;transform:translateY(-3px)}
+.p .im{height:250px;overflow:hidden;background:linear-gradient(160deg,#EEF2F6,#E2E8EE);display:grid;place-items:center;position:relative}
+.p .im svg{height:210px;max-width:85%;width:auto}
+.p .tg{position:absolute;left:12px;top:12px;font:500 11px var(--mono);background:#fff;border-radius:6px;padding:4px 8px;color:var(--ink2)}
+.p .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.p h4{font-size:16.5px;font-weight:800;letter-spacing:-.01em}
+.p .sp2{display:flex;flex-wrap:wrap;gap:6px}
+.p .sp2 span{font:500 11.5px var(--mono);color:var(--ink2);background:var(--bg);border-radius:5px;padding:3px 7px}
+.p .ft{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px}
+.p .pr{font-weight:800}
+.p .pr small{display:block;font-weight:500;font-size:12px;color:var(--mute)}
+.p .ft .b{height:38px;padding:0 14px;font-size:13.5px}
+/* product modal */
+.md{position:fixed;inset:0;z-index:60;background:#0B1219b3;display:none;align-items:center;justify-content:center;padding:20px}
+.md.on{display:flex;animation:fd .25s}
+@keyframes fd{from{opacity:0}}
+.mw{background:var(--card);border-radius:18px;max-width:960px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1.1fr;position:relative}
+.mw .im{background:linear-gradient(160deg,#EEF2F6,#E2E8EE);display:grid;place-items:center;min-height:440px}
+.mw .im svg{height:340px;max-width:85%}
+.mw .bd{padding:34px}
+.mw h3{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:6px 0 10px}
+.mw table{width:100%;border-collapse:collapse;margin:16px 0 22px;font-size:14px}
+.mw td{padding:9px 0;border-bottom:1px solid var(--line)}
+.mw td:first-child{color:var(--mute);width:46%}
+.x{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:10px;background:var(--bg);border:0;cursor:pointer;font-size:18px}
+form.lead{display:grid;gap:10px}
+form.lead input{height:46px;border:1.5px solid var(--line);border-radius:10px;padding:0 14px;outline:0}
+form.lead input:focus{border-color:var(--acc)}
+/* admin + cms */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-bottom:80px}
+.h{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+.h .n{font:500 12px var(--mono);color:var(--acc)}
+.h b{display:block;font-size:19px;font-weight:800;margin:10px 0 8px;letter-spacing:-.01em}
+.h p{color:var(--ink2);font-size:14.5px}
+.h.dk{background:var(--deep);color:#E9EEF3;border-color:var(--deep)}.h.dk p{color:#AEB9C4}.h.dk .n{color:var(--glow)}
+footer{background:var(--deep);color:#8A96A2;padding:34px 0 100px;font-size:13.5px}
+#demo{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;background:var(--ink);color:#fff;border-radius:10px;padding:10px 16px;font-size:13px;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@media (max-width:1020px){header nav{display:none}.hero .w,.mw{grid-template-columns:1fr}.cat{grid-template-columns:1fr}.side{position:static}.grid{grid-template-columns:1fr 1fr}.how{grid-template-columns:1fr}.mw .im{min-height:280px}}
+@media (max-width:600px){.w{padding:0 16px}.tel{display:none}.grid{grid-template-columns:1fr}.kiosk{display:none}.mw .bd{padding:22px}#demo{font-size:12px}}
+</style>
+</head>
+<body>
+<header><div class="w">
+  <a class="logo" href="#"><i></i>Тачпоинт</a>
+  <nav><a href="#cat">Каталог</a><a href="#how">Решения для ТЦ</a><a href="#how">Проекты</a><a href="#how">О компании</a></nav>
+  <span class="sp"></span><a class="tel" href="#">8 800 000-00-00</a><button class="b a" data-open="-1">Получить КП</button>
+</div></header>
+
+<section class="hero"><div class="w">
+  <div>
+    <span class="k">// интерактивные стойки · киоски · терминалы</span>
+    <h1>Сенсорное оборудование для бизнеса и ТЦ</h1>
+    <p>Производим и поставляем интерактивные киоски, информационные терминалы и сенсорные столы. Брендирование, ПО и монтаж под ключ.</p>
+    <div class="acts"><a class="b a" href="#cat">Смотреть каталог</a><button class="b o" data-open="-1">Подобрать решение</button></div>
+  </div>
+  <svg class="kiosk" viewBox="0 0 200 400" aria-hidden="true">
+    <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1F6BFF"/><stop offset="1" stop-color="#5BE0C8"/></linearGradient></defs>
+    <path d="M40 20h120a12 12 0 0 1 12 12v300H28V32a12 12 0 0 1 12-12z" fill="#1A2530"/>
+    <rect x="40" y="36" width="120" height="200" rx="6" fill="url(#sg)"/>
+    <g class="scr"><rect x="52" y="52" width="96" height="14" rx="4" fill="#ffffff70"/><rect x="52" y="76" width="44" height="44" rx="6" fill="#ffffff40"/><rect x="104" y="76" width="44" height="44" rx="6" fill="#ffffff40"/><rect x="52" y="128" width="44" height="44" rx="6" fill="#ffffff40"/><rect x="104" y="128" width="44" height="44" rx="6" fill="#ffffff40"/><rect x="52" y="200" width="96" height="22" rx="11" fill="#fff"/></g>
+    <circle class="tap" cx="126" cy="150" r="4" fill="none" stroke="#fff" stroke-width="2"/>
+    <rect x="70" y="256" width="60" height="8" rx="4" fill="#0B1219"/>
+    <rect x="76" y="284" width="48" height="30" rx="4" fill="#0B1219"/>
+    <path d="M28 332h144l10 48H18z" fill="#121B24"/>
+  </svg>
+</div></section>
+
+<main class="w">
+  <section class="cat" id="cat">
+    <aside class="side">
+      <h3>Категории</h3>
+      <div id="cats"></div>
+      <div class="f"><h3>Диагональ</h3><label><input type="checkbox" data-d="32">до 32"</label><label><input type="checkbox" data-d="55">43-55"</label><label><input type="checkbox" data-d="86">65"+</label></div>
+    </aside>
+    <div>
+      <div class="top"><div><div class="crumbs">Главная / Каталог</div><h2 id="ct">Всё оборудование</h2></div><span style="color:var(--mute);font-size:14px" id="cnt"></span></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="h dk"><span class="n">01 / CMS</span><b>WordPress + свой тип «Товар»</b><p>Без интернет-магазина и лишних плагинов - быстрый, понятный, недорогой в поддержке. Bitrix избыточен для 30 позиций без оплаты.</p></div>
+    <div class="h"><span class="n">02 / Админка</span><b>Товар добавляется по полям</b><p>Название, фото, категория, характеристики (диагональ, сенсор, ОС), цена «от», SEO-заголовок и описание - всё в одной карточке.</p></div>
+    <div class="h"><span class="n">03 / SEO</span><b>Структура под Яндекс и Google</b><p>ЧПУ-адреса /katalog/kioski/kiosk-k43/, микроразметка Product, sitemap, быстрая загрузка (WebP, кэш), Вебмастер и Search Console.</p></div>
+  </section>
+</main>
+
+<footer><div class="w">Тачпоинт - название для примера. Товары, цены и характеристики условные - заменим на ваши.</div></footer>
+
+<div class="md" id="md"><div class="mw" id="mw"></div></div>
+<div id="demo">Демо каталога · клик по товару - карточка и заявка</div>
+
+<script>
+(function(){
+  function svg(t){var s={
+    kiosk:'<svg viewBox="0 0 200 400"><path d="M40 20h120a12 12 0 0 1 12 12v300H28V32a12 12 0 0 1 12-12z" fill="#1A2530"/><rect x="40" y="36" width="120" height="200" rx="6" fill="#1F6BFF"/><rect x="52" y="52" width="96" height="14" rx="4" fill="#ffffff70"/><rect x="52" y="200" width="96" height="22" rx="11" fill="#fff"/><rect x="76" y="270" width="48" height="30" rx="4" fill="#0B1219"/><path d="M28 332h144l10 48H18z" fill="#121B24"/></svg>',
+    totem:'<svg viewBox="0 0 160 400"><rect x="20" y="10" width="120" height="340" rx="10" fill="#1A2530"/><rect x="28" y="20" width="104" height="300" rx="4" fill="#5BE0C8"/><rect x="38" y="34" width="84" height="40" rx="4" fill="#ffffff80"/><path d="M40 350h80l10 40H30z" fill="#121B24"/></svg>',
+    table:'<svg viewBox="0 0 320 260"><path d="M30 60h260l20 70H10z" fill="#1A2530"/><path d="M44 68h232l14 52H30z" fill="#1F6BFF"/><rect x="60" y="130" width="14" height="110" fill="#121B24"/><rect x="246" y="130" width="14" height="110" fill="#121B24"/></svg>',
+    wall:'<svg viewBox="0 0 320 240"><rect x="10" y="20" width="300" height="180" rx="8" fill="#1A2530"/><rect x="20" y="30" width="280" height="160" rx="3" fill="#5BE0C8"/><rect x="34" y="46" width="120" height="18" rx="4" fill="#ffffff80"/><rect x="150" y="200" width="20" height="20" fill="#121B24"/></svg>',
+    term:'<svg viewBox="0 0 200 400"><path d="M50 30h100l20 160H30z" fill="#1A2530"/><rect x="58" y="44" width="84" height="110" rx="4" fill="#1F6BFF"/><rect x="80" y="168" width="40" height="10" rx="3" fill="#0B1219"/><rect x="70" y="190" width="60" height="150" fill="#121B24"/><rect x="40" y="340" width="120" height="30" rx="4" fill="#121B24"/></svg>'}[t];return s}
+  var C=['Интерактивные стойки','Сенсорные киоски','Инфотерминалы','Сенсорные столы','Видеостены'];
+  var P=[
+   ['Киоск К-32 Slim','Сенсорные киоски','kiosk',32,'от 189 000 ₽',['32"','PCAP 10 касаний','Windows/Android']],
+   ['Киоск К-43 Pro','Сенсорные киоски','kiosk',43,'от 249 000 ₽',['43"','антивандальное стекло','принтер чеков']],
+   ['Стойка «Тотем» 55','Интерактивные стойки','totem',55,'от 312 000 ₽',['55"','двусторонняя','4K']],
+   ['Стойка «Тотем» 43 Outdoor','Интерактивные стойки','totem',43,'от 398 000 ₽',['43"','уличная IP65','2500 нит']],
+   ['Терминал ИТ-22','Инфотерминалы','term',22,'от 96 000 ₽',['22"','сканер QR','NFC']],
+   ['Терминал навигации ТЦ','Инфотерминалы','term',32,'от 154 000 ₽',['32"','карта ТЦ','ПО в комплекте']],
+   ['Стол «Атриум» 55','Сенсорные столы','table',55,'от 285 000 ₽',['55"','20 касаний','multitouch']],
+   ['Видеостена 2×2 55"','Видеостены','wall',86,'от 640 000 ₽',['4×55"','шов 3,5 мм','контроллер']],
+   ['Стойка «Тотем» 86','Интерактивные стойки','totem',86,'от 590 000 ₽',['86"','4K','интерактивная реклама']]];
+  var cur='Всё',dia=[],g=document.getElementById('grid');
+  document.getElementById('cats').innerHTML=['Всё оборудование'].concat(C).map(function(c,i){var n=i?P.filter(function(p){return p[1]===c}).length:P.length;return '<button class="'+(i?'':'on')+'" data-c="'+(i?c:'Всё')+'">'+c+'<span>'+n+'</span></button>'}).join('');
+  function band(d){return d<=32?'32':d<=55?'55':'86'}
+  function draw(){var L=P.map(function(p,i){return [p,i]}).filter(function(x){var p=x[0];return (cur==='Всё'||p[1]===cur)&&(!dia.length||dia.indexOf(band(p[3]))>-1)});
+    g.innerHTML=L.map(function(x){var p=x[0];return '<article class="p" data-open="'+x[1]+'"><div class="im"><span class="tg">'+p[1]+'</span>'+svg(p[2])+'</div><div class="bd"><h4>'+p[0]+'</h4><div class="sp2">'+p[5].map(function(s){return '<span>'+s+'</span>'}).join('')+'</div><div class="ft"><span class="pr">'+p[4]+'<small>цена по запросу</small></span><button class="b a" data-open="'+x[1]+'">Оставить заявку</button></div></div></article>'}).join('')||'<p style="color:var(--mute)">Ничего не найдено - сбросьте фильтр</p>';
+    document.getElementById('cnt').textContent=L.length+' товаров';document.getElementById('ct').textContent=cur==='Всё'?'Всё оборудование':cur}
+  draw();
+  document.getElementById('cats').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});cur=b.dataset.c;draw()});
+  document.querySelectorAll('.side input').forEach(function(i){i.addEventListener('change',function(){dia=[].slice.call(document.querySelectorAll('.side input:checked')).map(function(x){return x.dataset.d});draw()})});
+  var md=document.getElementById('md'),mw=document.getElementById('mw');
+  function open(i){var p=P[i];
+    mw.innerHTML=(p?'<div class="im">'+svg(p[2])+'</div>':'<div class="im" style="background:var(--deep)">'+svg('kiosk')+'</div>')+'<div class="bd"><button class="x" aria-label="Закрыть">×</button><span style="font:500 12px var(--mono);color:var(--acc)">'+(p?p[1]:'Подбор решения')+'</span><h3>'+(p?p[0]:'Получить коммерческое предложение')+'</h3>'+(p?'<table><tr><td>Диагональ</td><td>'+p[5][0]+'</td></tr><tr><td>Особенности</td><td>'+p[5].slice(1).join(', ')+'</td></tr><tr><td>Гарантия</td><td>24 месяца</td></tr><tr><td>Срок поставки</td><td>от 10 рабочих дней</td></tr><tr><td>Стоимость</td><td><b>'+p[4]+'</b></td></tr></table>':'<p style="color:var(--ink2);margin-bottom:18px">Опишите задачу - подберём оборудование и пришлём КП за 1 рабочий день.</p>')+'<form class="lead"><input placeholder="Имя" required><input placeholder="Телефон" required><button class="b a">Оставить заявку</button></form></div>';
+    md.classList.add('on')}
+  document.addEventListener('click',function(e){var o=e.target.closest('[data-open]');if(o&&!e.target.closest('.md')){open(+o.dataset.open);return}
+    if(e.target===md||e.target.closest('.x'))md.classList.remove('on');var a=e.target.closest('a[href="#"]');if(a)e.preventDefault()});
+  mw.addEventListener('submit',function(e){e.preventDefault();e.target.innerHTML='<p style="font-weight:700;color:var(--acc)">Заявка отправлена ✓ Менеджер перезвонит в течение 15 минут.</p>'});
+  addEventListener('keydown',function(e){if(e.key==='Escape')md.classList.remove('on')});
+})();
+</script>
+</body>
+</html>
